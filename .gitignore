@@ -25,3 +25,6 @@ Thumbs.db
 
 # Docker volumes / temp
 docker/data/
+
+# Local archives
+design-sys.zip
