@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Badge AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Badge | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link active" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Badge</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Badge</h1>
+      <p class="text-muted">Small label or counter used for categorization, status indicators, and notification counts across the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Badge',['/assets/css/tokens.css','/assets/css/components/badge.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Colour Badges -->
+      <h3 class="mt-3 mb-2">Colour Badges</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-2 flex-wrap align-items-center">
+            <span class="caat-badge caat-badge--primary">Primary</span>
+            <span class="caat-badge caat-badge--secondary">Secondary</span>
+            <span class="caat-badge caat-badge--info">Info</span>
+            <span class="caat-badge caat-badge--warning">Warning</span>
+            <span class="caat-badge caat-badge--danger">Danger</span>
+            <span class="caat-badge caat-badge--light">Light</span>
+            <span class="caat-badge caat-badge--dark">Dark</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pill Badges -->
+      <h3 class="mb-2">Pill Badges</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-2 flex-wrap align-items-center">
+            <span class="caat-badge caat-badge--primary caat-badge--pill">DBplus</span>
+            <span class="caat-badge caat-badge--secondary caat-badge--pill">DBprime</span>
+            <span class="caat-badge caat-badge--info caat-badge--pill">Information</span>
+            <span class="caat-badge caat-badge--warning caat-badge--pill">Review Required</span>
+            <span class="caat-badge caat-badge--danger caat-badge--pill">Overdue</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Pill Badges (category labels) -->
+      <h3 class="mb-2">Soft Pill Badges (category labels on cards)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-2 flex-wrap align-items-center">
+            <span class="caat-badge caat-badge--pill caat-badge--soft-blue">Pension Insights</span>
+            <span class="caat-badge caat-badge--pill caat-badge--soft-green">Plan Updates</span>
+            <span class="caat-badge caat-badge--pill caat-badge--soft-teal">New Feature</span>
+            <span class="caat-badge caat-badge--pill caat-badge--soft-warning">Action Needed</span>
+            <span class="caat-badge caat-badge--pill caat-badge--soft-danger">Deprecated</span>
+            <span class="caat-badge caat-badge--pill caat-badge--outline">General</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge on Button -->
+      <h3 class="mb-2">Badge on Button</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-3 flex-wrap align-items-center">
+            <button type="button" class="btn btn-primary position-relative">
+              Messages
+              <span class="caat-badge caat-badge--danger caat-badge--pill position-absolute top-0 start-100 translate-middle">
+                4
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
+            <button type="button" class="btn btn-outline-secondary position-relative">
+              Notifications
+              <span class="caat-badge caat-badge--danger caat-badge--pill position-absolute top-0 start-100 translate-middle">
+                12
+                <span class="visually-hidden">new notifications</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Badges -->
+      <h3 class="mb-2">Status Badges (Member Dashboard)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-2 flex-wrap align-items-center">
+            <span class="caat-badge caat-badge--success caat-badge--pill">
+              <i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i>Active
+            </span>
+            <span class="caat-badge caat-badge--warning caat-badge--pill">
+              <i class="bi bi-clock-fill me-1" aria-hidden="true"></i>Pending
+            </span>
+            <span class="caat-badge caat-badge--secondary caat-badge--pill">
+              <i class="bi bi-dash-circle-fill me-1" aria-hidden="true"></i>Retired
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Colour badge --&gt;
+&lt;span class="caat-badge caat-badge--primary"&gt;Primary&lt;/span&gt;
+
+&lt;!-- Pill badge --&gt;
+&lt;span class="caat-badge caat-badge--secondary caat-badge--pill"&gt;DBprime&lt;/span&gt;
+
+&lt;!-- Badge on button with visually-hidden context --&gt;
+&lt;button type="button" class="btn btn-primary position-relative"&gt;
+  Messages
+  &lt;span class="caat-badge caat-badge--danger caat-badge--pill
+              position-absolute top-0 start-100 translate-middle"&gt;
+    4
+    &lt;span class="visually-hidden"&gt;unread messages&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Status badge with icon --&gt;
+&lt;span class="caat-badge caat-badge--success caat-badge--pill"&gt;
+  &lt;i class="bi bi-check-circle-fill me-1" aria-hidden="true"&gt;&lt;/i&gt;Active
+&lt;/span&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td>caat/components/badge</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Small label or counter used for categorization, status indicators, and notification counts. Used on member dashboards, contribution tables, and notification centres to convey membership status, plan type, or unread item counts.</td></tr>
+            <tr><td><strong>Status</strong></td><td>Active</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Primary, Secondary, Info, Warning, Danger, Light, Dark, Outline, Soft Blue, Soft Green, Soft Teal, Soft Warning, Soft Danger, Active, Pending, Retired</td></tr>
+            <tr><td><strong>Options</strong></td><td>Pill shape toggle, optional leading icon</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/badge</code></td></tr>
+            <tr><td><strong>AEM category</strong></td><td>CAAT Components – Indicators</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token / Value</th><th>Role</th><th>Resolved Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Primary background</td><td><code>#003750</code></td></tr>
+            <tr><td><code>--caat-green-700</code></td><td>Secondary background</td><td><code>#367f32</code></td></tr>
+            <tr><td><code>--caat-info</code></td><td>Info background</td><td><code>#0dcaf0</code></td></tr>
+            <tr><td><code>--caat-warning</code></td><td>Warning background</td><td><code>#ffc107</code></td></tr>
+            <tr><td><code>--caat-danger</code></td><td>Danger background</td><td><code>#dc3545</code></td></tr>
+            <tr><td><code>--caat-grey</code></td><td>Light background</td><td><code>#f2f5f9</code></td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Dark background / dark text colour</td><td><code>#102637</code></td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Outline border / Light border</td><td><code>#dfe6ef</code></td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Soft blue background / Retired background</td><td><code>#e7f4fb</code></td></tr>
+            <tr><td><code>--caat-green-100</code></td><td>Soft green background</td><td><code>#e8f5e9</code></td></tr>
+            <tr><td><code>--caat-green-900</code></td><td>Soft green text</td><td><code>#1b5e20</code></td></tr>
+            <tr><td><code>--caat-warning-bg</code></td><td>Soft warning / Pending background</td><td><code>#fff3cd</code></td></tr>
+            <tr><td><code>--caat-warning-text</code></td><td>Soft warning / Pending text</td><td><code>#664d03</code></td></tr>
+            <tr><td><code>--caat-danger-bg</code></td><td>Soft danger background</td><td><code>#fde8e8</code></td></tr>
+            <tr><td><code>--caat-danger-dark</code></td><td>Soft danger text</td><td><code>#c0392b</code></td></tr>
+            <tr><td><code>--caat-success-bg</code></td><td>Active status background</td><td><code>#d1e7dd</code></td></tr>
+            <tr><td><code>--caat-success-text</code></td><td>Active status text</td><td><code>#0a3622</code></td></tr>
+            <tr><td>(hardcoded)</td><td>Soft teal background</td><td><code>#e4f7f8</code></td></tr>
+            <tr><td>(hardcoded)</td><td>Soft teal text</td><td><code>#0a7a86</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Text</strong></td><td>Text field</td><td>Yes</td><td>The visible badge label. Max 30 characters. Examples: "Active", "DBplus", "4".</td></tr>
+            <tr><td><strong>Variant</strong></td><td>Dropdown (primary | secondary | success | info | warning | danger | light | dark)</td><td>Yes</td><td>Determines colour scheme. Primary maps to CAAT blue-900; secondary to CAAT green.</td></tr>
+            <tr><td><strong>Pill</strong></td><td>Toggle (boolean)</td><td>No</td><td>Default: off. When enabled, applies fully rounded corners (<code>caat-badge--pill</code>).</td></tr>
+            <tr><td><strong>Visually Hidden Context</strong></td><td>Text field</td><td>No</td><td>Screen-reader-only text appended after the badge label (e.g., "unread messages"). Required when badge conveys meaning beyond decoration.</td></tr>
+            <tr><td><strong>Icon</strong></td><td>Icon picker</td><td>No</td><td>Optional Bootstrap Icon placed before the label text (e.g., <code>bi-check-circle-fill</code> for status badges).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li>Text is mandatory; component will not render without it.</li>
+        <li>Text max length: 30 characters. Exceeding triggers an author-facing warning.</li>
+        <li>Variant is required; defaults to "primary" if not explicitly set.</li>
+        <li>When badge is used as a notification counter on a button, Visually Hidden Context is required (e.g., "unread messages").</li>
+        <li>If the badge conveys status meaning (Active, Pending, Retired), Visually Hidden Context should describe the status in full (e.g., "membership status: active").</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tone</strong></td><td>Short, factual labels. One or two words maximum for text badges; numerals only for counters.</td></tr>
+            <tr><td><strong>Use Primary for</strong></td><td>Plan identifiers — "DBplus", "DBprime". Default categorization labels.</td></tr>
+            <tr><td><strong>Use Secondary for</strong></td><td>Supplementary categories — employer type, contribution tier.</td></tr>
+            <tr><td><strong>Use Success for</strong></td><td>Positive statuses — "Active", "Enrolled", "Confirmed".</td></tr>
+            <tr><td><strong>Use Warning for</strong></td><td>Pending states — "Pending", "Review Required", "Expiring Soon".</td></tr>
+            <tr><td><strong>Use Danger for</strong></td><td>Urgent indicators — notification counts, "Overdue", "Action Required".</td></tr>
+            <tr><td><strong>Use Info for</strong></td><td>Neutral informational labels — "New", "Updated", "Beta".</td></tr>
+            <tr><td><strong>Use Soft variants for</strong></td><td>Category pills on blog/resource cards — Soft Blue for pension news, Soft Green for employer content, Soft Teal for investment topics.</td></tr>
+            <tr><td><strong>Use Status badges for</strong></td><td>Member dashboard — Active (enrolled), Pending (awaiting action), Retired (former member). Always shown as pills.</td></tr>
+            <tr><td><strong>Use Outline for</strong></td><td>Subtle, non-coloured category labels on cards where a softer visual treatment is needed.</td></tr>
+            <tr><td><strong>Pill shape</strong></td><td>Preferred for status indicators, category labels on cards, and notification counters. Use standard (rectangular) for inline categorical labels.</td></tr>
+            <tr><td><strong>Don't</strong></td><td>Use badges for long text. Don't rely on colour alone to convey meaning — always pair with descriptive text or an icon.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTL / Markup contract</p>
+<pre class="code-sample"><code>&lt;!-- Basic badge --&gt;
+&lt;span class="caat-badge caat-badge--{variant}"&gt;
+  {text}
+&lt;/span&gt;
+
+&lt;!-- Pill badge with icon --&gt;
+&lt;span class="caat-badge caat-badge--{variant} caat-badge--pill"&gt;
+  &lt;i class="bi bi-{icon} me-1" aria-hidden="true"&gt;&lt;/i&gt;
+  {text}
+&lt;/span&gt;
+
+&lt;!-- Counter badge on button with visually-hidden context --&gt;
+&lt;button type="button" class="btn btn-primary position-relative"&gt;
+  {buttonLabel}
+  &lt;span class="caat-badge caat-badge--danger caat-badge--pill
+              position-absolute top-0 start-100 translate-middle"&gt;
+    {count}
+    &lt;span class="visually-hidden"&gt;{hiddenContext}&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Status badge --&gt;
+&lt;span class="caat-badge caat-badge--success caat-badge--pill"&gt;
+  &lt;i class="bi bi-check-circle-fill me-1" aria-hidden="true"&gt;&lt;/i&gt;
+  Active
+  &lt;span class="visually-hidden"&gt;membership status: active&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+        </div>
+      </div>
+      <h3 class="mt-3">Key decisions</h3>
+      <ul>
+        <li><code>&lt;span&gt;</code> is used (not a heading or interactive element) as badges are inline, non-interactive labels.</li>
+        <li>Icons use <code>aria-hidden="true"</code> because the visible text already conveys the label meaning.</li>
+        <li><code>&lt;span class="visually-hidden"&gt;</code> provides screen-reader context when the badge conveys meaning not apparent from surrounding text (e.g., notification counts).</li>
+        <li>When used inside a <code>&lt;button&gt;</code>, Bootstrap positioning utilities overlay the badge as a counter.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-badge</code></td><td>Base badge — inline-flex, font-size, padding, border-radius, font-weight 700, vertical alignment.</td></tr>
+            <tr><td><code>.caat-badge--primary</code></td><td>Primary colour scheme (CAAT blue-900 background, white text).</td></tr>
+            <tr><td><code>.caat-badge--secondary</code></td><td>Secondary colour scheme (CAAT green-700 background, white text).</td></tr>
+            <tr><td><code>.caat-badge--warning</code></td><td>Warning colour scheme (amber background, dark text).</td></tr>
+            <tr><td><code>.caat-badge--danger</code></td><td>Danger colour scheme (red background, white text).</td></tr>
+            <tr><td><code>.caat-badge--info</code></td><td>Info colour scheme (cyan background, dark text).</td></tr>
+            <tr><td><code>.caat-badge--light</code></td><td>Light colour scheme (light grey background, dark text).</td></tr>
+            <tr><td><code>.caat-badge--dark</code></td><td>Dark colour scheme (dark background, white text).</td></tr>
+            <tr><td><code>.caat-badge--pill</code></td><td>Pill modifier — applies <code>border-radius: 50rem</code> for fully rounded shape.</td></tr>
+            <tr><td><code>.caat-badge--outline</code></td><td>Light outline style — transparent bg, grey-200 border, ink text.</td></tr>
+            <tr><td><code>.caat-badge--soft-blue</code></td><td>Soft blue — blue-100 bg, blue-900 text. For category pills on cards.</td></tr>
+            <tr><td><code>.caat-badge--soft-green</code></td><td>Soft green — green-100 bg, green-900 text.</td></tr>
+            <tr><td><code>.caat-badge--soft-teal</code></td><td>Soft teal — light teal bg, teal-dark text.</td></tr>
+            <tr><td><code>.caat-badge--soft-warning</code></td><td>Soft warning — warning-bg, warning-text.</td></tr>
+            <tr><td><code>.caat-badge--soft-danger</code></td><td>Soft danger — light red bg, danger-dark text.</td></tr>
+            <tr><td><code>.caat-badge--active</code></td><td>Active status — success-bg, success-text. For member dashboard.</td></tr>
+            <tr><td><code>.caat-badge--pending</code></td><td>Pending status — warning-bg, warning-text.</td></tr>
+            <tr><td><code>.caat-badge--retired</code></td><td>Retired status — blue-100 bg, blue-900 text.</td></tr>
+            <tr><td><code>.caat-badge--count</code></td><td>Counter badge on button — smaller font, pill shape, offset positioning.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="mt-3">Sample CSS</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>.caat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0.35em 0.65em;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.caat-badge--primary {
+  background-color: var(--caat-blue-900, #003750);
+  color: #fff;
+}
+
+.caat-badge--secondary {
+  background-color: var(--caat-green-700, #367f32);
+  color: #fff;
+}
+
+.caat-badge--warning {
+  background-color: var(--caat-warning);
+  color: var(--caat-ink);
+}
+
+.caat-badge--danger {
+  background-color: var(--caat-danger);
+  color: #fff;
+}
+
+.caat-badge--light {
+  background-color: var(--caat-grey);
+  color: var(--caat-ink, #102637);
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+}
+
+.caat-badge--dark {
+  background-color: var(--caat-ink, #102637);
+  color: #fff;
+}
+
+.caat-badge--pill {
+  border-radius: 50rem;
+  padding: 0.35em 0.75em;
+}
+
+.caat-badge--soft-blue {
+  background: var(--caat-blue-100);
+  color: var(--caat-blue-900);
+}
+
+.caat-badge--active {
+  background-color: var(--caat-success-bg, #d1e7dd);
+  color: var(--caat-success-text, #0a3622);
+}
+
+.caat-badge--pending {
+  background-color: var(--caat-warning-bg, #fff3cd);
+  color: var(--caat-warning-text, #664d03);
+}
+
+.caat-badge--retired {
+  background-color: var(--caat-blue-100, #e7f4fb);
+  color: var(--caat-blue-900, #003750);
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Visually hidden context</strong></td><td>When a badge conveys meaning (e.g., notification count, status), append a <code>&lt;span class="visually-hidden"&gt;</code> with descriptive text so screen readers announce the full context (e.g., "4 unread messages" instead of just "4").</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>All variant text meets WCAG 2.1 AA (4.5:1 minimum). Verified ratios: Primary 12.28:1, Secondary 4.95:1, Info 8.94:1, Warning 10.17:1, Danger 5.57:1, Light 14.94:1, Dark 15.39:1, Soft Blue 12.28:1, Soft Green 11.79:1, Soft Teal 4.58:1, Soft Warning 10.17:1, Soft Danger 6.07:1, Active 14.43:1, Pending 10.17:1, Retired 12.28:1.</td></tr>
+            <tr><td><strong>Colour not sole indicator</strong></td><td>Badges should be accompanied by visible text labels or icons — never rely on colour alone to convey status or category.</td></tr>
+            <tr><td><strong>Decorative icons</strong></td><td>Icons within badges use <code>aria-hidden="true"</code> since the visible text already provides meaning.</td></tr>
+            <tr><td><strong>Non-interactive</strong></td><td>Badges are <code>&lt;span&gt;</code> elements and are not focusable. They do not receive keyboard focus or pointer events independently.</td></tr>
+            <tr><td><strong>Reduced motion</strong></td><td>If badge includes any transition/animation (e.g., pulse for new notifications), it respects <code>prefers-reduced-motion: reduce</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Badges are inline <code>&lt;span&gt;</code> elements rendered in server-side HTML — content is crawlable by search engines.</li>
+        <li>Badge text is concise and does not duplicate or conflict with surrounding heading/paragraph content.</li>
+        <li>Visually hidden context text provides additional semantic meaning for assistive technology without affecting visual layout.</li>
+        <li>Badges do not use heading tags — they do not interfere with the document outline.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>badge-displayed</strong></td>
+              <td>Badge enters the viewport (Intersection Observer) or is rendered on page load.</td>
+              <td><code>data-analytics-event="badge-displayed"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-label="{text}"</code></td>
+            </tr>
+            <tr>
+              <td><strong>badge-status-view</strong></td>
+              <td>Status badge (Active, Pending, Retired) is displayed on the member dashboard.</td>
+              <td><code>data-analytics-event="badge-status-view"</code>, <code>data-analytics-status="{status}"</code>, <code>data-analytics-plan="{plan-type}"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/badge</code></li>
+        <li><strong>Component group:</strong> CAAT Components – Indicators</li>
+        <li><strong>Proxy:</strong> Create as a proxy component under <code>/apps/caat/components/badge</code>.</li>
+        <li><strong>Policies:</strong> Configure allowed badge variants per template via content policies (e.g., public pages may restrict danger badges to admin-only use).</li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.BadgeModel</code> — exposes <code>text</code>, <code>variant</code>, <code>pill</code>, <code>hiddenContext</code>, <code>icon</code>.</li>
+        <li><strong>HTL:</strong> <code>badge.html</code> — uses <code>data-sly-attribute</code> to set variant class and pill modifier dynamically.</li>
+        <li><strong>Client library:</strong> <code>caat.components.badge</code> (categories: <code>caat.site</code>).</li>
+        <li><strong>Style System:</strong> Not applicable — variant selection via dedicated dropdown rather than style tab.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (YAML)</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>title: Badge
+description: Small label for categorization, status, or notification counts.
+fields:
+  - name: text
+    label: Badge Text
+    type: textfield
+    required: true
+    maxLength: 30
+    helpText: Short label (e.g., "Active", "DBplus", "4"). Max 30 characters.
+
+  - name: variant
+    label: Variant
+    type: select
+    required: true
+    options:
+      - value: primary
+        label: Primary (CAAT Blue)
+      - value: secondary
+        label: Secondary (CAAT Green)
+      - value: success
+        label: Success
+      - value: info
+        label: Info
+      - value: warning
+        label: Warning
+      - value: danger
+        label: Danger
+      - value: light
+        label: Light
+      - value: dark
+        label: Dark
+    helpText: Determines badge colour scheme.
+
+  - name: pill
+    label: Pill Shape
+    type: checkbox
+    required: false
+    defaultValue: false
+    helpText: Applies fully rounded corners. Recommended for status indicators and counters.
+
+  - name: hiddenContext
+    label: Visually Hidden Context
+    type: textfield
+    required: false
+    maxLength: 80
+    helpText: Screen-reader-only text appended to the badge (e.g., "unread messages"). Required when badge conveys non-decorative meaning.
+
+  - name: icon
+    label: Icon
+    type: iconpicker
+    required: false
+    helpText: Optional Bootstrap Icon displayed before the label text (e.g., bi-check-circle-fill).</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All 16 variants (7 solid + outline + 5 soft + 3 status) render with correct background and text colours per design tokens.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Pill modifier applies <code>border-radius: 50rem</code> and renders as a fully rounded shape.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Badge on button renders as an overlay counter with correct positioning.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Visually hidden context text is announced by screen readers (tested with NVDA and VoiceOver).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Colour contrast meets WCAG 2.1 AA (4.5:1) for all variants.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Badge does not render if text field is empty (validation enforced in dialog).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Optional icon renders before label text with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Status badges (Active, Pending, Retired) display correctly on member dashboard tables.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Badge scales proportionally within different font-size contexts (headings, table cells, buttons).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>badge-displayed</code>, <code>badge-status-view</code>) fire correctly with expected data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All eight variants documented with colour tokens. Pill and standard shapes provided. Status badge patterns (Active, Pending, Retired) included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. Visually hidden context wired for screen readers. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on variant selection and visually-hidden context requirements. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Badge</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Colour Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Primary</span><div class="figma-row-items"><span class="caat-badge caat-badge--primary">Primary</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Secondary</span><div class="figma-row-items"><span class="caat-badge caat-badge--secondary">Secondary</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Info</span><div class="figma-row-items"><span class="caat-badge caat-badge--info">Info</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Warning</span><div class="figma-row-items"><span class="caat-badge caat-badge--warning">Warning</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Danger</span><div class="figma-row-items"><span class="caat-badge caat-badge--danger">Danger</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Light</span><div class="figma-row-items"><span class="caat-badge caat-badge--light">Light</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Dark</span><div class="figma-row-items"><span class="caat-badge caat-badge--dark">Dark</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Pill Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Primary Pill</span><div class="figma-row-items"><span class="caat-badge caat-badge--primary caat-badge--pill">Primary</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Outline Pill</span><div class="figma-row-items"><span class="caat-badge caat-badge--outline caat-badge--pill">Outline</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Soft Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Soft Blue</span><div class="figma-row-items"><span class="caat-badge caat-badge--soft-blue caat-badge--pill">Pension News</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Soft Green</span><div class="figma-row-items"><span class="caat-badge caat-badge--soft-green caat-badge--pill">Employer</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Soft Teal</span><div class="figma-row-items"><span class="caat-badge caat-badge--soft-teal caat-badge--pill">Investment</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Soft Warning</span><div class="figma-row-items"><span class="caat-badge caat-badge--soft-warning caat-badge--pill">Attention</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Soft Danger</span><div class="figma-row-items"><span class="caat-badge caat-badge--soft-danger caat-badge--pill">Urgent</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Status Badges</h2>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span class="caat-badge caat-badge--active caat-badge--pill">Active</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Pending</span><div class="figma-row-items"><span class="caat-badge caat-badge--pending caat-badge--pill">Pending</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Retired</span><div class="figma-row-items"><span class="caat-badge caat-badge--retired caat-badge--pill">Retired</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font size</strong>0.75rem</div>
+    <div class="figma-spec"><strong>Font weight</strong>700</div>
+    <div class="figma-spec"><strong>Padding (base)</strong>0.35em 0.65em</div>
+    <div class="figma-spec"><strong>Padding (pill)</strong>0.35em 0.75em</div>
+    <div class="figma-spec"><strong>Radius (base)</strong>0.375rem</div>
+    <div class="figma-spec"><strong>Radius (pill)</strong>50rem</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

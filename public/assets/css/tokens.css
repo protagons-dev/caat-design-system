@@ -1,0 +1,86 @@
+/* ============================================================
+   CAAT Design System — Design Tokens
+   Extracted from the single-file design system for use across
+   individual component pages and AEM client libraries.
+   ============================================================ */
+
+:root {
+  /* ── Colour tokens ──────────────────────────────────────── */
+  --caat-blue:       #0f6791;
+  --caat-blue-900:   #003750;
+  --caat-blue-700:   #0b5a80;
+  --caat-blue-500:   #2f95d2;
+  --caat-blue-300:   #9dd2ed;
+  --caat-blue-100:   #e7f4fb;
+  --caat-blue-50:    rgba(0,92,153,.05);
+
+  --caat-green:      #55a546;
+  --caat-green-900:  #204b1f;
+  --caat-green-700:  #367f32;
+  --caat-green-100:  #e8f5e6;
+
+  --caat-lime:       #95e35c;
+  --caat-teal:       #12a7b8;
+  --caat-teal-dark:   #0f8f9d;
+
+  --caat-grey:       #eff2f7;
+  --caat-grey-200:   #dfe6ef;
+  --caat-grey-300:   #cbd7e3;
+  --caat-grey-100:   #e8ecf1;
+
+  --caat-ink:        #102637;
+  --caat-muted:      #506273;
+
+  --caat-warning:    #efaa39;
+  --caat-warning-dark: #d4a017;
+  --caat-danger:     #b83232;
+  --caat-danger-dark: #c0392b;
+  --caat-success:    #2f7d32;
+  --caat-info:       #0dcaf0;
+  --caat-beige:      #f8f5ee;
+
+  /* Status / semantic backgrounds (alerts, badges) */
+  --caat-success-bg:   #d1e7dd;
+  --caat-success-text: #0a3622;
+  --caat-warning-bg:   #fff3cd;
+  --caat-warning-text: #664d03;
+  --caat-danger-text:  #58151c;
+  --caat-danger-bg:    #fde8e8;
+
+  /* Alert-specific backgrounds & borders */
+  --caat-alert-info-bg:        #cfe2ff;
+  --caat-alert-info-border:    #9ec5fe;
+  --caat-alert-success-bg:     #d1e7dd;
+  --caat-alert-success-border: #a3cfbb;
+  --caat-alert-warning-bg:     #fff3cd;
+  --caat-alert-warning-border: #ffe69c;
+  --caat-alert-danger-bg:      #f8d7da;
+  --caat-alert-danger-border:  #f1aeb5;
+
+  /* Neutral */
+  --caat-disabled:   #8a99a8;
+
+  /* ── Spacing / radius / shadow ──────────────────────────── */
+  --caat-radius:     .75rem;
+  --caat-radius-lg:  1.25rem;
+  --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);
+  --caat-shadow-sm:  0 .25rem .75rem rgba(0,55,80,.08);
+  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
+  --caat-font-secondary: Arial, Helvetica, sans-serif;
+  --caat-letter-spacing-normal: 0;
+  --caat-letter-spacing-tight:  -.015em;
+  --caat-letter-spacing-label:  .06em;
+
+  /* ── Bootstrap overrides ────────────────────────────────── */
+  --bs-body-font-family: var(--caat-font-primary);
+  --bs-body-color:       var(--caat-ink);
+  --bs-primary:          var(--caat-blue-900);
+  --bs-primary-rgb:      0,55,80;
+  --bs-secondary:        var(--caat-green);
+  --bs-secondary-rgb:    85,165,70;
+  --bs-link-color:       var(--caat-blue-900);
+  --bs-link-hover-color: var(--caat-blue-700);
+}

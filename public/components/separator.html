@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Separator AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Separator | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/separator.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link active" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Separator</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Separator</h1>
+      <p class="text-muted">Visual divider between content sections for the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Separator',['/assets/css/tokens.css','/assets/css/components/separator.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION: DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Default -->
+      <h3 class="mt-3 mb-2">Default Separator</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p>Content above the separator.</p>
+          <hr class="caat-separator">
+          <p>Content below the separator.</p>
+        </div>
+      </div>
+
+      <!-- Variant 2 — Thick -->
+      <h3 class="mb-2">Thick Separator</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p>End of major section.</p>
+          <hr class="caat-separator caat-separator--thick">
+          <p>Beginning of next major section.</p>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Accent -->
+      <h3 class="mb-2">Accent Separator</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p class="text-center">Decorative divider centred between content.</p>
+          <hr class="caat-separator caat-separator--accent">
+          <p class="text-center">Next content block.</p>
+        </div>
+      </div>
+
+      <!-- Variant 4 — Spaced -->
+      <h3 class="mb-2">Spaced Separator</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p>Content with extra vertical breathing room.</p>
+          <hr class="caat-separator caat-separator--spaced">
+          <p>Content after generous spacing.</p>
+        </div>
+      </div>
+
+      <!-- Variant 5 — With Label -->
+      <h3 class="mb-2">Separator with Label</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p>Choose one of the options below.</p>
+          <div class="caat-separator caat-separator--with-label">
+            <span class="caat-separator__label">or</span>
+          </div>
+          <p>Alternatively, continue without selecting.</p>
+
+          <div class="caat-separator caat-separator--with-label mt-4">
+            <span class="caat-separator__label">Section Break</span>
+          </div>
+          <p>New section content starts here.</p>
+        </div>
+      </div>
+      <!-- In-Context: Article Template -->
+      <h3 class="mt-5 mb-2">In Context — Article Layout</h3>
+      <p class="text-muted mb-3">Separators should be used <strong>within content</strong> to divide thematic sections — not as spacers or page-level breaks.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Article example</p>
+          <article style="max-width:42rem;">
+            <h2 style="font-weight:800; color:var(--caat-blue-900); margin-bottom:.5rem;">Understanding your pension options</h2>
+            <p style="color:var(--caat-muted); font-size:.88rem; margin-bottom:1.5rem;">Published May 2026 · 5 min read</p>
+            <p>DBplus offers cost certainty for employers and a secure, predictable pension for life for employees. Here's what you need to know about joining.</p>
+            <h3 style="font-weight:700; margin-top:1.5rem;">Contribution rates</h3>
+            <p>Employers and employees share the cost through fixed contribution rates, making budgeting straightforward and predictable for both parties.</p>
+            <hr class="caat-separator">
+            <h3 style="font-weight:700;">Benefit formula</h3>
+            <p>Your pension is calculated based on your years of service and a percentage of your earnings — providing a clear, guaranteed retirement income.</p>
+            <hr class="caat-separator caat-separator--accent">
+            <h3 style="font-weight:700;">Portability</h3>
+            <p>If you change employers within the CAAT network, your pension transfers seamlessly with no loss of benefits or service credits.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Anti-patterns -->
+      <h3 class="mt-4 mb-2">Anti-Patterns</h3>
+      <div class="row g-4 mb-4">
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't: Separator as spacer</h4>
+            <p class="small text-muted mb-2">Never use a separator purely to add vertical space. Use CSS margin/padding or the Spaced variant only when a visible line is appropriate.</p>
+            <div class="bg-light p-3 rounded">
+              <p class="mb-0 small" style="color:var(--caat-muted);">Content above</p>
+              <hr class="caat-separator" style="opacity:.3;">
+              <p class="mb-0 small" style="color:var(--caat-muted);">&nbsp;</p>
+              <hr class="caat-separator" style="opacity:.3;">
+              <p class="mb-0 small" style="color:var(--caat-muted);">Content below (two separators used as "spacers" ✗)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't: Full-width page break bands</h4>
+            <p class="small text-muted mb-2">Never use full-bleed coloured bands or thick horizontal bars to "break" the page between sections. Page sections should flow naturally using consistent padding and background colours — not hard visual fences.</p>
+            <div class="bg-light p-3 rounded">
+              <p class="mb-0 small" style="color:var(--caat-muted);">Section A content</p>
+              <div style="height:8px; background:var(--caat-blue-900); margin:1rem -1rem; width:calc(100% + 2rem);" aria-hidden="true"></div>
+              <p class="mb-0 small" style="color:var(--caat-muted);">Section B content (hard break band ✗)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 1: SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Separator</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/separator</code></td></tr>
+          <tr><th>Purpose</th><td>Provides a visual horizontal rule to separate content sections, with variants for emphasis, decoration, spacing, and labelled breaks.</td></tr>
+          <tr><th>Variants</th><td>Default, Thick, Accent, Spaced, With Label</td></tr>
+          <tr><th>Status</th><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span></td></tr>
+          <tr><th>Replaces</th><td>Separator (#48)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 2: TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Role</th><th>Value (default)</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-grey-200</code></td><td>Default line colour</td><td>#e9ecef</td></tr>
+          <tr><td><code>--caat-blue-900</code></td><td>Thick variant line colour</td><td>#003366</td></tr>
+          <tr><td><code>--caat-green</code></td><td>Accent variant line colour</td><td>#2e8540</td></tr>
+          <tr><td><code>--caat-ink</code></td><td>Label text colour</td><td>#212529</td></tr>
+          <tr><td><code>--caat-font-primary</code></td><td>Label font family</td><td>Libre Franklin</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 3: AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Variant</td><td>Select</td><td>Yes</td><td>Options: Default, Thick, Accent, Spaced, With Label</td></tr>
+          <tr><td>Label text</td><td>Text</td><td>No</td><td>Only visible when variant = "With Label". Max 30 characters.</td></tr>
+          <tr><td>Decorative</td><td>Checkbox</td><td>No</td><td>If checked, applies <code>aria-hidden="true"</code> and <code>role="presentation"</code>.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 4: VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+        <tbody>
+          <tr><td>Variant required</td><td>No variant selected</td><td>"Please select a separator variant."</td></tr>
+          <tr><td>Label length</td><td>Label &gt; 30 chars</td><td>"Label text must be 30 characters or fewer."</td></tr>
+          <tr><td>Label required for variant</td><td>Variant = "With Label" and label empty</td><td>"Label text is required for the With Label variant."</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 5: CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <h3 class="h6 mt-3"><i class="bi bi-check-circle-fill text-success me-1"></i> When to use</h3>
+      <ul>
+        <li>Use <strong>Default</strong> for general content separation within a page section (e.g., between paragraphs in an article).</li>
+        <li>Use <strong>Thick</strong> to delineate major thematic shifts within a single content area.</li>
+        <li>Use <strong>Accent</strong> sparingly as a decorative element — typically centred under headings or between testimonials.</li>
+        <li>Use <strong>Spaced</strong> where generous whitespace reinforces visual hierarchy <em>and</em> a visible line is semantically appropriate.</li>
+        <li>Use <strong>With Label</strong> for logical branching ("or") or named section breaks within a flow.</li>
+      </ul>
+
+      <h3 class="h6 mt-4"><i class="bi bi-x-circle-fill text-danger me-1"></i> When NOT to use</h3>
+      <div class="alert alert-danger" style="font-size:.9rem;">
+        <strong>Rule 1 — Never use separators as spacers.</strong><br>
+        If the goal is vertical whitespace between sections, use CSS padding/margin on the section container. Stacking invisible or decorative <code>&lt;hr&gt;</code> elements to "push content apart" is a misuse of the component and creates accessibility noise.
+      </div>
+      <div class="alert alert-danger" style="font-size:.9rem;">
+        <strong>Rule 2 — Never use full-width coloured break bands between page sections.</strong><br>
+        The current site uses thick, full-bleed coloured bars (e.g., 8px dark blue bands) to visually "fence off" page sections. This creates a jarring, segmented reading experience. Instead, page sections should transition naturally using consistent padding, alternating background colours (<code>--caat-grey</code> / white), and clear heading hierarchy. The separator component is for <em>within-content</em> use only.
+      </div>
+      <ul>
+        <li>Do not stack multiple separators — one is always sufficient.</li>
+        <li>Do not use separators inside cards, accordions, or other contained components (use the component's own internal spacing).</li>
+        <li>Do not use separators between page-level sections — rely on section padding and background colours instead.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 6: SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;!-- Default / Thick / Accent / Spaced --&gt;
+&lt;hr class="caat-separator caat-separator--{variant}"&gt;
+
+&lt;!-- With Label --&gt;
+&lt;div class="caat-separator caat-separator--with-label"&gt;
+  &lt;span class="caat-separator__label"&gt;or&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;!-- Decorative (aria-hidden) --&gt;
+&lt;hr class="caat-separator" aria-hidden="true" role="presentation"&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 7: CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-separator</code></td><td>Base horizontal rule — 1px solid var(--caat-grey-200), margin 1.5rem 0</td></tr>
+          <tr><td><code>.caat-separator--thick</code></td><td>3px solid var(--caat-blue-900)</td></tr>
+          <tr><td><code>.caat-separator--accent</code></td><td>60px width, 3px, centred, var(--caat-green)</td></tr>
+          <tr><td><code>.caat-separator--spaced</code></td><td>margin 3rem 0</td></tr>
+          <tr><td><code>.caat-separator--with-label</code></td><td>Flexbox line—label—line pattern</td></tr>
+          <tr><td><code>.caat-separator__label</code></td><td>Centred text, uppercase, small, bg white</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 8: ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+        <tbody>
+          <tr><td>Role</td><td><code>&lt;hr&gt;</code> has implicit <code>separator</code> role. Decorative variants use <code>role="presentation"</code> + <code>aria-hidden="true"</code>.</td></tr>
+          <tr><td>Colour contrast</td><td>Not applicable — separator is decorative/structural, not informational.</td></tr>
+          <tr><td>Label variant</td><td>Label text is visible and in DOM; screen readers will read the flex container as text content.</td></tr>
+          <tr><td>Focus</td><td>Separators are not focusable.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 9: SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>No SEO impact — separators do not contribute to heading structure or indexable content.</li>
+        <li>Ensure separators do not break logical heading hierarchy when placed between sections.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 10: ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <ul>
+        <li>No click/interaction tracking required — separators are non-interactive.</li>
+        <li>Component impression tracking may be applied at the page-section level if needed for layout A/B testing.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 11: AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li>Resource type: <code>caat/components/separator</code></li>
+        <li>Sling model exposes <code>variant</code> (String) and <code>labelText</code> (String).</li>
+        <li>HTL renders <code>&lt;hr&gt;</code> for all variants except "With Label", which renders a <code>&lt;div&gt;</code> wrapper.</li>
+        <li>Author dialog uses a <code>showhide</code> listener to reveal the label field only when variant = "with-label".</li>
+        <li>Component is policy-enabled; allowed variants can be restricted per template.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 12: DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (cq:dialog)</h2>
+      <pre><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "jcr:title": "Separator",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "content": {
+    "items": {
+      "tabs": {
+        "items": {
+          "properties": {
+            "items": {
+              "variant": {
+                "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+                "fieldLabel": "Variant",
+                "name": "./variant",
+                "required": true,
+                "items": {
+                  "default": { "text": "Default", "value": "default" },
+                  "thick": { "text": "Thick", "value": "thick" },
+                  "accent": { "text": "Accent", "value": "accent" },
+                  "spaced": { "text": "Spaced", "value": "spaced" },
+                  "with-label": { "text": "With Label", "value": "with-label" }
+                }
+              },
+              "labelText": {
+                "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+                "fieldLabel": "Label Text",
+                "name": "./labelText",
+                "maxlength": 30,
+                "granite:class": "hide",
+                "granite:data": { "showhide-target": ".labelText-field" }
+              },
+              "decorative": {
+                "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+                "fieldLabel": "Decorative (hidden from assistive tech)",
+                "name": "./decorative",
+                "value": "true"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 13: QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Checklist</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>#</th><th>Check</th><th>Pass?</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Default renders 1px grey-200 line full width</td><td></td></tr>
+          <tr><td>2</td><td>Thick renders 3px blue-900 line</td><td></td></tr>
+          <tr><td>3</td><td>Accent is 60px, centred, green</td><td></td></tr>
+          <tr><td>4</td><td>Spaced variant has 3rem margin top and bottom</td><td></td></tr>
+          <tr><td>5</td><td>With Label shows centred text on line</td><td></td></tr>
+          <tr><td>6</td><td>Decorative checkbox applies aria-hidden and role=presentation</td><td></td></tr>
+          <tr><td>7</td><td>Label field hidden unless variant = "With Label"</td><td></td></tr>
+          <tr><td>8</td><td>Responsive — all variants work mobile to desktop</td><td></td></tr>
+          <tr><td>9</td><td>No focus ring on separator elements</td><td></td></tr>
+          <tr><td>10</td><td>Tokens resolve correctly in light theme</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         SECTION 14: DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <ul>
+        <li><input type="checkbox" disabled> All 5 variants render correctly in design-system preview.</li>
+        <li><input type="checkbox" disabled> CSS uses only design tokens — no hard-coded colours.</li>
+        <li><input type="checkbox" disabled> AEM dialog created with show/hide logic for label field.</li>
+        <li><input type="checkbox" disabled> HTL template passes W3C validation.</li>
+        <li><input type="checkbox" disabled> Accessibility audit — no violations.</li>
+        <li><input type="checkbox" disabled> Responsive testing complete (mobile, tablet, desktop).</li>
+        <li><input type="checkbox" disabled> Code reviewed and merged to develop branch.</li>
+        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+      </ul>
+    </section>
+
+  </main>
+</div><!-- /.component-page-layout -->
+</div><!-- /.container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Separator</h1>
+<p class="figma-page-subtitle">CAAT Design System · Divider variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Thick</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator caat-separator--thick"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Accent</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator caat-separator--accent"></div></div>
+  <div class="figma-row"><span class="figma-row-label">With label</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-separator caat-separator--with-label"><span class="caat-separator__label">Or</span></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Default</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Thick</strong>3px solid var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Accent</strong>3px, 60px wide, var(--caat-green)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="py-4 mt-5" style="background:var(--caat-blue-900);">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

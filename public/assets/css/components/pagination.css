@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Pagination Component – CAAT Design System
+   ========================================================================== */
+
+.caat-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
+}
+
+/* --- Item --- */
+.caat-pagination__item {
+  display: flex;
+}
+
+/* --- Link / Button --- */
+.caat-pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--caat-blue-900, #003750);
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-radius: var(--caat-radius, .75rem);
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.caat-pagination__link:hover {
+  background-color: var(--caat-blue-100, #e7f4fb);
+  border-color: var(--caat-blue-700, #0b5a80);
+  color: var(--caat-blue-900, #003750);
+}
+
+.caat-pagination__link:focus-visible {
+  outline: 3px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+/* --- Active --- */
+.caat-pagination__item--active .caat-pagination__link {
+  background-color: var(--caat-blue-900, #003750);
+  border-color: var(--caat-blue-900, #003750);
+  color: #fff;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* --- Disabled --- */
+.caat-pagination__item--disabled .caat-pagination__link {
+  color: var(--caat-grey-200, #dfe6ef);
+  background-color: var(--caat-grey);
+  border-color: var(--caat-grey-200, #dfe6ef);
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* --- Sizing: Small --- */
+.caat-pagination--sm .caat-pagination__link {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.8125rem;
+}
+
+/* --- Sizing: Large --- */
+.caat-pagination--lg .caat-pagination__link {
+  min-width: 52px;
+  min-height: 52px;
+  padding: 0.5rem 1rem;
+  font-size: 1.0625rem;
+}
+
+/* --- Ellipsis --- */
+.caat-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.375rem 0.5rem;
+  color: var(--caat-ink, #102637);
+  cursor: default;
+}
+
+/* --- Results text --- */
+.caat-pagination__results {
+  font-size: 0.875rem;
+  color: var(--caat-ink, #102637);
+}
+
+/* --- Wrapper for centering pagination with results --- */
+.caat-pagination-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.caat-pagination-wrapper .caat-pagination {
+  justify-content: center;
+  flex: 1 1 auto;
+}
+
+/* --- Icons inside links --- */
+.caat-pagination__link .bi {
+  font-size: 1em;
+}
+
+/* --- Responsive: simplify on mobile --- */
+@media (max-width: 575.98px) {
+  .caat-pagination {
+    justify-content: center;
+  }
+
+  .caat-pagination__link {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .caat-pagination-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .caat-pagination__link {
+    transition: none;
+  }
+}

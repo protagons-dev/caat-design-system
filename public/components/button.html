@@ -1,0 +1,1149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Button AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Button | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">AEM</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link active" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Button</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Button</h1>
+      <p class="text-muted">A reusable, accessible call-to-action component for the CAAT Pension Plan digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Button',['/assets/css/tokens.css','/assets/css/components/button.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variants -->
+      <h3 class="mt-3 mb-2">Variants</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-wrap gap-3 align-items-center">
+            <a href="#" class="caat-button caat-button--primary">Primary</a>
+            <a href="#" class="caat-button caat-button--secondary">Secondary</a>
+            <a href="#" class="caat-button caat-button--outline-primary">Outline Primary</a>
+            <a href="#" class="caat-button caat-button--outline-secondary">Outline Secondary</a>
+            <span class="d-inline-flex p-3 rounded" style="background:var(--caat-blue-900);">
+              <a href="#" class="caat-button caat-button--outline-white">Outline White</a>
+            </span>
+            <a href="#" class="caat-button caat-button--link">Text Link</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sizes -->
+      <h3 class="mb-2">Sizes</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-wrap gap-3 align-items-center">
+            <a href="#" class="caat-button caat-button--primary caat-button--sm">Small</a>
+            <a href="#" class="caat-button caat-button--primary">Default</a>
+            <a href="#" class="caat-button caat-button--primary caat-button--lg">Large</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-wrap gap-3 align-items-center">
+            <a href="#" class="caat-button caat-button--primary">Default</a>
+            <a href="#" class="caat-button caat-button--primary" style="background:var(--caat-blue-700);border-color:var(--caat-blue-700);transform:translateY(-1px);">Hover</a>
+            <a href="#" class="caat-button caat-button--primary" style="box-shadow:var(--caat-focus);">Focus</a>
+            <a href="#" class="caat-button caat-button--primary" style="background:#00283a;border-color:#00283a;">Active</a>
+            <a class="caat-button caat-button--primary" aria-disabled="true" style="background:#dfe6ef;border-color:#dfe6ef;color:#8a99a8;pointer-events:none;">Disabled</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Special use cases -->
+      <h3 class="mb-2">Special use cases</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-wrap gap-3 align-items-center">
+            <a href="/report.pdf" download class="caat-button caat-button--primary">
+              <i class="bi bi-download caat-button__icon" aria-hidden="true"></i> Download Report
+            </a>
+            <a href="https://example.com" target="_blank" rel="noopener" class="caat-button caat-button--outline-primary">
+              External Link <i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"></i>
+            </a>
+            <button type="submit" class="caat-button caat-button--secondary">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Primary link button --&gt;
+&lt;a href="/learn-more" class="caat-button caat-button--primary"&gt;Learn more&lt;/a&gt;
+
+&lt;!-- Secondary button --&gt;
+&lt;a href="/get-started" class="caat-button caat-button--secondary"&gt;Get started&lt;/a&gt;
+
+&lt;!-- Outline primary --&gt;
+&lt;a href="/details" class="caat-button caat-button--outline-primary"&gt;View details&lt;/a&gt;
+
+&lt;!-- Small size --&gt;
+&lt;a href="/info" class="caat-button caat-button--primary caat-button--sm"&gt;Small button&lt;/a&gt;
+
+&lt;!-- With icon --&gt;
+&lt;a href="/report.pdf" download class="caat-button caat-button--primary"&gt;
+  &lt;i class="bi bi-download caat-button__icon" aria-hidden="true"&gt;&lt;/i&gt; Download
+&lt;/a&gt;
+
+&lt;!-- External link --&gt;
+&lt;a href="https://example.com" target="_blank" rel="noopener"
+   class="caat-button caat-button--outline-primary"&gt;
+  Visit site &lt;i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;!-- Submit button --&gt;
+&lt;button type="submit" class="caat-button caat-button--secondary"&gt;Submit&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Button</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/button</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Extend or proxy the AEM Core Button component (<code>core/wcm/components/button/v2/button</code>)</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Provide a reusable, accessible call-to-action component that aligns with CAAT brand standards</td></tr>
+          <tr><th>Existing AEM component replaced</th><td>CAAT Button (#4 in existing library)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Navigate a member to a new page (internal link)</li>
+        <li>Open an external resource in a new tab</li>
+        <li>Trigger a form submission</li>
+        <li>Download a file (PDF, XLSX)</li>
+        <li>Anchor-link within a long-form page</li>
+        <li>Call-to-action within a card, hero, or alert component</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>This component does not handle icon-only toggle buttons (use a separate Toggle component)</li>
+        <li>It does not render navigation menus or dropdowns</li>
+        <li>It does not include loading / spinner states</li>
+        <li>It does not manage client-side routing or SPA behaviour</li>
+        <li>It does not replace inline text hyperlinks within body copy</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Primary button background &amp; border</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>#0b5a80</td><td>Primary hover background</td></tr>
+            <tr><td><code>--caat-green</code></td><td>#55a546</td><td>Secondary button background</td></tr>
+            <tr><td><code>--caat-green-700</code></td><td>#367f32</td><td>Secondary hover / outline-secondary border</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on all variants</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>.75rem</td><td>Border radius</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Button typeface</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Primary</strong> — solid dark-blue background, white text</li>
+        <li><strong>Secondary</strong> — solid green background, white text</li>
+        <li><strong>Outline Primary</strong> — transparent background, dark-blue border and text</li>
+        <li><strong>Outline Secondary</strong> — transparent background, green border and text</li>
+        <li><strong>Text Link</strong> — no background or border, styled as an underline-on-hover link</li>
+      </ul>
+
+      <h3>Sizes</h3>
+      <ul>
+        <li><strong>Small</strong> (<code>.caat-button--sm</code>) — min-height 2.25 rem</li>
+        <li><strong>Default</strong> — min-height 2.75 rem</li>
+        <li><strong>Large</strong> (<code>.caat-button--lg</code>) — min-height 3.25 rem</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Content tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Button text</td><td>Text field</td><td>Yes</td><td>—</td><td>Visible label. Max 60 characters recommended.</td></tr>
+            <tr><td>Link URL</td><td>Path browser</td><td>Yes</td><td>—</td><td>Internal or external URL. Validated by link checker.</td></tr>
+            <tr><td>Link target</td><td>Checkbox</td><td>No</td><td>Same tab</td><td>If checked, opens in new tab and adds <code>rel="noopener"</code>.</td></tr>
+            <tr><td>Accessible label</td><td>Text field</td><td>No</td><td>—</td><td>Overrides the visible text for screen readers (<code>aria-label</code>). Use when visible text alone is ambiguous.</td></tr>
+            <tr><td>Icon</td><td>Dropdown</td><td>No</td><td>None</td><td>Optional leading or trailing icon. Options: none, download, external-link, arrow-right, chevron-right.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Style tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Dropdown</td><td>Yes</td><td>Primary</td><td>primary | secondary | outline-primary | outline-secondary | link</td></tr>
+            <tr><td>Size</td><td>Dropdown</td><td>No</td><td>Default</td><td>sm | default | lg</td></tr>
+            <tr><td>Full width on mobile</td><td>Checkbox</td><td>No</td><td>Off</td><td>Adds <code>.caat-button--full-mobile</code>.</td></tr>
+            <tr><td>Alignment</td><td>Dropdown</td><td>No</td><td>Start</td><td>start | centre | end. Applied to the wrapper element.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Link behaviour</td><td>Dropdown</td><td>No</td><td>Navigate</td><td>navigate | download | submit</td></tr>
+            <tr><td>Download file name</td><td>Text field</td><td>No</td><td>—</td><td>Shown only when link behaviour = download. Sets the <code>download</code> attribute value.</td></tr>
+            <tr><td>Analytics event name</td><td>Text field</td><td>No</td><td>cta_click</td><td>Custom event name pushed to the data layer.</td></tr>
+            <tr><td>No-follow</td><td>Checkbox</td><td>No</td><td>Off</td><td>Adds <code>rel="nofollow"</code> for sponsored or external links.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>Button text</strong> is required. The dialog must not allow saving without it.</li>
+        <li><strong>Link URL</strong> is required. A valid path or URL must be provided.</li>
+        <li><strong>Button text</strong> must not exceed 60 characters. Display a warning above 40 characters.</li>
+        <li>If <strong>Link behaviour</strong> is set to "download", the Link URL must point to a DAM asset path (<code>/content/dam/</code>).</li>
+        <li>If <strong>Link target</strong> is set to "New tab", the system must automatically append <code>rel="noopener"</code> to the rendered anchor.</li>
+        <li>If <strong>Accessible label</strong> is left empty, the rendered component must not output an empty <code>aria-label</code> attribute.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Good examples</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Learn about your pension"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Download the 2025 annual report"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Contact us"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Get a pension estimate"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "View contribution details"</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Avoid</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Click here"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Read more"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Submit" (without context)</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "LEARN MORE ABOUT YOUR PENSION OPTIONS NOW!!!"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Btn 1"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Internal link</h3>
+<pre class="code-sample mb-4"><code>&lt;a href="/en/members/pension-overview"
+   class="caat-button caat-button--primary"&gt;
+  Learn about your pension
+&lt;/a&gt;</code></pre>
+
+      <h3 class="mb-2">External link — new tab</h3>
+<pre class="code-sample mb-4"><code>&lt;a href="https://example.com/resource"
+   class="caat-button caat-button--outline-primary"
+   target="_blank"
+   rel="noopener"&gt;
+  Visit resource
+  &lt;i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre>
+
+      <h3 class="mb-2">Submit button</h3>
+<pre class="code-sample mb-4"><code>&lt;button type="submit"
+        class="caat-button caat-button--secondary"&gt;
+  Submit your request
+&lt;/button&gt;</code></pre>
+
+      <h3 class="mb-2">Download button</h3>
+<pre class="code-sample"><code>&lt;a href="/content/dam/caat/reports/annual-report-2025.pdf"
+   class="caat-button caat-button--primary"
+   download="CAAT-Annual-Report-2025.pdf"&gt;
+  &lt;i class="bi bi-download caat-button__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  Download the 2025 annual report
+&lt;/a&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The button component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/button.css">/assets/css/components/button.css</a>.</p>
+
+      <h3 class="mb-2">Base styles</h3>
+<pre class="code-sample mb-4"><code>.caat-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  min-height: 2.75rem;
+  padding: .7rem 1.15rem;
+  border-radius: var(--caat-radius, .75rem);
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, sans-serif);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+
+/* Focus ring */
+.caat-button:focus-visible {
+  box-shadow: var(--caat-focus);
+  outline: 0;
+}</code></pre>
+
+      <h3 class="mt-4 mb-2">Variant classes</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-button--primary</code></td><td>Solid dark-blue background, white text.</td></tr>
+            <tr><td><code>.caat-button--secondary</code></td><td>Solid green background, white text.</td></tr>
+            <tr><td><code>.caat-button--outline-primary</code></td><td>Transparent bg, dark-blue border &amp; text. Fills on hover.</td></tr>
+            <tr><td><code>.caat-button--outline-secondary</code></td><td>Transparent bg, green border &amp; text. Fills on hover.</td></tr>
+            <tr><td><code>.caat-button--outline-white</code></td><td>Transparent bg, white border &amp; text. For dark backgrounds (hero, blue sections). Fills white with dark text on hover.</td></tr>
+            <tr><td><code>.caat-button--link</code></td><td>No background/border — styled as text link with underline on hover.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Keyboard access</td>
+              <td>All buttons must be reachable and operable via <kbd>Tab</kbd> and <kbd>Enter</kbd>/<kbd>Space</kbd>.</td>
+            </tr>
+            <tr>
+              <td>Focus state</td>
+              <td>A visible focus ring (<code>var(--caat-focus)</code>) must appear on <code>:focus-visible</code>. The ring must meet a 3 : 1 contrast ratio against the background.</td>
+            </tr>
+            <tr>
+              <td>Accessible name</td>
+              <td>Every button must have a non-empty accessible name. If the visible text is ambiguous, use <code>aria-label</code>. Never render an empty <code>aria-label</code>.</td>
+            </tr>
+            <tr>
+              <td>Colour contrast</td>
+              <td>Text-to-background contrast must meet WCAG 2.1 AA (4.5 : 1 for normal text, 3 : 1 for large text) in all states.</td>
+            </tr>
+            <tr>
+              <td>New tab behaviour</td>
+              <td>Links opening in a new tab must include <code>rel="noopener"</code> and the visible label or <code>aria-label</code> should indicate the new-tab behaviour (e.g. "(opens in a new tab)").</td>
+            </tr>
+            <tr>
+              <td>Icon usage</td>
+              <td>Decorative icons must have <code>aria-hidden="true"</code>. The icon must never be the sole accessible name.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li>All CTA buttons rendered as <code>&lt;a&gt;</code> elements must have an <code>href</code> that resolves to a valid, crawlable URL.</li>
+        <li>Anchor text must be descriptive. Avoid generic phrases like "Click here" or "Read more".</li>
+        <li>External or sponsored links should use <code>rel="nofollow"</code> when the author enables the No-follow checkbox.</li>
+        <li>Download links should point directly to the DAM asset so that search engines can index the file.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-event</code></td><td>cta_click</td><td>Event name pushed to the data layer on click.</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>hero-primary-cta</td><td>Human-readable label for reporting.</td></tr>
+            <tr><td><code>data-analytics-destination</code></td><td>/en/members/overview</td><td>Target URL recorded with the event.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>Click</strong> — fires on <code>mousedown</code> or <code>keydown</code> (Enter / Space).</li>
+        <li><strong>Impression</strong> — fires once when the button scrolls into the viewport (Intersection Observer, 50 % threshold).</li>
+        <li><strong>Download complete</strong> — fires when a download-variant button's link is successfully followed.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component replaces <strong>CAAT Button (component #4)</strong> in the existing AEM component library.</p>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span>
+         Rebuild to new brand standards. The existing component does not meet current accessibility or design-token requirements.</p>
+
+      <h3>Proxy / extend guidance</h3>
+      <p>Create a proxy component at <code>/apps/caat/components/button</code> that extends the
+         AEM Core Button v2 (<code>core/wcm/components/button/v2/button</code>).
+         Override <code>button.html</code> to emit the CAAT class names and data attributes.</p>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.button</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>button.css</code></li>
+        <li><strong>JS:</strong> <code>button.js</code> (analytics wiring, impression observer)</li>
+      </ul>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>button/
+├── _cq_dialog/
+│   └── .content.xml          # Touch UI dialog
+├── _cq_editConfig.xml         # Edit configuration
+├── .content.xml                # Component node definition
+├── button.html                 # HTL template
+├── clientlibs/
+│   ├── .content.xml
+│   ├── css/
+│   │   └── button.css
+│   └── js/
+│       └── button.js
+└── README.md                   # Dev notes</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/components/button — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              buttonText:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./buttonText
+                fieldLabel: Button text
+                required: true
+                maxlength: 60
+              linkURL:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./linkURL
+                fieldLabel: Link URL
+                required: true
+                rootPath: /content
+              linkTarget:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./linkTarget
+                text: Open in new tab
+                value: _blank
+              accessibleLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./accessibleLabel
+                fieldLabel: Accessible label (optional)
+              icon:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./icon
+                fieldLabel: Icon
+                items:
+                  - { text: None,          value: none }
+                  - { text: Download,      value: download }
+                  - { text: External link, value: external-link }
+                  - { text: Arrow right,   value: arrow-right }
+                  - { text: Chevron right, value: chevron-right }
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              variant:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./variant
+                fieldLabel: Variant
+                required: true
+                items:
+                  - { text: Primary,           value: primary }
+                  - { text: Secondary,         value: secondary }
+                  - { text: Outline primary,   value: outline-primary }
+                  - { text: Outline secondary, value: outline-secondary }
+                  - { text: Text link,         value: link }
+              size:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./size
+                fieldLabel: Size
+                items:
+                  - { text: Small,   value: sm }
+                  - { text: Default, value: default }
+                  - { text: Large,   value: lg }
+              fullMobile:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./fullMobile
+                text: Full width on mobile
+              alignment:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./alignment
+                fieldLabel: Alignment
+                items:
+                  - { text: Start,  value: start }
+                  - { text: Centre, value: center }
+                  - { text: End,    value: end }
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              linkBehaviour:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./linkBehaviour
+                fieldLabel: Link behaviour
+                items:
+                  - { text: Navigate, value: navigate }
+                  - { text: Download, value: download }
+                  - { text: Submit,   value: submit }
+              downloadFileName:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./downloadFileName
+                fieldLabel: Download file name
+              analyticsEvent:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./analyticsEvent
+                fieldLabel: Analytics event name
+                value: cta_click
+              noFollow:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./noFollow
+                text: Add rel="nofollow"</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All five variants render correctly with expected colours and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) meet the documented min-height values.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Hover, focus, active, and disabled states are visually distinct and meet WCAG contrast requirements.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Tab</kbd> to focus, <kbd>Enter</kbd>/<kbd>Space</kbd> to activate.</li>
+        <li class="mb-2"><input type="checkbox" disabled> External links open in a new tab with <code>rel="noopener"</code>; download links trigger a file download.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All variants, sizes, and states are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics events. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Button</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants, states, and sizes</p>
+
+
+<!-- ═══ VARIANTS ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Variants</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Primary</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">Primary</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Secondary</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary">Secondary</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Outline Primary</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary">Outline Primary</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Outline Secondary</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-secondary">Outline Secondary</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Outline White</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white">Outline White</a>
+      </div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Link</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--link">Text Link</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PRIMARY STATES ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Primary — States</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Hover</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary is-hover">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Active</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary is-active">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Focus</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary is-focus">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Disabled</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary is-disabled" aria-disabled="true">Button Label</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ SECONDARY STATES ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Secondary — States</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Hover</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary is-hover">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Active</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary is-active">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Focus</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary is-focus">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Disabled</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--secondary is-disabled" aria-disabled="true">Button Label</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ OUTLINE PRIMARY STATES ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Outline Primary — States</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Hover</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary is-hover">Button Label</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Focus</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary is-focus">Button Label</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ OUTLINE WHITE STATES ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Outline White — States (on dark background)</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white">Button Label</a>
+      </div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Hover</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white is-hover">Button Label</a>
+      </div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Focus</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white is-focus">Button Label</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ SIZES ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Sizes</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Small</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary caat-button--sm">Small Button</a>
+      <a class="caat-button caat-button--outline-primary caat-button--sm">Small Outline</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">Default Button</a>
+      <a class="caat-button caat-button--outline-primary">Default Outline</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Large</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary caat-button--lg">Large Button</a>
+      <a class="caat-button caat-button--outline-primary caat-button--lg">Large Outline</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ WITH ICONS ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">With Icons</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Icon left</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">
+        <i class="bi bi-download caat-button__icon" aria-hidden="true"></i> Download Report
+      </a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Icon right</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">
+        Talk to us <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">External link</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary">
+        External Link <i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">PDF download</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--outline-primary">
+        <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download PDF
+      </a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Submit</span>
+    <div class="figma-row-items">
+      <button type="submit" class="caat-button caat-button--secondary">Submit</button>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">On dark + icon</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white">
+          <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download brochure
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ BUTTON PAIRS ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Common Pairings</h2>
+
+  <div class="figma-row">
+    <span class="figma-row-label">Primary + Outline</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">Join DBplus</a>
+      <a class="caat-button caat-button--outline-primary">Learn more</a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Primary + Link</span>
+    <div class="figma-row-items">
+      <a class="caat-button caat-button--primary">Get started</a>
+      <a class="caat-button caat-button--link">View details <i class="bi bi-arrow-right caat-button__icon"></i></a>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">On dark bg</span>
+    <div class="figma-row-items">
+      <div class="figma-dark-swatch">
+        <a class="caat-button caat-button--outline-white">Talk to us <i class="bi bi-arrow-right caat-button__icon"></i></a>
+        <a class="caat-button caat-button--outline-white is-hover">Hover state</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ SPECS ═══ -->
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font</strong>Libre Franklin 700</div>
+    <div class="figma-spec"><strong>Border radius</strong>0.75rem (12px)</div>
+    <div class="figma-spec"><strong>Border</strong>2px solid</div>
+    <div class="figma-spec"><strong>Min height (sm)</strong>2.25rem (36px)</div>
+    <div class="figma-spec"><strong>Min height (default)</strong>2.75rem (44px)</div>
+    <div class="figma-spec"><strong>Min height (lg)</strong>3.25rem (52px)</div>
+    <div class="figma-spec"><strong>Padding (sm)</strong>.48rem .9rem</div>
+    <div class="figma-spec"><strong>Padding (default)</strong>.7rem 1.15rem</div>
+    <div class="figma-spec"><strong>Padding (lg)</strong>.875rem 1.35rem</div>
+    <div class="figma-spec"><strong>Focus ring</strong>0 0 0 4px rgba(47,149,210,.35)</div>
+    <div class="figma-spec"><strong>Hover lift</strong>translateY(-1px)</div>
+    <div class="figma-spec"><strong>Transition</strong>all .18s ease</div>
+  </div>
+
+  <h3 class="figma-colour-heading">Colour values</h3>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Primary bg</strong>#003750 (--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Primary hover</strong>#0b5a80 (--caat-blue-700)</div>
+    <div class="figma-spec"><strong>Secondary bg</strong>#55a546 (--caat-green)</div>
+    <div class="figma-spec"><strong>Secondary hover</strong>#367f32 (--caat-green-700)</div>
+    <div class="figma-spec"><strong>Disabled bg</strong>#dfe6ef (--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Disabled text</strong>#8a99a8 (--caat-disabled)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

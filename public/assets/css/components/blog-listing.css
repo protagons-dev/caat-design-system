@@ -1,0 +1,227 @@
+/* ═══════════════════════════════════════════════════════════
+   Blog Listing — CAAT Design System
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Grid ────────────────────────────────────────────────── */
+.caat-blog-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .caat-blog-listing__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .caat-blog-listing__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.caat-blog-listing__card {
+  background: #fff;
+  border-radius: var(--caat-radius);
+  box-shadow: var(--caat-shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.caat-blog-listing__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--caat-shadow);
+}
+
+.caat-blog-listing__card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Image ───────────────────────────────────────────────── */
+.caat-blog-listing__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Card body ───────────────────────────────────────────── */
+.caat-blog-listing__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* ── Category badge ──────────────────────────────────────── */
+/* Compose: .caat-badge.caat-badge--pill.caat-badge--soft-blue in markup */
+/* Fallback styles if component-specific class is used alone: */
+.caat-blog-listing__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--caat-font-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.35em 0.75em;
+  border-radius: 50rem;
+  background: var(--caat-blue-100);
+  color: var(--caat-blue-900);
+  margin-bottom: 0.625rem;
+  width: fit-content;
+  white-space: nowrap;
+}
+
+/* ── Title ───────────────────────────────────────────────── */
+.caat-blog-listing__title {
+  font-family: var(--caat-font-primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  color: var(--caat-blue-900);
+  margin: 0 0 0.5rem;
+}
+
+.caat-blog-listing__card a:hover .caat-blog-listing__title,
+.caat-blog-listing__card a:focus-visible .caat-blog-listing__title {
+  color: var(--caat-blue-700);
+}
+
+/* ── Excerpt ─────────────────────────────────────────────── */
+.caat-blog-listing__excerpt {
+  font-family: var(--caat-font-primary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--caat-ink);
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+/* ── Meta ────────────────────────────────────────────────── */
+.caat-blog-listing__meta {
+  font-family: var(--caat-font-primary);
+  font-size: 0.8125rem;
+  color: var(--caat-muted);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.caat-blog-listing__meta i {
+  font-size: 0.75rem;
+}
+
+/* ── Filters ─────────────────────────────────────────────── */
+.caat-blog-listing__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.caat-blog-listing__filter-btn {
+  font-family: var(--caat-font-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.4em 1.1em;
+  border-radius: 50rem;
+  border: 1px solid var(--caat-grey-200);
+  background: #fff;
+  color: var(--caat-ink);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.caat-blog-listing__filter-btn:hover {
+  border-color: var(--caat-blue-700);
+  color: var(--caat-blue-700);
+}
+
+.caat-blog-listing__filter-btn:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+}
+
+.caat-blog-listing__filter-btn.active {
+  background: var(--caat-blue-900);
+  color: #fff;
+  border-color: var(--caat-blue-900);
+}
+
+/* ── List view variant ───────────────────────────────────── */
+.caat-blog-listing__grid--list {
+  grid-template-columns: 1fr;
+}
+
+.caat-blog-listing__grid--list .caat-blog-listing__card {
+  flex-direction: row;
+}
+
+.caat-blog-listing__grid--list .caat-blog-listing__image {
+  width: 280px;
+  min-width: 280px;
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 180px;
+}
+
+@media (max-width: 575.98px) {
+  .caat-blog-listing__grid--list .caat-blog-listing__card {
+    flex-direction: column;
+  }
+
+  .caat-blog-listing__grid--list .caat-blog-listing__image {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+/* ── Featured variant ────────────────────────────────────── */
+.caat-blog-listing__featured {
+  margin-bottom: 1.5rem;
+}
+
+.caat-blog-listing__featured .caat-blog-listing__card {
+  flex-direction: row;
+}
+
+.caat-blog-listing__featured .caat-blog-listing__image {
+  width: 55%;
+  min-width: 55%;
+  aspect-ratio: auto;
+  height: 100%;
+  min-height: 280px;
+}
+
+.caat-blog-listing__featured .caat-blog-listing__title {
+  font-size: 1.5rem;
+}
+
+.caat-blog-listing__featured .caat-blog-listing__excerpt {
+  font-size: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .caat-blog-listing__featured .caat-blog-listing__card {
+    flex-direction: column;
+  }
+
+  .caat-blog-listing__featured .caat-blog-listing__image {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 0;
+  }
+}

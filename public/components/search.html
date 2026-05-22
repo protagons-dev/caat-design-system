@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Search AEM Component Contract. Site search input and results layout for finding pension plan resources across the CAAT member experience.">
+<title>Search | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/search.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link active" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Search</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Search</h1>
+      <p class="text-muted">Site search input and results layout for finding pension plan resources across the CAAT member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Search',['/assets/css/tokens.css','/assets/css/components/search.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Search input -->
+      <h3 class="mt-3 mb-2">Search Input</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <form class="caat-search" role="search" aria-label="Site search">
+            <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+            <input type="search" class="form-control caat-search__input" placeholder="Search CAAT resources..." aria-label="Search CAAT resources">
+            <button type="button" class="caat-search__clear" aria-label="Clear search">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Variant 2 — Search with suggestions -->
+      <h3 class="mb-2">Search with Suggestions</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <form class="caat-search" role="search" aria-label="Site search with suggestions">
+            <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+            <input type="search" class="form-control caat-search__input" value="pension" aria-label="Search CAAT resources" aria-expanded="true" aria-controls="search-suggestions" aria-autocomplete="list">
+            <button type="button" class="caat-search__clear" aria-label="Clear search">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+            <ul class="caat-search__suggestions" id="search-suggestions" role="listbox">
+              <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> pension calculator</li>
+              <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> retirement age</li>
+              <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> contribution rates</li>
+              <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> pension benefits overview</li>
+            </ul>
+          </form>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Search results page -->
+      <h3 class="mb-2">Search Results Page</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <form class="caat-search mb-4" role="search" aria-label="Site search">
+            <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+            <input type="search" class="form-control caat-search__input" value="pension benefits" aria-label="Search CAAT resources">
+            <button type="button" class="caat-search__clear" aria-label="Clear search">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <div class="caat-search-results">
+            <p class="caat-search-results__count">12 results for &ldquo;pension benefits&rdquo;</p>
+
+            <!-- Filter bar -->
+            <div class="caat-search-results__filters" role="group" aria-label="Filter results by content type">
+              <button class="caat-search-results__filter caat-search-results__filter--active" aria-pressed="true">All <span class="caat-search-results__filter-count">12</span></button>
+              <button class="caat-search-results__filter" aria-pressed="false"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Pages <span class="caat-search-results__filter-count">6</span></button>
+              <button class="caat-search-results__filter" aria-pressed="false"><i class="bi bi-journal-text" aria-hidden="true"></i> Articles <span class="caat-search-results__filter-count">4</span></button>
+              <button class="caat-search-results__filter" aria-pressed="false"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> PDFs <span class="caat-search-results__filter-count">2</span></button>
+            </div>
+
+            <div class="caat-search-results__item">
+              <div class="caat-search-results__type caat-search-results__type--page"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Page</div>
+              <h4 class="caat-search-results__title"><a href="#">Understanding Your CAAT Pension Benefits</a></h4>
+              <p class="caat-search-results__url">caat.ca &rsaquo; members &rsaquo; benefits &rsaquo; overview</p>
+              <p class="caat-search-results__excerpt">Learn about your <mark>pension benefits</mark> as a CAAT member, including defined benefit plan details, survivor benefits, and inflation protection.</p>
+              <div class="caat-search-results__meta"><span class="badge bg-light text-dark">Member Resources</span></div>
+            </div>
+
+            <div class="caat-search-results__item">
+              <div class="caat-search-results__type caat-search-results__type--article"><i class="bi bi-journal-text" aria-hidden="true"></i> Article</div>
+              <h4 class="caat-search-results__title"><a href="#">Retirement Planning &amp; Pension Estimates</a></h4>
+              <p class="caat-search-results__url">caat.ca &rsaquo; blog &rsaquo; retirement-planning</p>
+              <p class="caat-search-results__excerpt">Use our pension calculator to estimate your <mark>pension benefits</mark> at retirement. See how your years of service and salary affect your monthly income.</p>
+              <div class="caat-search-results__meta"><span class="badge bg-light text-dark">Blog</span> · <time>March 2026</time></div>
+            </div>
+
+            <div class="caat-search-results__item">
+              <div class="caat-search-results__type caat-search-results__type--pdf"><i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> PDF</div>
+              <h4 class="caat-search-results__title"><a href="#">DBplus Plan Member Handbook <span class="caat-search-results__file-meta">(PDF, 2.4 MB)</span></a></h4>
+              <p class="caat-search-results__url">caat.ca &rsaquo; documents &rsaquo; dbplus-handbook.pdf</p>
+              <p class="caat-search-results__excerpt">A comprehensive guide to your <mark>pension benefits</mark>, including contribution rates, retirement options, and survivor protections under the DBplus plan.</p>
+              <div class="caat-search-results__meta"><span class="badge bg-light text-dark">Documents</span> · Updated Jan 2026</div>
+            </div>
+
+            <div class="caat-search-results__item">
+              <div class="caat-search-results__type caat-search-results__type--page"><i class="bi bi-file-earmark-text" aria-hidden="true"></i> Page</div>
+              <h4 class="caat-search-results__title"><a href="#">Survivor and Death Benefits</a></h4>
+              <p class="caat-search-results__url">caat.ca &rsaquo; members &rsaquo; benefits &rsaquo; survivor</p>
+              <p class="caat-search-results__excerpt">Your CAAT <mark>pension benefits</mark> include important protections for your loved ones. Learn about survivor pensions, lump-sum options, and beneficiary designations.</p>
+              <div class="caat-search-results__meta"><span class="badge bg-light text-dark">Member Resources</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4 — No results state -->
+      <h3 class="mb-2">No Results State</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <form class="caat-search mb-4" role="search" aria-label="Site search">
+            <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+            <input type="search" class="form-control caat-search__input" value="xyz" aria-label="Search CAAT resources">
+            <button type="button" class="caat-search__clear" aria-label="Clear search">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <div class="caat-search__no-results">
+            <i class="bi bi-search" style="font-size:2.5rem; color:var(--caat-grey-200);"></i>
+            <p class="mt-3 mb-1"><strong>No results found for &ldquo;xyz&rdquo;</strong></p>
+            <p>Try different keywords or check the spelling of your search term.</p>
+            <div class="caat-search__helpful-links">
+              <h4>Helpful links</h4>
+              <ul>
+                <li><a href="#">Pension plan overview</a></li>
+                <li><a href="#">Member resources</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Search input --&gt;
+&lt;form class="caat-search" role="search" aria-label="Site search"&gt;
+  &lt;i class="bi bi-search caat-search__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;input type="search" class="form-control caat-search__input"
+         placeholder="Search CAAT resources..."
+         aria-label="Search CAAT resources"&gt;
+  &lt;button type="button" class="caat-search__clear"
+          aria-label="Clear search"&gt;
+    &lt;i class="bi bi-x-lg" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Results --&gt;
+&lt;div class="caat-search-results"&gt;
+  &lt;p class="caat-search-results__count"&gt;12 results for "pension benefits"&lt;/p&gt;
+  &lt;div class="caat-search-results__item"&gt;
+    &lt;h4 class="caat-search-results__title"&gt;&lt;a href="#"&gt;Result Title&lt;/a&gt;&lt;/h4&gt;
+    &lt;p class="caat-search-results__url"&gt;caat.ca &amp;rsaquo; section&lt;/p&gt;
+    &lt;p class="caat-search-results__excerpt"&gt;Excerpt with &lt;mark&gt;highlighted term&lt;/mark&gt;.&lt;/p&gt;
+    &lt;div class="caat-search-results__meta"&gt;
+      &lt;span class="badge bg-light text-dark"&gt;Category&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Search</td></tr>
+            <tr><td><strong>AEM Resource Type</strong></td><td><code>caat/components/search</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Provides site search input and results display for finding pension plan resources across the CAAT member experience.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Search input · Search with suggestions · Results page · No results state</td></tr>
+            <tr><td><strong>Contains</strong></td><td>Search input, icon, clear button, suggestion dropdown, results list, no-results message</td></tr>
+            <tr><td><strong>Used in</strong></td><td>Global header, search results page, knowledge base, member portal</td></tr>
+            <tr><td><strong>Figma</strong></td><td>CAAT DS / Components / Search</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Result title hover colour</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Result title link colour</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Search term highlight (<code>&lt;mark&gt;</code>) background</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Result URL breadcrumb colour</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Input border, dividers</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on input and interactive elements</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Primary text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border-radius for input and dropdown</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Placeholder text</td><td>Text</td><td>No</td><td>Default: "Search CAAT resources…"</td></tr>
+            <tr><td>Accessible label</td><td>Text</td><td>Yes</td><td>Populates <code>aria-label</code> on the search input.</td></tr>
+            <tr><td>Search endpoint</td><td>URL</td><td>Yes</td><td>API endpoint for search queries.</td></tr>
+            <tr><td>Enable suggestions</td><td>Toggle</td><td>No</td><td>Enables typeahead suggestion dropdown.</td></tr>
+            <tr><td>Suggestion endpoint</td><td>URL</td><td>Conditional</td><td>Required when suggestions enabled. Returns suggestion JSON.</td></tr>
+            <tr><td>Results per page</td><td>Number</td><td>No</td><td>Default: 10. Controls pagination of results.</td></tr>
+            <tr><td>No-results message</td><td>Text</td><td>No</td><td>Default: "No results found for…"</td></tr>
+            <tr><td>Helpful links</td><td>Multifield</td><td>No</td><td>Links shown in the no-results state. Each: label (text) + URL.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Accessible label is required.</td><td>"Provide an accessible label for the search input."</td></tr>
+            <tr><td>Search endpoint is required.</td><td>"Enter a valid search endpoint URL."</td></tr>
+            <tr><td>Suggestion endpoint required when suggestions enabled.</td><td>"Provide a suggestion endpoint URL."</td></tr>
+            <tr><td>Results per page must be between 1 and 50.</td><td>"Enter a value between 1 and 50."</td></tr>
+            <tr><td>Helpful links must have both label and URL.</td><td>"Each helpful link requires a label and URL."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Placeholder text should guide users: <em>"Search CAAT resources…"</em> or <em>"Search for pension information…"</em>.</li>
+        <li>Keep suggestion terms concise — ideally 2 – 4 words matching common member queries.</li>
+        <li>Result excerpts should be 1 – 2 sentences long, with the search term highlighted using <code>&lt;mark&gt;</code>.</li>
+        <li>URL breadcrumbs should reflect the page hierarchy, not the full URL.</li>
+        <li>No-results state should always include helpful links to guide users to relevant content.</li>
+        <li>Category tags on results help members identify content type at a glance.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Search input</h3>
+<pre class="code-sample"><code>&lt;form class="caat-search" role="search" aria-label="Site search"&gt;
+  &lt;i class="bi bi-search caat-search__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;input type="search"
+         class="form-control caat-search__input"
+         placeholder="Search CAAT resources..."
+         aria-label="Search CAAT resources"&gt;
+  &lt;button type="button" class="caat-search__clear"
+          aria-label="Clear search"&gt;
+    &lt;i class="bi bi-x-lg" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Search results</h3>
+<pre class="code-sample"><code>&lt;div class="caat-search-results"&gt;
+  &lt;p class="caat-search-results__count"&gt;
+    12 results for &amp;ldquo;pension benefits&amp;rdquo;
+  &lt;/p&gt;
+  &lt;div class="caat-search-results__item"&gt;
+    &lt;h4 class="caat-search-results__title"&gt;
+      &lt;a href="/page-url"&gt;Page Title&lt;/a&gt;
+    &lt;/h4&gt;
+    &lt;p class="caat-search-results__url"&gt;
+      caat.ca &amp;rsaquo; section &amp;rsaquo; page
+    &lt;/p&gt;
+    &lt;p class="caat-search-results__excerpt"&gt;
+      Excerpt with &lt;mark&gt;highlighted term&lt;/mark&gt;.
+    &lt;/p&gt;
+    &lt;div class="caat-search-results__meta"&gt;
+      &lt;span class="badge bg-light text-dark"&gt;Category&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Suggestions dropdown</h3>
+<pre class="code-sample"><code>&lt;ul class="caat-search__suggestions" id="search-suggestions"
+    role="listbox"&gt;
+  &lt;li class="caat-search__suggestion" role="option"&gt;
+    &lt;i class="bi bi-search" aria-hidden="true"&gt;&lt;/i&gt;
+    pension calculator
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-search</code></td><td>Search form wrapper. Relative positioning for icon/clear button.</td></tr>
+            <tr><td><code>.caat-search__input</code></td><td>Large search input (3.5rem height). Left padding for icon, right padding for clear button.</td></tr>
+            <tr><td><code>.caat-search__icon</code></td><td>Magnifying glass icon positioned absolutely left.</td></tr>
+            <tr><td><code>.caat-search__clear</code></td><td>Clear/reset button positioned absolutely right.</td></tr>
+            <tr><td><code>.caat-search__suggestions</code></td><td>Typeahead dropdown. White background, shadow, rounded bottom corners.</td></tr>
+            <tr><td><code>.caat-search__suggestion</code></td><td>Individual suggestion item. Hover background uses <code>--caat-blue-100</code>.</td></tr>
+            <tr><td><code>.caat-search-results</code></td><td>Results list container.</td></tr>
+            <tr><td><code>.caat-search-results__count</code></td><td>Results count line with bottom border.</td></tr>
+            <tr><td><code>.caat-search-results__item</code></td><td>Individual result. Bottom border divider.</td></tr>
+            <tr><td><code>.caat-search-results__title</code></td><td>Result title. Link colour <code>--caat-blue-700</code>.</td></tr>
+            <tr><td><code>.caat-search-results__url</code></td><td>URL breadcrumb in small green text (<code>--caat-green</code>).</td></tr>
+            <tr><td><code>.caat-search-results__excerpt</code></td><td>Result excerpt text. <code>&lt;mark&gt;</code> uses <code>--caat-blue-100</code> background.</td></tr>
+            <tr><td><code>.caat-search-results__meta</code></td><td>Metadata row for category tags.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Landmark</td><td><code>role="search"</code> on the <code>&lt;form&gt;</code> element.</td></tr>
+            <tr><td>Label</td><td><code>aria-label</code> on both the form and the input.</td></tr>
+            <tr><td>Clear button</td><td><code>aria-label="Clear search"</code> on the clear/reset button.</td></tr>
+            <tr><td>Suggestions</td><td><code>role="listbox"</code> on suggestions list, <code>role="option"</code> on each item. <code>aria-expanded</code> and <code>aria-controls</code> on input.</td></tr>
+            <tr><td>Keyboard</td><td>Arrow keys navigate suggestions. Enter selects. Escape closes dropdown.</td></tr>
+            <tr><td>Focus</td><td>Visible <code>:focus-visible</code> ring on input, clear button, and suggestion items.</td></tr>
+            <tr><td>Results</td><td>Result count announced via <code>aria-live="polite"</code> region after search.</td></tr>
+            <tr><td>Highlight</td><td><code>&lt;mark&gt;</code> element used for search term highlighting — semantically meaningful.</td></tr>
+            <tr><td>Colour contrast</td><td>All text and interactive elements meet WCAG 2.1 AA (4.5:1 text, 3:1 non-text).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Search results pages should use <code>&lt;title&gt;</code> and <code>&lt;meta name="description"&gt;</code> reflecting the query, e.g. <em>"Search results for 'pension benefits' — CAAT"</em>.</li>
+        <li>Result titles use <code>&lt;h4&gt;</code> heading hierarchy within the page; links use descriptive anchor text.</li>
+        <li>Search results pages should include <code>&lt;link rel="canonical"&gt;</code> pointing to the base search URL to avoid duplicate indexing of paginated results.</li>
+        <li>Consider adding <code>noindex</code> to search results pages to prevent thin content indexing.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>search-submitted</code></td>
+              <td>User submits a search query.</td>
+              <td><code>data-analytics-query</code> (search term), <code>data-analytics-source</code> (header | page)</td>
+            </tr>
+            <tr>
+              <td><code>search-result-click</code></td>
+              <td>User clicks a search result link.</td>
+              <td><code>data-analytics-position</code> (result index), <code>data-analytics-title</code> (result title)</td>
+            </tr>
+            <tr>
+              <td><code>search-suggestion-click</code></td>
+              <td>User selects a typeahead suggestion.</td>
+              <td><code>data-analytics-suggestion</code> (suggestion text)</td>
+            </tr>
+            <tr>
+              <td><code>search-no-results</code></td>
+              <td>Search returns zero results.</td>
+              <td><code>data-analytics-query</code> (search term)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/search</code></li>
+        <li><strong>Sling Model:</strong> <code>SearchModel</code> — exposes <code>query</code>, <code>results[]</code>, <code>totalResults</code>, <code>suggestions[]</code>, <code>helpfulLinks[]</code>.</li>
+        <li><strong>HTL template:</strong> <code>search.html</code> — uses <code>data-sly-test</code> to switch between results, no-results, and initial states.</li>
+        <li><strong>Client library:</strong> <code>caat.components.search</code> — CSS + JS. JS handles typeahead debounce, keyboard navigation, and analytics events.</li>
+        <li><strong>Policy:</strong> Authors can configure search endpoint, enable/disable suggestions, and set results-per-page via template policy.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Header, Experience Fragment.</li>
+        <li><strong>Search service:</strong> Integrates with AEM QueryBuilder or external search API (e.g. Azure Cognitive Search). Endpoint configured in OSGi.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "placeholderText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Placeholder text",
+        "name": "./placeholderText"
+      },
+      "accessibleLabel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Accessible label",
+        "name": "./accessibleLabel",
+        "required": true
+      },
+      "searchEndpoint": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Search endpoint",
+        "name": "./searchEndpoint",
+        "required": true
+      },
+      "enableSuggestions": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Enable suggestions",
+        "name": "./enableSuggestions"
+      },
+      "suggestionEndpoint": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Suggestion endpoint",
+        "name": "./suggestionEndpoint"
+      },
+      "resultsPerPage": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/numberfield",
+        "label": "Results per page",
+        "name": "./resultsPerPage",
+        "min": 1,
+        "max": 50,
+        "value": 10
+      },
+      "noResultsMessage": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "No-results message",
+        "name": "./noResultsMessage"
+      },
+      "helpfulLinks": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
+        "label": "Helpful links",
+        "name": "./helpfulLinks",
+        "fields": {
+          "linkLabel": { "type": "textfield", "label": "Link label" },
+          "linkUrl": { "type": "textfield", "label": "URL" }
+        }
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Search input renders at 3.5rem height with magnifying glass icon and clear button.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Placeholder text displays correctly and is customisable via dialog.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring appears on input using <code>--caat-focus</code> token colour.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Clear button resets the input and is keyboard accessible.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Suggestion dropdown appears on typing with correct hover/focus states.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Arrow keys, Enter, and Escape work correctly with suggestions.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Search results display title (linked), URL breadcrumb, excerpt, and category tag.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Search term is highlighted with <code>&lt;mark&gt;</code> in result excerpts.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Results count displays correctly (e.g. "12 results for 'pension benefits'").</li>
+        <li class="mb-2"><input type="checkbox" disabled> No-results state shows message, suggestions, and helpful links.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>role="search"</code> is present on the form element.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen readers announce result count via <code>aria-live</code> region.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>search-submitted</code>, <code>search-result-click</code>, <code>search-no-results</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. Input, suggestions, results, and no-results variants are documented. All interactive states (hover, focus, active) specified.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. JS handles typeahead, keyboard nav, and clear. Unit and integration tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Search endpoint configured and returning results. Content authors trained on configuration options. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Search</h1>
+<p class="figma-page-subtitle">CAAT Design System · Input, suggestions, and results</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Search Input</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:28rem;"><div style="position:relative;"><i class="bi bi-search" style="position:absolute;left:.875rem;top:50%;transform:translateY(-50%);color:var(--caat-muted);font-size:1.25rem;"></i><input type="text" placeholder="Search CAAT..." style="width:100%;height:3.5rem;padding-left:3rem;padding-right:3rem;font-size:1.125rem;border:2px solid var(--caat-grey-200);border-radius:var(--caat-radius);color:var(--caat-ink);font-family:var(--caat-font-primary);"></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Focus</span><div class="figma-row-items" style="flex:1;max-width:28rem;"><div style="position:relative;"><i class="bi bi-search" style="position:absolute;left:.875rem;top:50%;transform:translateY(-50%);color:var(--caat-muted);font-size:1.25rem;"></i><input type="text" value="pension" style="width:100%;height:3.5rem;padding-left:3rem;padding-right:3rem;font-size:1.125rem;border:2px solid var(--caat-blue-900);border-radius:var(--caat-radius);color:var(--caat-ink);font-family:var(--caat-font-primary);box-shadow:var(--caat-focus);"></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Height</strong>3.5rem</div>
+    <div class="figma-spec"><strong>Font size</strong>1.125rem</div>
+    <div class="figma-spec"><strong>Border</strong>2px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Focus ring</strong>var(--caat-focus)</div>
+    <div class="figma-spec"><strong>Icon size</strong>1.25rem</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

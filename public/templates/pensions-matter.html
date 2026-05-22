@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Retirement security is a top source of stress for working Canadians. Organizations across Canada are now tapping into the link between workplace retirement plans, corporate social responsibility (CSR) and branding as a responsible employer of choice.">
+<title>Pensions Matter | CAAT Design System — Page Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- Design system tokens + base -->
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+
+<!-- Design system components used on this page -->
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/navigation.css" rel="stylesheet">
+<link href="/assets/css/components/hero.css" rel="stylesheet">
+<link href="/assets/css/components/testimonials.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/logo-wall.css" rel="stylesheet">
+<link href="/assets/css/components/feature-resource-hero.css" rel="stylesheet">
+<link href="/assets/css/components/data-visualization.css" rel="stylesheet">
+
+<!-- Page-specific layout only -->
+<link href="/assets/css/templates/pensions-matter.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── Accessible skip link ── -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVIGATION — caat-navbar component (Variant 1: Desktop Mega Menu)
+     Component: /components/navigation.html
+     ════════════════════════════════════════════════════════════ -->
+<header class="caat-navbar" data-analytics-component="navigation">
+
+  <!-- Utility bar -->
+  <div class="utility-bar" role="navigation" aria-label="Utility links">
+    <div class="container d-flex justify-content-end align-items-center gap-3">
+      <a href="#">Contact us</a>
+      <a href="#">Support Centre</a>
+      <a href="#">Newsroom</a>
+      <a href="#">Events</a>
+      <a href="#">Careers</a>
+      <a href="#" class="lang-switch" lang="fr" hreflang="fr">EN | <abbr title="Français">FR</abbr></a>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <nav class="navbar navbar-expand-lg navbar-main" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan — Home" height="52">
+      </a>
+
+      <!-- Mobile toggle (offcanvas) -->
+      <button class="navbar-toggler border-0" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+              aria-controls="mobileNav" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Desktop nav -->
+      <div class="collapse navbar-collapse" id="caatNavCollapse">
+        <ul class="navbar-nav me-auto">
+          <!-- Pension Solutions mega menu -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Pension solutions</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <p class="mega-category-title"><i class="bi bi-shield-check" aria-hidden="true"></i> Our Plans</p>
+                    <ul class="mega-links">
+                      <li><a href="#">DBplus <span class="mega-link-desc">Canada's modern DB pension</span></a></li>
+                      <li><a href="#">Why join DBplus?</a></li>
+                      <li><a href="#">How to join</a></li>
+                      <li><a href="#">What employers get</a></li>
+                      <li><a href="#">What employees get</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="mega-category-title"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i> Resources</p>
+                    <ul class="mega-links">
+                      <li><a href="#">Pensions Matter</a></li>
+                      <li><a href="#">Insights</a></li>
+                      <li><a href="#">DBplus Value Tool</a></li>
+                      <li><a href="#">Success stories</a></li>
+                      <li><a href="#">Resources for interested parties</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-promo">
+                    <p class="mega-promo-title">Ready to join?</p>
+                    <p class="mega-promo-text">See how DBplus can help your organization attract and retain talent.</p>
+                    <a href="#cta" class="caat-button caat-button--primary caat-button--sm">
+                      Talk to us <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Members -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <p class="mega-category-title"><i class="bi bi-person-check" aria-hidden="true"></i> Your Pension</p>
+                    <ul class="mega-links">
+                      <li><a href="#">Welcome to the CAAT Plan</a></li>
+                      <li><a href="#">Estimate your pension</a></li>
+                      <li><a href="#">Your contributions</a></li>
+                      <li><a href="#">Retirement options</a></li>
+                      <li><a href="#">Member resources</a></li>
+                      <li><a href="#">Collecting your pension</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Employers -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Employers</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <p class="mega-category-title"><i class="bi bi-building" aria-hidden="true"></i> For Employers</p>
+                    <ul class="mega-links">
+                      <li><a href="#">Employer education</a></li>
+                      <li><a href="#">Employer responsibilities</a></li>
+                      <li><a href="#">Rates at a glance</a></li>
+                      <li><a href="#">Employer resources</a></li>
+                      <li><a href="#">Recruitment Toolkit</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Investments -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Investments</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <p class="mega-category-title"><i class="bi bi-graph-up" aria-hidden="true"></i> Investments</p>
+                    <ul class="mega-links">
+                      <li><a href="#">Approach</a></li>
+                      <li><a href="#">Responsible investing</a></li>
+                      <li><a href="#">Performance</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+        </ul>
+
+        <!-- Right-side actions -->
+        <div class="nav-actions">
+          <div class="nav-search-wrap">
+            <label for="navSearch" class="visually-hidden">Search</label>
+            <input class="nav-search-input" type="search" id="navSearch" placeholder="Search…" autocomplete="off">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </div>
+          <a href="#" class="nav-login">
+            <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
+          </a>
+          <a href="#cta" class="caat-button caat-button--primary caat-button--sm nav-cta">Join DBplus</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile offcanvas nav -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+    <div class="offcanvas-header">
+      <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="40">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="accordion mobile-nav-accordion" id="mobileAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mobPensions" aria-expanded="false">Pension solutions</button>
+          </h2>
+          <div id="mobPensions" class="accordion-collapse collapse" data-bs-parent="#mobileAccordion">
+            <div class="accordion-body">
+              <ul class="mobile-subnav">
+                <li><a href="#">Why join DBplus?</a></li>
+                <li><a href="#">How to join</a></li>
+                <li><a href="#">What employers get</a></li>
+                <li><a href="#">What employees get</a></li>
+                <li><a href="#">Pensions Matter</a></li>
+                <li><a href="#">Success stories</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mobMembers" aria-expanded="false">Members</button>
+          </h2>
+          <div id="mobMembers" class="accordion-collapse collapse" data-bs-parent="#mobileAccordion">
+            <div class="accordion-body">
+              <ul class="mobile-subnav">
+                <li><a href="#">Estimate your pension</a></li>
+                <li><a href="#">Member resources</a></li>
+                <li><a href="#">Start your pension</a></li>
+                <li><a href="#">Collecting your pension</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mobEmployers" aria-expanded="false">Employers</button>
+          </h2>
+          <div id="mobEmployers" class="accordion-collapse collapse" data-bs-parent="#mobileAccordion">
+            <div class="accordion-body">
+              <ul class="mobile-subnav">
+                <li><a href="#">Employer education</a></li>
+                <li><a href="#">Employer resources</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Newsroom</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+      <div class="mobile-nav-cta">
+        <a href="#cta" class="caat-button caat-button--primary caat-button--full-mobile">Join DBplus</a>
+        <a href="#" class="caat-button caat-button--outline-primary caat-button--full-mobile">
+          <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main id="main">
+
+<!-- ════════════════════════════════════════════════════════════
+     HERO — caat-feature-hero component (Variant: Fullbleed)
+     Component: /components/feature-resource-hero.html
+     ════════════════════════════════════════════════════════════ -->
+<section class="caat-feature-hero caat-feature-hero--fullbleed"
+         aria-labelledby="hero-heading"
+         data-analytics-component="feature-resource-hero"
+         data-analytics-variant="fullbleed">
+  <div class="caat-feature-hero__bg">
+    <img src="/assets/images/Header-image.png"
+         alt="" role="presentation" loading="eager">
+  </div>
+  <div class="container position-relative pm-hero__content">
+    <div class="caat-feature-hero__inner">
+      <div class="caat-feature-hero__body">
+        <p class="caat-feature-hero__eyebrow">Pension Solutions</p>
+        <div class="caat-feature-hero__accent-rule"></div>
+        <h1 class="caat-feature-hero__title" id="hero-heading">A better pension matters:</h1>
+        <p class="caat-feature-hero__subtitle">The attraction and retention strategy every employer should be thinking about</p>
+        <div class="caat-feature-hero__actions">
+          <a href="https://www.caatpension.ca/documents/marketing/2025-Retirement-That-Works.pdf"
+             class="caat-button caat-button--outline-white caat-button--lg"
+             target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download the brochure
+          </a>
+        </div>
+      </div>
+      <div class="caat-feature-hero__preview">
+        <a href="https://www.caatpension.ca/documents/marketing/2025-Retirement-That-Works.pdf"
+           target="_blank" rel="noopener noreferrer">
+          <img src="/assets/images/retirement-that-works.png"
+               alt="Retirement that works brochure cover"
+               loading="eager">
+          <span class="caat-feature-hero__preview-label">
+            <i class="bi bi-download" aria-hidden="true"></i> PDF · Download
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stat strip — caat-stat-strip component ── -->
+<div class="container">
+  <div class="caat-stat-strip pm-stat-strip--rounded"
+       role="region" aria-label="Key pension statistics">
+    <div class="caat-stat-item">
+      <strong>77%</strong>
+      <span>say employers should offer a pension<sup>1</sup></span>
+    </div>
+    <div class="caat-stat-item">
+      <strong>89%</strong>
+      <span>of employers impacted by talent loss<sup>2</sup></span>
+    </div>
+    <div class="caat-stat-item">
+      <strong>125,000<small>+</small></strong>
+      <span>Members served by CAAT</span>
+    </div>
+    <div class="caat-stat-item">
+      <strong>97%</strong>
+      <span>Employer &amp; member endorsement</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: The demand is growing
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" aria-labelledby="demand-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="demand-heading">The demand for employers to take a leading role is growing</h2>
+    <p class="pm-section__subtitle">Employees want and need more focus on their financial wellness in the workplace. While many CEOs, CHROs and CFOs say they are changing their talent strategies, only the most forward-looking leaders are gaining a real competitive advantage by providing what employees really want—a better pension plan.</p>
+
+    <div class="row g-4 justify-content-center mt-3" role="region" aria-label="Key demand statistics">
+      <div class="col-md-5 text-center">
+        <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">77%</div>
+        <p>of employees say employers are responsible for offering a pension plan.<sup><a href="#sources">1</a></sup></p>
+        <span class="visually-hidden">77 percent of employees say employers are responsible for offering a pension plan.</span>
+      </div>
+      <div class="col-md-5 text-center">
+        <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">89%</div>
+        <p>of employers are already being impacted by the loss of talent and say competing for talent will become more challenging.<sup><a href="#sources">2</a></sup></p>
+        <span class="visually-hidden">89 percent of employers are already being impacted by talent loss.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Financial well-being gap (81% vs 40%)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section pm-section--grey" aria-labelledby="wellbeing-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="wellbeing-heading">What leaders need to know:</h2>
+    <p class="pm-section__subtitle">Employees are struggling with their financial well-being.</p>
+    <div class="row g-4 justify-content-center" role="region" aria-label="Financial well-being comparison">
+      <div class="col-md-5">
+        <div class="pm-contrast-card pm-contrast-card--green">
+          <span class="pm-contrast-card__context">despite</span>
+          <div class="pm-contrast-card__value" aria-hidden="true">81%</div>
+          <p class="pm-contrast-card__label">of the C-suite rating their employees' financial well-being as excellent or good.</p>
+          <span class="visually-hidden">81 percent of C-suite rate employee financial well-being as excellent or good.</span>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="pm-contrast-card pm-contrast-card--blue">
+          <span class="pm-contrast-card__context">only</span>
+          <div class="pm-contrast-card__value" aria-hidden="true">40%</div>
+          <p class="pm-contrast-card__label">of employees report having 'excellent' or 'good' financial well-being.<sup><a href="#sources">3</a></sup></p>
+          <span class="visually-hidden">Only 40 percent of employees report excellent or good financial well-being.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Employees want better pensions (3 stat cards)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" aria-labelledby="want-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="want-heading">Employees want <em><strong>better</strong></em> workplace pensions</h2>
+    <p class="pm-section__subtitle">Why employers are offering a benefit that lasts a lifetime—literally.</p>
+    <p class="text-center mb-2 pm-section__body">Retirement security is a top source of stress for working Canadians. Organizations across Canada are now tapping into the link between workplace retirement plans, corporate social responsibility (CSR) and branding as a responsible employer of choice.</p>
+    <p class="text-center fw-semibold mb-4 pm-section__body">Job seekers expect a workplace pension, and prefer employers who offer them.</p>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="pm-icon-card" role="figure" aria-label="70 percent plus of Canadians would forego a raise for a pension">
+          <div class="pm-icon-card__icon"><i class="bi bi-cash-coin" aria-hidden="true"></i></div>
+          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">70%+</div>
+          <p>of Canadians would <b>forego a raise</b> in favour of a workplace pension plan.<sup><a href="#sources">4</a></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pm-icon-card" role="figure" aria-label="84 percent consider a retirement plan critical">
+          <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-check2-square" aria-hidden="true"></i></div>
+          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">84%</div>
+          <p>consider an employer-sponsored retirement plan to be a <b>critical benefit</b>.<sup><a href="#sources">5</a></sup></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pm-icon-card" role="figure" aria-label="79 percent would change jobs for a better pension">
+          <div class="pm-icon-card__icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
+          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">79%</div>
+          <p>of Canadians say they are likely or very likely to <b>change jobs for a better pension</b>.<sup><a href="#sources">6</a></sup></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Power of workplace pensions (4 feature cards + quote)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section pm-section--grey" aria-labelledby="power-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="power-heading">The power of workplace pensions</h2>
+    <p class="pm-section__subtitle">A win-win for employers and employees.</p>
+    <p class="text-center mb-4 pm-section__body">Offering a secure workplace pension and retirement income is a key differentiator and competitive advantage for employers. It demonstrates investment in their talent, provides immediate value on a business and improves employee productivity and engagement.</p>
+
+    <div class="pm-icon-grid">
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-person-plus" aria-hidden="true"></i></div>
+        <h3>Better talent attraction</h3>
+        <p>Demonstrate a long-term investment in both existing and incoming talent, while reducing turnover costs and time.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+        <h3>Boosted brand and bottom line</h3>
+        <p>Pensions enhance compensation efficiency and workplace productivity, so employers can support employees' savings needs while improving the bottom line.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+        <h3>No liabilities, minimized risks</h3>
+        <p>There are no financial risks when joining DBplus. Employers' contributions are fixed and will not change, unless requested by the employer. Both employee and employer contribute to the Plan.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
+        <h3>Achieve ESG and financial wellness</h3>
+        <p>Promote corporate social responsibility by helping employees save towards a paycheque for life, which improves our social security system, quality and satisfaction of life, and holistic wellness.</p>
+      </div>
+    </div>
+
+    <!-- Testimonial — caat-testimonial component -->
+    <div class="mt-4 pm-testimonial-wrapper"
+         data-analytics-component="testimonial" data-analytics-variant="no-photo">
+      <div class="caat-testimonial">
+        <blockquote class="caat-testimonial__quote">
+          <p>"While many Canadians find themselves in a new job, employers also need to put the focus on those who stayed in their roles. It's now time for the 'Great Recognition' and to build a culture of appreciation."</p>
+        </blockquote>
+        <div class="caat-testimonial__attribution">
+          <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">EY</span>
+          <div>
+            <strong class="caat-testimonial__name">Ed Yuen</strong><br>
+            <span class="caat-testimonial__role">Vice President, Strategy and HR Outsourcing · ADP Canada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: DBplus by CAAT
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" aria-labelledby="dbplus-heading">
+  <div class="container text-center">
+    <h2 class="pm-section__title" id="dbplus-heading">DBplus by the CAAT Pension Plan</h2>
+    <p class="pm-section__subtitle">Canada's modern workplace pension plan</p>
+    <p class="pm-section__body fw-semibold mb-3">There's a reason employers choose DBplus to meet their business goals.</p>
+    <p class="pm-section__body"><b>CAAT Pension Plan</b> is one of Canada's most sustainable, fastest-growing, and highest-performing pension plans. And, we're a not-for-profit.</p>
+    <p class="pm-section__body">Our <b>DBplus</b> offering is a unique and innovative design that unites the best of defined benefit, defined contribution and group RRSPs.</p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Why employers select DBplus (6 benefit cards)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section pm-section--grey" aria-labelledby="why-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="why-heading">Why employers select DBplus as the retirement solution of choice</h2>
+
+    <div class="pm-icon-grid pm-icon-grid--narrow">
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+        <p class="mb-0">Improve retention, recruiting, and productivity at no added cost.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-piggy-bank" aria-hidden="true"></i></div>
+        <p class="mb-0">Cost-certainty with fixed contributions.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-sliders" aria-hidden="true"></i></div>
+        <p class="mb-0">Flexible options to suit organizational needs and budget.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-calculator" aria-hidden="true"></i></div>
+        <p class="mb-0">Simple accounting and no hidden or extra costs for all services.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-headset" aria-hidden="true"></i></div>
+        <p class="mb-0">Fully supported transition by a team of pension experts.</p>
+      </div>
+      <div class="pm-icon-card">
+        <div class="pm-icon-card__icon"><i class="bi bi-list-check" aria-hidden="true"></i></div>
+        <p class="mb-0">Simple steps to implement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Video — "A modern business solution"
+     Video ID: lKio-saZuQE (from original source)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" aria-labelledby="video-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="video-heading">A modern business solution that improves the bottom line</h2>
+    <p class="pm-section__subtitle">The cost certainty employers want and the valuable lifetime income employees need.</p>
+
+    <div class="pm-video-row">
+      <div class="pm-video-embed">
+        <iframe src="https://www.youtube.com/embed/lKio-saZuQE?rel=0"
+                title="CAAT Pension Plan — A modern business solution"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                loading="lazy"
+                allowfullscreen></iframe>
+      </div>
+      <div class="text-center d-flex flex-column align-items-center justify-content-center">
+        <h3 class="pm-video-row__title">Why DBplus?</h3>
+        <p class="pm-video-row__subtitle">See how CAAT's DBplus plan delivers cost certainty for employers and lifetime income for employees.</p>
+        <a href="https://www.youtube.com/@CAATPensionPlanYoutube" target="_blank" rel="noopener noreferrer"
+           class="caat-button caat-button--outline-primary caat-button--sm">
+          Watch more videos <i class="bi bi-play-circle caat-button__icon" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Employer logos + quote — caat-logo-wall component
+     Component: /components/logo-wall.html
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section pm-section--grey" aria-labelledby="employers-heading">
+  <div class="container">
+    <div class="caat-logo-wall" data-analytics-component="logo-wall" data-analytics-variant="default">
+      <div class="caat-logo-wall__header">
+        <h2 class="caat-logo-wall__title" id="employers-heading">Employers across Canada are winning the race for talent by offering DBplus in the workplace</h2>
+        <p class="caat-logo-wall__subtitle">DBplus is now available to workplaces across Canada, offering employers an opportunity to tap into a CAAT's jointly sponsored pension plan, while offering unique and desirable features.</p>
+      </div>
+      <div class="caat-logo-wall__footer mb-4">
+        <a href="https://www.caatpension.ca/pension-solutions/success-stories" target="_blank" rel="noopener noreferrer"
+           class="caat-button caat-button--primary caat-button--sm">
+          Read our success stories <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="caat-logo-wall__grid" role="list" aria-label="Participating employers">
+        <div class="caat-logo-wall__item" role="listitem">
+          <img src="https://placehold.co/200x80/f8f9fa/506273?text=Jamieson" alt="Jamieson Natural Sources" loading="lazy">
+        </div>
+        <div class="caat-logo-wall__item" role="listitem">
+          <img src="https://placehold.co/200x80/f8f9fa/506273?text=Brink's" alt="Brink's" loading="lazy">
+        </div>
+        <div class="caat-logo-wall__item" role="listitem">
+          <img src="https://placehold.co/200x80/f8f9fa/506273?text=CBIA" alt="CBIA Lawyers Financial" loading="lazy">
+        </div>
+        <div class="caat-logo-wall__item" role="listitem">
+          <img src="https://placehold.co/200x80/f8f9fa/506273?text=Torstar" alt="Torstar" loading="lazy">
+        </div>
+        <div class="caat-logo-wall__item" role="listitem">
+          <img src="https://placehold.co/200x80/f8f9fa/506273?text=Sanofi" alt="Sanofi" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial — caat-testimonial component -->
+    <div class="mt-4 pm-testimonial-wrapper"
+         data-analytics-component="testimonial" data-analytics-variant="with-photo">
+      <div class="caat-testimonial">
+        <blockquote class="caat-testimonial__quote">
+          <p>"CAAT's purpose is bigger than pensions—they really want to make Canada better... CAAT inspires me and captures the optimism and energy that makes Canada special."</p>
+        </blockquote>
+        <div class="caat-testimonial__attribution">
+          <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">JR</span>
+          <div>
+            <strong class="caat-testimonial__name">John Ruffolo</strong><br>
+            <span class="caat-testimonial__role">Founder and Managing Partner, Maverix Private Equity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Value comparison — Data Visualization component
+     Uses: caat-dataviz horizontal bar chart
+     Component: /components/data-visualization.html
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" aria-labelledby="value-heading">
+  <div class="container">
+    <h2 class="pm-section__title" id="value-heading">A modern workplace retirement solution that delivers more value</h2>
+    <p class="pm-section__subtitle">Here's how the power of Plus measures up.</p>
+    <p class="text-center mb-2 pm-section__body">The expected pension per dollar contributed is meaningfully higher with a modern DB plan, like CAAT's DBplus.<sup><a href="#sources">8</a></sup></p>
+    <p class="text-center fw-semibold mb-4 pm-section__body">What each $1 of contribution provides on average in retirement:</p>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Data Visualization: Horizontal Bar Chart -->
+        <div role="img" aria-label="Contribution value comparison: Canada-model pension plans like DBplus provide $5.32 per dollar, Group RRSP or Defined Contribution plans provide $2.58 per dollar">
+          <div class="caat-dataviz__bar-chart">
+            <div class="caat-dataviz__bar-row">
+              <span class="caat-dataviz__bar-label">Canada-model pension plans, like DBplus</span>
+              <div class="caat-dataviz__bar-track">
+                <div class="caat-dataviz__bar caat-dataviz__bar--striped" style="width:100%;" aria-hidden="true">$5.32</div>
+              </div>
+            </div>
+            <div class="caat-dataviz__bar-row">
+              <span class="caat-dataviz__bar-label">Group RRSP or Defined Contribution Plans</span>
+              <div class="caat-dataviz__bar-track">
+                <div class="caat-dataviz__bar caat-dataviz__bar--striped-green" style="width:48.5%;" aria-hidden="true">$2.58</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend -->
+          <div class="caat-dataviz__legend mt-3">
+            <div class="caat-dataviz__legend-item">
+              <span class="caat-dataviz__legend-dot--striped" aria-hidden="true"></span>
+              Canada-model DB (DBplus) — $5.32
+            </div>
+            <div class="caat-dataviz__legend-item">
+              <span class="caat-dataviz__legend-dot--striped-green" aria-hidden="true"></span>
+              Group RRSP / DC — $2.58
+            </div>
+          </div>
+
+          <!-- Plain-language note -->
+          <div class="caat-dataviz__note">
+            <strong>What this means:</strong> For every $1 contributed, a Canada-model pension plan like CAAT's DBplus delivers over twice the retirement value compared to a Group RRSP or Defined Contribution plan.
+          </div>
+        </div>
+
+        <!-- Accessible table fallback -->
+        <div class="caat-dataviz__table-fallback">
+          <table>
+            <caption>Pension value per $1 of contribution</caption>
+            <thead>
+              <tr><th>Plan type</th><th>Value per $1 contributed</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Canada-model pension plans, like DBplus</td><td>$5.32</td></tr>
+              <tr><td>Group RRSP or Defined Contribution Plans</td><td>$2.58</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: Strength & sustainability (blue band with metrics)
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section pm-section--blue" aria-labelledby="strength-heading">
+  <div class="container text-center">
+    <h2 class="pm-section__title" id="strength-heading">As a world-class pension plan, our expert team focuses on strength and sustainability over the long term</h2>
+    <div class="pm-metrics" role="region" aria-label="CAAT plan performance metrics">
+      <div>
+        <div class="pm-metric__value" aria-hidden="true">97%</div>
+        <div class="pm-metric__label">endorsement rate from CAAT's participating employers and members</div>
+        <span class="visually-hidden">97 percent endorsement rate from participating employers and members</span>
+      </div>
+      <div>
+        <div class="pm-metric__value" aria-hidden="true">+9.6%</div>
+        <div class="pm-metric__label">average 10-year net return rate</div>
+        <span class="visually-hidden">Plus 9.6 percent average 10-year net return rate</span>
+      </div>
+      <div>
+        <div class="pm-metric__value" aria-hidden="true">$23.3 <span class="pm-metric__unit">Billion</span></div>
+        <div class="pm-metric__label">Net Assets</div>
+        <span class="visually-hidden">23.3 billion dollars in net assets</span>
+      </div>
+      <div>
+        <div class="pm-metric__value" aria-hidden="true">$6.1 <span class="pm-metric__unit">Billion</span></div>
+        <div class="pm-metric__label">Funding reserves</div>
+        <span class="visually-hidden">6.1 billion dollars in funding reserves</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION: CTA — Let's build financial security together
+     ════════════════════════════════════════════════════════════ -->
+<section class="pm-section" id="cta" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="pm-cta">
+      <h2 id="cta-heading">Let's build financial security together</h2>
+      <p>CAAT's fully managed retirement programs are designed with lifetime income and institutional support at their core. Whether you are looking to evolve your DC plan offering or eliminate the drawdown or decumulation burden altogether, we can help you explore what is possible.</p>
+      <a href="https://go.caatpension.ca/pension-solutions?utm_content=/pension-matter"
+         target="_blank" rel="noopener noreferrer"
+         class="caat-button caat-button--primary caat-button--lg">
+        Talk to us today <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+      </a>
+      <div class="pm-cta__disclaimer" role="note">
+        CAAT's experts are all straight salary and do not earn bonuses or commissions. As a non-profit, our focus is on improving outcomes for employers, employees, and Canada. We want to help you win the race for talent and will help any way we can. No pressure. No obligations. All confidential.
+      </div>
+      <p class="text-center mt-3"><small>© CAAT Pension Plan. All Rights Reserved.</small></p>
+    </div>
+
+    <!-- Footnotes -->
+    <nav class="pm-footnotes" id="sources" aria-label="Footnotes" role="doc-endnotes">
+      <ol>
+        <li id="fn1">Healthcare of Ontario Pension Plan and Abacus Data, 2021 Canadian Retirement Survey, May 2021</li>
+        <li id="fn2">Mercer Global Trends Survey, 2022</li>
+        <li id="fn3">Deloitte, The C-suite's role in well-being, June 22, 2022</li>
+        <li id="fn4">Healthcare of Ontario Pension Plan and Abacus Data, 2021 Canadian Retirement Survey, May 2021</li>
+        <li id="fn5">Manulife Investment Management, Manulife Canada Retirement Study: Stress, Finances, Well-being, 2022</li>
+        <li id="fn6">Healthcare of Ontario Pension Plan and Abacus Data, 2021 Canadian Retirement Survey, May 2021</li>
+        <li id="fn7">OMERS, OMERS Pension Plan: Social Value Benefits, 2021</li>
+        <li id="fn8">The Value of a Good Pension study, prepared by the Healthcare of Ontario Pension Plan</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER — caat-full-footer component
+     Component: /components/navigation.html (Variant 3: Full Footer)
+     ════════════════════════════════════════════════════════════ -->
+<footer class="caat-full-footer-demo pm-footer"
+        role="contentinfo" data-analytics-component="footer">
+  <div class="container">
+    <div class="caat-full-footer-grid">
+      <div>
+        <h4 class="caat-full-footer-heading">Quick Links</h4>
+        <ul class="caat-full-footer-list">
+          <li><a href="#">Estimate your pension</a></li>
+          <li><a href="#">Make a purchase</a></li>
+          <li><a href="#">Plan Ambassadors</a></li>
+          <li><a href="#">Employers</a></li>
+          <li><a href="#">Employer education</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="caat-full-footer-heading">Pension Solutions</h4>
+        <ul class="caat-full-footer-list">
+          <li><a href="#">Why join DBplus?</a></li>
+          <li><a href="#">How to join DBplus</a></li>
+          <li><a href="#">What employers get</a></li>
+          <li><a href="#">What employees get</a></li>
+          <li><a href="#">Success stories</a></li>
+          <li><a href="#">Resources for interested parties</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="caat-full-footer-heading">Your Pension</h4>
+        <ul class="caat-full-footer-list">
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Member resources</a></li>
+          <li><a href="#">Start your pension</a></li>
+          <li><a href="#">Collecting your pension</a></li>
+          <li><a href="#">Member newsletters</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="caat-full-footer-heading">Contact Us</h4>
+        <ul class="caat-full-footer-list">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Support Centre</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="caat-full-footer-bottom">
+      <div class="caat-full-footer-logo">
+        <a href="/" aria-label="CAAT Pension Plan — Home">
+          <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="56">
+        </a>
+      </div>
+      <div class="caat-footer-legal" role="navigation" aria-label="Legal links">
+        <a href="#">Site map</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Accessibility</a>
+      </div>
+      <div class="caat-footer-social">
+        <a href="https://www.linkedin.com/company/caat-pension-plan/" aria-label="CAAT on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/@CAATPensionPlanYoutube" aria-label="CAAT on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <p class="caat-footer-copyright"><small>&copy; 2026 CAAT Pension Plan. All Rights Reserved.</small></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

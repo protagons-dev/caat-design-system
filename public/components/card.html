@@ -1,0 +1,988 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Card AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Card | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">AEM</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link active" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Card</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Card</h1>
+      <p class="text-muted">A flexible content-grouping component for displaying headings, summaries, images, icons, and links across CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Card',['/assets/css/tokens.css','/assets/css/components/card.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Icon cards (3-up) -->
+      <h3 class="mt-3 mb-2">Icon cards</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <article class="card caat-card"
+                       data-analytics-component="card"
+                       data-analytics-category="icon-card"
+                       data-analytics-label="for-members"
+                       data-analytics-destination="/en/members">
+                <div class="card-body text-center">
+                  <span class="icon-token mb-3" aria-hidden="true"><i class="bi bi-people-fill"></i></span>
+                  <h3 class="card-title">For members</h3>
+                  <p class="card-text">Access your pension information, tools, and resources to plan your retirement with confidence.</p>
+                  <a href="/en/members" class="stretched-link">Learn more about member benefits</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="card caat-card"
+                       data-analytics-component="card"
+                       data-analytics-category="icon-card"
+                       data-analytics-label="for-employers"
+                       data-analytics-destination="/en/employers">
+                <div class="card-body text-center">
+                  <span class="icon-token mb-3" aria-hidden="true"><i class="bi bi-building"></i></span>
+                  <h3 class="card-title">For employers</h3>
+                  <p class="card-text">Discover how CAAT helps you offer a secure, sustainable pension plan to your employees.</p>
+                  <a href="/en/employers" class="stretched-link">Explore employer solutions</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="card caat-card"
+                       data-analytics-component="card"
+                       data-analytics-category="icon-card"
+                       data-analytics-label="plan-performance"
+                       data-analytics-destination="/en/investments">
+                <div class="card-body text-center">
+                  <span class="icon-token mb-3" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
+                  <h3 class="card-title">Plan performance</h3>
+                  <p class="card-text">Review our investment strategy, funding status, and annual performance reports.</p>
+                  <a href="/en/investments" class="stretched-link">View plan performance</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image cards (2-up) -->
+      <h3 class="mb-2">Image cards</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="card caat-card"
+                       data-analytics-component="card"
+                       data-analytics-category="image-card"
+                       data-analytics-label="retirement-planning"
+                       data-analytics-destination="/en/resources/retirement-planning">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=340&fit=crop" class="card-img-top" alt="Couple reviewing financial documents at a kitchen table">
+                <div class="card-body">
+                  <span class="caat-card-kicker">Resources</span>
+                  <h3 class="card-title">Retirement planning guide</h3>
+                  <p class="card-text">Everything you need to know about planning for a secure retirement with CAAT.</p>
+                  <a href="/en/resources/retirement-planning" class="stretched-link">Read the guide</a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="card caat-card"
+                       data-analytics-component="card"
+                       data-analytics-category="image-card"
+                       data-analytics-label="annual-report"
+                       data-analytics-destination="/en/resources/annual-report">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop" class="card-img-top" alt="Data charts displayed on a laptop screen">
+                <div class="card-body">
+                  <span class="caat-card-kicker">Reports</span>
+                  <h3 class="card-title">2025 Annual report</h3>
+                  <p class="card-text">Review CAAT's investment performance, membership growth, and financial highlights.</p>
+                  <a href="/en/resources/annual-report" class="stretched-link">Download the report</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Media overlay card -->
+      <h3 class="mb-2">Media overlay card</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="row g-4">
+            <div class="col-md-8">
+              <article class="card caat-card caat-card--overlay"
+                       data-analytics-component="card"
+                       data-analytics-category="overlay-card"
+                       data-analytics-label="webinar-event"
+                       data-analytics-destination="/en/events/webinar">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=450&fit=crop" class="card-img" alt="Presenter speaking at a corporate webinar event">
+                <div class="card-img-overlay overlay-panel d-flex flex-column justify-content-end">
+                  <span class="caat-card-kicker text-white">Upcoming event</span>
+                  <h3 class="card-title text-white">Pension planning webinar — June 2026</h3>
+                  <p class="card-text text-white">Join our experts for a live session on maximising your CAAT pension benefits.</p>
+                  <a href="/en/events/webinar" class="stretched-link text-white">Register for the event</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Icon card --&gt;
+&lt;article class="card caat-card"
+         data-analytics-component="card"
+         data-analytics-category="icon-card"
+         data-analytics-label="for-members"&gt;
+  &lt;div class="card-body text-center"&gt;
+    &lt;span class="icon-token mb-3" aria-hidden="true"&gt;
+      &lt;i class="bi bi-people-fill"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;h3 class="card-title"&gt;For members&lt;/h3&gt;
+    &lt;p class="card-text"&gt;Access your pension information…&lt;/p&gt;
+    &lt;a href="/en/members" class="stretched-link"&gt;Learn more&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- Image card with kicker --&gt;
+&lt;article class="card caat-card"&gt;
+  &lt;img src="/content/dam/caat/images/hero.jpg"
+       class="card-img-top"
+       alt="Descriptive alt text"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;span class="caat-card-kicker"&gt;Resources&lt;/span&gt;
+    &lt;h3 class="card-title"&gt;Retirement planning guide&lt;/h3&gt;
+    &lt;p class="card-text"&gt;Everything you need to know…&lt;/p&gt;
+    &lt;a href="/en/resources/guide" class="stretched-link"&gt;Read the guide&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- Media overlay card --&gt;
+&lt;article class="card caat-card caat-card--overlay"&gt;
+  &lt;img src="/content/dam/caat/images/event.jpg"
+       class="card-img"
+       alt="Presenter at corporate event"&gt;
+  &lt;div class="card-img-overlay overlay-panel d-flex flex-column justify-content-end"&gt;
+    &lt;span class="caat-card-kicker text-white"&gt;Event&lt;/span&gt;
+    &lt;h3 class="card-title text-white"&gt;Pension webinar&lt;/h3&gt;
+    &lt;p class="card-text text-white"&gt;Join our experts…&lt;/p&gt;
+    &lt;a href="/en/events/webinar" class="stretched-link text-white"&gt;Register&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Card</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/card</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Extend the AEM Core Teaser component (<code>core/wcm/components/teaser/v2/teaser</code>)</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Display grouped content with a heading, summary, image or icon, and link — suitable for value propositions, resource listings, event promotions, and audience pathway navigation</td></tr>
+          <tr><th>Existing AEM components replaced</th><td>Card Grid Component (#25), Container with Card Style (#28), Multi Tile Listing (#43)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Value proposition cards (icon-based, 3-up or 4-up grid)</li>
+        <li>Resource cards with images (guides, reports, articles)</li>
+        <li>Event cards with date and registration link</li>
+        <li>Audience pathway cards (For members, For employers)</li>
+        <li>Content listing cards (blog, news)</li>
+        <li>Media overlay cards (featured content with background image)</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>This component is not for navigation menus — use the Navigation component</li>
+        <li>It is not a form container — use the Form component for data collection</li>
+        <li>It is not for hero-level messaging — use the Hero component for full-width feature areas</li>
+        <li>It does not manage interactive carousels or sliders</li>
+        <li>It does not replace inline content blocks or rich-text sections</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-grey-200</code></td><td>#e9ecef</td><td>Card border colour</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#dceefb</td><td>Icon-token background tint</td></tr>
+            <tr><td><code>--caat-blue-300</code></td><td>#6db3e3</td><td>Icon-token icon colour</td></tr>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Card heading colour, link colour</td></tr>
+            <tr><td><code>--caat-green-100</code></td><td>#e6f4e5</td><td>Kicker background tint</td></tr>
+            <tr><td><code>--caat-green-700</code></td><td>#367f32</td><td>Kicker text colour</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>#0b5a80</td><td>Link hover colour</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>.75rem</td><td>Card border radius (standard)</td></tr>
+            <tr><td><code>--caat-radius-lg</code></td><td>1rem</td><td>Card border radius (large / overlay variant)</td></tr>
+            <tr><td><code>--caat-shadow</code></td><td>0 .5rem 1rem rgba(0,0,0,.08)</td><td>Card hover elevation shadow</td></tr>
+            <tr><td><code>--caat-shadow-sm</code></td><td>0 .125rem .25rem rgba(0,0,0,.05)</td><td>Card resting shadow</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Icon card</strong> — centred layout with icon-token, heading, summary, and stretched link</li>
+        <li><strong>Image card</strong> — top image with card-body containing optional kicker, heading, summary, and link</li>
+        <li><strong>Media overlay</strong> — full-bleed background image with overlay-panel containing heading and link</li>
+        <li><strong>Content card</strong> — text-only card without image or icon</li>
+      </ul>
+
+      <h3>Sizes</h3>
+      <ul>
+        <li><strong>Standard</strong> — default card height, auto-sized to content</li>
+        <li><strong>Compact</strong> (<code>.caat-card--compact</code>) — reduced padding and smaller typography for dense layouts</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Content tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td>Text field</td><td>Yes</td><td>—</td><td>Card title. Max 80 characters recommended.</td></tr>
+            <tr><td>Heading level</td><td>Dropdown</td><td>No</td><td>h3</td><td>h2 | h3 | h4. Allows authors to maintain heading hierarchy.</td></tr>
+            <tr><td>Summary</td><td>Text area</td><td>No</td><td>—</td><td>Short description. Max 160 characters recommended.</td></tr>
+            <tr><td>Link URL</td><td>Path browser</td><td>Yes*</td><td>—</td><td>Required for clickable cards. Internal or external URL.</td></tr>
+            <tr><td>Link label</td><td>Text field</td><td>No</td><td>—</td><td>Visible link text. If empty, the stretched-link is visually hidden but accessible.</td></tr>
+            <tr><td>Image</td><td>Image picker</td><td>No</td><td>—</td><td>DAM image reference. Used for Image and Overlay variants.</td></tr>
+            <tr><td>Image alt text</td><td>Text field</td><td>Conditional</td><td>—</td><td>Required when an image is provided. Decorative images should use empty alt.</td></tr>
+            <tr><td>Kicker</td><td>Text field</td><td>No</td><td>—</td><td>Small label above heading (e.g. "Resources", "Event"). Max 3 words.</td></tr>
+            <tr><td>Icon</td><td>Dropdown</td><td>No</td><td>None</td><td>Icon for the Icon card variant. Options: none, people, building, graph, shield, calendar, document.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Style tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Dropdown</td><td>Yes</td><td>Image card</td><td>icon | image | overlay | content</td></tr>
+            <tr><td>Card height</td><td>Dropdown</td><td>No</td><td>Auto</td><td>auto | fixed (equal-height cards in a row)</td></tr>
+            <tr><td>Image aspect ratio</td><td>Dropdown</td><td>No</td><td>16:9</td><td>16:9 | 4:3 | 1:1. Only shown for Image and Overlay variants.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Link target</td><td>Checkbox</td><td>No</td><td>Same tab</td><td>If checked, opens in new tab and adds <code>rel="noopener"</code>.</td></tr>
+            <tr><td>Analytics label</td><td>Text field</td><td>No</td><td>—</td><td>Custom label for analytics reporting. Auto-generated from heading if empty.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>Heading</strong> is required. The dialog must not allow saving without it.</li>
+        <li><strong>Link URL</strong> is required for clickable cards. If no URL is provided, the card renders as a static (non-linked) block.</li>
+        <li><strong>Image alt text</strong> is required when an image is present. The dialog must display a warning if the image field is populated but alt text is empty.</li>
+        <li><strong>Kicker</strong> must not exceed 3 words. Display a validation warning if exceeded.</li>
+        <li><strong>Overlay cards</strong> must have sufficient text-to-background contrast. The overlay-panel gradient must ensure a minimum 4.5 : 1 contrast ratio for body text.</li>
+        <li>If <strong>Link target</strong> is set to "New tab", the system must automatically append <code>rel="noopener"</code> to the rendered anchor.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Good examples</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Explore pension solutions"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Register for the event"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Download the guide"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "View 2025 annual report"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> "Learn about employer benefits"</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Avoid</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Click here"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> "Read more" (without context)</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Mixing unrelated content types in the same card row</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Using overlay cards without high-contrast gradient</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Kickers longer than 3 words</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Icon card</h3>
+<pre class="code-sample mb-4"><code>&lt;article class="card caat-card"&gt;
+  &lt;div class="card-body text-center"&gt;
+    &lt;span class="icon-token" aria-hidden="true"&gt;
+      &lt;i class="bi bi-people-fill"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;h3 class="card-title"&gt;For members&lt;/h3&gt;
+    &lt;p class="card-text"&gt;Access your pension information and tools.&lt;/p&gt;
+    &lt;a href="/en/members" class="stretched-link"&gt;Learn more about member benefits&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+      <h3 class="mb-2">Image card with kicker</h3>
+<pre class="code-sample mb-4"><code>&lt;article class="card caat-card"&gt;
+  &lt;img src="/content/dam/caat/images/guide.jpg"
+       class="card-img-top"
+       alt="Couple reviewing financial documents"&gt;
+  &lt;div class="card-body"&gt;
+    &lt;span class="caat-card-kicker"&gt;Resources&lt;/span&gt;
+    &lt;h3 class="card-title"&gt;Retirement planning guide&lt;/h3&gt;
+    &lt;p class="card-text"&gt;Everything you need to plan your retirement.&lt;/p&gt;
+    &lt;a href="/en/resources/guide" class="stretched-link"&gt;Read the guide&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+      <h3 class="mb-2">Media overlay card</h3>
+<pre class="code-sample"><code>&lt;article class="card caat-card caat-card--overlay"&gt;
+  &lt;img src="/content/dam/caat/images/event.jpg"
+       class="card-img"
+       alt="Presenter at corporate webinar"&gt;
+  &lt;div class="card-img-overlay overlay-panel d-flex flex-column justify-content-end"&gt;
+    &lt;span class="caat-card-kicker text-white"&gt;Upcoming event&lt;/span&gt;
+    &lt;h3 class="card-title text-white"&gt;Pension planning webinar&lt;/h3&gt;
+    &lt;p class="card-text text-white"&gt;Join our experts for a live session.&lt;/p&gt;
+    &lt;a href="/en/events/webinar" class="stretched-link text-white"&gt;Register&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The card component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/card.css">/assets/css/components/card.css</a>.</p>
+
+      <h3 class="mb-2">Base styles</h3>
+<pre class="code-sample mb-4"><code>.caat-card {
+  border: 1px solid var(--caat-grey-200, #e9ecef);
+  border-radius: var(--caat-radius, .75rem);
+  box-shadow: var(--caat-shadow-sm);
+  transition: box-shadow .18s ease, transform .18s ease;
+  overflow: hidden;
+}
+
+.caat-card:hover {
+  box-shadow: var(--caat-shadow);
+  transform: translateY(-2px);
+}
+
+/* Icon token */
+.caat-card .icon-token {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: var(--caat-blue-100);
+  color: var(--caat-blue-300);
+  font-size: 1.5rem;
+}
+
+/* Kicker */
+.caat-card-kicker {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--caat-green-700);
+  margin-bottom: .5rem;
+}
+
+/* Overlay variant */
+.caat-card--overlay {
+  border-radius: var(--caat-radius-lg, 1rem);
+}
+
+.caat-card--overlay .overlay-panel {
+  background: linear-gradient(to top, rgba(0,55,80,.85) 0%, transparent 100%);
+  padding: 1.5rem;
+}
+
+/* Focus ring on stretched-link */
+.caat-card .stretched-link:focus-visible {
+  box-shadow: var(--caat-focus);
+  outline: 0;
+}</code></pre>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Keyboard access</td>
+              <td>Cards using <code>.stretched-link</code> must be focusable and activatable via <kbd>Tab</kbd> and <kbd>Enter</kbd>. The entire card surface acts as the hit area.</td>
+            </tr>
+            <tr>
+              <td>Focus state</td>
+              <td>A visible focus ring (<code>var(--caat-focus)</code>) must appear on the stretched-link on <code>:focus-visible</code>. The ring must meet a 3 : 1 contrast ratio.</td>
+            </tr>
+            <tr>
+              <td>Image alt text</td>
+              <td>All card images must have descriptive <code>alt</code> text. Purely decorative images may use <code>alt=""</code> but must not omit the attribute.</td>
+            </tr>
+            <tr>
+              <td>Heading hierarchy</td>
+              <td>Card headings must fit within the page's heading hierarchy. Authors can choose h2, h3, or h4 via the authoring dialog.</td>
+            </tr>
+            <tr>
+              <td>Article landmark</td>
+              <td>Each card is rendered as an <code>&lt;article&gt;</code> element, providing a meaningful landmark for assistive technologies.</td>
+            </tr>
+            <tr>
+              <td>Colour contrast</td>
+              <td>Text-to-background contrast must meet WCAG 2.1 AA in all variants, including overlay cards with gradient backgrounds.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li>Use descriptive, keyword-rich headings in card titles. Avoid generic text.</li>
+        <li>All card links must use real <code>href</code> attributes that resolve to valid, crawlable URLs.</li>
+        <li>Maintain a structured heading hierarchy — card headings should logically nest under the page's section headings.</li>
+        <li>Image cards should include meaningful <code>alt</code> text that supports image search indexing.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td>card</td><td>Identifies the component type in the data layer.</td></tr>
+            <tr><td><code>data-analytics-category</code></td><td>icon-card</td><td>Card variant for segmented reporting (icon-card | image-card | overlay-card | content-card).</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>for-members</td><td>Human-readable label for the specific card instance.</td></tr>
+            <tr><td><code>data-analytics-destination</code></td><td>/en/members</td><td>Target URL recorded with the event.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>Click</strong> — fires when the card link is activated (mouse or keyboard).</li>
+        <li><strong>Impression</strong> — fires once when the card scrolls into the viewport (Intersection Observer, 50 % threshold).</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component consolidates and replaces three existing AEM components:</p>
+      <ul>
+        <li><strong>Card Grid Component (#25)</strong> — grid-based card layout</li>
+        <li><strong>Container with Card Style (#28)</strong> — container with card visual treatment</li>
+        <li><strong>Multi Tile Listing (#43)</strong> — tile-based content listing</li>
+      </ul>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span>
+         Rebuild to new brand standards. Consolidate three legacy components into a single, token-driven card component.</p>
+
+      <h3>Proxy / extend guidance</h3>
+      <p>Create a proxy component at <code>/apps/caat/components/card</code> that extends the
+         AEM Core Teaser v2 (<code>core/wcm/components/teaser/v2/teaser</code>).
+         Override <code>teaser.html</code> to emit the CAAT class names, semantic <code>&lt;article&gt;</code> wrapper, and data attributes.</p>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.card</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>card.css</code></li>
+        <li><strong>JS:</strong> <code>card.js</code> (analytics wiring, impression observer)</li>
+      </ul>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>card/
+├── _cq_dialog/
+│   └── .content.xml          # Touch UI dialog
+├── _cq_editConfig.xml         # Edit configuration
+├── .content.xml                # Component node definition
+├── card.html                   # HTL template
+├── clientlibs/
+│   ├── .content.xml
+│   ├── css/
+│   │   └── card.css
+│   └── js/
+│       └── card.js
+└── README.md                   # Dev notes</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/components/card — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              heading:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./heading
+                fieldLabel: Heading
+                required: true
+                maxlength: 80
+              headingLevel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./headingLevel
+                fieldLabel: Heading level
+                items:
+                  - { text: H2, value: h2 }
+                  - { text: H3, value: h3 }
+                  - { text: H4, value: h4 }
+              summary:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textarea
+                name: ./summary
+                fieldLabel: Summary
+                maxlength: 160
+              linkURL:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./linkURL
+                fieldLabel: Link URL
+                rootPath: /content
+              linkLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./linkLabel
+                fieldLabel: Link label
+              image:
+                sling:resourceType: granite/ui/components/coral/foundation/form/fileupload
+                name: ./image
+                fieldLabel: Image
+                fileReferenceParameter: ./fileReference
+              imageAltText:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./imageAltText
+                fieldLabel: Image alt text
+              kicker:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./kicker
+                fieldLabel: Kicker
+                maxlength: 30
+              icon:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./icon
+                fieldLabel: Icon
+                items:
+                  - { text: None,     value: none }
+                  - { text: People,   value: people }
+                  - { text: Building, value: building }
+                  - { text: Graph,    value: graph }
+                  - { text: Shield,   value: shield }
+                  - { text: Calendar, value: calendar }
+                  - { text: Document, value: document }
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              variant:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./variant
+                fieldLabel: Variant
+                required: true
+                items:
+                  - { text: Icon card,      value: icon }
+                  - { text: Image card,     value: image }
+                  - { text: Media overlay,  value: overlay }
+                  - { text: Content card,   value: content }
+              cardHeight:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./cardHeight
+                fieldLabel: Card height
+                items:
+                  - { text: Auto,  value: auto }
+                  - { text: Fixed, value: fixed }
+              imageAspectRatio:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./imageAspectRatio
+                fieldLabel: Image aspect ratio
+                items:
+                  - { text: "16:9", value: "16-9" }
+                  - { text: "4:3",  value: "4-3" }
+                  - { text: "1:1",  value: "1-1" }
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              linkTarget:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./linkTarget
+                text: Open in new tab
+                value: _blank
+              analyticsLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./analyticsLabel
+                fieldLabel: Analytics label</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All four variants (icon, image, overlay, content) render correctly with expected layout and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cards display in responsive grid layouts (1-up, 2-up, 3-up, 4-up) and reflow correctly on mobile viewports.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Hover and focus states are visually distinct — shadow elevation and focus ring meet WCAG contrast requirements.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Tab</kbd> to focus stretched-link, <kbd>Enter</kbd> to activate.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Image alt text is present on all image cards; overlay gradient provides sufficient text contrast.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All variants (icon, image, overlay, content) and sizes are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created extending Core Teaser. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics events. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Legacy components (#25, #28, #43) deprecated. Content authors trained. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Card</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Default Card</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <div class="caat-card" style="width:18rem;"><div style="padding:1.25rem;"><div class="icon-token"><i class="bi bi-shield-check"></i></div><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);text-align:center;">Secure Pension</h3><p style="font-size:.9rem;color:var(--caat-ink);text-align:center;">Your pension is backed by a robust funding framework.</p></div></div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Hover</span>
+    <div class="figma-row-items">
+      <div class="caat-card" style="width:18rem;transform:translateY(-3px);box-shadow:var(--caat-shadow);border-color:var(--caat-blue-300);"><div style="padding:1.25rem;"><div class="icon-token"><i class="bi bi-shield-check"></i></div><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);text-align:center;">Secure Pension</h3><p style="font-size:.9rem;color:var(--caat-ink);text-align:center;">Your pension is backed by a robust funding framework.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Image Card</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">With image</span>
+    <div class="figma-row-items">
+      <div class="caat-card" style="width:18rem;"><div class="caat-card-image" style="background:var(--caat-grey);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:2rem;"><i class="bi bi-image"></i></div><div style="padding:1.25rem;"><span class="caat-card-kicker">Pension News</span><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);">DBplus plan updates</h3><p style="font-size:.875rem;color:var(--caat-ink);">Latest changes to your pension plan benefits.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Icon Token Variants</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Blue</span>
+    <div class="figma-row-items"><div class="icon-token" style="width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--caat-blue-100);color:var(--caat-blue-900);font-size:1.5rem;"><i class="bi bi-shield-check"></i></div></div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Green</span>
+    <div class="figma-row-items"><div class="icon-token green" style="width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--caat-green-100);color:var(--caat-green-700);font-size:1.5rem;"><i class="bi bi-graph-up-arrow"></i></div></div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Hover shadow</strong>var(--caat-shadow)</div>
+    <div class="figma-spec"><strong>Hover border</strong>var(--caat-blue-300)</div>
+    <div class="figma-spec"><strong>Hover lift</strong>translateY(-3px)</div>
+    <div class="figma-spec"><strong>Image height</strong>12rem (default)</div>
+    <div class="figma-spec"><strong>Kicker</strong>0.78rem, uppercase, 900 weight</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

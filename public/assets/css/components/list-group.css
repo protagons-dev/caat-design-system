@@ -1,0 +1,120 @@
+/* ==========================================================================
+   List Group Component – CAAT Design System
+   Uses BEM naming: .caat-list-group, __item, __badge, --flush, etc.
+   ========================================================================== */
+
+.caat-list-group {
+  font-family: var(--caat-font-primary);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: var(--caat-radius);
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+}
+
+/* --- Base item --- */
+.caat-list-group__item {
+  display: block;
+  padding: 0.875rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--caat-ink, #102637);
+  background: #fff;
+  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+}
+
+.caat-list-group__item:first-child {
+  border-top-left-radius: var(--caat-radius);
+  border-top-right-radius: var(--caat-radius);
+}
+
+.caat-list-group__item:last-child {
+  border-bottom: none;
+  border-bottom-left-radius: var(--caat-radius);
+  border-bottom-right-radius: var(--caat-radius);
+}
+
+/* --- Actionable items (links/buttons) --- */
+a.caat-list-group__item--action,
+.caat-list-group__item--action a {
+  color: var(--caat-blue-900, #003750);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.caat-list-group__item--action {
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+a.caat-list-group__item--action:hover,
+.caat-list-group__item--action:hover {
+  background-color: var(--caat-blue-100, #e7f4fb);
+  color: var(--caat-blue-900, #003750);
+}
+
+a.caat-list-group__item--action:focus-visible,
+.caat-list-group__item--action a:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+/* --- Active item --- */
+.caat-list-group__item--active {
+  background-color: var(--caat-blue-900, #003750);
+  border-color: var(--caat-blue-900, #003750);
+  color: #fff;
+}
+
+a.caat-list-group__item--active {
+  color: #fff;
+}
+
+/* --- Badge inside item (extends .caat-badge--pill) --- */
+.caat-list-group__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  padding: 0.35em 0.65em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  background-color: var(--caat-blue-900, #003750);
+  border-radius: 50rem;
+  white-space: nowrap;
+}
+
+/* --- Icon + text layout --- */
+.caat-list-group__icon {
+  font-size: 1.1rem;
+  color: var(--caat-blue-900, #003750);
+  flex-shrink: 0;
+}
+
+.caat-list-group__text-secondary {
+  font-size: 0.82rem;
+  color: var(--caat-muted);
+  margin-top: 0.15rem;
+}
+
+/* --- Flush (no outer border, for embedding in cards) --- */
+.caat-list-group--flush {
+  border: none;
+  border-radius: 0;
+}
+
+.caat-list-group--flush .caat-list-group__item {
+  border-radius: 0;
+}
+
+.caat-list-group--flush .caat-list-group__item:first-child {
+  border-top: none;
+  border-radius: 0;
+}
+
+.caat-list-group--flush .caat-list-group__item:last-child {
+  border-bottom: none;
+  border-radius: 0;
+}

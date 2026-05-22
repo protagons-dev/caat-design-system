@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Accordion AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Accordion | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/accordion.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">AEM</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link active" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Accordion</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Accordion</h1>
+      <p class="text-muted">A progressive-disclosure component for FAQ, plan details, and help content in CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Accordion',['/assets/css/tokens.css','/assets/css/components/accordion.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Standard accordion -->
+      <h3 class="mt-3 mb-2">Standard Accordion</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="accordion caat-accordion" id="demoAccordionStandard" data-analytics-component="accordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-analytics-label="what-is-dbplus">
+                  What is the CAAT DBplus pension plan?
+                </button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#demoAccordionStandard">
+                <div class="accordion-body">
+                  The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service. It is available to employees of participating employers across Canada.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-analytics-label="how-to-contribute">
+                  How do I contribute to my pension?
+                </button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#demoAccordionStandard">
+                <div class="accordion-body">
+                  Contributions are automatically deducted from your pay. Both you and your employer contribute a percentage of your earnings. The contribution rates are set by the plan and reviewed periodically to ensure the plan remains fully funded.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" data-analytics-label="when-can-i-retire">
+                  When can I start receiving my pension?
+                </button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#demoAccordionStandard">
+                <div class="accordion-body">
+                  You can start receiving an unreduced pension as early as age 60, or a reduced pension from age 55. The exact amount depends on your years of service and average earnings. Use the pension estimator tool to see your projected benefits.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flush variant -->
+      <h3 class="mb-2">Flush Variant</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="accordion accordion-flush caat-accordion" id="demoAccordionFlush" data-analytics-component="accordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFlushOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlushOne" aria-expanded="false" aria-controls="collapseFlushOne" data-analytics-label="what-is-vesting">
+                  What does "vesting" mean?
+                </button>
+              </h3>
+              <div id="collapseFlushOne" class="accordion-collapse collapse" aria-labelledby="headingFlushOne" data-bs-parent="#demoAccordionFlush">
+                <div class="accordion-body">
+                  Vesting means you have earned the right to receive a pension from the plan. In CAAT DBplus, you are immediately vested — your pension benefit is yours from day one of membership.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFlushTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlushTwo" aria-expanded="false" aria-controls="collapseFlushTwo" data-analytics-label="portability">
+                  Can I transfer my pension if I change employers?
+                </button>
+              </h3>
+              <div id="collapseFlushTwo" class="accordion-collapse collapse" aria-labelledby="headingFlushTwo" data-bs-parent="#demoAccordionFlush">
+                <div class="accordion-body">
+                  If your new employer also participates in CAAT DBplus, your pension continues to grow seamlessly. If they don't, your earned pension stays with CAAT and will be paid to you at retirement.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Always-open variant -->
+      <h3 class="mb-2">Always-Open Variant</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="accordion caat-accordion" id="demoAccordionOpen" data-analytics-component="accordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOpenOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpenOne" aria-expanded="true" aria-controls="collapseOpenOne" data-analytics-label="survivor-benefits">
+                  What are survivor benefits?
+                </button>
+              </h3>
+              <div id="collapseOpenOne" class="accordion-collapse collapse show" aria-labelledby="headingOpenOne">
+                <div class="accordion-body">
+                  If you pass away, your spouse or beneficiary may be entitled to receive a survivor pension or a lump-sum death benefit, depending on your membership status and elections.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOpenTwo">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpenTwo" aria-expanded="true" aria-controls="collapseOpenTwo" data-analytics-label="inflation-protection">
+                  Is my pension protected against inflation?
+                </button>
+              </h3>
+              <div id="collapseOpenTwo" class="accordion-collapse collapse show" aria-labelledby="headingOpenTwo">
+                <div class="accordion-body">
+                  Yes. CAAT DBplus provides conditional inflation protection. The plan's board reviews the funding status each year and may grant increases to help your pension keep pace with the cost of living.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Standard accordion --&gt;
+&lt;div class="accordion caat-accordion" id="faqAccordion"
+     data-analytics-component="accordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h3 class="accordion-header" id="faqHeading1"&gt;
+      &lt;button class="accordion-button" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse1"
+              aria-expanded="true"
+              aria-controls="faqCollapse1"
+              data-analytics-label="question-1"&gt;
+        What is the CAAT DBplus pension plan?
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div id="faqCollapse1" class="accordion-collapse collapse show"
+         aria-labelledby="faqHeading1"
+         data-bs-parent="#faqAccordion"&gt;
+      &lt;div class="accordion-body"&gt;
+        Your answer content here.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Flush variant — add .accordion-flush --&gt;
+&lt;div class="accordion accordion-flush caat-accordion" id="flushAccordion"&gt;
+  &lt;!-- items … --&gt;
+&lt;/div&gt;
+
+&lt;!-- Always-open — omit data-bs-parent --&gt;
+&lt;div class="accordion caat-accordion" id="openAccordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h3 class="accordion-header" id="openHeading1"&gt;
+      &lt;button class="accordion-button" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#openCollapse1"
+              aria-expanded="true"
+              aria-controls="openCollapse1"&gt;
+        Question text
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div id="openCollapse1" class="accordion-collapse collapse show"
+         aria-labelledby="openHeading1"&gt;
+      &lt;div class="accordion-body"&gt;Answer text&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Accordion</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/accordion</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Extend the AEM Core Accordion component (<code>core/wcm/components/accordion</code>)</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Progressive disclosure for FAQ, plan details, and help content</td></tr>
+          <tr>
+            <th>Existing AEM components replaced</th>
+            <td>
+              CAAT Accordion (#3), CAAT Vue Accordion (#19), CAAT Estimators Help (#14), CAAT Estimators Help Vue (#15).
+              <strong>Consolidates 4 existing components into 1.</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>FAQ pages — question-and-answer pairs with optional FAQ schema markup</li>
+        <li>Plan detail explanations — progressive disclosure of pension plan features</li>
+        <li>Help and guidance sections — contextual help within tools and calculators</li>
+        <li>Terms and conditions — collapsible legal sections</li>
+        <li>Estimator help content — replacing the existing Vue-based help accordions</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>This component is not for navigation — do not use it as a menu or nav structure</li>
+        <li>It is not for sequential wizards or stepped processes (use a Stepper component)</li>
+        <li>It must not be used to hide essential legal disclosures that members are required to see</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Accordion button text colour, active indicator</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#e6f0f7</td><td>Expanded header background tint</td></tr>
+            <tr><td><code>--caat-blue-300</code></td><td>#7fb8d8</td><td>Accordion border accent</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>#e9ecef</td><td>Item divider border colour</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on accordion buttons</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Accordion typeface</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Standard</strong> — bordered accordion with background tint on expanded header</li>
+        <li><strong>Flush</strong> (<code>.accordion-flush</code>) — no outer borders or rounded corners, sits flush with surrounding content</li>
+        <li><strong>Always-open</strong> — multiple items can be expanded simultaneously (no <code>data-bs-parent</code>)</li>
+        <li><strong>Nested / FAQ with schema</strong> — standard accordion with <code>itemscope</code> and <code>itemprop</code> attributes for FAQ structured data</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Content tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Heading text (per item)</td><td>Text field</td><td>Yes</td><td>—</td><td>Visible label for the accordion trigger button.</td></tr>
+            <tr><td>Body content (per item)</td><td>Rich text editor</td><td>Yes</td><td>—</td><td>Supports paragraphs, lists, links, images, and embedded components.</td></tr>
+            <tr><td>Heading level</td><td>Dropdown</td><td>No</td><td>h3</td><td>h2 | h3 | h4 | h5. Sets the semantic heading wrapping each accordion button.</td></tr>
+            <tr><td>Expanded by default</td><td>Checkbox (per item)</td><td>No</td><td>Off</td><td>When checked, the item renders in the expanded state on page load.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Style tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Dropdown</td><td>Yes</td><td>Standard</td><td>standard | flush | always-open</td></tr>
+            <tr><td>Single item expand</td><td>Toggle</td><td>No</td><td>On</td><td>When on, only one item can be open at a time (sets <code>data-bs-parent</code>). Disabled when variant is "always-open".</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>FAQ schema output</td><td>Checkbox</td><td>No</td><td>Off</td><td>When checked, renders FAQ structured data (<code>itemscope</code>/<code>itemprop</code>) for eligible pages.</td></tr>
+            <tr><td>Analytics tracking</td><td>Toggle</td><td>No</td><td>On</td><td>When on, emits <code>data-analytics-*</code> attributes and wires expand/collapse events.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>At least one accordion item</strong> is required. The dialog must not allow saving an empty accordion.</li>
+        <li><strong>Heading text</strong> is required for every item. The dialog must not allow saving an item without a heading.</li>
+        <li>Authors must <strong>never hide essential legal disclosures</strong> solely within collapsed accordion panels — such content must be visible by default or presented outside the accordion.</li>
+        <li><strong>FAQ schema output</strong> should only be enabled when the content is genuinely FAQ-eligible (question-and-answer pairs on a page primarily about answering questions).</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Good examples</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Clear, question-style headings: "How do I update my beneficiary?"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Direct answer first, then supporting detail</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Concise answers — 1–2 sentences when possible</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Logically grouped items under a clear section heading</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Use for genuinely optional detail that supports a primary narrative</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Avoid</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Vague headings: "More information", "Details", "Click here"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Nesting accordions more than 1 level deep</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Hiding required action items inside collapsed panels</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Using accordion as the only way to read critical legal content</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Overly long body content — consider splitting into multiple items</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Standard accordion</h3>
+<pre class="code-sample mb-4"><code>&lt;div class="accordion caat-accordion" id="faqAccordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h3 class="accordion-header" id="faqHeading1"&gt;
+      &lt;button class="accordion-button" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faqCollapse1"
+              aria-expanded="true"
+              aria-controls="faqCollapse1"&gt;
+        Question heading text
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div id="faqCollapse1"
+         class="accordion-collapse collapse show"
+         aria-labelledby="faqHeading1"
+         data-bs-parent="#faqAccordion"&gt;
+      &lt;div class="accordion-body"&gt;
+        &lt;p&gt;Answer content here.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mb-2">FAQ schema variant</h3>
+<pre class="code-sample mb-4"><code>&lt;div class="accordion caat-accordion"
+     itemscope itemtype="https://schema.org/FAQPage"&gt;
+  &lt;div class="accordion-item"
+       itemscope itemprop="mainEntity"
+       itemtype="https://schema.org/Question"&gt;
+    &lt;h3 class="accordion-header"&gt;
+      &lt;button class="accordion-button" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#schemaCollapse1"
+              aria-expanded="true"
+              aria-controls="schemaCollapse1"&gt;
+        &lt;span itemprop="name"&gt;What is CAAT DBplus?&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/h3&gt;
+    &lt;div id="schemaCollapse1" class="accordion-collapse collapse show"&gt;
+      &lt;div class="accordion-body"
+           itemscope itemprop="acceptedAnswer"
+           itemtype="https://schema.org/Answer"&gt;
+        &lt;div itemprop="text"&gt;
+          &lt;p&gt;CAAT DBplus is a defined benefit pension plan…&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mb-2">Flush variant</h3>
+<pre class="code-sample"><code>&lt;div class="accordion accordion-flush caat-accordion" id="flushAccordion"&gt;
+  &lt;!-- Same inner structure, no outer borders --&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The accordion component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/accordion.css">/assets/css/components/accordion.css</a>.</p>
+
+      <h3 class="mb-2">Base styles</h3>
+<pre class="code-sample mb-4"><code>.caat-accordion {
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, sans-serif);
+}
+
+.caat-accordion .accordion-item {
+  border-color: var(--caat-grey-200, #e9ecef);
+}
+
+.caat-accordion .accordion-button {
+  font-weight: 600;
+  color: var(--caat-blue-900, #003750);
+  background-color: transparent;
+}
+
+.caat-accordion .accordion-button:not(.collapsed) {
+  background-color: var(--caat-blue-100, #e6f0f7);
+  color: var(--caat-blue-900, #003750);
+  box-shadow: inset 0 -1px 0 var(--caat-grey-200, #e9ecef);
+}
+
+/* Focus ring */
+.caat-accordion .accordion-button:focus-visible {
+  box-shadow: var(--caat-focus);
+  outline: 0;
+}
+
+/* Custom chevron colour */
+.caat-accordion .accordion-button::after {
+  filter: brightness(0) saturate(100%);
+}</code></pre>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Keyboard access</td>
+              <td>Accordion buttons must be reachable via <kbd>Tab</kbd> and toggled with <kbd>Enter</kbd> or <kbd>Space</kbd>. Arrow-key navigation between headers is optional but recommended.</td>
+            </tr>
+            <tr>
+              <td>Focus state</td>
+              <td>A visible focus ring (<code>var(--caat-focus)</code>) must appear on <code>:focus-visible</code>. The ring must meet a 3 : 1 contrast ratio against the background.</td>
+            </tr>
+            <tr>
+              <td>ARIA attributes</td>
+              <td>Each accordion button must have <code>aria-expanded</code> (true/false) and <code>aria-controls</code> pointing to its collapse panel id. The panel must have <code>aria-labelledby</code> pointing back to its header.</td>
+            </tr>
+            <tr>
+              <td>Heading level</td>
+              <td>The heading level wrapping the accordion button must be configurable (h2–h5) so it fits the page's document outline.</td>
+            </tr>
+            <tr>
+              <td>Content visibility</td>
+              <td>When a panel is expanded, its content must be fully accessible to screen readers. Collapsed content should be hidden from assistive technology via the Bootstrap collapse mechanism.</td>
+            </tr>
+            <tr>
+              <td>Colour contrast</td>
+              <td>Text-to-background contrast must meet WCAG 2.1 AA (4.5 : 1 for normal text) in both collapsed and expanded states.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li>Use real heading elements (h2–h5) for accordion headers — do not rely on ARIA roles alone.</li>
+        <li>Enable <strong>FAQ structured data</strong> (<code>itemscope</code>/<code>itemprop</code>) only on pages with genuinely eligible FAQ content. Do not apply to every accordion.</li>
+        <li>Keep answers visible to crawlers — Google can render collapsed Bootstrap accordion content, but ensure key content is in the initial HTML response.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td>accordion</td><td>Identifies the component type for the data layer.</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>faq-pension-plan</td><td>Per-item label for expand/collapse event reporting.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>Expand</strong> — fires when an accordion item is opened. Pushes item label and index to the data layer.</li>
+        <li><strong>Collapse</strong> — fires when an accordion item is closed. Pushes item label and index to the data layer.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component consolidates and replaces:</p>
+      <ul>
+        <li><strong>CAAT Accordion (#3)</strong> — standard server-rendered accordion</li>
+        <li><strong>CAAT Vue Accordion (#19)</strong> — Vue.js-based accordion</li>
+        <li><strong>CAAT Estimators Help (#14)</strong> — help accordion in estimator tools</li>
+        <li><strong>CAAT Estimators Help Vue (#15)</strong> — Vue.js version of estimator help</li>
+      </ul>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span>
+         The Vue-based components (#19, #14, #15) should be fully replaced with a standard AEM / Bootstrap accordion.
+         The existing server-rendered accordion (#3) should be rebuilt to use design tokens and meet current accessibility requirements.</p>
+
+      <h3>Proxy / extend guidance</h3>
+      <p>Create a proxy component at <code>/apps/caat/components/accordion</code> that extends the
+         AEM Core Accordion component (<code>core/wcm/components/accordion</code>) where feasible.
+         Override the HTL template to emit the CAAT class names, data attributes, and optional FAQ schema markup.</p>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.accordion</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>accordion.css</code></li>
+        <li><strong>JS:</strong> <code>accordion.js</code> (analytics wiring, expand/collapse event tracking)</li>
+      </ul>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>accordion/
+├── _cq_dialog/
+│   └── .content.xml          # Touch UI dialog
+├── _cq_editConfig.xml         # Edit configuration
+├── .content.xml                # Component node definition
+├── accordion.html              # HTL template
+├── clientlibs/
+│   ├── .content.xml
+│   ├── css/
+│   │   └── accordion.css
+│   └── js/
+│       └── accordion.js
+└── README.md                   # Dev notes</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/components/accordion — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              headingLevel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./headingLevel
+                fieldLabel: Heading level
+                items:
+                  - { text: H2, value: h2 }
+                  - { text: H3, value: h3 }
+                  - { text: H4, value: h4 }
+                  - { text: H5, value: h5 }
+                defaultValue: h3
+              accordionItems:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./accordionItems
+                fieldLabel: Accordion items
+                composite: true
+                required: true
+                items:
+                  field:
+                    sling:resourceType: granite/ui/components/coral/foundation/container
+                    items:
+                      headingText:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./headingText
+                        fieldLabel: Heading text
+                        required: true
+                      bodyContent:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/richtext
+                        name: ./bodyContent
+                        fieldLabel: Body content
+                        required: true
+                      expandedByDefault:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                        name: ./expandedByDefault
+                        text: Expanded by default
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              variant:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./variant
+                fieldLabel: Variant
+                required: true
+                items:
+                  - { text: Standard,    value: standard }
+                  - { text: Flush,       value: flush }
+                  - { text: Always open, value: always-open }
+              singleItemExpand:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./singleItemExpand
+                fieldLabel: Single item expand
+                checked: true
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              faqSchema:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./faqSchema
+                text: Enable FAQ schema output
+              analyticsTracking:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./analyticsTracking
+                fieldLabel: Analytics tracking
+                checked: true</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All three variants (standard, flush, always-open) render correctly with expected styles and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Expand and collapse behaviour works correctly — single-expand mode closes siblings; always-open mode allows multiple panels.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Tab</kbd> to focus accordion buttons, <kbd>Enter</kbd>/<kbd>Space</kbd> to toggle.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-expanded</code>, <code>aria-controls</code>, and <code>aria-labelledby</code> attributes are correct in all states.</li>
+        <li class="mb-2"><input type="checkbox" disabled> FAQ schema markup (<code>itemscope</code>/<code>itemprop</code>) renders correctly when enabled and validates in Google's Rich Results Test.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present and expand/collapse events fire correctly to the data layer.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All variants (standard, flush, always-open, FAQ schema) are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created extending Core Accordion. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics expand/collapse events. All 4 legacy components (#3, #19, #14, #15) are replaced. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). FAQ schema validated.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Legacy accordion components deprecated and migration plan communicated. Content authors trained. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Accordion</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Default</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Collapsed</span>
+    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
+      <div class="accordion caat-accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">What is DBplus?</button></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Expanded</span>
+    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
+      <div class="accordion caat-accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button" type="button" aria-expanded="true">What is the CAAT DBplus pension plan?</button></h3>
+          <div class="accordion-collapse collapse show">
+            <div class="accordion-body">The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service. It is available to employees of participating employers across Canada.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Focus</span>
+    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
+      <div class="accordion caat-accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" style="box-shadow:var(--caat-focus);border-color:var(--caat-blue-300);">How do contributions work?</button></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Multi-item Group</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Stacked</span>
+    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
+      <div class="accordion caat-accordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button" type="button" aria-expanded="true">What is the CAAT DBplus pension plan?</button></h3>
+          <div class="accordion-collapse collapse show">
+            <div class="accordion-body">The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">How do I contribute to my pension?</button></h3>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">When can I start receiving my pension?</button></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font</strong>Libre Franklin 800</div>
+    <div class="figma-spec"><strong>Expanded bg</strong>var(--caat-blue-100)</div>
+    <div class="figma-spec"><strong>Text colour</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Border</strong>var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Focus ring</strong>var(--caat-focus)</div>
+    <div class="figma-spec"><strong>Body text</strong>var(--caat-ink), line-height 1.6</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

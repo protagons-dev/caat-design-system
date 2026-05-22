@@ -1,0 +1,221 @@
+/* ============================================================
+   CAAT Design System — Base Styles
+   Typography, reset, links, selection, skip-link, focus,
+   and shared layout utilities. Import after tokens.css.
+   ============================================================ */
+
+html { scroll-padding-top: 5rem; }
+
+body {
+  font-family: var(--caat-font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--caat-ink);
+  letter-spacing: var(--caat-letter-spacing-normal);
+}
+
+body * { font-family: inherit; }
+
+button, input, optgroup, select, textarea,
+.btn, .form-control, .form-select, .dropdown-menu,
+.popover, .tooltip, .toast, .modal, .offcanvas,
+.navbar, .table, .accordion-button, .card, .badge,
+.breadcrumb, .pagination {
+  font-family: var(--caat-font-primary) !important;
+}
+
+code, kbd, pre, samp, .code-sample, .code-sample code {
+  font-family: var(--caat-font-secondary) !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3,
+.display-4, .display-5, .display-6 {
+  letter-spacing: var(--caat-letter-spacing-tight) !important;
+}
+
+a { color: var(--caat-blue-900); font-weight: 600; }
+a:hover { color: var(--caat-blue-700); }
+
+::selection { background: var(--caat-lime); color: var(--caat-blue-900); }
+
+/* ── Skip link ─────────────────────────────────────────────── */
+.skip-link {
+  position: absolute; left: .75rem; top: .75rem; z-index: 2000;
+  transform: translateY(-150%);
+  background: var(--caat-blue-900); color: #fff;
+  padding: .625rem 1rem; border-radius: .5rem; text-decoration: none;
+}
+.skip-link:focus { transform: translateY(0); color: #fff; }
+
+/* ── Focus ring ────────────────────────────────────────────── */
+.btn:focus, .btn.focus-demo { box-shadow: var(--caat-focus) !important; outline: 0; }
+.form-control:focus, .form-select:focus, .form-check-input:focus {
+  border-color: var(--caat-blue-500); box-shadow: var(--caat-focus);
+}
+
+/* ── Eyebrow ───────────────────────────────────────────────── */
+.eyebrow {
+  color: var(--caat-blue-700);
+  text-transform: uppercase;
+  letter-spacing: var(--caat-letter-spacing-label) !important;
+  font-weight: 800;
+  font-size: .78rem;
+  margin-bottom: .5rem;
+}
+
+/* ── Component documentation page layout ───────────────────── */
+.component-page-layout {
+  display: block;
+  max-width: 100%;
+}
+
+/* Drawer nav trigger button */
+.drawer-toggle {
+  position: fixed; top: 50%; left: 0; z-index: 1051;
+  transform: translateY(-50%);
+  background: var(--caat-blue-900); color: #fff; border: 0;
+  padding: .6rem .45rem; font-weight: 800; font-size: .7rem;
+  letter-spacing: .05em; text-transform: uppercase;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  border-radius: 0 .5rem .5rem 0;
+  cursor: pointer;
+  box-shadow: 2px 2px 8px rgba(0,55,80,.15);
+  transition: left .25s ease, background .15s;
+}
+.drawer-toggle:hover { background: var(--caat-blue-700); }
+body.drawer-open .drawer-toggle { left: 16rem; }
+
+/* Drawer panel */
+.component-page-sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 1050;
+  width: 16rem;
+  background: #fff;
+  border-right: 1px solid var(--caat-grey-200);
+  box-shadow: 2px 0 16px rgba(0,55,80,.1);
+  padding: 1.25rem 1rem;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+  margin: 0;
+}
+body.drawer-open .component-page-sidebar {
+  transform: translateX(0);
+}
+/* Hide the <summary> since we use a separate button */
+.component-page-sidebar summary { display: none; }
+.component-page-sidebar .nav {
+  display: flex; flex-direction: column; gap: .15rem;
+}
+
+.component-page-sidebar .nav-link {
+  color: var(--caat-ink); border-radius: .5rem;
+  padding: .4rem .65rem; font-size: .84rem; font-weight: 600;
+}
+.component-page-sidebar .nav-link:hover,
+.component-page-sidebar .nav-link:focus {
+  background: var(--caat-blue-100);
+}
+.component-page-sidebar .nav-link.active {
+  background: var(--caat-blue-900); color: #fff;
+}
+.component-page-sidebar .eyebrow {
+  font-size: .7rem; text-transform: uppercase; letter-spacing: .06em;
+  font-weight: 900; color: var(--caat-muted); margin-bottom: .5rem;
+}
+
+/* Backdrop */
+.drawer-backdrop {
+  display: none; position: fixed; inset: 0; z-index: 1049;
+  background: rgba(0,0,0,.25);
+}
+body.drawer-open .drawer-backdrop { display: block; }
+
+/* ── Contract section styling ──────────────────────────────── */
+.contract-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--caat-grey-200);
+}
+.contract-section:last-child { border-bottom: 0; }
+
+.contract-section h2 {
+  font-weight: 800; letter-spacing: -.03em;
+  color: var(--caat-blue-900); margin-bottom: 1rem;
+}
+
+.contract-section h3 {
+  font-weight: 700; color: var(--caat-blue-900);
+}
+
+/* ── Demo area ─────────────────────────────────────────────── */
+.demo-shell {
+  border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-lg);
+  overflow: visible; background: #fff; box-shadow: var(--caat-shadow-sm);
+}
+
+.demo-rendered { padding: 1.5rem; }
+.demo-shell--full .demo-rendered { padding: 0; }
+.demo-shell--borderless {
+  border: 0; box-shadow: none; border-radius: 0;
+  background: transparent;
+}
+.demo-shell--borderless .demo-rendered { padding: 0; }
+.demo-shell--borderless .demo-label {
+  padding: .5rem 0; margin-bottom: .5rem;
+  border-bottom: 1px solid var(--caat-grey-200);
+}
+.demo-code { padding: 1.25rem; background: #f6f8fb; border-top: 1px solid var(--caat-grey-200); }
+
+.demo-label {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  font-weight: 800; color: var(--caat-muted); margin-bottom: .8rem;
+}
+
+/* ── Code sample ───────────────────────────────────────────── */
+.code-sample {
+  margin: 0; white-space: pre-wrap;
+  background: #102637; color: #e7f4fb;
+  padding: 1rem; border-radius: .75rem;
+  font-size: .82rem; line-height: 1.45;
+  max-height: 35rem; overflow: auto;
+}
+.code-sample code { color: inherit; }
+
+/* ── Contract table ────────────────────────────────────────── */
+.contract-table {
+  width: 100%; border-collapse: collapse; font-size: .92rem;
+}
+.contract-table th,
+.contract-table td {
+  padding: .65rem .85rem; border: 1px solid var(--caat-grey-200);
+  vertical-align: top; text-align: left;
+}
+.contract-table th {
+  background: var(--caat-blue-100); color: var(--caat-blue-900);
+  font-weight: 800;
+}
+.contract-table tr:nth-child(even) td { background: #fafcfe; }
+
+/* ── Status badges ─────────────────────────────────────────── */
+.status-badge {
+  display: inline-flex; align-items: center; gap: .35rem;
+  border-radius: 999px; padding: .35rem .65rem;
+  font-size: .78rem; font-weight: 800; white-space: nowrap;
+}
+.status-badge.ready   { background: var(--caat-green-100); color: var(--caat-green-900); }
+.status-badge.planned  { background: var(--caat-blue-100); color: var(--caat-blue-900); }
+.status-badge.rebuild  { background: #fff6df; color: #65420a; }
+.status-badge.enhance  { background: var(--caat-blue-100); color: var(--caat-blue-700); }
+.status-badge.retire   { background: #fde8e8; color: #7a1f1f; }
+
+/* ── Print ─────────────────────────────────────────────────── */
+@media print {
+  .component-page-sidebar, .skip-link { display: none !important; }
+  .contract-section { break-inside: avoid; }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 992px) {
+  .component-page-sidebar { width: 13rem; }
+  .component-page-sidebar[open] summary { left: 13rem; }
+}

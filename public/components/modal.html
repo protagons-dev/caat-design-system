@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Modal AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Modal | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/modal.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link active" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Modal</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Modal</h1>
+      <p class="text-muted">Dialog overlay for confirmations, disclaimers, terms acceptance, and focused interactions within CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Modal',['/assets/css/tokens.css','/assets/css/components/modal.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- 1. Standard Modal -->
+      <h3 class="mt-3 mb-2">Standard Modal</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <button type="button" class="caat-button caat-button--primary" data-bs-toggle="modal" data-bs-target="#demoModalStandard">
+            Open Standard Modal
+          </button>
+          <div class="modal fade caat-modal" id="demoModalStandard" tabindex="-1" aria-labelledby="demoModalStandardLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header caat-modal__header">
+                  <h5 class="modal-title" id="demoModalStandardLabel">Confirm Your Selection</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body caat-modal__body">
+                  <p>You have selected the CAAT DBplus pension plan. Please review the details below and confirm your enrolment to proceed.</p>
+                </div>
+                <div class="modal-footer caat-modal__footer">
+                  <button type="button" class="caat-button caat-button--outline-primary" data-bs-dismiss="modal" data-analytics-label="modal-cancel">Cancel</button>
+                  <button type="button" class="caat-button caat-button--primary" data-analytics-label="modal-confirm">Confirm Enrolment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Large Modal -->
+      <h3 class="mb-2">Large Modal (modal-lg)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <button type="button" class="caat-button caat-button--primary" data-bs-toggle="modal" data-bs-target="#demoModalLarge">
+            Open Large Modal
+          </button>
+          <div class="modal fade caat-modal" id="demoModalLarge" tabindex="-1" aria-labelledby="demoModalLargeLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header caat-modal__header">
+                  <h5 class="modal-title" id="demoModalLargeLabel">Important Pension Disclaimer</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body caat-modal__body">
+                  <h6>Pension Estimate Disclaimer</h6>
+                  <p>The pension estimate provided is for illustrative purposes only and is based on the information you have entered. It does not constitute a guarantee of future benefits. Actual pension amounts may vary based on changes in salary, service, plan provisions, and applicable legislation.</p>
+                  <h6>Assumptions Used</h6>
+                  <ul>
+                    <li>Salary increases are projected at 2% per year unless otherwise specified.</li>
+                    <li>Retirement age is assumed to be 65 unless you have selected a different age.</li>
+                    <li>The estimate includes both the lifetime pension and any applicable bridge benefit.</li>
+                    <li>Inflation adjustments are conditional and subject to the plan's funding status.</li>
+                  </ul>
+                  <p>For a formal pension statement, please contact CAAT Member Services or log in to your member portal.</p>
+                </div>
+                <div class="modal-footer caat-modal__footer">
+                  <button type="button" class="caat-button caat-button--primary" data-bs-dismiss="modal" data-analytics-label="modal-acknowledge">I Understand</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Confirmation Dialog -->
+      <h3 class="mb-2">Confirmation Dialog</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <button type="button" class="caat-button caat-button--outline-primary" data-bs-toggle="modal" data-bs-target="#demoModalConfirm">
+            Cancel Estimate
+          </button>
+          <div class="modal fade caat-modal" id="demoModalConfirm" tabindex="-1" aria-labelledby="demoModalConfirmLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header caat-modal__header">
+                  <h5 class="modal-title" id="demoModalConfirmLabel">Cancel Estimate</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body caat-modal__body">
+                  <p><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>Are you sure you want to cancel your estimate? All entered data will be lost and you will need to start over.</p>
+                </div>
+                <div class="modal-footer caat-modal__footer">
+                  <button type="button" class="caat-button caat-button--outline-primary" data-bs-dismiss="modal" data-analytics-label="modal-keep-editing">Keep Editing</button>
+                  <button type="button" class="caat-button caat-button--primary" data-analytics-label="modal-confirm-cancel">Yes, Cancel Estimate</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Scrollable Modal -->
+      <h3 class="mb-2">Scrollable Modal</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <button type="button" class="caat-button caat-button--primary" data-bs-toggle="modal" data-bs-target="#demoModalScrollable">
+            View Terms &amp; Conditions
+          </button>
+          <div class="modal fade caat-modal" id="demoModalScrollable" tabindex="-1" aria-labelledby="demoModalScrollableLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header caat-modal__header">
+                  <h5 class="modal-title" id="demoModalScrollableLabel">Terms and Conditions</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body caat-modal__body">
+                  <h6>1. Acceptance of Terms</h6>
+                  <p>By accessing and using the CAAT Pension Plan member portal, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use the portal.</p>
+                  <h6>2. Member Account</h6>
+                  <p>You are responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account. You must notify CAAT immediately of any unauthorized use of your account.</p>
+                  <h6>3. Privacy and Data Protection</h6>
+                  <p>Your personal information is collected, used, and disclosed in accordance with CAAT's Privacy Policy and applicable privacy legislation, including the Personal Information Protection and Electronic Documents Act (PIPEDA).</p>
+                  <h6>4. Pension Estimates</h6>
+                  <p>Any pension estimates provided through the portal are for informational purposes only and do not constitute a binding commitment by the CAAT Pension Plan. Actual benefit amounts are determined in accordance with the plan text and applicable legislation.</p>
+                  <h6>5. Intellectual Property</h6>
+                  <p>All content, trademarks, and materials on the portal are the property of the CAAT Pension Plan and are protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without prior written consent.</p>
+                  <h6>6. Limitation of Liability</h6>
+                  <p>The CAAT Pension Plan shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of or inability to use the portal. This includes, but is not limited to, damages for loss of data or service interruptions.</p>
+                  <h6>7. Amendments</h6>
+                  <p>CAAT reserves the right to modify these Terms and Conditions at any time. Continued use of the portal after changes are posted constitutes your acceptance of the modified terms.</p>
+                  <h6>8. Governing Law</h6>
+                  <p>These Terms and Conditions are governed by and construed in accordance with the laws of the Province of Ontario and the federal laws of Canada applicable therein.</p>
+                </div>
+                <div class="modal-footer caat-modal__footer">
+                  <button type="button" class="caat-button caat-button--outline-primary" data-bs-dismiss="modal" data-analytics-label="modal-decline">Decline</button>
+                  <button type="button" class="caat-button caat-button--primary" data-analytics-label="modal-accept-terms">Accept Terms</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Trigger button --&gt;
+&lt;button type="button" class="caat-button caat-button--primary"
+        data-bs-toggle="modal" data-bs-target="#myModal"&gt;
+  Open Modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal fade caat-modal" id="myModal" tabindex="-1"
+     aria-labelledby="myModalLabel" aria-modal="true" role="dialog"
+     data-analytics-component="modal"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header caat-modal__header"&gt;
+        &lt;h5 class="modal-title" id="myModalLabel"&gt;Modal Title&lt;/h5&gt;
+        &lt;button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body caat-modal__body"&gt;
+        &lt;p&gt;Modal body content (rich text).&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer caat-modal__footer"&gt;
+        &lt;button type="button" class="caat-button caat-button--outline-primary"
+                data-bs-dismiss="modal"&gt;Cancel&lt;/button&gt;
+        &lt;button type="button"
+                class="caat-button caat-button--primary"&gt;Confirm&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Large modal — add .modal-lg --&gt;
+&lt;div class="modal-dialog modal-lg"&gt;…&lt;/div&gt;
+
+&lt;!-- Scrollable modal — add .modal-dialog-scrollable --&gt;
+&lt;div class="modal-dialog modal-dialog-scrollable"&gt;…&lt;/div&gt;
+
+&lt;!-- Small modal — add .modal-sm --&gt;
+&lt;div class="modal-dialog modal-sm"&gt;…&lt;/div&gt;
+
+&lt;!-- Extra-large modal — add .modal-xl --&gt;
+&lt;div class="modal-dialog modal-xl"&gt;…&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Modal</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/modal</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Custom AEM component wrapping Bootstrap 5 modal</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Dialog overlay for confirmations, disclaimers, terms acceptance, and focused interactions</td></tr>
+          <tr><th>Status</th><td>New</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Confirmation dialogs — "Are you sure?" prompts before destructive actions</li>
+        <li>Disclaimers — pension estimate disclaimers and legal notices</li>
+        <li>Terms acceptance — displaying terms and conditions requiring acknowledgement</li>
+        <li>Focused interactions — isolating a task (e.g. beneficiary selection) without leaving the page</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>Not for displaying simple alerts or notifications (use the Alerts component)</li>
+        <li>Not for multi-step wizards — use a dedicated stepper or page flow instead</li>
+        <li>Not for image galleries or media lightboxes</li>
+        <li>Should not be triggered automatically on page load without user action</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Modal title text colour</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>#005a8c</td><td>Primary action button background</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>#e9ecef</td><td>Modal header/footer border colour</td></tr>
+            <tr><td><code>--caat-grey-100</code></td><td>#f8f9fa</td><td>Modal footer background</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on interactive elements within modal</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Modal typeface</td></tr>
+            <tr><td><code>--caat-shadow-lg</code></td><td>0 1rem 3rem rgba(0,0,0,.175)</td><td>Modal elevation shadow</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Size variants</h3>
+      <ul>
+        <li><strong>Small</strong> (<code>.modal-sm</code>) — max-width 300px, for simple confirmations</li>
+        <li><strong>Default</strong> — max-width 500px, for standard dialogs</li>
+        <li><strong>Large</strong> (<code>.modal-lg</code>) — max-width 800px, for rich content like disclaimers</li>
+        <li><strong>Extra-large</strong> (<code>.modal-xl</code>) — max-width 1140px, for complex layouts</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trigger button label</td><td>Textfield</td><td>Yes</td><td>Text displayed on the button that opens the modal</td></tr>
+            <tr><td>Modal title</td><td>Textfield</td><td>Yes</td><td>Title displayed in the modal header; also used for <code>aria-labelledby</code></td></tr>
+            <tr><td>Modal body</td><td>Rich text</td><td>Yes</td><td>Main content area supporting headings, lists, paragraphs, and links</td></tr>
+            <tr><td>Footer actions</td><td>Multifield</td><td>No</td><td>One or more action buttons (label, style variant, action type)</td></tr>
+            <tr><td>Size</td><td>Dropdown</td><td>Yes</td><td>Modal size: <code>sm</code>, <code>default</code>, <code>lg</code>, <code>xl</code></td></tr>
+            <tr><td>Scrollable</td><td>Toggle/Switch</td><td>No</td><td>Enables <code>.modal-dialog-scrollable</code> for long content</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Field</th><th>Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trigger button label</td><td>Required, max 80 characters</td></tr>
+            <tr><td>Modal title</td><td>Required, max 120 characters</td></tr>
+            <tr><td>Modal body</td><td>Required, must contain at least one text node</td></tr>
+            <tr><td>Footer actions</td><td>If provided, at least one button must have a label</td></tr>
+            <tr><td>Size</td><td>Required, must be one of: sm, default, lg, xl</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <h3>Do</h3>
+      <ul>
+        <li>Use clear, action-oriented button labels (e.g. "Confirm Enrolment", "Accept Terms")</li>
+        <li>Keep modal titles concise and descriptive of the action or content</li>
+        <li>Provide a clear way to dismiss without committing (Cancel / Close button)</li>
+        <li>Use scrollable modals for legal content that exceeds the viewport</li>
+      </ul>
+
+      <h3>Don't</h3>
+      <ul>
+        <li>Don't nest modals within modals</li>
+        <li>Don't use modals for information that should be inline on the page</li>
+        <li>Don't auto-open modals on page load without user-initiated action</li>
+        <li>Don't use vague button labels like "OK" or "Click here"</li>
+        <li>Don't put critical, required-reading content only in a modal — ensure it is also accessible inline</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+<pre class="code-sample"><code>&lt;!-- Trigger --&gt;
+&lt;button type="button" class="caat-button caat-button--primary"
+        data-bs-toggle="modal" data-bs-target="#modalId"&gt;
+  ${triggerLabel}
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div class="modal fade caat-modal" id="${modalId}" tabindex="-1"
+     aria-labelledby="${modalId}Label" aria-modal="true" role="dialog"
+     data-analytics-component="modal"&gt;
+  &lt;div class="modal-dialog ${sizeClass} ${scrollableClass}"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header caat-modal__header"&gt;
+        &lt;h5 class="modal-title" id="${modalId}Label"&gt;${title}&lt;/h5&gt;
+        &lt;button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body caat-modal__body"&gt;
+        ${bodyRichText @ context='html'}
+      &lt;/div&gt;
+      &lt;div class="modal-footer caat-modal__footer" data-sly-test="${footerActions}"&gt;
+        &lt;sly data-sly-list="${footerActions}"&gt;
+          &lt;button type="button"
+                  class="caat-button caat-button--${item.variant}"
+                  data-analytics-label="${item.analyticsLabel}"&gt;
+            ${item.label}
+          &lt;/button&gt;
+        &lt;/sly&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Class</th><th>Element</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>.caat-modal</code></td><td>Root wrapper</td><td>Wraps the Bootstrap <code>.modal</code>; applies CAAT token overrides (shadow, border-radius, font)</td></tr>
+            <tr><td><code>.caat-modal__header</code></td><td>Header</td><td>Applies CAAT title colour (<code>--caat-blue-900</code>), bottom border using <code>--caat-grey-200</code></td></tr>
+            <tr><td><code>.caat-modal__body</code></td><td>Body</td><td>Applies CAAT typography tokens, padding, and rich-text content styling</td></tr>
+            <tr><td><code>.caat-modal__footer</code></td><td>Footer</td><td>Applies footer background (<code>--caat-grey-100</code>), top border, button alignment</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>CSS file</h3>
+      <p><code>/assets/css/components/modal.css</code></p>
+      <p>All custom styles must use CAAT design tokens. No hard-coded colour values. The <code>.caat-modal</code> class wraps Bootstrap's <code>.modal</code> to layer CAAT-specific visual overrides without breaking Bootstrap functionality.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Requirement</th><th>Implementation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>role="dialog"</code></td><td>Applied to the <code>.modal</code> root element</td></tr>
+            <tr><td><code>aria-modal="true"</code></td><td>Indicates the modal is a modal dialog, preventing interaction with background content</td></tr>
+            <tr><td><code>aria-labelledby</code></td><td>Points to the modal title element's <code>id</code> so assistive technology announces the dialog purpose</td></tr>
+            <tr><td>Focus trap</td><td>Bootstrap provides built-in focus trap. Tab and Shift+Tab cycle through focusable elements within the modal only</td></tr>
+            <tr><td>Return focus on close</td><td>When the modal closes, focus must return to the trigger element that opened it (Bootstrap default behaviour)</td></tr>
+            <tr><td>Escape to close</td><td>Pressing <kbd>Escape</kbd> closes the modal (Bootstrap default). Can be disabled via <code>data-bs-keyboard="false"</code> if needed</td></tr>
+            <tr><td>Close button</td><td>The <code>.btn-close</code> element must have <code>aria-label="Close"</code></td></tr>
+            <tr><td>Background scroll lock</td><td>Page scrolling is disabled while the modal is open (Bootstrap default)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Keyboard interaction</h3>
+      <ul>
+        <li><kbd>Tab</kbd> — move forward through focusable elements inside the modal</li>
+        <li><kbd>Shift + Tab</kbd> — move backward through focusable elements</li>
+        <li><kbd>Escape</kbd> — close the modal and return focus to the trigger</li>
+        <li><kbd>Enter</kbd> / <kbd>Space</kbd> — activate the focused button</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+
+      <ul>
+        <li>Modal content is rendered in the DOM and is accessible to crawlers, but hidden modals are not visible to users until triggered.</li>
+        <li>Do not place primary SEO content exclusively in modals — duplicate key information on the page itself.</li>
+        <li>Modal titles should be descriptive and unique within the page.</li>
+        <li>Legal/terms content in modals should also be available via a dedicated URL for indexing.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Event</th><th>Trigger</th><th>Data Layer Payload</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>modal-open</code></td>
+              <td>Modal is shown (Bootstrap <code>shown.bs.modal</code> event)</td>
+              <td><code>{ event: "modal-open", component: "modal", modalId: "…", modalTitle: "…" }</code></td>
+            </tr>
+            <tr>
+              <td><code>modal-close</code></td>
+              <td>Modal is hidden (Bootstrap <code>hidden.bs.modal</code> event)</td>
+              <td><code>{ event: "modal-close", component: "modal", modalId: "…", modalTitle: "…" }</code></td>
+            </tr>
+            <tr>
+              <td><code>modal-confirm</code></td>
+              <td>User clicks a confirm/accept action button</td>
+              <td><code>{ event: "modal-confirm", component: "modal", modalId: "…", actionLabel: "…" }</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Implementation notes</h3>
+      <ul>
+        <li>Add <code>data-analytics-component="modal"</code> to the modal root element.</li>
+        <li>Add <code>data-analytics-label="…"</code> to each footer action button.</li>
+        <li>Listen for Bootstrap modal events (<code>shown.bs.modal</code>, <code>hidden.bs.modal</code>) to push to the data layer.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+
+      <ul>
+        <li><strong>Component path:</strong> <code>/apps/caat/components/modal</code></li>
+        <li><strong>Resource type:</strong> <code>caat/components/modal</code></li>
+        <li><strong>Component group:</strong> CAAT Design System</li>
+        <li><strong>Sling Model:</strong> Create a Sling Model to expose trigger label, title, body, footer actions, size, and scrollable properties.</li>
+        <li><strong>Unique ID generation:</strong> Each modal instance must generate a unique <code>id</code> (e.g. based on component path hash) to support multiple modals on one page.</li>
+        <li><strong>Client library:</strong> <code>caat.components.modal</code> — includes CSS and JS for analytics event wiring.</li>
+        <li><strong>Policies:</strong> Configure allowed rich-text formats for the body field in template policies.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (AEM Touch UI)</h2>
+
+<pre class="code-sample"><code># caat/components/modal/_cq_dialog/.content.xml (pseudo-YAML)
+jcr:root:
+  sling:resourceType: cq/gui/components/authoring/dialog
+  jcr:title: Modal
+  content:
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              triggerLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./triggerLabel
+                fieldLabel: Trigger button label
+                required: true
+                maxlength: 80
+              modalTitle:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./modalTitle
+                fieldLabel: Modal title
+                required: true
+                maxlength: 120
+              modalBody:
+                sling:resourceType: granite/ui/components/coral/foundation/form/richtext
+                name: ./modalBody
+                fieldLabel: Modal body
+                required: true
+              footerActions:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./footerActions
+                fieldLabel: Footer actions
+                composite: true
+                items:
+                  field:
+                    sling:resourceType: granite/ui/components/coral/foundation/container
+                    items:
+                      label:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./label
+                        fieldLabel: Button label
+                        required: true
+                      variant:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/select
+                        name: ./variant
+                        fieldLabel: Button style
+                        items:
+                          - { text: Primary, value: primary }
+                          - { text: Outline Primary, value: outline-primary }
+                      analyticsLabel:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./analyticsLabel
+                        fieldLabel: Analytics label
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              size:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./size
+                fieldLabel: Modal size
+                required: true
+                items:
+                  - { text: Small,       value: sm }
+                  - { text: Default,     value: default }
+                  - { text: Large,       value: lg }
+                  - { text: Extra Large, value: xl }
+                defaultValue: default
+              scrollable:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./scrollable
+                fieldLabel: Scrollable body
+                checked: false
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              staticBackdrop:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./staticBackdrop
+                text: Static backdrop (prevent close on backdrop click)
+              analyticsTracking:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./analyticsTracking
+                fieldLabel: Analytics tracking
+                checked: true</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All size variants (sm, default, lg, xl) render correctly with expected max-widths.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Scrollable modal scrolls body content while header and footer remain fixed.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Modal opens and closes via trigger button, close button, backdrop click, and <kbd>Escape</kbd> key.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus is trapped within the modal when open — <kbd>Tab</kbd> does not leave the dialog.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus returns to the trigger button when the modal closes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>role="dialog"</code>, <code>aria-modal="true"</code>, and <code>aria-labelledby</code> are present and correct.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces the modal title when opened.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Background page scroll is locked while modal is open.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>modal-open</code>, <code>modal-close</code>, <code>modal-confirm</code>) fire correctly to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Multiple modals on the same page each have unique IDs and function independently.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: modal is usable on mobile viewports without horizontal overflow.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All size variants (sm, default, lg, xl) and scrollable option are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM component created at <code>/apps/caat/components/modal</code>. HTL template emits semantic HTML per Section 6. CSS uses design tokens per Section 7. JS wires Bootstrap modal events to analytics data layer. Sling Model exposes all authoring fields. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Focus trap and return-focus verified with screen reader.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on authoring dialog. Analytics dashboards confirmed receiving modal-open, modal-close, and modal-confirm events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Modal</h1>
+<p class="figma-page-subtitle">CAAT Design System · Dialog variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Standard Modal</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <div style="border-radius:var(--caat-radius);box-shadow:var(--caat-shadow);background:#fff;width:24rem;overflow:hidden;">
+        <div style="padding:1.25rem 1.5rem;border-bottom:2px solid var(--caat-grey-200);display:flex;justify-content:space-between;align-items:center;"><span style="font-weight:800;color:var(--caat-blue-900);font-size:1.2rem;">Modal Title</span><span style="font-size:1.25rem;cursor:pointer;">×</span></div>
+        <div style="padding:1.5rem;font-size:.95rem;line-height:1.6;color:var(--caat-ink);">Modal body content goes here. This is a standard informational dialog.</div>
+        <div style="padding:1rem 1.5rem;border-top:1px solid var(--caat-grey-200);display:flex;gap:.5rem;justify-content:flex-end;"><span class="caat-button caat-button--outline-primary caat-button--sm">Cancel</span><span class="caat-button caat-button--primary caat-button--sm">Confirm</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow)</div>
+    <div class="figma-spec"><strong>Header border</strong>2px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Title weight</strong>800</div>
+    <div class="figma-spec"><strong>Body font size</strong>0.95rem</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

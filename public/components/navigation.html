@@ -1,0 +1,1437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Navigation AEM Component Contract. Complete authoring, accessibility, and implementation specification for Navbar, Footer, and Mobile Menu.">
+<title>Navigation | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/navigation.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">AEM</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link active" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Navigation</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Navigation</h1>
+      <p class="text-muted">Global navigation component covering the site header (navbar), footer, and mobile menu for the CAAT Pension Plan digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Navigation',['/assets/css/tokens.css','/assets/css/components/navigation.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Desktop Mega Menu Navbar -->
+      <h3 class="mt-3 mb-2">Desktop Mega Menu Navbar</h3>
+      <div class="demo-shell demo-shell--borderless mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <!-- ═══ NAVBAR START ═══ -->
+          <header class="caat-navbar" data-analytics-component="navigation">
+            <!-- Utility bar -->
+            <div class="utility-bar">
+              <div class="container d-flex justify-content-end align-items-center gap-3">
+                <a href="#">Contact us</a>
+                <a href="#">Support Centre</a>
+                <a href="#">Newsroom</a>
+                <a href="#">Events</a>
+                <a href="#">Careers</a>
+                <a href="#" class="lang-switch">EN&nbsp;|&nbsp;FR</a>
+              </div>
+            </div>
+
+            <!-- Main navbar -->
+            <nav class="navbar navbar-expand navbar-main" aria-label="Main navigation">
+              <div class="container">
+                <!-- Brand -->
+                <a class="navbar-brand" href="/">
+                  <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" loading="lazy">
+                </a>
+
+                <!-- Desktop collapse -->
+                <div class="collapse navbar-collapse" id="caatNavCollapse">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <!-- L1: Pension solutions (mega) -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pension solutions</a>
+                      <div class="dropdown-menu mega-menu">
+                        <div class="container">
+                          <div class="mega-columns">
+                            <!-- L2: Plans -->
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-shield-check"></i> Our Plans</p>
+                              <ul class="mega-links">
+                                <li><a href="#">DBplus <span class="mega-link-desc">Defined benefit for modern workplaces</span></a></li>
+                                <li><a href="#">DBprime <span class="mega-link-desc">Flexible defined benefit solution</span></a></li>
+                                <li>
+                                  <!-- L4: nested -->
+                                  <ul class="mega-subnav">
+                                    <li><a href="#">Plan details</a></li>
+                                    <li><a href="#">Contribution rates</a></li>
+                                    <li><a href="#">Benefit formula</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                            <!-- L2: Why CAAT -->
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-graph-up-arrow"></i> Why CAAT</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Security for life</a></li>
+                                <li><a href="#">Predictable income</a></li>
+                                <li><a href="#">Employer advantages</a></li>
+                                <li><a href="#">Investment performance</a></li>
+                              </ul>
+                            </div>
+                            <!-- L2: Getting started -->
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-rocket-takeoff"></i> Getting Started</p>
+                              <ul class="mega-links">
+                                <li><a href="#">How to join</a></li>
+                                <li><a href="#">Eligibility</a></li>
+                                <li><a href="#">Implementation timeline</a></li>
+                                <li><a href="#">FAQs</a></li>
+                              </ul>
+                            </div>
+                            <!-- Promo card -->
+                            <div class="mega-promo">
+                              <p class="mega-promo-title">Ready to join?</p>
+                              <p class="mega-promo-text">See how CAAT can provide your employees with retirement security.</p>
+                              <a href="#" class="btn btn-sm btn-primary">Get started <i class="bi bi-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- L1: Members (mega) -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+                      <div class="dropdown-menu mega-menu">
+                        <div class="container">
+                          <div class="mega-columns">
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-person-badge"></i> My Pension</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Pension overview</a></li>
+                                <li><a href="#">Contributions</a></li>
+                                <li><a href="#">Statements</a></li>
+                                <li>
+                                  <ul class="mega-subnav">
+                                    <li><a href="#">Annual statement</a></li>
+                                    <li><a href="#">Pension estimate</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-calendar-event"></i> Life Events</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Getting married</a></li>
+                                <li><a href="#">Having a child</a></li>
+                                <li><a href="#">Changing jobs</a></li>
+                                <li><a href="#">Buying a home</a></li>
+                                <li><a href="#">Approaching retirement</a></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-sunrise"></i> Retirement</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Retirement planning</a></li>
+                                <li><a href="#">When to retire</a></li>
+                                <li><a href="#">Pension options</a></li>
+                                <li><a href="#">Apply to retire</a></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-folder2-open"></i> Resources</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Forms &amp; documents</a></li>
+                                <li><a href="#">Calculators</a></li>
+                                <li><a href="#">Webinars</a></li>
+                                <li><a href="#">Contact support</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- L1: Employers (mega) -->
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Employers</a>
+                      <div class="dropdown-menu mega-menu">
+                        <div class="container">
+                          <div class="mega-columns">
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-building"></i> Join CAAT</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Why partner with us</a></li>
+                                <li><a href="#">Eligibility criteria</a></li>
+                                <li><a href="#">Onboarding process</a></li>
+                                <li>
+                                  <ul class="mega-subnav">
+                                    <li><a href="#">Step 1: Consultation</a></li>
+                                    <li><a href="#">Step 2: Agreement</a></li>
+                                    <li><a href="#">Step 3: Implementation</a></li>
+                                    <li><a href="#">Step 4: Go live</a></li>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-tools"></i> Employer Resources</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Employer portal</a></li>
+                                <li><a href="#">Remittance guide</a></li>
+                                <li><a href="#">Data submissions</a></li>
+                                <li><a href="#">Employer handbook</a></li>
+                              </ul>
+                            </div>
+                            <div>
+                              <p class="mega-category-title"><i class="bi bi-headset"></i> Support</p>
+                              <ul class="mega-links">
+                                <li><a href="#">Contact employer services</a></li>
+                                <li><a href="#">Training sessions</a></li>
+                                <li><a href="#">FAQs</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <!-- L1: Plain links -->
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Investments</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About Us</a>
+                    </li>
+                  </ul>
+
+                  <!-- Right actions -->
+                  <div class="nav-actions">
+                    <div class="nav-search-wrap">
+                      <input type="search" class="nav-search-input" placeholder="Search CAAT" aria-label="Search CAAT">
+                      <i class="bi bi-search" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="nav-login"><i class="bi bi-person-circle"></i> Login</a>
+                    <a href="#" class="btn btn-primary nav-cta">Join DBplus</a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </header>
+          <!-- ═══ NAVBAR END ═══ -->
+
+        </div>
+      </div>
+
+      <!-- Full Footer -->
+      <h3 class="mb-2">Full Footer</h3>
+      <div class="demo-shell demo-shell--borderless mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <footer class="caat-full-footer-demo" data-analytics-component="navigation">
+            <div class="caat-full-footer-grid">
+              <div>
+                <p class="caat-full-footer-heading">Quick links</p>
+                <ul class="caat-full-footer-list">
+                  <li><a href="#">About CAAT</a></li>
+                  <li><a href="#">Newsroom</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Contact us</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="caat-full-footer-heading">Pension solutions</p>
+                <ul class="caat-full-footer-list">
+                  <li><a href="#">DBplus</a></li>
+                  <li><a href="#">DBprime</a></li>
+                  <li><a href="#">Why CAAT</a></li>
+                  <li><a href="#">How to join</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="caat-full-footer-heading">Your pension</p>
+                <ul class="caat-full-footer-list">
+                  <li><a href="#">My Pension</a></li>
+                  <li><a href="#">Contributions</a></li>
+                  <li><a href="#">Retirement planning</a></li>
+                  <li><a href="#">Life events</a></li>
+                  <li><a href="#">Forms &amp; resources</a></li>
+                </ul>
+              </div>
+              <div>
+                <p class="caat-full-footer-heading">Contact us</p>
+                <ul class="caat-full-footer-list">
+                  <li><a href="#">Member support</a></li>
+                  <li><a href="#">Employer support</a></li>
+                  <li><a href="#">General inquiries</a></li>
+                  <li><a href="#">Office locations</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="caat-full-footer-bottom">
+              <div>
+                <a href="/" class="caat-full-footer-logo">
+                  <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" loading="lazy">
+                </a>
+              </div>
+              <div class="caat-footer-legal">
+                <a href="#">Site map</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms of use</a>
+                <a href="#">Accessibility</a>
+              </div>
+              <div class="caat-footer-social">
+                <a href="https://www.linkedin.com/company/caatpension" aria-label="CAAT on LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@caatpension" aria-label="CAAT on YouTube">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+              </div>
+            </div>
+            <p class="caat-footer-copyright">&copy; 2026 CAAT Pension Plan. All rights reserved.</p>
+          </footer>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <h3 class="mb-2">Mobile Menu</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-mobile-nav-demo" style="max-width:420px;" data-analytics-component="navigation">
+            <div class="caat-mobile-topbar">
+              <a href="/">
+                <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" loading="lazy">
+              </a>
+              <button class="caat-menu-button" type="button" aria-expanded="false" aria-controls="mobileOffcanvas" aria-label="Open menu">
+                <i class="bi bi-list" aria-hidden="true"></i> Menu
+              </button>
+            </div>
+            <div class="caat-mobile-panel">
+              <div class="caat-mobile-search">
+                <input type="search" class="form-control" placeholder="Search CAAT" aria-label="Search CAAT">
+                <i class="bi bi-search" aria-hidden="true"></i>
+              </div>
+              <div class="caat-mobile-links">
+                <a href="#">Pension solutions <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+                <a href="#">Members <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+                <a href="#">Employers <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+                <a href="#">Investments <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+                <a href="#">About Us <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
+              </div>
+              <div class="caat-mobile-utility">
+                <a href="#">Contact us</a>
+                <a href="#">Support Centre</a>
+                <a href="#">Newsroom</a>
+                <a href="#">Events</a>
+                <a href="#">Careers</a>
+              </div>
+              <div class="caat-mobile-actions">
+                <a href="#" class="btn btn-primary">Login</a>
+                <a href="#" class="btn btn-outline-primary">Join DBplus</a>
+                <a href="#" class="btn btn-link" lang="fr">Français</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code samples -->
+      <h3 class="mb-2">Code samples</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-code">
+          <p class="demo-label">Desktop Mega Menu Navbar HTML</p>
+<pre class="code-sample"><code>&lt;header class="caat-navbar" data-analytics-component="navigation"&gt;
+  &lt;div class="utility-bar"&gt;
+    &lt;div class="container d-flex justify-content-end gap-3"&gt;
+      &lt;a href="/contact"&gt;Contact us&lt;/a&gt;
+      &lt;a href="#" class="lang-switch"&gt;EN | FR&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;nav class="navbar navbar-expand navbar-main" aria-label="Main navigation"&gt;
+    &lt;div class="container"&gt;
+      &lt;a class="navbar-brand" href="/"&gt;
+        &lt;img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan"&gt;
+      &lt;/a&gt;
+      &lt;div class="collapse navbar-collapse"&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+          &lt;li class="nav-item dropdown"&gt;
+            &lt;a class="nav-link dropdown-toggle" href="#"
+               data-bs-toggle="dropdown" aria-expanded="false"&gt;
+              Pension solutions
+            &lt;/a&gt;
+            &lt;div class="dropdown-menu mega-menu"&gt;
+              &lt;div class="container"&gt;
+                &lt;div class="mega-columns"&gt;
+                  &lt;div&gt;
+                    &lt;p class="mega-category-title"&gt;
+                      &lt;i class="bi bi-shield-check"&gt;&lt;/i&gt; Our Plans
+                    &lt;/p&gt;
+                    &lt;ul class="mega-links"&gt;
+                      &lt;li&gt;&lt;a href="#"&gt;DBplus&lt;/a&gt;&lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;ul class="mega-subnav"&gt;
+                          &lt;li&gt;&lt;a href="#"&gt;Plan details&lt;/a&gt;&lt;/li&gt;
+                          &lt;li&gt;&lt;a href="#"&gt;Contribution rates&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class="mega-promo"&gt;
+                    &lt;p class="mega-promo-title"&gt;Ready to join?&lt;/p&gt;
+                    &lt;p class="mega-promo-text"&gt;Learn more...&lt;/p&gt;
+                    &lt;a href="#" class="btn btn-sm btn-primary"&gt;Get started&lt;/a&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;
+            &lt;a class="nav-link" href="/about"&gt;About Us&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="nav-actions"&gt;
+          &lt;div class="nav-search-wrap"&gt;
+            &lt;input type="search" class="nav-search-input"
+                   placeholder="Search CAAT" aria-label="Search"&gt;
+            &lt;i class="bi bi-search"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+          &lt;a href="/login" class="nav-login"&gt;
+            &lt;i class="bi bi-person-circle"&gt;&lt;/i&gt; Login
+          &lt;/a&gt;
+          &lt;a href="/join" class="btn btn-primary nav-cta"&gt;Join DBplus&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-shell mb-4">
+        <div class="demo-code">
+          <p class="demo-label">Full Footer HTML</p>
+<pre class="code-sample"><code>&lt;footer class="caat-full-footer-demo"
+        data-analytics-component="navigation"&gt;
+  &lt;div class="caat-full-footer-grid"&gt;
+    &lt;div&gt;
+      &lt;p class="caat-full-footer-heading"&gt;Quick links&lt;/p&gt;
+      &lt;ul class="caat-full-footer-list"&gt;
+        &lt;li&gt;&lt;a href="/about"&gt;About CAAT&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="/newsroom"&gt;Newsroom&lt;/a&gt;&lt;/li&gt;
+        &lt;!-- … --&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!-- Repeat for Pension solutions, Your pension, Contact us --&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-full-footer-bottom"&gt;
+    &lt;div&gt;
+      &lt;a href="/" class="caat-full-footer-logo"&gt;
+        &lt;img src="/assets/images/caat-logo.jpg" alt="CAAT Pension Plan"&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-footer-legal"&gt;
+      &lt;a href="/sitemap"&gt;Site map&lt;/a&gt;
+      &lt;a href="/privacy"&gt;Privacy&lt;/a&gt;
+      &lt;a href="/terms"&gt;Terms of use&lt;/a&gt;
+      &lt;a href="/accessibility"&gt;Accessibility&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-footer-social"&gt;
+      &lt;a href="https://linkedin.com/company/caatpension"
+         aria-label="CAAT on LinkedIn"&gt;
+        &lt;i class="bi bi-linkedin"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+      &lt;a href="https://youtube.com/@caatpension"
+         aria-label="CAAT on YouTube"&gt;
+        &lt;i class="bi bi-youtube"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;p class="caat-footer-copyright"&gt;
+    &amp;copy; 2026 CAAT Pension Plan. All rights reserved.
+  &lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">Mobile Menu HTML</p>
+<pre class="code-sample"><code>&lt;div class="caat-mobile-nav-demo"&gt;
+  &lt;div class="caat-mobile-topbar"&gt;
+    &lt;a href="/"&gt;
+      &lt;img src="/assets/images/caat-logo.jpg" alt="CAAT Pension Plan"&gt;
+    &lt;/a&gt;
+    &lt;button class="caat-menu-button" type="button"
+            aria-expanded="false" aria-controls="mobileOffcanvas"
+            aria-label="Open menu"&gt;
+      &lt;i class="bi bi-list" aria-hidden="true"&gt;&lt;/i&gt; Menu
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="offcanvas offcanvas-end" id="mobileOffcanvas"
+       tabindex="-1" aria-labelledby="mobileOffcanvasLabel"&gt;
+    &lt;div class="offcanvas-header"&gt;
+      &lt;h5 id="mobileOffcanvasLabel"&gt;Menu&lt;/h5&gt;
+      &lt;button type="button" class="btn-close"
+              data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="offcanvas-body"&gt;
+      &lt;div class="caat-mobile-search"&gt;
+        &lt;input type="search" class="form-control"
+               placeholder="Search CAAT" aria-label="Search CAAT"&gt;
+        &lt;i class="bi bi-search" aria-hidden="true"&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      &lt;div class="caat-mobile-links"&gt;
+        &lt;a href="/pension-solutions"&gt;Pension solutions
+          &lt;i class="bi bi-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
+        &lt;/a&gt;
+        &lt;!-- … repeat for other primary links --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Navigation</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/navigation</code> (covers header, footer, and mobile-nav as experience fragments)</td></tr>
+          <tr><th>Recommended implementation</th><td>AEM Experience Fragments for Header and Footer, referenced globally via template policies</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Provide consistent global navigation, wayfinding, and legal compliance across all pages</td></tr>
+          <tr><th>Existing AEM components replaced</th><td>Header (#39), Footer (#37)</td></tr>
+          <tr><th>AEM triage</th><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span> Rebuild to new brand</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Site header — desktop navbar with utility bar, mega-menu dropdowns (up to 4 levels), search, login, and CTA</li>
+        <li>Mega menu panels — full-width dropdowns with categorised columns, nested links, and optional promo cards</li>
+        <li>Site footer — link columns, legal links, social icons, and copyright</li>
+        <li>Mobile navigation — offcanvas menu with accordion-based sub-navigation matching the desktop hierarchy</li>
+        <li>Utility navigation — secondary links (Contact, Support, Newsroom, Events, Careers)</li>
+        <li>Language toggle — EN/FR switcher with proper <code>lang</code> attribute</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>Not for in-page section navigation (use Table of Contents component instead)</li>
+        <li>Not for breadcrumbs (separate Breadcrumb component)</li>
+        <li>Does not manage client-side routing or SPA behaviour</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Primary link hover, mobile menu button border, CTA background</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#e8f4ff</td><td>Mobile panel gradient end, social icon hover background</td></tr>
+            <tr><td><code>--caat-blue-300</code></td><td>#7aa7ff</td><td>Mobile link hover border, search icon colour</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>#e5e5e5</td><td>Borders on navbar, footer, mobile links</td></tr>
+            <tr><td><code>--caat-lime</code></td><td>#95e35c</td><td>Footer heading indicator dot</td></tr>
+            <tr><td><code>--caat-green</code></td><td>#55a546</td><td>CTA alternate variant</td></tr>
+            <tr><td><code>--caat-radius-lg</code></td><td>1rem</td><td>Container border radius for nav sections</td></tr>
+            <tr><td><code>--caat-shadow-sm</code></td><td>0 1px 3px rgba(0,0,0,.08)</td><td>Subtle shadow on nav containers</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on all interactive elements</td></tr>
+            <tr><td><code>--caat-muted</code></td><td>#6c757d</td><td>Search placeholder text</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>#111</td><td>Default text colour for mobile links</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Navigation typeface</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Desktop header</strong> — full-width navbar with dark utility bar, logo, mega-menu dropdown items (L1–L4), search pill, login, and primary CTA</li>
+        <li><strong>Mega menu panel</strong> — full-width dropdown with up to 4 categorised columns, optional L4 nested sub-items, and optional promotional card</li>
+        <li><strong>Mobile header</strong> — compact topbar with logo and hamburger toggle, offcanvas panel with accordion sub-navigation</li>
+        <li><strong>Full footer</strong> — 4-column link grid with legal row, social icons, copyright</li>
+        <li><strong>Campaign footer</strong> — simplified single-row footer for landing pages (legal links + copyright only)</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Header tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Logo image</td><td>Image (DAM)</td><td>Yes</td><td>—</td><td>CAAT logo. Rendered as <code>&lt;img&gt;</code> with alt text.</td></tr>
+            <tr><td>Primary nav links</td><td>Multifield (nested)</td><td>Yes</td><td>—</td><td>Each L1 item: Label + URL + hasMegaMenu (toggle). If mega menu enabled, add L2 Categories multifield (title + icon + L3 Links multifield [label + URL + optional L4 sub-links multifield]). Min 3, max 7 L1 items.</td></tr>
+            <tr><td>Mega menu promo card</td><td>Composite</td><td>No</td><td>—</td><td>Per L1 mega item: Title (text) + Description (textarea) + CTA label + CTA URL. Renders as a featured card in the last column of the mega panel.</td></tr>
+            <tr><td>Utility nav links</td><td>Multifield</td><td>No</td><td>—</td><td>Each item: Label (text) + URL (pathfield). Rendered above main row.</td></tr>
+            <tr><td>Search enabled</td><td>Toggle</td><td>No</td><td>On</td><td>Show/hide the search field in the navbar.</td></tr>
+            <tr><td>Login URL</td><td>Path browser</td><td>No</td><td>—</td><td>URL for the Login link. Hidden if empty.</td></tr>
+            <tr><td>CTA label</td><td>Text field</td><td>No</td><td>—</td><td>Call-to-action button text (e.g. "Join DBplus").</td></tr>
+            <tr><td>CTA URL</td><td>Path browser</td><td>No</td><td>—</td><td>URL for the CTA button. Hidden if empty.</td></tr>
+            <tr><td>Language toggle URLs</td><td>Multifield</td><td>No</td><td>—</td><td>Each item: Language code + URL. Uses <code>lang</code> attribute.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Footer tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Link columns</td><td>Multifield</td><td>Yes</td><td>—</td><td>Each column: Heading (text) + Links multifield (label + URL). Max 4 columns.</td></tr>
+            <tr><td>Legal links</td><td>Multifield</td><td>Yes</td><td>—</td><td>Each item: Label + URL. Must include Privacy, Terms of use, Accessibility.</td></tr>
+            <tr><td>Social links</td><td>Multifield</td><td>No</td><td>—</td><td>Each item: Platform (dropdown) + URL. Provides icon and aria-label automatically.</td></tr>
+            <tr><td>Logo image</td><td>Image (DAM)</td><td>Yes</td><td>—</td><td>Footer logo. Typically same as header.</td></tr>
+            <tr><td>Copyright text</td><td>Text field</td><td>Yes</td><td>—</td><td>e.g. "© 2026 CAAT Pension Plan. All rights reserved."</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Mobile tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Inherits from header</td><td>—</td><td>—</td><td>—</td><td>Primary links, utility links, search, login, CTA, and language toggle are inherited from the Header tab.</td></tr>
+            <tr><td>Offcanvas position</td><td>Select</td><td>No</td><td>End (right)</td><td>start | end. Controls which side the offcanvas panel slides in from.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>Logo image</strong> is required for both header and footer. The dialog must not allow saving without it.</li>
+        <li><strong>Primary nav links</strong> must contain at least 3 items. Display a validation error if fewer are provided.</li>
+        <li><strong>Footer legal links</strong> must include entries for Privacy, Terms of use, and Accessibility. Warn if any are missing.</li>
+        <li><strong>Copyright text</strong> is required. The dialog must not allow saving without it.</li>
+        <li><strong>Social links</strong> must each have a valid URL and an <code>aria-label</code> generated from the selected platform name.</li>
+        <li>If <strong>CTA label</strong> is provided, <strong>CTA URL</strong> must also be provided (and vice versa).</li>
+        <li><strong>Primary nav link labels</strong> should not exceed 25 characters each. Display a warning above 20 characters.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Good examples</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Navigation labels consistent with site map</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Short, scannable utility link labels</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Visible "Menu" text label on mobile hamburger button</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Footer columns match primary site sections</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Language toggle clearly identifies target language</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Avoid</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Hamburger icon without visible text label</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Removing legal links from campaign pages without approval</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Inconsistent nav labels between header and footer</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> More than 7 primary navigation items</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Using abbreviations in navigation labels</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Header — Bootstrap navbar with mega menu</h3>
+<pre class="code-sample mb-4"><code>&lt;header class="caat-navbar"&gt;
+  &lt;!-- Utility bar --&gt;
+  &lt;div class="utility-bar"&gt;
+    &lt;div class="container d-flex justify-content-end gap-3"&gt;
+      &lt;a href="#"&gt;Contact us&lt;/a&gt;
+      &lt;a href="#" class="lang-switch"&gt;EN | FR&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Main navbar --&gt;
+  &lt;nav class="navbar navbar-expand navbar-main" aria-label="Main navigation"&gt;
+    &lt;div class="container"&gt;
+      &lt;a class="navbar-brand" href="/"&gt;
+        &lt;img src="/logo.png" alt="CAAT Pension Plan"&gt;
+      &lt;/a&gt;
+      &lt;div class="collapse navbar-collapse"&gt;
+        &lt;ul class="navbar-nav me-auto"&gt;
+          &lt;li class="nav-item dropdown"&gt;
+            &lt;a class="nav-link dropdown-toggle" href="#"
+               data-bs-toggle="dropdown" aria-expanded="false"&gt;
+              Pension solutions
+            &lt;/a&gt;
+            &lt;div class="dropdown-menu mega-menu"&gt;
+              &lt;div class="container"&gt;
+                &lt;div class="mega-columns"&gt;
+                  &lt;div&gt;
+                    &lt;p class="mega-category-title"&gt;Our Plans&lt;/p&gt;
+                    &lt;ul class="mega-links"&gt;
+                      &lt;li&gt;&lt;a href="#"&gt;DBplus&lt;/a&gt;&lt;/li&gt;
+                      &lt;li&gt;
+                        &lt;ul class="mega-subnav"&gt;&lt;!-- L4 --&gt;
+                          &lt;li&gt;&lt;a href="#"&gt;Plan details&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                      &lt;/li&gt;
+                    &lt;/ul&gt;
+                  &lt;/div&gt;
+                  &lt;div class="mega-promo"&gt;…&lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+          &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="nav-actions"&gt;
+          &lt;div class="nav-search-wrap"&gt;
+            &lt;input type="search" class="nav-search-input"&gt;
+            &lt;i class="bi bi-search"&gt;&lt;/i&gt;
+          &lt;/div&gt;
+          &lt;a href="#" class="nav-login"&gt;Login&lt;/a&gt;
+          &lt;a href="#" class="btn btn-primary nav-cta"&gt;Join&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+
+      <h4>Navigation hierarchy (4 levels)</h4>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Level</th><th>Element</th><th>CSS class</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>L1</td><td><code>&lt;li class="nav-item dropdown"&gt;</code></td><td><code>.nav-item</code></td><td>Pension solutions, Members</td></tr>
+            <tr><td>L2</td><td><code>&lt;p class="mega-category-title"&gt;</code></td><td><code>.mega-category-title</code></td><td>Our Plans, Life Events</td></tr>
+            <tr><td>L3</td><td><code>&lt;ul class="mega-links"&gt; &lt;li&gt;&lt;a&gt;</code></td><td><code>.mega-links a</code></td><td>DBplus, Retirement planning</td></tr>
+            <tr><td>L4</td><td><code>&lt;ul class="mega-subnav"&gt; &lt;li&gt;&lt;a&gt;</code></td><td><code>.mega-subnav a</code></td><td>Plan details, Step 1: Consultation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mb-2">Footer — semantic <code>&lt;footer&gt;</code> with <code>&lt;nav&gt;</code></h3>
+<pre class="code-sample mb-4"><code>&lt;footer class="caat-full-footer-demo" role="contentinfo"&gt;
+  &lt;nav aria-label="Footer navigation"&gt;
+    &lt;div class="caat-full-footer-grid"&gt;…&lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;div class="caat-full-footer-bottom"&gt;
+    &lt;nav aria-label="Legal links"&gt;
+      &lt;div class="caat-footer-legal"&gt;…&lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+
+      <h3 class="mb-2">Mobile menu — offcanvas with ARIA</h3>
+<pre class="code-sample"><code>&lt;button class="caat-menu-button" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#mobileOffcanvas"
+        aria-expanded="false" aria-controls="mobileOffcanvas"
+        aria-label="Open menu"&gt;
+  &lt;i class="bi bi-list" aria-hidden="true"&gt;&lt;/i&gt; Menu
+&lt;/button&gt;
+
+&lt;div class="offcanvas offcanvas-end" id="mobileOffcanvas"
+     tabindex="-1" aria-labelledby="mobileOffcanvasLabel"&gt;
+  &lt;div class="offcanvas-header"&gt;
+    &lt;h5 id="mobileOffcanvasLabel"&gt;Menu&lt;/h5&gt;
+    &lt;button type="button" class="btn-close"
+            data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="offcanvas-body"&gt;
+    &lt;div class="caat-mobile-links"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The navigation component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/navigation.css">/assets/css/components/navigation.css</a>.</p>
+
+      <h3 class="mb-2">Primary selectors</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-navbar</code></td><td>Top-level navbar wrapper (<code>&lt;header&gt;</code>)</td></tr>
+            <tr><td><code>.caat-navbar .utility-bar</code></td><td>Dark utility links bar (top row)</td></tr>
+            <tr><td><code>.caat-navbar .navbar-main</code></td><td>Main nav row (Bootstrap <code>.navbar</code>)</td></tr>
+            <tr><td><code>.caat-navbar .mega-menu</code></td><td>Full-width mega dropdown panel (extends <code>.dropdown-menu</code>)</td></tr>
+            <tr><td><code>.mega-columns</code></td><td>CSS Grid container for mega menu columns</td></tr>
+            <tr><td><code>.mega-category-title</code></td><td>L2 category heading with icon and lime underline</td></tr>
+            <tr><td><code>.mega-links</code></td><td>L3 link list within a mega column</td></tr>
+            <tr><td><code>.mega-subnav</code></td><td>L4 nested sub-items (indented, border-left)</td></tr>
+            <tr><td><code>.mega-promo</code></td><td>Optional promotional card inside mega panel</td></tr>
+            <tr><td><code>.nav-actions</code></td><td>Right-side actions: search, login, CTA</td></tr>
+            <tr><td><code>.nav-search-input</code></td><td>Pill-shaped search field (expands on focus)</td></tr>
+            <tr><td><code>.caat-full-footer-demo</code></td><td>Full footer container</td></tr>
+            <tr><td><code>.caat-full-footer-grid</code></td><td>4-column link grid</td></tr>
+            <tr><td><code>.caat-full-footer-bottom</code></td><td>Logo + legal + social bottom row</td></tr>
+            <tr><td><code>.caat-mobile-nav-demo</code></td><td>Mobile navigation demo container</td></tr>
+            <tr><td><code>.mobile-nav-accordion</code></td><td>Mobile offcanvas accordion (Bootstrap accordion)</td></tr>
+            <tr><td><code>.mobile-subnav</code></td><td>Mobile sub-navigation links list</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Skip link</td>
+              <td>A "Skip to main content" link must be the first focusable element on the page, targeting the <code>#main</code> landmark.</td>
+            </tr>
+            <tr>
+              <td>Keyboard navigation</td>
+              <td>All interactive elements (links, buttons, search input) must be reachable and operable via <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Space</kbd>, and <kbd>Escape</kbd> (to close offcanvas).</td>
+            </tr>
+            <tr>
+              <td>Visible focus states</td>
+              <td>A visible focus ring (<code>var(--caat-focus)</code>) must appear on <code>:focus-visible</code> for all interactive elements. The ring must meet a 3 : 1 contrast ratio.</td>
+            </tr>
+            <tr>
+              <td>Mobile toggle — aria-expanded</td>
+              <td>The mobile Menu button must toggle <code>aria-expanded</code> between <code>true</code> and <code>false</code>. It must reference the offcanvas panel via <code>aria-controls</code>.</td>
+            </tr>
+            <tr>
+              <td>Social link labels</td>
+              <td>Every social icon link must have an <code>aria-label</code> (e.g. "CAAT on LinkedIn"). The icon must have <code>aria-hidden="true"</code>.</td>
+            </tr>
+            <tr>
+              <td>Language toggle</td>
+              <td>The language toggle link must use the <code>lang</code> attribute matching the target language (e.g. <code>lang="fr"</code>).</td>
+            </tr>
+            <tr>
+              <td>Nav landmarks</td>
+              <td>Each <code>&lt;nav&gt;</code> must have a unique <code>aria-label</code> (e.g. "Main navigation", "Footer navigation", "Legal links").</td>
+            </tr>
+            <tr>
+              <td>Colour contrast</td>
+              <td>All text and interactive elements must meet WCAG 2.1 AA (4.5 : 1 normal text, 3 : 1 large text) in all states.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li>All navigation links must be rendered as crawlable <code>&lt;a&gt;</code> elements with valid <code>href</code> attributes. No JavaScript-only navigation.</li>
+        <li>Link text must be descriptive and unique within the page. Avoid generic phrases like "Click here".</li>
+        <li>Maintain a canonical navigation structure — the same primary links should appear on all pages for consistent internal linking.</li>
+        <li>Footer links contribute to the site's internal link graph. Ensure all footer URLs resolve correctly (no broken links).</li>
+        <li>The logo link should point to the site root (<code>/</code>) to reinforce the homepage's authority.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td>navigation</td><td>Identifies the component in the data layer.</td></tr>
+            <tr><td><code>data-analytics-event</code></td><td>nav-click</td><td>Event name pushed on link click.</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>primary-nav:Members</td><td>Human-readable label for reporting (section:label).</td></tr>
+            <tr><td><code>data-analytics-destination</code></td><td>/en/members</td><td>Target URL recorded with the event.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>nav-click</strong> — fires when any header navigation link is clicked (utility, L1–L4 mega menu links, search, login, CTA).</li>
+        <li><strong>mega-menu-open</strong> — fires when a mega menu panel opens. Includes the L1 label in the event payload.</li>
+        <li><strong>footer-click</strong> — fires when any footer link is clicked (column links, legal links, social icons).</li>
+        <li><strong>mobile-menu-open</strong> — fires when the mobile hamburger toggle is activated and the offcanvas opens.</li>
+        <li><strong>language-toggle</strong> — fires when the EN/FR toggle is clicked.</li>
+        <li><strong>search-submit</strong> — fires when a search query is submitted from the navbar.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component replaces <strong>Header (#39)</strong> and <strong>Footer (#37)</strong> in the existing AEM component library.</p>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span>
+         Rebuild to new brand standards. The existing header and footer components do not meet current accessibility, design-token, or responsive requirements.</p>
+
+      <h3>Experience Fragment approach</h3>
+      <p>Implement the header and footer as <strong>AEM Experience Fragments</strong>.
+         Each fragment is authored once and referenced globally via <strong>template policies</strong>,
+         ensuring consistent navigation across all pages without per-page authoring.</p>
+      <ul>
+        <li><strong>Header XF:</strong> contains the desktop mega-menu navbar (Bootstrap 5.3 <code>navbar-expand</code> with <code>.dropdown-menu.mega-menu</code> panels). Mobile nav is derived automatically via responsive CSS + Bootstrap offcanvas with accordion.</li>
+        <li><strong>Footer XF:</strong> contains the full footer; campaign pages may reference a simplified campaign-footer XF variant.</li>
+      </ul>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.navigation</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>navigation.css</code></li>
+        <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdowns/offcanvas/accordion natively; custom JS wires analytics events and search submit handler)</li>
+      </ul>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>experience-fragments/
+├── header/
+│   ├── master/
+│   │   ├── _cq_dialog/
+│   │   │   └── .content.xml        # Header XF dialog
+│   │   ├── .content.xml             # XF node definition
+│   │   └── header.html              # HTL template
+│   └── variations/
+│       └── campaign-header/
+│           └── .content.xml
+├── footer/
+│   ├── master/
+│   │   ├── _cq_dialog/
+│   │   │   └── .content.xml        # Footer XF dialog
+│   │   ├── .content.xml
+│   │   └── footer.html
+│   └── variations/
+│       └── campaign-footer/
+│           └── .content.xml
+└── clientlibs/
+    ├── .content.xml
+    ├── css/
+    │   └── navigation.css
+    └── js/
+        └── navigation.js</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/experience-fragments/header — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Header tab ───────────────────────────────
+          header:
+            jcr:title: Header
+            items:
+              logoImage:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./logoImage
+                fieldLabel: Logo image
+                required: true
+                rootPath: /content/dam
+              primaryNavLinks:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./primaryNavLinks
+                fieldLabel: Primary nav links
+                required: true
+                composite: true
+                items:
+                  label:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./label
+                    fieldLabel: Label
+                    required: true
+                    maxlength: 25
+                  url:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                    name: ./url
+                    fieldLabel: URL
+                    required: true
+              utilityNavLinks:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./utilityNavLinks
+                fieldLabel: Utility nav links
+                composite: true
+                items:
+                  label:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./label
+                    fieldLabel: Label
+                  url:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                    name: ./url
+                    fieldLabel: URL
+              searchEnabled:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./searchEnabled
+                fieldLabel: Search enabled
+                checked: true
+              loginURL:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./loginURL
+                fieldLabel: Login URL
+              ctaLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./ctaLabel
+                fieldLabel: CTA label
+              ctaURL:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./ctaURL
+                fieldLabel: CTA URL
+              languageToggleURLs:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./languageToggleURLs
+                fieldLabel: Language toggle URLs
+                composite: true
+                items:
+                  langCode:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./langCode
+                    fieldLabel: Language code
+                  url:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                    name: ./url
+                    fieldLabel: URL
+
+          # ── Mobile tab ───────────────────────────────
+          mobile:
+            jcr:title: Mobile
+            items:
+              offcanvasPosition:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./offcanvasPosition
+                fieldLabel: Offcanvas position
+                items:
+                  - { text: End (right), value: end }
+                  - { text: Start (left), value: start }
+
+---
+
+# caat/experience-fragments/footer — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Footer tab ──────────────────────────────
+          footer:
+            jcr:title: Footer
+            items:
+              linkColumns:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./linkColumns
+                fieldLabel: Link columns
+                required: true
+                composite: true
+                items:
+                  heading:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./heading
+                    fieldLabel: Column heading
+                    required: true
+                  links:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                    name: ./links
+                    fieldLabel: Links
+                    composite: true
+                    items:
+                      label:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./label
+                        fieldLabel: Label
+                      url:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                        name: ./url
+                        fieldLabel: URL
+              legalLinks:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./legalLinks
+                fieldLabel: Legal links
+                required: true
+                composite: true
+                items:
+                  label:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./label
+                    fieldLabel: Label
+                    required: true
+                  url:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                    name: ./url
+                    fieldLabel: URL
+                    required: true
+              socialLinks:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./socialLinks
+                fieldLabel: Social links
+                composite: true
+                items:
+                  platform:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/select
+                    name: ./platform
+                    fieldLabel: Platform
+                    items:
+                      - { text: LinkedIn, value: linkedin }
+                      - { text: YouTube, value: youtube }
+                      - { text: Twitter / X, value: twitter }
+                      - { text: Facebook, value: facebook }
+                      - { text: Instagram, value: instagram }
+                  url:
+                    sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                    name: ./url
+                    fieldLabel: URL
+              footerLogo:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./footerLogo
+                fieldLabel: Logo image
+                required: true
+                rootPath: /content/dam
+              copyrightText:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./copyrightText
+                fieldLabel: Copyright text
+                required: true</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark utility bar, logo, L1 nav links with dropdown carets, search pill, login, CTA, and language toggle are all visible and properly aligned.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings, L3 links, L4 nested items) and optional promo card.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle, displays offcanvas panel with accordion sub-navigation matching the desktop mega menu hierarchy.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All links resolve correctly — no broken links in header, footer, or mobile menu. External links open in new tab with <code>rel="noopener"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Legal compliance: Privacy, Terms of use, and Accessibility links are present in the footer on all page templates including campaign pages.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Language toggle switches to the correct locale URL and uses the <code>lang</code> attribute on the toggle element.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. Desktop navbar, mobile menu, full footer, and campaign footer variants are documented. All tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM Experience Fragments created for header and footer. HTL templates emit semantic HTML per Section 6. CSS uses design tokens. JS wires analytics events and mobile offcanvas. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Responsive tested at 320px, 768px, 1024px, 1440px.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Experience Fragments deployed to AEM production. Template policies configured to reference header/footer globally. Content authors trained. Analytics dashboards confirmed receiving nav-click, footer-click, and mobile-menu-open events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Navigation</h1>
+<p class="figma-page-subtitle">CAAT Design System · Navbar, mega menu, and footer</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Nav Link States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="padding:.6rem 1rem;font-weight:600;font-size:.9rem;color:var(--caat-ink);border-radius:.35rem;">Members</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="padding:.6rem 1rem;font-weight:600;font-size:.9rem;color:var(--caat-blue-900);background:rgba(0,92,153,.05);border-radius:.35rem;">Members</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="padding:.6rem 1rem;font-weight:600;font-size:.9rem;color:var(--caat-blue-900);background:var(--caat-blue-100);border-radius:.35rem;">Members</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Utility Bar</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Dark strip</span>
+    <div class="figma-row-items" style="flex:1;">
+      <div style="background:var(--caat-blue-900);padding:.4rem 1rem;font-size:.78rem;color:rgba(255,255,255,.85);display:flex;gap:1rem;border-radius:.35rem;max-width:30rem;">
+        <span>Contact Us</span><span>Français</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Navbar bg</strong>#fff</div>
+    <div class="figma-spec"><strong>Border bottom</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
+    <div class="figma-spec"><strong>Nav link size</strong>0.9rem, weight 600</div>
+    <div class="figma-spec"><strong>Utility bar bg</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Mega menu border-top</strong>3px solid var(--caat-blue-900)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+// Mobile menu toggle
+document.querySelectorAll('.caat-menu-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const panel = btn.closest('.caat-mobile-nav-demo').querySelector('.caat-mobile-panel');
+    const isOpen = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+    btn.innerHTML = isOpen
+      ? '<i class="bi bi-x-lg" aria-hidden="true"></i> Close'
+      : '<i class="bi bi-list" aria-hidden="true"></i> Menu';
+  });
+});
+</script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

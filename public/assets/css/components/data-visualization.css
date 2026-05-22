@@ -1,0 +1,279 @@
+/* ═══════════════════════════════════════════════════════════
+   Data Visualization — CAAT Design System
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Stat Cards ── */
+.caat-dataviz__row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.caat-dataviz__card {
+  flex: 1 1 200px;
+  background: #fff;
+  border: 1px solid var(--caat-grey-200);
+  border-radius: var(--caat-radius);
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow .2s ease;
+}
+
+.caat-dataviz__card:hover {
+  box-shadow: var(--caat-shadow-sm);
+}
+
+.caat-dataviz__value {
+  font-family: var(--caat-font-primary), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--caat-blue-900);
+  line-height: 1.1;
+}
+
+.caat-dataviz__label {
+  font-size: .875rem;
+  color: var(--caat-ink);
+  margin-top: .25rem;
+}
+
+.caat-dataviz__trend {
+  font-size: .8rem;
+  margin-top: .25rem;
+}
+.caat-dataviz__trend--up { color: var(--caat-green-700); }
+.caat-dataviz__trend--down { color: var(--caat-danger-dark); }
+
+/* ── Horizontal Bar Chart ── */
+.caat-dataviz__bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.caat-dataviz__bar-row {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.caat-dataviz__bar-label {
+  flex: 0 0 140px;
+  text-align: left;
+  font-size: .875rem;
+  font-weight: 600;
+  color: var(--caat-ink);
+}
+
+.caat-dataviz__bar-track {
+  flex: 1;
+  background: var(--caat-blue-100);
+  border-radius: var(--caat-radius);
+  height: 2rem;
+  overflow: hidden;
+}
+
+.caat-dataviz__bar {
+  height: 2rem;
+  background: var(--caat-blue-900);
+  border-radius: var(--caat-radius);
+  transition: width .6s ease;
+  display: flex;
+  align-items: center;
+  padding-left: .5rem;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+/* Striped fill — never rely on colour alone */
+.caat-dataviz__bar--striped {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caat-blue-900) 0, var(--caat-blue-900) 8px,
+    var(--caat-blue-700) 8px, var(--caat-blue-700) 16px
+  );
+}
+.caat-dataviz__bar--striped-green {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caat-green-700) 0, var(--caat-green-700) 8px,
+    var(--caat-green-900) 8px, var(--caat-green-900) 16px
+  );
+}
+.caat-dataviz__bar--striped-teal {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caat-teal) 0, var(--caat-teal) 8px,
+    var(--caat-teal-dark) 8px, var(--caat-teal-dark) 16px
+  );
+}
+
+/* ── Donut / Ring Chart ── */
+.caat-dataviz__donut-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.caat-dataviz__donut {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* default gradient — override via inline style */
+  background: conic-gradient(
+    var(--caat-blue-900) 0% 45%,
+    var(--caat-blue-700) 45% 75%,
+    var(--caat-green) 75% 90%,
+    var(--caat-grey-200) 90% 100%
+  );
+}
+
+.caat-dataviz__donut-hole {
+  position: absolute;
+  inset: 25%;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.caat-dataviz__donut-hole .caat-dataviz__value {
+  font-size: 1.5rem;
+}
+
+.caat-dataviz__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.caat-dataviz__legend-item {
+  display: flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .85rem;
+}
+
+.caat-dataviz__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Comparison Table ── */
+.caat-dataviz__comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.caat-dataviz__comparison-table th,
+.caat-dataviz__comparison-table td {
+  padding: .625rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--caat-grey-200);
+  font-size: .875rem;
+}
+
+.caat-dataviz__comparison-table thead th {
+  font-weight: 700;
+  color: var(--caat-blue-900);
+}
+
+.caat-dataviz__inline-bar {
+  display: inline-block;
+  height: .75rem;
+  border-radius: var(--caat-radius);
+  vertical-align: middle;
+}
+
+/* ── Plain-language note ── */
+.caat-dataviz__note {
+  border-left: .35rem solid var(--caat-green-700);
+  background: var(--caat-blue-100);
+  padding: 1rem;
+  border-radius: .5rem;
+  font-size: .875rem;
+  color: var(--caat-ink);
+  margin-top: 1rem;
+}
+.caat-dataviz__note strong {
+  color: var(--caat-blue-900);
+}
+
+/* ── Table fallback ── */
+.caat-dataviz__table-fallback {
+  margin-top: 1rem;
+  border: 1px solid var(--caat-grey-200);
+  border-radius: var(--caat-radius);
+  background: #fff;
+  padding: 1rem;
+}
+.caat-dataviz__table-fallback table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .875rem;
+}
+.caat-dataviz__table-fallback th,
+.caat-dataviz__table-fallback td {
+  padding: .5rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--caat-grey-200);
+}
+.caat-dataviz__table-fallback thead th {
+  font-weight: 700;
+  color: var(--caat-blue-900);
+}
+.caat-dataviz__table-fallback caption {
+  caption-side: top;
+  font-weight: 700;
+  color: var(--caat-ink);
+  padding-bottom: .5rem;
+  font-size: .8rem;
+}
+
+/* ── Legend swatches with pattern ── */
+.caat-dataviz__legend-dot--striped {
+  width: 14px;
+  height: 14px;
+  border-radius: .2rem;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caat-blue-900) 0, var(--caat-blue-900) 4px,
+    var(--caat-blue-700) 4px, var(--caat-blue-700) 8px
+  );
+}
+.caat-dataviz__legend-dot--striped-green {
+  width: 14px;
+  height: 14px;
+  border-radius: .2rem;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--caat-green-700) 0, var(--caat-green-700) 4px,
+    var(--caat-green-900) 4px, var(--caat-green-900) 8px
+  );
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .caat-dataviz__bar {
+    transition: none;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 767.98px) {
+  .caat-dataviz__row {
+    flex-direction: column;
+  }
+  .caat-dataviz__bar-label {
+    flex: 0 0 100px;
+    font-size: .75rem;
+  }
+}

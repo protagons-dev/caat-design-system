@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Logo Wall AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Logo Wall | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/logo-wall.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link active" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main class="component-page-content">
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Logo Wall</li>
+      </ol>
+    </nav>
+
+    <header class="mb-4">
+      <h1>Logo Wall</h1>
+      <p class="lead">A responsive grid of employer or partner logos with optional heading, subtitle, CTA, and multiple visual treatments (default, clean, dark, marquee).</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Logo Wall',['/assets/css/tokens.css','/assets/css/components/logo-wall.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════
+         DEMO
+         ══════════════════════════════════════════════════════ -->
+    <section id="demo" class="mb-5">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1: Default (bordered cards, grayscale → colour on hover) -->
+      <h3 class="h5 mt-4 mb-3">Variant 1 — Default</h3>
+      <div class="caat-logo-wall" data-analytics-component="logo-wall" data-analytics-variant="default">
+        <div class="caat-logo-wall__header">
+          <h2 class="caat-logo-wall__title">Trusted by leading Canadian employers</h2>
+          <p class="caat-logo-wall__subtitle">Organizations across Canada rely on CAAT's DBplus pension plan.</p>
+        </div>
+        <div class="caat-logo-wall__grid" role="list" aria-label="Participating employers">
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Jamieson" alt="Jamieson" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Brink's" alt="Brink's" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=CBIA" alt="CBIA Lawyers Financial" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Torstar" alt="Torstar" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Sanofi" alt="Sanofi" loading="lazy">
+          </div>
+        </div>
+        <div class="caat-logo-wall__footer">
+          <a href="#" class="caat-button caat-button--outline-primary caat-button--sm">
+            Read our success stories <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Variant 2: Clean (no borders) -->
+      <h3 class="h5 mt-4 mb-3">Variant 2 — Clean (no borders)</h3>
+      <div class="caat-logo-wall caat-logo-wall--clean" data-analytics-component="logo-wall" data-analytics-variant="clean">
+        <div class="caat-logo-wall__grid" role="list" aria-label="Partner organizations">
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=OTIP" alt="OTIP" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Postmedia" alt="Postmedia" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=United+Way" alt="United Way" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item" role="listitem">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=St+John" alt="St. John Ambulance" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 3: Dark background -->
+      <h3 class="h5 mt-4 mb-3">Variant 3 — Dark background</h3>
+      <div class="caat-logo-wall caat-logo-wall--dark" data-analytics-component="logo-wall" data-analytics-variant="dark">
+        <div class="container">
+          <div class="caat-logo-wall__header">
+            <h2 class="caat-logo-wall__title">Our growing employer network</h2>
+          </div>
+          <div class="caat-logo-wall__grid" role="list" aria-label="Employer network">
+            <div class="caat-logo-wall__item" role="listitem">
+              <img src="https://placehold.co/200x80/ffffff/003750?text=Jamieson" alt="Jamieson" loading="lazy">
+            </div>
+            <div class="caat-logo-wall__item" role="listitem">
+              <img src="https://placehold.co/200x80/ffffff/003750?text=Brink's" alt="Brink's" loading="lazy">
+            </div>
+            <div class="caat-logo-wall__item" role="listitem">
+              <img src="https://placehold.co/200x80/ffffff/003750?text=Sanofi" alt="Sanofi" loading="lazy">
+            </div>
+            <div class="caat-logo-wall__item" role="listitem">
+              <img src="https://placehold.co/200x80/ffffff/003750?text=Torstar" alt="Torstar" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         1. SUMMARY
+         ══════════════════════════════════════════════════════ -->
+    <section id="summary" class="mb-5">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Logo Wall</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/logo-wall</code></td></tr>
+          <tr><th>AEM category</th><td>CAAT — Content</td></tr>
+          <tr><th>Allowed parents</th><td>Layout Container, Experience Fragment, Section</td></tr>
+          <tr><th>Variants</th><td>Default (bordered cards) · Clean (no borders) · Dark background · Marquee (scrolling)</td></tr>
+          <tr><th>Purpose</th><td>Display a grid of employer/partner logos to build social proof and trust, with optional heading, subtitle, and CTA.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         2. DESIGN TOKENS
+         ══════════════════════════════════════════════════════ -->
+    <section id="tokens" class="mb-5">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Title colour, dark variant background</td></tr>
+          <tr><td><code>--caat-grey-200</code></td><td>#dfe6ef</td><td>Card border colour</td></tr>
+          <tr><td><code>--caat-radius</code></td><td>.75rem</td><td>Logo card border-radius</td></tr>
+          <tr><td><code>--caat-radius-lg</code></td><td>1.25rem</td><td>Dark variant container radius</td></tr>
+          <tr><td><code>--caat-muted</code></td><td>#506273</td><td>Subtitle colour</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ══════════════════════════════════════════════════════ -->
+    <section id="authoring" class="mb-5">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Variant</td><td>Select</td><td>Yes</td><td><code>default</code> | <code>clean</code> | <code>dark</code> | <code>marquee</code></td></tr>
+          <tr><td>Title</td><td>Text</td><td>No</td><td>Optional heading above the logo grid</td></tr>
+          <tr><td>Subtitle</td><td>Text</td><td>No</td><td>Optional descriptive text below title</td></tr>
+          <tr><td>Logos (multifield)</td><td>Multifield</td><td>Yes (≥ 3)</td><td>Array of logo items</td></tr>
+          <tr><td>  → Image</td><td>Image</td><td>Yes</td><td>Logo image from DAM</td></tr>
+          <tr><td>  → Alt text</td><td>Text</td><td>Yes</td><td>Organization name for accessibility</td></tr>
+          <tr><td>  → Link (optional)</td><td>Path</td><td>No</td><td>Optional link to success story or external site</td></tr>
+          <tr><td>CTA label</td><td>Text</td><td>No</td><td>Footer CTA button label</td></tr>
+          <tr><td>CTA link</td><td>Path</td><td>No</td><td>Footer CTA destination</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         4. VALIDATION
+         ══════════════════════════════════════════════════════ -->
+    <section id="validation" class="mb-5">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li><strong>Minimum logos:</strong> 3 items required</li>
+        <li><strong>Maximum logos:</strong> 20 (to prevent performance issues)</li>
+        <li><strong>Image format:</strong> SVG preferred; PNG/WebP accepted (transparent background required)</li>
+        <li><strong>Image dimensions:</strong> Recommended 200×80px, will be constrained to <code>max-height: 3rem</code></li>
+        <li><strong>Alt text:</strong> Required for every logo — must be the organization name</li>
+        <li><strong>Marquee variant:</strong> Requires ≥ 6 logos for smooth scrolling effect</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ══════════════════════════════════════════════════════ -->
+    <section id="content-guidance" class="mb-5">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Use SVG logos when available for crisp rendering at any size</li>
+        <li>Ensure all logos have transparent backgrounds</li>
+        <li>Logos render in grayscale by default and transition to full colour on hover — ensure originals have sufficient contrast</li>
+        <li>Keep title concise (≤ 10 words). Examples: "Trusted by leading Canadian employers", "Our growing employer network"</li>
+        <li>CTA should link to success stories or employer list page</li>
+        <li>For the dark variant, ensure logos are visible against the dark background (light versions of logos may be needed)</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ══════════════════════════════════════════════════════ -->
+    <section id="semantic-html" class="mb-5">
+      <h2>6. Semantic HTML</h2>
+<pre class="bg-light p-3 rounded"><code>&lt;div class="caat-logo-wall"
+     data-analytics-component="logo-wall"
+     data-analytics-variant="default"&gt;
+  &lt;div class="caat-logo-wall__header"&gt;
+    &lt;h2 class="caat-logo-wall__title"&gt;…&lt;/h2&gt;
+    &lt;p class="caat-logo-wall__subtitle"&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-logo-wall__grid" role="list"
+       aria-label="Participating employers"&gt;
+    &lt;div class="caat-logo-wall__item" role="listitem"&gt;
+      &lt;img src="logo.svg" alt="Organization Name" loading="lazy"&gt;
+    &lt;/div&gt;
+    &lt;!-- repeat --&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-logo-wall__footer"&gt;
+    &lt;a href="#" class="caat-button caat-button--outline-primary caat-button--sm"&gt;
+      Read our success stories
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ══════════════════════════════════════════════════════ -->
+    <section id="css-contract" class="mb-5">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Class</th><th>Element</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-logo-wall</code></td><td>Root container</td></tr>
+          <tr><td><code>.caat-logo-wall--clean</code></td><td>Modifier: no borders/shadows</td></tr>
+          <tr><td><code>.caat-logo-wall--dark</code></td><td>Modifier: dark background</td></tr>
+          <tr><td><code>.caat-logo-wall--marquee</code></td><td>Modifier: auto-scrolling</td></tr>
+          <tr><td><code>.caat-logo-wall__header</code></td><td>Optional heading area</td></tr>
+          <tr><td><code>.caat-logo-wall__title</code></td><td>Heading text</td></tr>
+          <tr><td><code>.caat-logo-wall__subtitle</code></td><td>Subtitle text</td></tr>
+          <tr><td><code>.caat-logo-wall__grid</code></td><td>CSS Grid of logo items</td></tr>
+          <tr><td><code>.caat-logo-wall__item</code></td><td>Individual logo card</td></tr>
+          <tr><td><code>.caat-logo-wall__footer</code></td><td>Optional CTA area below grid</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ══════════════════════════════════════════════════════ -->
+    <section id="accessibility" class="mb-5">
+      <h2>8. Accessibility</h2>
+      <ul>
+        <li><code>role="list"</code> on grid, <code>role="listitem"</code> on each item</li>
+        <li><code>aria-label</code> on grid describes the collection</li>
+        <li>Every <code>&lt;img&gt;</code> must have meaningful <code>alt</code> text (organization name)</li>
+        <li>Logos use <code>loading="lazy"</code> for performance</li>
+        <li>Grayscale-to-colour transition is purely decorative — information is conveyed by alt text, not colour</li>
+        <li>Marquee variant respects <code>prefers-reduced-motion</code> — animation stops and falls back to wrapped grid</li>
+        <li>If logos are linked, ensure focus styles are visible and link purpose is clear</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         9. SEO
+         ══════════════════════════════════════════════════════ -->
+    <section id="seo" class="mb-5">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Title rendered as <code>&lt;h2&gt;</code> for semantic hierarchy</li>
+        <li>Alt text on logos provides keyword-rich content for image search</li>
+        <li>Structured data opportunity: <code>Organization</code> schema on linked logos</li>
+        <li>CTA link should use descriptive anchor text</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         10. ANALYTICS
+         ══════════════════════════════════════════════════════ -->
+    <section id="analytics" class="mb-5">
+      <h2>10. Analytics</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-analytics-component</code></td><td><code>logo-wall</code></td></tr>
+          <tr><td><code>data-analytics-variant</code></td><td><code>default</code> | <code>clean</code> | <code>dark</code> | <code>marquee</code></td></tr>
+        </tbody>
+      </table>
+      <p>Track CTA clicks and, if logos are linked, individual logo click-throughs.</p>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         11. AEM NOTES
+         ══════════════════════════════════════════════════════ -->
+    <section id="aem-notes" class="mb-5">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/logo-wall</code></li>
+        <li><strong>Sling Model:</strong> <code>LogoWallModel</code> — iterates multifield items, renders image references from DAM</li>
+        <li><strong>Client library:</strong> <code>caat.components.logowall</code> (category), CSS only — no JS required for default/clean/dark variants</li>
+        <li><strong>Marquee JS:</strong> Optional script for <code>--marquee</code> variant uses <code>IntersectionObserver</code> to pause when out of viewport</li>
+        <li><strong>Policy configuration:</strong> Variant selector, max items, optional title/CTA toggles</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ══════════════════════════════════════════════════════ -->
+    <section id="dialog-model" class="mb-5">
+      <h2>12. Dialog Model</h2>
+<pre class="bg-light p-3 rounded"><code>{
+  "variant": "default | clean | dark | marquee",
+  "title": "Trusted by leading Canadian employers",
+  "subtitle": "Organizations across Canada rely on…",
+  "logos": [
+    {
+      "image": "/content/dam/…/jamieson.png",
+      "alt": "Jamieson Natural Sources",
+      "link": "/pension-solutions/success-stories/jamieson"
+    }
+  ],
+  "ctaLabel": "Read our success stories",
+  "ctaLink": "/pension-solutions/success-stories",
+  "ctaNewTab": false
+}</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ══════════════════════════════════════════════════════ -->
+    <section id="qa" class="mb-5">
+      <h2>13. QA Checklist</h2>
+      <ul>
+        <li>☐ All four variants render correctly</li>
+        <li>☐ Grayscale → colour transition works on hover</li>
+        <li>☐ Grid reflows responsively (2-col mobile, 3-col tablet, auto-fit desktop)</li>
+        <li>☐ Every logo has alt text</li>
+        <li>☐ Dark variant logos visible against dark background</li>
+        <li>☐ Marquee pauses on <code>prefers-reduced-motion</code></li>
+        <li>☐ CTA button uses <code>caat-button</code> component styles</li>
+        <li>☐ Linked logos have visible focus indicators</li>
+        <li>☐ Works with 3–20 logos without layout breaking</li>
+        <li>☐ Title/subtitle optional — component renders cleanly without them</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ══════════════════════════════════════════════════════ -->
+    <section id="dod" class="mb-5">
+      <h2>14. Definition of Done</h2>
+      <ol>
+        <li>All variants implemented and match Figma specs</li>
+        <li>Responsive breakpoints verified (mobile, tablet, desktop)</li>
+        <li>Alt text rendered for every logo</li>
+        <li>Marquee reduced-motion fallback tested</li>
+        <li>Lighthouse accessibility score ≥ 95</li>
+        <li>Analytics attributes present on root element</li>
+        <li>AEM dialog wired to Sling model</li>
+        <li>Cross-browser tested (Chrome, Firefox, Safari, Edge)</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Logo Wall</h1>
+<p class="figma-page-subtitle">CAAT Design System · Employer logo grid variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Logo Item States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:1rem;border-radius:var(--caat-radius);background:#fff;border:1px solid var(--caat-grey-200);min-height:5rem;width:8rem;display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:.85rem;opacity:.6;">Logo</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:1rem;border-radius:var(--caat-radius);background:#fff;border:1px solid var(--caat-grey-200);min-height:5rem;width:8rem;display:flex;align-items:center;justify-content:center;color:var(--caat-ink);font-size:.85rem;box-shadow:var(--caat-shadow-sm);transform:translateY(-2px);">Logo</div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Grid</strong>auto-fit, minmax(8rem, 1fr)</div>
+    <div class="figma-spec"><strong>Item min-height</strong>5rem</div>
+    <div class="figma-spec"><strong>Logo max-height</strong>3rem</div>
+    <div class="figma-spec"><strong>Default filter</strong>grayscale(100%), opacity 0.6</div>
+    <div class="figma-spec"><strong>Hover filter</strong>grayscale(0%), opacity 1</div>
+  </div>
+</div>
+
+</template>
+
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

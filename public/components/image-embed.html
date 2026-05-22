@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Image / Embed AEM Component Contract. Responsive images, video embeds, and media containers for the CAAT Pension Plan member experience.">
+<title>Image / Embed | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link active" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Image / Embed</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Image / Embed</h1>
+      <p class="text-muted">Responsive images, video embeds, and media containers for the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Image / Embed',['/assets/css/tokens.css','/assets/css/components/image-embed.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Responsive image with caption -->
+      <h3 class="mt-3 mb-2">Responsive Image with Caption</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-image">
+            <figure class="caat-image__figure">
+              <img class="caat-image__img" src="https://picsum.photos/900/400?random=20" alt="CAAT members collaborating in a modern office environment">
+              <figcaption class="caat-image__caption">CAAT members collaborating during a pension planning workshop.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 2 — Image with aspect ratios -->
+      <h3 class="mb-2">Image with Aspect Ratios</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="row g-3">
+            <div class="col-md-4">
+              <p class="fw-semibold small mb-1">16:9</p>
+              <div class="caat-image caat-image--16-9">
+                <img class="caat-image__img" src="https://picsum.photos/600/338?random=21" alt="Sample landscape image in 16:9 ratio">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <p class="fw-semibold small mb-1">4:3</p>
+              <div class="caat-image caat-image--4-3">
+                <img class="caat-image__img" src="https://picsum.photos/600/450?random=22" alt="Sample image in 4:3 ratio">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <p class="fw-semibold small mb-1">1:1</p>
+              <div class="caat-image caat-image--1-1">
+                <img class="caat-image__img" src="https://picsum.photos/600/600?random=23" alt="Sample square image in 1:1 ratio">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Video embed -->
+      <h3 class="mb-2">Video Embed (16:9)</h3>
+
+      <!-- Vimeo -->
+      <h4 class="mt-3 mb-2" style="font-size:.9rem; font-weight:700; color:var(--caat-blue-900);">Vimeo</h4>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-embed">
+            <div class="caat-embed__wrapper">
+              <iframe class="caat-embed__iframe"
+                src="https://player.vimeo.com/video/1066350069?h=47f1c2557a&title=0&byline=0&portrait=0&texttrack=en"
+                title="CAAT Pension Plan — Branded Video"
+                allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                loading="lazy"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube -->
+      <h4 class="mt-3 mb-2" style="font-size:.9rem; font-weight:700; color:var(--caat-blue-900);">YouTube</h4>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-embed">
+            <div class="caat-embed__wrapper">
+              <iframe class="caat-embed__iframe"
+                src="https://www.youtube.com/embed/cTif3N2dHPo?rel=0&list=PLo0xU8anP34R5Gwzo9u7zVeaBTtyInfCe"
+                title="CAAT Pension Plan — YouTube"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                loading="lazy"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4 — Decorative vs informative -->
+      <h3 class="mb-2">Decorative vs Informative Image</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <p class="fw-semibold small mb-1">Decorative <span class="badge bg-secondary">alt=""</span></p>
+              <div class="caat-image">
+                <img class="caat-image__img" src="https://picsum.photos/600/300?random=24" alt="" role="presentation">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <p class="fw-semibold small mb-1">Informative <span class="badge bg-secondary">alt="…"</span></p>
+              <div class="caat-image">
+                <img class="caat-image__img" src="https://picsum.photos/600/300?random=25" alt="Bar chart showing CAAT pension fund growth from 2020 to 2025, with a 12% increase year over year">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Responsive image with caption --&gt;
+&lt;div class="caat-image"&gt;
+  &lt;figure class="caat-image__figure"&gt;
+    &lt;img class="caat-image__img"
+         src="photo.jpg"
+         alt="Descriptive alt text for screen readers"&gt;
+    &lt;figcaption class="caat-image__caption"&gt;Caption text here.&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;!-- Aspect ratio container (16:9) --&gt;
+&lt;div class="caat-image caat-image--16-9"&gt;
+  &lt;img class="caat-image__img" src="photo.jpg" alt="Description"&gt;
+&lt;/div&gt;
+
+&lt;!-- Vimeo embed (responsive 16:9) --&gt;
+&lt;div class="caat-embed"&gt;
+  &lt;div class="caat-embed__wrapper"&gt;
+    &lt;iframe class="caat-embed__iframe"
+            src="https://player.vimeo.com/video/VIDEO_ID?h=HASH&amp;title=0&amp;byline=0&amp;portrait=0&amp;texttrack=en"
+            title="Video title for accessibility"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- YouTube embed (responsive 16:9) --&gt;
+&lt;div class="caat-embed"&gt;
+  &lt;div class="caat-embed__wrapper"&gt;
+    &lt;iframe class="caat-embed__iframe"
+            src="https://www.youtube.com/embed/VIDEO_ID?rel=0"
+            title="Video title for accessibility"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Decorative image (empty alt) --&gt;
+&lt;img class="caat-image__img" src="decorative.jpg" alt="" role="presentation"&gt;
+
+&lt;!-- Informative image (descriptive alt) --&gt;
+&lt;img class="caat-image__img" src="chart.jpg" alt="Bar chart showing pension fund growth from 2020 to 2025"&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Image / Embed</td></tr>
+            <tr><td><strong>AEM Resource Type</strong></td><td><code>caat/components/image-embed</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Displays responsive images, video embeds, and media containers with consistent styling, aspect-ratio enforcement, and accessibility compliance.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Responsive image with caption · Aspect-ratio constrained (16:9, 4:3, 1:1) · Video embed (16:9 iframe) · Decorative / Informative</td></tr>
+            <tr><td><strong>Contains</strong></td><td>Image element, optional figure/figcaption, embed wrapper, iframe</td></tr>
+            <tr><td><strong>Used in</strong></td><td>Article pages, hero sections, blog posts, landing pages, member communications</td></tr>
+            <tr><td><strong>Figma</strong></td><td>CAAT DS / Components / Image-Embed</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge enhance"><i class="bi bi-arrow-up-circle"></i> Enhance</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Link/overlay text colour</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Hover accent</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Light background tint</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Success indicator</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Embed placeholder background</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on interactive media</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Caption text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border-radius for images and embeds</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>image | embed</td></tr>
+            <tr><td>Image asset</td><td>Asset picker</td><td>Yes (image)</td><td>DAM reference path. Supports JPEG, PNG, WebP, SVG.</td></tr>
+            <tr><td>Alt text</td><td>Text</td><td>Conditional</td><td>Required for informative images. Leave empty for decorative images (author must confirm decorative intent).</td></tr>
+            <tr><td>Caption</td><td>Text</td><td>No</td><td>Optional figure caption displayed below the image.</td></tr>
+            <tr><td>Aspect ratio</td><td>Select</td><td>No</td><td>auto | 16:9 | 4:3 | 1:1. Default: auto (intrinsic ratio).</td></tr>
+            <tr><td>Decorative</td><td>Toggle</td><td>No</td><td>When enabled, renders empty <code>alt=""</code> and <code>role="presentation"</code>.</td></tr>
+            <tr><td>Embed URL</td><td>URL</td><td>Yes (embed)</td><td>YouTube or Vimeo embed URL. Must be HTTPS.</td></tr>
+            <tr><td>Embed title</td><td>Text</td><td>Yes (embed)</td><td>Accessible title for the iframe.</td></tr>
+            <tr><td>Lazy load</td><td>Toggle</td><td>No</td><td>Adds <code>loading="lazy"</code> attribute. Default: enabled.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Image asset is required for image variant.</td><td>"Select an image from the DAM."</td></tr>
+            <tr><td>Alt text required unless Decorative is toggled.</td><td>"Provide alt text or mark the image as decorative."</td></tr>
+            <tr><td>Embed URL is required for embed variant.</td><td>"Enter a valid embed URL."</td></tr>
+            <tr><td>Embed URL must be HTTPS.</td><td>"Embed URL must use HTTPS."</td></tr>
+            <tr><td>Embed title is required.</td><td>"Provide a title for the embedded content."</td></tr>
+            <tr><td>Alt text must not exceed 125 characters.</td><td>"Alt text should be concise (125 characters max)."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Alt text should describe the content and function of the image, not its appearance: <em>"Chart showing 12% pension growth"</em> not <em>"a bar chart"</em>.</li>
+        <li>Use decorative mode only for purely ornamental images (backgrounds, separators, abstract textures).</li>
+        <li>Captions provide supplementary context — do not duplicate alt text in the caption.</li>
+        <li>For video embeds, always provide a descriptive title: <em>"2025 CAAT Annual Report Summary"</em>.</li>
+        <li>Prefer WebP format for performance; provide JPEG/PNG fallback via AEM renditions.</li>
+        <li>Use aspect-ratio constraints when images must align in a grid layout.</li>
+        <li>Keep embed URLs pointed to the embed endpoint (e.g., <code>youtube.com/embed/…</code>), not the watch URL.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Informative image with caption</h3>
+<pre class="code-sample"><code>&lt;div class="caat-image"&gt;
+  &lt;figure class="caat-image__figure"&gt;
+    &lt;img class="caat-image__img"
+         src="/content/dam/caat/images/photo.jpg"
+         alt="Descriptive text about image content"
+         loading="lazy"&gt;
+    &lt;figcaption class="caat-image__caption"&gt;Caption text.&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Decorative image</h3>
+<pre class="code-sample"><code>&lt;div class="caat-image"&gt;
+  &lt;img class="caat-image__img"
+       src="/content/dam/caat/images/decorative.jpg"
+       alt=""
+       role="presentation"
+       loading="lazy"&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Video embed</h3>
+<pre class="code-sample"><code>&lt;div class="caat-embed"&gt;
+  &lt;div class="caat-embed__wrapper"&gt;
+    &lt;iframe class="caat-embed__iframe"
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Accessible video title"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-image</code></td><td>Image block container.</td></tr>
+            <tr><td><code>.caat-image__figure</code></td><td>Semantic figure wrapper (resets margin).</td></tr>
+            <tr><td><code>.caat-image__img</code></td><td>Image element. Full width, auto height, border-radius, display block.</td></tr>
+            <tr><td><code>.caat-image__caption</code></td><td>Figcaption. Muted text, small font, padding-top.</td></tr>
+            <tr><td><code>.caat-image--16-9</code></td><td>Aspect-ratio 16/9 container with overflow hidden.</td></tr>
+            <tr><td><code>.caat-image--4-3</code></td><td>Aspect-ratio 4/3 container with overflow hidden.</td></tr>
+            <tr><td><code>.caat-image--1-1</code></td><td>Aspect-ratio 1/1 container with overflow hidden.</td></tr>
+            <tr><td><code>.caat-embed</code></td><td>Embed block container.</td></tr>
+            <tr><td><code>.caat-embed__wrapper</code></td><td>Responsive 16:9 wrapper using aspect-ratio CSS property. Overflow hidden, border-radius.</td></tr>
+            <tr><td><code>.caat-embed__iframe</code></td><td>Iframe. 100% width and height, no border.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Informative images</td><td>Meaningful <code>alt</code> text describing content and function (max 125 chars).</td></tr>
+            <tr><td>Decorative images</td><td>Empty <code>alt=""</code> plus <code>role="presentation"</code> to hide from assistive tech.</td></tr>
+            <tr><td>Iframe title</td><td>All iframes require a <code>title</code> attribute describing the embedded content.</td></tr>
+            <tr><td>Keyboard access</td><td>Embedded media must be focusable and operable via keyboard.</td></tr>
+            <tr><td>Captions / transcripts</td><td>Videos must have captions. A transcript link should be provided where possible.</td></tr>
+            <tr><td>Reduced motion</td><td>Autoplay videos must respect <code>prefers-reduced-motion</code>.</td></tr>
+            <tr><td>Colour contrast</td><td>Caption text meets WCAG 2.1 AA 4.5:1 contrast ratio.</td></tr>
+            <tr><td>Focus indicator</td><td>Interactive embeds show visible <code>:focus-visible</code> ring using <code>--caat-focus</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Use descriptive, keyword-rich alt text for informative images — aids Google Image Search indexing.</li>
+        <li>Use semantic <code>&lt;figure&gt;</code> / <code>&lt;figcaption&gt;</code> elements to associate captions with images.</li>
+        <li>Filename should be human-readable: <code>pension-growth-chart-2025.webp</code> not <code>IMG_4521.jpg</code>.</li>
+        <li>Include <code>loading="lazy"</code> on below-fold images to improve Core Web Vitals (LCP).</li>
+        <li>Use structured data (<code>ImageObject</code>) for key images when applicable.</li>
+        <li>Embeds are not indexable — provide surrounding text context and a transcript for videos.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>image-viewed</code></td>
+              <td>Image enters viewport (IntersectionObserver).</td>
+              <td><code>data-analytics-asset</code> (DAM path), <code>data-analytics-variant</code> (image | embed)</td>
+            </tr>
+            <tr>
+              <td><code>embed-play</code></td>
+              <td>User initiates video playback.</td>
+              <td><code>data-analytics-title</code> (embed title), <code>data-analytics-src</code> (embed URL)</td>
+            </tr>
+            <tr>
+              <td><code>image-click</code></td>
+              <td>Image clicked (if linked).</td>
+              <td><code>data-analytics-href</code> (link destination)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/image-embed</code></li>
+        <li><strong>Sling Model:</strong> <code>ImageEmbedModel</code> — exposes <code>src</code>, <code>alt</code>, <code>caption</code>, <code>aspectRatio</code>, <code>decorative</code>, <code>embedUrl</code>, <code>embedTitle</code>, <code>lazyLoad</code>.</li>
+        <li><strong>HTL template:</strong> <code>image-embed.html</code> — uses <code>data-sly-test</code> to switch between image and embed variants.</li>
+        <li><strong>Renditions:</strong> AEM generates responsive renditions (320w, 640w, 960w, 1280w). Uses <code>srcset</code> and <code>sizes</code> for art direction.</li>
+        <li><strong>Client library:</strong> <code>caat.components.image-embed</code> — CSS only; optional JS for lazy-loading polyfill and analytics.</li>
+        <li><strong>Policy:</strong> Authors can restrict allowed aspect ratios and embed domains per template policy.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Article Body, Card Body, Hero.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["image", "embed"]
+      },
+      "imageAsset": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/pathfield",
+        "label": "Image asset",
+        "name": "./fileReference",
+        "rootPath": "/content/dam/caat",
+        "required": true
+      },
+      "altText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Alt text",
+        "name": "./alt",
+        "maxlength": 125
+      },
+      "caption": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Caption",
+        "name": "./caption"
+      },
+      "aspectRatio": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Aspect ratio",
+        "name": "./aspectRatio",
+        "options": ["auto", "16:9", "4:3", "1:1"]
+      },
+      "decorative": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Decorative image",
+        "name": "./decorative"
+      },
+      "embedUrl": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Embed URL",
+        "name": "./embedUrl"
+      },
+      "embedTitle": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Embed title",
+        "name": "./embedTitle"
+      },
+      "lazyLoad": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Lazy load",
+        "name": "./lazyLoad",
+        "checked": true
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Responsive image scales to 100% container width without distortion.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Caption renders below the image with correct muted styling.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Aspect-ratio containers (16:9, 4:3, 1:1) crop images correctly with object-fit: cover.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Video embed wrapper maintains 16:9 ratio at all viewport sizes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Decorative images render with empty <code>alt=""</code> and <code>role="presentation"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Informative images have descriptive alt text announced by screen readers.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Iframe has <code>title</code> attribute readable by assistive technology.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Images have <code>loading="lazy"</code> when below the fold.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Border-radius applies consistently across image and embed variants.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring visible on interactive embeds during keyboard navigation.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>image-viewed</code>, <code>embed-play</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mobile: images and embeds render correctly at 320px viewport.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All aspect-ratio variants and embed wrapper documented. Decorative vs informative patterns illustrated.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. Alt text and iframe title wired. Responsive renditions configured. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on alt text requirements and decorative toggle. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Image / Embed</h1>
+<p class="figma-page-subtitle">CAAT Design System · Responsive media variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Aspect Ratios</h2>
+  <div class="figma-row"><span class="figma-row-label">16:9</span><div class="figma-row-items"><div style="width:12rem;aspect-ratio:16/9;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">4:3</span><div class="figma-row-items"><div style="width:12rem;aspect-ratio:4/3;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">1:1</span><div class="figma-row-items"><div style="width:8rem;aspect-ratio:1/1;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Caption</strong>0.875rem, opacity 0.7</div>
+    <div class="figma-spec"><strong>Embed bg</strong>var(--caat-grey-200)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

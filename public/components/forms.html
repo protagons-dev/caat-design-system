@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Forms AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Forms | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/forms.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link active" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Forms</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Forms</h1>
+      <p class="text-muted">Unified form component for contact, enrollment, feedback, and general data collection across CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Form',['/assets/css/tokens.css','/assets/css/components/forms.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+      <div class="alert alert-info d-flex align-items-start gap-2" role="alert">
+        <i class="bi bi-info-circle-fill mt-1"></i>
+        <div>
+          <strong>Consolidates:</strong> Contact Us (#26), Generic Form (#38), Core Form (#31).<br>
+          <strong>AEM Triage:</strong> Rebuild — a single unified form component replaces three legacy implementations.
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         LIVE DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1: Contact Form -->
+      <h3 class="mt-4 mb-3">Variant 1 — Contact Form</h3>
+      <div class="demo-card p-4 mb-4">
+        <form class="caat-form" novalidate aria-label="Contact Member Services" onsubmit="event.preventDefault();">
+          <h4 class="mb-3">Contact Member Services</h4>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="contact-name" class="form-label">Full Name <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+              <input type="text" class="form-control" id="contact-name" name="name" required placeholder="e.g. Jane Smith">
+              <div class="form-text">As it appears on your pension statement.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="contact-email" class="form-label">Email Address <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+              <input type="email" class="form-control" id="contact-email" name="email" required placeholder="jane.smith@example.com">
+              <div class="form-text">We'll respond to this address within 2 business days.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="contact-phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="contact-phone" name="phone" placeholder="(416) 555-0100">
+            </div>
+            <div class="col-md-6">
+              <label for="contact-subject" class="form-label">Subject <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+              <select class="form-select" id="contact-subject" name="subject" required>
+                <option value="">— Select a topic —</option>
+                <option value="pension-estimate">Pension Estimate</option>
+                <option value="retirement-options">Retirement Options</option>
+                <option value="beneficiary-change">Beneficiary Change</option>
+                <option value="contribution-question">Contribution Question</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="contact-message" class="form-label">Message <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+              <textarea class="form-control" id="contact-message" name="message" rows="4" required placeholder="Please describe your question or concern…"></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="caat-button caat-button--primary mt-3">Submit Inquiry</button>
+        </form>
+      </div>
+
+      <!-- Variant 2: Multi-step Enrollment -->
+      <h3 class="mt-4 mb-3">Variant 2 — Enrollment / Registration (Multi-Step)</h3>
+      <div class="demo-card p-4 mb-4">
+        <form class="caat-form caat-form--multi-step" novalidate aria-label="New Member Enrollment" id="multiStepForm" onsubmit="event.preventDefault();">
+          <h4 class="mb-3">New Member Enrollment</h4>
+
+          <!-- Progress indicator -->
+          <ol class="caat-form__progress" aria-label="Form progress">
+            <li class="active" aria-current="step" data-step="1">Personal Info</li>
+            <li data-step="2">Employment</li>
+            <li data-step="3">Beneficiary</li>
+          </ol>
+
+          <!-- Step 1: Personal Info -->
+          <fieldset class="caat-form__step" id="step-personal">
+            <legend class="visually-hidden">Step 1: Personal Information</legend>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="enrol-first" class="form-label">First Name <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-first" name="firstName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-last" class="form-label">Last Name <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-last" name="lastName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-dob" class="form-label">Date of Birth <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="date" class="form-control" id="enrol-dob" name="dob" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-email" class="form-label">Email <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="email" class="form-control" id="enrol-email" name="email" required>
+              </div>
+              <div class="col-12">
+                <label for="enrol-sin" class="form-label">Social Insurance Number <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-sin" name="sin" required pattern="\d{3}-\d{3}-\d{3}" placeholder="000-000-000" aria-describedby="enrol-sin-help">
+                <div class="form-text" id="enrol-sin-help">Format: 000-000-000. Required for pension administration.</div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <button type="button" class="caat-button caat-button--primary" onclick="goToStep(2)">Next: Employment <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Employment -->
+          <fieldset class="caat-form__step d-none" id="step-employment">
+            <legend class="visually-hidden">Step 2: Employment Details</legend>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="enrol-employer" class="form-label">Employer Name <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-employer" name="employer" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-position" class="form-label">Position / Title</label>
+                <input type="text" class="form-control" id="enrol-position" name="position">
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-start-date" class="form-label">Employment Start Date <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="date" class="form-control" id="enrol-start-date" name="startDate" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-salary" class="form-label">Annual Salary <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-salary" name="salary" required placeholder="$0.00">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="caat-button caat-button--outline-primary" onclick="goToStep(1)"><i class="bi bi-arrow-left"></i> Back</button>
+              <button type="button" class="caat-button caat-button--primary" onclick="goToStep(3)">Next: Beneficiary <i class="bi bi-arrow-right"></i></button>
+            </div>
+          </fieldset>
+
+          <!-- Step 3: Beneficiary -->
+          <fieldset class="caat-form__step d-none" id="step-beneficiary">
+            <legend class="visually-hidden">Step 3: Beneficiary Information</legend>
+            <div class="row g-3">
+              <div class="col-12">
+                <label for="enrol-ben-name" class="form-label">Beneficiary Full Name <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <input type="text" class="form-control" id="enrol-ben-name" name="beneficiaryName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-ben-relationship" class="form-label">Relationship <span aria-hidden="true">*</span><span class="visually-hidden">required</span></label>
+                <select class="form-select" id="enrol-ben-relationship" name="beneficiaryRelationship" required>
+                  <option value="">— Select —</option>
+                  <option value="spouse">Spouse / Common-Law Partner</option>
+                  <option value="child">Child</option>
+                  <option value="parent">Parent</option>
+                  <option value="sibling">Sibling</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="enrol-ben-dob" class="form-label">Beneficiary Date of Birth</label>
+                <input type="date" class="form-control" id="enrol-ben-dob" name="beneficiaryDob">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="caat-button caat-button--outline-primary" onclick="goToStep(2)"><i class="bi bi-arrow-left"></i> Back</button>
+              <button type="submit" class="caat-button caat-button--primary">Submit Enrollment</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+      <!-- Variant 3: Simple Feedback -->
+      <h3 class="mt-4 mb-3">Variant 3 — Simple Feedback Form</h3>
+      <div class="demo-card p-4 mb-4">
+        <form class="caat-form" novalidate aria-label="Service Feedback" onsubmit="event.preventDefault();">
+          <h4 class="mb-3">How was your experience?</h4>
+
+          <fieldset class="mb-3">
+            <legend class="form-label">Overall Rating <span aria-hidden="true">*</span><span class="visually-hidden">required</span></legend>
+            <div class="d-flex flex-column gap-1">
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" value="5" id="r5" required><label class="form-check-label" for="r5">Excellent</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" value="4" id="r4"><label class="form-check-label" for="r4">Good</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" value="3" id="r3"><label class="form-check-label" for="r3">Average</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" value="2" id="r2"><label class="form-check-label" for="r2">Below Average</label></div>
+              <div class="form-check"><input class="form-check-input" type="radio" name="rating" value="1" id="r1"><label class="form-check-label" for="r1">Poor</label></div>
+            </div>
+          </fieldset>
+
+          <div class="mb-3">
+            <label for="feedback-comments" class="form-label">Additional Comments</label>
+            <textarea class="form-control" id="feedback-comments" name="comments" rows="4" placeholder="Tell us more about your experience with CAAT member services…"></textarea>
+          </div>
+
+          <button type="submit" class="caat-button caat-button--primary">Submit Feedback</button>
+        </form>
+      </div>
+
+      <!-- Validation states demo -->
+      <h3 class="mt-4 mb-3">Validation States</h3>
+      <div class="demo-card p-4 mb-4">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <label for="demo-valid" class="form-label">Valid Field</label>
+            <input class="form-control is-valid" type="text" id="demo-valid" value="jane.smith@caat.ca">
+            <div class="valid-feedback d-block"><i class="bi bi-check-circle"></i> Looks good.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="demo-invalid" class="form-label">Invalid Field</label>
+            <input class="form-control is-invalid" type="email" id="demo-invalid" value="not-an-email" aria-invalid="true" aria-describedby="demo-invalid-error">
+            <div class="invalid-feedback d-block" id="demo-invalid-error"><i class="bi bi-exclamation-circle"></i> Enter a valid work email address, such as name@organization.ca.</div>
+          </div>
+          <div class="col-md-4">
+            <label for="demo-required" class="form-label">Required (empty) <span aria-hidden="true">*</span></label>
+            <input class="form-control is-invalid" type="text" id="demo-required" required aria-invalid="true" aria-describedby="demo-required-error">
+            <div class="invalid-feedback d-block" id="demo-required-error"><i class="bi bi-exclamation-circle"></i> This field is required.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Expanded Base Patterns ──────────────────────────── -->
+      <h3 class="mt-5 mb-3">Variant 4 — Pension Solutions Form (Account Engagement)</h3>
+      <p class="text-muted mb-3">Use this pattern for employer-facing lead-gen forms posted to Account Engagement (Pardot). Includes logo, UTM tracking, honeypot, reCAPTCHA, email opt-in, and privacy consent.</p>
+      <div class="demo-card p-4 mb-4">
+        <div class="caat-form caat-form--ae">
+          <div class="text-center mb-4">
+            <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" style="height:40px;" class="mb-3">
+            <h4>Connect with Pension Solutions</h4>
+            <p class="text-muted mb-0">Complete the form below and our team will follow up within 2 business days.</p>
+          </div>
+          <form action="#" method="post" class="caat-pension-solutions-form" onsubmit="event.preventDefault();" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="ps-firstName" class="form-label">First name <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <input type="text" class="form-control" id="ps-firstName" name="firstName" placeholder="Enter your first name" required>
+              </div>
+              <div class="col-md-6">
+                <label for="ps-lastName" class="form-label">Last name <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <input type="text" class="form-control" id="ps-lastName" name="lastName" placeholder="Enter your last name" required>
+              </div>
+              <div class="col-12">
+                <label for="ps-company" class="form-label">Company / Organization <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <input type="text" class="form-control" id="ps-company" name="company" placeholder="Enter your company or organization" required>
+              </div>
+              <div class="col-md-6">
+                <label for="ps-email" class="form-label">Work email <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <input type="email" class="form-control" id="ps-email" name="email" placeholder="Enter your work email" required>
+              </div>
+              <div class="col-md-6">
+                <label for="ps-phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="ps-phone" name="phone" placeholder="Enter your phone number (optional)">
+              </div>
+              <div class="col-md-6">
+                <label for="ps-province" class="form-label">Province / territory <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <select class="form-select" id="ps-province" name="province" required>
+                  <option value="">Select a province or territory</option>
+                  <option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NB">New Brunswick</option><option value="NL">Newfoundland and Labrador</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="ps-employees" class="form-label">How many employees?</label>
+                <select class="form-select" id="ps-employees" name="Employees">
+                  <option value="">Select an option</option>
+                  <option value="1-50">1–49</option>
+                  <option value="50-299">50–299</option>
+                  <option value="300-499">300–499</option>
+                  <option value="500-999">500–999</option>
+                  <option value="1000+">1,000+</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="ps-arrangement" class="form-label">Current retirement plan?</label>
+                <select class="form-select" id="ps-arrangement" name="Arrangement">
+                  <option value="">Select an option</option>
+                  <option value="db">Defined benefit (DB) pension plan</option>
+                  <option value="dc">Defined contribution (DC) pension plan</option>
+                  <option value="rrsp">Group RRSP</option>
+                  <option value="other">Other</option>
+                  <option value="none">No plan</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="ps-message" class="form-label">What would you like to discuss? <span class="text-danger" aria-hidden="true">*</span><span class="visually-hidden"> required</span></label>
+                <textarea class="form-control" id="ps-message" name="message" rows="4" placeholder="Type your message here" required></textarea>
+              </div>
+            </div>
+
+            <!-- Hidden UTM fields -->
+            <input type="hidden" name="utm_source" value="">
+            <input type="hidden" name="utm_medium" value="">
+            <input type="hidden" name="utm_campaign" value="">
+            <input type="hidden" name="utm_id" value="">
+            <input type="hidden" name="utm_term" value="">
+            <input type="hidden" name="utm_content" value="">
+
+            <!-- Email Opt-In -->
+            <div class="caat-form__check mt-3">
+              <input type="checkbox" id="ps-optIn" name="emailOptIn" value="yes">
+              <label for="ps-optIn">I would like to receive occasional emails from CAAT about pension solutions, events, and resources. I can unsubscribe at any time.</label>
+            </div>
+
+            <!-- Privacy / Consent -->
+            <p class="caat-form__privacy mt-3">By submitting this form, you agree that CAAT may use the information provided to respond to your inquiry and follow up about pension solutions. Personal information is handled according to <a href="#">CAAT's privacy practices</a>.</p>
+
+            <!-- reCAPTCHA placeholder -->
+            <div class="caat-form__recaptcha my-3" aria-label="reCAPTCHA verification">
+              <div class="border rounded p-2 d-inline-flex align-items-center gap-2 text-muted small"><i class="bi bi-shield-check"></i> reCAPTCHA</div>
+            </div>
+
+            <button type="submit" class="caat-button caat-button--primary caat-button--lg text-uppercase">Submit</button>
+
+            <!-- Honeypot -->
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="ps-website_url">Website</label>
+              <input type="text" id="ps-website_url" name="website_url" tabindex="-1" autocomplete="off">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ── Consent, Validation & Follow-Up Guidance ────────── -->
+      <h3 class="mt-5 mb-3">Form Consent, Validation & Follow-Up Patterns</h3>
+      <p class="text-muted mb-3">Standard patterns for Account Engagement forms, campaign landing pages, gated content, event registrations, and contact requests.</p>
+
+      <div class="row g-4 mb-4">
+        <!-- Consent language -->
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <h5><i class="bi bi-shield-lock me-2"></i>Consent Language</h5>
+            <p>Place consent near the submit button, not hidden in a footer. Use plain language that explains why CAAT is collecting information and what follow-up may happen.</p>
+            <div class="caat-form__privacy p-3 bg-light rounded">By submitting this form, you agree that CAAT may use the information provided to respond to your inquiry and follow up about pension solutions. Personal information is handled according to CAAT's privacy practices.</div>
+          </div>
+        </div>
+
+        <!-- Email opt-in -->
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <h5><i class="bi bi-envelope-check me-2"></i>Email Opt-In</h5>
+            <p>Use an <strong>unchecked</strong> checkbox for marketing email permission. Do not bundle email consent into the form submission itself.</p>
+            <div class="caat-form__check mt-2">
+              <input type="checkbox" id="demo-optin" value="yes">
+              <label for="demo-optin">I would like to receive occasional emails from CAAT about pension solutions, events, and resources. I can unsubscribe at any time.</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Required fields guidance -->
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <h5><i class="bi bi-asterisk me-2"></i>Required Fields</h5>
+            <ul class="mb-0">
+              <li>Mark required fields with <code>*</code> in the label and expose "required" to screen readers via <code>.visually-hidden</code>.</li>
+              <li>Add Province/territory when routing, segmentation, events, or regional follow-up matters.</li>
+              <li>Keep phone optional unless a phone call is essential to the service request.</li>
+              <li>Add <code>aria-required="true"</code> to the input, not just the HTML <code>required</code> attribute.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Validation copy -->
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <h5><i class="bi bi-exclamation-triangle me-2"></i>Validation Copy Patterns</h5>
+            <p>Be specific — tell the user what format is expected, not just "invalid input."</p>
+            <div class="caat-form__group mb-3">
+              <label class="form-label" for="vc-email">Work email</label>
+              <input class="form-control is-invalid" type="email" id="vc-email" value="name@" aria-invalid="true" aria-describedby="vc-email-err">
+              <span class="caat-form__error" id="vc-email-err" role="alert"><i class="bi bi-exclamation-circle"></i> Enter a valid work email address, such as name@organization.ca.</span>
+            </div>
+            <div class="caat-form__group">
+              <label class="form-label" for="vc-province">Province / territory</label>
+              <select class="form-select is-valid" id="vc-province">
+                <option>Ontario</option>
+              </select>
+              <span class="caat-form__valid-feedback"><i class="bi bi-check-circle"></i> Province selected.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thank You Page Pattern -->
+      <h3 class="mt-5 mb-3">Thank You Page Pattern</h3>
+      <p class="text-muted mb-3">A successful form submission should redirect to a dedicated thank-you page or show a persistent success state. Never leave users on a blank form or rely only on a toast notification.</p>
+      <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <div class="alert alert-success d-flex align-items-start gap-2" role="status">
+              <i class="bi bi-check-circle-fill fs-4 mt-1"></i>
+              <div>
+                <h5 class="alert-heading mb-1">Thank you!</h5>
+                <p class="mb-2">A member of the Pension Solutions team will be in touch with you within 2 business days.</p>
+                <a href="#" class="alert-link">Return to Pension Solutions <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+            <h6 class="mt-3">Thank-you page requirements:</h6>
+            <ul class="small mb-0">
+              <li>Confirm the form was received.</li>
+              <li>State who will follow up and when, if known.</li>
+              <li>Offer a relevant next step (resource link, event registration, etc.).</li>
+              <li>Do <strong>not</strong> repeat personal information back to the user.</li>
+              <li>Fire a <code>form-submit-success</code> analytics event on page load.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="demo-card p-4 h-100">
+            <h6 class="mb-2">Thank-you page starter HTML</h6>
+            <pre class="bg-light p-3 rounded small mb-0"><code>&lt;main class="caat-form__thank-you"&gt;
+  &lt;div class="caat-form__thank-you-icon"&gt;
+    &lt;i class="bi bi-check-circle-fill"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+  &lt;h1&gt;Thank you!&lt;/h1&gt;
+  &lt;p&gt;A member of the Pension Solutions team
+  will be in touch with you soon.&lt;/p&gt;
+  &lt;a href="/pension-solutions"
+     class="caat-button caat-button--primary"&gt;
+    Return to Pension Solutions
+  &lt;/a&gt;
+&lt;/main&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td><code>caat/components/form</code></td></tr>
+            <tr><td><strong>Consolidates</strong></td><td>Contact Us (#26), Generic Form (#38), Core Form (#31)</td></tr>
+            <tr><td><strong>AEM Triage</strong></td><td>Rebuild</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Unified form component for contact, enrollment, feedback, and general data collection</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Single-step, Multi-step (with progress indicator)</td></tr>
+            <tr><td><strong>Field types</strong></td><td>text, email, tel, select, textarea, checkbox, radio, date, file</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-form-border</code></td><td>1px solid var(--caat-gray-300)</td><td>Input/select/textarea border</td></tr>
+            <tr><td><code>--caat-form-border-focus</code></td><td>var(--caat-blue-500)</td><td>Focus ring colour</td></tr>
+            <tr><td><code>--caat-form-border-error</code></td><td>var(--caat-red-600)</td><td>Invalid state border</td></tr>
+            <tr><td><code>--caat-form-border-valid</code></td><td>var(--caat-green-600)</td><td>Valid state border</td></tr>
+            <tr><td><code>--caat-form-radius</code></td><td>var(--caat-radius-md, 0.375rem)</td><td>Input border-radius</td></tr>
+            <tr><td><code>--caat-form-padding</code></td><td>0.625rem 0.875rem</td><td>Input inner padding</td></tr>
+            <tr><td><code>--caat-form-font-size</code></td><td>1rem</td><td>Input text size</td></tr>
+            <tr><td><code>--caat-form-label-weight</code></td><td>600</td><td>Label font weight</td></tr>
+            <tr><td><code>--caat-form-help-color</code></td><td>var(--caat-gray-600)</td><td>Help text colour</td></tr>
+            <tr><td><code>--caat-form-error-color</code></td><td>var(--caat-red-600)</td><td>Error message colour</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Form Action URL</strong></td><td>Path/URL</td><td>Yes</td><td>Endpoint that receives the submitted data</td></tr>
+            <tr><td><strong>Method</strong></td><td>Dropdown (GET / POST)</td><td>Yes</td><td>HTTP method; defaults to POST</td></tr>
+            <tr><td><strong>Form Title</strong></td><td>Text</td><td>No</td><td>Rendered as &lt;h4&gt; inside the form</td></tr>
+            <tr><td><strong>Success Message</strong></td><td>Rich text</td><td>No</td><td>Displayed on successful submission</td></tr>
+            <tr><td><strong>Enable Multi-Step</strong></td><td>Toggle</td><td>No</td><td>Enables step-based layout with progress indicator</td></tr>
+            <tr><td colspan="4"><strong>Fields (Multifield)</strong></td></tr>
+            <tr><td class="ps-4">Field Type</td><td>Dropdown</td><td>Yes</td><td>text | email | tel | select | textarea | checkbox | radio | date | file</td></tr>
+            <tr><td class="ps-4">Label</td><td>Text</td><td>Yes</td><td>Visible label for the field</td></tr>
+            <tr><td class="ps-4">Placeholder</td><td>Text</td><td>No</td><td>Placeholder text for inputs/textarea</td></tr>
+            <tr><td class="ps-4">Required</td><td>Toggle</td><td>No</td><td>Marks field as required</td></tr>
+            <tr><td class="ps-4">Validation Pattern</td><td>Text (regex)</td><td>No</td><td>Custom regex pattern for validation</td></tr>
+            <tr><td class="ps-4">Help Text</td><td>Text</td><td>No</td><td>Descriptive text below the input</td></tr>
+            <tr><td class="ps-4">Options List</td><td>Multifield (label/value)</td><td>Conditional</td><td>Required for select / radio field types</td></tr>
+            <tr><td class="ps-4">Step Group</td><td>Number</td><td>Conditional</td><td>Which step this field belongs to (multi-step only)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Action URL must be populated</td><td>Dialog prevents save without a valid form action</td></tr>
+            <tr><td>At least one field must exist</td><td>Form is not rendered if the fields multifield is empty</td></tr>
+            <tr><td>Options required for select/radio</td><td>Dialog validation error when field type is select or radio and options list is empty</td></tr>
+            <tr><td>Email fields validate format</td><td>Client-side regex + <code>type="email"</code> ensures valid email format</td></tr>
+            <tr><td>Tel fields validate format</td><td>Pattern attribute enforces phone number format</td></tr>
+            <tr><td>Required fields must have content</td><td>Client-side required attribute + aria-required</td></tr>
+            <tr><td>Multi-step validates per step</td><td>Each step must be valid before progressing; focus moves to first error</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li><strong>Labels:</strong> Use clear, concise labels. Avoid jargon — say "Date of Birth" not "DOB."</li>
+        <li><strong>Placeholder text:</strong> Show an example value (e.g., "jane.smith@example.com") rather than repeating the label.</li>
+        <li><strong>Help text:</strong> Explain why the information is needed or the expected format (e.g., "Format: 000-000-000").</li>
+        <li><strong>Error messages:</strong> Be specific and actionable — "Please enter a valid email address" not "Invalid input."</li>
+        <li><strong>Submit button:</strong> Use a verb phrase that describes the action — "Submit Enrollment," "Send Message."</li>
+        <li><strong>Progress steps:</strong> Use short labels (2–3 words) for multi-step indicators.</li>
+        <li><strong>Privacy note:</strong> For forms collecting personal data, include a link to CAAT's Privacy Policy.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;form class="caat-form" action="/api/contact" method="POST" novalidate
+      aria-label="Contact Member Services"
+      data-analytics-component="form"
+      data-analytics-form-name="contact-member-services"&gt;
+
+  &lt;div class="caat-form__group"&gt;
+    &lt;label class="form-label" for="field-name"&gt;
+      Full Name &lt;span class="text-danger" aria-hidden="true"&gt;*&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;input class="form-control" type="text" id="field-name"
+           name="name" required aria-required="true"
+           aria-describedby="field-name-help field-name-error"&gt;
+    &lt;span class="caat-form__help" id="field-name-help"&gt;
+      As it appears on your pension statement.
+    &lt;/span&gt;
+    &lt;span class="caat-form__error" id="field-name-error" role="alert"
+          hidden&gt;
+      Please enter your full name.
+    &lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Grouped fields (radio/checkbox) --&gt;
+  &lt;fieldset class="caat-form__group"&gt;
+    &lt;legend class="form-label"&gt;Preferred Contact Method&lt;/legend&gt;
+    &lt;label class="caat-form__radio"&gt;
+      &lt;input type="radio" name="contactMethod" value="email"&gt; Email
+    &lt;/label&gt;
+    &lt;label class="caat-form__radio"&gt;
+      &lt;input type="radio" name="contactMethod" value="phone"&gt; Phone
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+
+  &lt;button type="submit" class="caat-button caat-button--primary"&gt;
+    Submit Inquiry
+  &lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+      <h4 class="mt-4">Multi-Step Structure</h4>
+      <pre><code>&lt;form class="caat-form caat-form--multi-step" …&gt;
+  &lt;div class="caat-form__progress" aria-label="Form progress"&gt;
+    &lt;ol class="caat-form__progress-steps"&gt;
+      &lt;li class="caat-form__progress-step active" aria-current="step"&gt;
+        &lt;span class="step-number"&gt;1&lt;/span&gt; Personal Info
+      &lt;/li&gt;
+      &lt;li class="caat-form__progress-step"&gt;…&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/div&gt;
+
+  &lt;fieldset class="caat-form__step" id="step-1"&gt;
+    &lt;legend class="visually-hidden"&gt;Step 1: Personal Information&lt;/legend&gt;
+    &lt;!-- fields --&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Class</th><th>Element</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-form</code></td><td>Form root</td><td>Wrapper for all form variants</td></tr>
+            <tr><td><code>.caat-form--multi-step</code></td><td>Form root modifier</td><td>Enables step-based layout</td></tr>
+            <tr><td><code>.caat-form__group</code></td><td>Field container</td><td>Wraps label + input + help/error</td></tr>
+            <tr><td><code>.caat-form__label</code></td><td>Label</td><td>Font-weight via token</td></tr>
+            <tr><td><code>.caat-form__input</code></td><td>Text/email/tel/date/file inputs</td><td>Shared styling for single-line inputs</td></tr>
+            <tr><td><code>.caat-form__select</code></td><td>Select dropdown</td><td>Custom arrow indicator</td></tr>
+            <tr><td><code>.caat-form__textarea</code></td><td>Multi-line text</td><td>Resizable vertically only</td></tr>
+            <tr><td><code>.caat-form__checkbox</code></td><td>Checkbox wrapper</td><td>Custom checkbox styling</td></tr>
+            <tr><td><code>.caat-form__radio</code></td><td>Radio wrapper</td><td>Custom radio styling</td></tr>
+            <tr><td><code>.caat-form__help</code></td><td>Help text</td><td>Below the input; uses help-color token</td></tr>
+            <tr><td><code>.caat-form__error</code></td><td>Error message</td><td>Red text with icon; hidden until invalid</td></tr>
+            <tr><td><code>.caat-form__progress</code></td><td>Progress container</td><td>Multi-step progress bar</td></tr>
+            <tr><td><code>.caat-form__progress-steps</code></td><td>Ordered list of steps</td><td>Horizontal step indicators</td></tr>
+            <tr><td><code>.caat-form__progress-step</code></td><td>Individual step</td><td><code>.active</code> for current step</td></tr>
+            <tr><td><code>.is-valid</code></td><td>State modifier</td><td>Green border for validated fields</td></tr>
+            <tr><td><code>.is-invalid</code></td><td>State modifier</td><td>Red border + shows error message</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Labels linked to inputs</td><td>Every <code>&lt;input&gt;</code> / <code>&lt;select&gt;</code> / <code>&lt;textarea&gt;</code> has a matching <code>&lt;label for="…"&gt;</code></td></tr>
+            <tr><td>Help &amp; error descriptions</td><td><code>aria-describedby</code> references both help text and error message IDs</td></tr>
+            <tr><td>Required indicator</td><td><code>aria-required="true"</code> on required fields; visual asterisk is <code>aria-hidden</code></td></tr>
+            <tr><td>Invalid state</td><td><code>aria-invalid="true"</code> set dynamically when validation fails</td></tr>
+            <tr><td>Error announcements</td><td>Error messages use <code>role="alert"</code> so screen readers announce immediately</td></tr>
+            <tr><td>Focus management</td><td>On validation failure, focus moves to first invalid field; on step change, focus moves to first field in new step</td></tr>
+            <tr><td>Grouped controls</td><td>Radio groups and checkbox groups wrapped in <code>&lt;fieldset&gt;</code> with <code>&lt;legend&gt;</code></td></tr>
+            <tr><td>Progress indicator</td><td><code>aria-current="step"</code> on active step; <code>aria-label</code> on progress container</td></tr>
+            <tr><td>Colour contrast</td><td>All form text, borders, and error states meet WCAG 2.1 AA (4.5:1 for text)</td></tr>
+            <tr><td>Touch targets</td><td>Minimum 44×44px tap area for checkboxes, radios, and buttons</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Forms themselves have minimal direct SEO impact but ensure surrounding page content is well-structured.</li>
+        <li>Use semantic headings above the form to describe its purpose.</li>
+        <li>The <code>&lt;form&gt;</code> element's <code>aria-label</code> provides context for assistive tech and potential indexing.</li>
+        <li>Success/thank-you pages should include appropriate <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> tags.</li>
+        <li>Use <code>noindex</code> on form confirmation/thank-you pages if they contain no unique content.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Layer Payload</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>form-start</code></td>
+              <td>User interacts with first field (focus)</td>
+              <td><code>{ event: "form-start", formName, formVariant }</code></td>
+            </tr>
+            <tr>
+              <td><code>form-step</code></td>
+              <td>User advances to next step (multi-step only)</td>
+              <td><code>{ event: "form-step", formName, stepNumber, stepName }</code></td>
+            </tr>
+            <tr>
+              <td><code>form-submit</code></td>
+              <td>Successful form submission</td>
+              <td><code>{ event: "form-submit", formName, formVariant, fieldsCompleted }</code></td>
+            </tr>
+            <tr>
+              <td><code>form-error</code></td>
+              <td>Validation error shown to user</td>
+              <td><code>{ event: "form-error", formName, fieldName, errorType }</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h4 class="mt-3">Data Attributes</h4>
+      <pre><code>&lt;form data-analytics-component="form"
+      data-analytics-form-name="new-member-enrollment"
+      data-analytics-form-variant="multi-step"&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/form</code></li>
+        <li><strong>Proxy:</strong> <code>/apps/caat/components/form</code></li>
+        <li><strong>Sling model:</strong> Provides field list, step configuration, action URL, and method.</li>
+        <li><strong>Client-side validation:</strong> Progressive enhancement — uses <code>novalidate</code> on form, JS handles validation and focus management.</li>
+        <li><strong>Server-side handling:</strong> Action URL should point to a Sling POST servlet or external API endpoint.</li>
+        <li><strong>Multi-step JS:</strong> A lightweight controller manages step visibility, progress state, and per-step validation.</li>
+        <li><strong>File uploads:</strong> When file field type is used, form encoding switches to <code>multipart/form-data</code>.</li>
+        <li><strong>CSRF protection:</strong> Include AEM CSRF token as hidden field for POST submissions.</li>
+        <li><strong>Captcha:</strong> Optional reCAPTCHA/hCaptcha integration configured at the form level.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+      <pre><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "content": {
+    "items": {
+      "tabs": {
+        "items": {
+          "formSettings": {
+            "jcr:title": "Form Settings",
+            "items": {
+              "columns": {
+                "items": {
+                  "column": {
+                    "items": {
+                      "formTitle": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./formTitle", "fieldLabel": "Form Title" },
+                      "actionUrl": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./actionUrl", "fieldLabel": "Action URL", "required": true },
+                      "method": { "sling:resourceType": "granite/ui/components/coral/foundation/form/select", "name": "./method", "fieldLabel": "Method", "items": { "post": { "text": "POST", "value": "POST", "selected": true }, "get": { "text": "GET", "value": "GET" } } },
+                      "enableMultiStep": { "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox", "name": "./enableMultiStep", "text": "Enable Multi-Step Layout" },
+                      "successMessage": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textarea", "name": "./successMessage", "fieldLabel": "Success Message" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "fields": {
+            "jcr:title": "Form Fields",
+            "items": {
+              "columns": {
+                "items": {
+                  "column": {
+                    "items": {
+                      "fields": {
+                        "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
+                        "fieldLabel": "Fields",
+                        "composite": true,
+                        "field": {
+                          "items": {
+                            "fieldType": { "sling:resourceType": "granite/ui/components/coral/foundation/form/select", "name": "./fieldType", "fieldLabel": "Field Type", "items": { "text": { "text": "Text", "value": "text" }, "email": { "text": "Email", "value": "email" }, "tel": { "text": "Telephone", "value": "tel" }, "select": { "text": "Dropdown", "value": "select" }, "textarea": { "text": "Textarea", "value": "textarea" }, "checkbox": { "text": "Checkbox", "value": "checkbox" }, "radio": { "text": "Radio Buttons", "value": "radio" }, "date": { "text": "Date", "value": "date" }, "file": { "text": "File Upload", "value": "file" } } },
+                            "label": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./label", "fieldLabel": "Label", "required": true },
+                            "placeholder": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./placeholder", "fieldLabel": "Placeholder" },
+                            "required": { "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox", "name": "./required", "text": "Required" },
+                            "validationPattern": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./validationPattern", "fieldLabel": "Validation Pattern (regex)" },
+                            "helpText": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "name": "./helpText", "fieldLabel": "Help Text" },
+                            "options": { "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield", "name": "./options", "fieldLabel": "Options (for select/radio)", "composite": true }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All field types render correctly (text, email, tel, select, textarea, checkbox, radio, date, file).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Required fields show asterisk and <code>aria-required="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Validation triggers on submit (not on blur for first interaction).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Invalid fields show error message with <code>role="alert"</code> and receive focus.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Valid fields show green border confirmation.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Multi-step progress indicator updates correctly and announces step changes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Each step validates before allowing progression.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Back button in multi-step preserves entered data.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Labels are correctly associated (<code>for</code> / <code>id</code> matching).</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-describedby</code> links help text and error messages to their fields.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Radio/checkbox groups use <code>fieldset</code> and <code>legend</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Form is fully operable via keyboard only.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events fire: form-start, form-step, form-submit, form-error.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive layout renders correctly on mobile, tablet, and desktop.</li>
+        <li class="mb-2"><input type="checkbox" disabled> File upload field accepts specified file types and shows file name.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All field types, validation states, and multi-step progress are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS handles validation, focus management, multi-step navigation, and analytics events. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Screen reader tested (NVDA, VoiceOver).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on multifield configuration. Documentation published. Analytics dashboards confirmed receiving all form events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Form</h1>
+<p class="figma-page-subtitle">CAAT Design System · Input types, validation, and multi-step</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Input States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="max-width:20rem;flex:1;"><label style="font-weight:700;color:var(--caat-blue-900);font-size:.9rem;display:block;margin-bottom:.25rem;">Full name</label><input type="text" placeholder="Enter your name" style="width:100%;min-height:3.4rem;padding:.5rem .75rem;border:1px solid #ced4da;border-radius:.375rem;font-family:var(--caat-font-primary);font-size:1rem;"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Focus</span><div class="figma-row-items" style="max-width:20rem;flex:1;"><label style="font-weight:700;color:var(--caat-blue-900);font-size:.9rem;display:block;margin-bottom:.25rem;">Full name</label><input type="text" value="John Smith" style="width:100%;min-height:3.4rem;padding:.5rem .75rem;border:1px solid var(--caat-blue-900);border-radius:.375rem;font-family:var(--caat-font-primary);font-size:1rem;box-shadow:var(--caat-focus);"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Valid</span><div class="figma-row-items" style="max-width:20rem;flex:1;"><label style="font-weight:700;color:var(--caat-blue-900);font-size:.9rem;display:block;margin-bottom:.25rem;">Email</label><input type="text" value="john@example.com" style="width:100%;min-height:3.4rem;padding:.5rem .75rem;border:2px solid var(--caat-green);border-radius:.375rem;font-family:var(--caat-font-primary);font-size:1rem;"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Invalid</span><div class="figma-row-items" style="max-width:20rem;flex:1;"><label style="font-weight:700;color:var(--caat-blue-900);font-size:.9rem;display:block;margin-bottom:.25rem;">Email</label><input type="text" value="invalid" style="width:100%;min-height:3.4rem;padding:.5rem .75rem;border:2px solid var(--caat-danger);border-radius:.375rem;font-family:var(--caat-font-primary);font-size:1rem;"><div style="color:var(--caat-danger);font-size:.85rem;margin-top:.25rem;">Please enter a valid email address.</div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Input height</strong>3.4rem</div>
+    <div class="figma-spec"><strong>Label weight</strong>700</div>
+    <div class="figma-spec"><strong>Label colour</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Border radius</strong>0.375rem</div>
+    <div class="figma-spec"><strong>Focus ring</strong>var(--caat-focus)</div>
+    <div class="figma-spec"><strong>Valid border</strong>var(--caat-green)</div>
+    <div class="figma-spec"><strong>Invalid border</strong>var(--caat-danger)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+// Multi-step form navigation
+function goToStep(step) {
+  const steps = document.querySelectorAll('.caat-form__step');
+  const indicators = document.querySelectorAll('.caat-form__progress li');
+
+  steps.forEach(s => s.classList.add('d-none'));
+  indicators.forEach((li, i) => {
+    li.classList.remove('active', 'completed');
+    li.removeAttribute('aria-current');
+    if (i < step - 1) li.classList.add('completed');
+    if (i === step - 1) { li.classList.add('active'); li.setAttribute('aria-current', 'step'); }
+  });
+
+  const target = steps[step - 1];
+  target.classList.remove('d-none');
+  target.querySelector('input, select, textarea')?.focus();
+}
+</script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

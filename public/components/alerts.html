@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Alerts AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Alerts | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/alerts.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link active" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Alerts</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Alerts</h1>
+      <p class="text-muted">Communicate important contextual messages — success, warning, error, informational — to members of the CAAT Pension Plan.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Alert',['/assets/css/tokens.css','/assets/css/components/alerts.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Info Alert -->
+      <h3 class="mt-3 mb-2">Info Alert</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite">
+            <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
+            <div class="caat-alert__body">
+              <strong>System Maintenance Scheduled</strong>
+              <p class="mb-0">Our member portal will undergo scheduled maintenance on Saturday, May 16 from 2:00 AM – 6:00 AM ET. Contribution submissions will be temporarily unavailable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success Alert -->
+      <h3 class="mb-2">Success Alert</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-alert caat-alert--success" role="alert" aria-live="polite">
+            <i class="bi bi-check-circle-fill caat-alert__icon" aria-hidden="true"></i>
+            <div class="caat-alert__body">
+              <strong>Enrollment Confirmed</strong>
+              <p class="mb-0">Your enrollment in the CAAT DBplus pension plan has been successfully processed. You will receive a confirmation package within 5 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning Alert -->
+      <h3 class="mb-2">Warning Alert</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-alert caat-alert--warning" role="alert" aria-live="polite">
+            <i class="bi bi-exclamation-triangle-fill caat-alert__icon" aria-hidden="true"></i>
+            <div class="caat-alert__body">
+              <strong>Contribution Deadline Approaching</strong>
+              <p class="mb-0">Your employer's Q2 contribution remittance is due by June 30, 2026. Late submissions may result in interest charges as outlined in the participation agreement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error/Danger Alert -->
+      <h3 class="mb-2">Error / Danger Alert</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-alert caat-alert--danger" role="alert" aria-live="assertive">
+            <i class="bi bi-x-octagon-fill caat-alert__icon" aria-hidden="true"></i>
+            <div class="caat-alert__body">
+              <strong>Form Validation Errors</strong>
+              <p class="mb-0">Please correct the following before submitting your beneficiary designation:</p>
+              <ul class="mb-0 mt-1">
+                <li>Date of birth is required for each beneficiary</li>
+                <li>Allocation percentages must total 100%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dismissible Alert -->
+      <h3 class="mb-2">Dismissible Alert</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite">
+            <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
+            <div class="caat-alert__body">
+              <strong>New Feature Available</strong>
+              <p class="mb-0">You can now view your projected retirement income directly from your member dashboard.</p>
+            </div>
+            <button type="button" class="caat-alert__close" aria-label="Dismiss alert">
+              <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Info alert --&gt;
+&lt;div class="caat-alert caat-alert--info" role="alert" aria-live="polite"&gt;
+  &lt;i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;div class="caat-alert__body"&gt;
+    &lt;strong&gt;Heading&lt;/strong&gt;
+    &lt;p&gt;Message body text.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Dismissible danger alert --&gt;
+&lt;div class="caat-alert caat-alert--danger" role="alert" aria-live="assertive"&gt;
+  &lt;i class="bi bi-x-octagon-fill caat-alert__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;div class="caat-alert__body"&gt;
+    &lt;strong&gt;Error Heading&lt;/strong&gt;
+    &lt;p&gt;Error description.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button type="button" class="caat-alert__close" aria-label="Dismiss alert"&gt;
+    &lt;i class="bi bi-x-lg" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td>caat/components/alert</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Communicate time-sensitive or contextually important messages to CAAT Pension Plan members and employers — including system announcements, action confirmations, deadline warnings, and form validation errors.</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new"><i class="bi bi-star-fill"></i> New</span></td></tr>
+            <tr><td><strong>Variants</strong></td><td>Info, Success, Warning, Danger (Error)</td></tr>
+            <tr><td><strong>Options</strong></td><td>Dismissible toggle, optional icon override, optional heading</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/alert</code></td></tr>
+            <tr><td><strong>AEM category</strong></td><td>CAAT Components – Feedback</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Default Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-alert-info-bg</code></td><td>Info variant background</td><td><code>#e8f4fd</code></td></tr>
+            <tr><td><code>--caat-alert-info-border</code></td><td>Info variant border colour</td><td><code>#b6dff7</code></td></tr>
+            <tr><td><code>--caat-alert-info-icon</code></td><td>Info icon colour</td><td><code>#0c5a97</code></td></tr>
+            <tr><td><code>--caat-alert-success-bg</code></td><td>Success variant background</td><td><code>#e6f7ed</code></td></tr>
+            <tr><td><code>--caat-alert-success-border</code></td><td>Success variant border colour</td><td><code>#a3ddb8</code></td></tr>
+            <tr><td><code>--caat-alert-success-icon</code></td><td>Success icon colour</td><td><code>#1a7a3a</code></td></tr>
+            <tr><td><code>--caat-alert-warning-bg</code></td><td>Warning variant background</td><td><code>#fff8e6</code></td></tr>
+            <tr><td><code>--caat-alert-warning-border</code></td><td>Warning variant border colour</td><td><code>#ffe0a3</code></td></tr>
+            <tr><td><code>--caat-alert-warning-icon</code></td><td>Warning icon colour</td><td><code>#8a6500</code></td></tr>
+            <tr><td><code>--caat-alert-danger-bg</code></td><td>Danger variant background</td><td><code>#fdecea</code></td></tr>
+            <tr><td><code>--caat-alert-danger-border</code></td><td>Danger variant border colour</td><td><code>#f5b8b0</code></td></tr>
+            <tr><td><code>--caat-alert-danger-icon</code></td><td>Danger icon colour</td><td><code>#a81e1e</code></td></tr>
+            <tr><td><code>--caat-alert-border-radius</code></td><td>Alert container border radius</td><td><code>var(--caat-radius-md, 0.5rem)</code></td></tr>
+            <tr><td><code>--caat-alert-icon-size</code></td><td>Icon dimensions</td><td><code>1.25rem</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Alert Type</strong></td><td>Dropdown (info | success | warning | danger)</td><td>Yes</td><td>Determines colour scheme, default icon, and <code>aria-live</code> value.</td></tr>
+            <tr><td><strong>Heading</strong></td><td>Text field</td><td>Yes</td><td>Rendered as <code>&lt;strong&gt;</code> within the alert body. Max 80 characters.</td></tr>
+            <tr><td><strong>Body</strong></td><td>Rich text (limited)</td><td>Yes</td><td>Supports paragraphs, lists, inline links. No images or embeds.</td></tr>
+            <tr><td><strong>Dismissible</strong></td><td>Toggle (boolean)</td><td>No</td><td>Default: off. Adds close button and wires JS dismiss behaviour.</td></tr>
+            <tr><td><strong>Icon Override</strong></td><td>Icon picker</td><td>No</td><td>Replaces the default icon for the selected alert type.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li>Alert Type is mandatory; component will not render without it.</li>
+        <li>Heading max length: 80 characters. Exceeding triggers an author-facing warning.</li>
+        <li>Body is required; component must not render an empty alert container.</li>
+        <li>Body rich text: only <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code> elements permitted.</li>
+        <li>If Dismissible is true, the component must render the close button and include the dismiss JS.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tone</strong></td><td>Clear, concise, supportive. Avoid jargon. Pension-plan members range widely in financial literacy.</td></tr>
+            <tr><td><strong>Heading</strong></td><td>Use action-oriented language. State what happened or what's needed — e.g., "Contribution Deadline Approaching" rather than "Alert".</td></tr>
+            <tr><td><strong>Body length</strong></td><td>1–3 sentences ideal. Use a list for multiple error items.</td></tr>
+            <tr><td><strong>Use Info for</strong></td><td>System announcements, scheduled maintenance, new features.</td></tr>
+            <tr><td><strong>Use Success for</strong></td><td>Completed actions — enrollment confirmed, form submitted, payment received.</td></tr>
+            <tr><td><strong>Use Warning for</strong></td><td>Upcoming deadlines, expiring sessions, incomplete profiles.</td></tr>
+            <tr><td><strong>Use Danger for</strong></td><td>Validation errors, failed transactions, critical account issues.</td></tr>
+            <tr><td><strong>Don't</strong></td><td>Stack more than 2 alerts on a page. Avoid danger alerts for non-critical issues.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTL / Markup contract</p>
+<pre class="code-sample"><code>&lt;!-- Non-destructive alert (info, success, warning) --&gt;
+&lt;div class="caat-alert caat-alert--{type}"
+     role="alert"
+     aria-live="polite"
+     data-caat-alert&gt;
+  &lt;i class="bi bi-{icon} caat-alert__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;div class="caat-alert__body"&gt;
+    &lt;strong&gt;{heading}&lt;/strong&gt;
+    {bodyRichText}
+  &lt;/div&gt;
+  &lt;!-- If dismissible --&gt;
+  &lt;button type="button" class="caat-alert__close" aria-label="Dismiss alert"&gt;
+    &lt;i class="bi bi-x-lg" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Error/Danger alert --&gt;
+&lt;div class="caat-alert caat-alert--danger"
+     role="alert"
+     aria-live="assertive"
+     data-caat-alert&gt;
+  &lt;i class="bi bi-x-octagon-fill caat-alert__icon" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;div class="caat-alert__body"&gt;
+    &lt;strong&gt;{heading}&lt;/strong&gt;
+    {bodyRichText}
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <h3 class="mt-3">Key decisions</h3>
+      <ul>
+        <li><code>role="alert"</code> ensures assistive technology announces the content.</li>
+        <li><code>aria-live="polite"</code> for info/success/warning — doesn't interrupt current task.</li>
+        <li><code>aria-live="assertive"</code> for danger/error — immediately announces to screen readers.</li>
+        <li>Icon uses <code>aria-hidden="true"</code> as meaning is conveyed by text and colour.</li>
+        <li>Close button uses <code>aria-label="Dismiss alert"</code> for screen-reader clarity.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-alert</code></td><td>Base container — flex layout, padding, border-radius, border-left accent.</td></tr>
+            <tr><td><code>.caat-alert--info</code></td><td>Info colour scheme (blue background, border, icon).</td></tr>
+            <tr><td><code>.caat-alert--success</code></td><td>Success colour scheme (green background, border, icon).</td></tr>
+            <tr><td><code>.caat-alert--warning</code></td><td>Warning colour scheme (amber/yellow background, border, icon).</td></tr>
+            <tr><td><code>.caat-alert--danger</code></td><td>Danger colour scheme (red background, border, icon).</td></tr>
+            <tr><td><code>.caat-alert__icon</code></td><td>Icon sizing and colour via variant token.</td></tr>
+            <tr><td><code>.caat-alert__body</code></td><td>Text container — flex-grow, typography settings.</td></tr>
+            <tr><td><code>.caat-alert__close</code></td><td>Dismiss button — positioned end, transparent background, hover state.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="mt-3">Sample CSS</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>.caat-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--caat-alert-border-radius);
+  border-left: 4px solid;
+}
+
+.caat-alert--info {
+  background: var(--caat-alert-info-bg);
+  border-color: var(--caat-alert-info-border);
+}
+.caat-alert--info .caat-alert__icon { color: var(--caat-alert-info-icon); }
+
+.caat-alert--success {
+  background: var(--caat-alert-success-bg);
+  border-color: var(--caat-alert-success-border);
+}
+.caat-alert--success .caat-alert__icon { color: var(--caat-alert-success-icon); }
+
+.caat-alert--warning {
+  background: var(--caat-alert-warning-bg);
+  border-color: var(--caat-alert-warning-border);
+}
+.caat-alert--warning .caat-alert__icon { color: var(--caat-alert-warning-icon); }
+
+.caat-alert--danger {
+  background: var(--caat-alert-danger-bg);
+  border-color: var(--caat-alert-danger-border);
+}
+.caat-alert--danger .caat-alert__icon { color: var(--caat-alert-danger-icon); }
+
+.caat-alert__icon {
+  font-size: var(--caat-alert-icon-size);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.caat-alert__body { flex: 1; }
+
+.caat-alert__close {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.caat-alert__close:hover { opacity: 1; }</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ARIA role</strong></td><td><code>role="alert"</code> on the container element.</td></tr>
+            <tr><td><strong>Live region</strong></td><td><code>aria-live="polite"</code> for info/success/warning; <code>aria-live="assertive"</code> for danger.</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>Text meets WCAG 2.1 AA (4.5:1). Icon colour meets 3:1 against background.</td></tr>
+            <tr><td><strong>Colour not sole indicator</strong></td><td>Each variant uses a distinct icon shape + text label alongside colour.</td></tr>
+            <tr><td><strong>Dismiss focus management</strong></td><td>On dismiss, focus moves to the next focusable element or the element that triggered the alert. Alert container is removed from DOM.</td></tr>
+            <tr><td><strong>Close button</strong></td><td><code>aria-label="Dismiss alert"</code>. Keyboard accessible via <kbd>Enter</kbd> / <kbd>Space</kbd>.</td></tr>
+            <tr><td><strong>Reduced motion</strong></td><td>Dismiss animation respects <code>prefers-reduced-motion: reduce</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Alerts are inline content and are rendered in the page source (not injected client-side), so content is crawlable.</li>
+        <li>Alert headings use <code>&lt;strong&gt;</code> (not heading tags) to avoid disrupting the page outline.</li>
+        <li>Links within alert body text receive full <code>href</code> values — no JavaScript-only navigation.</li>
+        <li>Alerts do not duplicate primary page content; they supplement it with time-sensitive context.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>alert-displayed</strong></td>
+              <td>Alert enters the viewport (Intersection Observer) or is rendered on page load.</td>
+              <td><code>data-analytics-event="alert-displayed"</code>, <code>data-analytics-type="{info|success|warning|danger}"</code>, <code>data-analytics-heading="{heading text}"</code></td>
+            </tr>
+            <tr>
+              <td><strong>alert-dismissed</strong></td>
+              <td>User clicks the close button on a dismissible alert.</td>
+              <td><code>data-analytics-event="alert-dismissed"</code>, <code>data-analytics-type="{type}"</code>, <code>data-analytics-heading="{heading text}"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/alert</code></li>
+        <li><strong>Component group:</strong> CAAT Components – Feedback</li>
+        <li><strong>Proxy:</strong> Create as a proxy component under <code>/apps/caat/components/alert</code>.</li>
+        <li><strong>Policies:</strong> Configure allowed alert types per template via content policies (e.g., landing pages may restrict danger alerts).</li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.AlertModel</code> — exposes <code>type</code>, <code>heading</code>, <code>body</code>, <code>dismissible</code>, <code>iconOverride</code>.</li>
+        <li><strong>HTL:</strong> <code>alert.html</code> — uses <code>data-sly-attribute</code> to set variant class and aria-live value dynamically.</li>
+        <li><strong>Client library:</strong> <code>caat.components.alert</code> (categories: <code>caat.site</code>).</li>
+        <li><strong>Style System:</strong> Not applicable — type selection via dedicated dropdown rather than style tab.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (YAML)</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>title: Alert
+description: Contextual feedback message for members.
+fields:
+  - name: alertType
+    label: Alert Type
+    type: select
+    required: true
+    options:
+      - value: info
+        label: Information
+      - value: success
+        label: Success
+      - value: warning
+        label: Warning
+      - value: danger
+        label: Danger / Error
+    helpText: Determines colour, icon, and screen-reader announcement priority.
+
+  - name: heading
+    label: Heading
+    type: textfield
+    required: true
+    maxLength: 80
+    helpText: Brief action-oriented summary (e.g., "Contribution Deadline Approaching").
+
+  - name: body
+    label: Body
+    type: richtext
+    required: true
+    allowedElements: [p, ul, ol, li, a, strong, em]
+    helpText: Supporting detail. Keep to 1–3 sentences or a short list.
+
+  - name: dismissible
+    label: Dismissible
+    type: checkbox
+    required: false
+    defaultValue: false
+    helpText: Adds a close button. Use for non-critical informational alerts only.
+
+  - name: iconOverride
+    label: Icon Override
+    type: iconpicker
+    required: false
+    helpText: Leave empty to use the default icon for the selected alert type.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All four variants (info, success, warning, danger) render with correct colours, icons, and ARIA attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Dismissible alert shows close button; clicking it removes the alert from the DOM and moves focus appropriately.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces alert content on page load; danger alerts use assertive live region.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Colour contrast meets WCAG 2.1 AA for all variants (text 4.5:1, icons 3:1).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Alert does not render if heading or body is empty (validation enforced in dialog).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Icon override replaces default icon when configured.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: alert stacks cleanly on mobile viewports (320 px+).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Dismiss animation is suppressed when <code>prefers-reduced-motion: reduce</code> is active.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>alert-displayed</code>, <code>alert-dismissed</code>) fire correctly with expected data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All four variants documented with light/dark tokens. Icon + text + colour used together — no reliance on colour alone.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. JS implements dismiss behaviour and fires analytics events. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on appropriate alert type selection. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Alert</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Variants</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Info</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div class="caat-alert caat-alert--info" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-info-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Did you know?</h4><p>Your pension grows each year you contribute to DBplus.</p></div></div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Success</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div class="caat-alert caat-alert--success" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-check-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Success</h4><p>Your beneficiary details have been updated.</p></div></div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Warning</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div class="caat-alert caat-alert--warning" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-exclamation-triangle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Attention</h4><p>Please review your contact information before submitting.</p></div></div>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Danger</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div class="caat-alert caat-alert--danger" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-x-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Error</h4><p>We couldn't process your request. Please try again.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Dismissible</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">With close</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div class="caat-alert caat-alert--info" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-info-circle-fill"></i></span><div class="caat-alert__body"><p>This is a dismissible alert with a close button.</p></div><button class="caat-alert__close" aria-label="Close">×</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Padding</strong>1rem 1.25rem</div>
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
+    <div class="figma-spec"><strong>Icon size</strong>1.25rem</div>
+    <div class="figma-spec"><strong>Gap</strong>0.75rem</div>
+  </div>
+  <h3 class="figma-colour-heading">Colour values</h3>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Info bg</strong>#cfe2ff</div>
+    <div class="figma-spec"><strong>Success bg</strong>#d1e7dd</div>
+    <div class="figma-spec"><strong>Warning bg</strong>#fff3cd</div>
+    <div class="figma-spec"><strong>Danger bg</strong>#f8d7da</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

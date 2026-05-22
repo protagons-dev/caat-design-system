@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Blog Listing AEM Component Contract. Filterable grid of blog and article teasers for pension education content across the CAAT Pension Plan member experience.">
+<title>Blog Listing | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/blog-listing.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link active" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Blog Listing</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Blog Listing</h1>
+      <p class="text-muted">Filterable grid of blog and article teasers for pension education content across the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Blog Listing',['/assets/css/tokens.css','/assets/css/components/blog-listing.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Card grid -->
+      <h3 class="mt-3 mb-2">Card Grid</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-blog-listing" data-analytics-component="blog-listing" data-analytics-variant="card-grid">
+            <div class="caat-blog-listing__grid">
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Understanding Your CAAT DB Plus Pension">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=1" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Understanding Your CAAT DB Plus Pension</h4>
+                    <p class="caat-blog-listing__excerpt">Learn how your defined benefit pension works and what it means for your retirement security.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 15, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: 5 Steps to a Confident Retirement">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=2" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">5 Steps to a Confident Retirement</h4>
+                    <p class="caat-blog-listing__excerpt">A practical guide to planning for retirement, from estimating your income to choosing the right time to retire.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Feb 3, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: CAAT Pension Plan Achieves Strong 2025 Returns">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=3" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">CAAT Pension Plan Achieves Strong 2025 Returns</h4>
+                    <p class="caat-blog-listing__excerpt">Our investment portfolio delivered solid returns, keeping the plan fully funded and benefits secure.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Mar 12, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 3 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: How I Planned My Retirement with CAAT">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=4" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Member Stories</span>
+                    <h4 class="caat-blog-listing__title">How I Planned My Retirement with CAAT</h4>
+                    <p class="caat-blog-listing__excerpt">Hear from a long-time CAAT member about the tools and support that helped them plan for a secure retirement.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Mar 28, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 6 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Bridging Benefits: What Happens Before Age 65">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=5" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Bridging Benefits: What Happens Before Age 65</h4>
+                    <p class="caat-blog-listing__excerpt">Understand how bridge benefits supplement your income if you retire before government pensions begin.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 10, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: New Employers Joining CAAT in 2026">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=6" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">New Employers Joining CAAT in 2026</h4>
+                    <p class="caat-blog-listing__excerpt">We welcome several new employers to the CAAT family, expanding secure pension coverage to more Canadians.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 22, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 3 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Variant 2 — List view -->
+      <h3 class="mt-3 mb-2">List View</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-blog-listing" data-analytics-component="blog-listing" data-analytics-variant="list-view">
+            <div class="caat-blog-listing__grid caat-blog-listing__grid--list">
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: What Is a Defined Benefit Pension?" style="display:flex;flex-direction:inherit;width:100%;">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=7" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">What Is a Defined Benefit Pension?</h4>
+                    <p class="caat-blog-listing__excerpt">A clear explanation of how defined benefit pensions differ from other retirement savings plans and why they offer greater security.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 5, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Retiring Early — What to Consider" style="display:flex;flex-direction:inherit;width:100%;">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=8" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Retiring Early — What to Consider</h4>
+                    <p class="caat-blog-listing__excerpt">Thinking about early retirement? Learn how it affects your pension income and what options are available to you.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Feb 18, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: My CAAT Journey: From Sceptic to Advocate" style="display:flex;flex-direction:inherit;width:100%;">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=9" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Member Stories</span>
+                    <h4 class="caat-blog-listing__title">My CAAT Journey: From Sceptic to Advocate</h4>
+                    <p class="caat-blog-listing__excerpt">One member shares how their perspective on pension plans completely changed after joining CAAT.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Mar 5, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 7 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Variant 3 — Featured + grid -->
+      <h3 class="mt-3 mb-2">Featured + Grid</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-blog-listing" data-analytics-component="blog-listing" data-analytics-variant="featured-grid">
+
+            <!-- Featured card -->
+            <div class="caat-blog-listing__featured">
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: The Future of Workplace Pensions in Canada" style="display:flex;flex-direction:inherit;width:100%;">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/800/450?random=10" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">The Future of Workplace Pensions in Canada</h4>
+                    <p class="caat-blog-listing__excerpt">An in-depth look at how the pension landscape is evolving, why more employers are choosing jointly sponsored plans, and what it means for Canadian workers.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 1, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </div>
+
+            <!-- Grid below -->
+            <div class="caat-blog-listing__grid">
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Pension Splitting with Your Spouse">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=11" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Pension Splitting with Your Spouse</h4>
+                    <p class="caat-blog-listing__excerpt">Understand how pension income splitting works and how it can benefit you and your partner at tax time.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 15, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Celebrating 50 Years of CAAT">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=12" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">Celebrating 50 Years of CAAT</h4>
+                    <p class="caat-blog-listing__excerpt">A look back at five decades of providing secure, sustainable pension benefits to Canadian workers.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 8, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card">
+                <a href="#" aria-label="Read: Finding Peace of Mind in Retirement">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=13" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Member Stories</span>
+                    <h4 class="caat-blog-listing__title">Finding Peace of Mind in Retirement</h4>
+                    <p class="caat-blog-listing__excerpt">A retired educator shares how their CAAT pension gave them the financial confidence to enjoy life after work.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Mar 20, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 6 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Variant 4 — With category filter bar -->
+      <h3 class="mt-3 mb-2">With Category Filters</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="caat-blog-listing" data-analytics-component="blog-listing" data-analytics-variant="filtered-grid">
+
+            <div class="caat-blog-listing__filters" role="toolbar" aria-label="Filter articles by category">
+              <button class="caat-blog-listing__filter-btn active" aria-pressed="true" data-filter="all">All</button>
+              <button class="caat-blog-listing__filter-btn" aria-pressed="false" data-filter="pension-basics">Pension Basics</button>
+              <button class="caat-blog-listing__filter-btn" aria-pressed="false" data-filter="employer-news">Employer News</button>
+              <button class="caat-blog-listing__filter-btn" aria-pressed="false" data-filter="member-stories">Member Stories</button>
+            </div>
+
+            <div class="caat-blog-listing__grid" id="filtered-grid">
+
+              <article class="caat-blog-listing__card" data-category="pension-basics">
+                <a href="#" aria-label="Read: Your Annual Pension Statement Explained">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=14" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Your Annual Pension Statement Explained</h4>
+                    <p class="caat-blog-listing__excerpt">A line-by-line guide to reading your annual pension statement so you know exactly where you stand.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 20, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card" data-category="employer-news">
+                <a href="#" aria-label="Read: CAAT Expands to Support More Non-Profit Employers">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=15" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">CAAT Expands to Support More Non-Profit Employers</h4>
+                    <p class="caat-blog-listing__excerpt">Non-profit organisations across Canada can now offer their employees the security of a CAAT pension.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Feb 28, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 3 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card" data-category="member-stories">
+                <a href="#" aria-label="Read: From College to Career to Retirement with CAAT">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=16" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Member Stories</span>
+                    <h4 class="caat-blog-listing__title">From College to Career to Retirement with CAAT</h4>
+                    <p class="caat-blog-listing__excerpt">A lifelong CAAT member reflects on three decades of pension contributions and what retirement looks like today.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Mar 15, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 6 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card" data-category="pension-basics">
+                <a href="#" aria-label="Read: Survivor Benefits: Protecting Your Loved Ones">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=17" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Pension Basics</span>
+                    <h4 class="caat-blog-listing__title">Survivor Benefits: Protecting Your Loved Ones</h4>
+                    <p class="caat-blog-listing__excerpt">Learn how CAAT survivor benefits provide financial protection for your spouse and dependants.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 5, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card" data-category="employer-news">
+                <a href="#" aria-label="Read: 2026 Employer Contribution Update">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=18" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Employer News</span>
+                    <h4 class="caat-blog-listing__title">2026 Employer Contribution Update</h4>
+                    <p class="caat-blog-listing__excerpt">Key information about employer contribution rates for the coming plan year and what it means for your organisation.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> Apr 30, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 3 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+              <article class="caat-blog-listing__card" data-category="member-stories">
+                <a href="#" aria-label="Read: Why I Tell Everyone About My CAAT Pension">
+                  <img class="caat-blog-listing__image" src="https://picsum.photos/400/250?random=19" alt="" loading="lazy">
+                  <div class="caat-blog-listing__body">
+                    <span class="caat-blog-listing__category">Member Stories</span>
+                    <h4 class="caat-blog-listing__title">Why I Tell Everyone About My CAAT Pension</h4>
+                    <p class="caat-blog-listing__excerpt">A recently retired member explains why their CAAT pension is the benefit they value most from their career.</p>
+                    <div class="caat-blog-listing__meta">
+                      <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 8, 2026</span>
+                      <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+                    </div>
+                  </div>
+                </a>
+              </article>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Blog Listing</td></tr>
+            <tr><td><strong>Resource type</strong></td><td><code>caat/components/blog-listing</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Displays a filterable grid of blog and article teaser cards, linking to full articles on pension education, retirement planning, employer news, and member stories.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Card Grid · List View · Featured + Grid · Filtered Grid</td></tr>
+            <tr><td><strong>Status</strong></td><td>Enhance</td></tr>
+            <tr><td><strong>Replaces</strong></td><td>Multi Tile Listing (#43)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Card title colour, active filter bg</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Title hover colour</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Category badge background</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Optional success accent</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Filter button border, card separator</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on interactive elements</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Excerpt text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Card border-radius</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>card-grid | list-view | featured-grid | filtered-grid</td></tr>
+            <tr><td>Heading</td><td>Text</td><td>No</td><td>Optional section heading above the listing.</td></tr>
+            <tr><td>Content source</td><td>Pathfield</td><td>Yes</td><td>Root page path for blog content (e.g. <code>/content/caat/en/blog</code>).</td></tr>
+            <tr><td>Max items</td><td>Number</td><td>No</td><td>Limit number of displayed cards. Default 6.</td></tr>
+            <tr><td>Category tags</td><td>Tag picker</td><td>No</td><td>Filter source content by tag taxonomy.</td></tr>
+            <tr><td>Show filters</td><td>Toggle</td><td>No</td><td>Renders category filter bar above grid.</td></tr>
+            <tr><td>Featured article</td><td>Pathfield</td><td>No</td><td>Featured variant only — specific article path for the hero card.</td></tr>
+            <tr><td>Card: Image</td><td>Image (DAM)</td><td>Yes</td><td>Pulled from article page thumbnail or DAM reference.</td></tr>
+            <tr><td>Card: Title</td><td>Text</td><td>Yes</td><td>Pulled from article <code>jcr:title</code>.</td></tr>
+            <tr><td>Card: Excerpt</td><td>Textarea</td><td>No</td><td>Pulled from article <code>jcr:description</code>. Truncated at 160 chars.</td></tr>
+            <tr><td>Card: Category</td><td>Text</td><td>No</td><td>Derived from article tags.</td></tr>
+            <tr><td>Card: Date</td><td>Date</td><td>Yes</td><td>Article publish date.</td></tr>
+            <tr><td>Card: Read time</td><td>Text</td><td>No</td><td>Estimated reading time in minutes.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Content source path is required.</td><td>"Provide a root content path for the blog listing."</td></tr>
+            <tr><td>Content source must resolve to at least 1 child page.</td><td>"No articles found at the specified path."</td></tr>
+            <tr><td>Each card must have a title.</td><td>"One or more articles are missing a title."</td></tr>
+            <tr><td>Each card must have an image or fallback.</td><td>"Provide an image for each article or configure a default thumbnail."</td></tr>
+            <tr><td>Featured variant requires a featured article path.</td><td>"Select a featured article for this variant."</td></tr>
+            <tr><td>Max items must be between 1 and 24.</td><td>"Enter a value between 1 and 24."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Write descriptive, action-oriented titles: <em>"5 Steps to a Confident Retirement"</em> rather than <em>"Retirement Info"</em>.</li>
+        <li>Keep excerpts to 1 – 2 sentences (under 160 characters) so cards remain uniform in height.</li>
+        <li>Use consistent category labels aligned to the CAAT tag taxonomy: <em>Pension Basics, Employer News, Member Stories</em>.</li>
+        <li>Ensure images are relevant, high quality, and at least 800 × 450 px to support retina displays.</li>
+        <li>Add alt text to images only when they convey information not in the title; decorative images use <code>alt=""</code>.</li>
+        <li>Provide a read-time estimate — it sets user expectations and improves click-through rates.</li>
+        <li>Featured articles should be timely and editorially significant; rotate regularly.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Card grid variant</h3>
+<pre class="code-sample"><code>&lt;section class="caat-blog-listing" aria-label="Blog articles"&gt;
+  &lt;div class="caat-blog-listing__grid"&gt;
+    &lt;article class="caat-blog-listing__card"&gt;
+      &lt;a href="/blog/article-slug"&gt;
+        &lt;img class="caat-blog-listing__image"
+             src="/content/dam/caat/blog/thumb.jpg"
+             alt="" loading="lazy"&gt;
+        &lt;div class="caat-blog-listing__body"&gt;
+          &lt;span class="caat-blog-listing__category"&gt;Pension Basics&lt;/span&gt;
+          &lt;h3 class="caat-blog-listing__title"&gt;Article Title&lt;/h3&gt;
+          &lt;p class="caat-blog-listing__excerpt"&gt;Brief description…&lt;/p&gt;
+          &lt;div class="caat-blog-listing__meta"&gt;
+            &lt;span&gt;Jan 15, 2026&lt;/span&gt;
+            &lt;span&gt;5 min read&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+    &lt;/article&gt;
+    &lt;!-- …more cards --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Filter bar</h3>
+<pre class="code-sample"><code>&lt;div class="caat-blog-listing__filters" role="toolbar"
+     aria-label="Filter articles by category"&gt;
+  &lt;button class="caat-blog-listing__filter-btn active"
+          aria-pressed="true" data-filter="all"&gt;All&lt;/button&gt;
+  &lt;button class="caat-blog-listing__filter-btn"
+          aria-pressed="false" data-filter="pension-basics"&gt;Pension Basics&lt;/button&gt;
+  &lt;!-- …more filters --&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-blog-listing</code></td><td>Root component container.</td></tr>
+            <tr><td><code>.caat-blog-listing__grid</code></td><td>CSS Grid container — 3-col desktop, 2-col tablet, 1-col mobile.</td></tr>
+            <tr><td><code>.caat-blog-listing__grid--list</code></td><td>Modifier: single-column list view with horizontal cards.</td></tr>
+            <tr><td><code>.caat-blog-listing__card</code></td><td>Individual card — white bg, subtle shadow, hover lift.</td></tr>
+            <tr><td><code>.caat-blog-listing__image</code></td><td>Card image — <code>object-fit:cover</code>, <code>aspect-ratio:16/9</code>.</td></tr>
+            <tr><td><code>.caat-blog-listing__body</code></td><td>Card content wrapper with padding.</td></tr>
+            <tr><td><code>.caat-blog-listing__category</code></td><td>Category pill badge — blue-100 bg, blue-900 text.</td></tr>
+            <tr><td><code>.caat-blog-listing__title</code></td><td>Card heading — blue-900, font-weight 700.</td></tr>
+            <tr><td><code>.caat-blog-listing__excerpt</code></td><td>Teaser text — ink colour, 0.9375 rem.</td></tr>
+            <tr><td><code>.caat-blog-listing__meta</code></td><td>Date and read-time row — muted small text.</td></tr>
+            <tr><td><code>.caat-blog-listing__filters</code></td><td>Filter toolbar container — flex, gap.</td></tr>
+            <tr><td><code>.caat-blog-listing__filter-btn</code></td><td>Filter pill button — active state uses blue-900 bg.</td></tr>
+            <tr><td><code>.caat-blog-listing__featured</code></td><td>Featured card wrapper — full-width horizontal layout.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Landmark</td><td>Wrap listing in <code>&lt;section&gt;</code> with <code>aria-label</code>.</td></tr>
+            <tr><td>Card links</td><td>Each card is a single <code>&lt;a&gt;</code> wrapping all content; <code>aria-label</code> provides full article title.</td></tr>
+            <tr><td>Images</td><td>Decorative images use <code>alt=""</code>. Meaningful images get descriptive alt text.</td></tr>
+            <tr><td>Filters</td><td><code>role="toolbar"</code> on filter container; <code>aria-pressed</code> on each filter button.</td></tr>
+            <tr><td>Focus</td><td>Visible <code>:focus-visible</code> ring (--caat-focus) on cards and filter buttons.</td></tr>
+            <tr><td>Colour contrast</td><td>Category badge text (blue-900 on blue-100) meets 4.5:1. Meta text meets 4.5:1 against white.</td></tr>
+            <tr><td>Motion</td><td>Hover lift transition respects <code>prefers-reduced-motion: reduce</code>.</td></tr>
+            <tr><td>Keyboard</td><td>All cards and filter buttons reachable via Tab. Filter state toggled via Enter / Space.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Each card links to a unique article URL — search engines follow these links to index article content.</li>
+        <li>Use semantic <code>&lt;article&gt;</code> elements so crawlers understand the listing structure.</li>
+        <li>Card titles use heading elements (<code>&lt;h3&gt;</code> or <code>&lt;h4&gt;</code>) to contribute to page outline.</li>
+        <li>Excerpt text provides unique indexable content for each card on the listing page.</li>
+        <li>Lazy-loaded images use <code>loading="lazy"</code>; above-the-fold featured images should use <code>loading="eager"</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>blog-listing-viewed</code></td>
+              <td>Component enters viewport.</td>
+              <td><code>data-analytics-variant</code>, <code>data-analytics-count</code> (number of visible cards)</td>
+            </tr>
+            <tr>
+              <td><code>blog-card-click</code></td>
+              <td>User clicks a card.</td>
+              <td><code>data-analytics-label</code> (article title), <code>data-analytics-category</code> (category), <code>data-analytics-position</code> (card index)</td>
+            </tr>
+            <tr>
+              <td><code>blog-filter-change</code></td>
+              <td>User selects a category filter.</td>
+              <td><code>data-analytics-filter</code> (selected category), <code>data-analytics-results</code> (visible card count)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/blog-listing</code></li>
+        <li><strong>Sling Model:</strong> <code>BlogListingModel</code> — exposes <code>variant</code>, <code>heading</code>, <code>contentPath</code>, <code>maxItems</code>, <code>categoryTags[]</code>, <code>showFilters</code>, <code>featuredArticlePath</code>, <code>articles[]</code>.</li>
+        <li><strong>HTL template:</strong> <code>blog-listing.html</code> — uses <code>data-sly-test</code> to switch between grid, list, featured, and filtered variants. Cards iterated with <code>data-sly-list</code>.</li>
+        <li><strong>Client library:</strong> <code>caat.components.blog-listing</code> — CSS + JS. JS handles filter toggle, card analytics events.</li>
+        <li><strong>Content query:</strong> Sling Model queries child pages under <code>contentPath</code>, sorted by publish date descending, filtered by category tags.</li>
+        <li><strong>Policy:</strong> Authors can restrict available variants and configure default max items per template policy.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Section Container.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["card-grid", "list-view", "featured-grid", "filtered-grid"]
+      },
+      "heading": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Heading",
+        "name": "./heading"
+      },
+      "contentSource": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/pathfield",
+        "label": "Content source",
+        "name": "./contentSource",
+        "required": true,
+        "rootPath": "/content/caat"
+      },
+      "maxItems": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/numberfield",
+        "label": "Max items",
+        "name": "./maxItems",
+        "min": 1,
+        "max": 24,
+        "value": 6
+      },
+      "categoryTags": {
+        "sling:resourceType": "cq/gui/components/coral/common/form/tagfield",
+        "label": "Category tags",
+        "name": "./categoryTags",
+        "multiple": true
+      },
+      "showFilters": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Show category filters",
+        "name": "./showFilters"
+      },
+      "featuredArticle": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/pathfield",
+        "label": "Featured article",
+        "name": "./featuredArticle",
+        "rootPath": "/content/caat"
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Card grid renders 3 columns on desktop, 2 on tablet, 1 on mobile.</li>
+        <li class="mb-2"><input type="checkbox" disabled> List view renders horizontal cards (image left, content right).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Featured + grid shows large hero card above standard 3-col grid.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Filter buttons toggle active state; grid filters cards by category.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cards show hover lift effect (translateY + shadow increase).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Images display at 16:9 aspect ratio with <code>object-fit:cover</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Category badge renders as small pill with correct token colours.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-pressed</code> toggles correctly on filter buttons.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cards are keyboard-navigable via Tab; focus ring visible.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces article title via <code>aria-label</code> on each card link.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Lazy-loaded images load only when scrolled into view.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>blog-listing-viewed</code>, <code>blog-card-click</code>, <code>blog-filter-change</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All four variants documented with responsive breakpoints. Category badge, filter bar, and featured card states included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. Filter JS handles <code>aria-pressed</code> toggle and card visibility. Sling Model queries and sorts content. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on variant selection and content source configuration. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Blog Listing</h1>
+<p class="figma-page-subtitle">CAAT Design System · Grid, list, and filter variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Card Anatomy</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Blog card</span>
+    <div class="figma-row-items">
+      <div style="width:18rem;border-radius:var(--caat-radius);box-shadow:var(--caat-shadow-sm);overflow:hidden;background:#fff;">
+        <div style="width:100%;aspect-ratio:16/9;background:var(--caat-grey);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:2rem;"><i class="bi bi-image"></i></div>
+        <div style="padding:1.25rem;">
+          <span style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:.35em .75em;border-radius:50rem;background:var(--caat-blue-100);color:var(--caat-blue-900);display:inline-block;margin-bottom:.625rem;">Pension News</span>
+          <h3 style="font-weight:700;font-size:1.125rem;line-height:1.35;color:var(--caat-blue-900);margin:0 0 .5rem;">Understanding your DBplus pension</h3>
+          <p style="font-size:.9375rem;line-height:1.55;color:var(--caat-ink);margin:0 0 1rem;">Learn about contributions, growth, and retirement options.</p>
+          <div style="font-size:.8125rem;color:var(--caat-muted);display:flex;gap:.75rem;">
+            <span><i class="bi bi-calendar3" style="font-size:.75rem;"></i> May 1, 2026</span>
+            <span><i class="bi bi-clock" style="font-size:.75rem;"></i> 4 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Filter Pills</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="font-size:.875rem;font-weight:600;padding:.4em 1.1em;border-radius:50rem;border:1px solid var(--caat-grey-200);background:#fff;color:var(--caat-ink);">All Posts</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="font-size:.875rem;font-weight:600;padding:.4em 1.1em;border-radius:50rem;border:1px solid var(--caat-blue-900);background:var(--caat-blue-900);color:#fff;">All Posts</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Grid</strong>3 cols, 1.5rem gap</div>
+    <div class="figma-spec"><strong>Card shadow</strong>var(--caat-shadow-sm)</div>
+    <div class="figma-spec"><strong>Hover lift</strong>translateY(-4px)</div>
+    <div class="figma-spec"><strong>Image ratio</strong>16:9</div>
+    <div class="figma-spec"><strong>Category badge</strong>0.75rem, pill, var(--caat-blue-100)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- Filter toggle script -->
+<script>
+(function () {
+  const filters = document.querySelectorAll('.caat-blog-listing__filter-btn');
+  const grid = document.getElementById('filtered-grid');
+  if (!filters.length || !grid) return;
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filters.forEach(function (b) {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
+
+      var filter = btn.getAttribute('data-filter');
+      grid.querySelectorAll('.caat-blog-listing__card').forEach(function (card) {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

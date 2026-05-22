@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Pagination AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Pagination | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/pagination.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link active" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Pagination</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Pagination</h1>
+      <p class="text-muted">Navigation control for multi-page content, enabling CAAT Pension Plan members to move between pages of results, tables, and listings across the member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Pagination',['/assets/css/tokens.css','/assets/css/components/pagination.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1: Basic Pagination -->
+      <h3 class="mt-3 mb-2">Basic Pagination</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Basic pagination example">
+            <ul class="caat-pagination">
+              <li class="caat-pagination__item caat-pagination__item--disabled">
+                <a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              <li class="caat-pagination__item caat-pagination__item--active">
+                <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">2</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">3</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">4</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">5</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Variant 2: With Icons -->
+      <h3 class="mb-2">With Icons (Chevron Arrows)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Pagination with icons">
+            <ul class="caat-pagination">
+              <li class="caat-pagination__item caat-pagination__item--disabled">
+                <a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous page">
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="caat-pagination__item caat-pagination__item--active">
+                <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">2</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">3</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">4</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">5</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Next page">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Variant 3: Sizing -->
+      <h3 class="mb-2">Sizing (Small, Default, Large)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <p class="fw-semibold mb-1">Small</p>
+          <nav aria-label="Small pagination" class="mb-3">
+            <ul class="caat-pagination caat-pagination--sm">
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Previous page">
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="caat-pagination__item caat-pagination__item--active">
+                <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">2</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">3</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Next page">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="fw-semibold mb-1">Default</p>
+          <nav aria-label="Default pagination" class="mb-3">
+            <ul class="caat-pagination">
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Previous page">
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="caat-pagination__item caat-pagination__item--active">
+                <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">2</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">3</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Next page">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <p class="fw-semibold mb-1">Large</p>
+          <nav aria-label="Large pagination">
+            <ul class="caat-pagination caat-pagination--lg">
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Previous page">
+                  <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="caat-pagination__item caat-pagination__item--active">
+                <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">2</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#">3</a>
+              </li>
+              <li class="caat-pagination__item">
+                <a class="caat-pagination__link" href="#" aria-label="Next page">
+                  <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Variant 4: With Results Text -->
+      <h3 class="mb-2">With Results Text</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-pagination-wrapper">
+            <span class="caat-pagination__results">Showing 1–10 of 97 results</span>
+            <nav aria-label="Pagination with results summary">
+              <ul class="caat-pagination">
+                <li class="caat-pagination__item caat-pagination__item--disabled">
+                  <a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous page">
+                    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                  </a>
+                </li>
+                <li class="caat-pagination__item caat-pagination__item--active">
+                  <a class="caat-pagination__link" href="#" aria-current="page">1</a>
+                </li>
+                <li class="caat-pagination__item">
+                  <a class="caat-pagination__link" href="#">2</a>
+                </li>
+                <li class="caat-pagination__item">
+                  <a class="caat-pagination__link" href="#">3</a>
+                </li>
+                <li class="caat-pagination__item">
+                  <span class="caat-pagination__ellipsis" aria-hidden="true">&hellip;</span>
+                </li>
+                <li class="caat-pagination__item">
+                  <a class="caat-pagination__link" href="#">10</a>
+                </li>
+                <li class="caat-pagination__item">
+                  <a class="caat-pagination__link" href="#" aria-label="Next page">
+                    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <span class="caat-pagination__results">&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Basic pagination --&gt;
+&lt;nav aria-label="Page navigation"&gt;
+  &lt;ul class="caat-pagination"&gt;
+    &lt;li class="caat-pagination__item caat-pagination__item--disabled"&gt;
+      &lt;a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true"&gt;Previous&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item caat-pagination__item--active"&gt;
+      &lt;a class="caat-pagination__link" href="#" aria-current="page"&gt;1&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#"&gt;2&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#"&gt;Next&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- With chevron icons --&gt;
+&lt;nav aria-label="Page navigation"&gt;
+  &lt;ul class="caat-pagination"&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#" aria-label="Previous page"&gt;
+        &lt;i class="bi bi-chevron-left" aria-hidden="true"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item caat-pagination__item--active"&gt;
+      &lt;a class="caat-pagination__link" href="#" aria-current="page"&gt;1&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#" aria-label="Next page"&gt;
+        &lt;i class="bi bi-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- With results text --&gt;
+&lt;div class="caat-pagination-wrapper"&gt;
+  &lt;span class="caat-pagination__results"&gt;Showing 1–10 of 97 results&lt;/span&gt;
+  &lt;nav aria-label="Page navigation"&gt;
+    &lt;ul class="caat-pagination"&gt;…&lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td>caat/components/pagination</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Navigation control for splitting long content across multiple pages. Used in member dashboards, contribution history tables, search results, and document listings to provide clear, accessible page navigation.</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new-component"><i class="bi bi-star-fill"></i> New</span> <span class="status-badge planned"><i class="bi bi-calendar-event"></i> Planned</span></td></tr>
+            <tr><td><strong>Variants</strong></td><td>Basic (text labels), Icon (chevron arrows), Small, Default, Large</td></tr>
+            <tr><td><strong>Options</strong></td><td>Results summary text, ellipsis for truncated ranges, disabled state for first/last boundaries</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/pagination</code></td></tr>
+            <tr><td><strong>AEM category</strong></td><td>CAAT Components – Navigation</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Default Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Active page background &amp; primary text colour</td><td><code>#003366</code></td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Hover border colour</td><td><code>#004a99</code></td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Hover background</td><td><code>#cfe2ff</code></td></tr>
+            <tr><td><code>--caat-green</code></td><td>Available for success/confirmation states</td><td><code>#2e8540</code></td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Default border &amp; disabled text colour</td><td><code>#e9ecef</code></td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring outline colour</td><td><code>#4d90fe</code></td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Results text &amp; ellipsis colour</td><td><code>#212529</code></td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border radius for pagination links</td><td><code>0.375rem</code></td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td><code>'Libre Franklin', sans-serif</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Total Items</strong></td><td>Number</td><td>Yes</td><td>Total number of items to paginate. Drives page count calculation.</td></tr>
+            <tr><td><strong>Items Per Page</strong></td><td>Number (dropdown: 10, 20, 50)</td><td>Yes</td><td>Number of items displayed per page. Default: 10.</td></tr>
+            <tr><td><strong>Current Page</strong></td><td>Number</td><td>Yes</td><td>The currently active page (1-based). Default: 1.</td></tr>
+            <tr><td><strong>Navigation Style</strong></td><td>Dropdown (text | icon)</td><td>No</td><td>Default: text. "text" renders "Previous/Next" labels; "icon" renders chevron arrows.</td></tr>
+            <tr><td><strong>Size</strong></td><td>Dropdown (sm | default | lg)</td><td>No</td><td>Default: default. Controls touch-target sizing.</td></tr>
+            <tr><td><strong>Show Results Text</strong></td><td>Toggle (boolean)</td><td>No</td><td>Default: off. When enabled, shows "Showing X–Y of Z results" text.</td></tr>
+            <tr><td><strong>Aria Label</strong></td><td>Text field</td><td>No</td><td>Custom <code>aria-label</code> for the <code>&lt;nav&gt;</code> element. Default: "Page navigation".</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li>Total Items must be a positive integer greater than 0.</li>
+        <li>Items Per Page must be a positive integer; component will not render if set to 0.</li>
+        <li>Current Page must be between 1 and the calculated total page count.</li>
+        <li>Previous link is disabled when Current Page is 1; Next link is disabled when Current Page equals total page count.</li>
+        <li>If total pages ≤ 1, the pagination component should not render (nothing to paginate).</li>
+        <li>When total pages exceed 7, middle pages are truncated with an ellipsis ("…").</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Use for</strong></td><td>Contribution history tables, search results, document listings, member notifications — any content that spans multiple pages.</td></tr>
+            <tr><td><strong>Placement</strong></td><td>Below the content being paginated, centred or right-aligned. Optionally include results summary text on the left.</td></tr>
+            <tr><td><strong>Text labels</strong></td><td>"Previous" and "Next" are the default labels. Keep labels short and translatable.</td></tr>
+            <tr><td><strong>Icon variant</strong></td><td>Preferred when space is limited (e.g., mobile layouts or dense data tables). Always include <code>aria-label</code> on icon-only links.</td></tr>
+            <tr><td><strong>Results text</strong></td><td>Format: "Showing X–Y of Z results". Use en-dash (–) not hyphen. Helps members orient themselves within large result sets.</td></tr>
+            <tr><td><strong>Don't</strong></td><td>Don't use pagination for fewer than two pages. Don't use for content that benefits from infinite scroll (e.g., news feeds). Don't mix text and icon styles within the same pagination instance.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTL / Markup contract</p>
+<pre class="code-sample"><code>&lt;!-- Basic pagination --&gt;
+&lt;nav aria-label="Page navigation"&gt;
+  &lt;ul class="caat-pagination"&gt;
+    &lt;li class="caat-pagination__item caat-pagination__item--disabled"&gt;
+      &lt;a class="caat-pagination__link" href="#" tabindex="-1"
+         aria-disabled="true"&gt;Previous&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item caat-pagination__item--active"&gt;
+      &lt;a class="caat-pagination__link" href="#"
+         aria-current="page"&gt;1&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#"&gt;2&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="caat-pagination__item"&gt;
+      &lt;a class="caat-pagination__link" href="#"&gt;Next&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;!-- With results text wrapper --&gt;
+&lt;div class="caat-pagination-wrapper"&gt;
+  &lt;span class="caat-pagination__results"&gt;
+    Showing 1–10 of 97 results
+  &lt;/span&gt;
+  &lt;nav aria-label="Page navigation"&gt;
+    &lt;ul class="caat-pagination"&gt;…&lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <h3 class="mt-3">Key decisions</h3>
+      <ul>
+        <li><code>&lt;nav&gt;</code> wraps the pagination with a descriptive <code>aria-label</code> for landmark navigation.</li>
+        <li><code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> provides a list structure so screen readers announce the item count.</li>
+        <li><code>aria-current="page"</code> on the active link tells assistive technology which page is selected.</li>
+        <li><code>aria-disabled="true"</code> and <code>tabindex="-1"</code> on disabled Previous/Next links remove them from the tab order.</li>
+        <li>Icon-only links (<code>bi-chevron-left</code>/<code>bi-chevron-right</code>) require <code>aria-label="Previous page"</code>/<code>aria-label="Next page"</code>.</li>
+        <li>Ellipsis uses <code>aria-hidden="true"</code> to avoid confusing screen reader output.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-pagination</code></td><td>Base container — flexbox list reset, gap, font-family.</td></tr>
+            <tr><td><code>.caat-pagination__item</code></td><td>List item wrapper.</td></tr>
+            <tr><td><code>.caat-pagination__link</code></td><td>Clickable page link — min 44×44 touch target, border, border-radius, transitions.</td></tr>
+            <tr><td><code>.caat-pagination__item--active .caat-pagination__link</code></td><td>Active page — blue-900 background, white text, pointer-events none.</td></tr>
+            <tr><td><code>.caat-pagination__item--disabled .caat-pagination__link</code></td><td>Disabled state — greyed out, reduced opacity, pointer-events none.</td></tr>
+            <tr><td><code>.caat-pagination--sm</code></td><td>Small size modifier — reduced min-width/height and font-size.</td></tr>
+            <tr><td><code>.caat-pagination--lg</code></td><td>Large size modifier — increased min-width/height and font-size.</td></tr>
+            <tr><td><code>.caat-pagination__ellipsis</code></td><td>Non-interactive ellipsis indicator for truncated page ranges.</td></tr>
+            <tr><td><code>.caat-pagination__results</code></td><td>Results summary text (e.g., "Showing 1–10 of 97 results").</td></tr>
+            <tr><td><code>.caat-pagination-wrapper</code></td><td>Flex wrapper for results text + centred pagination layout.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="mt-3">Sample CSS</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>.caat-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: var(--caat-font-primary, 'Libre Franklin', sans-serif);
+}
+
+.caat-pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.375rem 0.75rem;
+  color: var(--caat-blue-900, #003366);
+  background-color: #fff;
+  border: 1px solid var(--caat-grey-200, #e9ecef);
+  border-radius: var(--caat-radius, 0.375rem);
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.caat-pagination__link:hover {
+  background-color: var(--caat-blue-100, #cfe2ff);
+  border-color: var(--caat-blue-700, #004a99);
+}
+
+.caat-pagination__link:focus-visible {
+  outline: 3px solid var(--caat-focus, #4d90fe);
+  outline-offset: 2px;
+}
+
+.caat-pagination__item--active .caat-pagination__link {
+  background-color: var(--caat-blue-900, #003366);
+  border-color: var(--caat-blue-900, #003366);
+  color: #fff;
+  pointer-events: none;
+}
+
+.caat-pagination__item--disabled .caat-pagination__link {
+  color: var(--caat-grey-200, #e9ecef);
+  background-color: #f8f9fa;
+  pointer-events: none;
+  opacity: 0.65;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Landmark</strong></td><td>Wrap in <code>&lt;nav&gt;</code> with a descriptive <code>aria-label</code> (e.g., "Page navigation" or "Search results pagination").</td></tr>
+            <tr><td><strong>Current page</strong></td><td>Active page link uses <code>aria-current="page"</code> so screen readers announce "current page".</td></tr>
+            <tr><td><strong>Disabled links</strong></td><td>Use <code>aria-disabled="true"</code> and <code>tabindex="-1"</code> to remove from tab order. CSS sets <code>pointer-events: none</code>.</td></tr>
+            <tr><td><strong>Icon-only links</strong></td><td>Chevron-only Previous/Next links must include <code>aria-label="Previous page"</code> / <code>aria-label="Next page"</code>.</td></tr>
+            <tr><td><strong>Touch targets</strong></td><td>Minimum 44×44px touch target on all interactive elements (WCAG 2.5.8 Target Size).</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>Active page (white on blue-900) meets WCAG 2.1 AA 4.5:1. Hover state meets 3:1 non-text contrast.</td></tr>
+            <tr><td><strong>Focus visible</strong></td><td>3px solid focus ring using <code>--caat-focus</code> token with 2px offset. Visible on all interactive links.</td></tr>
+            <tr><td><strong>Keyboard</strong></td><td>All page links reachable via Tab. Enter/Space activates the link. Disabled links are skipped.</td></tr>
+            <tr><td><strong>Reduced motion</strong></td><td>Hover/focus transitions respect <code>prefers-reduced-motion: reduce</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Use <code>rel="prev"</code> and <code>rel="next"</code> on Previous/Next <code>&lt;a&gt;</code> links to signal paginated series to search engines.</li>
+        <li>Each page's URL should have a distinct, crawlable <code>href</code> (e.g., <code>?page=2</code>) — avoid JavaScript-only navigation.</li>
+        <li>Pagination links are server-side rendered as standard <code>&lt;a&gt;</code> elements, ensuring crawlability.</li>
+        <li>Include a canonical URL on each paginated page to prevent duplicate content issues.</li>
+        <li>The <code>&lt;nav&gt;</code> landmark allows bots to identify the pagination region and skip to main content.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>pagination-click</strong></td>
+              <td>User clicks any page number, Previous, or Next link.</td>
+              <td><code>data-analytics-event="pagination-click"</code>, <code>data-analytics-page="{targetPage}"</code>, <code>data-analytics-action="{previous|next|page}"</code></td>
+            </tr>
+            <tr>
+              <td><strong>pagination-view</strong></td>
+              <td>Pagination component enters the viewport.</td>
+              <td><code>data-analytics-event="pagination-view"</code>, <code>data-analytics-total-pages="{totalPages}"</code>, <code>data-analytics-current-page="{currentPage}"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/pagination</code></li>
+        <li><strong>Component group:</strong> CAAT Components – Navigation</li>
+        <li><strong>Proxy:</strong> Create as a proxy component under <code>/apps/caat/components/pagination</code>.</li>
+        <li><strong>Policies:</strong> Configure default items per page and size variant per template via content policies.</li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.PaginationModel</code> — exposes <code>totalItems</code>, <code>itemsPerPage</code>, <code>currentPage</code>, <code>totalPages</code>, <code>pages[]</code>, <code>hasPrevious</code>, <code>hasNext</code>, <code>showResults</code>.</li>
+        <li><strong>HTL:</strong> <code>pagination.html</code> — uses <code>data-sly-list</code> to iterate page items, <code>data-sly-attribute</code> for active/disabled states.</li>
+        <li><strong>Client library:</strong> <code>caat.components.pagination</code> (categories: <code>caat.site</code>).</li>
+        <li><strong>Integration:</strong> Typically consumed by list/search components rather than placed independently. The parent component passes total count and current page to the pagination model.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (YAML)</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>title: Pagination
+description: Multi-page navigation for lists, tables, and search results.
+fields:
+  - name: totalItems
+    label: Total Items
+    type: numberfield
+    required: true
+    min: 1
+    helpText: Total number of items to paginate.
+
+  - name: itemsPerPage
+    label: Items Per Page
+    type: select
+    required: true
+    options:
+      - value: 10
+        label: "10"
+      - value: 20
+        label: "20"
+      - value: 50
+        label: "50"
+    defaultValue: 10
+    helpText: Number of items shown per page.
+
+  - name: navStyle
+    label: Navigation Style
+    type: select
+    required: false
+    options:
+      - value: text
+        label: Text (Previous / Next)
+      - value: icon
+        label: Icon (Chevron arrows)
+    defaultValue: text
+    helpText: Controls whether Previous/Next use text labels or chevron icons.
+
+  - name: size
+    label: Size
+    type: select
+    required: false
+    options:
+      - value: sm
+        label: Small
+      - value: default
+        label: Default
+      - value: lg
+        label: Large
+    defaultValue: default
+    helpText: Controls the pagination touch-target and font size.
+
+  - name: showResults
+    label: Show Results Summary
+    type: checkbox
+    required: false
+    defaultValue: false
+    helpText: Displays "Showing X–Y of Z results" alongside the pagination.
+
+  - name: ariaLabel
+    label: Aria Label
+    type: textfield
+    required: false
+    maxLength: 80
+    defaultValue: Page navigation
+    helpText: Custom aria-label for the nav element. Important for pages with multiple pagination instances.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Basic pagination renders Previous, page numbers 1–5, and Next correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Previous link is disabled on page 1; Next link is disabled on the last page.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Active page shows blue-900 background with white text and <code>aria-current="page"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Icon variant renders chevron-left and chevron-right with appropriate <code>aria-label</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Small, Default, and Large sizes render with correct min-width/min-height touch targets.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Results text ("Showing X–Y of Z results") displays correctly when enabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Ellipsis renders for truncated page ranges (total pages > 7) with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring (3px solid, --caat-focus) is visible on all interactive links.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation: Tab reaches all enabled links; disabled links are skipped.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Hover state applies blue-100 background on non-active, non-disabled links.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Pagination does not render when total pages ≤ 1.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: pagination centres and simplifies at mobile breakpoint (< 576px).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>pagination-click</code>, <code>pagination-view</code>) fire with correct data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All size variants (sm, default, lg) documented. Icon and text navigation styles provided. Results summary layout included. Responsive behaviour defined.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. All states (active, disabled, hover, focus) implemented. Touch targets meet 44px minimum. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Screen-reader testing (NVDA, VoiceOver) confirms <code>aria-current</code> and disabled state announcements. Cross-browser tested.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Integrated with list/search parent components. Content authors trained. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Pagination</h1>
+<p class="figma-page-subtitle">CAAT Design System · All states and sizes</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Item States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">3</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-blue-900);background:var(--caat-blue-100);border:1px solid var(--caat-blue-700);border-radius:var(--caat-radius);">3</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:700;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);">3</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Disabled</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-grey-200);background:var(--caat-grey);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);opacity:.65;">‹</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Full Row</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items" style="gap:.25rem;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-grey-200);background:var(--caat-grey);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);opacity:.65;">‹</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);font-weight:700;">1</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">2</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">3</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-ink);">…</span>
+      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">›</span>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Min size</strong>44×44px</div>
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Active bg</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Hover bg</strong>var(--caat-blue-100)</div>
+    <div class="figma-spec"><strong>Small size</strong>36×36px</div>
+    <div class="figma-spec"><strong>Large size</strong>52×52px</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

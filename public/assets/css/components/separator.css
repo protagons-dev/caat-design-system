@@ -1,0 +1,60 @@
+/* ════════════════════════════════════════════════════════════
+   CAAT Design System — Separator Component
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Base ─────────────────────────────────────────────────── */
+.caat-separator {
+  border: none;
+  border-top: 1px solid var(--caat-grey-200);
+  margin: 1.5rem 0;
+  opacity: 1;
+}
+
+/* ── Thick ────────────────────────────────────────────────── */
+.caat-separator--thick {
+  border-top-width: 3px;
+  border-top-color: var(--caat-blue-900);
+}
+
+/* ── Accent ───────────────────────────────────────────────── */
+.caat-separator--accent {
+  width: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-width: 3px;
+  border-top-color: var(--caat-green);
+}
+
+/* ── Spaced ───────────────────────────────────────────────── */
+.caat-separator--spaced {
+  margin: 3rem 0;
+}
+
+/* ── With Label ───────────────────────────────────────────── */
+.caat-separator--with-label {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: none;
+  margin: 1.5rem 0;
+}
+
+.caat-separator--with-label::before,
+.caat-separator--with-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--caat-grey-200);
+}
+
+.caat-separator__label {
+  display: inline-block;
+  padding: 0 0.75rem;
+  font-family: var(--caat-font-primary), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--caat-ink);
+  background: #fff;
+}

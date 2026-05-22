@@ -1,0 +1,953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Tabs AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Tabs | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/tabs.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link active" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Tabs</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Tabs</h1>
+      <p class="text-muted">Organize related content into switchable panels — reduce page length while keeping content discoverable.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Tabs',['/assets/css/tokens.css','/assets/css/components/tabs.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Standard horizontal tabs -->
+      <h3 class="mt-3 mb-2">Standard Horizontal Tabs</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-tabs" data-analytics-component="tabs">
+            <ul class="nav nav-tabs" id="demoTabsStandard" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="plan-overview-tab" data-bs-toggle="tab" data-bs-target="#plan-overview-panel" type="button" role="tab" aria-controls="plan-overview-panel" aria-selected="true" data-analytics-label="plan-overview">Plan Overview</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="member-benefits-tab" data-bs-toggle="tab" data-bs-target="#member-benefits-panel" type="button" role="tab" aria-controls="member-benefits-panel" aria-selected="false" data-analytics-label="member-benefits">Member Benefits</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="employer-info-tab" data-bs-toggle="tab" data-bs-target="#employer-info-panel" type="button" role="tab" aria-controls="employer-info-panel" aria-selected="false" data-analytics-label="employer-info">Employer Information</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="demoTabsStandardContent">
+              <div class="tab-pane fade show active" id="plan-overview-panel" role="tabpanel" aria-labelledby="plan-overview-tab" tabindex="0">
+                <h4>CAAT DBplus Plan Overview</h4>
+                <p>The CAAT DBplus pension plan is a defined benefit plan that provides predictable, lifetime retirement income. Unlike defined contribution plans, your benefit is based on a formula — not market performance — so you always know what to expect in retirement.</p>
+                <p>Key features include immediate vesting, portability between participating employers, and conditional inflation protection.</p>
+              </div>
+              <div class="tab-pane fade" id="member-benefits-panel" role="tabpanel" aria-labelledby="member-benefits-tab" tabindex="0">
+                <h4>Benefits for Members</h4>
+                <p>As a CAAT DBplus member, you receive a secure, predictable pension income for life. Your contributions are matched by your employer, and your benefit grows with every year of service.</p>
+                <ul>
+                  <li>Immediate vesting — your pension is yours from day one</li>
+                  <li>Survivor benefits for your spouse or beneficiary</li>
+                  <li>Conditional inflation protection to help maintain purchasing power</li>
+                  <li>Early retirement options available from age 55</li>
+                </ul>
+              </div>
+              <div class="tab-pane fade" id="employer-info-panel" role="tabpanel" aria-labelledby="employer-info-tab" tabindex="0">
+                <h4>Information for Employers</h4>
+                <p>Offering CAAT DBplus helps you attract and retain talent with a best-in-class pension benefit — without the governance burden of running your own plan.</p>
+                <p>Contribution rates are stable and predictable. CAAT manages all investments, administration, and regulatory compliance on your behalf.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pill-style tabs -->
+      <h3 class="mb-2">Pill-Style Tabs</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-tabs" data-analytics-component="tabs">
+            <ul class="nav nav-pills" id="demoTabsPills" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="contributions-tab" data-bs-toggle="tab" data-bs-target="#contributions-panel" type="button" role="tab" aria-controls="contributions-panel" aria-selected="true" data-analytics-label="contributions">Contributions</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="retirement-tab" data-bs-toggle="tab" data-bs-target="#retirement-panel" type="button" role="tab" aria-controls="retirement-panel" aria-selected="false" data-analytics-label="retirement">Retirement Income</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="survivor-tab" data-bs-toggle="tab" data-bs-target="#survivor-panel" type="button" role="tab" aria-controls="survivor-panel" aria-selected="false" data-analytics-label="survivor">Survivor Benefits</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="demoTabsPillsContent">
+              <div class="tab-pane fade show active" id="contributions-panel" role="tabpanel" aria-labelledby="contributions-tab" tabindex="0">
+                <p>Both you and your employer contribute to your CAAT DBplus pension. Contribution rates are set by the plan and are designed to keep the plan fully funded while providing a meaningful retirement benefit.</p>
+              </div>
+              <div class="tab-pane fade" id="retirement-panel" role="tabpanel" aria-labelledby="retirement-tab" tabindex="0">
+                <p>Your retirement income is calculated using a formula based on your contributions and years of service. You can begin receiving an unreduced pension at age 60, or opt for a reduced pension as early as age 55.</p>
+              </div>
+              <div class="tab-pane fade" id="survivor-panel" role="tabpanel" aria-labelledby="survivor-tab" tabindex="0">
+                <p>If you pass away before or after retirement, your spouse or designated beneficiary may be eligible for a survivor pension or a lump-sum death benefit, depending on your elections and membership status.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vertical tabs -->
+      <h3 class="mb-2">Vertical Tabs</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-tabs caat-tabs--vertical d-flex" data-analytics-component="tabs">
+            <ul class="nav nav-tabs flex-column me-3" id="demoTabsVertical" role="tablist" aria-orientation="vertical">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="eligibility-tab" data-bs-toggle="tab" data-bs-target="#eligibility-panel" type="button" role="tab" aria-controls="eligibility-panel" aria-selected="true" data-analytics-label="eligibility">Eligibility</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="enrolment-tab" data-bs-toggle="tab" data-bs-target="#enrolment-panel" type="button" role="tab" aria-controls="enrolment-panel" aria-selected="false" data-analytics-label="enrolment">Enrolment</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="leaving-tab" data-bs-toggle="tab" data-bs-target="#leaving-panel" type="button" role="tab" aria-controls="leaving-panel" aria-selected="false" data-analytics-label="leaving">Leaving the Plan</button>
+              </li>
+            </ul>
+            <div class="tab-content flex-grow-1" id="demoTabsVerticalContent">
+              <div class="tab-pane fade show active" id="eligibility-panel" role="tabpanel" aria-labelledby="eligibility-tab" tabindex="0">
+                <h4>Who is Eligible?</h4>
+                <p>All employees of participating employers are eligible to join CAAT DBplus. There is no minimum age or service requirement — you can begin earning pension benefits from your first day of employment.</p>
+              </div>
+              <div class="tab-pane fade" id="enrolment-panel" role="tabpanel" aria-labelledby="enrolment-tab" tabindex="0">
+                <h4>How to Enrol</h4>
+                <p>Enrolment is handled by your employer's HR or payroll department. Once enrolled, contributions are automatically deducted from your pay and your employer makes matching contributions on your behalf.</p>
+              </div>
+              <div class="tab-pane fade" id="leaving-panel" role="tabpanel" aria-labelledby="leaving-tab" tabindex="0">
+                <h4>Options When Leaving</h4>
+                <p>If you leave a participating employer, your earned pension benefit stays with CAAT. You can choose to leave it in the plan and collect it at retirement, or explore transfer options if available.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Standard horizontal tabs --&gt;
+&lt;div class="caat-tabs" data-analytics-component="tabs"&gt;
+  &lt;ul class="nav nav-tabs" id="myTabs" role="tablist"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link active" id="tab1-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab1-panel"
+              type="button" role="tab"
+              aria-controls="tab1-panel"
+              aria-selected="true"
+              data-analytics-label="tab-1"&gt;
+        Tab Label
+      &lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="tab-content"&gt;
+    &lt;div class="tab-pane fade show active"
+         id="tab1-panel" role="tabpanel"
+         aria-labelledby="tab1-tab" tabindex="0"&gt;
+      Panel content here.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Pill variant — replace .nav-tabs with .nav-pills --&gt;
+&lt;ul class="nav nav-pills" role="tablist"&gt;…&lt;/ul&gt;
+
+&lt;!-- Vertical variant — add flex + aria-orientation --&gt;
+&lt;div class="caat-tabs caat-tabs--vertical d-flex"&gt;
+  &lt;ul class="nav nav-tabs flex-column me-3"
+      role="tablist" aria-orientation="vertical"&gt;…&lt;/ul&gt;
+  &lt;div class="tab-content flex-grow-1"&gt;…&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Tabs</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/tabs</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Extend the AEM Core Tabs component (<code>core/wcm/components/tabs</code>)</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Organize related content into switchable panels; reduce page length while keeping content discoverable</td></tr>
+          <tr>
+            <th>Existing AEM components replaced</th>
+            <td>
+              Tabs (#50).
+              <strong>Replaces 1 existing component — rebuild required.</strong>
+            </td>
+          </tr>
+          <tr><th>AEM Triage</th><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Plan details pages — separating member, employer, and general information into parallel views</li>
+        <li>Account dashboard — switching between contribution history, benefit projections, and personal info</li>
+        <li>Product comparison — side-by-side feature comparison across plan types</li>
+        <li>Service pages — organizing content by audience or topic without long scroll</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>This component is not for sequential workflows — use a Stepper component for multi-step processes</li>
+        <li>It is not for primary site navigation — use the Navigation component instead</li>
+        <li>Do not use tabs to hide critical information that all users must read — such content must be visible without interaction</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Active tab text colour, bottom border indicator</td></tr>
+            <tr><td><code>--caat-green</code></td><td>#00874c</td><td>Active pill background</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#e6f0f7</td><td>Tab hover background tint</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>#e9ecef</td><td>Tab border colour, panel divider</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on tab buttons</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>#212529</td><td>Panel body text colour</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Tab typeface</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Standard tabs</strong> (<code>.nav-tabs</code>) — underlined active indicator, bordered content panel</li>
+        <li><strong>Pills</strong> (<code>.nav-pills</code>) — filled capsule-style active indicator</li>
+        <li><strong>Vertical</strong> (<code>.caat-tabs--vertical</code>) — side-navigation layout with tabs stacked vertically</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Content tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Tab label (per item)</td><td>Text field</td><td>Yes</td><td>—</td><td>Visible text on the tab button. Keep concise (1–3 words).</td></tr>
+            <tr><td>Panel content (per item)</td><td>Rich text editor</td><td>Yes</td><td>—</td><td>Supports paragraphs, lists, links, images, and embedded components.</td></tr>
+            <tr><td>Icon (per item)</td><td>Icon picker</td><td>No</td><td>—</td><td>Optional Bootstrap icon displayed before the tab label.</td></tr>
+            <tr><td>Active by default</td><td>Toggle (per item)</td><td>No</td><td>First item</td><td>Designates which tab panel is visible on initial page load. Only one item should be active.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Style tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Dropdown</td><td>Yes</td><td>Standard</td><td>standard | pills | vertical</td></tr>
+            <tr><td>Full-width tabs</td><td>Toggle</td><td>No</td><td>Off</td><td>When on, tabs stretch to fill the available width equally (<code>.nav-justified</code>).</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Analytics tracking</td><td>Toggle</td><td>No</td><td>On</td><td>When on, emits <code>data-analytics-*</code> attributes and fires tab-switch events.</td></tr>
+            <tr><td>Deep-link tabs</td><td>Toggle</td><td>No</td><td>Off</td><td>When on, appends a hash to the URL when a tab is activated, enabling direct linking to a specific tab.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>At least two tab items</strong> are required. A single-tab interface provides no benefit — use a standard content block instead.</li>
+        <li><strong>Tab label</strong> is required for every item. The dialog must not allow saving a tab without a label.</li>
+        <li><strong>Maximum of 7 tabs</strong> recommended. More than 7 creates cognitive overload and responsive layout issues. The dialog should display a warning above this threshold.</li>
+        <li><strong>Only one tab</strong> may be marked "active by default." If none is selected, the first tab is active. If multiple are checked, only the first applies.</li>
+        <li>Authors must <strong>never hide essential action items or legal disclosures</strong> in non-default tab panels that members are required to acknowledge.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Good examples</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Short, scannable tab labels: "Overview", "Benefits", "Eligibility"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Parallel content structure — each panel covers a similar scope for its topic</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Use when audiences differ: "For Members" / "For Employers"</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Keep panels roughly equal in content length</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Ensure the default tab contains the most commonly sought information</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Avoid</h3>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Long tab labels: "Information About Your Retirement Benefits"</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> More than 7 tabs — consider a different pattern (e.g., accordion or sub-pages)</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Nesting tabs within tabs — use a flat hierarchy</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Using tabs for sequential content that must be read in order</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Extremely uneven panel lengths (one sentence vs. one full page)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Standard tabs</h3>
+<pre class="code-sample mb-4"><code>&lt;div class="caat-tabs" data-analytics-component="tabs"&gt;
+  &lt;ul class="nav nav-tabs" id="planTabs" role="tablist"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link active" id="tab1-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab1-panel"
+              type="button" role="tab"
+              aria-controls="tab1-panel"
+              aria-selected="true"&gt;
+        Tab Label
+      &lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link" id="tab2-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#tab2-panel"
+              type="button" role="tab"
+              aria-controls="tab2-panel"
+              aria-selected="false"&gt;
+        Tab Label 2
+      &lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="tab-content"&gt;
+    &lt;div class="tab-pane fade show active"
+         id="tab1-panel" role="tabpanel"
+         aria-labelledby="tab1-tab" tabindex="0"&gt;
+      &lt;p&gt;Panel content.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="tab-pane fade"
+         id="tab2-panel" role="tabpanel"
+         aria-labelledby="tab2-tab" tabindex="0"&gt;
+      &lt;p&gt;Panel content.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mb-2">Vertical tabs</h3>
+<pre class="code-sample mb-4"><code>&lt;div class="caat-tabs caat-tabs--vertical d-flex"
+     data-analytics-component="tabs"&gt;
+  &lt;ul class="nav nav-tabs flex-column me-3"
+      id="vertTabs" role="tablist"
+      aria-orientation="vertical"&gt;
+    &lt;li class="nav-item" role="presentation"&gt;
+      &lt;button class="nav-link active" id="vtab1-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#vtab1-panel"
+              type="button" role="tab"
+              aria-controls="vtab1-panel"
+              aria-selected="true"&gt;
+        Tab Label
+      &lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="tab-content flex-grow-1"&gt;
+    &lt;div class="tab-pane fade show active"
+         id="vtab1-panel" role="tabpanel"
+         aria-labelledby="vtab1-tab" tabindex="0"&gt;
+      Panel content.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mb-2">Tab with icon</h3>
+<pre class="code-sample"><code>&lt;button class="nav-link" role="tab" …&gt;
+  &lt;i class="bi bi-people me-1" aria-hidden="true"&gt;&lt;/i&gt;
+  Members
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The tabs component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/tabs.css">/assets/css/components/tabs.css</a>.</p>
+
+      <h3 class="mb-2">Base styles</h3>
+<pre class="code-sample mb-4"><code>.caat-tabs {
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, sans-serif);
+}
+
+.caat-tabs .nav-tabs {
+  border-bottom-color: var(--caat-grey-200, #e9ecef);
+}
+
+.caat-tabs .nav-tabs .nav-link {
+  font-weight: 600;
+  color: var(--caat-ink, #212529);
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: .75rem 1.25rem;
+}
+
+.caat-tabs .nav-tabs .nav-link:hover {
+  background-color: var(--caat-blue-100, #e6f0f7);
+  border-bottom-color: var(--caat-grey-200, #e9ecef);
+}
+
+.caat-tabs .nav-tabs .nav-link.active {
+  color: var(--caat-blue-900, #003750);
+  border-bottom-color: var(--caat-blue-900, #003750);
+  background-color: transparent;
+}
+
+/* Pills variant */
+.caat-tabs .nav-pills .nav-link.active {
+  background-color: var(--caat-green, #00874c);
+  color: #fff;
+}
+
+/* Tab content panel */
+.caat-tabs .tab-content {
+  padding: 1.5rem 0;
+  color: var(--caat-ink, #212529);
+}
+
+/* Focus ring */
+.caat-tabs .nav-link:focus-visible {
+  box-shadow: var(--caat-focus);
+  outline: 0;
+}
+
+/* Vertical variant */
+.caat-tabs--vertical .nav-tabs {
+  border-bottom: none;
+  border-right: 1px solid var(--caat-grey-200, #e9ecef);
+}
+
+.caat-tabs--vertical .nav-tabs .nav-link {
+  border-bottom: none;
+  border-right: 3px solid transparent;
+  text-align: left;
+}
+
+.caat-tabs--vertical .nav-tabs .nav-link.active {
+  border-right-color: var(--caat-blue-900, #003750);
+  border-bottom-color: transparent;
+}</code></pre>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Tab list role</td>
+              <td>The <code>&lt;ul&gt;</code> containing tab buttons must have <code>role="tablist"</code>.</td>
+            </tr>
+            <tr>
+              <td>Tab role</td>
+              <td>Each tab button must have <code>role="tab"</code>.</td>
+            </tr>
+            <tr>
+              <td>Tab panel role</td>
+              <td>Each content panel must have <code>role="tabpanel"</code> and <code>aria-labelledby</code> pointing to its corresponding tab button.</td>
+            </tr>
+            <tr>
+              <td>aria-selected</td>
+              <td>The active tab must have <code>aria-selected="true"</code>; all others must have <code>aria-selected="false"</code>.</td>
+            </tr>
+            <tr>
+              <td>aria-controls</td>
+              <td>Each tab button must have <code>aria-controls</code> pointing to the id of its associated panel.</td>
+            </tr>
+            <tr>
+              <td>Keyboard — Arrow keys</td>
+              <td>Left/Right arrow keys move focus between tabs in horizontal mode. Up/Down arrows in vertical mode. Focus wraps at boundaries.</td>
+            </tr>
+            <tr>
+              <td>Keyboard — Activation</td>
+              <td>Focused tab is activated on <kbd>Enter</kbd> or <kbd>Space</kbd> (or automatically on focus — follow Bootstrap default).</td>
+            </tr>
+            <tr>
+              <td>Focus state</td>
+              <td>A visible focus ring (<code>var(--caat-focus)</code>) must appear on <code>:focus-visible</code>. The ring must meet a 3 : 1 contrast ratio against the background.</td>
+            </tr>
+            <tr>
+              <td>Vertical orientation</td>
+              <td>Vertical tabs must include <code>aria-orientation="vertical"</code> on the tablist so assistive technology announces correct arrow key behaviour.</td>
+            </tr>
+            <tr>
+              <td>Colour contrast</td>
+              <td>Text-to-background contrast must meet WCAG 2.1 AA (4.5 : 1 for normal text) in all tab states (default, hover, active, focus).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li>All tab panel content must be present in the initial HTML response — do not lazy-load panel content via AJAX, as search engines must be able to index all panels.</li>
+        <li>Use semantic headings within panels where appropriate to support document outline.</li>
+        <li>If deep-linking is enabled, ensure each tab panel URL is crawlable and renders the correct panel content for social sharing and link previews.</li>
+        <li>Avoid duplicating the same content across multiple tab panels — each panel should contain unique information.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td>tabs</td><td>Identifies the component type for the data layer.</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>member-benefits</td><td>Per-tab label for switch event reporting.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>tab-switch</strong> — fires when a user activates a tab. Pushes tab label, tab index, and component instance ID to the data layer.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component replaces:</p>
+      <ul>
+        <li><strong>Tabs (#50)</strong> — existing tab component requiring rebuild to meet accessibility and design token standards</li>
+      </ul>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span>
+         The existing Tabs component (#50) must be rebuilt to use Bootstrap 5 tab markup, CAAT design tokens, proper ARIA roles, and analytics data attributes.</p>
+
+      <h3>Proxy / extend guidance</h3>
+      <p>Create a proxy component at <code>/apps/caat/components/tabs</code> that extends the
+         AEM Core Tabs component (<code>core/wcm/components/tabs</code>) where feasible.
+         Override the HTL template to emit CAAT class names, <code>role</code> attributes, and data-analytics attributes.</p>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.tabs</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>tabs.css</code></li>
+        <li><strong>JS:</strong> <code>tabs.js</code> (analytics wiring, deep-link hash handling, tab-switch event tracking)</li>
+      </ul>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>tabs/
+├── _cq_dialog/
+│   └── .content.xml          # Touch UI dialog
+├── _cq_editConfig.xml         # Edit configuration
+├── .content.xml                # Component node definition
+├── tabs.html                   # HTL template
+├── clientlibs/
+│   ├── .content.xml
+│   ├── css/
+│   │   └── tabs.css
+│   └── js/
+│       └── tabs.js
+└── README.md                   # Dev notes</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/components/tabs — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              tabItems:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./tabItems
+                fieldLabel: Tab items
+                composite: true
+                required: true
+                items:
+                  field:
+                    sling:resourceType: granite/ui/components/coral/foundation/container
+                    items:
+                      label:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./label
+                        fieldLabel: Tab label
+                        required: true
+                      panelContent:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/richtext
+                        name: ./panelContent
+                        fieldLabel: Panel content
+                        required: true
+                      icon:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./icon
+                        fieldLabel: Icon (Bootstrap Icons class)
+                        emptyText: "e.g. bi-people"
+                      activeByDefault:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                        name: ./activeByDefault
+                        text: Active by default
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              variant:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./variant
+                fieldLabel: Variant
+                required: true
+                items:
+                  - { text: Standard (underline), value: standard }
+                  - { text: Pills,               value: pills }
+                  - { text: Vertical,            value: vertical }
+              fullWidth:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./fullWidth
+                fieldLabel: Full-width tabs
+                checked: false
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              deepLink:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./deepLink
+                text: Enable deep-linking (hash URL)
+              analyticsTracking:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./analyticsTracking
+                fieldLabel: Analytics tracking
+                checked: true</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All three variants (standard, pills, vertical) render correctly with expected styles and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Tab switching works — clicking a tab shows its panel and hides others.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Arrow</kbd> keys move between tabs, <kbd>Enter</kbd>/<kbd>Space</kbd> activates.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code> are present and correct.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-selected</code>, <code>aria-controls</code>, and <code>aria-labelledby</code> update correctly on tab switch.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Vertical tabs include <code>aria-orientation="vertical"</code> on the tablist.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Deep-link hash updates the URL and activating a tab via hash on page load works correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics <code>data-analytics-*</code> attributes are present and tab-switch events fire to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: tabs stack or scroll horizontally on small viewports without content clipping.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring is visible and meets 3 : 1 contrast on all tab buttons.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All variants (standard, pills, vertical) are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created extending Core Tabs. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics tab-switch events and optional deep-link hash. Legacy Tabs (#50) replaced. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Screen reader tested with NVDA and VoiceOver.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Legacy Tabs component deprecated and migration plan communicated. Content authors trained. Analytics dashboards confirmed receiving tab-switch events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Tabs</h1>
+<p class="figma-page-subtitle">CAAT Design System · Tab and pill variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Standard Tabs — States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-bottom:3px solid transparent;">Tab Label</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-blue-900);border-bottom:3px solid var(--caat-blue-100);">Tab Label</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-blue-900);border-bottom:3px solid var(--caat-green);">Tab Label</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Pill Tabs — States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-radius:50rem;">Tab Label</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-radius:50rem;background:var(--caat-blue-100);">Tab Label</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:#fff;border-radius:50rem;background:var(--caat-blue-900);">Tab Label</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
+    <div class="figma-spec"><strong>Font weight</strong>600</div>
+    <div class="figma-spec"><strong>Active indicator</strong>3px solid var(--caat-green)</div>
+    <div class="figma-spec"><strong>Pill radius</strong>50rem</div>
+    <div class="figma-spec"><strong>Pill active bg</strong>var(--caat-blue-900)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

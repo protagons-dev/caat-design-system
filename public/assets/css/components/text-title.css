@@ -1,0 +1,217 @@
+/* ═══════════════════════════════════════════════════════════
+   TEXT / TITLE — CAAT Design System
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Base Title ─────────────────────────────────────────── */
+.caat-title {
+  font-family: var(--caat-font-primary);
+  font-weight: 800;
+  color: var(--caat-blue-900);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+.caat-title--h1, h1.caat-title { font-size: 2.5rem; }
+.caat-title--h2, h2.caat-title { font-size: 2rem; }
+.caat-title--h3, h3.caat-title { font-size: 1.75rem; }
+.caat-title--h4, h4.caat-title { font-size: 1.5rem; }
+.caat-title--h5, h5.caat-title { font-size: 1.25rem; }
+.caat-title--h6, h6.caat-title { font-size: 1rem; }
+
+/* ── Display Variant ────────────────────────────────────── */
+.caat-title--display {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+@media (max-width: 767.98px) {
+  .caat-title--display {
+    font-size: 2.5rem;
+  }
+}
+
+/* ── Section Variant ────────────────────────────────────── */
+.caat-title--section {
+  font-size: 1.75rem;
+  font-weight: 800;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--caat-blue-100);
+}
+
+/* ── Eyebrow ────────────────────────────────────────────── */
+.caat-title__eyebrow {
+  display: block;
+  font-family: var(--caat-font-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--caat-blue-700);
+  margin-bottom: 0.5rem;
+}
+
+/* ── Subtitle ───────────────────────────────────────────── */
+.caat-title__subtitle {
+  font-family: var(--caat-font-primary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--caat-ink);
+  opacity: 0.7;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+/* ── Base Text ──────────────────────────────────────────── */
+.caat-text {
+  font-family: var(--caat-font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--caat-ink);
+  line-height: 1.6;
+}
+
+/* ── Text Variants ──────────────────────────────────────── */
+.caat-text--lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.caat-text--small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.caat-text--muted {
+  color: var(--caat-ink);
+  opacity: 0.6;
+}
+
+/* ── Rich Text Block ────────────────────────────────────── */
+.caat-rich-text {
+  font-family: var(--caat-font-primary);
+  color: var(--caat-ink);
+  line-height: 1.6;
+}
+
+.caat-rich-text h2,
+.caat-rich-text h3,
+.caat-rich-text h4 {
+  font-weight: 800;
+  color: var(--caat-blue-900);
+  letter-spacing: -0.02em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.caat-rich-text h2 { font-size: 2rem; }
+.caat-rich-text h3 { font-size: 1.75rem; }
+.caat-rich-text h4 { font-size: 1.5rem; }
+
+.caat-rich-text p {
+  margin-bottom: 1em;
+}
+
+.caat-rich-text ul,
+.caat-rich-text ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1em;
+}
+
+.caat-rich-text li {
+  margin-bottom: 0.35em;
+}
+
+.caat-rich-text a {
+  color: var(--caat-blue-700);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.caat-rich-text a:hover {
+  color: var(--caat-blue-900);
+}
+
+.caat-rich-text a:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+  border-radius: var(--caat-radius);
+}
+
+.caat-rich-text strong {
+  font-weight: 700;
+}
+
+.caat-rich-text em {
+  font-style: italic;
+}
+
+/* ── Type Scale Table ───────────────────────────────────── */
+.caat-type-scale {
+  font-family: var(--caat-font-primary);
+  border: 1px solid var(--caat-grey-200);
+  border-radius: var(--caat-radius, 0.75rem);
+  overflow: hidden;
+  background: #fff;
+}
+
+.caat-type-scale__row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--caat-grey-200);
+}
+
+.caat-type-scale__row:last-child {
+  border-bottom: none;
+}
+
+.caat-type-scale__label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--caat-blue-700, #0f6791);
+  background: var(--caat-blue-100, #e7f4fb);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.caat-type-scale__sample {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.caat-type-scale__meta {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: var(--caat-muted, #506273);
+  white-space: nowrap;
+  text-align: right;
+  background: var(--caat-grey, #eff2f7);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+@media (max-width: 767.98px) {
+  .caat-type-scale__row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .caat-type-scale__label {
+    justify-self: start;
+  }
+  .caat-type-scale__meta {
+    text-align: left;
+    justify-self: start;
+  }
+}

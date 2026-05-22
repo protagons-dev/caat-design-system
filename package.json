@@ -1,0 +1,32 @@
+{
+  "name": "caat-design-system",
+  "version": "1.0.0",
+  "description": "CAAT Pension Plan – Design System & Website Prototype",
+  "private": true,
+  "scripts": {
+    "start": "npm run docker:up",
+    "stop": "npm run docker:down",
+
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up -d && echo \"\n✅  CAAT Design System running at http://localhost:3000\n\"",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f designsystem",
+    "docker:restart": "docker compose restart designsystem",
+    "docker:rebuild": "docker compose down && docker compose build --no-cache && docker compose up -d",
+    "docker:shell": "docker compose exec designsystem sh",
+
+    "open": "start http://localhost:3000"
+  },
+  "keywords": [
+    "design-system",
+    "caat",
+    "bootstrap",
+    "prototype",
+    "component-library"
+  ],
+  "author": "CAAT Web Team",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}

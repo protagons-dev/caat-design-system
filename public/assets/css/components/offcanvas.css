@@ -1,0 +1,92 @@
+/* ═══════════════════════════════════════════════════════════
+   CAAT Design System — Offcanvas Component
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Panel base ─────────────────────────────────────────── */
+.caat-offcanvas {
+  font-family: var(--caat-font-primary), sans-serif;
+  background-color: #fff;
+  border: none;
+  box-shadow: var(--caat-shadow);
+}
+
+/* Side panels (start / end) */
+.caat-offcanvas.offcanvas-start,
+.caat-offcanvas.offcanvas-end {
+  width: 320px;
+}
+
+/* Top / bottom panels */
+.caat-offcanvas.offcanvas-top,
+.caat-offcanvas.offcanvas-bottom {
+  max-height: 50vh;
+}
+
+/* ── Header ─────────────────────────────────────────────── */
+.caat-offcanvas__header {
+  background-color: #fff;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--caat-grey-200);
+}
+
+.caat-offcanvas__title {
+  font-family: var(--caat-font-primary), sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--caat-blue-900);
+  margin: 0;
+}
+
+/* ── Close button ───────────────────────────────────────── */
+.caat-offcanvas__close {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: .375rem;
+  border-radius: var(--caat-radius);
+  color: var(--caat-ink);
+  cursor: pointer;
+  transition: box-shadow .15s ease;
+}
+
+.caat-offcanvas__close:focus,
+.caat-offcanvas__close:focus-visible {
+  outline: none;
+  box-shadow: var(--caat-focus);
+}
+
+.caat-offcanvas__close:hover {
+  color: var(--caat-blue-700);
+}
+
+/* ── Body ───────────────────────────────────────────────── */
+.caat-offcanvas__body {
+  font-family: var(--caat-font-primary), sans-serif;
+  padding: 1.5rem;
+  color: var(--caat-ink);
+  font-size: .9375rem;
+  line-height: 1.6;
+}
+
+.caat-offcanvas__body .nav-link {
+  color: var(--caat-ink);
+  padding: .5rem 0;
+  border-bottom: 1px solid var(--caat-grey-200);
+  font-size: .9375rem;
+}
+
+.caat-offcanvas__body .nav-link:hover {
+  color: var(--caat-blue-700);
+}
+
+.caat-offcanvas__body .nav-link:focus-visible {
+  outline: none;
+  box-shadow: var(--caat-focus);
+  border-radius: var(--caat-radius);
+}
+
+/* ── Backdrop ───────────────────────────────────────────── */
+.offcanvas-backdrop.show {
+  opacity: .35;
+}

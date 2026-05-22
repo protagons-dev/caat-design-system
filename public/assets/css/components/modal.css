@@ -1,0 +1,66 @@
+/* ==========================================================================
+   Modal Component – CAAT Design System
+   ========================================================================== */
+
+/* --- Header --- */
+.caat-modal .modal-header {
+  border-bottom: 2px solid var(--caat-grey-200, #dfe6ef);
+  padding: 1.25rem 1.5rem;
+}
+
+.caat-modal .modal-title {
+  font-family: var(--caat-font-primary);
+  font-weight: 800;
+  color: var(--caat-blue-900, #003750);
+  font-size: 1.2rem;
+}
+
+.caat-modal .btn-close:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+}
+
+/* --- Body --- */
+.caat-modal .modal-body {
+  padding: 1.5rem;
+  font-family: var(--caat-font-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--caat-ink, #102637);
+}
+
+/* --- Footer --- */
+.caat-modal .modal-footer {
+  border-top: 1px solid var(--caat-grey-200, #dfe6ef);
+  padding: 1rem 1.5rem;
+  gap: 0.5rem;
+}
+
+/* --- Content (border-radius) --- */
+.caat-modal .modal-content {
+  border-radius: var(--caat-radius);
+  border: none;
+  box-shadow: var(--caat-shadow);
+}
+
+/* --- Backdrop --- */
+.caat-modal.modal.show ~ .modal-backdrop {
+  opacity: 0.5;
+}
+
+/* --- Confirmation variant --- */
+.caat-modal--confirm .modal-body {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.caat-modal--confirm .modal-body .bi {
+  font-size: 2.5rem;
+  color: var(--caat-warning);
+  margin-bottom: 1rem;
+}
+
+/* --- Scrollable content --- */
+.caat-modal .modal-dialog-scrollable .modal-body {
+  font-size: 0.88rem;
+}

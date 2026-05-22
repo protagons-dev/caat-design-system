@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Alert Component – CAAT Design System
+   ========================================================================== */
+
+.caat-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--caat-radius);
+  font-family: var(--caat-font-primary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* --- Variants --- */
+.caat-alert--info {
+  background-color: var(--caat-alert-info-bg, #cfe2ff);
+  border-color: var(--caat-alert-info-border, #9ec5fe);
+  color: var(--caat-blue-900, #003750);
+}
+
+.caat-alert--success {
+  background-color: var(--caat-alert-success-bg, #d1e7dd);
+  border-color: var(--caat-alert-success-border, #a3cfbb);
+  color: var(--caat-success-text);
+}
+
+.caat-alert--warning {
+  background-color: var(--caat-alert-warning-bg, #fff3cd);
+  border-color: var(--caat-alert-warning-border, #ffe69c);
+  color: var(--caat-warning-text);
+}
+
+.caat-alert--danger {
+  background-color: var(--caat-alert-danger-bg, #f8d7da);
+  border-color: var(--caat-alert-danger-border, #f1aeb5);
+  color: var(--caat-danger-text);
+}
+
+/* --- Icon --- */
+.caat-alert__icon {
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+/* --- Body --- */
+.caat-alert__body {
+  flex: 1;
+}
+
+.caat-alert__body h4,
+.caat-alert__body .caat-alert__heading {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+
+.caat-alert__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Dismissible --- */
+.caat-alert__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.65;
+  padding: 0.25rem;
+  margin-left: auto;
+  transition: opacity 0.15s ease;
+}
+
+.caat-alert__close:hover {
+  opacity: 1;
+}
+
+.caat-alert__close:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Links inside alerts --- */
+.caat-alert a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.caat-alert--info a { color: var(--caat-blue-900, #003750); }
+.caat-alert--success a { color: var(--caat-success-text); }
+.caat-alert--warning a { color: var(--caat-warning-text); }
+.caat-alert--danger a { color: var(--caat-danger-text); }

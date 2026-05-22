@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Feature Resource Hero AEM Component Contract. A hero-level component pairing a headline with a downloadable resource preview.">
+<title>Feature Resource Hero | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/feature-resource-hero.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link active" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main class="component-page-content">
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Feature Resource Hero</li>
+      </ol>
+    </nav>
+
+    <header class="mb-4">
+      <h1>Feature Resource Hero</h1>
+      <p class="lead">A hero-level component pairing a marketing headline with a downloadable resource preview (PDF, brochure, report). Features text + image layout with primary CTA.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Feature Resource Hero',['/assets/css/tokens.css','/assets/css/components/feature-resource-hero.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════════
+         DEMO
+         ══════════════════════════════════════════════════════ -->
+    <section id="demo" class="mb-5">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1: Default (side-by-side) -->
+      <h3 class="h5 mt-4 mb-3">Variant 1 — Default</h3>
+      <div class="caat-feature-hero" data-analytics-component="feature-resource-hero" data-analytics-variant="default">
+        <div class="caat-feature-hero__inner">
+          <div class="caat-feature-hero__body">
+            <p class="caat-feature-hero__eyebrow">Pension Solutions</p>
+            <h1 class="caat-feature-hero__title">A better pension matters:</h1>
+            <p class="caat-feature-hero__subtitle">The attraction and retention strategy every employer should be thinking about.</p>
+            <div class="caat-feature-hero__actions">
+              <a href="#" class="caat-button caat-button--primary">
+                <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download the brochure [PDF]
+              </a>
+              <a href="#" class="caat-button caat-button--outline-primary">Talk to us</a>
+            </div>
+          </div>
+          <div class="caat-feature-hero__preview">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              <img src="https://placehold.co/320x420/003750/ffffff?text=Retirement%0AThat+Works" alt="Retirement that works brochure cover" loading="eager">
+              <span class="caat-feature-hero__preview-label">PDF · 2.4 MB</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 2: Accent border -->
+      <h3 class="h5 mt-4 mb-3">Variant 2 — Accent border</h3>
+      <div class="caat-feature-hero caat-feature-hero--accent" data-analytics-component="feature-resource-hero" data-analytics-variant="accent">
+        <div class="caat-feature-hero__inner">
+          <div class="caat-feature-hero__body">
+            <p class="caat-feature-hero__eyebrow">New Report</p>
+            <h2 class="caat-feature-hero__title">2025 Retirement Readiness Report</h2>
+            <p class="caat-feature-hero__subtitle">Insights into how Canadians are preparing for retirement and what employers can do to help.</p>
+            <div class="caat-feature-hero__actions">
+              <a href="#" class="caat-button caat-button--primary caat-button--sm">
+                <i class="bi bi-download caat-button__icon" aria-hidden="true"></i> Download report
+              </a>
+            </div>
+          </div>
+          <div class="caat-feature-hero__preview">
+            <a href="#">
+              <img src="https://placehold.co/320x420/0b5a80/ffffff?text=Readiness%0AReport" alt="Retirement readiness report cover" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 3: Centred -->
+      <h3 class="h5 mt-4 mb-3">Variant 3 — Centred</h3>
+      <div class="caat-feature-hero caat-feature-hero--centered" data-analytics-component="feature-resource-hero" data-analytics-variant="centered">
+        <div class="caat-feature-hero__inner">
+          <div class="caat-feature-hero__body">
+            <p class="caat-feature-hero__eyebrow">Featured Resource</p>
+            <h2 class="caat-feature-hero__title">The Value of a Good Pension</h2>
+            <p class="caat-feature-hero__subtitle">Research shows how modern DB pension plans deliver significantly more value per dollar contributed.</p>
+            <div class="caat-feature-hero__actions">
+              <a href="#" class="caat-button caat-button--primary">
+                <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download study
+              </a>
+            </div>
+          </div>
+          <div class="caat-feature-hero__preview">
+            <a href="#">
+              <img src="https://placehold.co/320x420/367f32/ffffff?text=Good%0APension" alt="Value of a good pension study" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4: Dark background -->
+      <h3 class="h5 mt-4 mb-3">Variant 4 — Dark background</h3>
+      <div class="caat-feature-hero caat-feature-hero--dark" data-analytics-component="feature-resource-hero" data-analytics-variant="dark">
+        <div class="caat-feature-hero__inner">
+          <div class="caat-feature-hero__body">
+            <p class="caat-feature-hero__eyebrow">Annual Report</p>
+            <h2 class="caat-feature-hero__title">Year in Review 2025</h2>
+            <p class="caat-feature-hero__subtitle">Explore CAAT's performance, growth, and commitment to members over the past year.</p>
+            <div class="caat-feature-hero__actions">
+              <a href="#" class="caat-button caat-button--outline-secondary caat-button--sm" style="border-color:rgba(255,255,255,.5); color:#fff;">
+                <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> View report
+              </a>
+            </div>
+          </div>
+          <div class="caat-feature-hero__preview">
+            <a href="#">
+              <img src="https://placehold.co/320x420/95e35c/003750?text=Year+in%0AReview" alt="Year in review 2025" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Variant 5 — Fullbleed -->
+    <h3>Variant 5 — Fullbleed</h3>
+    <section class="caat-feature-hero caat-feature-hero--fullbleed mb-5" style="min-height:480px;">
+      <div class="caat-feature-hero__bg">
+        <img src="https://placehold.co/1600x600/003750/003750?text=+" alt="" aria-hidden="true" loading="lazy">
+      </div>
+      <div class="container position-relative" style="z-index:2;">
+        <div class="caat-feature-hero__inner">
+          <div class="caat-feature-hero__body">
+            <p class="caat-feature-hero__eyebrow">Pension Solutions</p>
+            <h2 class="caat-feature-hero__title">A better pension matters</h2>
+            <p class="caat-feature-hero__subtitle">A workplace pension is the attraction and retention strategy your organization needs.</p>
+            <div class="caat-feature-hero__actions">
+              <a href="#" class="caat-button caat-button--primary caat-button--sm">
+                <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download the brochure [PDF]
+              </a>
+              <a href="#" class="caat-button caat-button--outline-secondary caat-button--sm" style="border-color:rgba(255,255,255,.5); color:#fff;">Talk to us</a>
+            </div>
+          </div>
+          <div class="caat-feature-hero__preview">
+            <a href="#">
+              <img src="https://placehold.co/320x420/ffffff/003750?text=Brochure%0ACover" alt="Brochure cover" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         1. SUMMARY
+         ══════════════════════════════════════════════════════ -->
+    <section id="summary" class="mb-5">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Feature Resource Hero</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/feature-resource-hero</code></td></tr>
+          <tr><th>AEM category</th><td>CAAT — Hero</td></tr>
+          <tr><th>Allowed parents</th><td>Layout Container, Experience Fragment, Section</td></tr>
+          <tr><th>Variants</th><td>Default · Accent border · Centred · Dark background · Fullbleed</td></tr>
+          <tr><th>Purpose</th><td>Feature a downloadable resource (PDF, brochure, report) with marketing headline and CTA in a hero-level layout.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         2. DESIGN TOKENS
+         ══════════════════════════════════════════════════════ -->
+    <section id="tokens" class="mb-5">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Title colour, dark variant bg</td></tr>
+          <tr><td><code>--caat-green-700</code></td><td>#367f32</td><td>Eyebrow colour</td></tr>
+          <tr><td><code>--caat-green</code></td><td>#55a546</td><td>Accent border</td></tr>
+          <tr><td><code>--caat-lime</code></td><td>#95e35c</td><td>Eyebrow on dark variant</td></tr>
+          <tr><td><code>--caat-muted</code></td><td>#506273</td><td>Subtitle colour</td></tr>
+          <tr><td><code>--caat-radius</code></td><td>.75rem</td><td>Preview image radius</td></tr>
+          <tr><td><code>--caat-radius-lg</code></td><td>1.25rem</td><td>Dark variant container radius</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ══════════════════════════════════════════════════════ -->
+    <section id="authoring" class="mb-5">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Variant</td><td>Select</td><td>Yes</td><td><code>default</code> | <code>accent</code> | <code>centered</code> | <code>dark</code> | <code>fullbleed</code></td></tr>
+          <tr><td>Background image</td><td>Image</td><td>Cond.</td><td>Required for <code>fullbleed</code> variant. Full-width background image from DAM.</td></tr>
+          <tr><td>Eyebrow</td><td>Text</td><td>No</td><td>Small label above title (e.g., "Pension Solutions")</td></tr>
+          <tr><td>Title</td><td>Text</td><td>Yes</td><td>Primary headline</td></tr>
+          <tr><td>Subtitle</td><td>Textarea</td><td>No</td><td>Supporting description text</td></tr>
+          <tr><td>Primary CTA label</td><td>Text</td><td>Yes</td><td>Button label (e.g., "Download the brochure [PDF]")</td></tr>
+          <tr><td>Primary CTA link</td><td>Path</td><td>Yes</td><td>Link to downloadable resource</td></tr>
+          <tr><td>Primary CTA icon</td><td>Select</td><td>No</td><td>Bootstrap icon class (default: <code>bi-file-earmark-pdf</code>)</td></tr>
+          <tr><td>Secondary CTA label</td><td>Text</td><td>No</td><td>Optional secondary button label</td></tr>
+          <tr><td>Secondary CTA link</td><td>Path</td><td>No</td><td>Optional secondary link</td></tr>
+          <tr><td>Preview image</td><td>Image</td><td>Yes</td><td>Resource cover/preview image from DAM</td></tr>
+          <tr><td>Preview alt text</td><td>Text</td><td>Yes</td><td>Descriptive alt for the preview image</td></tr>
+          <tr><td>File info label</td><td>Text</td><td>No</td><td>E.g., "PDF · 2.4 MB"</td></tr>
+          <tr><td>Open in new tab</td><td>Checkbox</td><td>No</td><td>Whether the primary CTA opens in new tab</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         4. VALIDATION
+         ══════════════════════════════════════════════════════ -->
+    <section id="validation" class="mb-5">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li><strong>Title:</strong> Required, 3–15 words recommended</li>
+        <li><strong>Preview image:</strong> Required. Recommended 320×420px (portrait orientation)</li>
+        <li><strong>Primary CTA:</strong> Both label and link required</li>
+        <li><strong>File info label:</strong> If provided, must follow format "TYPE · SIZE" (e.g., "PDF · 2.4 MB")</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ══════════════════════════════════════════════════════ -->
+    <section id="content-guidance" class="mb-5">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Use this component for featuring downloadable resources (brochures, reports, whitepapers) prominently</li>
+        <li>Preview image should be the actual cover of the resource for visual recognition</li>
+        <li>Headline should clearly state the value proposition — not just the document title</li>
+        <li>Include file type and size in the CTA or file info label so users know what they're downloading</li>
+        <li>For accessibility, ensure the preview image alt text describes the document ("Retirement that works brochure cover")</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ══════════════════════════════════════════════════════ -->
+    <section id="semantic-html" class="mb-5">
+      <h2>6. Semantic HTML</h2>
+<pre class="bg-light p-3 rounded"><code>&lt;div class="caat-feature-hero"
+     data-analytics-component="feature-resource-hero"&gt;
+  &lt;div class="caat-feature-hero__inner"&gt;
+    &lt;div class="caat-feature-hero__body"&gt;
+      &lt;p class="caat-feature-hero__eyebrow"&gt;…&lt;/p&gt;
+      &lt;h1 class="caat-feature-hero__title"&gt;…&lt;/h1&gt;
+      &lt;p class="caat-feature-hero__subtitle"&gt;…&lt;/p&gt;
+      &lt;div class="caat-feature-hero__actions"&gt;
+        &lt;a href="…" class="caat-button caat-button--primary"&gt;
+          &lt;i class="bi bi-file-earmark-pdf caat-button__icon"&gt;&lt;/i&gt;
+          Download the brochure [PDF]
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-feature-hero__preview"&gt;
+      &lt;a href="…" target="_blank" rel="noopener noreferrer"&gt;
+        &lt;img src="cover.png" alt="…" loading="eager"&gt;
+        &lt;span class="caat-feature-hero__preview-label"&gt;
+          PDF · 2.4 MB
+        &lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ══════════════════════════════════════════════════════ -->
+    <section id="css-contract" class="mb-5">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Class</th><th>Element</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-feature-hero</code></td><td>Root container</td></tr>
+          <tr><td><code>.caat-feature-hero--accent</code></td><td>Modifier: green accent border</td></tr>
+          <tr><td><code>.caat-feature-hero--centered</code></td><td>Modifier: centred single-column layout</td></tr>
+          <tr><td><code>.caat-feature-hero--dark</code></td><td>Modifier: dark background</td></tr>
+          <tr><td><code>.caat-feature-hero--fullbleed</code></td><td>Modifier: full-width background image with gradient overlay</td></tr>
+          <tr><td><code>.caat-feature-hero__bg</code></td><td>Absolute-positioned background image container (fullbleed only)</td></tr>
+          <tr><td><code>.caat-feature-hero__inner</code></td><td>Grid layout wrapper</td></tr>
+          <tr><td><code>.caat-feature-hero__body</code></td><td>Text content column</td></tr>
+          <tr><td><code>.caat-feature-hero__eyebrow</code></td><td>Category/type label</td></tr>
+          <tr><td><code>.caat-feature-hero__title</code></td><td>Main headline</td></tr>
+          <tr><td><code>.caat-feature-hero__subtitle</code></td><td>Supporting description</td></tr>
+          <tr><td><code>.caat-feature-hero__actions</code></td><td>CTA buttons container</td></tr>
+          <tr><td><code>.caat-feature-hero__preview</code></td><td>Resource preview image wrapper</td></tr>
+          <tr><td><code>.caat-feature-hero__preview-label</code></td><td>File info text</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ══════════════════════════════════════════════════════ -->
+    <section id="accessibility" class="mb-5">
+      <h2>8. Accessibility</h2>
+      <ul>
+        <li>Preview image must have descriptive <code>alt</code> text describing the resource</li>
+        <li>If primary CTA opens in new tab, include <code>rel="noopener noreferrer"</code> and consider adding a visually hidden "(opens in new tab)" label</li>
+        <li>CTA button text must be descriptive enough to understand out of context</li>
+        <li>Colour contrast: all text meets WCAG 2.1 AA (4.5:1 for body text, 3:1 for large text)</li>
+        <li>Focus order: eyebrow → title → subtitle → CTA → preview image link</li>
+        <li>File info label should be associated with the download link</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         9. SEO
+         ══════════════════════════════════════════════════════ -->
+    <section id="seo" class="mb-5">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Title rendered as <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code> depending on page context</li>
+        <li>Alt text on preview image provides keyword context</li>
+        <li>CTA link to downloadable PDF should use descriptive anchor text</li>
+        <li>Eyebrow text provides topical categorization</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         10. ANALYTICS
+         ══════════════════════════════════════════════════════ -->
+    <section id="analytics" class="mb-5">
+      <h2>10. Analytics</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-analytics-component</code></td><td><code>feature-resource-hero</code></td></tr>
+          <tr><td><code>data-analytics-variant</code></td><td><code>default</code> | <code>accent</code> | <code>centered</code> | <code>dark</code> | <code>fullbleed</code></td></tr>
+        </tbody>
+      </table>
+      <p>Track: primary CTA clicks, secondary CTA clicks, preview image clicks, download completions.</p>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         11. AEM NOTES
+         ══════════════════════════════════════════════════════ -->
+    <section id="aem-notes" class="mb-5">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/feature-resource-hero</code></li>
+        <li><strong>Sling Model:</strong> <code>FeatureResourceHeroModel</code> — resolves DAM asset for preview image, reads CTA paths</li>
+        <li><strong>Client library:</strong> <code>caat.components.featureresourcehero</code> (category), CSS only — no JS</li>
+        <li><strong>Policy:</strong> Variant selector, toggle for secondary CTA, toggle for file info label</li>
+        <li><strong>DAM integration:</strong> Preview image uses adaptive image servlet for responsive delivery</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ══════════════════════════════════════════════════════ -->
+    <section id="dialog-model" class="mb-5">
+      <h2>12. Dialog Model</h2>
+<pre class="bg-light p-3 rounded"><code>{
+  "variant": "default | accent | centered | dark | fullbleed",
+  "bgImage": "/content/dam/…/hero-bg.jpg",
+  "bgAlt": "",
+  "eyebrow": "Pension Solutions",
+  "title": "A better pension matters:",
+  "subtitle": "The attraction and retention strategy…",
+  "primaryCtaLabel": "Download the brochure [PDF]",
+  "primaryCtaLink": "/content/dam/…/brochure.pdf",
+  "primaryCtaIcon": "bi-file-earmark-pdf",
+  "secondaryCtaLabel": "Talk to us",
+  "secondaryCtaLink": "/pension-solutions",
+  "previewImage": "/content/dam/…/brochure-cover.png",
+  "previewAlt": "Retirement that works brochure cover",
+  "fileInfoLabel": "PDF · 2.4 MB",
+  "openInNewTab": true
+}</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ══════════════════════════════════════════════════════ -->
+    <section id="qa" class="mb-5">
+      <h2>13. QA Checklist</h2>
+      <ul>
+        <li>☐ All five variants render correctly</li>
+        <li>☐ Fullbleed variant: background image covers full width with gradient overlay</li>
+        <li>☐ Fullbleed variant: text is white with sufficient contrast against gradient</li>
+        <li>☐ Preview image hover animation works (lift + tilt)</li>
+        <li>☐ CTA buttons use <code>caat-button</code> component</li>
+        <li>☐ Responsive: stacks vertically on mobile, preview moves to top</li>
+        <li>☐ Accent variant border switches from left to top on mobile</li>
+        <li>☐ Alt text present on preview image</li>
+        <li>☐ Dark variant text has sufficient contrast</li>
+        <li>☐ File info label renders below preview image</li>
+        <li>☐ Download link opens in new tab when configured</li>
+        <li>☐ Analytics attributes present</li>
+      </ul>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ══════════════════════════════════════════════════════ -->
+    <section id="dod" class="mb-5">
+      <h2>14. Definition of Done</h2>
+      <ol>
+        <li>All variants implemented and match Figma specs</li>
+        <li>Responsive breakpoints verified (mobile, tablet, desktop)</li>
+        <li>Preview image alt text and focus styles verified</li>
+        <li>CTA buttons use design system <code>caat-button</code> component</li>
+        <li>Lighthouse accessibility score ≥ 95</li>
+        <li>Analytics attributes on root element</li>
+        <li>AEM dialog wired to Sling model</li>
+        <li>Cross-browser tested (Chrome, Firefox, Safari, Edge)</li>
+      </ol>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Feature Resource Hero</h1>
+<p class="figma-page-subtitle">CAAT Design System · Hero with resource preview</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Default Variant</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Text + Preview</span>
+    <div class="figma-row-items" style="flex:1;max-width:36rem;">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;">
+        <div>
+          <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--caat-green-700);margin-bottom:.5rem;">Pension Solutions</div>
+          <h3 style="font-weight:900;font-size:1.5rem;color:var(--caat-blue-900);letter-spacing:-.02em;line-height:1.15;margin-bottom:.75rem;">A better pension matters</h3>
+          <p style="font-size:1rem;color:var(--caat-muted);line-height:1.5;">The attraction and retention strategy every employer should be thinking about.</p>
+        </div>
+        <div style="width:8rem;height:10rem;background:var(--caat-grey);border-radius:var(--caat-radius);box-shadow:var(--caat-shadow);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:2rem;"><i class="bi bi-file-earmark-pdf"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Eyebrow</strong>0.75rem, 700, uppercase</div>
+    <div class="figma-spec"><strong>Title</strong>clamp(1.5rem, 3.5vw, 2.5rem), 900</div>
+    <div class="figma-spec"><strong>Preview max-width</strong>16rem</div>
+    <div class="figma-spec"><strong>Preview shadow</strong>var(--caat-shadow)</div>
+    <div class="figma-spec"><strong>Hover lift</strong>translateY(-4px) rotate(-1deg)</div>
+  </div>
+</div>
+
+</template>
+
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

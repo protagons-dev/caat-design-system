@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Popover Component – CAAT Design System
+   ========================================================================== */
+
+.caat-popover .popover,
+.popover.caat-popover {
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
+  max-width: 300px;
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-radius: var(--caat-radius, .75rem);
+  box-shadow: var(--caat-shadow-sm);
+  background-color: #fff;
+}
+
+/* --- Header / Title --- */
+.caat-popover .popover-header,
+.popover.caat-popover .popover-header {
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-blue-100, #e7f4fb);
+  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-radius: var(--caat-radius, .75rem) var(--caat-radius, .75rem) 0 0;
+  padding: 0.625rem 0.875rem;
+}
+
+/* --- Body --- */
+.caat-popover .popover-body,
+.popover.caat-popover .popover-body {
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--caat-ink, #102637);
+  padding: 0.75rem 0.875rem;
+}
+
+/* --- Arrow – hide it to avoid the overlapping connector --- */
+.caat-popover .popover-arrow,
+.popover.caat-popover .popover-arrow {
+  display: none;
+}
+
+/* --- Rich content inside body --- */
+.caat-popover .popover-body ul,
+.popover.caat-popover .popover-body ul {
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.caat-popover .popover-body a,
+.popover.caat-popover .popover-body a {
+  color: var(--caat-blue-700, #0b5a80);
+  text-decoration: underline;
+}
+
+.caat-popover .popover-body a:hover,
+.popover.caat-popover .popover-body a:hover {
+  color: var(--caat-blue-900, #003750);
+}
+
+/* --- Focus ring for trigger buttons --- */
+.caat-popover [data-bs-toggle="popover"]:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+}
+
+/* --- Help / info icon button --- */
+.caat-popover .caat-popover-help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  background: #fff;
+  color: var(--caat-blue-700, #0b5a80);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.caat-popover .caat-popover-help:hover {
+  background-color: var(--caat-blue-100, #e7f4fb);
+  color: var(--caat-blue-900, #003750);
+}

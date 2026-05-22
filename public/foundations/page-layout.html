@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Page Layout foundations. Section rhythm, alternating backgrounds, spacing, and AEM layout container guidance.">
+<title>Page Layout | CAAT Design System — Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/separator.css" rel="stylesheet">
+<style>
+/* ── Page layout demo styles ── */
+.section-demo {
+  border: 2px dashed var(--caat-grey-300);
+  border-radius: var(--caat-radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.section-demo__row {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: .88rem;
+  position: relative;
+}
+.section-demo__row small {
+  display: block;
+  font-weight: 400;
+  color: inherit;
+  opacity: .7;
+  font-size: .78rem;
+  margin-top: .25rem;
+}
+.section-demo__label {
+  position: absolute;
+  top: .5rem;
+  right: .75rem;
+  font-size: .65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  opacity: .5;
+}
+.antipattern-demo {
+  border: 2px solid var(--caat-danger);
+  border-radius: var(--caat-radius);
+  overflow: hidden;
+  position: relative;
+}
+.antipattern-demo::after {
+  content: "✗";
+  position: absolute;
+  top: .5rem;
+  right: .75rem;
+  font-size: 1.25rem;
+  color: var(--caat-danger);
+  font-weight: 900;
+}
+.antipattern-demo .section-demo__row {
+  padding: 1.25rem 1.5rem;
+}
+.decision-table td, .decision-table th {
+  vertical-align: middle;
+}
+.aem-field-table code {
+  font-size: .82rem;
+}
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE BODY -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link active" href="/foundations/page-layout.html">Page Layout</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#section-rhythm">Section Rhythm</a>
+      <a class="nav-link" href="#backgrounds">Background Tiers</a>
+      <a class="nav-link" href="#decision-tree">Decision Tree</a>
+      <a class="nav-link" href="#spacing">Section Spacing</a>
+      <a class="nav-link" href="#section-anatomy">Section Anatomy</a>
+      <a class="nav-link" href="#antipatterns">Anti-Patterns</a>
+      <a class="nav-link" href="#grid">Grid System</a>
+      <a class="nav-link" href="#columns">Column Layouts</a>
+      <a class="nav-link" href="#page-templates">Page Templates</a>
+      <a class="nav-link" href="#aem">AEM Implementation</a>
+      <a class="nav-link" href="#css-contract">CSS Contract</a>
+      <a class="nav-link" href="#examples">Real Examples</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="component-page-main">
+
+    <p class="eyebrow">Foundations</p>
+    <h1>Page Layout</h1>
+    <p class="lead mb-5">How to structure page sections, apply alternating backgrounds, maintain vertical rhythm, and create visual separation without break bands or stacked separators.</p>
+
+
+    <!-- ═══ OVERVIEW ═══ -->
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <p>Every CAAT page is composed of <strong>full-width sections</strong> stacked vertically. Each section gets a background colour, consistent vertical padding, and contains a <code>.container</code> to constrain content width. This pattern replaces the legacy approach of using thick coloured bars, horizontal rules, or empty spacer components between page blocks.</p>
+      <p>The system provides <strong>three background tiers</strong> — white, grey, and blue — that alternate to create natural visual separation. No additional dividers or break elements are needed between sections.</p>
+    </section>
+
+
+    <!-- ═══ SECTION RHYTHM ═══ -->
+    <section id="section-rhythm" class="mb-5">
+      <h2>Section Rhythm</h2>
+      <p>Alternate between white and grey backgrounds to create a clear reading rhythm. Use blue sparingly for emphasis sections (stats, CTAs, or key messaging).</p>
+
+      <h3 class="h5 mt-4 mb-3">Recommended Pattern</h3>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900);">
+          <span class="section-demo__label">Hero</span>
+          Hero Section
+          <small>Full-bleed hero with card overlay or resource preview</small>
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff;">
+          <span class="section-demo__label">Stat Strip</span>
+          Stat Strip
+          <small>Key metrics bar — always dark blue</small>
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900);">
+          <span class="section-demo__label">White</span>
+          Section A — White
+          <small>Default content section</small>
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink);">
+          <span class="section-demo__label">Grey</span>
+          Section B — Grey
+          <small>Alternating background for contrast</small>
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900);">
+          <span class="section-demo__label">White</span>
+          Section C — White
+          <small>Back to default</small>
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink);">
+          <span class="section-demo__label">Grey</span>
+          Section D — Grey
+          <small>Alternating continues…</small>
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff;">
+          <span class="section-demo__label">Blue</span>
+          Emphasis Section — Blue
+          <small>Used sparingly: stats, strength metrics, final CTA</small>
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900);">
+          <span class="section-demo__label">White</span>
+          CTA / Footer Transition
+          <small>Final content before footer</small>
+        </div>
+      </div>
+
+      <div class="alert alert-info" style="font-size:.9rem;">
+        <i class="bi bi-info-circle-fill me-1"></i>
+        <strong>Key principle:</strong> The background colour change <em>is</em> the section divider. No horizontal rules, break bands, or spacer components are needed between sections.
+      </div>
+    </section>
+
+
+    <!-- ═══ BACKGROUND TIERS ═══ -->
+    <section id="backgrounds" class="mb-5">
+      <h2>Background Tiers</h2>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Tier</th><th>Token</th><th>Value</th><th>Text Colour</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="d-flex align-items-center gap-2"><div style="width:2rem;height:2rem;border-radius:4px;background:#fff;border:1px solid var(--caat-grey-200);"></div> <strong>White</strong></div></td>
+              <td><code>#ffffff</code> (default)</td>
+              <td>—</td>
+              <td><code>--caat-ink</code> / <code>--caat-blue-900</code></td>
+              <td>Default section background. Primary content, forms, articles.</td>
+            </tr>
+            <tr>
+              <td><div class="d-flex align-items-center gap-2"><div style="width:2rem;height:2rem;border-radius:4px;background:var(--caat-grey);"></div> <strong>Grey</strong></div></td>
+              <td><code>--caat-grey</code></td>
+              <td>#eff2f7</td>
+              <td><code>--caat-ink</code> / <code>--caat-blue-900</code></td>
+              <td>Alternating sections. Card grids, feature lists, testimonials, logo walls.</td>
+            </tr>
+            <tr>
+              <td><div class="d-flex align-items-center gap-2"><div style="width:2rem;height:2rem;border-radius:4px;background:var(--caat-blue-900);"></div> <strong>Blue</strong></div></td>
+              <td><code>--caat-blue-900</code></td>
+              <td>#003750</td>
+              <td><code>#fff</code> (headings), <code>rgba(255,255,255,.75)</code> (body)</td>
+              <td>Emphasis sections. Stat strips, strength metrics, primary CTAs, "join" blocks. Use sparingly — 1–2 per page max.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Colour Inversion Rules</h3>
+      <p>When a section uses the <strong>blue</strong> background, all child components must invert their colours:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Element</th><th>On white/grey</th><th>On blue</th></tr></thead>
+          <tbody>
+            <tr><td>Section title</td><td><code>--caat-blue-900</code></td><td><code>#fff</code></td></tr>
+            <tr><td>Section subtitle</td><td><code>--caat-muted</code></td><td><code>rgba(255,255,255,.75)</code></td></tr>
+            <tr><td>Body text</td><td><code>--caat-ink</code></td><td><code>rgba(255,255,255,.88)</code></td></tr>
+            <tr><td>Eyebrow labels</td><td><code>--caat-green-700</code></td><td><code>--caat-lime</code></td></tr>
+            <tr><td>Stat values</td><td><code>--caat-blue-900</code></td><td><code>#fff</code></td></tr>
+            <tr><td>Stat labels</td><td><code>--caat-muted</code></td><td><code>rgba(255,255,255,.7)</code></td></tr>
+            <tr><td>Dividers / borders</td><td><code>--caat-grey-200</code></td><td><code>rgba(255,255,255,.2)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ═══ DECISION TREE ═══ -->
+    <section id="decision-tree" class="mb-5">
+      <h2>Decision Tree: Which Background?</h2>
+      <p>Use this guide when laying out a page to decide each section's background:</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered decision-table">
+          <thead><tr><th>Question</th><th>Answer</th><th>Background</th></tr></thead>
+          <tbody>
+            <tr><td>Is this the first content section after the hero?</td><td>Yes</td><td><strong>White</strong></td></tr>
+            <tr><td>Is the previous section white?</td><td>Yes</td><td><strong>Grey</strong> (alternate)</td></tr>
+            <tr><td>Is the previous section grey?</td><td>Yes</td><td><strong>White</strong> (alternate)</td></tr>
+            <tr><td>Is this a stat strip or strength metrics bar?</td><td>Yes</td><td><strong>Blue</strong></td></tr>
+            <tr><td>Is this a primary CTA / "Join" / "Talk to us" block?</td><td>Yes</td><td><strong>White</strong> (or blue for a single high-impact CTA)</td></tr>
+            <tr><td>Is this the page's most important takeaway?</td><td>Yes</td><td><strong>Blue</strong> (max 1–2 per page)</td></tr>
+            <tr><td>Does this section contain a card grid or feature list?</td><td>Yes</td><td><strong>Grey</strong> (cards pop better on grey)</td></tr>
+            <tr><td>Does this section have a video embed?</td><td>Yes</td><td><strong>White</strong> (video needs clean frame)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ═══ SPACING ═══ -->
+    <section id="spacing" class="mb-5">
+      <h2>Section Spacing</h2>
+      <p>All sections use consistent vertical padding to maintain rhythm. Content is always constrained within a Bootstrap <code>.container</code>.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Context</th><th>Padding</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Standard section</td><td><code>4rem 0</code> (64px top/bottom)</td><td>Default for all page sections</td></tr>
+            <tr><td>Compact section (stat strip)</td><td><code>1.25rem 2rem</code></td><td>Tighter for data-dense horizontal bars</td></tr>
+            <tr><td>Hero section</td><td><code>4rem 0</code> minimum</td><td>May be larger depending on hero variant</td></tr>
+            <tr><td>CTA section</td><td><code>4rem 0</code></td><td>Same as standard — consistency is key</td></tr>
+            <tr><td>Footer</td><td><code>3rem 0</code></td><td>Slightly tighter, dark blue background</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-warning" style="font-size:.9rem;">
+        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+        <strong>Never add extra spacing between sections.</strong> The consistent <code>4rem</code> padding on each section creates 8rem of total visual space between content blocks (4rem bottom of Section A + 4rem top of Section B). This is sufficient — do not add margin, spacer components, or empty containers between sections.
+      </div>
+    </section>
+
+
+    <!-- ═══ SECTION ANATOMY ═══ -->
+    <section id="section-anatomy" class="mb-5">
+      <h2>Section Anatomy</h2>
+      <p>Every page section follows the same structural pattern:</p>
+
+<pre class="bg-light p-3 rounded mb-4"><code>&lt;section class="caat-section caat-section--grey"
+         aria-labelledby="section-heading"&gt;
+  &lt;div class="container"&gt;
+    &lt;h2 class="caat-section__title" id="section-heading"&gt;
+      Section heading
+    &lt;/h2&gt;
+    &lt;p class="caat-section__subtitle"&gt;
+      Supporting description text
+    &lt;/p&gt;
+
+    &lt;!-- Components go here --&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3 class="h5 mt-4 mb-3">Anatomy Breakdown</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Element</th><th>Required</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>&lt;section&gt;</code></td><td>Yes</td><td>Full-width semantic wrapper with background colour class</td></tr>
+            <tr><td><code>aria-labelledby</code></td><td>Yes</td><td>Links to the section heading for screen readers</td></tr>
+            <tr><td><code>.container</code></td><td>Yes</td><td>Constrains content to max-width (1320px) with horizontal padding</td></tr>
+            <tr><td><code>.caat-section__title</code></td><td>Recommended</td><td>Centred section heading, weight 900, uses <code>--caat-blue-900</code> (or white on blue)</td></tr>
+            <tr><td><code>.caat-section__subtitle</code></td><td>Optional</td><td>Centred sub-heading, max-width 44rem, muted colour</td></tr>
+            <tr><td>Component content</td><td>Yes</td><td>Any combination of DS components (cards, forms, charts, etc.)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ═══ ANTI-PATTERNS ═══ -->
+    <section id="antipatterns" class="mb-5">
+      <h2>Anti-Patterns</h2>
+      <p>These are common patterns found on the current site that should <strong>not</strong> be replicated in the new design system.</p>
+
+      <div class="row g-4 mb-4">
+        <!-- Anti-pattern 1 -->
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h3 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Full-width break bands</h3>
+            <p class="small text-muted mb-2">Don't use thick coloured bars spanning the full viewport width to separate page sections. These create a jarring, segmented "stacked boxes" appearance.</p>
+            <div class="antipattern-demo">
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">Section content</div>
+              <div style="height:8px; background:var(--caat-blue-900);"></div>
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">Next section content</div>
+              <div style="height:8px; background:var(--caat-blue-900);"></div>
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">Another section</div>
+            </div>
+            <p class="small mt-2 mb-0"><strong>Instead:</strong> Use alternating white/grey backgrounds. The colour change is the divider.</p>
+          </div>
+        </div>
+
+        <!-- Anti-pattern 2 -->
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h3 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Separators as spacers</h3>
+            <p class="small text-muted mb-2">Don't use <code>&lt;hr&gt;</code> or separator components between page sections to add vertical space. The separator is for within-content use only.</p>
+            <div class="antipattern-demo">
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">Section A</div>
+              <div style="padding:.5rem 1.5rem;"><hr style="opacity:.3;"></div>
+              <div style="height:2rem;"></div>
+              <div style="padding:.5rem 1.5rem;"><hr style="opacity:.3;"></div>
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">Section B (two HRs + empty space ✗)</div>
+            </div>
+            <p class="small mt-2 mb-0"><strong>Instead:</strong> Sections have built-in 4rem padding. No spacers needed.</p>
+          </div>
+        </div>
+
+        <!-- Anti-pattern 3 -->
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h3 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Same background on adjacent sections</h3>
+            <p class="small text-muted mb-2">Don't use the same background colour for two adjacent sections — they will merge visually and lose their distinct identity.</p>
+            <div class="antipattern-demo">
+              <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); font-size:.8rem;">Section A — Grey</div>
+              <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); font-size:.8rem; border-top: 1px dashed rgba(0,0,0,.1);">Section B — Also Grey ✗</div>
+            </div>
+            <p class="small mt-2 mb-0"><strong>Instead:</strong> Always alternate. Grey → White → Grey.</p>
+          </div>
+        </div>
+
+        <!-- Anti-pattern 4 -->
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h3 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Overusing blue sections</h3>
+            <p class="small text-muted mb-2">Don't use blue backgrounds for more than 1–2 sections per page. When overused, the emphasis is lost and the page feels heavy.</p>
+            <div class="antipattern-demo">
+              <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; font-size:.8rem;">Blue section 1</div>
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">White section</div>
+              <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; font-size:.8rem;">Blue section 2</div>
+              <div class="section-demo__row" style="background:#fff; color:var(--caat-ink); font-size:.8rem;">White section</div>
+              <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; font-size:.8rem;">Blue section 3 ✗</div>
+            </div>
+            <p class="small mt-2 mb-0"><strong>Instead:</strong> Reserve blue for 1–2 high-impact moments (stats, CTA).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══ GRID SYSTEM ═══ -->
+    <section id="grid" class="mb-5">
+      <h2>Grid System</h2>
+      <p>CAAT uses Bootstrap 5's 12-column fluid grid inside every <code>.container</code>. The grid provides responsive breakpoints, gutters, and alignment utilities.</p>
+
+      <h3 class="h5 mt-4 mb-3">Container widths</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Breakpoint</th><th>Class</th><th>Max-width</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>xs</td><td><code>.container</code></td><td>100%</td><td>Mobile — full-width with padding</td></tr>
+            <tr><td>sm (≥576px)</td><td><code>.container</code></td><td>540px</td><td>Large phones landscape</td></tr>
+            <tr><td>md (≥768px)</td><td><code>.container</code></td><td>720px</td><td>Tablets</td></tr>
+            <tr><td>lg (≥992px)</td><td><code>.container</code></td><td>960px</td><td>Small laptops</td></tr>
+            <tr><td>xl (≥1200px)</td><td><code>.container</code></td><td>1140px</td><td>Desktops</td></tr>
+            <tr><td>xxl (≥1400px)</td><td><code>.container</code></td><td>1320px</td><td>Wide screens — CAAT default max</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Grid rules</h3>
+      <ul>
+        <li><strong>Always nest content in <code>.container → .row → .col-*</code></strong> — never place content directly inside a section without a container.</li>
+        <li><strong>Gutter:</strong> Default gutter is <code>1.5rem</code> (24px). Use <code>.g-4</code> (1.5rem) for card grids, <code>.g-3</code> (1rem) for tighter layouts.</li>
+        <li><strong>No offset hacks:</strong> Use <code>.justify-content-center</code> on the row to centre fewer than 12 columns, not empty offset columns.</li>
+        <li><strong>Responsive:</strong> Always define at least <code>col-12</code> (mobile) + one larger breakpoint (e.g. <code>col-md-6</code>).</li>
+      </ul>
+
+      <h3 class="h5 mt-4 mb-3">Gutter reference</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Class</th><th>Value</th><th>Use case</th></tr></thead>
+          <tbody>
+            <tr><td><code>.g-0</code></td><td>0</td><td>Edge-to-edge image grids, flush cards</td></tr>
+            <tr><td><code>.g-3</code></td><td>1rem</td><td>Tight layouts — badge groups, stat pills</td></tr>
+            <tr><td><code>.g-4</code></td><td>1.5rem</td><td>Standard card grids, icon cards</td></tr>
+            <tr><td><code>.g-5</code></td><td>3rem</td><td>Spacious feature layouts, hero + sidebar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ═══ COLUMN LAYOUTS ═══ -->
+    <section id="columns" class="mb-5">
+      <h2>Column Layouts</h2>
+      <p>Common column patterns used across CAAT pages. Each pattern is responsive — stacking to single-column on mobile.</p>
+
+      <h3 class="h5 mt-4 mb-3">Standard patterns</h3>
+
+      <!-- 1-column -->
+      <h4 class="h6 mt-3">Single column (narrow)</h4>
+      <p class="small text-muted">For article body text, forms, legal content. Max-width constrained for readability.</p>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:var(--caat-grey);">
+          <div style="max-width:44rem; margin:0 auto; background:#fff; border:1px dashed var(--caat-blue-300); padding:1rem; border-radius:var(--caat-radius);">
+            <code>.col-lg-8.mx-auto</code> or <code>max-width: 44rem</code>
+            <small>680px content width — optimal reading line length</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-column equal -->
+      <h4 class="h6 mt-3">Two column — equal (6 + 6)</h4>
+      <p class="small text-muted">Side-by-side comparisons, image + text, two feature blocks.</p>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem 1.5rem;">
+          <div class="row g-3">
+            <div class="col-6"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-md-6</code></div></div>
+            <div class="col-6"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-md-6</code></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2-column weighted -->
+      <h4 class="h6 mt-3">Two column — weighted (8 + 4)</h4>
+      <p class="small text-muted">Article with sidebar, main content + CTA panel, video + description.</p>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem 1.5rem;">
+          <div class="row g-3">
+            <div class="col-8"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-lg-8</code><small>Main content</small></div></div>
+            <div class="col-4"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-lg-4</code><small>Sidebar / aside</small></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-column -->
+      <h4 class="h6 mt-3">Three column (4 + 4 + 4)</h4>
+      <p class="small text-muted">Card grids, feature trios, icon cards, stat blocks.</p>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem 1.5rem;">
+          <div class="row g-3">
+            <div class="col-4"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-md-4</code></div></div>
+            <div class="col-4"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-md-4</code></div></div>
+            <div class="col-4"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.75rem; border-radius:var(--caat-radius);"><code>.col-md-4</code></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-column -->
+      <h4 class="h6 mt-3">Four column (3 + 3 + 3 + 3)</h4>
+      <p class="small text-muted">Logo walls, stats strips, small feature cards.</p>
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem 1.5rem;">
+          <div class="row g-3">
+            <div class="col-3"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.5rem; border-radius:var(--caat-radius); font-size:.75rem;"><code>.col-lg-3</code></div></div>
+            <div class="col-3"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.5rem; border-radius:var(--caat-radius); font-size:.75rem;"><code>.col-lg-3</code></div></div>
+            <div class="col-3"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.5rem; border-radius:var(--caat-radius); font-size:.75rem;"><code>.col-lg-3</code></div></div>
+            <div class="col-3"><div style="background:#fff; border:1px dashed var(--caat-blue-300); padding:.5rem; border-radius:var(--caat-radius); font-size:.75rem;"><code>.col-lg-3</code></div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Responsive stacking rules</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Desktop layout</th><th>Tablet (md)</th><th>Mobile (xs–sm)</th></tr></thead>
+          <tbody>
+            <tr><td>4 columns</td><td>2 × 2 grid</td><td>Single stack</td></tr>
+            <tr><td>3 columns</td><td>2 + 1 or full stack</td><td>Single stack</td></tr>
+            <tr><td>2 columns (equal)</td><td>Stays 2-column</td><td>Single stack</td></tr>
+            <tr><td>2 columns (8+4)</td><td>Stays weighted or stacks</td><td>Single stack, sidebar below</td></tr>
+            <tr><td>Single narrow</td><td>Same</td><td>Full-width with padding</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ═══ PAGE TEMPLATES ═══ -->
+    <section id="page-templates" class="mb-5">
+      <h2>Page Templates</h2>
+      <p>Six standard page templates define the section structure, grid layout, and component slots for different content types at CAAT. Each template specifies which sections are required vs. optional and what column patterns to use.</p>
+
+      <!-- HOMEPAGE -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-house-door me-2"></i>Homepage</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">The primary entry point. Bold hero, key messages, trust signals, and clear CTAs.</p>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:1.25rem;"><span class="section-demo__label">required</span>Composable Hero (full-width, gradient or image bg)<small>Title, subtitle, CTA button, optional stat strip</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;"><span class="section-demo__label">required</span>Value proposition (3-col icon cards)<small>.col-md-4 × 3 — key benefits</small></div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem;"><span class="section-demo__label">optional</span>Social proof (logo wall + testimonial)<small>Full-width logo grid + blockquote</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;"><span class="section-demo__label">optional</span>Featured content (2-col: video + text)<small>.col-lg-7 + .col-lg-5</small></div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:1rem;"><span class="section-demo__label">optional</span>News / blog cards (3-col card grid)<small>.col-md-4 × 3 — latest articles</small></div>
+            <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:1rem;"><span class="section-demo__label">required</span>CTA band (centred text + button)<small>Single column, max-width 40rem</small></div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> Full-width hero → container sections. Mix of 3-col card grids and 2-col feature splits. Max 1 blue emphasis section.</p>
+        </div>
+      </div>
+
+      <!-- LANDING PAGE -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-megaphone me-2"></i>Landing Page</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Campaign or product-focused. Persuasion-driven, top-to-bottom narrative flow. Example: Pensions Matter.</p>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:1.25rem;"><span class="section-demo__label">required</span>Feature Resource Hero (fullbleed, card overlay)<small>Title, subtitle, download CTA, preview image</small></div>
+            <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:.6rem; font-size:.8rem;">Stat strip (4 metrics)</div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Demand section (stats + copy)<small>2-col stat layout</small></div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;">Pain point (contrast cards)<small>2-col .col-md-5 centered</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Solution (icon card grid)<small>3-col .col-md-4</small></div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;">Benefits (4-card grid + testimonial)<small>auto-fit grid, minmax(14rem, 1fr)</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Product details (centred prose)</div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;">Why choose (6-card grid)<small>auto-fit, narrower container</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Video (2-col: embed + sidebar)<small>.col-lg-7 + .col-lg-5</small></div>
+            <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:.8rem;"><span class="section-demo__label">emphasis</span>Strength metrics (4-col stats)</div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Final CTA + footnotes<small>Centred, narrow column</small></div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> Alternating white/grey. Heavy use of auto-fit grids for icon cards. Single blue emphasis band. 10–12 sections typical.</p>
+        </div>
+      </div>
+
+      <!-- SUB PAGE -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-file-earmark-text me-2"></i>Sub Page (Interior)</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Standard interior content page. Sidebar navigation for deep content structures (e.g. About, Plan details, Employer resources).</p>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:var(--caat-blue-100); padding:1rem;"><span class="section-demo__label">required</span>Page header (breadcrumb + title + subtitle)<small>No hero image — clean typographic header</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;">
+              <div class="row g-2">
+                <div class="col-3" style="font-size:.75rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Sidebar nav<small>.col-lg-3</small></div></div>
+                <div class="col-9" style="font-size:.75rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Main content<small>.col-lg-9 — rich text, accordions, tables</small></div></div>
+              </div>
+            </div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;"><span class="section-demo__label">optional</span>Related content (3-col card grid)</div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;"><span class="section-demo__label">optional</span>CTA band</div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> 3 + 9 sidebar layout inside container. Sidebar collapses to top nav or off-canvas on mobile. Main content area uses narrow prose width (max 44rem).</p>
+        </div>
+      </div>
+
+      <!-- ARTICLE -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-journal-richtext me-2"></i>Article / Blog Post</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Long-form editorial content. Optimised for reading with constrained width, clear typography, and minimal distractions.</p>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:#fff; padding:1rem;"><span class="section-demo__label">required</span>Article header<small>Category badge, title (h1), author, date, read time, hero image</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;">
+              <div class="row g-2">
+                <div class="col-8 mx-auto" style="font-size:.75rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Article body — .col-lg-8.mx-auto<small>Rich text: headings, paragraphs, lists, blockquotes, images, separators</small></div></div>
+              </div>
+            </div>
+            <div class="section-demo__row" style="background:var(--caat-grey-200); padding:.8rem; font-size:.8rem;">Author bio card (full-width within narrow column)</div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;"><span class="section-demo__label">optional</span>Related articles (3-col card grid)<small>.col-md-4 × 3</small></div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> Single centred column (<code>.col-lg-8.mx-auto</code>) for body content. Full-width grey section at bottom for related cards. No sidebar — focused reading experience.</p>
+        </div>
+      </div>
+
+      <!-- NEWS / LISTING -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-newspaper me-2"></i>News / Listing Page</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Index page for articles, news, resources, or publications. Filterable grid with pagination.</p>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:var(--caat-blue-100); padding:1rem;"><span class="section-demo__label">required</span>Page header (title + description)<small>Centred, no hero image</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Filter bar (pill badges, category filters)<small>Horizontal flex-wrap row</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;">
+              <div class="row g-2">
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+                <div class="col-4" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.4rem; border-radius:var(--caat-radius);">Card</div></div>
+              </div>
+              <small>3-col card grid: .col-md-6.col-lg-4 — 6–9 per page</small>
+            </div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Pagination<small>Centred, using .caat-pagination component</small></div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> 3-column card grid (<code>.col-md-6.col-lg-4</code>). Filter bar spans full container width. Cards stack to 2-col on tablet, 1-col on mobile.</p>
+        </div>
+      </div>
+
+      <!-- EVENTS -->
+      <div class="card mb-4" style="border-color:var(--caat-blue-300);">
+        <div class="card-header" style="background:var(--caat-blue-100); border-color:var(--caat-blue-300);">
+          <h3 class="h5 mb-0"><i class="bi bi-calendar-event me-2"></i>Events</h3>
+        </div>
+        <div class="card-body">
+          <p class="small text-muted mb-3">Webinars, conferences, employer info sessions. Combines listing with detail view.</p>
+          <h4 class="h6">Listing view</h4>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:var(--caat-blue-100); padding:1rem;"><span class="section-demo__label">required</span>Page header (title + upcoming/past toggle)</div>
+            <div class="section-demo__row" style="background:#fff; padding:.8rem;">Filter bar (date range, type, audience)<small>Horizontal flex-wrap</small></div>
+            <div class="section-demo__row" style="background:#fff; padding:1rem;">
+              <div class="row g-2">
+                <div class="col-6" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Event card<small>Date badge, title, type, CTA</small></div></div>
+                <div class="col-6" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Event card</div></div>
+                <div class="col-6" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Event card</div></div>
+                <div class="col-6" style="font-size:.7rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Event card</div></div>
+              </div>
+              <small>2-col grid: .col-md-6 — events are wider cards with more metadata</small>
+            </div>
+          </div>
+          <h4 class="h6">Detail view</h4>
+          <div class="section-demo mb-3">
+            <div class="section-demo__row" style="background:#fff; padding:1rem;">
+              <div class="row g-2">
+                <div class="col-8" style="font-size:.75rem;"><div style="background:var(--caat-grey); padding:.5rem; border-radius:var(--caat-radius);">Event details<small>Date, time, location, description, speakers</small></div></div>
+                <div class="col-4" style="font-size:.75rem;"><div style="background:var(--caat-blue-100); padding:.5rem; border-radius:var(--caat-radius);">Registration panel<small>Form or CTA button</small></div></div>
+              </div>
+            </div>
+            <div class="section-demo__row" style="background:var(--caat-grey); padding:.8rem;"><span class="section-demo__label">optional</span>Related events (2-col card grid)</div>
+          </div>
+          <p class="small mb-0"><strong>Grid:</strong> Listing uses 2-col (<code>.col-md-6</code>). Detail uses 8+4 weighted layout. Registration panel is sticky on desktop.</p>
+        </div>
+      </div>
+
+      <!-- TEMPLATE COMPARISON TABLE -->
+      <h3 class="h5 mt-4 mb-3">Template comparison</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" style="font-size:.85rem;">
+          <thead><tr><th>Template</th><th>Hero style</th><th>Primary grid</th><th>Sidebar</th><th>Typical sections</th><th>Blue band</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Homepage</strong></td><td>Composable (gradient/image)</td><td>3-col cards</td><td>No</td><td>5–7</td><td>1 (CTA)</td></tr>
+            <tr><td><strong>Landing page</strong></td><td>Feature Resource (fullbleed)</td><td>Auto-fit grids</td><td>No</td><td>10–12</td><td>1 (metrics)</td></tr>
+            <tr><td><strong>Sub page</strong></td><td>Typographic header</td><td>9-col main</td><td>Yes (3-col)</td><td>3–5</td><td>0</td></tr>
+            <tr><td><strong>Article</strong></td><td>None (inline header)</td><td>8-col centred</td><td>No</td><td>3–4</td><td>0</td></tr>
+            <tr><td><strong>News listing</strong></td><td>Typographic header</td><td>3-col cards</td><td>No</td><td>3</td><td>0</td></tr>
+            <tr><td><strong>Events</strong></td><td>Typographic header</td><td>2-col cards / 8+4 detail</td><td>No</td><td>3–4</td><td>0–1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-info" style="font-size:.9rem;">
+        <i class="bi bi-info-circle-fill me-1"></i>
+        <strong>AEM Template Policies:</strong> Each template type maps to an AEM editable template with locked structure (required sections) and open parsys zones (optional sections). Authors cannot change the grid layout of locked sections but can add/remove optional sections and populate component slots within them.
+      </div>
+    </section>
+
+
+    <!-- ═══ AEM IMPLEMENTATION ═══ -->
+    <section id="aem" class="mb-5">
+      <h2>AEM Implementation</h2>
+      <p>In AEM, each page section is a <strong>Layout Container</strong> with a style policy that controls the background colour. Authors select the background when configuring the container — they don't need to add any CSS classes manually.</p>
+
+      <h3 class="h5 mt-4 mb-3">Layout Container Policy</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered aem-field-table">
+          <thead><tr><th>Policy field</th><th>Type</th><th>Options</th></tr></thead>
+          <tbody>
+            <tr><td>Section background</td><td>Select (Style System)</td><td><code>default</code> (white) · <code>grey</code> · <code>blue</code></td></tr>
+            <tr><td>Section ID</td><td>Text</td><td>Auto-generated or author-defined anchor ID for deep linking</td></tr>
+            <tr><td>Full width</td><td>Checkbox</td><td>If checked, section background spans viewport; content stays in container</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Style System Mapping</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered aem-field-table">
+          <thead><tr><th>Style option</th><th>CSS class applied</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td>Default (White)</td><td><em>none</em></td><td>White background, dark text</td></tr>
+            <tr><td>Grey</td><td><code>caat-section--grey</code></td><td><code>background: var(--caat-grey)</code></td></tr>
+            <tr><td>Blue</td><td><code>caat-section--blue</code></td><td><code>background: var(--caat-blue-900); color: #fff</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">HTL Template</h3>
+<pre class="bg-light p-3 rounded"><code>&lt;section class="caat-section ${section.styleClasses}"
+         aria-labelledby="${section.id}-heading"
+         data-sly-use.section="com.caat.models.SectionModel"&gt;
+  &lt;div class="container"&gt;
+    &lt;sly data-sly-resource="${'content' @ resourceType='wcm/foundation/components/responsivegrid'}"/&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3 class="h5 mt-4 mb-3">Author Guidance</h3>
+      <div class="alert alert-info" style="font-size:.9rem;">
+        <i class="bi bi-info-circle-fill me-1"></i>
+        <strong>For authors:</strong> When building a page, drop Layout Containers onto the page in sequence. For each container, open the Style System panel and select the background colour. Alternate between "Default" and "Grey" for most sections. Only use "Blue" for 1–2 emphasis sections per page. The padding is automatic — never add empty components or spacers between containers.
+      </div>
+    </section>
+
+
+    <!-- ═══ CSS CONTRACT ═══ -->
+    <section id="css-contract" class="mb-5">
+      <h2>CSS Contract</h2>
+      <p>These classes are available for page-level section styling. They should live in a shared page-layout stylesheet, not in individual component CSS.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Class</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-section</code></td><td>Base section wrapper: <code>padding: 4rem 0</code></td></tr>
+            <tr><td><code>.caat-section--grey</code></td><td>Grey background: <code>background: var(--caat-grey)</code></td></tr>
+            <tr><td><code>.caat-section--blue</code></td><td>Blue background: <code>background: var(--caat-blue-900); color: #fff</code></td></tr>
+            <tr><td><code>.caat-section__title</code></td><td>Centred section heading: weight 900, clamp(1.5rem, 3vw, 2.2rem)</td></tr>
+            <tr><td><code>.caat-section__subtitle</code></td><td>Centred sub-heading: max-width 44rem, muted colour</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+<pre class="bg-light p-3 rounded"><code>/* ── Page section rhythm ── */
+.caat-section {
+  padding: 4rem 0;
+}
+.caat-section--grey {
+  background: var(--caat-grey);
+}
+.caat-section--blue {
+  background: var(--caat-blue-900);
+  color: #fff;
+}
+.caat-section__title {
+  font-family: var(--caat-font-primary);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--caat-blue-900);
+  letter-spacing: -.02em;
+  text-align: center;
+  margin-bottom: .5rem;
+}
+.caat-section--blue .caat-section__title {
+  color: #fff;
+}
+.caat-section__subtitle {
+  text-align: center;
+  color: var(--caat-muted);
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+}
+.caat-section--blue .caat-section__subtitle {
+  color: rgba(255,255,255,.75);
+}</code></pre>
+    </section>
+
+
+    <!-- ═══ REAL EXAMPLES ═══ -->
+    <section id="examples" class="mb-5">
+      <h2>Real Examples</h2>
+      <p>The <a href="/templates/pensions-matter.html">Pensions Matter</a> template demonstrates the alternating pattern in practice:</p>
+
+      <div class="section-demo">
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1.25rem 1.5rem;">
+          <span class="section-demo__label">fullbleed</span>
+          Hero — Feature Resource Hero
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:.75rem 1.5rem; font-size:.8rem;">
+          Stat Strip (77% · 89% · 125,000+ · 97%)
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          The demand for employers… (stats + copy)
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); padding:1rem 1.5rem;">
+          <span class="section-demo__label">grey</span>
+          What leaders need to know (contrast cards)
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          Employees want better pensions (icon grid)
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); padding:1rem 1.5rem;">
+          <span class="section-demo__label">grey</span>
+          Power of workplace pensions (cards + testimonial)
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          DBplus by CAAT (feature description)
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); padding:1rem 1.5rem;">
+          <span class="section-demo__label">grey</span>
+          Why employers choose DBplus (card grid)
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          Video section
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-grey); color:var(--caat-ink); padding:1rem 1.5rem;">
+          <span class="section-demo__label">grey</span>
+          Logo wall + testimonial
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          Value comparison (data viz)
+        </div>
+        <div class="section-demo__row" style="background:var(--caat-blue-900); color:#fff; padding:1rem 1.5rem;">
+          <span class="section-demo__label">blue</span>
+          Strength metrics (emphasis)
+        </div>
+        <div class="section-demo__row" style="background:#fff; color:var(--caat-blue-900); padding:1rem 1.5rem;">
+          <span class="section-demo__label">white</span>
+          CTA + footnotes
+        </div>
+      </div>
+      <p class="text-muted small">Notice the strict alternation: white → grey → white → grey, with a single blue emphasis section near the end.</p>
+    </section>
+
+
+  </main>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/foundations/design-tokens.html" class="me-3">Design Tokens</a>
+        <a href="/components/" class="me-3">Components</a>
+        <a href="/templates/pensions-matter.html">Pensions Matter</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

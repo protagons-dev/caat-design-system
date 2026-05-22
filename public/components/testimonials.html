@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Testimonials AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Testimonials | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/testimonials.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link active" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Testimonials</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Testimonials</h1>
+      <p class="text-muted">Display member quotes and testimonials to build trust and social proof for CAAT Pension Plan.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Testimonial',['/assets/css/tokens.css','/assets/css/components/testimonials.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         LIVE DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1: Single Blockquote -->
+      <h3 class="mt-4 mb-3">Variant 1 — Single Blockquote</h3>
+      <div class="caat-testimonial" data-analytics-component="testimonial" data-analytics-variant="single">
+        <blockquote class="caat-testimonial__quote">
+          <p>"After 32 years of teaching, I retired knowing my CAAT pension would be there for me. The defined benefit plan gives me peace of mind — I never have to worry about outliving my savings."</p>
+        </blockquote>
+        <div class="caat-testimonial__attribution">
+          <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=32" alt="Photo of Margaret Chen" width="64" height="64">
+          <div>
+            <strong>Margaret Chen</strong><br>
+            <span class="text-muted">Retired Educator · Durham College</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 2: Grid -->
+      <h3 class="mt-5 mb-3">Variant 2 — Grid Layout</h3>
+      <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="grid">
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"Retiring at 60 felt like a dream, but CAAT made it a reality. My pension income replaced 70% of my working salary from day one."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=51" alt="Photo of Robert Tremblay" width="64" height="64">
+            <div>
+              <strong>Robert Tremblay</strong><br>
+              <span class="text-muted">Retired Facilities Manager · Conestoga College</span>
+            </div>
+          </div>
+        </div>
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"The inflation protection built into my CAAT pension means my purchasing power stays strong year after year. That's something no RRSP can guarantee."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=29" alt="Photo of Linda Kaur" width="64" height="64">
+            <div>
+              <strong>Linda Kaur</strong><br>
+              <span class="text-muted">Retired Librarian · Sheridan College</span>
+            </div>
+          </div>
+        </div>
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"We partnered with CAAT five years ago. Since then, employee satisfaction scores around benefits have jumped 40%. It sells itself."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=60" alt="Photo of Angela Russo" width="64" height="64">
+            <div>
+              <strong>Angela Russo</strong><br>
+              <span class="text-muted">COO · Ontario Digital Service Corp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 3: Without Photo -->
+      <h3 class="mt-5 mb-3">Variant 3 — Without Photo</h3>
+      <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="no-photo">
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"Joining CAAT was the best HR decision we ever made. Our employees feel secure about their future, and that shows in retention."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">TK</span>
+            <div>
+              <strong>Tom Kirkwood</strong><br>
+              <span class="text-muted">VP People &amp; Culture · GreenTech Solutions</span>
+            </div>
+          </div>
+        </div>
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"I didn't fully appreciate my pension until I retired. Now I get a steady cheque every month — no market stress, no guesswork."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">PR</span>
+            <div>
+              <strong>Patricia Rowe</strong><br>
+              <span class="text-muted">Retired Administrative Coordinator · Humber College</span>
+            </div>
+          </div>
+        </div>
+        <div class="caat-testimonial">
+          <blockquote class="caat-testimonial__quote">
+            <p>"The CAAT team walked us through every step of onboarding. Our staff had questions answered within days, not weeks."</p>
+          </blockquote>
+          <div class="caat-testimonial__attribution">
+            <span class="caat-testimonial__avatar caat-testimonial__avatar--icon" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
+            <div>
+              <strong>Anonymous Member</strong><br>
+              <span class="text-muted">2024 Member Satisfaction Survey</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component path</strong></td><td><code>caat/components/testimonial</code></td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new"><i class="bi bi-stars"></i> New</span></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Display member quotes and testimonials to build trust and social proof, showcasing real experiences from CAAT pension plan members and employer partners.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Single blockquote · Carousel/slider · Grid layout</td></tr>
+            <tr><td><strong>Allowed on</strong></td><td>Homepage, About, Employers, Member Stories, Landing Pages</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-testimonial-bg</code></td><td><code>var(--caat-gray-50)</code></td><td>Card/quote background</td></tr>
+            <tr><td><code>--caat-testimonial-border</code></td><td><code>var(--caat-blue-500)</code></td><td>Left border accent on blockquote</td></tr>
+            <tr><td><code>--caat-testimonial-quote-size</code></td><td><code>1.125rem</code></td><td>Quote text font size</td></tr>
+            <tr><td><code>--caat-testimonial-avatar-size</code></td><td><code>64px</code></td><td>Avatar width/height</td></tr>
+            <tr><td><code>--caat-testimonial-radius</code></td><td><code>var(--caat-radius-lg)</code></td><td>Card border radius</td></tr>
+            <tr><td><code>--caat-testimonial-gap</code></td><td><code>1.5rem</code></td><td>Grid gap between cards</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Quote Text</strong></td><td>Rich Text</td><td>Yes</td><td>The testimonial body. Supports bold/italic. Max 300 characters recommended.</td></tr>
+            <tr><td><strong>Attribution Name</strong></td><td>Text</td><td>Yes</td><td>Full name of the person providing the testimonial.</td></tr>
+            <tr><td><strong>Attribution Role</strong></td><td>Text</td><td>No</td><td>Job title or role of the quoted person (e.g., "Retired Educator").</td></tr>
+            <tr><td><strong>Employer Name</strong></td><td>Text</td><td>No</td><td>Organization/employer name (e.g., "Durham College").</td></tr>
+            <tr><td><strong>Avatar Image</strong></td><td>Image</td><td>No</td><td>Headshot photo. Rendered at 64×64px. Falls back to initials placeholder if empty.</td></tr>
+            <tr><td><strong>Star Rating</strong></td><td>Number (1–5)</td><td>No</td><td>Optional star rating displayed above the quote. Omit to hide rating.</td></tr>
+            <tr><td><strong>Display Variant</strong></td><td>Select</td><td>Yes</td><td>Options: <code>single</code> | <code>carousel</code> | <code>grid</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Rule</th></tr></thead>
+          <tbody>
+            <tr><td>Quote Text</td><td>Required. Non-empty. Max 500 characters.</td></tr>
+            <tr><td>Attribution Name</td><td>Required. Non-empty. Max 100 characters.</td></tr>
+            <tr><td>Avatar Image</td><td>If provided: min 128×128px, max 1 MB, formats JPG/PNG/WebP.</td></tr>
+            <tr><td>Star Rating</td><td>If provided: integer between 1 and 5 inclusive.</td></tr>
+            <tr><td>Carousel variant</td><td>Requires minimum 2 testimonial items, maximum 8.</td></tr>
+            <tr><td>Grid variant</td><td>Requires minimum 2 testimonial items, maximum 6.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li><strong>Authenticity:</strong> Use real quotes from real members/employers. Obtain written consent before publishing.</li>
+        <li><strong>Pension-relevant:</strong> Focus on retirement security, defined benefit advantages, peace of mind, inflation protection, and employer recruitment benefits.</li>
+        <li><strong>Length:</strong> Keep quotes concise — 1–3 sentences (under 300 characters) for maximum impact.</li>
+        <li><strong>Diversity:</strong> Represent a variety of roles, institutions, genders, and retirement stages.</li>
+        <li><strong>Attribution:</strong> Always include at minimum a name. Role and employer add credibility.</li>
+        <li><strong>Avoid:</strong> Specific dollar amounts, investment returns, or language that could constitute financial advice.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;!-- Single testimonial --&gt;
+&lt;div class="caat-testimonial"
+     data-analytics-component="testimonial"
+     data-analytics-variant="single"&gt;
+  &lt;blockquote class="caat-testimonial__quote"&gt;
+    &lt;p&gt;"Quote text here..."&lt;/p&gt;
+  &lt;/blockquote&gt;
+  &lt;div class="caat-testimonial__attribution"&gt;
+    &lt;img class="caat-testimonial__avatar"
+         src="/path/to/avatar.jpg"
+         alt="Photo of [Name]"
+         width="64" height="64"&gt;
+    &lt;div&gt;
+      &lt;strong&gt;[Name]&lt;/strong&gt;&lt;br&gt;
+      &lt;span class="text-muted"&gt;[Role] · [Employer]&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Carousel wrapper --&gt;
+&lt;div class="caat-testimonial-carousel carousel slide"
+     data-bs-ride="false"
+     aria-roledescription="carousel"
+     aria-label="Member testimonials"&gt;
+  &lt;div class="carousel-inner"&gt;
+    &lt;div class="carousel-item active"
+         role="group"
+         aria-roledescription="slide"
+         aria-label="Testimonial 1 of N"&gt;
+      &lt;!-- .caat-testimonial inside --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- prev/next controls --&gt;
+&lt;/div&gt;
+
+&lt;!-- Grid wrapper --&gt;
+&lt;div class="caat-testimonial-grid"&gt;
+  &lt;!-- multiple .caat-testimonial children --&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Class</th><th>Element</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-testimonial</code></td><td>Root wrapper</td><td>Single testimonial card/block. Contains quote + attribution.</td></tr>
+            <tr><td><code>.caat-testimonial__quote</code></td><td><code>&lt;blockquote&gt;</code></td><td>Styled with left border accent, larger font, italic styling.</td></tr>
+            <tr><td><code>.caat-testimonial__avatar</code></td><td><code>&lt;img&gt;</code></td><td>Circular avatar, 64×64px. Object-fit: cover.</td></tr>
+            <tr><td><code>.caat-testimonial__attribution</code></td><td>Attribution row</td><td>Flex row with avatar + name/role stack.</td></tr>
+            <tr><td><code>.caat-testimonial-carousel</code></td><td>Carousel wrapper</td><td>Extends Bootstrap carousel with CAAT styling.</td></tr>
+            <tr><td><code>.caat-testimonial-grid</code></td><td>Grid wrapper</td><td>CSS Grid, 1 col mobile → 2 cols tablet → 3 cols desktop.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Blockquote semantics</td><td>Use native <code>&lt;blockquote&gt;</code> element so assistive tech announces quoted text.</td></tr>
+            <tr><td>Avatar alt text</td><td>Provide descriptive alt: "Photo of [Name]". Use empty alt (<code>alt=""</code>) if decorative.</td></tr>
+            <tr><td>Carousel — keyboard</td><td>Previous/Next buttons are keyboard-focusable. Indicators are <code>&lt;button&gt;</code> elements.</td></tr>
+            <tr><td>Carousel — pause/stop</td><td>Set <code>data-bs-ride="false"</code> (no autoplay). If autoplay is enabled, provide a visible Pause button.</td></tr>
+            <tr><td>Carousel — ARIA</td><td><code>aria-roledescription="carousel"</code> on wrapper; <code>aria-roledescription="slide"</code> + <code>aria-label</code> on each item.</td></tr>
+            <tr><td>Reduced motion</td><td><code>@media (prefers-reduced-motion: reduce)</code> disables carousel transitions and any fade animations.</td></tr>
+            <tr><td>Color contrast</td><td>Quote text and attribution meet WCAG 2.1 AA (4.5:1 minimum).</td></tr>
+            <tr><td>Star rating</td><td>If present, include visually hidden text: "Rated X out of 5 stars" for screen readers.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Testimonials may optionally emit <strong>Schema.org Review</strong> structured data (<code>@type: Review</code>, <code>author</code>, <code>reviewBody</code>).</li>
+        <li>Ensure quote text is rendered in the DOM (not injected via JS) for crawlability.</li>
+        <li>Use semantic <code>&lt;blockquote&gt;</code> — search engines treat these as quoted content.</li>
+        <li>Avatar images should have descriptive <code>alt</code> attributes that include the person's name.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Payload</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>testimonial-viewed</code></td>
+              <td>Component enters viewport (IntersectionObserver, 50% threshold)</td>
+              <td><code>{ component: "testimonial", variant, attribution_name, position }</code></td>
+            </tr>
+            <tr>
+              <td><code>carousel-interaction</code></td>
+              <td>User clicks prev/next or indicator button</td>
+              <td><code>{ component: "testimonial", action: "next"|"prev"|"indicator", slide_index }</code></td>
+            </tr>
+            <tr>
+              <td><code>testimonial-dwell</code></td>
+              <td>User hovers/focuses on a testimonial for &gt;2 seconds</td>
+              <td><code>{ component: "testimonial", dwell_ms, attribution_name }</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/testimonial</code></li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.Testimonial</code> — exposes quote, attribution, avatar, rating, variant.</li>
+        <li><strong>Multifield:</strong> Carousel and Grid variants use an AEM Multifield to allow authors to add 2–8 testimonial items.</li>
+        <li><strong>Content Fragment support:</strong> Optionally bind to a CF model <code>caat/models/testimonial</code> for headless delivery.</li>
+        <li><strong>Policies:</strong> Restrict display variant options per template (e.g., only "grid" on homepage).</li>
+        <li><strong>Experience Fragment:</strong> Component can be placed in XF for shared testimonial blocks across pages.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+      <pre><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "jcr:title": "Testimonial",
+  "content": {
+    "items": {
+      "tabs": {
+        "items": {
+          "testimonialTab": {
+            "jcr:title": "Testimonial",
+            "items": {
+              "variant": {
+                "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+                "fieldLabel": "Display Variant",
+                "name": "./variant",
+                "required": true,
+                "options": ["single", "carousel", "grid"]
+              },
+              "testimonials": {
+                "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
+                "fieldLabel": "Testimonials",
+                "composite": true,
+                "items": {
+                  "quoteText": { "sling:resourceType": "cq/gui/components/authoring/dialog/richtext", "fieldLabel": "Quote", "name": "./quoteText" },
+                  "attributionName": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "fieldLabel": "Name", "name": "./attributionName", "required": true },
+                  "attributionRole": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "fieldLabel": "Role", "name": "./attributionRole" },
+                  "employerName": { "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield", "fieldLabel": "Employer", "name": "./employerName" },
+                  "avatarImage": { "sling:resourceType": "cq/gui/components/authoring/dialog/fileupload", "fieldLabel": "Avatar", "name": "./avatarImage" },
+                  "starRating": { "sling:resourceType": "granite/ui/components/coral/foundation/form/numberfield", "fieldLabel": "Rating (1-5)", "name": "./starRating", "min": 1, "max": 5 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All three variants (single, carousel, grid) render correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Blockquote semantic HTML is present in DOM.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Avatar falls back gracefully when no image is provided.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Carousel: prev/next/indicator buttons work via keyboard.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Carousel does NOT autoplay by default.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Reduced-motion media query disables transitions.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Grid is responsive: 1 col → 2 cols → 3 cols.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Star rating (if present) has visually hidden accessible text.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events fire: <code>testimonial-viewed</code>, <code>carousel-interaction</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested (Chrome, Firefox, Safari, Edge).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Content contrast meets WCAG 2.1 AA (4.5:1 for text).</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All three variants are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created under <code>caat/components/testimonial</code>. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics events. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Testimonial</h1>
+<p class="figma-page-subtitle">CAAT Design System · Quote card variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Default Testimonial</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">With avatar</span>
+    <div class="figma-row-items">
+      <div class="caat-testimonial" style="max-width:24rem;">
+        <div class="caat-testimonial__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <blockquote class="caat-testimonial__quote">"CAAT's DBplus pension gives me confidence about my retirement."</blockquote>
+        <div class="caat-testimonial__attribution">
+          <div class="caat-testimonial__avatar caat-testimonial__avatar--initials" style="width:48px;height:48px;border-radius:50%;">JS</div>
+          <div><div class="caat-testimonial__name">Jane Smith</div><div class="caat-testimonial__role">HR Director, Acme Corp</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Padding</strong>2rem</div>
+    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
+    <div class="figma-spec"><strong>Quote size</strong>1.1rem italic</div>
+    <div class="figma-spec"><strong>Avatar</strong>48×48px, border-radius 50%</div>
+    <div class="figma-spec"><strong>Stars colour</strong>var(--caat-warning)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

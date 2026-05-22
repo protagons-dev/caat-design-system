@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rich text and heading components with style options for the CAAT Pension Plan member experience.">
+<title>Text / Title | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link active" href="/components/text-title.html">Text / Title</a>      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Text / Title</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <p class="text-muted">Rich text and heading components with style options for the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Text / Title',['/assets/css/tokens.css','/assets/css/components/text-title.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Heading Hierarchy -->
+      <h3 class="mt-3 mb-2">Heading Hierarchy &amp; Type Scale</h3>
+      <p class="text-muted mb-3">Font: Libre Franklin &middot; Sizes in px (font-size / line-height &middot; weight)</p>
+      <div class="demo-shell demo-shell--borderless mb-4">
+        <div class="demo-rendered">
+          <div class="caat-type-scale">
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">Display</span>
+              <div class="caat-type-scale__sample"><p class="caat-title caat-title--display mb-0">Building retirement security</p></div>
+              <span class="caat-type-scale__meta">48/56 · 900</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H1</span>
+              <div class="caat-type-scale__sample"><h1 class="caat-title mb-0">Your Pension, Your Future</h1></div>
+              <span class="caat-type-scale__meta">40/48 · 800</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H2</span>
+              <div class="caat-type-scale__sample"><h2 class="caat-title mb-0">Understanding DBplus</h2></div>
+              <span class="caat-type-scale__meta">32/40 · 800</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H3</span>
+              <div class="caat-type-scale__sample"><h3 class="caat-title mb-0">Retirement Planning</h3></div>
+              <span class="caat-type-scale__meta">28/36 · 700</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H4</span>
+              <div class="caat-type-scale__sample"><h4 class="caat-title mb-0">Contribution Details</h4></div>
+              <span class="caat-type-scale__meta">24/32 · 700</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H5</span>
+              <div class="caat-type-scale__sample"><h5 class="caat-title mb-0">Contact Your Employer</h5></div>
+              <span class="caat-type-scale__meta">20/28 · 700</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">H6</span>
+              <div class="caat-type-scale__sample"><h6 class="caat-title mb-0">Important Dates</h6></div>
+              <span class="caat-type-scale__meta">16/24 · 700</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">Body</span>
+              <div class="caat-type-scale__sample"><p class="caat-text mb-0">Clear, plain-language content that supports confidence. Body copy uses normal letter spacing and generous line height.</p></div>
+              <span class="caat-type-scale__meta">16/26 · 400</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">Lead</span>
+              <div class="caat-type-scale__sample"><p class="caat-text caat-text--lead mb-0">Lead text introduces pages and sections with a concise summary.</p></div>
+              <span class="caat-type-scale__meta">20/32 · 400</span>
+            </div>
+            <div class="caat-type-scale__row">
+              <span class="caat-type-scale__label">Small</span>
+              <div class="caat-type-scale__sample"><p class="caat-text caat-text--small mb-0">Metadata, helper text, legal references, and image captions.</p></div>
+              <span class="caat-type-scale__meta">14/21 · 400</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 2 — Display Headings -->
+      <h3 class="mb-2">Display Headings</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <h1 class="caat-title caat-title--display">Your Pension, Your Future</h1>
+          <h2 class="caat-title caat-title--display">Plan for the Retirement You Deserve</h2>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Eyebrow + Subtitle -->
+      <h3 class="mb-2">Title with Eyebrow &amp; Subtitle</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="mb-4">
+            <span class="caat-title__eyebrow">DBplus Plan</span>
+            <h2 class="caat-title">Understanding Your Benefits</h2>
+            <p class="caat-title__subtitle">Everything you need to know about your defined benefit pension and how it supports your retirement goals.</p>
+          </div>
+          <div>
+            <span class="caat-title__eyebrow">Member Resources</span>
+            <h2 class="caat-title">Tools &amp; Calculators</h2>
+            <p class="caat-title__subtitle">Interactive tools to help you estimate your pension income and plan for the future.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4 — Text Styles -->
+      <h3 class="mb-2">Text Styles</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <p class="caat-text caat-text--lead">CAAT provides one of Canada's most secure defined benefit pension plans, giving members peace of mind for retirement.</p>
+          <p class="caat-text">Your DBplus pension grows with every contribution you and your employer make. Benefits are based on your total contributions and guaranteed interest credits.</p>
+          <p class="caat-text caat-text--small">Contribution rates are subject to change based on plan valuations conducted every three years.</p>
+          <p class="caat-text caat-text--muted">Last updated: January 2026. Refer to the plan text for official terms and conditions.</p>
+        </div>
+      </div>
+
+      <!-- Variant 5 — Rich Text Block -->
+      <h3 class="mb-2">Rich Text Block</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-rich-text">
+            <h2>Planning for Your Retirement</h2>
+            <p>Your CAAT pension is a <strong>lifetime benefit</strong> that provides predictable income in retirement. Unlike savings-based plans, your DBplus pension is not affected by market volatility.</p>
+            <p>Here are some key steps to consider as you approach retirement:</p>
+            <ul>
+              <li>Review your <em>Annual Pension Statement</em> for the most up-to-date estimate</li>
+              <li>Use the online <strong>Pension Estimator</strong> to model different retirement dates</li>
+              <li>Consider how your pension integrates with CPP and OAS benefits</li>
+              <li>Contact CAAT if you have questions about survivor or bridging benefits</li>
+            </ul>
+            <p>For more information, visit the <a href="#">Member Resource Centre</a> or speak with a CAAT representative.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Heading hierarchy --&gt;
+&lt;h1 class="caat-title"&gt;Your Pension, Your Future&lt;/h1&gt;
+&lt;h2 class="caat-title"&gt;Understanding DBplus&lt;/h2&gt;
+
+&lt;!-- Display heading --&gt;
+&lt;h1 class="caat-title caat-title--display"&gt;Hero Headline&lt;/h1&gt;
+
+&lt;!-- Eyebrow + title + subtitle --&gt;
+&lt;span class="caat-title__eyebrow"&gt;DBplus Plan&lt;/span&gt;
+&lt;h2 class="caat-title"&gt;Understanding Your Benefits&lt;/h2&gt;
+&lt;p class="caat-title__subtitle"&gt;Supporting description text.&lt;/p&gt;
+
+&lt;!-- Text variants --&gt;
+&lt;p class="caat-text caat-text--lead"&gt;Lead paragraph.&lt;/p&gt;
+&lt;p class="caat-text"&gt;Body text.&lt;/p&gt;
+&lt;p class="caat-text caat-text--small"&gt;Small text.&lt;/p&gt;
+&lt;p class="caat-text caat-text--muted"&gt;Muted text.&lt;/p&gt;
+
+&lt;!-- Rich text block --&gt;
+&lt;div class="caat-rich-text"&gt;
+  &lt;h2&gt;Section Heading&lt;/h2&gt;
+  &lt;p&gt;Paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt;.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;List item&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;a href="#"&gt;Link text&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Text / Title</td></tr>
+            <tr><td><strong>AEM Resource Type</strong></td><td><code>caat/components/text-title</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Provides styled headings (h1–h6), display titles, eyebrow/subtitle patterns, body text variants, and rich text blocks for CAAT content pages.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Heading hierarchy · Display heading · Eyebrow + Subtitle · Text (lead, small, muted) · Rich text block</td></tr>
+            <tr><td><strong>Contains</strong></td><td>Heading element, optional eyebrow, optional subtitle, paragraph text, rich text (headings, paragraphs, lists, links, bold/italic)</td></tr>
+            <tr><td><strong>Used in</strong></td><td>All content pages, hero sections, article layouts, landing pages, form intros</td></tr>
+            <tr><td><strong>Figma</strong></td><td>CAAT DS / Components / Text-Title</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge enhance"><i class="bi bi-arrow-up-circle"></i> Enhance</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Heading colour</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Eyebrow colour, link colour</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Section border accent</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Alternate eyebrow colour</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Divider / subtle backgrounds</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on links</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Body text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border-radius for focus outlines</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>title | text | rich-text</td></tr>
+            <tr><td>Heading level</td><td>Select</td><td>Yes (title)</td><td>h1 – h6. Drives semantic element.</td></tr>
+            <tr><td>Heading style</td><td>Select</td><td>No</td><td>default | display | section</td></tr>
+            <tr><td>Eyebrow text</td><td>Text</td><td>No</td><td>Small uppercase label above heading. Max 40 chars.</td></tr>
+            <tr><td>Title text</td><td>Text</td><td>Yes (title)</td><td>The heading content.</td></tr>
+            <tr><td>Subtitle text</td><td>Textarea</td><td>No</td><td>Supporting description below the heading.</td></tr>
+            <tr><td>Text style</td><td>Select</td><td>No (text)</td><td>body | lead | small | muted</td></tr>
+            <tr><td>Body text</td><td>Textarea</td><td>Yes (text)</td><td>Plain text paragraph.</td></tr>
+            <tr><td>Rich text content</td><td>RTE</td><td>Yes (rich-text)</td><td>Full AEM Rich Text Editor with headings, lists, links, bold/italic.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Title text is required for title variant.</td><td>"Enter a heading text."</td></tr>
+            <tr><td>Heading level is required for title variant.</td><td>"Select a heading level (h1–h6)."</td></tr>
+            <tr><td>Body text is required for text variant.</td><td>"Enter body text content."</td></tr>
+            <tr><td>Rich text content is required for rich-text variant.</td><td>"Add content in the rich text editor."</td></tr>
+            <tr><td>Eyebrow text max 40 characters.</td><td>"Eyebrow text must be 40 characters or fewer."</td></tr>
+            <tr><td>Only one h1 per page (advisory).</td><td>"This page already contains an h1. Consider using h2 or lower."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Use heading levels in logical order (h1 → h2 → h3). Never skip levels for visual styling — use heading style options instead.</li>
+        <li>Display headings are reserved for hero sections and primary landing page titles. Use sparingly.</li>
+        <li>Eyebrows provide context (e.g. "DBplus Plan", "Member Resources") — keep them short and uppercase.</li>
+        <li>Lead text works well as the first paragraph of a section introduction. Limit to 1–2 sentences.</li>
+        <li>Rich text blocks should not exceed ~500 words. For longer content, break into multiple components with headings.</li>
+        <li>Use bold for emphasis and key terms. Avoid underlining text that isn't a link.</li>
+        <li>Links in rich text should have descriptive text — avoid "click here" or "read more".</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Title variant</h3>
+<pre class="code-sample"><code>&lt;!-- Basic title --&gt;
+&lt;h2 class="caat-title"&gt;Understanding DBplus&lt;/h2&gt;
+
+&lt;!-- Display title --&gt;
+&lt;h1 class="caat-title caat-title--display"&gt;Your Pension, Your Future&lt;/h1&gt;
+
+&lt;!-- With eyebrow and subtitle --&gt;
+&lt;div class="caat-title-block"&gt;
+  &lt;span class="caat-title__eyebrow"&gt;DBplus Plan&lt;/span&gt;
+  &lt;h2 class="caat-title"&gt;Understanding Your Benefits&lt;/h2&gt;
+  &lt;p class="caat-title__subtitle"&gt;Everything you need to know about your pension.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Text variant</h3>
+<pre class="code-sample"><code>&lt;p class="caat-text caat-text--lead"&gt;Lead paragraph text.&lt;/p&gt;
+&lt;p class="caat-text"&gt;Standard body text.&lt;/p&gt;
+&lt;p class="caat-text caat-text--small"&gt;Small supporting text.&lt;/p&gt;
+&lt;p class="caat-text caat-text--muted"&gt;Muted disclaimer text.&lt;/p&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Rich text variant</h3>
+<pre class="code-sample"><code>&lt;div class="caat-rich-text"&gt;
+  &lt;h2&gt;Section Heading&lt;/h2&gt;
+  &lt;p&gt;Paragraph with &lt;strong&gt;bold&lt;/strong&gt; and &lt;em&gt;italic&lt;/em&gt; text.&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;List item one&lt;/li&gt;
+    &lt;li&gt;List item two&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;p&gt;&lt;a href="/resources"&gt;Member Resource Centre&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-title</code></td><td>Base heading. Blue-900, weight 800, tight letter-spacing.</td></tr>
+            <tr><td><code>.caat-title--display</code></td><td>Extra-large display heading. 3.5 rem, weight 900, tighter spacing.</td></tr>
+            <tr><td><code>.caat-title--section</code></td><td>Section heading with bottom border accent.</td></tr>
+            <tr><td><code>.caat-title__eyebrow</code></td><td>Small uppercase label above the heading. Blue-700, weight 700.</td></tr>
+            <tr><td><code>.caat-title__subtitle</code></td><td>Supporting text below heading. Larger size, muted opacity.</td></tr>
+            <tr><td><code>.caat-text</code></td><td>Base body text. Ink colour, line-height 1.6.</td></tr>
+            <tr><td><code>.caat-text--lead</code></td><td>Lead paragraph. 1.25 rem font-size.</td></tr>
+            <tr><td><code>.caat-text--small</code></td><td>Small text. 0.875 rem font-size.</td></tr>
+            <tr><td><code>.caat-text--muted</code></td><td>Muted text. Reduced opacity.</td></tr>
+            <tr><td><code>.caat-rich-text</code></td><td>Rich text container. Styles nested h2–h4, p, ul/ol, a, strong, em.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Heading hierarchy</td><td>Authors must select the correct semantic heading level (h1–h6) regardless of visual size.</td></tr>
+            <tr><td>Colour contrast</td><td>All text meets WCAG 2.1 AA minimum contrast (4.5:1 for body, 3:1 for large text).</td></tr>
+            <tr><td>Link purpose</td><td>Links in rich text must have descriptive text. Avoid generic "click here".</td></tr>
+            <tr><td>Focus indicators</td><td>Links show visible <code>:focus-visible</code> ring using <code>--caat-focus</code> token.</td></tr>
+            <tr><td>Eyebrow semantics</td><td>Eyebrow is a <code>&lt;span&gt;</code> (not a heading) — decorative label only.</td></tr>
+            <tr><td>Rich text structure</td><td>Lists use proper <code>&lt;ul&gt;</code>/<code>&lt;ol&gt;</code>. Bold uses <code>&lt;strong&gt;</code>, italic uses <code>&lt;em&gt;</code>.</td></tr>
+            <tr><td>Zoom</td><td>All text reflows correctly at 200% zoom and respects user font-size preferences.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Headings create the document outline. Use a single h1 per page that describes the page topic.</li>
+        <li>Include target keywords naturally in headings and body text — avoid keyword stuffing.</li>
+        <li>Rich text links with descriptive anchor text improve internal linking signals.</li>
+        <li>Proper heading hierarchy helps search engines understand content structure.</li>
+        <li>Lead paragraphs often appear in featured snippets — write them as concise summaries.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>text-viewed</code></td>
+              <td>Component enters viewport.</td>
+              <td><code>data-analytics-variant</code> (title | text | rich-text), <code>data-analytics-heading-level</code></td>
+            </tr>
+            <tr>
+              <td><code>link-click</code></td>
+              <td>User clicks a link within rich text.</td>
+              <td><code>data-analytics-link-text</code>, <code>data-analytics-link-url</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/text-title</code></li>
+        <li><strong>Sling Model:</strong> <code>TextTitleModel</code> — exposes <code>variant</code>, <code>headingLevel</code>, <code>headingStyle</code>, <code>eyebrow</code>, <code>title</code>, <code>subtitle</code>, <code>textStyle</code>, <code>bodyText</code>, <code>richText</code>.</li>
+        <li><strong>HTL template:</strong> <code>text-title.html</code> — uses <code>data-sly-test</code> to switch between title, text, and rich-text variants. Heading level rendered dynamically via <code>data-sly-element</code>.</li>
+        <li><strong>Client library:</strong> <code>caat.components.text-title</code> — CSS only; no JS required.</li>
+        <li><strong>Policy:</strong> Authors can restrict available heading levels and styles per template policy. Rich text editor toolbar configurable.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Card Body, Article Layout, Hero Content.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["title", "text", "rich-text"]
+      },
+      "headingLevel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Heading level",
+        "name": "./headingLevel",
+        "required": true,
+        "options": ["h1", "h2", "h3", "h4", "h5", "h6"]
+      },
+      "headingStyle": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Heading style",
+        "name": "./headingStyle",
+        "options": ["default", "display", "section"]
+      },
+      "eyebrow": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Eyebrow text",
+        "name": "./eyebrow",
+        "maxlength": 40
+      },
+      "title": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Title text",
+        "name": "./title",
+        "required": true
+      },
+      "subtitle": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textarea",
+        "label": "Subtitle text",
+        "name": "./subtitle"
+      },
+      "textStyle": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Text style",
+        "name": "./textStyle",
+        "options": ["body", "lead", "small", "muted"]
+      },
+      "bodyText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textarea",
+        "label": "Body text",
+        "name": "./bodyText"
+      },
+      "richText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/rte",
+        "label": "Rich text content",
+        "name": "./richText",
+        "useFixedInlineToolbar": true
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All heading levels (h1–h6) render with correct size, weight, and colour.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Display variant renders at 3.5 rem with weight 900 and tight letter-spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Eyebrow renders as small uppercase text above the heading.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Subtitle renders below heading with muted opacity.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Lead, body, small, and muted text styles render at correct sizes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Rich text block correctly styles nested headings, paragraphs, lists, links, and inline formatting.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All text meets WCAG AA colour contrast requirements.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Links in rich text show visible focus ring on keyboard navigation.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Content reflows correctly at 200% browser zoom.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Heading level in DOM matches the authored selection (not just visual size).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: display headings scale down on mobile viewports.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>text-viewed</code>, <code>link-click</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All heading levels, display variant, eyebrow/subtitle pattern, text styles, and rich text block documented with token usage.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. Dynamic heading level via <code>data-sly-element</code>. Rich text editor configured. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on heading level selection, variant usage, and rich text best practices. Documentation published.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Text / Title</h1>
+<p class="figma-page-subtitle">CAAT Design System · Typography system</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Heading Scale</h2>
+  <div class="figma-row"><span class="figma-row-label">Display</span><div class="figma-row-items"><span class="caat-title caat-title--display" style="margin:0;">Display</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H1</span><div class="figma-row-items"><span class="caat-title caat-title--h1" style="margin:0;">Heading 1</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H2</span><div class="figma-row-items"><span class="caat-title caat-title--h2" style="margin:0;">Heading 2</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H3</span><div class="figma-row-items"><span class="caat-title caat-title--h3" style="margin:0;">Heading 3</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H4</span><div class="figma-row-items"><span class="caat-title caat-title--h4" style="margin:0;">Heading 4</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H5</span><div class="figma-row-items"><span class="caat-title caat-title--h5" style="margin:0;">Heading 5</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H6</span><div class="figma-row-items"><span class="caat-title caat-title--h6" style="margin:0;">Heading 6</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Text Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Lead</span><div class="figma-row-items"><span class="caat-text caat-text--lead">Lead paragraph text at 1.25rem.</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Body</span><div class="figma-row-items"><span class="caat-text">Standard body text at 1rem.</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Small</span><div class="figma-row-items"><span class="caat-text caat-text--small">Small text at 0.875rem.</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Muted</span><div class="figma-row-items"><span class="caat-text caat-text--muted">Muted text at 60% opacity.</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Eyebrow + Subtitle</h2>
+  <div class="figma-row"><span class="figma-row-label">Eyebrow</span><div class="figma-row-items"><span class="caat-title__eyebrow">Pension Solutions</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Subtitle</span><div class="figma-row-items"><span class="caat-title__subtitle">Supporting text that provides additional context.</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font</strong>Libre Franklin</div>
+    <div class="figma-spec"><strong>Display</strong>3.5rem, 900, -0.04em</div>
+    <div class="figma-spec"><strong>H1</strong>2.5rem, 800</div>
+    <div class="figma-spec"><strong>Body</strong>1rem, 400, line-height 1.6</div>
+    <div class="figma-spec"><strong>Heading colour</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Body colour</strong>var(--caat-ink)</div>
+    <div class="figma-spec"><strong>Eyebrow</strong>0.75rem, 700, uppercase, var(--caat-blue-700)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

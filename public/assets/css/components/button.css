@@ -1,0 +1,151 @@
+/* ============================================================
+   CAAT Button — Component CSS
+   AEM client library: caat/components/button/clientlibs/css
+   Depends on: tokens.css
+   ============================================================ */
+
+.caat-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  min-height: 2.75rem;
+  padding: .7rem 1.15rem;
+  max-width: 20rem;
+  border-radius: var(--caat-radius, .75rem);
+  font-family: var(--caat-font-primary, "Libre Franklin", Arial, sans-serif);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+
+/* ── Primary ───────────────────────────────────────────────── */
+.caat-button--primary {
+  background: var(--caat-blue-900);
+  border-color: var(--caat-blue-900);
+  color: #fff;
+}
+.caat-button--primary:hover {
+  background: var(--caat-blue-700);
+  border-color: var(--caat-blue-700);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.caat-button--primary:active {
+  background: var(--caat-blue-900);
+  border-color: var(--caat-blue-900);
+}
+.caat-button--primary:disabled,
+.caat-button--primary[aria-disabled="true"] {
+  background: var(--caat-grey-200);
+  border-color: var(--caat-grey-200);
+  color: var(--caat-disabled);
+  pointer-events: none;
+}
+
+/* ── Secondary ─────────────────────────────────────────────── */
+.caat-button--secondary {
+  background: var(--caat-green);
+  border-color: var(--caat-green);
+  color: #fff;
+}
+.caat-button--secondary:hover {
+  background: var(--caat-green-700);
+  border-color: var(--caat-green-700);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.caat-button--secondary:active {
+  background: var(--caat-green-900);
+  border-color: var(--caat-green-900);
+}
+
+/* ── Outline primary ───────────────────────────────────────── */
+.caat-button--outline-primary {
+  background: transparent;
+  border-color: var(--caat-blue-900);
+  color: var(--caat-blue-900);
+}
+.caat-button--outline-primary:hover,
+.caat-button--outline-primary:active {
+  background: var(--caat-blue-900);
+  border-color: var(--caat-blue-900);
+  color: #fff;
+}
+
+/* ── Outline secondary ─────────────────────────────────────── */
+.caat-button--outline-secondary {
+  background: transparent;
+  border-color: var(--caat-green-700);
+  color: var(--caat-green-700);
+}
+.caat-button--outline-secondary:hover,
+.caat-button--outline-secondary:active {
+  background: var(--caat-green-700);
+  border-color: var(--caat-green-700);
+  color: #fff;
+}
+
+/* ── Outline white (for dark backgrounds: hero, blue sections) ── */
+.caat-button--outline-white {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.caat-button--outline-white:hover,
+.caat-button--outline-white:active {
+  background: #fff;
+  border-color: #fff;
+  color: var(--caat-blue-900);
+}
+
+/* ── Text link ─────────────────────────────────────────────── */
+.caat-button--link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--caat-blue-900);
+  text-decoration: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.caat-button--link:hover {
+  color: var(--caat-blue-700);
+  text-decoration: underline;
+}
+
+/* ── Focus ─────────────────────────────────────────────────── */
+.caat-button:focus-visible {
+  box-shadow: var(--caat-focus);
+  outline: 0;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────── */
+.caat-button--sm {
+  padding: .48rem .9rem;
+  min-height: 2.25rem;
+  font-size: .875rem;
+}
+.caat-button--lg {
+  padding: .875rem 1.35rem;
+  min-height: 3.25rem;
+  font-size: 1.125rem;
+}
+
+/* ── Full width on mobile ──────────────────────────────────── */
+@media (max-width: 575.98px) {
+  .caat-button--full-mobile {
+    width: 100%;
+  }
+}
+
+/* ── Icon inside button ────────────────────────────────────── */
+.caat-button__icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+.caat-button__icon[aria-hidden="true"] {
+  pointer-events: none;
+}

@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Hero AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Hero | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/hero.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">AEM</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link active" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Hero</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Hero</h1>
+      <p class="text-muted">A high-impact, single-message landing component that orients visitors and presents one clear CTA on key landing pages.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Hero',['/assets/css/tokens.css','/assets/css/components/hero.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Slight-overlap hero -->
+      <h3 class="mt-3 mb-2">Slight-overlap hero</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <section class="caat-composable-hero caat-hero-slight-overlap" aria-labelledby="demo-hero-heading-1" data-analytics-component="hero">
+            <div class="caat-hero-frame">
+              <div class="caat-hero-media">
+                <img src="/assets/images/Header-image.png" alt="Diverse group of professionals walking together outside a modern office building">
+              </div>
+              <div class="caat-hero-card">
+                <p class="eyebrow" style="color:rgba(255,255,255,.7); font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:.25rem;">Pension Solutions</p>
+                <h3 id="demo-hero-heading-1">A modern defined benefit pension solution</h3>
+                <div class="accent-rule"></div>
+                <p>Helping employers offer retirement security with flexible plan designs and expert administration.</p>
+                <a href="#" class="btn btn-outline-light" data-analytics-event="cta_click" data-analytics-label="hero-primary-cta" data-analytics-destination="/en/solutions">Explore solutions</a>
+              </div>
+            </div>
+            <div class="caat-stat-strip">
+              <div class="caat-stat-item">
+                <strong>125,000</strong>
+                <span>Members</span>
+              </div>
+              <div class="caat-stat-item">
+                <strong>800</strong>
+                <span>Employers across 20 industries</span>
+              </div>
+              <div class="caat-stat-item">
+                <strong>$23.3 <small>billion</small></strong>
+                <span>Net assets</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <h3 class="mb-2">Stats strip (standalone)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-stat-strip">
+            <div class="caat-stat-item">
+              <strong>125,000</strong>
+              <span>Members</span>
+            </div>
+            <div class="caat-stat-item">
+              <strong>800</strong>
+              <span>Employers across 20 industries</span>
+            </div>
+            <div class="caat-stat-item">
+              <strong>$23.3 <small>billion</small></strong>
+              <span>Net assets</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Slight-overlap hero with image --&gt;
+&lt;section class="caat-composable-hero caat-hero-slight-overlap"
+         aria-labelledby="hero-heading"
+         data-analytics-component="hero"&gt;
+  &lt;div class="caat-hero-frame"&gt;
+    &lt;div class="caat-hero-media"&gt;
+      &lt;img src="/content/dam/caat/hero-image.jpg"
+           alt="Descriptive alt text for the hero image"&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-hero-card"&gt;
+      &lt;p class="eyebrow"&gt;Pension Solutions&lt;/p&gt;
+      &lt;h3 id="hero-heading"&gt;A modern defined benefit pension solution&lt;/h3&gt;
+      &lt;div class="accent-rule"&gt;&lt;/div&gt;
+      &lt;p&gt;Summary text — max 35 words.&lt;/p&gt;
+      &lt;a href="/en/solutions" class="btn btn-outline-light"
+         data-analytics-event="cta_click"
+         data-analytics-label="hero-primary-cta"
+         data-analytics-destination="/en/solutions"&gt;
+        Explore solutions
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Stats strip --&gt;
+&lt;div class="caat-stat-strip"&gt;
+  &lt;div class="caat-stat-item"&gt;
+    &lt;strong&gt;125,000+&lt;/strong&gt;
+    &lt;span&gt;Members&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-stat-item"&gt;
+    &lt;strong&gt;800+&lt;/strong&gt;
+    &lt;span&gt;Employers&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-stat-item"&gt;
+    &lt;strong&gt;$24B+&lt;/strong&gt;
+    &lt;span&gt;Assets&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-stat-item"&gt;
+    &lt;strong&gt;116%&lt;/strong&gt;
+    &lt;span&gt;Funded ratio&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Hero</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/hero</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Custom component — no Core Component equivalent exists for this design</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Orient visitors, present one clear message and CTA on key landing pages</td></tr>
+          <tr><th>Existing AEM component replaced</th><td>CAAT Carousel (#5) — consolidate rotating hero into single-message hero</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Homepage hero — primary brand statement and CTA</li>
+        <li>Campaign landing pages — single focused message</li>
+        <li>Pension solutions pages — orient visitors to key offering</li>
+        <li>Employer acquisition pages — value proposition for prospective employers</li>
+        <li>Event registration pages — promote upcoming events</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>Not for every page — use breadcrumb/title pattern instead for interior pages</li>
+        <li>Not for multiple competing CTAs — one primary CTA only</li>
+        <li>Not for embedding forms — use a dedicated form component below the hero</li>
+        <li>Not for logo placement — the hero is for messaging, not branding</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Hero card background, stat strip background</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>#0b5a80</td><td>Card hover state background</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#e7f4fb</td><td>Light tint in gradient backgrounds</td></tr>
+            <tr><td><code>--caat-green</code></td><td>#55a546</td><td>Accent rule colour</td></tr>
+            <tr><td><code>--caat-radius-lg</code></td><td>1.5rem</td><td>Hero frame and media border radius</td></tr>
+            <tr><td><code>--caat-shadow</code></td><td>0 .75rem 2rem rgba(0,55,80,.12)</td><td>Card and media box shadow</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on CTA</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>All hero typography</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Hero card overhang</h3>
+      <p>The card overhang (the amount the card extends below the hero media) must never exceed <strong>75 px</strong>. This is enforced via the CSS custom property <code>--caat-hero-card-overhang: 75px</code>.</p>
+
+      <h3>Visual variants</h3>
+      <ul>
+        <li><strong>Standard</strong> — full-size hero with card overlaid on media</li>
+        <li><strong>With stats strip</strong> — standard hero with an attached stat bar below the image</li>
+        <li><strong>Full-width breakout</strong> — hero breaks out of container to span full viewport width</li>
+      </ul>
+
+      <h3>Photography support</h3>
+      <p>Photography backgrounds use a subtle gradient overlay to ensure text readability. Apply the image via the <code>--hero-image</code> custom property or use the pre-built <code>.gradient-demo</code> class for abstract gradients.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <h3 class="mt-3">Content tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Eyebrow text</td><td>Text field</td><td>No</td><td>—</td><td>Short category label above the heading. Max 3 words.</td></tr>
+            <tr><td>Heading</td><td>Text field</td><td>Yes</td><td>—</td><td>Primary hero message. Concise and action-oriented.</td></tr>
+            <tr><td>Heading level</td><td>Dropdown</td><td>No</td><td>h1</td><td>h1 | h2 | h3. Use h1 only when the hero is the page hero.</td></tr>
+            <tr><td>Summary</td><td>Text area</td><td>No</td><td>—</td><td>Supporting description. Max 35 words recommended.</td></tr>
+            <tr><td>CTA label</td><td>Text field</td><td>Conditional</td><td>—</td><td>Required if CTA URL is provided.</td></tr>
+            <tr><td>CTA URL</td><td>Path browser</td><td>Conditional</td><td>—</td><td>Required if CTA label is provided.</td></tr>
+            <tr><td>CTA target</td><td>Checkbox</td><td>No</td><td>Same tab</td><td>If checked, opens in new tab with <code>rel="noopener"</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Media tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Image</td><td>Image picker</td><td>No</td><td>Gradient fallback</td><td>Recommended 1800 × 1000 px minimum. Supports DAM assets.</td></tr>
+            <tr><td>Image alt text</td><td>Text field</td><td>Conditional</td><td>—</td><td>Required unless "Decorative image" is checked.</td></tr>
+            <tr><td>Image position</td><td>Dropdown</td><td>No</td><td>Center</td><td>top | center | bottom | left | right. Sets <code>background-position</code>.</td></tr>
+            <tr><td>Use gradient instead</td><td>Checkbox</td><td>No</td><td>Off</td><td>Replaces the image with the default branded gradient.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Style tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Stats strip</td><td>Checkbox</td><td>No</td><td>Off</td><td>When enabled, renders a stats bar below the hero image</td></tr>
+            <tr><td>Card background colour</td><td>Colour picker</td><td>No</td><td>#003750</td><td>Override the default card background. Must meet WCAG contrast on white text.</td></tr>
+            <tr><td>Full-width toggle</td><td>Checkbox</td><td>No</td><td>Off</td><td>Hero breaks out of container to span full viewport width.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Behaviour tab</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Analytics label</td><td>Text field</td><td>No</td><td>hero-primary-cta</td><td>Custom label for analytics reporting.</td></tr>
+            <tr><td>Decorative image</td><td>Checkbox</td><td>No</td><td>Off</td><td>If checked, image is treated as decorative (<code>aria-label</code> removed, <code>role="presentation"</code> set).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. AUTHORING VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Authoring Validation Rules</h2>
+      <ol>
+        <li><strong>Heading</strong> is required. The dialog must not allow saving without it.</li>
+        <li><strong>CTA label</strong> and <strong>CTA URL</strong> are required together — if one is provided, the other must be as well.</li>
+        <li><strong>Image alt text</strong> is required unless the "Decorative image" checkbox is enabled.</li>
+        <li><strong>Eyebrow text</strong> must not exceed 3 words. Display a validation warning if exceeded.</li>
+        <li><strong>Summary</strong> must not exceed 35 words. Display a character/word count indicator.</li>
+        <li>Only <strong>one primary CTA</strong> is permitted. The dialog does not allow adding multiple CTA buttons.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <p>Heroes orient visitors quickly, preserve the image's focal point, and keep the CTA usable on mobile. Use them for page introductions, campaign landing pages, and major story moments — not for every content block.</p>
+
+      <h3>Recommended text length</h3>
+      <table class="contract-table mb-4">
+        <thead><tr><th>Element</th><th>Guideline</th></tr></thead>
+        <tbody>
+          <tr><td>Eyebrow</td><td>1–3 words</td></tr>
+          <tr><td>Headline</td><td>6–12 words, ideally under two lines on desktop</td></tr>
+          <tr><td>Summary</td><td>18–35 words</td></tr>
+          <tr><td>CTA label</td><td>2–5 words, starting with a verb</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Image safe zones</h3>
+      <ul>
+        <li>Keep faces, logos, text, and key details out of the overlay zone (left third of image).</li>
+        <li>Use centre-right crops when the content card sits left.</li>
+        <li>Test desktop, tablet, and mobile before publishing.</li>
+      </ul>
+
+      <h3>Mobile behaviour</h3>
+      <ul>
+        <li>Stack the card below the image on narrow viewports.</li>
+        <li>Reduce image height before reducing legibility.</li>
+        <li>Avoid placing small text inside the image itself.</li>
+      </ul>
+
+      <h3>Busy images or people</h3>
+      <ul>
+        <li>Add a subtle gradient overlay only when needed for readability.</li>
+        <li>Choose images with quiet negative space for the card area.</li>
+        <li>Never cover a person's face, logo, or meaningful action with the headline or CTA.</li>
+      </ul>
+
+      <div class="row g-4 mt-2">
+        <div class="col-md-6">
+          <h3 class="text-success"><i class="bi bi-check-circle-fill"></i> Strong hero usage</h3>
+          <blockquote class="border-start border-success border-3 ps-3 mb-2" style="font-style:italic;">"A retirement solution where everyone wins"</blockquote>
+          <p class="small text-muted">Why it works: concise message, one audience need, calm visual field, clear next step, and no meaningful image detail hidden under the card.</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-danger"><i class="bi bi-x-circle-fill"></i> Weak hero usage</h3>
+          <blockquote class="border-start border-danger border-3 ps-3 mb-2" style="font-style:italic;">"Learn more about all of our services and programs today"</blockquote>
+          <p class="small text-muted">Why it fails: vague promise, no audience, too many possible actions, and a busy image that competes with the message.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. EXPECTED SEMANTIC HTML OUTPUT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Expected Semantic HTML Output</h2>
+
+      <h3 class="mb-2">Standard hero</h3>
+<pre class="code-sample mb-4"><code>&lt;section class="caat-composable-hero"
+         aria-labelledby="hero-heading"
+         data-analytics-component="hero"&gt;
+  &lt;div class="caat-hero-frame"&gt;
+    &lt;div class="caat-hero-media"&gt;
+      &lt;img src="/content/dam/caat/hero-image.jpg"
+           alt="Descriptive alt text for the hero image"&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-hero-card"&gt;
+      &lt;p class="eyebrow"&gt;Eyebrow Label&lt;/p&gt;
+      &lt;h1 id="hero-heading"&gt;Primary hero heading&lt;/h1&gt;
+      &lt;div class="accent-rule"&gt;&lt;/div&gt;
+      &lt;p&gt;Supporting summary text, max 35 words.&lt;/p&gt;
+      &lt;a href="/en/target-page"
+         class="btn btn-outline-light"
+         data-analytics-event="cta_click"
+         data-analytics-label="hero-primary-cta"
+         data-analytics-destination="/en/target-page"&gt;
+        Call to action
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3 class="mb-2">Decorative image variant</h3>
+<pre class="code-sample mb-4"><code>&lt;div class="caat-hero-media"&gt;
+  &lt;img src="/content/dam/caat/hero-image.jpg" alt="" role="presentation"&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mb-2">Configurable heading level</h3>
+<pre class="code-sample"><code>&lt;!-- When hero is NOT the page hero, use h2 --&gt;
+&lt;h2 id="hero-heading"&gt;Secondary hero heading&lt;/h2&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <p>The hero component relies on the global token layer defined in <code>/assets/css/tokens.css</code>.
+         All component-specific styles live in
+         <a href="/assets/css/components/hero.css">/assets/css/components/hero.css</a>.</p>
+
+      <h3 class="mb-2">Core classes</h3>
+<pre class="code-sample mb-4"><code>.caat-composable-hero   /* Root wrapper */
+.caat-hero-frame        /* Positioning context for card overlay */
+.caat-hero-media        /* Background image / gradient area */
+.caat-hero-card         /* Overlay card with content */
+.accent-rule            /* Green divider bar */
+
+/* Variants */
+.caat-hero-slight-overlap   /* Card positioned at bottom of image */
+
+/* Stat strip */
+.caat-stat-strip           /* Full-width stats bar */
+.caat-stat-item            /* Individual stat */</code></pre>
+
+      <h3 class="mb-2">75 px overhang rule</h3>
+<pre class="code-sample mb-4"><code>.caat-hero-slight-overlap {
+  --caat-hero-card-overhang: 75px;
+}
+.caat-hero-slight-overlap .caat-hero-frame {
+  padding-bottom: var(--caat-hero-card-overhang);
+  overflow: visible;
+}</code></pre>
+
+      <h3 class="mb-2">Responsive stacking</h3>
+      <p>At <code>992 px</code> and below, the hero card unstacks from the overlay position and sits below the media area. The overhang is reduced to <code>56 px</code> on tablet breakpoints.</p>
+
+      <div class="alert alert-primary">
+        <i class="bi bi-info-circle"></i>
+        <strong>Note:</strong> Do not duplicate token values inside the component CSS.
+        Always reference the custom property (e.g. <code>var(--caat-blue-900)</code>)
+        so that theme changes propagate automatically.
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility Requirements</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Keyboard focus on CTA</td>
+              <td>The CTA link must be reachable via <kbd>Tab</kbd> and activatable with <kbd>Enter</kbd>. A visible focus ring (<code>var(--caat-focus)</code>) must appear on <code>:focus-visible</code>.</td>
+            </tr>
+            <tr>
+              <td>Meaningful image alt</td>
+              <td>Content images must have descriptive <code>aria-label</code> on the <code>.caat-hero-media</code> element with <code>role="img"</code>.</td>
+            </tr>
+            <tr>
+              <td>Decorative image handling</td>
+              <td>When the image is decorative, set <code>role="presentation"</code> and <code>aria-hidden="true"</code>. Do not output an empty <code>aria-label</code>.</td>
+            </tr>
+            <tr>
+              <td>Heading level configurable</td>
+              <td>Authors must be able to set the heading level (h1–h3) to maintain correct document outline. Use h1 only when this is the page hero.</td>
+            </tr>
+            <tr>
+              <td>Sufficient contrast on card overlay</td>
+              <td>White text on the card background must meet WCAG 2.1 AA (4.5 : 1 for normal text, 3 : 1 for large text). The default <code>#003750</code> background passes.</td>
+            </tr>
+            <tr>
+              <td>No auto-playing carousel</td>
+              <td>This component deliberately replaces the carousel. It must not auto-rotate, auto-advance, or include multiple slides.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Requirements</h2>
+      <ol>
+        <li><strong>Heading level is configurable</strong> — use <code>&lt;h1&gt;</code> only when this hero is the page-level hero. Interior sections should use <code>&lt;h2&gt;</code> or <code>&lt;h3&gt;</code>.</li>
+        <li><strong>Descriptive CTA text</strong> — avoid generic labels like "Learn more". Use action-oriented, context-rich text (e.g. "Explore pension solutions").</li>
+        <li><strong>Real href on CTA link</strong> — the CTA must be a real <code>&lt;a&gt;</code> element with a crawlable <code>href</code>. Do not use JavaScript-only navigation.</li>
+        <li><strong>Don't use background-image for content images</strong> — if the image conveys meaning, render it as an <code>&lt;img&gt;</code> element or use <code>role="img"</code> with <code>aria-label</code> so the content is accessible to search engines and assistive tech.</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS REQUIREMENTS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics Requirements</h2>
+
+      <h3>Data attributes</h3>
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead><tr><th>Attribute</th><th>Example value</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td>hero</td><td>Identifies the component type for analytics. Set on the <code>&lt;section&gt;</code> root.</td></tr>
+            <tr><td><code>data-analytics-event</code></td><td>cta_click</td><td>Event name pushed to the data layer when the CTA is clicked.</td></tr>
+            <tr><td><code>data-analytics-label</code></td><td>hero-primary-cta</td><td>Human-readable label for reporting.</td></tr>
+            <tr><td><code>data-analytics-destination</code></td><td>/en/solutions</td><td>Destination URL recorded with the event.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Tracked events</h3>
+      <ul>
+        <li><strong>cta_click</strong> — fires on <code>mousedown</code> or <code>keydown</code> (Enter) on the CTA link. Includes destination URL.</li>
+        <li><strong>Impression</strong> — fires once when the hero scrolls into the viewport (Intersection Observer, 50 % threshold).</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM IMPLEMENTATION NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+
+      <h3>Existing component mapping</h3>
+      <p>This component replaces <strong>CAAT Carousel (component #5)</strong> in the existing AEM component library. The recommendation is to consolidate the rotating hero carousel into a single-message hero for better usability, accessibility, and performance.</p>
+
+      <h3>AEM triage</h3>
+      <p><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> New component</span>
+         No direct AEM Core Component equivalent exists. Build as a custom component with HTL/Sightly.</p>
+
+      <h3>Proxy / extend guidance</h3>
+      <p>There is no Core Component to proxy. Create a custom component at <code>/apps/caat/components/hero</code>.
+         Build the HTL template (<code>hero.html</code>) to emit the semantic HTML defined in Section 6.
+         Use <code>data-sly-attribute</code> for dynamic class and data-attribute output.</p>
+
+      <h3>Client library structure</h3>
+      <ul>
+        <li><strong>Category:</strong> <code>caat.components.hero</code></li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>CSS:</strong> <code>hero.css</code></li>
+        <li><strong>JS:</strong> <code>hero.js</code> (analytics wiring, impression observer)</li>
+      </ul>
+
+      <h3>Stats strip</h3>
+      <p>The stats strip can be implemented as either a child component within the hero or as a separate stand-alone component (<code>caat/components/stat-strip</code>) placed immediately below the hero in the page template. The recommended approach is a separate component for maximum reusability.</p>
+
+      <h3>Suggested file structure</h3>
+<pre class="code-sample"><code>hero/
+├── _cq_dialog/
+│   └── .content.xml          # Touch UI dialog
+├── _cq_editConfig.xml         # Edit configuration
+├── .content.xml                # Component node definition
+├── hero.html                   # HTL template
+├── clientlibs/
+│   ├── .content.xml
+│   ├── css/
+│   │   └── hero.css
+│   └── js/
+│       └── hero.js
+└── README.md                   # Dev notes</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG FIELD MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Field Model</h2>
+
+<pre class="code-sample"><code># caat/components/hero — Touch UI Dialog
+# _cq_dialog/.content.xml (YAML representation)
+
+dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              eyebrowText:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./eyebrowText
+                fieldLabel: Eyebrow text
+                fieldDescription: Short category label (max 3 words)
+              heading:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./heading
+                fieldLabel: Heading
+                required: true
+              headingLevel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./headingLevel
+                fieldLabel: Heading level
+                items:
+                  - { text: H1, value: h1 }
+                  - { text: H2, value: h2 }
+                  - { text: H3, value: h3 }
+              summary:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textarea
+                name: ./summary
+                fieldLabel: Summary
+                fieldDescription: Max 35 words recommended
+              ctaLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./ctaLabel
+                fieldLabel: CTA label
+              ctaURL:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./ctaURL
+                fieldLabel: CTA URL
+                rootPath: /content
+              ctaTarget:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./ctaTarget
+                text: Open in new tab
+                value: _blank
+
+          # ── Media tab ────────────────────────────────
+          media:
+            jcr:title: Media
+            items:
+              image:
+                sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                name: ./image
+                fieldLabel: Image
+                rootPath: /content/dam
+              imageAlt:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./imageAlt
+                fieldLabel: Image alt text
+              imagePosition:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./imagePosition
+                fieldLabel: Image position
+                items:
+                  - { text: Top,    value: top }
+                  - { text: Center, value: center }
+                  - { text: Bottom, value: bottom }
+                  - { text: Left,   value: left }
+                  - { text: Right,  value: right }
+              useGradient:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./useGradient
+                text: Use gradient instead of image
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              variant:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./variant
+                fieldLabel: Variant
+                required: true
+                items:
+                  - { text: Standard,       value: standard }
+                  - { text: Full width,     value: full-width }
+              cardBackground:
+                sling:resourceType: granite/ui/components/coral/foundation/form/colorfield
+                name: ./cardBackground
+                fieldLabel: Card background colour
+                value: "#003750"
+              fullWidth:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./fullWidth
+                text: Full-width hero
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              analyticsLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./analyticsLabel
+                fieldLabel: Analytics label
+                value: hero-primary-cta
+              decorativeImage:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./decorativeImage
+                text: Image is decorative</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> The hero card overhang does not exceed 75 px in the slight-overlap variant at any viewport width.</li>
+        <li class="mb-2"><input type="checkbox" disabled> The hero card stacks below the media image at 992 px and below (responsive stacking).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Image safe zone testing: text on the card remains legible with various photography crops and positions.</li>
+        <li class="mb-2"><input type="checkbox" disabled> CTA focus ring is visible and meets WCAG 3 : 1 contrast ratio against the card background.</li>
+        <li class="mb-2"><input type="checkbox" disabled> The hero renders correctly at desktop, tablet, and mobile viewports with expected spacing and sizing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and the <code>cta_click</code> event fires correctly on CTA interaction.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. Hero with and without stats strip is documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>Custom AEM component created at <code>/apps/caat/components/hero</code>. HTL template emits semantic HTML per Section 6. CSS uses design tokens. JS wires analytics events. Stats strip implemented as companion component.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). 75 px overhang validated.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained. Carousel component (#5) deprecated and migration plan in place. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Hero</h1>
+<p class="figma-page-subtitle">CAAT Design System · Composable hero variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Hero Card</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Default</span>
+    <div class="figma-row-items">
+      <div style="background:rgba(0,94,128,.94);color:#fff;border-radius:0 0 4.5rem 0;padding:2rem;max-width:22rem;">
+        <div style="color:rgba(255,255,255,.7);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;">Pension Solutions</div>
+        <div style="width:8rem;height:.35rem;background:var(--caat-green);margin-bottom:1rem;"></div>
+        <h3 style="font-weight:800;color:#fff;font-size:1.35rem;letter-spacing:-.03em;margin-bottom:.5rem;">A pension that works for you</h3>
+        <p style="color:rgba(255,255,255,.88);font-size:.9rem;">Learn how DBplus provides secure, lifetime retirement income.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Stat Strip</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Stats</span>
+    <div class="figma-row-items" style="flex:1;">
+      <div class="caat-stat-strip" style="width:100%;max-width:36rem;border-radius:0 0 var(--caat-radius-lg) var(--caat-radius-lg);">
+        <div class="caat-stat-item"><strong>$73B</strong><span>Assets</span></div>
+        <div class="caat-stat-item"><strong>94K+</strong><span>Members</span></div>
+        <div class="caat-stat-item"><strong>700+</strong><span>Employers</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Card bg</strong>rgba(0,94,128,.94)</div>
+    <div class="figma-spec"><strong>Card radius</strong>0 0 4.5rem 0</div>
+    <div class="figma-spec"><strong>Accent rule</strong>var(--caat-green), .35rem high</div>
+    <div class="figma-spec"><strong>Stat strip bg</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Stat value</strong>1.75rem, weight 900</div>
+    <div class="figma-spec"><strong>Media min-height</strong>22rem</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

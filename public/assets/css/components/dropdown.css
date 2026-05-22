@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Dropdown Component – CAAT Design System
+   ========================================================================== */
+
+.caat-dropdown {
+  font-family: var(--caat-font-primary);
+}
+
+/* --- Menu --- */
+.caat-dropdown .dropdown-menu {
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-radius: var(--caat-radius);
+  box-shadow: var(--caat-shadow);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  min-width: 12rem;
+}
+
+/* --- Items --- */
+.caat-dropdown .dropdown-item {
+  padding: 0.5rem 1rem;
+  color: var(--caat-ink, #102637);
+  font-weight: 500;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.caat-dropdown .dropdown-item:hover,
+.caat-dropdown .dropdown-item:focus {
+  background-color: var(--caat-blue-100, #e7f4fb);
+  color: var(--caat-blue-900, #003750);
+}
+
+.caat-dropdown .dropdown-item:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: -2px;
+}
+
+.caat-dropdown .dropdown-item.active,
+.caat-dropdown .dropdown-item:active {
+  background-color: var(--caat-blue-900, #003750);
+  color: #fff;
+}
+
+.caat-dropdown .dropdown-item.disabled {
+  color: var(--caat-disabled);
+  pointer-events: none;
+}
+
+/* --- Icons in items --- */
+.caat-dropdown .dropdown-item .bi {
+  margin-right: 0.5rem;
+  font-size: 1em;
+  vertical-align: -0.1em;
+}
+
+/* --- Headers & Dividers --- */
+.caat-dropdown .dropdown-header {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--caat-muted);
+  padding: 0.5rem 1rem 0.25rem;
+}
+
+.caat-dropdown .dropdown-divider {
+  border-top-color: var(--caat-grey-200, #dfe6ef);
+  margin: 0.35rem 0;
+}
+
+/* --- Dark variant --- */
+.caat-dropdown .dropdown-menu-dark {
+  background-color: var(--caat-blue-900, #003750);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.caat-dropdown .dropdown-menu-dark .dropdown-item {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.caat-dropdown .dropdown-menu-dark .dropdown-item:hover,
+.caat-dropdown .dropdown-menu-dark .dropdown-item:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.caat-dropdown .dropdown-menu-dark .dropdown-header {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.caat-dropdown .dropdown-menu-dark .dropdown-divider {
+  border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Split button: seamlessly joined --- */
+.caat-dropdown.btn-group .caat-button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.caat-dropdown.btn-group .dropdown-toggle-split {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+}

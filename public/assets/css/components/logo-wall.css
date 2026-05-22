@@ -1,0 +1,141 @@
+/* ═══════════════════════════════════════════════════════════
+   Logo Wall — CAAT Design System
+   AEM client library: caat/components/logo-wall/clientlibs/css
+   Depends on: tokens.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Container ── */
+.caat-logo-wall {
+  padding: 2rem 0;
+}
+
+/* ── Header (optional heading + CTA) ── */
+.caat-logo-wall__header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.caat-logo-wall__title {
+  font-family: var(--caat-font-primary);
+  font-weight: 900;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--caat-blue-900);
+  margin-bottom: .5rem;
+}
+.caat-logo-wall__subtitle {
+  font-size: 1rem;
+  color: var(--caat-muted);
+  max-width: 38rem;
+  margin: 0 auto 1rem;
+}
+
+/* ── Logo grid ── */
+.caat-logo-wall__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem 0;
+}
+
+.caat-logo-wall__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: var(--caat-radius);
+  background: #fff;
+  border: 1px solid var(--caat-grey-200);
+  transition: box-shadow .2s ease, transform .2s ease;
+  width: 100%;
+  min-height: 5rem;
+}
+.caat-logo-wall__item:hover {
+  box-shadow: var(--caat-shadow-sm);
+  transform: translateY(-2px);
+}
+
+.caat-logo-wall__item img {
+  max-width: 100%;
+  max-height: 3rem;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: .6;
+  transition: filter .25s ease, opacity .25s ease;
+}
+.caat-logo-wall__item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* ── Variant: no border (clean) ── */
+.caat-logo-wall--clean .caat-logo-wall__item {
+  border: none;
+  background: transparent;
+}
+.caat-logo-wall--clean .caat-logo-wall__item:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* ── Variant: dark background ── */
+.caat-logo-wall--dark {
+  background: var(--caat-blue-900);
+  padding: 2.5rem 0;
+  border-radius: var(--caat-radius-lg);
+}
+.caat-logo-wall--dark .caat-logo-wall__title { color: #fff; }
+.caat-logo-wall--dark .caat-logo-wall__subtitle { color: rgba(255,255,255,.7); }
+.caat-logo-wall--dark .caat-logo-wall__item {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.12);
+}
+.caat-logo-wall--dark .caat-logo-wall__item:hover {
+  background: rgba(255,255,255,.14);
+}
+.caat-logo-wall--dark .caat-logo-wall__item img {
+  filter: grayscale(100%) brightness(2);
+  opacity: .5;
+}
+.caat-logo-wall--dark .caat-logo-wall__item:hover img {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* ── Variant: scrolling marquee ── */
+.caat-logo-wall--marquee .caat-logo-wall__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 2rem;
+  animation: logoMarquee 30s linear infinite;
+}
+@keyframes logoMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .caat-logo-wall--marquee .caat-logo-wall__grid {
+    animation: none;
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Footer link ── */
+.caat-logo-wall__footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 767.98px) {
+  .caat-logo-wall__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .caat-logo-wall__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

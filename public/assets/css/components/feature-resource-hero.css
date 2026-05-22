@@ -1,0 +1,206 @@
+/* ═══════════════════════════════════════════════════════════
+   Feature Resource Hero — CAAT Design System
+   AEM client library: caat/components/feature-resource-hero/clientlibs/css
+   Depends on: tokens.css, button.css
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Container ── */
+.caat-feature-hero {
+  padding: 3rem 0;
+}
+
+/* ── Layout: text + resource preview ── */
+.caat-feature-hero__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* ── Text column ── */
+.caat-feature-hero__body {
+  max-width: 36rem;
+}
+.caat-feature-hero__eyebrow {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--caat-green-700);
+  margin-bottom: .5rem;
+}
+.caat-feature-hero__title {
+  font-family: var(--caat-font-primary);
+  font-weight: 900;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  color: var(--caat-blue-900);
+  letter-spacing: -.02em;
+  line-height: 1.15;
+  margin-bottom: .75rem;
+}
+.caat-feature-hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--caat-muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.caat-feature-hero__actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Resource preview ── */
+.caat-feature-hero__preview {
+  position: relative;
+}
+.caat-feature-hero__preview a {
+  display: block;
+  text-decoration: none;
+}
+.caat-feature-hero__preview img {
+  display: block;
+  max-width: 16rem;
+  height: auto;
+  border-radius: var(--caat-radius);
+  box-shadow: var(--caat-shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.caat-feature-hero__preview a:hover img,
+.caat-feature-hero__preview a:focus img {
+  transform: translateY(-4px) rotate(-1deg);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.18);
+}
+.caat-feature-hero__preview-label {
+  display: block;
+  text-align: center;
+  margin-top: .75rem;
+  font-size: .78rem;
+  color: var(--caat-muted);
+}
+
+/* ── Variant: with accent border ── */
+.caat-feature-hero--accent .caat-feature-hero__inner {
+  border-left: .35rem solid var(--caat-green);
+  padding-left: 2rem;
+}
+
+/* ── Variant: centered ── */
+.caat-feature-hero--centered .caat-feature-hero__inner {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+.caat-feature-hero--centered .caat-feature-hero__body {
+  max-width: 44rem;
+}
+.caat-feature-hero--centered .caat-feature-hero__actions {
+  justify-content: center;
+}
+
+/* ── Variant: dark background ── */
+.caat-feature-hero--dark {
+  background: var(--caat-blue-900);
+  border-radius: var(--caat-radius-lg);
+  padding: 3rem 2rem;
+}
+.caat-feature-hero--dark .caat-feature-hero__title { color: #fff; }
+.caat-feature-hero--dark .caat-feature-hero__subtitle { color: rgba(255,255,255,.75); }
+.caat-feature-hero--dark .caat-feature-hero__eyebrow { color: var(--caat-lime); }
+
+/* ── Variant: fullbleed (full-width bg image with card overlay) ── */
+.caat-feature-hero--fullbleed {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__bg > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,55,80,.32), rgba(0,55,80,.05) 55%);
+  z-index: 1;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__inner {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 0;
+  align-items: end;
+}
+/* Card overlay on the body content */
+.caat-feature-hero--fullbleed .caat-feature-hero__body {
+  background: rgba(0,94,128,.94);
+  color: #fff;
+  border-radius: 0 0 4.5rem 0;
+  padding: 2rem;
+  box-shadow: var(--caat-shadow);
+  max-width: 30rem;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__body:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.25rem 3rem rgba(0,55,80,.24);
+  background: rgba(0,82,112,.98);
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__title {
+  color: #fff;
+  font-weight: 800;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__subtitle {
+  color: rgba(255,255,255,.88);
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__eyebrow {
+  color: rgba(255,255,255,.7);
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__accent-rule {
+  width: 12rem;
+  max-width: 70%;
+  height: .35rem;
+  background: var(--caat-green);
+  margin: 1rem 0 1.25rem;
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__preview img {
+  max-width: 14rem;
+  border-radius: var(--caat-radius);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.35);
+}
+.caat-feature-hero--fullbleed .caat-feature-hero__preview-label {
+  color: rgba(255,255,255,.6);
+}
+
+/* ── Responsive ── */
+@media (max-width: 767.98px) {
+  .caat-feature-hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  .caat-feature-hero__actions {
+    justify-content: center;
+  }
+  .caat-feature-hero__preview {
+    order: -1;
+  }
+  .caat-feature-hero__preview img {
+    max-width: 12rem;
+    margin: 0 auto;
+  }
+  .caat-feature-hero--accent .caat-feature-hero__inner {
+    border-left: none;
+    padding-left: 0;
+    border-top: .35rem solid var(--caat-green);
+    padding-top: 1.5rem;
+  }
+}

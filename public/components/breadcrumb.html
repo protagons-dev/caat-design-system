@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Breadcrumb AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Breadcrumb | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link active" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Breadcrumb</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Breadcrumb</h1>
+      <p class="text-muted">Show a hierarchical page trail so users can navigate back through the site structure.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Breadcrumb',['/assets/css/tokens.css','/assets/css/components/breadcrumb.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Standard breadcrumb -->
+      <h3 class="mt-3 mb-2">Standard Breadcrumb</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="employers">Employers</a></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="3" data-analytics-destination="pension-solutions">Pension Solutions</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Contact</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Breadcrumb with custom separator -->
+      <h3 class="mb-2">Breadcrumb with Custom Separator (Chevron)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--chevron" data-analytics-component="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="members">Members</a></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="3" data-analytics-destination="retirement-planning">Retirement Planning</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Pension Estimator</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Truncated breadcrumb -->
+      <h3 class="mb-2">Truncated Breadcrumb (Deep Pages)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated" data-analytics-component="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
+              <li class="breadcrumb-item breadcrumb-item--ellipsis"><span aria-label="Collapsed pages">&hellip;</span></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="4" data-analytics-destination="dbplus-plan">DBplus Plan</a></li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="5" data-analytics-destination="contributions">Contributions</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Employer Match</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td style="width:12rem;"><strong>Component</strong></td><td>Breadcrumb</td></tr>
+            <tr><td><strong>Replaces</strong></td><td>Breadcrumb (#1)</td></tr>
+            <tr><td><strong>AEM Triage</strong></td><td>Rebuild</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Show a hierarchical page trail so users can navigate back through the site structure. Helps users understand where they are within the CAAT website and quickly return to parent pages.</td></tr>
+            <tr><td><strong>Core Interaction</strong></td><td>Click any ancestor link to navigate up the hierarchy. The current page is displayed as non-linked text at the end of the trail.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Standard (slash separator), Chevron separator, Truncated (deep pages with ellipsis)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-breadcrumb-link-color</code></td><td><code>var(--caat-blue-600)</code></td><td>Ancestor link text colour</td></tr>
+            <tr><td><code>--caat-breadcrumb-link-hover</code></td><td><code>var(--caat-blue-800)</code></td><td>Link hover state</td></tr>
+            <tr><td><code>--caat-breadcrumb-current-color</code></td><td><code>var(--caat-neutral-600)</code></td><td>Current page text colour</td></tr>
+            <tr><td><code>--caat-breadcrumb-divider-color</code></td><td><code>var(--caat-neutral-400)</code></td><td>Separator colour</td></tr>
+            <tr><td><code>--caat-breadcrumb-font-size</code></td><td><code>0.875rem</code></td><td>Trail font size</td></tr>
+            <tr><td><code>--caat-breadcrumb-gap</code></td><td><code>0.5rem</code></td><td>Spacing between items and divider</td></tr>
+            <tr><td><code>--caat-breadcrumb-py</code></td><td><code>0.75rem</code></td><td>Vertical padding around the breadcrumb bar</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <p>By default the breadcrumb is <strong>auto-generated from the AEM page hierarchy</strong>. Authors may optionally override with a manual multifield to customise labels and URLs.</p>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Source</strong></td><td>Radio group</td><td>Yes</td><td>Auto-generate from page tree (default) or Manual override</td></tr>
+            <tr><td><strong>Start Level</strong></td><td>Number</td><td>Yes</td><td>Depth level at which the trail begins (default: 2, i.e. below the site root)</td></tr>
+            <tr><td><strong>Hide Current Page</strong></td><td>Checkbox</td><td>No</td><td>When checked, the last (current page) item is omitted</td></tr>
+            <tr><td><strong>Manual Items (multifield)</strong></td><td>Multifield</td><td>No</td><td>Only visible when Source = Manual override</td></tr>
+            <tr><td>&emsp;↳ Label</td><td>Text</td><td>Yes</td><td>Displayed link text</td></tr>
+            <tr><td>&emsp;↳ URL</td><td>Pathfield</td><td>Yes</td><td>Internal page path or external URL</td></tr>
+            <tr><td><strong>Separator Style</strong></td><td>Select</td><td>Yes</td><td>Slash (default), Chevron, Custom icon</td></tr>
+            <tr><td><strong>Enable Truncation</strong></td><td>Checkbox</td><td>No</td><td>Collapse middle items to ellipsis when depth &gt; 4 levels</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Severity</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>At least one ancestor link</td><td>Error</td><td>Breadcrumb must contain at least a Home link before the current page.</td></tr>
+            <tr><td>Manual items: label required</td><td>Error</td><td>Every manual multifield entry must have a non-empty label.</td></tr>
+            <tr><td>Manual items: URL required</td><td>Error</td><td>Every manual item (except the last) must have a valid URL.</td></tr>
+            <tr><td>Start level ≥ 1</td><td>Error</td><td>Start level must be a positive integer.</td></tr>
+            <tr><td>Max depth warning</td><td>Warning</td><td>If depth exceeds 6 levels, suggest enabling truncation.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Labels</strong></td><td>Use concise page titles (2–4 words). Avoid repeating the site name. E.g. "Pension Solutions" not "CAAT Pension Solutions Page".</td></tr>
+            <tr><td><strong>Home link</strong></td><td>Always start with "Home" as the first item linking to the site root.</td></tr>
+            <tr><td><strong>Current page</strong></td><td>Display as plain text (non-linked) and mark with <code>aria-current="page"</code>.</td></tr>
+            <tr><td><strong>Truncation</strong></td><td>For pages deeper than 4 levels, enable truncation to show Home, ellipsis, and the last 2–3 ancestors plus current page.</td></tr>
+            <tr><td><strong>Consistency</strong></td><td>Breadcrumb labels should match the <code>&lt;title&gt;</code> or <code>jcr:title</code> of the target page.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <pre><code>&lt;!-- Standard breadcrumb --&gt;
+&lt;nav aria-label="Breadcrumb" class="caat-breadcrumb"
+     data-analytics-component="breadcrumb"&gt;
+  &lt;ol class="breadcrumb"&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="/en.html"
+         data-analytics-label="breadcrumb-click"
+         data-analytics-level="1"
+         data-analytics-destination="home"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="/en/employers.html"
+         data-analytics-label="breadcrumb-click"
+         data-analytics-level="2"
+         data-analytics-destination="employers"&gt;Employers&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;
+      &lt;a href="/en/employers/pension-solutions.html"
+         data-analytics-label="breadcrumb-click"
+         data-analytics-level="3"
+         data-analytics-destination="pension-solutions"&gt;Pension Solutions&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item active" aria-current="page"&gt;Contact&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;
+
+&lt;!-- Truncated breadcrumb --&gt;
+&lt;nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated"&gt;
+  &lt;ol class="breadcrumb"&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="/en.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item breadcrumb-item--ellipsis"&gt;
+      &lt;span aria-label="Collapsed pages"&gt;&amp;hellip;&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="breadcrumb-item"&gt;&lt;a href="..."&gt;Parent&lt;/a&gt;&lt;/li&gt;
+    &lt;li class="breadcrumb-item active" aria-current="page"&gt;Current&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-breadcrumb</code></td><td>Wrapper <code>&lt;nav&gt;</code> — sets font-size, padding, and token-based colours.</td></tr>
+            <tr><td><code>.breadcrumb</code></td><td>Bootstrap's <code>&lt;ol&gt;</code> — inherits divider style and flex layout.</td></tr>
+            <tr><td><code>.breadcrumb-item</code></td><td>Individual trail item. Applies link colour tokens and hover/focus states.</td></tr>
+            <tr><td><code>.breadcrumb-item.active</code></td><td>Current page item — non-linked, muted colour.</td></tr>
+            <tr><td><code>.caat-breadcrumb--chevron</code></td><td>Modifier: replaces default slash divider with a chevron SVG icon.</td></tr>
+            <tr><td><code>.caat-breadcrumb--truncated</code></td><td>Modifier: enables ellipsis collapse for deep page hierarchies.</td></tr>
+            <tr><td><code>.breadcrumb-item--ellipsis</code></td><td>Ellipsis placeholder item — non-interactive, displays "…".</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <pre><code>/* breadcrumb.css — key rules */
+.caat-breadcrumb {
+  font-size: var(--caat-breadcrumb-font-size, 0.875rem);
+  padding: var(--caat-breadcrumb-py, 0.75rem) 0;
+}
+
+.caat-breadcrumb .breadcrumb-item a {
+  color: var(--caat-breadcrumb-link-color);
+  text-decoration: none;
+}
+
+.caat-breadcrumb .breadcrumb-item a:hover {
+  color: var(--caat-breadcrumb-link-hover);
+  text-decoration: underline;
+}
+
+.caat-breadcrumb .breadcrumb-item.active {
+  color: var(--caat-breadcrumb-current-color);
+}
+
+.caat-breadcrumb--truncated .breadcrumb-item--ellipsis span {
+  color: var(--caat-neutral-500);
+  cursor: default;
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Landmark</strong></td><td>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code> to expose a navigation landmark to assistive technologies.</td></tr>
+            <tr><td><strong>Ordered list</strong></td><td>Use <code>&lt;ol&gt;</code> so screen readers announce the number of items and their position.</td></tr>
+            <tr><td><strong>Current page</strong></td><td>Add <code>aria-current="page"</code> to the last <code>&lt;li&gt;</code> — the current page must not be a link.</td></tr>
+            <tr><td><strong>Ellipsis</strong></td><td>The truncated ellipsis element uses <code>aria-label="Collapsed pages"</code> to provide context.</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>Link text must meet WCAG 2.1 AA — minimum 4.5 : 1 contrast against background.</td></tr>
+            <tr><td><strong>Focus indicators</strong></td><td>All links must show a visible focus ring meeting 3 : 1 contrast.</td></tr>
+            <tr><td><strong>Structured data</strong></td><td>Include JSON-LD <code>BreadcrumbList</code> schema (see Section 9) so assistive tools and search engines can parse the hierarchy.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+
+      <p>Emit a <strong>JSON-LD BreadcrumbList</strong> schema in the page <code>&lt;head&gt;</code> or inline with the component. This enables Google's breadcrumb rich-result snippet.</p>
+
+      <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.caatpension.ca/en.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Employers",
+      "item": "https://www.caatpension.ca/en/employers.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Pension Solutions",
+      "item": "https://www.caatpension.ca/en/employers/pension-solutions.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Contact"
+    }
+  ]
+}
+&lt;/script&gt;</code></pre>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>SEO Consideration</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Schema type</strong></td><td><code>BreadcrumbList</code> with <code>ListItem</code> entries</td></tr>
+            <tr><td><strong>Last item</strong></td><td>Omit the <code>item</code> URL for the current page (Google recommendation)</td></tr>
+            <tr><td><strong>Canonical alignment</strong></td><td>URLs in schema must match canonical URLs</td></tr>
+            <tr><td><strong>Server-side rendering</strong></td><td>Schema must be present in the initial HTML response (not injected via JS)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Attribute / Event</th><th>Value</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>data-analytics-component</code></td><td><code>"breadcrumb"</code></td><td>On the wrapper <code>&lt;nav&gt;</code></td></tr>
+            <tr><td><code>data-analytics-label</code></td><td><code>"breadcrumb-click"</code></td><td>On each ancestor <code>&lt;a&gt;</code></td></tr>
+            <tr><td><code>data-analytics-level</code></td><td><code>"1"</code>, <code>"2"</code>, …</td><td>Depth level of the clicked item</td></tr>
+            <tr><td><code>data-analytics-destination</code></td><td>Page slug, e.g. <code>"employers"</code></td><td>Destination page identifier</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-3">Data-layer push</h3>
+      <pre><code>// Fires on every breadcrumb link click
+window.adobeDataLayer.push({
+  event: "breadcrumb-click",
+  component: {
+    type: "breadcrumb",
+    level: 2,                // depth of clicked item
+    destination: "employers" // slug of target page
+  }
+});</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Resource type</strong></td><td><code>caat/components/breadcrumb</code></td></tr>
+            <tr><td><strong>Sling model</strong></td><td>Extend <code>com.adobe.cq.wcm.core.components.models.Breadcrumb</code> to add analytics attributes, truncation logic, and JSON-LD schema output.</td></tr>
+            <tr><td><strong>HTL template</strong></td><td><code>breadcrumb.html</code> — loops <code>model.items</code>, renders <code>&lt;nav&gt;</code> / <code>&lt;ol&gt;</code> structure. Last item emits <code>aria-current="page"</code>.</td></tr>
+            <tr><td><strong>Policy</strong></td><td>Editable template policy: start level, separator style, truncation toggle.</td></tr>
+            <tr><td><strong>Client library</strong></td><td><code>caat.breadcrumb</code> — category <code>caat.components</code>. Contains CSS and optional JS for expandable truncated crumbs.</td></tr>
+            <tr><td><strong>Migration</strong></td><td>Replace legacy Breadcrumb (#1) instances. Run Groovy migration script to remap <code>sling:resourceType</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL (YAML)
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model <span class="badge bg-light text-dark ms-2">YAML</span></h2>
+
+      <pre><code># _cq_dialog/.content.xml — represented as YAML
+breadcrumb-dialog:
+  jcr:primaryType: nt:unstructured
+  sling:resourceType: cq/gui/components/authoring/dialog
+  extraClientlibs: "[caat.authoring]"
+  content:
+    jcr:primaryType: nt:unstructured
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        jcr:primaryType: nt:unstructured
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Source tab ───────────────────────────────
+          source:
+            jcr:title: Source
+            items:
+              source:
+                sling:resourceType: granite/ui/components/coral/foundation/form/radiogroup
+                name: ./source
+                fieldLabel: Breadcrumb source
+                required: true
+                items:
+                  - { text: Auto-generate from page hierarchy, value: auto, checked: true }
+                  - { text: Manual override,                   value: manual }
+              startLevel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/numberfield
+                name: ./startLevel
+                fieldLabel: Start level
+                value: 2
+                min: 1
+                max: 10
+              hideCurrent:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./hideCurrent
+                text: Hide current page
+
+          # ── Manual items tab ─────────────────────────
+          manualItems:
+            jcr:title: Manual Items
+            items:
+              items:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./items
+                fieldLabel: Breadcrumb items
+                composite: true
+                field:
+                  sling:resourceType: granite/ui/components/coral/foundation/container
+                  items:
+                    label:
+                      sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                      name: ./label
+                      fieldLabel: Label
+                      required: true
+                    url:
+                      sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                      name: ./url
+                      fieldLabel: URL
+                      required: true
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              separator:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./separator
+                fieldLabel: Separator style
+                required: true
+                items:
+                  - { text: Slash (default), value: slash }
+                  - { text: Chevron,         value: chevron }
+                  - { text: Custom icon,     value: custom }
+              enableTruncation:
+                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
+                name: ./enableTruncation
+                text: Enable truncation for deep pages</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Standard breadcrumb renders with correct separator and link styles.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Chevron variant replaces the default slash with a chevron SVG icon.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Truncated variant collapses middle items to an ellipsis for pages deeper than 4 levels.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>&lt;nav aria-label="Breadcrumb"&gt;</code> landmark is present.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Last item has <code>aria-current="page"</code> and is not a link.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Ellipsis item has <code>aria-label="Collapsed pages"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> JSON-LD <code>BreadcrumbList</code> schema is output in the page source and validates via Google Rich Results Test.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>data-analytics-*</code> attributes are present on all ancestor links and <code>breadcrumb-click</code> events fire to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Auto-generated breadcrumb correctly reflects the AEM page tree from the configured start level.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Manual override multifield produces the same HTML output with author-supplied labels and URLs.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring is visible on all links and meets 3 : 1 contrast.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: breadcrumb wraps gracefully on narrow viewports without horizontal overflow.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All three variants (standard, chevron, truncated) are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM component created extending Core Breadcrumb. HTL template emits semantic HTML per Section 6. CSS uses design tokens. Sling model outputs JSON-LD BreadcrumbList schema. Analytics data attributes wired. Legacy Breadcrumb (#1) replaced. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Screen reader tested with NVDA and VoiceOver.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Legacy Breadcrumb component deprecated and migration script executed. Content authors trained on source selection and truncation options. Analytics dashboards confirmed receiving breadcrumb-click events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Breadcrumb</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Default</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Standard</span>
+    <div class="figma-row-items">
+      <nav class="caat-breadcrumb" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">Home</a></li><li class="breadcrumb-item"><a href="#">Members</a></li><li class="breadcrumb-item active" aria-current="page">My Pension</li></ol></nav>
+    </div>
+  </div>
+  <div class="figma-row">
+    <span class="figma-row-label">Truncated</span>
+    <div class="figma-row-items">
+      <nav class="caat-breadcrumb caat-breadcrumb--truncated" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">Home</a></li><li class="breadcrumb-item breadcrumb-item--ellipsis">…</li><li class="breadcrumb-item active" aria-current="page">Current Page</li></ol></nav>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Font size</strong>0.85rem</div>
+    <div class="figma-spec"><strong>Link colour</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Link weight</strong>500</div>
+    <div class="figma-spec"><strong>Active colour</strong>var(--caat-muted)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

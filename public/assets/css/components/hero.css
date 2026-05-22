@@ -1,0 +1,171 @@
+/* ============================================================
+   CAAT Hero — Component CSS
+   AEM client library: caat/components/hero/clientlibs/css
+   Depends on: tokens.css
+   ============================================================ */
+
+.caat-composable-hero { position: relative; }
+
+.caat-hero-frame {
+  position: relative;
+  border-radius: var(--caat-radius-lg);
+  overflow: visible;
+}
+
+.caat-hero-media {
+  min-height: 22rem;
+  border-radius: var(--caat-radius-lg);
+  background: linear-gradient(135deg, var(--caat-blue-100) 0%, var(--caat-grey-200) 38%, var(--caat-blue-300) 100%);
+  box-shadow: var(--caat-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.caat-hero-media > img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  position: absolute; inset: 0;
+}
+.caat-hero-media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(0,55,80,.32), rgba(0,55,80,.05) 55%);
+  z-index: 1;
+}
+
+.caat-hero-card {
+  width: min(28rem, calc(100% - 2rem));
+  background: rgba(0,94,128,.94);
+  color: #fff;
+  border-radius: 0 0 4.5rem 0;
+  padding: 2rem;
+  box-shadow: var(--caat-shadow);
+  position: absolute;
+  left: 2rem; bottom: 1.5rem; top: auto;
+  transform: none;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+  z-index: 2;
+}
+.caat-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1.25rem 3rem rgba(0,55,80,.24);
+  background: rgba(0,82,112,.98);
+}
+
+.caat-hero-card .accent-rule {
+  width: 12rem; max-width: 70%; height: .35rem;
+  background: var(--caat-green);
+  margin: 1rem 0 1.25rem;
+}
+.caat-hero-card h1,
+.caat-hero-card h2,
+.caat-hero-card h3 { font-weight: 800; letter-spacing: -.03em; color: #fff; }
+.caat-hero-card p { color: rgba(255,255,255,.88); }
+.caat-hero-card .eyebrow { color: rgba(255,255,255,.7); }
+.caat-hero-card .btn { border-color: #fff; color: #fff; }
+.caat-hero-card .btn:hover,
+.caat-hero-card .btn:focus { background: #fff; color: var(--caat-blue-900); }
+
+/* ── Slight overlap variant ────────────────────────────────── */
+.caat-hero-slight-overlap .caat-hero-media {
+  min-height: 22rem !important;
+  border-radius: var(--caat-radius-lg) var(--caat-radius-lg) 0 0 !important;
+}
+.caat-hero-slight-overlap .caat-hero-card {
+  position: absolute !important;
+  left: 2rem !important; top: auto !important; right: auto !important; bottom: 1.5rem !important;
+  transform: none !important; margin: 0 !important;
+  width: min(28rem, calc(100% - 4rem)) !important;
+  background: var(--caat-blue-900) !important;
+  border-radius: 0 0 3rem 0 !important;
+  padding: 1.5rem !important;
+  box-shadow: var(--caat-shadow) !important;
+  z-index: 2;
+}
+.caat-hero-slight-overlap .caat-hero-card:hover {
+  transform: translateY(-2px) !important;
+}
+.caat-hero-slight-overlap .caat-hero-card .accent-rule {
+  height: .25rem; margin: .85rem 0 1rem;
+}
+
+/* ── Stats strip ───────────────────────────────────────────── */
+.caat-stat-strip {
+  display: flex;
+  justify-content: center;
+  background: var(--caat-blue-900);
+  color: #fff;
+  padding: 1.25rem 2rem;
+  margin: 0;
+  border-radius: 0;
+}
+.caat-composable-hero .caat-stat-strip {
+  border-radius: 0 0 var(--caat-radius-lg) var(--caat-radius-lg);
+}
+.caat-stat-item {
+  text-align: center;
+  flex: 1;
+  padding: 0 1.5rem;
+  position: relative;
+}
+.caat-stat-item + .caat-stat-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 15%; height: 70%;
+  width: 1px;
+  background: rgba(255,255,255,.25);
+}
+.caat-stat-item strong {
+  font-size: 1.75rem;
+  font-weight: 900;
+  display: block;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+}
+.caat-stat-item strong small {
+  font-size: .65em;
+  font-weight: 400;
+}
+.caat-stat-item span {
+  font-size: .82rem;
+  color: rgba(255,255,255,.65);
+}
+
+@media (max-width: 575.98px) {
+  .caat-stat-strip { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }
+  .caat-stat-item + .caat-stat-item::before {
+    width: 70%; height: 1px;
+    top: -0.5rem; left: 15%;
+  }
+}
+
+.caat-hero-media--gradient {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(149,227,92,.30), transparent 28%),
+    radial-gradient(circle at 78% 28%, rgba(157,210,237,.34), transparent 32%),
+    linear-gradient(135deg, var(--caat-green-100) 0%, #cfeaf4 24%, #66b6d8 52%, var(--caat-blue) 76%, var(--caat-blue-900) 100%);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .caat-hero-media { min-height: 18rem; }
+  .caat-hero-card {
+    position: relative; left: auto; top: auto; bottom: auto;
+    transform: none; margin: -3rem 1rem 0; width: auto;
+  }
+  .caat-hero-card:hover { transform: translateY(-4px); }
+  .caat-hero-slight-overlap .caat-hero-media { min-height: 15rem !important; }
+  .caat-hero-slight-overlap .caat-hero-card {
+    left: .75rem !important;
+    width: calc(100% - 1.5rem) !important;
+    padding: 1.15rem !important;
+    border-radius: 0 0 2.5rem 0 !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .caat-hero-media { min-height: 14rem; border-radius: var(--caat-radius); }
+  .caat-hero-card { margin: -2.5rem .75rem 0; padding: 1.15rem; border-radius: 0 0 2.5rem 0; }
+  .caat-hero-card h3 { font-size: 1.35rem; }
+  .caat-hero-card .accent-rule { height: .25rem; width: 8rem; }
+}

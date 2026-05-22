@@ -1,0 +1,891 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Dropdown AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Dropdown | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/dropdown.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link active" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Dropdown</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Dropdown</h1>
+      <p class="text-muted">Toggleable contextual menu for actions, filters, or secondary navigation within CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Dropdown',['/assets/css/tokens.css','/assets/css/components/dropdown.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- 1. Standard Dropdown -->
+      <h3 class="mt-3 mb-2">Standard Dropdown</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-dropdown dropdown" data-analytics-component="dropdown">
+            <button class="caat-button caat-button--primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              Account Actions
+            </button>
+            <ul class="dropdown-menu caat-dropdown__menu">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">View Profile</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">My Pension</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Statements</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Split Button Dropdown -->
+      <h3 class="mb-2">Split Button Dropdown</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-dropdown btn-group" data-analytics-component="dropdown">
+            <button type="button" class="caat-button caat-button--primary">Download Statement</button>
+            <button type="button" class="caat-button caat-button--primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu caat-dropdown__menu">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Download as PDF</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Download as CSV</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Print</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Dropdown with Headers, Dividers, Disabled -->
+      <h3 class="mb-2">Headers, Dividers &amp; Disabled Items</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-dropdown dropdown" data-analytics-component="dropdown">
+            <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              Manage Plan
+            </button>
+            <ul class="dropdown-menu caat-dropdown__menu">
+              <li><h6 class="dropdown-header">Plan Options</h6></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select"><i class="bi bi-eye me-2"></i>View Details</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select"><i class="bi bi-pencil me-2"></i>Edit Contributions</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><h6 class="dropdown-header">Beneficiaries</h6></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select"><i class="bi bi-people me-2"></i>Update Beneficiaries</a></li>
+              <li><a class="dropdown-item caat-dropdown__item disabled" aria-disabled="true"><i class="bi bi-lock me-2"></i>Transfer Out (Locked)</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Directional Variants -->
+      <h3 class="mb-2">Directional Variants</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-3 flex-wrap align-items-start">
+            <!-- Dropup -->
+            <div class="caat-dropdown dropup" data-analytics-component="dropdown">
+              <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                Dropup
+              </button>
+              <ul class="dropdown-menu caat-dropdown__menu">
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action One</a></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action Two</a></li>
+              </ul>
+            </div>
+            <!-- Dropend -->
+            <div class="caat-dropdown dropend" data-analytics-component="dropdown">
+              <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                Dropend
+              </button>
+              <ul class="dropdown-menu caat-dropdown__menu">
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action One</a></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action Two</a></li>
+              </ul>
+            </div>
+            <!-- Dropstart -->
+            <div class="caat-dropdown dropstart" data-analytics-component="dropdown">
+              <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                Dropstart
+              </button>
+              <ul class="dropdown-menu caat-dropdown__menu">
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action One</a></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Action Two</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Dark Dropdown -->
+      <h3 class="mb-2">Dark Dropdown</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-dropdown dropdown" data-analytics-component="dropdown">
+            <button class="caat-button caat-button--primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              Dark Menu
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark caat-dropdown__menu">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Dashboard</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Standard dropdown --&gt;
+&lt;div class="caat-dropdown dropdown" data-analytics-component="dropdown"&gt;
+  &lt;button class="caat-button caat-button--primary dropdown-toggle"
+          type="button" data-bs-toggle="dropdown"
+          aria-expanded="false" aria-haspopup="true"&gt;
+    Trigger Label
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu caat-dropdown__menu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="#"
+           data-analytics-label="dropdown-select"&gt;Item One&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="#"
+           data-analytics-label="dropdown-select"&gt;Item Two&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Split button dropdown --&gt;
+&lt;div class="caat-dropdown btn-group" data-analytics-component="dropdown"&gt;
+  &lt;button type="button" class="caat-button caat-button--primary"&gt;
+    Primary Action
+  &lt;/button&gt;
+  &lt;button type="button"
+          class="caat-button caat-button--primary dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"&gt;
+    &lt;span class="visually-hidden"&gt;Toggle Dropdown&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu caat-dropdown__menu"&gt;
+    &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="#"&gt;Alt Action&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Directional: .dropup, .dropend, .dropstart --&gt;
+&lt;div class="caat-dropdown dropup"&gt;…&lt;/div&gt;
+
+&lt;!-- Dark menu: add .dropdown-menu-dark --&gt;
+&lt;ul class="dropdown-menu dropdown-menu-dark caat-dropdown__menu"&gt;…&lt;/ul&gt;
+
+&lt;!-- Headers, dividers, disabled items --&gt;
+&lt;li&gt;&lt;h6 class="dropdown-header"&gt;Section Header&lt;/h6&gt;&lt;/li&gt;
+&lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="dropdown-item disabled" aria-disabled="true"&gt;Locked&lt;/a&gt;&lt;/li&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. COMPONENT SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+
+      <table class="contract-table mb-4">
+        <tbody>
+          <tr><th style="width:14rem;">Component name</th><td>Dropdown</td></tr>
+          <tr><th>AEM component name</th><td><code>caat/components/dropdown</code></td></tr>
+          <tr><th>Recommended implementation</th><td>Custom AEM component wrapping Bootstrap 5 dropdown</td></tr>
+          <tr><th>Component group</th><td>CAAT Design System</td></tr>
+          <tr><th>Purpose</th><td>Toggleable contextual menu for actions, filters, or secondary navigation</td></tr>
+          <tr><th>Status</th><td>New</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Primary use cases</h3>
+      <ol>
+        <li>Action menus — contextual actions on a record or section (e.g. Download, Print, Share)</li>
+        <li>Filter menus — quick filter selections for tables or lists</li>
+        <li>Secondary navigation — overflow or auxiliary page links</li>
+        <li>Split buttons — primary action with alternative options</li>
+      </ol>
+
+      <h3>Non-goals</h3>
+      <ol>
+        <li>Not for form field selection — use the native <code>&lt;select&gt;</code> or Forms component instead</li>
+        <li>Not for primary navigation — use the Navigation component</li>
+        <li>Not for mega menus or multi-level nesting</li>
+        <li>Not for tooltips or popovers — use dedicated tooltip components</li>
+      </ol>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN SYSTEM SOURCE / TOKEN DEPENDENCIES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design System Source / Token Dependencies</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table mb-4">
+          <thead>
+            <tr><th>Token</th><th>Value (reference)</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>#003750</td><td>Menu item text colour on hover</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>#005a8c</td><td>Primary trigger button background</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>#dceef7</td><td>Active/selected item background</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>#e9ecef</td><td>Divider colour, item hover background</td></tr>
+            <tr><td><code>--caat-grey-100</code></td><td>#f8f9fa</td><td>Menu background</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>0 0 0 .25rem rgba(47,149,210,.35)</td><td>Focus ring on trigger button and menu items</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>"Libre Franklin", Arial, sans-serif</td><td>Menu typeface</td></tr>
+            <tr><td><code>--caat-shadow-sm</code></td><td>0 .125rem .25rem rgba(0,0,0,.075)</td><td>Menu elevation shadow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trigger label</td><td>Textfield</td><td>Yes</td><td>Text displayed on the dropdown trigger button</td></tr>
+            <tr><td>Trigger style</td><td>Dropdown</td><td>Yes</td><td>Button variant: <code>primary</code>, <code>outline-primary</code></td></tr>
+            <tr><td>Dropdown type</td><td>Dropdown</td><td>Yes</td><td>Standard button or split button</td></tr>
+            <tr><td>Direction</td><td>Dropdown</td><td>No</td><td>Menu direction: <code>dropdown</code> (default), <code>dropup</code>, <code>dropstart</code>, <code>dropend</code></td></tr>
+            <tr><td>Dark menu</td><td>Toggle/Switch</td><td>No</td><td>Enables <code>.dropdown-menu-dark</code> variant</td></tr>
+            <tr><td>Items</td><td>Multifield</td><td>Yes</td><td>Menu items — each item has the fields below</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-3">Items multifield</h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Item type</td><td>Select</td><td>Yes</td><td>One of: <code>link</code>, <code>button</code>, <code>header</code>, <code>divider</code></td></tr>
+            <tr><td>Label</td><td>Textfield</td><td>Yes (except divider)</td><td>Visible text for the menu item or header</td></tr>
+            <tr><td>URL</td><td>Path / URL</td><td>Conditional</td><td>Required when item type is <code>link</code></td></tr>
+            <tr><td>Disabled</td><td>Toggle/Switch</td><td>No</td><td>Renders the item as non-interactive with <code>.disabled</code> and <code>aria-disabled="true"</code></td></tr>
+            <tr><td>Icon</td><td>Textfield</td><td>No</td><td>Bootstrap Icon class (e.g. <code>bi-eye</code>) prepended to the label</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Field</th><th>Rule</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Trigger label</td><td>Required, max 60 characters</td></tr>
+            <tr><td>Items</td><td>At least one item of type <code>link</code> or <code>button</code> required</td></tr>
+            <tr><td>Item label</td><td>Required for link, button, and header types; max 80 characters</td></tr>
+            <tr><td>URL</td><td>Required when item type is <code>link</code>; must be a valid internal path or external URL</td></tr>
+            <tr><td>Direction</td><td>Must be one of: dropdown, dropup, dropstart, dropend</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+
+      <h3>Do</h3>
+      <ul>
+        <li>Use concise, action-oriented labels for menu items (e.g. "Download PDF", "Edit Profile")</li>
+        <li>Group related items using headers and dividers</li>
+        <li>Use split buttons when there is a clear primary action with secondary alternatives</li>
+        <li>Limit menus to 7–10 items maximum for scannability</li>
+        <li>Use icons sparingly to aid recognition, not decoration</li>
+      </ul>
+
+      <h3>Don't</h3>
+      <ul>
+        <li>Don't use dropdowns for form field selection — use <code>&lt;select&gt;</code> instead</li>
+        <li>Don't nest dropdowns within dropdowns</li>
+        <li>Don't use vague labels like "More" or "Options" without context</li>
+        <li>Don't put critical, frequently-used actions only inside a dropdown — make them visible</li>
+        <li>Don't mix navigation links and destructive actions in the same menu without visual separation</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+<pre class="code-sample"><code>&lt;!-- Standard dropdown --&gt;
+&lt;div class="caat-dropdown ${directionClass}"
+     data-analytics-component="dropdown"&gt;
+  &lt;button class="caat-button caat-button--${triggerVariant} dropdown-toggle"
+          type="button" data-bs-toggle="dropdown"
+          aria-expanded="false" aria-haspopup="true"&gt;
+    ${triggerLabel}
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu ${darkClass} caat-dropdown__menu"&gt;
+    &lt;sly data-sly-list="${items}"&gt;
+      &lt;!-- header --&gt;
+      &lt;li data-sly-test="${item.type == 'header'}"&gt;
+        &lt;h6 class="dropdown-header"&gt;${item.label}&lt;/h6&gt;
+      &lt;/li&gt;
+      &lt;!-- divider --&gt;
+      &lt;li data-sly-test="${item.type == 'divider'}"&gt;
+        &lt;hr class="dropdown-divider"&gt;
+      &lt;/li&gt;
+      &lt;!-- link --&gt;
+      &lt;li data-sly-test="${item.type == 'link'}"&gt;
+        &lt;a class="dropdown-item caat-dropdown__item ${item.disabled ? 'disabled' : ''}"
+           href="${item.url}" aria-disabled="${item.disabled}"
+           data-analytics-label="dropdown-select"&gt;
+          &lt;i class="bi ${item.icon} me-2"
+             data-sly-test="${item.icon}" aria-hidden="true"&gt;&lt;/i&gt;
+          ${item.label}
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- button --&gt;
+      &lt;li data-sly-test="${item.type == 'button'}"&gt;
+        &lt;button class="dropdown-item caat-dropdown__item ${item.disabled ? 'disabled' : ''}"
+                type="button" ${item.disabled ? 'disabled' : ''}
+                data-analytics-label="dropdown-select"&gt;
+          &lt;i class="bi ${item.icon} me-2"
+             data-sly-test="${item.icon}" aria-hidden="true"&gt;&lt;/i&gt;
+          ${item.label}
+        &lt;/button&gt;
+      &lt;/li&gt;
+    &lt;/sly&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;!-- Split button variant --&gt;
+&lt;div class="caat-dropdown btn-group ${directionClass}"
+     data-analytics-component="dropdown"&gt;
+  &lt;button type="button"
+          class="caat-button caat-button--${triggerVariant}"&gt;
+    ${triggerLabel}
+  &lt;/button&gt;
+  &lt;button type="button"
+          class="caat-button caat-button--${triggerVariant} dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"&gt;
+    &lt;span class="visually-hidden"&gt;Toggle Dropdown&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class="dropdown-menu ${darkClass} caat-dropdown__menu"&gt;
+    …items…
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Class</th><th>Element</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>.caat-dropdown</code></td><td>Root wrapper</td><td>Wraps the Bootstrap <code>.dropdown</code> (or <code>.dropup</code>, <code>.dropend</code>, <code>.dropstart</code>); applies CAAT token overrides</td></tr>
+            <tr><td><code>.caat-dropdown__menu</code></td><td>Menu panel</td><td>Extends <code>.dropdown-menu</code>; applies CAAT font, shadow, border-radius, and background tokens</td></tr>
+            <tr><td><code>.caat-dropdown__item</code></td><td>Menu item</td><td>Extends <code>.dropdown-item</code>; applies CAAT hover, active, focus, and disabled styles using design tokens</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>CSS file</h3>
+      <p><code>/assets/css/components/dropdown.css</code></p>
+      <p>All custom styles must use CAAT design tokens. No hard-coded colour values. The <code>.caat-dropdown</code> class wraps Bootstrap's dropdown classes to layer CAAT-specific visual overrides without breaking Bootstrap functionality.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Requirement</th><th>Implementation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>aria-haspopup="true"</code></td><td>Applied to the trigger button to indicate it opens a menu</td></tr>
+            <tr><td><code>aria-expanded</code></td><td>Set to <code>"false"</code> when closed, <code>"true"</code> when open; managed automatically by Bootstrap</td></tr>
+            <tr><td>Arrow-key navigation</td><td><kbd>↓</kbd> / <kbd>↑</kbd> move focus between menu items (Bootstrap built-in)</td></tr>
+            <tr><td><kbd>Escape</kbd> to close</td><td>Pressing <kbd>Escape</kbd> closes the menu and returns focus to the trigger button (Bootstrap default)</td></tr>
+            <tr><td>Disabled items</td><td>Disabled items use <code>.disabled</code> class and <code>aria-disabled="true"</code>; for <code>&lt;button&gt;</code> types, also include the <code>disabled</code> attribute</td></tr>
+            <tr><td>Focus management</td><td>When the menu opens, focus moves to the first non-disabled item. On close, focus returns to the trigger</td></tr>
+            <tr><td>Role semantics</td><td>Bootstrap applies <code>role="menu"</code> and <code>role="menuitem"</code> automatically via JS for keyboard-navigated dropdowns</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Keyboard interaction</h3>
+      <ul>
+        <li><kbd>Enter</kbd> / <kbd>Space</kbd> — open the dropdown (on trigger) or activate the focused item</li>
+        <li><kbd>↓</kbd> — open the dropdown (on trigger) or move focus to the next item</li>
+        <li><kbd>↑</kbd> — move focus to the previous item</li>
+        <li><kbd>Escape</kbd> — close the dropdown and return focus to the trigger</li>
+        <li><kbd>Tab</kbd> — close the dropdown and move focus to the next focusable element on the page</li>
+        <li><kbd>Home</kbd> / <kbd>End</kbd> — move focus to the first / last item in the menu</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+
+      <ul>
+        <li>Dropdown menu content is rendered in the DOM and accessible to crawlers, even when visually hidden.</li>
+        <li>Use meaningful link text for menu items — avoid "click here" or generic labels.</li>
+        <li>Do not place primary navigation links exclusively in dropdowns — ensure key pages are linked from visible navigation.</li>
+        <li>Menu items using <code>&lt;a&gt;</code> elements with <code>href</code> attributes are crawlable; <code>&lt;button&gt;</code> items are not followed by search engines.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead>
+            <tr><th>Event</th><th>Trigger</th><th>Data Layer Payload</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>dropdown-open</code></td>
+              <td>Dropdown menu is shown (Bootstrap <code>shown.bs.dropdown</code> event)</td>
+              <td><code>{ event: "dropdown-open", component: "dropdown", triggerLabel: "…" }</code></td>
+            </tr>
+            <tr>
+              <td><code>dropdown-select</code></td>
+              <td>User clicks a menu item</td>
+              <td><code>{ event: "dropdown-select", component: "dropdown", triggerLabel: "…", itemLabel: "…", itemUrl: "…" }</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Implementation notes</h3>
+      <ul>
+        <li>Add <code>data-analytics-component="dropdown"</code> to the root <code>.caat-dropdown</code> element.</li>
+        <li>Add <code>data-analytics-label="dropdown-select"</code> to each actionable menu item.</li>
+        <li>Listen for Bootstrap dropdown events (<code>shown.bs.dropdown</code>) on the root element to push <code>dropdown-open</code> to the data layer.</li>
+        <li>Listen for <code>click</code> events on <code>.caat-dropdown__item</code> elements to push <code>dropdown-select</code> with the item's text content as <code>itemLabel</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+
+      <ul>
+        <li><strong>Component path:</strong> <code>/apps/caat/components/dropdown</code></li>
+        <li><strong>Resource type:</strong> <code>caat/components/dropdown</code></li>
+        <li><strong>Component group:</strong> CAAT Design System</li>
+        <li><strong>Sling Model:</strong> Create a Sling Model to expose trigger label, trigger variant, dropdown type, direction, dark mode, and items multifield.</li>
+        <li><strong>Unique ID generation:</strong> Not required — Bootstrap manages dropdown state via <code>data-bs-toggle</code> without needing unique element IDs.</li>
+        <li><strong>Client library:</strong> <code>caat.components.dropdown</code> — includes CSS and JS for analytics event wiring.</li>
+        <li><strong>Policies:</strong> Configure allowed item types and maximum item count in template policies.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (AEM Touch UI)</h2>
+
+<pre class="code-sample"><code># caat/components/dropdown/_cq_dialog/.content.xml (pseudo-YAML)
+jcr:root:
+  sling:resourceType: cq/gui/components/authoring/dialog
+  jcr:title: Dropdown
+  content:
+    sling:resourceType: granite/ui/components/coral/foundation/container
+    items:
+      tabs:
+        sling:resourceType: granite/ui/components/coral/foundation/tabs
+        items:
+
+          # ── Content tab ──────────────────────────────
+          content:
+            jcr:title: Content
+            items:
+              triggerLabel:
+                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                name: ./triggerLabel
+                fieldLabel: Trigger label
+                required: true
+                maxlength: 60
+              triggerStyle:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./triggerStyle
+                fieldLabel: Trigger button style
+                required: true
+                items:
+                  - { text: Primary, value: primary }
+                  - { text: Outline Primary, value: outline-primary }
+              dropdownType:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./dropdownType
+                fieldLabel: Dropdown type
+                required: true
+                items:
+                  - { text: Standard, value: standard }
+                  - { text: Split Button, value: split }
+              items:
+                sling:resourceType: granite/ui/components/coral/foundation/form/multifield
+                name: ./items
+                fieldLabel: Menu items
+                composite: true
+                items:
+                  field:
+                    sling:resourceType: granite/ui/components/coral/foundation/container
+                    items:
+                      itemType:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/select
+                        name: ./itemType
+                        fieldLabel: Item type
+                        required: true
+                        items:
+                          - { text: Link, value: link }
+                          - { text: Button, value: button }
+                          - { text: Header, value: header }
+                          - { text: Divider, value: divider }
+                      label:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./label
+                        fieldLabel: Label
+                        maxlength: 80
+                      url:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
+                        name: ./url
+                        fieldLabel: URL
+                      disabled:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                        name: ./disabled
+                        fieldLabel: Disabled
+                        checked: false
+                      icon:
+                        sling:resourceType: granite/ui/components/coral/foundation/form/textfield
+                        name: ./icon
+                        fieldLabel: Icon class (e.g. bi-eye)
+
+          # ── Style tab ────────────────────────────────
+          style:
+            jcr:title: Style
+            items:
+              direction:
+                sling:resourceType: granite/ui/components/coral/foundation/form/select
+                name: ./direction
+                fieldLabel: Direction
+                items:
+                  - { text: Down (default), value: dropdown }
+                  - { text: Up, value: dropup }
+                  - { text: End, value: dropend }
+                  - { text: Start, value: dropstart }
+                defaultValue: dropdown
+              darkMenu:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./darkMenu
+                fieldLabel: Dark menu
+                checked: false
+
+          # ── Behaviour tab ────────────────────────────
+          behaviour:
+            jcr:title: Behaviour
+            items:
+              analyticsTracking:
+                sling:resourceType: granite/ui/components/coral/foundation/form/switch
+                name: ./analyticsTracking
+                fieldLabel: Analytics tracking
+                checked: true</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA ACCEPTANCE CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Standard dropdown opens and closes on trigger click.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Split button dropdown renders primary action button and separate toggle.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Headers, dividers, and disabled items render correctly and disabled items are non-interactive.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Directional variants (dropup, dropend, dropstart) position the menu correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Dark dropdown variant applies dark background and light text.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-expanded</code> toggles between <code>true</code> and <code>false</code> on open/close.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-haspopup="true"</code> is present on the trigger button.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <kbd>↓</kbd> / <kbd>↑</kbd> arrow keys navigate menu items.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <kbd>Escape</kbd> closes the menu and returns focus to the trigger.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces trigger as a popup button and reads menu items.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>dropdown-open</code>, <code>dropdown-select</code>) fire correctly with item labels.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Icons render correctly when configured, with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Responsive: dropdown is usable on mobile viewports without overflow.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All variants (standard, split, directional, dark) are documented. Tokens are used — no hard-coded colour values.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM component created at <code>/apps/caat/components/dropdown</code>. HTL template emits semantic HTML per Section 6. CSS uses design tokens per Section 7. JS wires Bootstrap dropdown events to analytics data layer. Sling Model exposes all authoring fields. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Keyboard navigation verified with screen reader.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on authoring dialog. Analytics dashboards confirmed receiving dropdown-open and dropdown-select events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Dropdown</h1>
+<p class="figma-page-subtitle">CAAT Design System · Menu variants and states</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Menu Items — States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Menu Item</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;background:var(--caat-blue-100);color:var(--caat-blue-900);font-weight:500;border-radius:.25rem;">Menu Item</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;background:var(--caat-blue-900);color:#fff;font-weight:500;border-radius:.25rem;">Menu Item</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Disabled</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-disabled);font-weight:500;">Menu Item</div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Menu Anatomy</h2>
+  <div class="figma-row">
+    <span class="figma-row-label">Light menu</span>
+    <div class="figma-row-items">
+      <div style="border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);box-shadow:var(--caat-shadow);padding:.5rem 0;min-width:12rem;background:#fff;">
+        <div style="padding:.5rem 1rem .25rem;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--caat-muted);">Section</div>
+        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action one</div>
+        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action two</div>
+        <hr style="border-top:1px solid var(--caat-grey-200);margin:.35rem 0;">
+        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action three</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow)</div>
+    <div class="figma-spec"><strong>Item padding</strong>0.5rem 1rem</div>
+    <div class="figma-spec"><strong>Font size</strong>0.9rem</div>
+    <div class="figma-spec"><strong>Min width</strong>12rem</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

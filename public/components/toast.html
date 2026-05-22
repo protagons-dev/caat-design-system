@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Toast AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Toast | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/toast.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link active" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Toast</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Toast</h1>
+      <p class="text-muted">Lightweight, non-blocking notification used to surface brief, time-sensitive messages across the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Toast',['/assets/css/tokens.css','/assets/css/components/toast.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- 1. Basic Toast -->
+      <h3 class="mt-3 mb-2">Basic Toast</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast__header toast-header">
+              <i class="bi bi-bell caat-toast__icon" aria-hidden="true"></i>
+              <span class="caat-toast__title">Notification</span>
+              <small class="caat-toast__meta">Just now</small>
+              <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+            </div>
+            <div class="caat-toast__body">
+              Your contribution statement for Q1 2026 is now available.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Colour Variants -->
+      <h3 class="mb-2">Colour Variants</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-column gap-3">
+
+            <div class="caat-toast caat-toast--success toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-check-circle-fill caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Success</span>
+                <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Your profile has been updated successfully.</div>
+            </div>
+
+            <div class="caat-toast caat-toast--warning toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-exclamation-triangle-fill caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Warning</span>
+                <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Your session will expire in 5 minutes.</div>
+            </div>
+
+            <div class="caat-toast caat-toast--error toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-x-circle-fill caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Error</span>
+                <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Unable to save your changes. Please try again.</div>
+            </div>
+
+            <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-info-circle-fill caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Info</span>
+                <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">A new pension calculator is now available.</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Toast with Action Button -->
+      <h3 class="mb-2">Toast with Action</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast__header toast-header">
+              <i class="bi bi-arrow-counterclockwise caat-toast__icon" aria-hidden="true"></i>
+              <span class="caat-toast__title">Beneficiary Removed</span>
+              <button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+            </div>
+            <div class="caat-toast__body">
+              The beneficiary has been removed from your plan. <a href="#" class="caat-toast__action" onclick="event.preventDefault();">Undo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Stacked Toasts -->
+      <h3 class="mb-2">Stacked Toasts (positioned)</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered — click the button to show stacked toasts in the bottom-right corner.</p>
+          <button type="button" class="caat-button btn btn-primary" id="caat-show-stacked-toasts">Show Toasts</button>
+
+          <!-- Toast container (fixed bottom-right) -->
+          <div class="caat-toast-container" id="caat-stacked-container" aria-live="polite">
+            <!-- Toasts injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Basic toast --&gt;
+&lt;div class="caat-toast toast" role="alert" aria-live="assertive" aria-atomic="true"&gt;
+  &lt;div class="caat-toast__header toast-header"&gt;
+    &lt;i class="bi bi-bell caat-toast__icon" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;span class="caat-toast__title"&gt;Notification&lt;/span&gt;
+    &lt;small class="caat-toast__meta"&gt;Just now&lt;/small&gt;
+    &lt;button type="button" class="caat-toast__close"
+            data-bs-dismiss="toast" aria-label="Close"&gt;
+      &lt;i class="bi bi-x" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-toast__body"&gt;
+    Your contribution statement is now available.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Colour variant --&gt;
+&lt;div class="caat-toast caat-toast--success toast" role="alert" ...&gt;
+  ...
+&lt;/div&gt;
+
+&lt;!-- Toast with action --&gt;
+&lt;div class="caat-toast__body"&gt;
+  Item removed.
+  &lt;a href="#" class="caat-toast__action"&gt;Undo&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- Stacked container --&gt;
+&lt;div class="caat-toast-container" aria-live="polite"&gt;
+  &lt;!-- Multiple .caat-toast elements --&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td>caat/components/toast</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Lightweight, non-blocking notification that appears briefly to confirm an action, surface a status change, or alert the member to a time-sensitive event. Used across the member portal for form confirmations, session warnings, and system messages.</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new-component"><i class="bi bi-star-fill"></i> New</span></td></tr>
+            <tr><td><strong>Variants</strong></td><td>Default (blue), Success (green), Warning (amber), Error (red), Info (blue)</td></tr>
+            <tr><td><strong>Options</strong></td><td>Auto-dismiss toggle, dismiss delay, optional action link, optional icon</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/toast</code></td></tr>
+            <tr><td><strong>AEM category</strong></td><td>CAAT Components – Feedback</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Default Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-toast-bg</code></td><td>Toast background</td><td><code>#ffffff</code></td></tr>
+            <tr><td><code>--caat-toast-color</code></td><td>Toast text colour</td><td><code>var(--caat-ink, #212529)</code></td></tr>
+            <tr><td><code>--caat-toast-border-color</code></td><td>Default left-border accent</td><td><code>var(--caat-blue-700, #004a99)</code></td></tr>
+            <tr><td><code>--caat-toast-border-radius</code></td><td>Corner radius</td><td><code>var(--caat-radius, 0.375rem)</code></td></tr>
+            <tr><td><code>--caat-toast-shadow</code></td><td>Elevation shadow</td><td><code>0 0.25rem 0.75rem rgba(0,0,0,.15)</code></td></tr>
+            <tr><td><code>--caat-toast-header-bg</code></td><td>Header background</td><td><code>var(--caat-grey-200, #e9ecef)</code></td></tr>
+            <tr><td><code>--caat-toast-success-accent</code></td><td>Success left-border colour</td><td><code>var(--caat-green, #198754)</code></td></tr>
+            <tr><td><code>--caat-toast-warning-accent</code></td><td>Warning left-border colour</td><td><code>#ffc107</code></td></tr>
+            <tr><td><code>--caat-toast-error-accent</code></td><td>Error left-border colour</td><td><code>#dc3545</code></td></tr>
+            <tr><td><code>--caat-toast-info-accent</code></td><td>Info left-border colour</td><td><code>var(--caat-blue-700, #004a99)</code></td></tr>
+            <tr><td><code>--caat-toast-focus-ring</code></td><td>Focus ring on close button</td><td><code>var(--caat-focus, #005fcc)</code></td></tr>
+            <tr><td><code>--caat-toast-font-family</code></td><td>Font family</td><td><code>var(--caat-font-primary, 'Libre Franklin', sans-serif)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Title</strong></td><td>Text field</td><td>Yes</td><td>Short header text. Max 60 characters. E.g., "Success", "Session Expiring".</td></tr>
+            <tr><td><strong>Body</strong></td><td>Text area</td><td>Yes</td><td>Notification message. Max 200 characters. Keep concise and actionable.</td></tr>
+            <tr><td><strong>Variant</strong></td><td>Dropdown (default | success | warning | error | info)</td><td>Yes</td><td>Determines accent colour and header background.</td></tr>
+            <tr><td><strong>Icon</strong></td><td>Icon picker</td><td>No</td><td>Bootstrap Icon shown in the header (e.g., <code>bi-check-circle-fill</code>).</td></tr>
+            <tr><td><strong>Action Label</strong></td><td>Text field</td><td>No</td><td>Text for an optional action link in the body (e.g., "Undo", "View").</td></tr>
+            <tr><td><strong>Action URL</strong></td><td>Path picker</td><td>No</td><td>Destination for the action link. Required if Action Label is provided.</td></tr>
+            <tr><td><strong>Auto-dismiss</strong></td><td>Toggle (boolean)</td><td>No</td><td>Default: on. When enabled, toast auto-hides after the configured delay.</td></tr>
+            <tr><td><strong>Dismiss Delay</strong></td><td>Number (ms)</td><td>No</td><td>Default: 5000. Time in milliseconds before auto-dismiss. Minimum 3000.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li>Title and Body are mandatory; toast will not render without both.</li>
+        <li>Title max length: 60 characters.</li>
+        <li>Body max length: 200 characters.</li>
+        <li>Variant is required; defaults to "default" if not set.</li>
+        <li>If Action Label is provided, Action URL is also required (and vice-versa).</li>
+        <li>Dismiss Delay must be ≥ 3000 ms. Values below 3000 are clamped to 3000.</li>
+        <li>Error-variant toasts should default to <code>autohide: false</code> so members don't miss critical messages.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tone</strong></td><td>Brief, member-friendly. Use plain language. Lead with the outcome ("Profile updated") not the action ("We have updated your profile").</td></tr>
+            <tr><td><strong>Use Success for</strong></td><td>Confirmations — "Profile updated", "Beneficiary added", "Document uploaded".</td></tr>
+            <tr><td><strong>Use Warning for</strong></td><td>Non-critical alerts — "Session expiring in 5 min", "Incomplete form saved as draft".</td></tr>
+            <tr><td><strong>Use Error for</strong></td><td>Failures — "Unable to save changes", "Connection lost". Always provide guidance or retry option.</td></tr>
+            <tr><td><strong>Use Info for</strong></td><td>Neutral updates — "New statement available", "Scheduled maintenance tonight".</td></tr>
+            <tr><td><strong>Action links</strong></td><td>Use sparingly. One action per toast maximum. Label should be a verb — "Undo", "View", "Retry".</td></tr>
+            <tr><td><strong>Don't</strong></td><td>Use toasts for critical, blocking errors (use a modal instead). Don't stack more than 3 toasts at once. Don't use toasts for marketing or promotional content.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTL / Markup contract</p>
+<pre class="code-sample"><code>&lt;!-- Single toast --&gt;
+&lt;div class="caat-toast caat-toast--{variant} toast"
+     role="alert" aria-live="assertive" aria-atomic="true"
+     data-bs-autohide="{autohide}" data-bs-delay="{delay}"&gt;
+  &lt;div class="caat-toast__header toast-header"&gt;
+    &lt;i class="bi bi-{icon} caat-toast__icon" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;span class="caat-toast__title"&gt;{title}&lt;/span&gt;
+    &lt;small class="caat-toast__meta"&gt;{timestamp}&lt;/small&gt;
+    &lt;button type="button" class="caat-toast__close"
+            data-bs-dismiss="toast" aria-label="Close"&gt;
+      &lt;i class="bi bi-x" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="caat-toast__body"&gt;
+    {body}
+    &lt;a href="{actionUrl}" class="caat-toast__action"&gt;{actionLabel}&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Stacked toast container --&gt;
+&lt;div class="caat-toast-container" aria-live="polite"&gt;
+  &lt;!-- Individual .caat-toast elements injected here --&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+      <h3 class="mt-3">Key decisions</h3>
+      <ul>
+        <li><code>role="alert"</code> with <code>aria-live="assertive"</code> ensures screen readers announce the toast immediately.</li>
+        <li><code>aria-atomic="true"</code> ensures the entire toast content is announced as a single unit.</li>
+        <li>Close button uses <code>aria-label="Close"</code> for screen-reader accessibility.</li>
+        <li>Bootstrap's <code>.toast</code> class provides the show/hide JS behaviour; BEM classes layer CAAT styling on top.</li>
+        <li>The stacked container uses <code>aria-live="polite"</code> so new toasts don't interrupt the current announcement.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-toast</code></td><td>Base toast — font-family, border-radius, box-shadow, left-border accent, slide-in animation.</td></tr>
+            <tr><td><code>.caat-toast__header</code></td><td>Header bar — flex layout, background, bottom border, font-weight 600.</td></tr>
+            <tr><td><code>.caat-toast__icon</code></td><td>Leading icon in the header.</td></tr>
+            <tr><td><code>.caat-toast__title</code></td><td>Header title text — flex: 1 to fill available space.</td></tr>
+            <tr><td><code>.caat-toast__meta</code></td><td>Timestamp or supplementary text in header.</td></tr>
+            <tr><td><code>.caat-toast__close</code></td><td>Close button — transparent background, focus ring via <code>--caat-focus</code>.</td></tr>
+            <tr><td><code>.caat-toast__body</code></td><td>Body content area — padding, font-size 0.875rem.</td></tr>
+            <tr><td><code>.caat-toast__action</code></td><td>Action link inside body — underlined, blue-700 colour.</td></tr>
+            <tr><td><code>.caat-toast--success</code></td><td>Success variant — green left border, green-tinted header.</td></tr>
+            <tr><td><code>.caat-toast--warning</code></td><td>Warning variant — amber left border, amber-tinted header.</td></tr>
+            <tr><td><code>.caat-toast--error</code></td><td>Error variant — red left border, red-tinted header.</td></tr>
+            <tr><td><code>.caat-toast--info</code></td><td>Info variant — blue left border, blue-tinted header.</td></tr>
+            <tr><td><code>.caat-toast-container</code></td><td>Fixed bottom-right container for stacked toasts. <code>z-index: 1090</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="mt-3">Sample CSS</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>.caat-toast {
+  font-family: var(--caat-font-primary, 'Libre Franklin', sans-serif);
+  border-radius: var(--caat-radius, 0.375rem);
+  border-left: 4px solid var(--caat-blue-700, #004a99);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  color: var(--caat-ink, #212529);
+  animation: caat-toast-slide-in 0.3s ease-out;
+}
+
+.caat-toast--success { border-left-color: var(--caat-green, #198754); }
+.caat-toast--warning { border-left-color: #ffc107; }
+.caat-toast--error   { border-left-color: #dc3545; }
+.caat-toast--info    { border-left-color: var(--caat-blue-700, #004a99); }
+
+.caat-toast__close:focus-visible {
+  outline: 2px solid var(--caat-focus, #005fcc);
+  outline-offset: 2px;
+}
+
+.caat-toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1090;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 350px;
+}
+
+@keyframes caat-toast-slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ARIA live region</strong></td><td>Each toast uses <code>role="alert"</code> and <code>aria-live="assertive"</code> so screen readers announce it immediately upon display.</td></tr>
+            <tr><td><strong>Atomic announcement</strong></td><td><code>aria-atomic="true"</code> ensures the entire toast (title + body) is read as one unit.</td></tr>
+            <tr><td><strong>Close button</strong></td><td>Uses <code>aria-label="Close"</code>. Receives visible focus ring (<code>:focus-visible</code>) via <code>--caat-focus</code> token.</td></tr>
+            <tr><td><strong>Keyboard</strong></td><td>Close button is reachable via <kbd>Tab</kbd>. Pressing <kbd>Enter</kbd> or <kbd>Space</kbd> dismisses the toast.</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>All variant text meets WCAG 2.1 AA (4.5:1 minimum).</td></tr>
+            <tr><td><strong>Colour not sole indicator</strong></td><td>Variants pair colour with an icon and title text (e.g., "Error" + red + ✕ icon).</td></tr>
+            <tr><td><strong>Reduced motion</strong></td><td>Slide-in animation is disabled when <code>prefers-reduced-motion: reduce</code> is active.</td></tr>
+            <tr><td><strong>Auto-dismiss timing</strong></td><td>Minimum 5 000 ms delay. Error toasts should not auto-dismiss. Members can always dismiss manually.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Toasts are injected dynamically and are not part of the initial server-rendered HTML; they carry no SEO weight.</li>
+        <li>Action links inside toasts should use meaningful link text (e.g., "Undo beneficiary removal") rather than generic "Click here".</li>
+        <li>Toast content should not duplicate or compete with on-page heading/paragraph text.</li>
+        <li>Toast containers do not affect the document outline as they contain no heading elements.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>toast-displayed</strong></td>
+              <td>Toast becomes visible (<code>shown.bs.toast</code> event).</td>
+              <td><code>data-analytics-event="toast-displayed"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-title="{title}"</code></td>
+            </tr>
+            <tr>
+              <td><strong>toast-dismissed</strong></td>
+              <td>Toast is closed by the member or auto-dismissed.</td>
+              <td><code>data-analytics-event="toast-dismissed"</code>, <code>data-analytics-method="manual|auto"</code></td>
+            </tr>
+            <tr>
+              <td><strong>toast-action-click</strong></td>
+              <td>Member clicks the action link inside the toast body.</td>
+              <td><code>data-analytics-event="toast-action-click"</code>, <code>data-analytics-label="{actionLabel}"</code>, <code>data-analytics-url="{actionUrl}"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/toast</code></li>
+        <li><strong>Component group:</strong> CAAT Components – Feedback</li>
+        <li><strong>Proxy:</strong> Create as a proxy component under <code>/apps/caat/components/toast</code>.</li>
+        <li><strong>Policies:</strong> Configure allowed variants and auto-dismiss defaults per template via content policies.</li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.ToastModel</code> — exposes <code>title</code>, <code>body</code>, <code>variant</code>, <code>icon</code>, <code>actionLabel</code>, <code>actionUrl</code>, <code>autohide</code>, <code>delay</code>.</li>
+        <li><strong>HTL:</strong> <code>toast.html</code> — uses <code>data-sly-attribute</code> to set variant class and data attributes dynamically.</li>
+        <li><strong>Client library:</strong> <code>caat.components.toast</code> (categories: <code>caat.site</code>). Includes JS for Bootstrap Toast initialization.</li>
+        <li><strong>Render condition:</strong> Toast is rendered only when triggered by a server-side or client-side event — not displayed in the AEM editor preview by default.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (YAML)</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>title: Toast
+description: Lightweight non-blocking notification for member feedback.
+fields:
+  - name: title
+    label: Title
+    type: textfield
+    required: true
+    maxLength: 60
+    helpText: Short header text (e.g., "Success", "Session Expiring").
+
+  - name: body
+    label: Body
+    type: textarea
+    required: true
+    maxLength: 200
+    helpText: Notification message. Keep concise and actionable.
+
+  - name: variant
+    label: Variant
+    type: select
+    required: true
+    options:
+      - value: default
+        label: Default (Blue)
+      - value: success
+        label: Success (Green)
+      - value: warning
+        label: Warning (Amber)
+      - value: error
+        label: Error (Red)
+      - value: info
+        label: Info (Blue)
+    helpText: Determines accent colour and header background.
+
+  - name: icon
+    label: Icon
+    type: iconpicker
+    required: false
+    helpText: Bootstrap Icon for the header (e.g., bi-check-circle-fill).
+
+  - name: actionLabel
+    label: Action Label
+    type: textfield
+    required: false
+    maxLength: 30
+    helpText: Optional action link text (e.g., "Undo", "View").
+
+  - name: actionUrl
+    label: Action URL
+    type: pathpicker
+    required: false
+    helpText: Destination for the action link. Required if Action Label is set.
+
+  - name: autohide
+    label: Auto-dismiss
+    type: checkbox
+    required: false
+    defaultValue: true
+    helpText: Automatically hide the toast after the configured delay.
+
+  - name: delay
+    label: Dismiss Delay (ms)
+    type: numberfield
+    required: false
+    defaultValue: 5000
+    min: 3000
+    helpText: Time before auto-dismiss. Minimum 3000 ms.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> All four colour variants render correct left-border accent and header background.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Toast appears with slide-in animation from the right.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Animation is suppressed when <code>prefers-reduced-motion: reduce</code> is active.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Close button dismisses the toast and receives a visible focus ring on <kbd>Tab</kbd>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Auto-dismiss hides the toast after the configured delay (default 5 000 ms).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Error-variant toast does not auto-dismiss by default.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Action link ("Undo", "View") is keyboard-accessible and announces correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Screen reader (NVDA, VoiceOver) announces the toast title and body immediately on display.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Stacked toasts display in the bottom-right corner and stack vertically with spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled> No more than 3 toasts visible simultaneously (oldest removed when a 4th is triggered).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Colour contrast meets WCAG 2.1 AA (4.5:1) for all variants.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>toast-displayed</code>, <code>toast-dismissed</code>, <code>toast-action-click</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All four variant colours documented with accent tokens. Slide-in animation specified. Stacked layout pattern included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. JS initializes Bootstrap Toast API. Reduced-motion fallback in place. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on variant selection and auto-dismiss configuration. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Toast</h1>
+<p class="figma-page-subtitle">CAAT Design System · Notification variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Success</span><div class="figma-row-items"><div class="caat-toast caat-toast--success" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-check-circle-fill"></i></span><span class="caat-toast__title">Success</span><span class="caat-toast__meta">Just now</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Your changes have been saved.</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Warning</span><div class="figma-row-items"><div class="caat-toast caat-toast--warning" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-exclamation-triangle-fill"></i></span><span class="caat-toast__title">Warning</span><span class="caat-toast__meta">2m ago</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Session will expire in 5 minutes.</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Error</span><div class="figma-row-items"><div class="caat-toast caat-toast--error" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-x-circle-fill"></i></span><span class="caat-toast__title">Error</span><span class="caat-toast__meta">Just now</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Something went wrong. Please try again.</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Info</span><div class="figma-row-items"><div class="caat-toast caat-toast--info" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-info-circle-fill"></i></span><span class="caat-toast__title">Info</span><span class="caat-toast__meta">5m ago</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">A new report is available for download.</div></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
+    <div class="figma-spec"><strong>Container</strong>fixed bottom-right, max-width 350px</div>
+    <div class="figma-spec"><strong>Animation</strong>slide-in from right, 0.3s</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- Toast Demo JS -->
+<script>
+(function () {
+  // Stacked toasts demo
+  const triggerBtn = document.getElementById('caat-show-stacked-toasts');
+  const container = document.getElementById('caat-stacked-container');
+
+  if (!triggerBtn || !container) return;
+
+  const toastData = [
+    { variant: 'success', icon: 'bi-check-circle-fill', title: 'Success', body: 'Your profile has been updated.' },
+    { variant: 'warning', icon: 'bi-exclamation-triangle-fill', title: 'Warning', body: 'Session expiring in 5 minutes.' },
+    { variant: 'info', icon: 'bi-info-circle-fill', title: 'Info', body: 'New pension statement available.' }
+  ];
+
+  triggerBtn.addEventListener('click', function () {
+    // Clear previous toasts
+    container.innerHTML = '';
+
+    toastData.forEach(function (data, i) {
+      var el = document.createElement('div');
+      el.className = 'caat-toast caat-toast--' + data.variant + ' toast';
+      el.setAttribute('role', 'alert');
+      el.setAttribute('aria-live', 'assertive');
+      el.setAttribute('aria-atomic', 'true');
+      el.innerHTML =
+        '<div class="caat-toast__header toast-header">' +
+          '<i class="bi ' + data.icon + ' caat-toast__icon" aria-hidden="true"></i>' +
+          '<span class="caat-toast__title">' + data.title + '</span>' +
+          '<button type="button" class="caat-toast__close" data-bs-dismiss="toast" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>' +
+        '</div>' +
+        '<div class="caat-toast__body">' + data.body + '</div>';
+      container.appendChild(el);
+
+      // Initialize and show via Bootstrap Toast API
+      var bsToast = new bootstrap.Toast(el, { autohide: true, delay: 6000 + (i * 1000) });
+      bsToast.show();
+    });
+  });
+})();
+</script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

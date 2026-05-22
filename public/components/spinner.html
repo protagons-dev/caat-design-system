@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Spinner AEM Component Contract. Loading indicator for asynchronous operations across the CAAT Pension Plan member experience.">
+<title>Spinner | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/spinner.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link active" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Spinner</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Spinner</h1>
+      <p class="text-muted">Loading indicator for asynchronous operations across the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Spinner',['/assets/css/tokens.css','/assets/css/components/spinner.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Border spinner -->
+      <h3 class="mt-3 mb-2">Border Spinner</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex align-items-center gap-4">
+            <div class="caat-spinner caat-spinner--sm" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--lg" role="status"><span class="visually-hidden">Loading…</span></div>
+          </div>
+          <p class="demo-label mt-2">Small · Default · Large</p>
+        </div>
+      </div>
+
+      <!-- Variant 2 — Growing spinner -->
+      <h3 class="mt-3 mb-2">Growing Spinner</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex align-items-center gap-4">
+            <div class="caat-spinner caat-spinner--grow caat-spinner--sm" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--grow" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--grow caat-spinner--lg" role="status"><span class="visually-hidden">Loading…</span></div>
+          </div>
+          <p class="demo-label mt-2">Small · Default · Large</p>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Spinner with label -->
+      <h3 class="mt-3 mb-2">Spinner with Label</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-spinner__label" role="status">
+            <div class="caat-spinner caat-spinner--sm" aria-hidden="true"></div>
+            Loading your pension details&hellip;
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4 — Button with spinner -->
+      <h3 class="mt-3 mb-2">Button with Spinner</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <button class="caat-button caat-button--primary" type="button" disabled>
+            <span class="caat-spinner" aria-hidden="true"></span>
+            Processing&hellip;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Component Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Name</strong></td><td>Spinner</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/spinner</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Provides visual feedback during asynchronous operations — data fetches, form submissions, and page transitions — so members know the system is working.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Border (default), Growing, With Label, Button Integration</td></tr>
+            <tr><td><strong>Sizes</strong></td><td>Small (<code>--sm</code>, 1 rem), Default (2 rem), Large (<code>--lg</code>, 3 rem)</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new"><i class="bi bi-stars"></i> New</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. DESIGN TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (reference)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Default spinner colour</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Hover / active tint</td><td>#003F87</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Spinner track (light)</td><td>#D6E4F0</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Success state colour</td><td>#4E8542</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Reduced-motion fallback border</td><td>#E5E5E5</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring colour (button integration)</td><td>#1A73E8</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Label text colour</td><td>#212121</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border radius for button wrapper</td><td>0.375 rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Label font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>Options: <code>border</code> (default), <code>grow</code></td></tr>
+            <tr><td>Size</td><td>Select</td><td>No</td><td>Options: <code>sm</code>, <code>default</code>, <code>lg</code>. Defaults to <code>default</code>.</td></tr>
+            <tr><td>Accessible label</td><td>Text</td><td>Yes</td><td>Screen-reader text, e.g. "Loading pension details".</td></tr>
+            <tr><td>Visible label</td><td>Text</td><td>No</td><td>If provided, renders beside the spinner as <code>.caat-spinner__label</code>.</td></tr>
+            <tr><td>Colour override</td><td>Select</td><td>No</td><td>Options: <code>default</code>, <code>light</code>. Light uses <code>--caat-blue-100</code> for dark backgrounds.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Accessible label required</td><td>Field is empty</td><td>"Please provide an accessible label for the spinner."</td></tr>
+            <tr><td>Accessible label length</td><td>Exceeds 80 characters</td><td>"Accessible label must be 80 characters or fewer."</td></tr>
+            <tr><td>Visible label length</td><td>Exceeds 120 characters</td><td>"Visible label must be 120 characters or fewer."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li><strong>Always provide an accessible label</strong> — even if the spinner is purely decorative in a button, the button's own label must describe the loading state (e.g. "Processing…").</li>
+        <li><strong>Be specific</strong> — prefer "Loading your pension details…" over a generic "Loading…" so members know what to expect.</li>
+        <li><strong>Keep labels concise</strong> — aim for fewer than 40 characters for visible labels.</li>
+        <li><strong>Use spinners sparingly</strong> — if content loads in under 300 ms a spinner adds visual noise rather than reassurance. Defer rendering until a short delay has elapsed.</li>
+        <li><strong>Pair with disabled controls</strong> — when a spinner indicates a form submission, disable the submit button to prevent duplicate requests.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3">Border spinner (default)</h3>
+<pre class="bg-light p-3 rounded"><code>&lt;div class="caat-spinner" role="status"&gt;
+  &lt;span class="visually-hidden"&gt;Loading…&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-3">Growing spinner — large</h3>
+<pre class="bg-light p-3 rounded"><code>&lt;div class="caat-spinner caat-spinner--grow caat-spinner--lg" role="status"&gt;
+  &lt;span class="visually-hidden"&gt;Loading…&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-3">Spinner with visible label</h3>
+<pre class="bg-light p-3 rounded"><code>&lt;div class="caat-spinner__label" role="status"&gt;
+  &lt;div class="caat-spinner caat-spinner--sm" aria-hidden="true"&gt;&lt;/div&gt;
+  Loading your pension details&amp;hellip;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-3">Button with spinner</h3>
+<pre class="bg-light p-3 rounded"><code>&lt;button class="caat-button caat-button--primary" type="button" disabled&gt;
+  &lt;span class="caat-spinner" aria-hidden="true"&gt;&lt;/span&gt;
+  Processing&amp;hellip;
+&lt;/button&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-spinner</code></td><td>Base spinning ring — 2 rem, <code>--caat-blue-900</code> border, 0.75 s rotation.</td></tr>
+            <tr><td><code>.caat-spinner--sm</code></td><td>Small variant — 1 rem.</td></tr>
+            <tr><td><code>.caat-spinner--lg</code></td><td>Large variant — 3 rem.</td></tr>
+            <tr><td><code>.caat-spinner--grow</code></td><td>Growing (pulse) variant — uses scale animation instead of rotation.</td></tr>
+            <tr><td><code>.caat-spinner__label</code></td><td>Wrapper that places visible text inline beside the spinner.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2"><strong>Reduced motion:</strong> When <code>prefers-reduced-motion: reduce</code> is active, all animation stops and the spinner displays a static indicator with reduced opacity.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>ARIA role</td><td><code>role="status"</code> on the spinner or its label wrapper so assistive technology announces the loading state as a live region.</td></tr>
+            <tr><td>Screen-reader text</td><td>A <code>.visually-hidden</code> <code>&lt;span&gt;</code> inside standalone spinners provides a text alternative.</td></tr>
+            <tr><td>Button integration</td><td>Spinner inside a button uses <code>aria-hidden="true"</code>; the button's own text ("Processing…") serves as the accessible label.</td></tr>
+            <tr><td>Reduced motion</td><td><code>@media (prefers-reduced-motion: reduce)</code> stops all animation and shows a static visual indicator.</td></tr>
+            <tr><td>Colour contrast</td><td>Spinner border colour meets WCAG 2.1 AA non-text contrast (3 : 1) against white and light backgrounds.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO Considerations</h2>
+      <ul>
+        <li>Spinners are transient UI and carry no indexable content. No SEO markup is required.</li>
+        <li>Ensure that the content revealed after loading is present in the DOM (server-rendered or hydrated) so search-engine crawlers can index it.</li>
+        <li>Avoid rendering spinners on initial server-side HTML for content pages; use them only for client-side async operations.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Payload</th></tr></thead>
+          <tbody>
+            <tr><td><code>spinner-shown</code></td><td>Spinner becomes visible in the viewport.</td><td><code>{ variant, size, label }</code></td></tr>
+            <tr><td><code>spinner-duration</code></td><td>Spinner is removed or hidden.</td><td><code>{ variant, durationMs }</code> — elapsed time the spinner was visible.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2">Track long-running spinners (&gt; 5 s) as performance incidents in the analytics dashboard.</p>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li><strong>Proxy component</strong> — create at <code>/apps/caat/components/spinner</code>.</li>
+        <li><strong>HTL template</strong> — emit a <code>&lt;div&gt;</code> with BEM classes driven by dialog selections. Use <code>data-sly-attribute</code> for <code>role="status"</code>.</li>
+        <li><strong>Client library</strong> — category <code>caat.components.spinner</code>. Include <code>spinner.css</code> only; no JS dependency for CSS-only animation.</li>
+        <li><strong>Sling model</strong> — expose <code>variant</code>, <code>size</code>, <code>accessibleLabel</code>, <code>visibleLabel</code>, and <code>colourOverride</code>.</li>
+        <li><strong>Allowed parents</strong> — may be embedded inside Button, Card, Modal, and any container component.</li>
+        <li><strong>No JavaScript required</strong> — spinner animation is pure CSS. Toggle visibility via <code>hidden</code> attribute or class in consuming component JS.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (JSON)</h2>
+<pre class="bg-light p-3 rounded"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "content": {
+    "items": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["border", "grow"]
+      },
+      "size": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Size",
+        "name": "./size",
+        "options": ["sm", "default", "lg"]
+      },
+      "accessibleLabel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Accessible label",
+        "name": "./accessibleLabel",
+        "required": true,
+        "maxlength": 80
+      },
+      "visibleLabel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Visible label",
+        "name": "./visibleLabel",
+        "maxlength": 120
+      },
+      "colourOverride": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Colour override",
+        "name": "./colourOverride",
+        "options": ["default", "light"]
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Border spinner renders a smooth rotating ring in <code>--caat-blue-900</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) render at correct dimensions (1 rem, 2 rem, 3 rem).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Growing spinner pulses with scale animation.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Visible label sits inline beside the spinner with correct alignment.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Button-with-spinner variant shows spinner + "Processing…" text while disabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>role="status"</code> is announced by NVDA and VoiceOver.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>.visually-hidden</code> label is read by screen readers for standalone spinners.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Animation stops when <code>prefers-reduced-motion: reduce</code> is active; static indicator is visible.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Spinner colour meets WCAG 2.1 AA non-text contrast (3 : 1) against white.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>spinner-shown</code>, <code>spinner-duration</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. Border and growing variants documented with all sizes. Reduced-motion fallback included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. <code>role="status"</code> and visually-hidden labels wired. No JS dependency.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on accessible-label requirements. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Spinner</h1>
+<p class="figma-page-subtitle">CAAT Design System · Loading indicators</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Border Spinner</h2>
+  <div class="figma-row"><span class="figma-row-label">Small</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--sm" role="status"></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div class="caat-spinner" role="status"></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Large</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--lg" role="status"></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Growing Spinner</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--grow" role="status"></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Colour</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Size (sm)</strong>1rem</div>
+    <div class="figma-spec"><strong>Size (default)</strong>2rem</div>
+    <div class="figma-spec"><strong>Size (lg)</strong>3rem</div>
+    <div class="figma-spec"><strong>Border width</strong>0.2em</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

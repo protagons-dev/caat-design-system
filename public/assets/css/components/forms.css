@@ -1,0 +1,193 @@
+/* ==========================================================================
+   Form Component – CAAT Design System
+   Extends Bootstrap form classes with CAAT brand overrides.
+   Matches the monolith's Account Engagement form patterns.
+   ========================================================================== */
+
+/* --- Form wrapper --- */
+.caat-form {
+  font-family: var(--caat-font-primary);
+  max-width: 640px;
+}
+
+.caat-form--full-width {
+  max-width: none;
+}
+
+/* --- Bootstrap overrides: labels --- */
+.caat-form .form-label {
+  font-weight: 700;
+  color: var(--caat-blue-900, #003750);
+  font-size: 0.9rem;
+}
+
+/* --- Bootstrap overrides: inputs, selects, textareas --- */
+.caat-form .form-control,
+.caat-form .form-select {
+  min-height: 3.4rem;
+  font-family: var(--caat-font-primary);
+  border-radius: 0.375rem;
+}
+
+.caat-form textarea.form-control {
+  min-height: 7rem;
+}
+
+.caat-form .form-control:focus,
+.caat-form .form-select:focus {
+  border-color: var(--caat-blue-900, #003750);
+  box-shadow: var(--caat-focus);
+}
+
+/* --- Validation states (Bootstrap native) --- */
+.caat-form .is-valid {
+  border-color: var(--caat-green, #55a546) !important;
+}
+
+.caat-form .is-invalid {
+  border-color: var(--caat-danger) !important;
+}
+
+/* --- Checkbox / Radio overrides --- */
+.caat-form .form-check-input:checked {
+  background-color: var(--caat-blue-900, #003750);
+  border-color: var(--caat-blue-900, #003750);
+}
+
+.caat-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.caat-form__check input[type="checkbox"],
+.caat-form__check input[type="radio"] {
+  margin-top: 0.3rem;
+  accent-color: var(--caat-blue-900, #003750);
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* --- Multi-Step Progress --- */
+.caat-form__progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.caat-form__progress li {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--caat-muted);
+  counter-increment: step;
+}
+
+.caat-form__progress li::before {
+  content: counter(step);
+  display: block;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 auto 0.4rem;
+  border-radius: 50%;
+  background: var(--caat-grey-200, #dfe6ef);
+  color: var(--caat-muted);
+  line-height: 2.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.caat-form__progress li.active {
+  color: var(--caat-blue-900, #003750);
+}
+
+.caat-form__progress li.active::before {
+  background: var(--caat-blue-900, #003750);
+  color: #fff;
+}
+
+.caat-form__progress li.completed::before {
+  content: '\2713';
+  background: var(--caat-green, #55a546);
+  color: #fff;
+}
+
+/* connector line between steps */
+.caat-form__progress li + li::after {
+  content: '';
+  position: absolute;
+  top: 1.125rem;
+  left: calc(-50% + 1.125rem);
+  right: calc(50% + 1.125rem);
+  height: 2px;
+  background: var(--caat-grey-200, #dfe6ef);
+}
+
+.caat-form__progress li.completed + li::after,
+.caat-form__progress li.active + li::after {
+  background: var(--caat-green, #55a546);
+}
+
+/* --- Fieldset --- */
+.caat-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+/* --- Privacy / Consent --- */
+.caat-form__privacy {
+  font-size: 0.82rem;
+  color: var(--caat-muted);
+  line-height: 1.5;
+}
+
+.caat-form__privacy a {
+  color: var(--caat-blue-900, #003750);
+  text-decoration: underline;
+}
+
+/* --- reCAPTCHA placeholder --- */
+.caat-form__recaptcha {
+  font-size: 0.85rem;
+}
+
+/* --- Account Engagement variant --- */
+.caat-form--ae {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* --- Thank You Page --- */
+.caat-form__thank-you {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.caat-form__thank-you-icon {
+  font-size: 3rem;
+  color: var(--caat-green, #55a546);
+  margin-bottom: 1rem;
+}
+
+.caat-form__thank-you h1 {
+  font-weight: 800;
+  color: var(--caat-blue-900, #003750);
+  margin-bottom: 0.5rem;
+}
+
+/* --- Demo card --- */
+.demo-card {
+  background: #fff;
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-radius: var(--caat-radius);
+}

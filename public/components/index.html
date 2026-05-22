@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Browse foundations, components, and page templates.">
+<title>Component Library | CAAT Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<style>
+  .gallery-hero {
+    background: linear-gradient(135deg, var(--caat-blue-900) 0%, var(--caat-blue-700) 100%);
+    color: #fff;
+    padding: 3.5rem 0 3rem;
+  }
+  .gallery-hero .eyebrow { color: var(--caat-lime); }
+  .gallery-hero h1 { font-weight: 900; letter-spacing: -.03em; }
+  .gallery-hero .lead { color: var(--caat-blue-300); max-width: 52rem; }
+
+  .component-card {
+    border: 1px solid var(--caat-grey-200);
+    border-radius: var(--caat-radius);
+    background: #fff;
+    box-shadow: var(--caat-shadow-sm);
+    transition: box-shadow .2s ease, transform .2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  .component-card:hover {
+    box-shadow: var(--caat-shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: inherit;
+  }
+  .component-card .card-body { flex: 1; }
+  .component-card .card-title {
+    font-weight: 800; color: var(--caat-blue-900);
+    font-size: 1.05rem; margin-bottom: .35rem;
+  }
+  .component-card .card-text {
+    font-size: .88rem; color: var(--caat-muted); margin-bottom: 0;
+  }
+  .component-card .card-footer {
+    background: transparent;
+    border-top: 1px solid var(--caat-grey-200);
+    padding: .75rem 1.25rem;
+  }
+  .component-card .card-footer span {
+    font-weight: 700; font-size: .88rem; color: var(--caat-blue-700);
+  }
+
+  .section-heading {
+    font-weight: 900; color: var(--caat-blue-900);
+    letter-spacing: -.02em; margin-bottom: .5rem;
+  }
+  .section-sub {
+    color: var(--caat-muted); margin-bottom: 1.5rem;
+  }
+  .stat-row {
+    display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .stat-item strong {
+    font-size: 2rem; font-weight: 900; color: #fff; display: block; line-height: 1.1;
+  }
+  .stat-item span {
+    font-size: .82rem; color: var(--caat-blue-300);
+  }
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="gallery-hero" id="main">
+  <div class="container">
+    <p class="eyebrow">Component Library</p>
+    <h1 class="display-5 mb-3">CAAT Design System</h1>
+    <p class="lead mb-4">Foundations, components, and page templates — everything needed to build consistent, accessible CAAT experiences.</p>
+    <div class="stat-row">
+      <div class="stat-item"><strong>32</strong><span>Components</span></div>
+      <div class="stat-item"><strong>1</strong><span>Template</span></div>
+      <div class="stat-item"><strong>16</strong><span>Colour tokens</span></div>
+      <div class="stat-item"><strong>14</strong><span>Sections per contract</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR (sections nav) -->
+<aside class="component-page-sidebar" aria-label="Page navigation">
+  <p class="eyebrow mb-2">Sections</p>
+  <nav class="nav flex-column">
+    <a class="nav-link" href="#foundations">Foundations</a>
+    <a class="nav-link" href="#components">Components</a>
+    <a class="nav-link" href="#templates">Templates</a>
+  </nav>
+
+  <p class="eyebrow mb-2 mt-4">Foundations</p>
+  <nav class="nav flex-column">
+    <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+    <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+  </nav>
+</aside>
+
+
+<!-- ═══ FOUNDATIONS ═══ -->
+<section class="container py-5" id="foundations">
+  <h2 class="section-heading"><i class="bi bi-palette me-2"></i>Foundations</h2>
+  <p class="section-sub">Core design decisions that every component inherits.</p>
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/foundations/design-tokens.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title"><i class="bi bi-brush me-2" style="color:var(--caat-green);"></i>Design Tokens</h3>
+          <p class="card-text">Colour palette, typography, spacing, radius, shadows, focus ring, and Bootstrap overrides — the single source of truth.</p>
+        </div>
+        <div class="card-footer"><span>View tokens <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/foundations/page-layout.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title"><i class="bi bi-layout-three-columns me-2" style="color:var(--caat-green);"></i>Page Layout</h3>
+          <p class="card-text">Section rhythm, alternating backgrounds, spacing rules, and AEM layout container guidance for structuring pages.</p>
+        </div>
+        <div class="card-footer"><span>View layout guide <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ COMPONENTS ═══ -->
+<section class="container py-5" id="components" style="border-top: 1px solid var(--caat-grey-200);">
+  <h2 class="section-heading"><i class="bi bi-grid-3x3-gap me-2"></i>Components</h2>
+  <p class="section-sub">32 components, each with a 14-section AEM contract: live demos, authoring fields, CSS contracts, accessibility, SEO, analytics, and QA checklists.</p>
+  <div class="row g-4">
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/accordion.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Accordion</h3>
+          <p class="card-text">Progressive disclosure for FAQ, plan details, and help content.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/alerts.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Alerts</h3>
+          <p class="card-text">Contextual feedback messages for user actions and system states.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/article-layout.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Article Layout</h3>
+          <p class="card-text">Long-form content layout with sidebar and table of contents.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/badge.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Badge</h3>
+          <p class="card-text">Small count or labelling component for status and categories.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/blog-listing.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Blog Listing</h3>
+          <p class="card-text">Filterable grid of blog and article teasers.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/breadcrumb.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Breadcrumb</h3>
+          <p class="card-text">Hierarchical page-trail navigation.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/button.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Button</h3>
+          <p class="card-text">Call-to-action component for navigation, downloads, and forms.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/card.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Card</h3>
+          <p class="card-text">Grouped content with heading, image/icon, summary, and link.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/data-visualization.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Data Visualization</h3>
+          <p class="card-text">Bar charts, donut charts, and data display components.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/download.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Download</h3>
+          <p class="card-text">File download link with metadata and icon.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/dropdown.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Dropdown</h3>
+          <p class="card-text">Toggleable contextual menu for actions or navigation.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/feature-resource-hero.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Feature Resource Hero</h3>
+          <p class="card-text">Hero-level layout pairing a headline with a downloadable resource preview.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/forms.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Forms</h3>
+          <p class="card-text">Composable form patterns for contact, feedback, and submissions.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/hero.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Hero</h3>
+          <p class="card-text">Composable hero with image/gradient, card overlay, and stat strip.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/image-embed.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Image / Embed</h3>
+          <p class="card-text">Responsive images, video embeds, and media containers.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/list-group.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">List Group</h3>
+          <p class="card-text">Flexible list of content items with actions.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/logo-wall.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Logo Wall</h3>
+          <p class="card-text">Grid of employer or partner logos with optional marquee animation.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/modal.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Modal</h3>
+          <p class="card-text">Dialog overlay for focused interactions and confirmations.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/navigation.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Navigation</h3>
+          <p class="card-text">Header with mega menu, footer, and mobile navigation.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/offcanvas.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Offcanvas</h3>
+          <p class="card-text">Slide-in side panel for supplementary content.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/pagination.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Pagination</h3>
+          <p class="card-text">Navigation for multi-page content sets.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/popover.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Popover</h3>
+          <p class="card-text">Rich content popup triggered on click or focus.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/progress.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Progress</h3>
+          <p class="card-text">Visual indicator of task or process completion.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/search.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Search</h3>
+          <p class="card-text">Site search input with results layout.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/separator.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Separator</h3>
+          <p class="card-text">Visual divider between content sections.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/spinner.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Spinner</h3>
+          <p class="card-text">Loading indicator for asynchronous operations.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/tables.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Tables</h3>
+          <p class="card-text">Responsive data tables with sorting and filtering.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/tabs.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Tabs</h3>
+          <p class="card-text">Tabbed content panels for organizing related content.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/testimonials.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Testimonials</h3>
+          <p class="card-text">Member or employer quotes and social proof.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/text-title.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Text / Title</h3>
+          <p class="card-text">Rich text and heading components with type scale and style options.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/toast.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Toast</h3>
+          <p class="card-text">Lightweight, non-blocking notification.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/components/tooltip.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Tooltip</h3>
+          <p class="card-text">Contextual hover/focus information popup.</p>
+        </div>
+        <div class="card-footer"><span>View contract <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ TEMPLATES ═══ -->
+<section class="container py-5" id="templates" style="border-top: 1px solid var(--caat-grey-200);">
+  <h2 class="section-heading"><i class="bi bi-layout-text-window-reverse me-2"></i>Page Templates</h2>
+  <p class="section-sub">Full page compositions built entirely from design system components — demonstrating how components assemble into real pages.</p>
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-4">
+      <a href="/templates/pensions-matter.html" class="component-card card">
+        <div class="card-body p-4">
+          <h3 class="card-title">Pensions Matter</h3>
+          <p class="card-text">Marketing landing page with hero, stat strips, data visualizations, testimonials, video, logo wall, and CTA sections.</p>
+        </div>
+        <div class="card-footer"><span>View template <i class="bi bi-arrow-right"></i></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/foundations/design-tokens.html" class="me-3">Design Tokens</a>
+        <a href="/components/" class="me-3">Components</a>
+        <a href="/templates/pensions-matter.html">Pensions Matter</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

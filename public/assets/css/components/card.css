@@ -1,0 +1,102 @@
+/* ============================================================
+   CAAT Card — Component CSS
+   AEM client library: caat/components/card/clientlibs/css
+   Depends on: tokens.css
+   ============================================================ */
+
+.caat-card {
+  border: 1px solid var(--caat-grey-200);
+  border-radius: var(--caat-radius);
+  background: #fff;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.caat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--caat-shadow);
+  border-color: var(--caat-blue-300);
+}
+
+/* ── Icon token ────────────────────────────────────────────── */
+.caat-card .icon-token {
+  width: 3rem; height: 3rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--caat-blue-100); color: var(--caat-blue-900);
+  font-size: 1.5rem; margin: 0 auto 1rem;
+}
+.caat-card .icon-token.green {
+  background: var(--caat-green-100); color: var(--caat-green-700);
+}
+
+/* ── Image card ────────────────────────────────────────────── */
+.caat-card-image {
+  display: block; width: 100%; height: 12rem;
+  object-fit: cover; background: var(--caat-grey);
+}
+.caat-card-image.tall { height: 16rem; }
+.caat-card-image.compact { height: 9rem; }
+
+/* ── Kicker ────────────────────────────────────────────────── */
+.caat-card-kicker {
+  display: block; color: var(--caat-blue-700);
+  font-size: .78rem; text-transform: uppercase;
+  letter-spacing: .05em; font-weight: 900; margin-bottom: .35rem;
+}
+
+/* ── Media overlay variant ─────────────────────────────────── */
+.caat-card-media-overlay {
+  position: relative; min-height: 17rem;
+  border-radius: var(--caat-radius-lg); overflow: hidden;
+  background: linear-gradient(135deg, var(--caat-blue-100), var(--caat-blue-300));
+}
+.caat-card-media-overlay img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.caat-card-media-overlay .overlay-panel {
+  position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
+  background: rgba(0,55,80,.92); color: #fff;
+  border-radius: var(--caat-radius); padding: 1rem;
+}
+
+/* Also support Bootstrap card-img-overlay pattern */
+.caat-card--overlay {
+  position: relative; overflow: hidden;
+  border: 0; border-radius: var(--caat-radius-lg);
+}
+.caat-card--overlay .card-img {
+  width: 100%; min-height: 17rem; object-fit: cover;
+}
+.caat-card--overlay::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,55,80,.88) 0%, rgba(0,55,80,.55) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+.caat-card--overlay .card-img-overlay {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.25rem;
+  z-index: 2;
+  background: none;
+}
+.caat-card--overlay .card-img-overlay h3,
+.caat-card--overlay .card-img-overlay p,
+.caat-card--overlay .card-img-overlay a,
+.caat-card--overlay .card-img-overlay span { color: #fff; }
+.caat-card--overlay .card-img-overlay h3 { font-weight: 800; letter-spacing: -.02em; font-size: 1.35rem; margin-bottom: .35rem; }
+.caat-card--overlay .card-img-overlay p { color: rgba(255,255,255,.88); font-size: .9rem; margin-bottom: .5rem; }
+.caat-card--overlay .card-img-overlay a { font-weight: 700; text-decoration: underline; }
+.caat-card--overlay .caat-card-kicker { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; margin-bottom: .25rem; }
+
+/* ── Card grid ─────────────────────────────────────────────── */
+.caat-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+}
+
+@media (max-width: 575.98px) {
+  .caat-card-media-overlay { min-height: 20rem; }
+  .caat-card-grid { grid-template-columns: 1fr; }
+}

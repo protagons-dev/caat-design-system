@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Breadcrumb Component – CAAT Design System
+   ========================================================================== */
+
+.caat-breadcrumb {
+  font-family: var(--caat-font-primary);
+  font-size: 0.85rem;
+}
+
+.caat-breadcrumb .breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.caat-breadcrumb .breadcrumb-item a {
+  color: var(--caat-blue-900, #003750);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.caat-breadcrumb .breadcrumb-item a:hover {
+  color: var(--caat-blue-700, #0b5a80);
+  text-decoration: underline;
+}
+
+.caat-breadcrumb .breadcrumb-item a:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.caat-breadcrumb .breadcrumb-item.active {
+  color: var(--caat-muted);
+  font-weight: 400;
+}
+
+/* --- Custom separator (chevron via --bs-breadcrumb-divider) --- */
+/* The chevron is set via inline style --bs-breadcrumb-divider on the <nav>.
+   No CSS override needed — Bootstrap handles it automatically. */
+
+/* --- Truncated breadcrumb --- */
+.caat-breadcrumb--truncated .breadcrumb-item--ellipsis {
+  color: var(--caat-muted);
+  pointer-events: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 575.98px) {
+  .caat-breadcrumb .breadcrumb {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .caat-breadcrumb .breadcrumb::-webkit-scrollbar {
+    display: none;
+  }
+}

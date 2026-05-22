@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Table Component – CAAT Design System
+   ========================================================================== */
+
+/* --- Wrapper for responsive overflow --- */
+.caat-table__wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+  border-radius: var(--caat-radius);
+  border: 1px solid var(--caat-grey-200, #dfe6ef);
+}
+
+/* --- Base Table --- */
+.caat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--caat-font-primary);
+  font-size: 0.9rem;
+}
+
+.caat-table__caption {
+  caption-side: top;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--caat-blue-900, #003750);
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+/* --- Header --- */
+.caat-table thead th {
+  background: var(--caat-blue-900, #003750);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* --- Body Cells --- */
+.caat-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+  color: var(--caat-ink, #102637);
+  vertical-align: top;
+}
+
+/* --- Striped --- */
+.caat-table--striped tbody tr:nth-child(even) {
+  background-color: var(--caat-grey);
+}
+
+/* --- Hover --- */
+.caat-table--hover tbody tr:hover {
+  background-color: var(--caat-blue-100, #e7f4fb);
+}
+
+/* --- Sortable Header Button --- */
+.caat-table__sort-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+}
+
+.caat-table__sort-btn:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.caat-table__sort-btn .sort-icon {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.caat-table__sort-btn[aria-sort="ascending"] .sort-icon,
+.caat-table__sort-btn[aria-sort="descending"] .sort-icon {
+  opacity: 1;
+}
+
+/* --- Responsive Stacked (mobile) --- */
+@media (max-width: 767.98px) {
+  .caat-table--stacked thead {
+    display: none;
+  }
+
+  .caat-table--stacked tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid var(--caat-grey-200, #dfe6ef);
+    border-radius: var(--caat-radius);
+    padding: 0.75rem;
+  }
+
+  .caat-table--stacked tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--caat-grey-200);
+  }
+
+  .caat-table--stacked tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .caat-table--stacked tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--caat-blue-900, #003750);
+    margin-right: 1rem;
+  }
+}

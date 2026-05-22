@@ -1,0 +1,190 @@
+/* ════════════════════════════════════════════════════════════
+   CAAT Design System — Progress Component
+   BEM: .caat-progress
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Base track ─────────────────────────────────────────── */
+.caat-progress {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 0.75rem;
+  background-color: var(--caat-grey-200);
+  border-radius: var(--caat-radius);
+  font-family: var(--caat-font-primary);
+}
+
+/* Size modifiers */
+.caat-progress--sm { height: 0.5rem; }
+.caat-progress--lg { height: 1rem; }
+
+/* ── Bar fill ───────────────────────────────────────────── */
+.caat-progress__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--caat-blue-900);
+  border-radius: var(--caat-radius);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: width 0.4s ease;
+}
+
+/* Colour variants */
+.caat-progress__bar--success { background-color: var(--caat-green-700); }
+.caat-progress__bar--warning { background-color: var(--caat-warning-dark); }
+.caat-progress__bar--danger  { background-color: var(--caat-danger-dark); }
+
+/* ── Label (above or inside bar) ────────────────────────── */
+.caat-progress__label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--caat-ink);
+  font-family: var(--caat-font-primary);
+}
+
+.caat-progress__label--inline {
+  display: inline;
+  margin-bottom: 0;
+}
+
+/* ── Striped animation ──────────────────────────────────── */
+.caat-progress__bar--striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,.15) 50%,
+    rgba(255,255,255,.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.caat-progress__bar--animated {
+  animation: caat-progress-stripes 1s linear infinite;
+}
+
+@keyframes caat-progress-stripes {
+  0%  { background-position: 1rem 0; }
+  100% { background-position: 0 0; }
+}
+
+/* ── Stepped progress ───────────────────────────────────── */
+.caat-progress-stepped {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: var(--caat-font-primary);
+}
+
+.caat-progress-stepped__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  text-align: center;
+}
+
+/* Connector lines between steps — drawn as ::before (left half) and ::after (right half) */
+.caat-progress-stepped__step::before,
+.caat-progress-stepped__step::after {
+  content: "";
+  position: absolute;
+  top: calc(1rem - 1px);
+  height: 2px;
+  background-color: var(--caat-grey-200);
+  z-index: 0;
+}
+
+.caat-progress-stepped__step::before {
+  left: 0;
+  right: 50%;
+}
+
+.caat-progress-stepped__step::after {
+  left: 50%;
+  right: 0;
+}
+
+/* Hide outer edges of first/last step connectors */
+.caat-progress-stepped__step:first-child::before { display: none; }
+.caat-progress-stepped__step:last-child::after { display: none; }
+
+/* Completed step: both halves filled blue */
+.caat-progress-stepped__step--completed::before,
+.caat-progress-stepped__step--completed::after {
+  background-color: var(--caat-blue-900);
+}
+
+/* Active step: left half filled (connecting from completed) */
+.caat-progress-stepped__step--active::before {
+  background-color: var(--caat-blue-900);
+}
+
+/* Circle indicator */
+.caat-progress-stepped__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--caat-grey-200);
+  color: var(--caat-ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid var(--caat-grey-200);
+  position: relative;
+  z-index: 2;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Step label */
+.caat-progress-stepped__label {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--caat-ink);
+}
+
+/* Completed state */
+.caat-progress-stepped__step--completed .caat-progress-stepped__indicator {
+  background-color: var(--caat-blue-900);
+  border-color: var(--caat-blue-900);
+  color: #fff;
+}
+
+/* Active state */
+.caat-progress-stepped__step--active .caat-progress-stepped__indicator {
+  background-color: #fff;
+  border-color: var(--caat-blue-900);
+  color: var(--caat-blue-900);
+  box-shadow: var(--caat-focus);
+}
+
+.caat-progress-stepped__step--active .caat-progress-stepped__label {
+  font-weight: 700;
+  color: var(--caat-blue-900);
+}
+
+/* ── Focus visible for interactive stepped indicators ──── */
+.caat-progress-stepped__indicator:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
+}

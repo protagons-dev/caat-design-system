@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Progress AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>Progress | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/progress.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link active" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Progress</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Progress</h1>
+      <p class="text-muted">Visual task and process completion indicators for the CAAT Pension Plan member experience. Used to communicate step-by-step progress and percentage-based completion states.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Progress',['/assets/css/tokens.css','/assets/css/components/progress.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Basic progress bar -->
+      <h3 class="mt-3 mb-2">Basic Progress Bar</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="mb-3">
+            <div class="caat-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="0% complete">
+              <div class="caat-progress__bar" style="width:0%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="caat-progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" aria-label="25% complete">
+              <div class="caat-progress__bar" style="width:25%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="caat-progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="50% complete">
+              <div class="caat-progress__bar" style="width:50%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="caat-progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="75% complete">
+              <div class="caat-progress__bar" style="width:75%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="caat-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="100% complete">
+              <div class="caat-progress__bar" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 2 — With label -->
+      <h3 class="mb-2">With Label</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="mb-3">
+            <span class="caat-progress__label">Profile completion — 65%</span>
+            <div class="caat-progress caat-progress--lg" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" aria-label="Profile completion 65%">
+              <div class="caat-progress__bar" style="width:65%">65%</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="caat-progress__label">Documents uploaded — 40%</span>
+            <div class="caat-progress caat-progress--lg" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-label="Documents uploaded 40%">
+              <div class="caat-progress__bar" style="width:40%">40%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 3 — Colour variants -->
+      <h3 class="mb-2">Colour Variants</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <div class="mb-3">
+            <span class="caat-progress__label">Default (blue-900)</span>
+            <div class="caat-progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="60% complete">
+              <div class="caat-progress__bar" style="width:60%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span class="caat-progress__label">Success (green)</span>
+            <div class="caat-progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="100% complete">
+              <div class="caat-progress__bar caat-progress__bar--success" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span class="caat-progress__label">Warning (amber)</span>
+            <div class="caat-progress" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" aria-label="45% complete">
+              <div class="caat-progress__bar caat-progress__bar--warning" style="width:45%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span class="caat-progress__label">Danger (red)</span>
+            <div class="caat-progress" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" aria-label="20% complete">
+              <div class="caat-progress__bar caat-progress__bar--danger" style="width:20%"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <span class="caat-progress__label">Striped &amp; animated</span>
+            <div class="caat-progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="70% complete">
+              <div class="caat-progress__bar caat-progress__bar--striped caat-progress__bar--animated" style="width:70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant 4 — Stepped progress -->
+      <h3 class="mb-2">Stepped Progress</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <ol class="caat-progress-stepped" aria-label="Application progress">
+            <li class="caat-progress-stepped__step caat-progress-stepped__step--completed">
+              <span class="caat-progress-stepped__indicator" aria-hidden="true"><i class="bi bi-check"></i></span>
+              <span class="caat-progress-stepped__label">Personal Info</span>
+            </li>
+            <li class="caat-progress-stepped__step caat-progress-stepped__step--active" aria-current="step">
+              <span class="caat-progress-stepped__indicator" aria-hidden="true">2</span>
+              <span class="caat-progress-stepped__label">Plan Details</span>
+            </li>
+            <li class="caat-progress-stepped__step">
+              <span class="caat-progress-stepped__indicator" aria-hidden="true">3</span>
+              <span class="caat-progress-stepped__label">Confirmation</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Basic progress --&gt;
+&lt;div class="caat-progress" role="progressbar"
+     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+     aria-label="50% complete"&gt;
+  &lt;div class="caat-progress__bar" style="width:50%"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- With label --&gt;
+&lt;span class="caat-progress__label"&gt;Profile — 65%&lt;/span&gt;
+&lt;div class="caat-progress caat-progress--lg" role="progressbar"
+     aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"&gt;
+  &lt;div class="caat-progress__bar" style="width:65%"&gt;65%&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Stepped progress --&gt;
+&lt;ol class="caat-progress-stepped" aria-label="Application progress"&gt;
+  &lt;li class="caat-progress-stepped__step caat-progress-stepped__step--completed"&gt;
+    &lt;span class="caat-progress-stepped__indicator"&gt;&lt;i class="bi bi-check"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Personal Info&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="caat-progress-stepped__step caat-progress-stepped__step--active" aria-current="step"&gt;
+    &lt;span class="caat-progress-stepped__indicator"&gt;2&lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Plan Details&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="caat-progress-stepped__step"&gt;
+    &lt;span class="caat-progress-stepped__indicator"&gt;3&lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Confirmation&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Progress</td></tr>
+            <tr><td><strong>AEM Resource Type</strong></td><td><code>caat/components/progress</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Displays visual completion status for tasks, multi-step processes, and file uploads in the CAAT member portal.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Basic bar · Labelled bar · Colour variants (success, warning, danger) · Stepped progress · Striped / animated</td></tr>
+            <tr><td><strong>Sizes</strong></td><td>Small (0.5 rem) · Default (0.75 rem) · Large (1 rem)</td></tr>
+            <tr><td><strong>Contains</strong></td><td>Track, fill bar, optional label, optional step indicators</td></tr>
+            <tr><td><strong>Used in</strong></td><td>Member onboarding, document upload, pension calculator, application forms</td></tr>
+            <tr><td><strong>Figma</strong></td><td>CAAT DS / Components / Progress</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Default bar fill</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Hover / focus accent</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Light background tint</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Success bar</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-green-700</code></td><td>Success bar (dark)</td><td>#1B6D30</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Track background</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on stepped indicator</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Label text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Border-radius for track and bar</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>bar | stepped</td></tr>
+            <tr><td>Value (%)</td><td>Number</td><td>Yes (bar)</td><td>0 – 100. Drives <code>width</code> and <code>aria-valuenow</code>.</td></tr>
+            <tr><td>Accessible label</td><td>Text</td><td>Yes</td><td>Populates <code>aria-label</code>, e.g.&nbsp;"Profile completion 65%".</td></tr>
+            <tr><td>Show percentage label</td><td>Toggle</td><td>No</td><td>Renders visible percentage text inside or above the bar.</td></tr>
+            <tr><td>Label text</td><td>Text</td><td>No</td><td>Descriptive label rendered above the bar.</td></tr>
+            <tr><td>Colour</td><td>Select</td><td>No</td><td>default | success | warning | danger</td></tr>
+            <tr><td>Size</td><td>Select</td><td>No</td><td>sm | default | lg</td></tr>
+            <tr><td>Striped</td><td>Toggle</td><td>No</td><td>Adds striped background pattern.</td></tr>
+            <tr><td>Animated</td><td>Toggle</td><td>No</td><td>Adds animation to striped bar.</td></tr>
+            <tr><td>Steps (stepped)</td><td>Multifield</td><td>Yes (stepped)</td><td>Each step: label (text), status (completed | active | upcoming).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Value must be between 0 and 100.</td><td>"Enter a value between 0 and 100."</td></tr>
+            <tr><td>Accessible label is required.</td><td>"Provide an accessible label for screen readers."</td></tr>
+            <tr><td>Stepped variant requires at least 2 steps.</td><td>"Add at least two steps."</td></tr>
+            <tr><td>Each step must have a label.</td><td>"Every step requires a label."</td></tr>
+            <tr><td>Exactly one step may be <code>active</code>.</td><td>"Only one step can be marked as active."</td></tr>
+            <tr><td>Animated requires Striped to be enabled.</td><td>"Enable Striped before enabling Animated."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Use concise, descriptive labels: <em>"Profile completion — 65%"</em> rather than <em>"65%"</em> alone.</li>
+        <li>For stepped progress, limit steps to 3 – 5 to avoid visual clutter on mobile.</li>
+        <li>Step labels should be short (1 – 3 words): <em>"Personal Info"</em>, <em>"Plan Details"</em>, <em>"Confirmation"</em>.</li>
+        <li>Always provide an accessible label that makes sense without visual context.</li>
+        <li>Use colour variants semantically: green for success/complete, amber for in-progress warnings, red for errors.</li>
+        <li>Striped/animated bars are best for indeterminate or in-progress states — avoid on static values.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Bar variant</h3>
+<pre class="code-sample"><code>&lt;!-- Optional visible label --&gt;
+&lt;span class="caat-progress__label" id="prog-label-1"&gt;Profile — 65%&lt;/span&gt;
+
+&lt;div class="caat-progress caat-progress--lg"
+     role="progressbar"
+     aria-valuenow="65"
+     aria-valuemin="0"
+     aria-valuemax="100"
+     aria-labelledby="prog-label-1"&gt;
+  &lt;div class="caat-progress__bar" style="width:65%"&gt;65%&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">Stepped variant</h3>
+<pre class="code-sample"><code>&lt;ol class="caat-progress-stepped" aria-label="Application progress"&gt;
+  &lt;li class="caat-progress-stepped__step caat-progress-stepped__step--completed"&gt;
+    &lt;span class="caat-progress-stepped__indicator" aria-hidden="true"&gt;
+      &lt;i class="bi bi-check"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Personal Info&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="caat-progress-stepped__step caat-progress-stepped__step--active"
+      aria-current="step"&gt;
+    &lt;span class="caat-progress-stepped__indicator" aria-hidden="true"&gt;2&lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Plan Details&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class="caat-progress-stepped__step"&gt;
+    &lt;span class="caat-progress-stepped__indicator" aria-hidden="true"&gt;3&lt;/span&gt;
+    &lt;span class="caat-progress-stepped__label"&gt;Confirmation&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-progress</code></td><td>Track container. Sets height, background, border-radius.</td></tr>
+            <tr><td><code>.caat-progress--sm</code></td><td>Small height (0.5 rem).</td></tr>
+            <tr><td><code>.caat-progress--lg</code></td><td>Large height (1 rem).</td></tr>
+            <tr><td><code>.caat-progress__bar</code></td><td>Fill bar. Width set via inline style. Smooth transition.</td></tr>
+            <tr><td><code>.caat-progress__bar--success</code></td><td>Green fill.</td></tr>
+            <tr><td><code>.caat-progress__bar--warning</code></td><td>Amber fill.</td></tr>
+            <tr><td><code>.caat-progress__bar--danger</code></td><td>Red fill.</td></tr>
+            <tr><td><code>.caat-progress__bar--striped</code></td><td>Diagonal stripe background-image.</td></tr>
+            <tr><td><code>.caat-progress__bar--animated</code></td><td>Infinite stripe animation.</td></tr>
+            <tr><td><code>.caat-progress__label</code></td><td>Visible label above or beside the bar.</td></tr>
+            <tr><td><code>.caat-progress-stepped</code></td><td>Stepped container (ordered list). Flexbox with connector line.</td></tr>
+            <tr><td><code>.caat-progress-stepped__step</code></td><td>Individual step item.</td></tr>
+            <tr><td><code>.caat-progress-stepped__step--completed</code></td><td>Completed step (blue-900 circle, check icon).</td></tr>
+            <tr><td><code>.caat-progress-stepped__step--active</code></td><td>Current step (outlined circle, focus ring).</td></tr>
+            <tr><td><code>.caat-progress-stepped__indicator</code></td><td>Circle with step number or check icon.</td></tr>
+            <tr><td><code>.caat-progress-stepped__label</code></td><td>Step label text below the circle.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Role</td><td><code>role="progressbar"</code> on <code>.caat-progress</code>.</td></tr>
+            <tr><td>Value</td><td><code>aria-valuenow</code>, <code>aria-valuemin="0"</code>, <code>aria-valuemax="100"</code>.</td></tr>
+            <tr><td>Label</td><td><code>aria-label</code> or <code>aria-labelledby</code> describing the purpose and current value.</td></tr>
+            <tr><td>Stepped — current</td><td><code>aria-current="step"</code> on the active step <code>&lt;li&gt;</code>.</td></tr>
+            <tr><td>Stepped — list</td><td>Use <code>&lt;ol&gt;</code> so screen readers announce step count and position.</td></tr>
+            <tr><td>Colour contrast</td><td>Bar fills meet 3:1 against track background per WCAG 1.4.11 (non-text contrast).</td></tr>
+            <tr><td>Motion</td><td>Striped animation respects <code>prefers-reduced-motion: reduce</code> (pause animation).</td></tr>
+            <tr><td>Focus</td><td>Stepped indicators receive visible <code>:focus-visible</code> ring when interactive.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Progress bars are presentational UI — no unique SEO value. Ensure surrounding headings and text provide context.</li>
+        <li>Stepped progress labels should use plain text (not images) so content is indexable.</li>
+        <li>Avoid relying solely on colour to convey meaning; labels and ARIA attributes handle this.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>progress-viewed</code></td>
+              <td>Component enters viewport.</td>
+              <td><code>data-analytics-value</code> (current %), <code>data-analytics-variant</code> (bar | stepped)</td>
+            </tr>
+            <tr>
+              <td><code>progress-complete</code></td>
+              <td>Bar reaches 100% or final step marked completed.</td>
+              <td><code>data-analytics-label</code> (accessible label)</td>
+            </tr>
+            <tr>
+              <td><code>progress-step-change</code></td>
+              <td>Active step changes (stepped variant).</td>
+              <td><code>data-analytics-step</code> (step index), <code>data-analytics-step-label</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/progress</code></li>
+        <li><strong>Sling Model:</strong> <code>ProgressModel</code> — exposes <code>value</code>, <code>label</code>, <code>colour</code>, <code>size</code>, <code>variant</code>, <code>steps[]</code>.</li>
+        <li><strong>HTL template:</strong> <code>progress.html</code> — uses <code>data-sly-test</code> to switch between bar and stepped variants.</li>
+        <li><strong>Client library:</strong> <code>caat.components.progress</code> — CSS only; no JS required for bar variant. Stepped variant JS optional for dynamic step advancement.</li>
+        <li><strong>Policy:</strong> Authors can restrict available colour variants and size options per template policy.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Form Container, Card Body.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["bar", "stepped"]
+      },
+      "value": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/numberfield",
+        "label": "Value (%)",
+        "name": "./value",
+        "min": 0,
+        "max": 100,
+        "required": true
+      },
+      "accessibleLabel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Accessible label",
+        "name": "./accessibleLabel",
+        "required": true
+      },
+      "showLabel": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Show percentage label",
+        "name": "./showLabel"
+      },
+      "labelText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Label text",
+        "name": "./labelText"
+      },
+      "colour": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Colour",
+        "name": "./colour",
+        "options": ["default", "success", "warning", "danger"]
+      },
+      "size": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Size",
+        "name": "./size",
+        "options": ["sm", "default", "lg"]
+      },
+      "striped": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Striped",
+        "name": "./striped"
+      },
+      "animated": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Animated",
+        "name": "./animated"
+      },
+      "steps": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
+        "label": "Steps",
+        "name": "./steps",
+        "fields": {
+          "stepLabel": { "type": "textfield", "label": "Step label" },
+          "stepStatus": { "type": "select", "label": "Status", "options": ["completed","active","upcoming"] }
+        }
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Bar renders at 0%, 25%, 50%, 75%, and 100% with correct width.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) render at correct heights.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Colour variants (default, success, warning, danger) display correct fill colours.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Striped bar shows diagonal pattern; animated stripe moves continuously.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Animation pauses when <code>prefers-reduced-motion: reduce</code> is active.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>role="progressbar"</code> and <code>aria-valuenow</code> are announced correctly by NVDA and VoiceOver.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Stepped variant renders completed, active, and upcoming states correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>aria-current="step"</code> is present on the active step.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Connector line between steps is visually continuous and sits behind indicators.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Stepped indicator focus ring is visible on keyboard navigation.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Bar does not render if value is missing (validation enforced in dialog).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>progress-viewed</code>, <code>progress-complete</code>, <code>progress-step-change</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. Bar and stepped variants documented with all size and colour options. Striped/animated patterns included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. <code>role="progressbar"</code> and ARIA attributes wired. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on variant selection and accessible label requirements. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Progress</h1>
+<p class="figma-page-subtitle">CAAT Design System · Bar and stepped variants</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Bar Variants</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar" style="width:60%;">60%</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Success</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar caat-progress__bar--success" style="width:80%;">80%</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Warning</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar caat-progress__bar--warning" style="width:45%;">45%</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Danger</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar caat-progress__bar--danger" style="width:20%;">20%</div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Striped</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar caat-progress__bar--striped" style="width:70%;">70%</div></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Sizes</h2>
+  <div class="figma-row"><span class="figma-row-label">Small</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress caat-progress--sm"><div class="caat-progress__bar" style="width:50%;"></div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress"><div class="caat-progress__bar" style="width:50%;"></div></div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Large</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-progress caat-progress--lg"><div class="caat-progress__bar" style="width:50%;">50%</div></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Track bg</strong>var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Bar bg</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Height (sm)</strong>0.5rem</div>
+    <div class="figma-spec"><strong>Height (default)</strong>0.75rem</div>
+    <div class="figma-spec"><strong>Height (lg)</strong>1rem</div>
+    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

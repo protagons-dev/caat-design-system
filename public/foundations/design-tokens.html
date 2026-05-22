@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Design Tokens. Complete reference for colour, typography, spacing, shadow, and radius tokens.">
+<title>Design Tokens | CAAT Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<style>
+/* ── Token page specific styles ── */
+.token-swatch {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--caat-radius);
+  border: 1px solid var(--caat-grey-200);
+  vertical-align: middle;
+}
+.token-swatch--lg {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: var(--caat-radius);
+  margin-bottom: .5rem;
+}
+.token-card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: var(--caat-radius);
+  border: 1px solid var(--caat-grey-200);
+  background: #fff;
+  transition: box-shadow .15s ease;
+}
+.token-card:hover {
+  box-shadow: var(--caat-shadow-sm);
+}
+.token-card code {
+  display: block;
+  font-size: .75rem;
+  color: var(--caat-muted);
+  margin-top: .25rem;
+}
+.token-card strong {
+  font-size: .82rem;
+  color: var(--caat-ink);
+}
+.shadow-demo {
+  width: 100%;
+  height: 4rem;
+  border-radius: var(--caat-radius);
+  background: #fff;
+}
+.radius-demo {
+  width: 4rem;
+  height: 4rem;
+  background: var(--caat-blue-100);
+  border: 2px solid var(--caat-blue-300);
+}
+.font-sample {
+  line-height: 1.3;
+}
+.spacing-bar {
+  height: 1.5rem;
+  background: var(--caat-blue-300);
+  border-radius: 2px;
+}
+.focus-demo {
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  border-radius: var(--caat-radius);
+  border: 2px solid var(--caat-blue-700);
+  background: #fff;
+  font-weight: 600;
+  color: var(--caat-blue-900);
+}
+.focus-demo--active {
+  box-shadow: var(--caat-focus);
+}
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .15rem .35rem;
+  color: var(--caat-muted);
+  font-size: .85rem;
+  border-radius: 4px;
+  transition: color .15s, background .15s;
+}
+.copy-btn:hover {
+  color: var(--caat-blue-900);
+  background: var(--caat-grey);
+}
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link active" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#colour">Colour</a>
+      <a class="nav-link" href="#typography">Typography</a>
+      <a class="nav-link" href="#spacing-radius">Spacing &amp; Radius</a>
+      <a class="nav-link" href="#shadows">Shadows</a>
+      <a class="nav-link" href="#focus">Focus</a>
+      <a class="nav-link" href="#bootstrap-overrides">Bootstrap Overrides</a>
+      <a class="nav-link" href="#usage">Usage Guidelines</a>
+      <a class="nav-link" href="#source">Source File</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main class="component-page-main">
+
+    <p class="eyebrow">Foundations</p>
+    <h1>Design Tokens</h1>
+    <p class="lead mb-5">The single source of truth for colour, typography, spacing, shadow, and radius values used across every CAAT component and template.</p>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         OVERVIEW
+         ══════════════════════════════════════════════════════ -->
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <p>Design tokens are named CSS custom properties that encode the brand's visual decisions. Every CAAT component references tokens instead of hard-coded values, ensuring consistency and enabling theming at a single point of change.</p>
+      <p>All tokens are defined in <code>/assets/css/tokens.css</code> on the <code>:root</code> selector and are available globally. Components should <strong>never</strong> use raw hex values or pixel measurements — always reference the token.</p>
+
+      <div class="table-responsive mt-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Category</th><th>Count</th><th>Prefix</th></tr></thead>
+          <tbody>
+            <tr><td>Colour</td><td>16</td><td><code>--caat-blue-*</code>, <code>--caat-green-*</code>, <code>--caat-*</code></td></tr>
+            <tr><td>Typography</td><td>4</td><td><code>--caat-font-*</code>, <code>--caat-letter-spacing-*</code></td></tr>
+            <tr><td>Spacing / Radius</td><td>2</td><td><code>--caat-radius</code>, <code>--caat-radius-lg</code></td></tr>
+            <tr><td>Shadows</td><td>2</td><td><code>--caat-shadow</code>, <code>--caat-shadow-sm</code></td></tr>
+            <tr><td>Focus</td><td>1</td><td><code>--caat-focus</code></td></tr>
+            <tr><td>Bootstrap overrides</td><td>8</td><td><code>--bs-*</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         COLOUR TOKENS
+         ══════════════════════════════════════════════════════ -->
+    <section id="colour" class="mb-5">
+      <h2>Colour Tokens</h2>
+      <p>The palette is divided into brand blues, greens, neutrals, and semantic colours for feedback states.</p>
+
+      <!-- ── Blues ── -->
+      <h3 class="h5 mt-4 mb-3">Blues</h3>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#003750;"></div>
+            <strong>Blue 900</strong>
+            <code>--caat-blue-900</code>
+            <code>#003750</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#0b5a80;"></div>
+            <strong>Blue 700</strong>
+            <code>--caat-blue-700</code>
+            <code>#0b5a80</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#0f6791;"></div>
+            <strong>Blue</strong>
+            <code>--caat-blue</code>
+            <code>#0f6791</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#2f95d2;"></div>
+            <strong>Blue 500</strong>
+            <code>--caat-blue-500</code>
+            <code>#2f95d2</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#9dd2ed;"></div>
+            <strong>Blue 300</strong>
+            <code>--caat-blue-300</code>
+            <code>#9dd2ed</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#e7f4fb; border-color:#cbd7e3;"></div>
+            <strong>Blue 100</strong>
+            <code>--caat-blue-100</code>
+            <code>#e7f4fb</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Greens ── -->
+      <h3 class="h5 mt-4 mb-3">Greens</h3>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#204b1f;"></div>
+            <strong>Green 900</strong>
+            <code>--caat-green-900</code>
+            <code>#204b1f</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#367f32;"></div>
+            <strong>Green 700</strong>
+            <code>--caat-green-700</code>
+            <code>#367f32</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#55a546;"></div>
+            <strong>Green</strong>
+            <code>--caat-green</code>
+            <code>#55a546</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#e8f5e6; border-color:#cbd7e3;"></div>
+            <strong>Green 100</strong>
+            <code>--caat-green-100</code>
+            <code>#e8f5e6</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#95e35c;"></div>
+            <strong>Lime</strong>
+            <code>--caat-lime</code>
+            <code>#95e35c</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#12a7b8;"></div>
+            <strong>Teal</strong>
+            <code>--caat-teal</code>
+            <code>#12a7b8</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Neutrals ── -->
+      <h3 class="h5 mt-4 mb-3">Neutrals</h3>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#102637;"></div>
+            <strong>Ink</strong>
+            <code>--caat-ink</code>
+            <code>#102637</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#506273;"></div>
+            <strong>Muted</strong>
+            <code>--caat-muted</code>
+            <code>#506273</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#cbd7e3; border-color:#9db5c8;"></div>
+            <strong>Grey 300</strong>
+            <code>--caat-grey-300</code>
+            <code>#cbd7e3</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#dfe6ef; border-color:#cbd7e3;"></div>
+            <strong>Grey 200</strong>
+            <code>--caat-grey-200</code>
+            <code>#dfe6ef</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#eff2f7; border-color:#dfe6ef;"></div>
+            <strong>Grey</strong>
+            <code>--caat-grey</code>
+            <code>#eff2f7</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#f8f5ee; border-color:#dfe6ef;"></div>
+            <strong>Beige</strong>
+            <code>--caat-beige</code>
+            <code>#f8f5ee</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Semantic / feedback ── -->
+      <h3 class="h5 mt-4 mb-3">Semantic / Feedback</h3>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#2f7d32;"></div>
+            <strong>Success</strong>
+            <code>--caat-success</code>
+            <code>#2f7d32</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#efaa39;"></div>
+            <strong>Warning</strong>
+            <code>--caat-warning</code>
+            <code>#efaa39</code>
+          </div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+          <div class="token-card">
+            <div class="token-swatch--lg" style="background:#b83232;"></div>
+            <strong>Danger</strong>
+            <code>--caat-danger</code>
+            <code>#b83232</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Colour usage table ── -->
+      <h3 class="h5 mt-4">Colour Usage Reference</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Context</th><th>Token</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Primary text / headings</td><td><code>--caat-blue-900</code></td><td>Page titles, hero headings</td></tr>
+            <tr><td>Body text</td><td><code>--caat-ink</code></td><td>Paragraphs, list items</td></tr>
+            <tr><td>Secondary text</td><td><code>--caat-muted</code></td><td>Subtitles, captions, meta</td></tr>
+            <tr><td>Primary buttons / links</td><td><code>--caat-blue-900</code></td><td>CTAs, navigation links</td></tr>
+            <tr><td>Secondary actions</td><td><code>--caat-green</code></td><td>Secondary buttons, accents</td></tr>
+            <tr><td>Eyebrow labels</td><td><code>--caat-green-700</code></td><td>Category labels above headings</td></tr>
+            <tr><td>Eyebrow on dark</td><td><code>--caat-lime</code></td><td>Labels on dark backgrounds</td></tr>
+            <tr><td>Section backgrounds</td><td><code>--caat-grey</code></td><td>Alternating section bands</td></tr>
+            <tr><td>Dark section backgrounds</td><td><code>--caat-blue-900</code></td><td>Stat strips, dark heroes, footers</td></tr>
+            <tr><td>Card / input borders</td><td><code>--caat-grey-200</code></td><td>Card outlines, dividers</td></tr>
+            <tr><td>Success / positive</td><td><code>--caat-success</code></td><td>Alert success, form validation</td></tr>
+            <tr><td>Warning</td><td><code>--caat-warning</code></td><td>Alert warning</td></tr>
+            <tr><td>Error / danger</td><td><code>--caat-danger</code></td><td>Alert danger, form errors</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         TYPOGRAPHY
+         ══════════════════════════════════════════════════════ -->
+    <section id="typography" class="mb-5">
+      <h2>Typography</h2>
+      <p>CAAT uses <strong>Libre Franklin</strong> as its sole typeface across all digital touchpoints. The font is loaded from Google Fonts in weights 300–900.</p>
+
+      <!-- ── Font families ── -->
+      <h3 class="h5 mt-4 mb-3">Font Families</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>--caat-font-primary</code></td>
+              <td>"Libre Franklin", Arial, Helvetica, sans-serif</td>
+              <td>All body text, headings, UI elements</td>
+            </tr>
+            <tr>
+              <td><code>--caat-font-secondary</code></td>
+              <td>Arial, Helvetica, sans-serif</td>
+              <td>System fallback for email / print templates</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Letter spacing ── -->
+      <h3 class="h5 mt-4 mb-3">Letter Spacing</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-letter-spacing-normal</code></td><td>0</td><td>Body text</td></tr>
+            <tr><td><code>--caat-letter-spacing-tight</code></td><td>-.015em</td><td>Large headings for visual tightening</td></tr>
+            <tr><td><code>--caat-letter-spacing-label</code></td><td>.06em</td><td>Uppercase labels, eyebrows, badges</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Font weights ── -->
+      <h3 class="h5 mt-4 mb-3">Font Weights</h3>
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:300; font-size:1.25rem;">Light 300</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:400; font-size:1.25rem;">Regular 400</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:500; font-size:1.25rem;">Medium 500</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:600; font-size:1.25rem;">Semi-bold 600</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:700; font-size:1.25rem;">Bold 700</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:800; font-size:1.25rem;">Extra-bold 800</span></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="token-card"><span style="font-weight:900; font-size:1.25rem;">Black 900</span></div></div>
+      </div>
+
+      <!-- ── Type scale ── -->
+      <h3 class="h5 mt-4 mb-3">Type Scale</h3>
+      <p class="mb-3">The heading scale uses <code>.caat-title</code> classes from the Text / Title component. All headings use weight 800, tight letter-spacing, and <code>--caat-blue-900</code>.</p>
+      <div class="caat-type-scale mb-4">
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">Display</span>
+          <span class="caat-type-scale__sample" style="font-weight:900; font-size:3.5rem; letter-spacing:-.04em; line-height:1.1; color:var(--caat-blue-900);">Display heading</span>
+          <span class="caat-type-scale__meta">3.5rem / 900 / -.04em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H1</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:2.5rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading one</span>
+          <span class="caat-type-scale__meta">2.5rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H2</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:2rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading two</span>
+          <span class="caat-type-scale__meta">2rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H3</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:1.75rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading three</span>
+          <span class="caat-type-scale__meta">1.75rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H4</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:1.5rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading four</span>
+          <span class="caat-type-scale__meta">1.5rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H5</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:1.25rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading five</span>
+          <span class="caat-type-scale__meta">1.25rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">H6</span>
+          <span class="caat-type-scale__sample" style="font-weight:800; font-size:1rem; letter-spacing:-.02em; line-height:1.2; color:var(--caat-blue-900);">Heading six</span>
+          <span class="caat-type-scale__meta">1rem / 800 / -.02em</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">Lead</span>
+          <span class="caat-type-scale__sample" style="font-weight:400; font-size:1.25rem; line-height:1.6; color:var(--caat-ink);">Lead paragraph text for introductions and callouts.</span>
+          <span class="caat-type-scale__meta">1.25rem / 400 / 1.6</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">Body</span>
+          <span class="caat-type-scale__sample" style="font-weight:400; font-size:1rem; line-height:1.6; color:var(--caat-ink);">Body text for paragraphs, lists, and general content.</span>
+          <span class="caat-type-scale__meta">1rem / 400 / 1.6</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">Small</span>
+          <span class="caat-type-scale__sample" style="font-weight:400; font-size:.875rem; line-height:1.5; color:var(--caat-muted);">Small text for captions, footnotes, and meta.</span>
+          <span class="caat-type-scale__meta">.875rem / 400 / 1.5</span>
+        </div>
+        <div class="caat-type-scale__row">
+          <span class="caat-type-scale__label">Eyebrow</span>
+          <span class="caat-type-scale__sample" style="font-weight:700; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--caat-green-700);">SECTION LABEL</span>
+          <span class="caat-type-scale__meta">.75rem / 700 / .08em / uppercase</span>
+        </div>
+      </div>
+
+      <!-- ── Title CSS classes ── -->
+      <h3 class="h5 mt-4 mb-3">Title &amp; Text CSS Classes</h3>
+      <p class="mb-3">The <a href="/components/text-title.html">Text / Title component</a> provides ready-made utility classes for typography.</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Class</th><th>Usage</th><th>Size</th><th>Weight</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-title</code></td><td>Base title — apply with heading level modifier</td><td>—</td><td>800</td></tr>
+            <tr><td><code>.caat-title--display</code></td><td>Hero-level display heading</td><td>3.5rem</td><td>900</td></tr>
+            <tr><td><code>.caat-title--h1</code></td><td>Page title</td><td>2.5rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--h2</code></td><td>Section heading</td><td>2rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--h3</code></td><td>Sub-section heading</td><td>1.75rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--h4</code></td><td>Card / panel heading</td><td>1.5rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--h5</code></td><td>Minor heading</td><td>1.25rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--h6</code></td><td>Smallest heading</td><td>1rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title--section</code></td><td>Section heading with bottom border</td><td>1.75rem</td><td>800</td></tr>
+            <tr><td><code>.caat-title__eyebrow</code></td><td>Uppercase label above a heading</td><td>.75rem</td><td>700</td></tr>
+            <tr><td><code>.caat-title__subtitle</code></td><td>Supporting text below a heading</td><td>1.25rem</td><td>400</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Class</th><th>Usage</th><th>Size</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-text</code></td><td>Base body text</td><td>1rem</td></tr>
+            <tr><td><code>.caat-text--lead</code></td><td>Lead / intro paragraph</td><td>1.25rem</td></tr>
+            <tr><td><code>.caat-text--small</code></td><td>Small / caption text</td><td>.875rem</td></tr>
+            <tr><td><code>.caat-text--muted</code></td><td>De-emphasized text (60% opacity)</td><td>inherit</td></tr>
+            <tr><td><code>.caat-rich-text</code></td><td>Rich-text container — styles nested headings, paragraphs, links, lists</td><td>inherit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ── Rich text preview ── -->
+      <h3 class="h5 mt-4 mb-3">Rich Text Preview</h3>
+      <div class="caat-rich-text p-4 border rounded mb-4">
+        <h2>Section heading inside rich text</h2>
+        <p>Body text rendered inside a <code>.caat-rich-text</code> container. Paragraphs get proper spacing and line-height. <a href="#">Links are underlined</a> with <code>--caat-blue-700</code>.</p>
+        <h3>Sub-heading inside rich text</h3>
+        <ul>
+          <li>Unordered list items get comfortable spacing</li>
+          <li>Lists use a <code>1.5rem</code> left padding</li>
+          <li>Each item has <code>.35em</code> bottom margin</li>
+        </ul>
+        <p>Use <strong>bold for emphasis</strong> and <em>italics for secondary emphasis</em>. The container handles all nested elements consistently.</p>
+      </div>
+
+      <!-- ── Eyebrow + title composition ── -->
+      <h3 class="h5 mt-4 mb-3">Composition: Eyebrow + Title + Subtitle</h3>
+      <div class="p-4 bg-light rounded mb-4">
+        <span class="caat-title__eyebrow">Pension Solutions</span>
+        <h2 class="caat-title caat-title--h2">A better pension matters</h2>
+        <p class="caat-title__subtitle">The attraction and retention strategy every employer should be thinking about.</p>
+      </div>
+<pre class="bg-light p-3 rounded mb-4"><code>&lt;span class="caat-title__eyebrow"&gt;Pension Solutions&lt;/span&gt;
+&lt;h2 class="caat-title caat-title--h2"&gt;A better pension matters&lt;/h2&gt;
+&lt;p class="caat-title__subtitle"&gt;The attraction and retention…&lt;/p&gt;</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         SPACING & RADIUS
+         ══════════════════════════════════════════════════════ -->
+    <section id="spacing-radius" class="mb-5">
+      <h2>Spacing &amp; Radius</h2>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>--caat-radius</code></td>
+              <td>.75rem (12px)</td>
+              <td>Cards, buttons, inputs, images, badges</td>
+            </tr>
+            <tr>
+              <td><code>--caat-radius-lg</code></td>
+              <td>1.25rem (20px)</td>
+              <td>Hero frames, modals, large panels, stat strips</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mb-3">Radius Preview</h3>
+      <div class="row g-4 mb-4">
+        <div class="col-auto text-center">
+          <div class="radius-demo" style="border-radius: 0;"></div>
+          <code class="d-block mt-2">0</code>
+          <small class="text-muted">None</small>
+        </div>
+        <div class="col-auto text-center">
+          <div class="radius-demo" style="border-radius: var(--caat-radius);"></div>
+          <code class="d-block mt-2">--caat-radius</code>
+          <small class="text-muted">.75rem</small>
+        </div>
+        <div class="col-auto text-center">
+          <div class="radius-demo" style="border-radius: var(--caat-radius-lg);"></div>
+          <code class="d-block mt-2">--caat-radius-lg</code>
+          <small class="text-muted">1.25rem</small>
+        </div>
+        <div class="col-auto text-center">
+          <div class="radius-demo" style="border-radius: 50%;"></div>
+          <code class="d-block mt-2">50%</code>
+          <small class="text-muted">Circle (icons)</small>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         SHADOWS
+         ══════════════════════════════════════════════════════ -->
+    <section id="shadows" class="mb-5">
+      <h2>Shadows</h2>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>--caat-shadow-sm</code></td>
+              <td>0 .25rem .75rem rgba(0,55,80,.08)</td>
+              <td>Subtle lift: cards on hover, dropdowns</td>
+            </tr>
+            <tr>
+              <td><code>--caat-shadow</code></td>
+              <td>0 .75rem 1.75rem rgba(0,55,80,.10)</td>
+              <td>Default elevation: cards, hero frames, modals</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mb-3">Shadow Preview</h3>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4 text-center">
+          <div class="shadow-demo" style="box-shadow: none; border: 1px solid var(--caat-grey-200);"></div>
+          <code class="d-block mt-2">none</code>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="shadow-demo" style="box-shadow: var(--caat-shadow-sm);"></div>
+          <code class="d-block mt-2">--caat-shadow-sm</code>
+        </div>
+        <div class="col-md-4 text-center">
+          <div class="shadow-demo" style="box-shadow: var(--caat-shadow);"></div>
+          <code class="d-block mt-2">--caat-shadow</code>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         FOCUS
+         ══════════════════════════════════════════════════════ -->
+    <section id="focus" class="mb-5">
+      <h2>Focus Ring</h2>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>--caat-focus</code></td>
+              <td>0 0 0 .25rem rgba(47,149,210,.35)</td>
+              <td>Applied via <code>box-shadow</code> on <code>:focus-visible</code> for buttons, links, inputs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mb-3">Focus Preview</h3>
+      <div class="d-flex gap-4 align-items-center mb-4">
+        <div class="text-center">
+          <div class="focus-demo">Default</div>
+          <small class="d-block mt-2 text-muted">Resting</small>
+        </div>
+        <div class="text-center">
+          <div class="focus-demo focus-demo--active">Focused</div>
+          <small class="d-block mt-2 text-muted">:focus-visible</small>
+        </div>
+      </div>
+
+      <p>The focus ring uses a blue-500-based semi-transparent glow to work on both light and dark backgrounds. Apply as:</p>
+<pre class="bg-light p-3 rounded"><code>.my-component:focus-visible {
+  outline: none;
+  box-shadow: var(--caat-focus);
+}</code></pre>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         BOOTSTRAP OVERRIDES
+         ══════════════════════════════════════════════════════ -->
+    <section id="bootstrap-overrides" class="mb-5">
+      <h2>Bootstrap Overrides</h2>
+      <p>The token file maps CAAT values onto Bootstrap's CSS custom properties so Bootstrap utilities and components inherit brand styling automatically.</p>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Bootstrap token</th><th>CAAT mapping</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--bs-body-font-family</code></td><td><code>var(--caat-font-primary)</code></td><td>Libre Franklin stack</td></tr>
+            <tr><td><code>--bs-body-color</code></td><td><code>var(--caat-ink)</code></td><td>#102637</td></tr>
+            <tr><td><code>--bs-primary</code></td><td><code>var(--caat-blue-900)</code></td><td>#003750</td></tr>
+            <tr><td><code>--bs-primary-rgb</code></td><td>—</td><td>0, 55, 80</td></tr>
+            <tr><td><code>--bs-secondary</code></td><td><code>var(--caat-green)</code></td><td>#55a546</td></tr>
+            <tr><td><code>--bs-secondary-rgb</code></td><td>—</td><td>85, 165, 70</td></tr>
+            <tr><td><code>--bs-link-color</code></td><td><code>var(--caat-blue-900)</code></td><td>#003750</td></tr>
+            <tr><td><code>--bs-link-hover-color</code></td><td><code>var(--caat-blue-700)</code></td><td>#0b5a80</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         USAGE GUIDELINES
+         ══════════════════════════════════════════════════════ -->
+    <section id="usage" class="mb-5">
+      <h2>Usage Guidelines</h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-success) !important;">
+            <h3 class="h6 text-success"><i class="bi bi-check-circle-fill me-1"></i> Do</h3>
+            <ul class="mb-0 small">
+              <li>Reference tokens in all component CSS: <code>color: var(--caat-blue-900);</code></li>
+              <li>Use semantic tokens for feedback: <code>--caat-danger</code> for errors</li>
+              <li>Use <code>--caat-radius</code> and <code>--caat-radius-lg</code> for all rounded corners</li>
+              <li>Apply <code>--caat-focus</code> on <code>:focus-visible</code> for all interactive elements</li>
+              <li>Use <code>--caat-shadow</code> for card and panel elevation</li>
+              <li>Use <code>--caat-font-primary</code> for all text — never import a different typeface</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
+            <h3 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't</h3>
+            <ul class="mb-0 small">
+              <li>Hard-code hex values: <code>color: #003750;</code> ✗</li>
+              <li>Invent new colours outside the token set</li>
+              <li>Use pixel values for border-radius — use the token</li>
+              <li>Override Bootstrap variables without going through tokens.css</li>
+              <li>Mix <code>--caat-green</code> (brand) with <code>--caat-success</code> (semantic) — they serve different purposes</li>
+              <li>Apply box-shadow values directly — use <code>--caat-shadow</code> or <code>--caat-shadow-sm</code></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         SOURCE FILE
+         ══════════════════════════════════════════════════════ -->
+    <section id="source" class="mb-5">
+      <h2>Source File</h2>
+      <p>All tokens are defined in a single file that every component and template imports:</p>
+<pre class="bg-light p-3 rounded"><code>/assets/css/tokens.css</code></pre>
+
+      <h3 class="h5 mt-4">Full Source</h3>
+<pre class="bg-light p-3 rounded"><code>:root {
+  /* ── Colour tokens ── */
+  --caat-blue:       #0f6791;
+  --caat-blue-900:   #003750;
+  --caat-blue-700:   #0b5a80;
+  --caat-blue-500:   #2f95d2;
+  --caat-blue-300:   #9dd2ed;
+  --caat-blue-100:   #e7f4fb;
+
+  --caat-green:      #55a546;
+  --caat-green-900:  #204b1f;
+  --caat-green-700:  #367f32;
+  --caat-green-100:  #e8f5e6;
+
+  --caat-lime:       #95e35c;
+  --caat-teal:       #12a7b8;
+
+  --caat-grey:       #eff2f7;
+  --caat-grey-200:   #dfe6ef;
+  --caat-grey-300:   #cbd7e3;
+
+  --caat-ink:        #102637;
+  --caat-muted:      #506273;
+
+  --caat-warning:    #efaa39;
+  --caat-danger:     #b83232;
+  --caat-success:    #2f7d32;
+  --caat-beige:      #f8f5ee;
+
+  /* ── Spacing / radius / shadow ── */
+  --caat-radius:     .75rem;
+  --caat-radius-lg:  1.25rem;
+  --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);
+  --caat-shadow-sm:  0 .25rem .75rem rgba(0,55,80,.08);
+  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);
+
+  /* ── Typography ── */
+  --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
+  --caat-font-secondary: Arial, Helvetica, sans-serif;
+  --caat-letter-spacing-normal: 0;
+  --caat-letter-spacing-tight:  -.015em;
+  --caat-letter-spacing-label:  .06em;
+
+  /* ── Bootstrap overrides ── */
+  --bs-body-font-family: var(--caat-font-primary);
+  --bs-body-color:       var(--caat-ink);
+  --bs-primary:          var(--caat-blue-900);
+  --bs-primary-rgb:      0,55,80;
+  --bs-secondary:        var(--caat-green);
+  --bs-secondary-rgb:    85,165,70;
+  --bs-link-color:       var(--caat-blue-900);
+  --bs-link-hover-color: var(--caat-blue-700);
+}</code></pre>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

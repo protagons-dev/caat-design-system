@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — List Group AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
+<title>List Group | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/list-group.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link active" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">List Group</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">List Group</h1>
+      <p class="text-muted">Flexible list of content items with optional actions, badges, and icons — for resource lists, task lists, and document downloads across CAAT digital properties.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('List Group',['/assets/css/tokens.css','/assets/css/components/list-group.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- 1. Basic list group -->
+      <h3 class="mt-3 mb-2">Basic List Group — Pension Resources</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <ul class="caat-list-group" data-analytics-component="list-group">
+            <li class="caat-list-group__item">Understanding your DBplus pension</li>
+            <li class="caat-list-group__item caat-list-group__item--active" aria-current="true">Contribution rates &amp; schedules</li>
+            <li class="caat-list-group__item">Retirement income estimator</li>
+            <li class="caat-list-group__item">Survivor benefit options</li>
+            <li class="caat-list-group__item">Pension inflation protection</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. Actionable list group -->
+      <h3 class="mb-2">Actionable List Group — Member Dashboard</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-list-group" role="list" data-analytics-component="list-group">
+            <a href="#" class="caat-list-group__item caat-list-group__item--action caat-list-group__item--active" aria-current="true" role="listitem">
+              View my pension statement
+            </a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action" role="listitem">
+              Update beneficiary information
+            </a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action" role="listitem">
+              Request a retirement estimate
+            </a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action" role="listitem">
+              Download tax documents
+            </a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action" role="listitem">
+              Contact member services
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. List group with badges -->
+      <h3 class="mb-2">List Group with Badges — Notifications</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <ul class="caat-list-group" data-analytics-component="list-group">
+            <li class="caat-list-group__item d-flex justify-content-between align-items-center">
+              Pension statements
+              <span class="caat-list-group__badge">3<span class="visually-hidden"> new statements</span></span>
+            </li>
+            <li class="caat-list-group__item d-flex justify-content-between align-items-center">
+              Secure messages
+              <span class="caat-list-group__badge">12<span class="visually-hidden"> unread messages</span></span>
+            </li>
+            <li class="caat-list-group__item d-flex justify-content-between align-items-center">
+              Action items
+              <span class="caat-list-group__badge">1<span class="visually-hidden"> pending action</span></span>
+            </li>
+            <li class="caat-list-group__item d-flex justify-content-between align-items-center">
+              Plan updates
+              <span class="caat-list-group__badge">5<span class="visually-hidden"> new updates</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. List group with icons and secondary text -->
+      <h3 class="mb-2">List Group with Icons &amp; Secondary Text</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <ul class="caat-list-group" data-analytics-component="list-group">
+            <li class="caat-list-group__item">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-file-earmark-pdf me-3 fs-4 text-danger" aria-hidden="true"></i>
+                <div>
+                  <strong>2025 Annual Pension Statement</strong>
+                  <p class="mb-0 small text-muted">PDF · 245 KB · Updated Jan 15, 2026</p>
+                </div>
+              </div>
+            </li>
+            <li class="caat-list-group__item">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-file-earmark-spreadsheet me-3 fs-4 text-success" aria-hidden="true"></i>
+                <div>
+                  <strong>Contribution History Export</strong>
+                  <p class="mb-0 small text-muted">XLSX · 128 KB · Updated Feb 1, 2026</p>
+                </div>
+              </div>
+            </li>
+            <li class="caat-list-group__item">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-file-earmark-text me-3 fs-4 text-primary" aria-hidden="true"></i>
+                <div>
+                  <strong>DBplus Plan Summary</strong>
+                  <p class="mb-0 small text-muted">PDF · 1.2 MB · Updated Mar 10, 2026</p>
+                </div>
+              </div>
+            </li>
+            <li class="caat-list-group__item">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-calculator me-3 fs-4 text-info" aria-hidden="true"></i>
+                <div>
+                  <strong>Retirement Income Estimator Tool</strong>
+                  <p class="mb-0 small text-muted">Interactive tool · Last accessed Apr 22, 2026</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 5. Flush variant -->
+      <h3 class="mb-2">Flush Variant — Embedded in Card</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="card" style="max-width:28rem;">
+            <div class="card-header"><strong>Quick Links</strong></div>
+            <ul class="caat-list-group caat-list-group--flush" data-analytics-component="list-group">
+              <li class="caat-list-group__item caat-list-group__item--action">
+                <a href="#">My pension overview</a>
+              </li>
+              <li class="caat-list-group__item caat-list-group__item--action">
+                <a href="#">Employer contributions</a>
+              </li>
+              <li class="caat-list-group__item caat-list-group__item--action">
+                <a href="#">Retirement planning resources</a>
+              </li>
+              <li class="caat-list-group__item caat-list-group__item--action">
+                <a href="#">Contact your plan administrator</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code sample -->
+      <h3 class="mb-2">Code sample</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTML</p>
+<pre class="code-sample"><code>&lt;!-- Basic list group --&gt;
+&lt;ul class="caat-list-group"&gt;
+  &lt;li class="caat-list-group__item"&gt;Understanding your DBplus pension&lt;/li&gt;
+  &lt;li class="caat-list-group__item caat-list-group__item--active" aria-current="true"&gt;Contribution rates&lt;/li&gt;
+  &lt;li class="caat-list-group__item"&gt;Retirement income estimator&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Actionable list group --&gt;
+&lt;div class="caat-list-group" role="list"&gt;
+  &lt;a href="/statements" class="caat-list-group__item caat-list-group__item--action" role="listitem"&gt;
+    View my pension statement
+  &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- List group with badge --&gt;
+&lt;ul class="caat-list-group"&gt;
+  &lt;li class="caat-list-group__item d-flex justify-content-between align-items-center"&gt;
+    Secure messages
+    &lt;span class="caat-list-group__badge"&gt;12
+      &lt;span class="visually-hidden"&gt; unread messages&lt;/span&gt;
+    &lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Flush variant (no outer border) --&gt;
+&lt;ul class="caat-list-group caat-list-group--flush"&gt;
+  &lt;li class="caat-list-group__item"&gt;Item one&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component name</strong></td><td>caat/components/list-group</td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Flexible list of content items with optional actions, badges, and icons. Used for resource lists, task lists, document downloads, member dashboard quick links, and notification summaries across CAAT digital properties.</td></tr>
+            <tr><td><strong>Status</strong></td><td><span class="status-badge new-component"><i class="bi bi-star-fill"></i> New</span></td></tr>
+            <tr><td><strong>Variants</strong></td><td>Basic, Actionable (links/buttons), Badge, Icon with secondary text, Flush</td></tr>
+            <tr><td><strong>Options</strong></td><td>Active item highlight, flush mode (no outer border), badge counter, leading icon, secondary description text</td></tr>
+            <tr><td><strong>AEM resource type</strong></td><td><code>caat/components/list-group</code></td></tr>
+            <tr><td><strong>AEM category</strong></td><td>CAAT Components – Lists</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Default Value</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-list-group-bg</code></td><td>Item background</td><td><code>#ffffff</code></td></tr>
+            <tr><td><code>--caat-list-group-color</code></td><td>Item text colour</td><td><code>var(--caat-blue-900, #003366)</code></td></tr>
+            <tr><td><code>--caat-list-group-border-color</code></td><td>Border between items</td><td><code>rgba(0, 0, 0, 0.125)</code></td></tr>
+            <tr><td><code>--caat-list-group-border-width</code></td><td>Border width</td><td><code>1px</code></td></tr>
+            <tr><td><code>--caat-list-group-border-radius</code></td><td>Outer border radius</td><td><code>var(--caat-radius-md, 0.375rem)</code></td></tr>
+            <tr><td><code>--caat-list-group-padding-x</code></td><td>Horizontal padding</td><td><code>1rem</code></td></tr>
+            <tr><td><code>--caat-list-group-padding-y</code></td><td>Vertical padding</td><td><code>0.75rem</code></td></tr>
+            <tr><td><code>--caat-list-group-active-bg</code></td><td>Active item background</td><td><code>var(--caat-blue-900, #003366)</code></td></tr>
+            <tr><td><code>--caat-list-group-active-color</code></td><td>Active item text</td><td><code>#ffffff</code></td></tr>
+            <tr><td><code>--caat-list-group-active-border</code></td><td>Active item border</td><td><code>var(--caat-blue-900, #003366)</code></td></tr>
+            <tr><td><code>--caat-list-group-hover-bg</code></td><td>Actionable item hover background</td><td><code>var(--caat-gray-100, #f8f9fa)</code></td></tr>
+            <tr><td><code>--caat-list-group-action-color</code></td><td>Actionable item text</td><td><code>var(--caat-blue-700, #004a99)</code></td></tr>
+            <tr><td><code>--caat-list-group-badge-bg</code></td><td>Badge counter background</td><td><code>var(--caat-blue-900, #003366)</code></td></tr>
+            <tr><td><code>--caat-list-group-badge-color</code></td><td>Badge counter text</td><td><code>#ffffff</code></td></tr>
+            <tr><td><code>--caat-list-group-badge-radius</code></td><td>Badge border radius</td><td><code>50rem</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Items</strong></td><td>Multifield</td><td>Yes</td><td>1–20 items. Each item contains the sub-fields below.</td></tr>
+            <tr><td>&nbsp;&nbsp;↳ <strong>Label</strong></td><td>Text field</td><td>Yes</td><td>Primary text displayed in the list item. Max 120 characters.</td></tr>
+            <tr><td>&nbsp;&nbsp;↳ <strong>Description</strong></td><td>Text field</td><td>No</td><td>Secondary text rendered below the label in smaller, muted type. Max 200 characters.</td></tr>
+            <tr><td>&nbsp;&nbsp;↳ <strong>URL</strong></td><td>Path browser</td><td>No</td><td>When provided, the item renders as an actionable link (<code>&lt;a&gt;</code>). Supports internal AEM paths and external URLs.</td></tr>
+            <tr><td>&nbsp;&nbsp;↳ <strong>Badge Text</strong></td><td>Text field</td><td>No</td><td>Short counter or label displayed as a pill badge on the right side. Max 10 characters.</td></tr>
+            <tr><td>&nbsp;&nbsp;↳ <strong>Icon</strong></td><td>Icon picker</td><td>No</td><td>Bootstrap Icon class placed before the label (e.g., <code>bi-file-earmark-pdf</code>).</td></tr>
+            <tr><td><strong>Variant</strong></td><td>Dropdown (default | flush)</td><td>No</td><td>Default: "default". Flush removes the outer border and border-radius for embedding inside cards.</td></tr>
+            <tr><td><strong>Active Item Index</strong></td><td>Number</td><td>No</td><td>1-based index of the item to highlight as active. Sets <code>aria-current="true"</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION RULES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <ul>
+        <li>At least one item is required; component will not render without it.</li>
+        <li>Each item must have a Label; items without labels are skipped at render time.</li>
+        <li>Label max length: 120 characters. Exceeding triggers an author-facing warning.</li>
+        <li>Description max length: 200 characters.</li>
+        <li>Badge text max length: 10 characters (intended for short counters or labels).</li>
+        <li>Maximum 20 items per list group. Exceeding triggers a validation error.</li>
+        <li>Active Item Index must be between 1 and the total number of items, or left empty.</li>
+        <li>If any item has a URL, it renders as an <code>&lt;a&gt;</code>; items without URLs render as non-interactive <code>&lt;li&gt;</code> elements.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Guideline</th><th>Detail</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Tone</strong></td><td>Clear, concise labels that describe the content or action. Use sentence case.</td></tr>
+            <tr><td><strong>Resource lists</strong></td><td>Use icons and descriptions for document downloads (PDF, XLSX). Include file size and date in the description.</td></tr>
+            <tr><td><strong>Task lists</strong></td><td>Use actionable items (links) with verb-first labels: "View my statement", "Update beneficiary info".</td></tr>
+            <tr><td><strong>Notification lists</strong></td><td>Pair items with badge counters. Include visually hidden context for screen readers (e.g., "3 new statements").</td></tr>
+            <tr><td><strong>Flush variant</strong></td><td>Use when embedding a list group inside a card or panel — removes redundant outer borders.</td></tr>
+            <tr><td><strong>Active item</strong></td><td>Use to indicate the currently selected or viewed item (e.g., current page in a resource list).</td></tr>
+            <tr><td><strong>Don't</strong></td><td>Don't mix actionable and non-actionable items in the same list. Don't exceed 20 items — consider pagination or filtering.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+          <p class="demo-label">HTL / Markup contract</p>
+<pre class="code-sample"><code>&lt;!-- Basic list group (non-interactive) --&gt;
+&lt;ul class="caat-list-group"&gt;
+  &lt;li class="caat-list-group__item"&gt;{label}&lt;/li&gt;
+  &lt;li class="caat-list-group__item caat-list-group__item--active" aria-current="true"&gt;{activeLabel}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Actionable list group (links) --&gt;
+&lt;div class="caat-list-group" role="list"&gt;
+  &lt;a href="{url}" class="caat-list-group__item caat-list-group__item--action" role="listitem"&gt;
+    {label}
+  &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;!-- Item with badge --&gt;
+&lt;li class="caat-list-group__item d-flex justify-content-between align-items-center"&gt;
+  {label}
+  &lt;span class="caat-list-group__badge"&gt;{count}
+    &lt;span class="visually-hidden"&gt;{hiddenContext}&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/li&gt;
+
+&lt;!-- Item with icon and description --&gt;
+&lt;li class="caat-list-group__item"&gt;
+  &lt;div class="d-flex align-items-start"&gt;
+    &lt;i class="bi bi-{icon} me-3 fs-4" aria-hidden="true"&gt;&lt;/i&gt;
+    &lt;div&gt;
+      &lt;strong&gt;{label}&lt;/strong&gt;
+      &lt;p class="mb-0 small text-muted"&gt;{description}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/li&gt;
+
+&lt;!-- Flush variant --&gt;
+&lt;ul class="caat-list-group caat-list-group--flush"&gt;
+  &lt;li class="caat-list-group__item"&gt;{label}&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        </div>
+      </div>
+      <h3 class="mt-3">Key decisions</h3>
+      <ul>
+        <li><code>&lt;ul&gt;</code> with <code>&lt;li&gt;</code> is used for non-interactive lists, preserving native list semantics.</li>
+        <li>For actionable lists composed of <code>&lt;a&gt;</code> elements, a <code>&lt;div&gt;</code> wrapper with <code>role="list"</code> and <code>role="listitem"</code> on each child maintains list semantics for assistive technology.</li>
+        <li>Active items use <code>aria-current="true"</code> to indicate the currently selected item to screen readers.</li>
+        <li>Icons use <code>aria-hidden="true"</code> because the label text already conveys meaning.</li>
+        <li>Badge counters include a <code>&lt;span class="visually-hidden"&gt;</code> to provide full context for screen readers.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-list-group</code></td><td>Base wrapper — resets list style, applies outer border-radius and overflow hidden.</td></tr>
+            <tr><td><code>.caat-list-group__item</code></td><td>Individual list item — padding, border-bottom, background.</td></tr>
+            <tr><td><code>.caat-list-group__item--active</code></td><td>Active/selected state — CAAT blue-900 background, white text, matching border colour.</td></tr>
+            <tr><td><code>.caat-list-group__item--action</code></td><td>Actionable item modifier — adds hover/focus background, pointer cursor, action text colour.</td></tr>
+            <tr><td><code>.caat-list-group__badge</code></td><td>Inline pill badge — counter background, white text, border-radius 50rem.</td></tr>
+            <tr><td><code>.caat-list-group--flush</code></td><td>Flush modifier — removes outer border-radius and left/right borders for embedding in cards.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="mt-3">Sample CSS</h3>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>.caat-list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  border-radius: var(--caat-list-group-border-radius);
+  overflow: hidden;
+  border: var(--caat-list-group-border-width) solid var(--caat-list-group-border-color);
+}
+
+.caat-list-group__item {
+  position: relative;
+  display: block;
+  padding: var(--caat-list-group-padding-y) var(--caat-list-group-padding-x);
+  background-color: var(--caat-list-group-bg);
+  color: var(--caat-list-group-color);
+  border-bottom: var(--caat-list-group-border-width) solid var(--caat-list-group-border-color);
+  text-decoration: none;
+}
+
+.caat-list-group__item:last-child {
+  border-bottom: 0;
+}
+
+.caat-list-group__item--active {
+  background-color: var(--caat-list-group-active-bg);
+  color: var(--caat-list-group-active-color);
+  border-color: var(--caat-list-group-active-border);
+  z-index: 2;
+}
+
+.caat-list-group__item--action {
+  color: var(--caat-list-group-action-color);
+  cursor: pointer;
+}
+
+.caat-list-group__item--action:hover,
+.caat-list-group__item--action:focus {
+  background-color: var(--caat-list-group-hover-bg);
+  text-decoration: none;
+}
+
+.caat-list-group__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  padding: 0.25em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  background-color: var(--caat-list-group-badge-bg);
+  color: var(--caat-list-group-badge-color);
+  border-radius: var(--caat-list-group-badge-radius);
+}
+
+.caat-list-group--flush {
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.caat-list-group--flush .caat-list-group__item:first-child {
+  border-top: 0;
+}
+
+.caat-list-group--flush .caat-list-group__item:last-child {
+  border-bottom: 0;
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td><strong>List semantics</strong></td><td>Non-interactive lists use <code>&lt;ul&gt;</code>/<code>&lt;ol&gt;</code> with <code>&lt;li&gt;</code>. Actionable lists use <code>&lt;div role="list"&gt;</code> with <code>&lt;a role="listitem"&gt;</code> to preserve list semantics for screen readers.</td></tr>
+            <tr><td><strong>Active item</strong></td><td>The currently selected item uses <code>aria-current="true"</code> so screen readers announce it as the current item.</td></tr>
+            <tr><td><strong>Badge context</strong></td><td>Badge counters include a <code>&lt;span class="visually-hidden"&gt;</code> providing full context (e.g., "3 new statements" instead of just "3").</td></tr>
+            <tr><td><strong>Colour contrast</strong></td><td>All item text, active state, and badge text meets WCAG 2.1 AA (4.5:1 minimum contrast ratio).</td></tr>
+            <tr><td><strong>Keyboard navigation</strong></td><td>Actionable items are focusable via Tab key. Focus styles are visible and use the standard CAAT focus ring.</td></tr>
+            <tr><td><strong>Decorative icons</strong></td><td>Icons use <code>aria-hidden="true"</code> because the label text already provides meaning.</td></tr>
+            <tr><td><strong>Reduced motion</strong></td><td>Hover/focus transitions respect <code>prefers-reduced-motion: reduce</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>List groups render as semantic <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> HTML — content is crawlable by search engines.</li>
+        <li>Actionable items use standard <code>&lt;a href&gt;</code> links, contributing to internal link equity and discoverability.</li>
+        <li>Item labels are concise, descriptive text — not images — ensuring indexability.</li>
+        <li>Description text provides additional keyword-rich context for search engines.</li>
+        <li>List groups do not use heading tags — they do not interfere with the document outline.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>list-group-displayed</strong></td>
+              <td>List group enters the viewport (Intersection Observer) or renders on page load.</td>
+              <td><code>data-analytics-component="list-group"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-count="{itemCount}"</code></td>
+            </tr>
+            <tr>
+              <td><strong>list-group-item-click</strong></td>
+              <td>User clicks an actionable list item.</td>
+              <td><code>data-analytics-event="list-group-item-click"</code>, <code>data-analytics-label="{itemLabel}"</code>, <code>data-analytics-position="{index}"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/list-group</code></li>
+        <li><strong>Component group:</strong> CAAT Components – Lists</li>
+        <li><strong>Proxy:</strong> Create as a proxy component under <code>/apps/caat/components/list-group</code>.</li>
+        <li><strong>Policies:</strong> Configure maximum item count and allowed icon set per template via content policies.</li>
+        <li><strong>Sling Model:</strong> <code>com.caat.core.models.ListGroupModel</code> — exposes <code>items</code> (list of <code>ListGroupItemModel</code>), <code>variant</code>, <code>activeIndex</code>.</li>
+        <li><strong>ListGroupItemModel:</strong> Exposes <code>label</code>, <code>description</code>, <code>url</code>, <code>badgeText</code>, <code>icon</code>.</li>
+        <li><strong>HTL:</strong> <code>list-group.html</code> — uses <code>data-sly-list</code> over items multifield. Conditionally renders <code>&lt;a&gt;</code> vs <code>&lt;li&gt;</code> based on URL presence.</li>
+        <li><strong>Client library:</strong> <code>caat.components.list-group</code> (categories: <code>caat.site</code>).</li>
+        <li><strong>Style System:</strong> Flush variant available via style tab for card-embedded use cases.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (YAML)</h2>
+      <div class="demo-shell">
+        <div class="demo-code">
+<pre class="code-sample"><code>title: List Group
+description: Flexible list of content items with optional actions, badges, and icons.
+fields:
+  - name: items
+    label: Items
+    type: multifield
+    required: true
+    minItems: 1
+    maxItems: 20
+    helpText: Add between 1 and 20 list items.
+    fields:
+      - name: label
+        label: Label
+        type: textfield
+        required: true
+        maxLength: 120
+        helpText: Primary text for this list item.
+
+      - name: description
+        label: Description
+        type: textfield
+        required: false
+        maxLength: 200
+        helpText: Optional secondary text displayed below the label.
+
+      - name: url
+        label: URL
+        type: pathbrowser
+        required: false
+        helpText: Link target. When provided, item renders as an actionable link.
+
+      - name: badgeText
+        label: Badge Text
+        type: textfield
+        required: false
+        maxLength: 10
+        helpText: Short counter or label displayed as a pill badge (e.g., "3", "New").
+
+      - name: icon
+        label: Icon
+        type: iconpicker
+        required: false
+        helpText: Bootstrap Icon displayed before the label (e.g., bi-file-earmark-pdf).
+
+  - name: variant
+    label: Variant
+    type: select
+    required: false
+    options:
+      - value: default
+        label: Default (bordered)
+      - value: flush
+        label: Flush (no outer border)
+    helpText: Flush variant removes outer borders for embedding in cards.
+
+  - name: activeIndex
+    label: Active Item Index
+    type: number
+    required: false
+    min: 1
+    helpText: 1-based index of the item to highlight as active/current.</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Basic list group renders as <code>&lt;ul&gt;</code> with proper <code>&lt;li&gt;</code> semantics.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Actionable list group renders links with <code>role="list"</code> and <code>role="listitem"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Active item displays CAAT blue-900 background with white text and <code>aria-current="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Badge counters render as pill shapes with correct background and visually hidden context.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Icons render before labels with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Description text renders below labels in muted, smaller type.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Flush variant removes outer border-radius and left/right borders.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Hover/focus states visible on actionable items with correct background colour.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard Tab navigation reaches all actionable items with visible focus ring.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Colour contrast meets WCAG 2.1 AA (4.5:1) for all states (default, active, hover).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Component does not render when items multifield is empty.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>list-group-displayed</code>, <code>list-group-item-click</code>) fire with expected data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All five variants (Basic, Actionable, Badge, Icon + description, Flush) documented. Active/hover/focus states specified with design tokens.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. Multifield dialog wired with validation. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Screen reader testing (NVDA, VoiceOver) confirms list semantics and <code>aria-current</code>. Cross-browser tested.</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on items multifield, badge usage, and flush variant for card embedding. Documentation published. Analytics dashboards confirmed.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">List Group</h1>
+<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Item States</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-ink);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-blue-900);background:var(--caat-blue-100);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
+  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">With Badge</h2>
+  <div class="figma-row"><span class="figma-row-label">Badge</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-ink);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;display:flex;justify-content:space-between;align-items:center;">Documents <span class="caat-list-group__badge">3</span></div></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Padding</strong>0.875rem 1.25rem</div>
+    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
+    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
+    <div class="figma-spec"><strong>Active bg</strong>var(--caat-blue-900)</div>
+    <div class="figma-spec"><strong>Hover bg</strong>var(--caat-blue-100)</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Article Layout AEM Component Contract. Long-form content layout with sidebar and table of contents for pension education articles across the CAAT Pension Plan member experience.">
+<title>Article Layout | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/article-layout.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- ──────────────────────────────────────────────────────────
+       LEFT SIDEBAR
+       ────────────────────────────────────────────────────────── -->
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <!-- Component list -->
+    <p class="eyebrow mb-2">Components</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/button.html">Button</a>
+      <a class="nav-link" href="/components/card.html">Card</a>
+      <a class="nav-link" href="/components/accordion.html">Accordion</a>
+      <a class="nav-link" href="/components/hero.html">Hero</a>
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/tabs.html">Tabs</a>
+      <a class="nav-link" href="/components/alerts.html">Alerts</a>
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/forms.html">Forms</a>
+      <a class="nav-link" href="/components/tables.html">Tables</a>
+      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
+      <a class="nav-link" href="/components/badge.html">Badge</a>
+      <a class="nav-link" href="/components/modal.html">Modal</a>
+      <a class="nav-link" href="/components/list-group.html">List Group</a>
+      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
+      <a class="nav-link" href="/components/pagination.html">Pagination</a>
+      <a class="nav-link" href="/components/toast.html">Toast</a>
+      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
+      <a class="nav-link" href="/components/popover.html">Popover</a>
+      <a class="nav-link" href="/components/progress.html">Progress</a>
+      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
+      <a class="nav-link" href="/components/spinner.html">Spinner</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link active" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/search.html">Search</a>
+      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
+      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
+      <a class="nav-link" href="/components/download.html">Download</a>
+      <a class="nav-link" href="/components/separator.html">Separator</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
+      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+    </nav>
+
+    <!-- On-page sections -->
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <!-- ──────────────────────────────────────────────────────────
+       MAIN CONTENT
+       ────────────────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Article Layout</li>
+      </ol>
+    </nav>
+
+    <!-- Page header -->
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Article Layout</h1>
+      <p class="text-muted">Long-form content layout with sidebar and table of contents for pension education articles across the CAAT Pension Plan member experience.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Article Layout',['/assets/css/tokens.css','/assets/css/components/article-layout.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         DEMO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+
+      <!-- Variant 1 — Standard Article -->
+      <h3 class="mt-3 mb-2">Standard Article</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <article class="caat-article" data-analytics-component="article-layout" data-analytics-variant="standard">
+            <img class="caat-article__hero-image" src="https://picsum.photos/900/400?random=10" alt="Illustration of pension planning concepts" loading="lazy">
+
+            <div class="caat-article__header">
+              <h1>Understanding Your DBplus Pension</h1>
+            </div>
+
+            <div class="caat-article__meta">
+              <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
+              <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
+              <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+              <span class="badge rounded-pill" style="background:var(--caat-blue-100);color:var(--caat-blue-900);">Pension Basics</span>
+            </div>
+
+            <div class="caat-article__body">
+              <p>Your DBplus pension is one of the most valuable benefits you'll receive during your career. As a jointly sponsored, defined benefit pension plan, CAAT provides you with a secure, predictable retirement income that lasts for life. Understanding how your pension works is the first step toward making the most of this benefit.</p>
+
+              <h2>How Your Pension Is Calculated</h2>
+              <p>Your DBplus pension is based on a formula that considers your contributions and the credited interest applied to them. Unlike a defined contribution plan, you don't bear the investment risk — the plan guarantees your benefit based on the formula, not market performance.</p>
+              <p>Each year you contribute, your pension grows. The annual pension you earn is calculated as a percentage of your contributions, which means the more you contribute over time, the larger your lifetime pension will be at retirement.</p>
+
+              <h3>The Role of Credited Interest</h3>
+              <p>Credited interest is applied to your account balance and plays a key role in growing your pension over time. The rate is set by the CAAT Board of Trustees based on the plan's financial health and long-term sustainability. This is different from a market return — it's a smoothed, stable rate designed to provide predictable growth.</p>
+
+              <blockquote>
+                "DBplus gives me confidence that my retirement income is secure, no matter what happens in the stock market. That peace of mind is priceless." — Maria T., retired CAAT member
+              </blockquote>
+
+              <h2>When Can You Retire?</h2>
+              <p>The normal retirement age under DBplus is 65, but you may be eligible to retire earlier. Early retirement options are available as early as age 55, though retiring before 65 may result in a reduction to your pension amount. The reduction reflects the longer period over which your pension will be paid.</p>
+
+              <h3>Bridge Benefits</h3>
+              <p>If you retire before age 65, you may receive a temporary bridge benefit that supplements your pension income until you become eligible for government benefits such as the Canada Pension Plan (CPP) and Old Age Security (OAS). This bridge helps smooth the transition into full retirement.</p>
+
+              <h2>Key Benefits of DBplus</h2>
+              <ul>
+                <li><strong>Lifetime income:</strong> Your pension is paid for life, giving you financial security throughout retirement.</li>
+                <li><strong>Inflation protection:</strong> Conditional inflation adjustments help your pension keep pace with the cost of living.</li>
+                <li><strong>Survivor benefits:</strong> Your spouse or beneficiary is protected with survivor pension options.</li>
+                <li><strong>Portability:</strong> If you leave your employer, you have options for transferring or deferring your pension.</li>
+                <li><strong>No investment risk:</strong> The plan manages investments on your behalf — you don't need to worry about market volatility.</li>
+              </ul>
+
+              <h2>Planning for Your Future</h2>
+              <p>We encourage all members to log in to the CAAT member portal regularly to review their pension statement, estimate their retirement income, and update their beneficiary information. The earlier you start planning, the more confident you'll feel when the time comes to retire.</p>
+              <p>If you have questions about your pension or want personalized guidance, our member services team is here to help. Reach out by phone or email and we'll connect you with a pension advisor.</p>
+            </div>
+
+            <div class="caat-article__share" aria-label="Share this article">
+              <a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+              <a href="#" class="caat-article__share-btn" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+              <a href="#" class="caat-article__share-btn" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+              <a href="#" class="caat-article__share-btn" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Variant 2 — Article with Sidebar -->
+      <h3 class="mt-3 mb-2">Article with Sidebar</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <article class="caat-article caat-article--has-sidebar" data-analytics-component="article-layout" data-analytics-variant="with-sidebar">
+            <img class="caat-article__hero-image" src="https://picsum.photos/900/400?random=10" alt="Illustration of pension planning concepts" loading="lazy">
+
+            <div class="caat-article__header">
+              <h1>Understanding Your DBplus Pension</h1>
+            </div>
+
+            <div class="caat-article__meta">
+              <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
+              <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
+              <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+            </div>
+
+            <div class="row">
+              <!-- Main content -->
+              <div class="col-lg-8">
+                <div class="caat-article__body">
+                  <p>Your DBplus pension is one of the most valuable benefits you'll receive during your career. As a jointly sponsored, defined benefit pension plan, CAAT provides you with a secure, predictable retirement income that lasts for life.</p>
+
+                  <h2 id="sidebar-how-calculated">How Your Pension Is Calculated</h2>
+                  <p>Your DBplus pension is based on a formula that considers your contributions and the credited interest applied to them. Unlike a defined contribution plan, you don't bear the investment risk — the plan guarantees your benefit based on the formula, not market performance.</p>
+                  <p>Each year you contribute, your pension grows. The annual pension you earn is calculated as a percentage of your contributions, which means the more you contribute over time, the larger your lifetime pension will be at retirement.</p>
+
+                  <h2 id="sidebar-credited-interest">The Role of Credited Interest</h2>
+                  <p>Credited interest is applied to your account balance and plays a key role in growing your pension over time. The rate is set by the CAAT Board of Trustees based on the plan's financial health and long-term sustainability.</p>
+
+                  <blockquote>
+                    "DBplus gives me confidence that my retirement income is secure, no matter what happens in the stock market." — Maria T., retired CAAT member
+                  </blockquote>
+
+                  <h2 id="sidebar-retirement">When Can You Retire?</h2>
+                  <p>The normal retirement age under DBplus is 65, but you may be eligible to retire earlier. Early retirement options are available as early as age 55, though retiring before 65 may result in a reduction to your pension amount.</p>
+
+                  <h2 id="sidebar-bridge">Bridge Benefits</h2>
+                  <p>If you retire before age 65, you may receive a temporary bridge benefit that supplements your pension income until you become eligible for government benefits such as the Canada Pension Plan (CPP) and Old Age Security (OAS).</p>
+
+                  <h2 id="sidebar-key-benefits">Key Benefits of DBplus</h2>
+                  <ul>
+                    <li><strong>Lifetime income:</strong> Your pension is paid for life.</li>
+                    <li><strong>Inflation protection:</strong> Conditional inflation adjustments help keep pace with costs.</li>
+                    <li><strong>Survivor benefits:</strong> Your spouse or beneficiary is protected.</li>
+                    <li><strong>Portability:</strong> Options for transferring or deferring your pension.</li>
+                    <li><strong>No investment risk:</strong> The plan manages investments on your behalf.</li>
+                  </ul>
+
+                  <h2 id="sidebar-planning">Planning for Your Future</h2>
+                  <p>We encourage all members to log in to the CAAT member portal regularly to review their pension statement, estimate their retirement income, and update their beneficiary information.</p>
+
+                  <div class="caat-article__share" aria-label="Share this article">
+                    <a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-article__share-btn" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-article__share-btn" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-article__share-btn" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sidebar -->
+              <div class="col-lg-4">
+                <div class="caat-article__sidebar">
+                  <!-- Table of Contents -->
+                  <div class="caat-article__toc">
+                    <h5>Table of Contents</h5>
+                    <nav class="nav flex-column">
+                      <a class="nav-link active" href="#sidebar-how-calculated">How Your Pension Is Calculated</a>
+                      <a class="nav-link" href="#sidebar-credited-interest">The Role of Credited Interest</a>
+                      <a class="nav-link" href="#sidebar-retirement">When Can You Retire?</a>
+                      <a class="nav-link" href="#sidebar-bridge">Bridge Benefits</a>
+                      <a class="nav-link" href="#sidebar-key-benefits">Key Benefits of DBplus</a>
+                      <a class="nav-link" href="#sidebar-planning">Planning for Your Future</a>
+                    </nav>
+                  </div>
+
+                  <!-- Related Articles -->
+                  <div class="caat-article__related">
+                    <h5>Related Articles</h5>
+                    <a href="#" class="caat-article__related-item">
+                      <div class="caat-article__related-title">5 Steps to a Confident Retirement</div>
+                      <div class="caat-article__related-meta"><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</div>
+                    </a>
+                    <a href="#" class="caat-article__related-item">
+                      <div class="caat-article__related-title">Bridging Benefits: What Happens Before Age 65</div>
+                      <div class="caat-article__related-meta"><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</div>
+                    </a>
+                    <a href="#" class="caat-article__related-item">
+                      <div class="caat-article__related-title">Survivor Benefits: Protecting Your Loved Ones</div>
+                      <div class="caat-article__related-meta"><i class="bi bi-clock" aria-hidden="true"></i> 4 min read</div>
+                    </a>
+                    <a href="#" class="caat-article__related-item">
+                      <div class="caat-article__related-title">Your Annual Pension Statement Explained</div>
+                      <div class="caat-article__related-meta"><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Variant 3 — Minimal Article -->
+      <h3 class="mt-3 mb-2">Minimal Article</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+
+          <article class="caat-article caat-article--minimal" data-analytics-component="article-layout" data-analytics-variant="minimal">
+            <div class="caat-article__header">
+              <nav aria-label="Breadcrumb" class="mb-3">
+                <ol class="breadcrumb mb-0" style="font-size:0.875rem;">
+                  <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                  <li class="breadcrumb-item"><a href="#">Pension Basics</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Understanding Your DBplus Pension</li>
+                </ol>
+              </nav>
+              <h1>Understanding Your DBplus Pension</h1>
+            </div>
+
+            <div class="caat-article__meta" style="max-width:720px;margin-left:auto;margin-right:auto;">
+              <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
+              <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
+              <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+            </div>
+
+            <div class="caat-article__body">
+              <p>Your DBplus pension is one of the most valuable benefits you'll receive during your career. As a jointly sponsored, defined benefit pension plan, CAAT provides you with a secure, predictable retirement income that lasts for life. Understanding how your pension works is the first step toward making the most of this benefit.</p>
+
+              <h2>How Your Pension Is Calculated</h2>
+              <p>Your DBplus pension is based on a formula that considers your contributions and the credited interest applied to them. Unlike a defined contribution plan, you don't bear the investment risk — the plan guarantees your benefit based on the formula, not market performance.</p>
+
+              <h2>Key Benefits of DBplus</h2>
+              <ul>
+                <li><strong>Lifetime income:</strong> Your pension is paid for life, giving you financial security throughout retirement.</li>
+                <li><strong>Inflation protection:</strong> Conditional inflation adjustments help your pension keep pace with the cost of living.</li>
+                <li><strong>Survivor benefits:</strong> Your spouse or beneficiary is protected with survivor pension options.</li>
+                <li><strong>No investment risk:</strong> The plan manages investments on your behalf.</li>
+              </ul>
+
+              <h2>Planning for Your Future</h2>
+              <p>We encourage all members to log in to the CAAT member portal regularly to review their pension statement, estimate their retirement income, and update their beneficiary information. The earlier you start planning, the more confident you'll feel when the time comes to retire.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         1. SUMMARY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <tbody>
+            <tr><td><strong>Component</strong></td><td>Article Layout</td></tr>
+            <tr><td><strong>Resource type</strong></td><td><code>caat/components/article-layout</code></td></tr>
+            <tr><td><strong>Purpose</strong></td><td>Renders long-form pension education content with optional hero image, sidebar table of contents, related articles, and share actions. Designed for readability and member engagement.</td></tr>
+            <tr><td><strong>Variants</strong></td><td>Standard · With Sidebar · Minimal</td></tr>
+            <tr><td><strong>Status</strong></td><td>Enhance</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         2. TOKENS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-blue-900</code></td><td>Article headings, TOC active text, share icon colour</td><td>#002B5C</td></tr>
+            <tr><td><code>--caat-blue-700</code></td><td>Blockquote left border, link hover, TOC active border</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-blue-100</code></td><td>Blockquote background, TOC active background, category badge</td><td>#E0EBF5</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Optional accent for callout boxes</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-grey-200</code></td><td>Sidebar card borders, share button borders, related item dividers</td><td>#E9ECEF</td></tr>
+            <tr><td><code>--caat-focus</code></td><td>Focus ring on interactive elements</td><td>#4D90FE</td></tr>
+            <tr><td><code>--caat-ink</code></td><td>Body text colour</td><td>#212529</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Hero image, sidebar card border-radius</td><td>0.375rem</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td><td>Libre Franklin</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         3. AUTHORING FIELDS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Variant</td><td>Select</td><td>Yes</td><td>standard | with-sidebar | minimal</td></tr>
+            <tr><td>Title</td><td>Text</td><td>Yes</td><td>Article heading (h1). Max 120 characters.</td></tr>
+            <tr><td>Hero image</td><td>Image (DAM)</td><td>No</td><td>Full-width image. Recommended 900 × 400 px minimum. Not used in minimal variant.</td></tr>
+            <tr><td>Hero alt text</td><td>Text</td><td>Conditional</td><td>Required when hero image is informational; leave empty for decorative.</td></tr>
+            <tr><td>Author name</td><td>Text</td><td>No</td><td>Displayed in article meta.</td></tr>
+            <tr><td>Publish date</td><td>Date</td><td>Yes</td><td>Display format: Month DD, YYYY.</td></tr>
+            <tr><td>Read time</td><td>Text</td><td>No</td><td>Estimated reading time, e.g. "8 min read".</td></tr>
+            <tr><td>Category</td><td>Tag picker</td><td>No</td><td>Renders as a badge pill in the meta area.</td></tr>
+            <tr><td>Body content</td><td>Rich text</td><td>Yes</td><td>Long-form HTML content. Supports h2, h3, p, blockquote, ul, ol, a, img.</td></tr>
+            <tr><td>Show sidebar</td><td>Toggle</td><td>No</td><td>Enables sidebar with TOC and related articles (with-sidebar variant).</td></tr>
+            <tr><td>TOC headings</td><td>Auto-generated</td><td>—</td><td>Generated from h2 elements in body content.</td></tr>
+            <tr><td>Related articles</td><td>Pathfield (multi)</td><td>No</td><td>Up to 4 related article paths displayed in sidebar card.</td></tr>
+            <tr><td>Show share buttons</td><td>Toggle</td><td>No</td><td>Renders social share icons below article body.</td></tr>
+            <tr><td>Show breadcrumb</td><td>Toggle</td><td>No</td><td>Renders category breadcrumb above title (minimal variant).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         4. VALIDATION
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
+          <tbody>
+            <tr><td>Title is required.</td><td>"Provide a title for this article."</td></tr>
+            <tr><td>Title must be 120 characters or fewer.</td><td>"Article title exceeds the 120-character limit."</td></tr>
+            <tr><td>Body content is required.</td><td>"Add body content for this article."</td></tr>
+            <tr><td>Publish date is required.</td><td>"Set a publish date for this article."</td></tr>
+            <tr><td>Hero alt text required when hero image is informational.</td><td>"Provide alt text for the hero image, or mark it as decorative."</td></tr>
+            <tr><td>Related articles limited to 4.</td><td>"Select no more than 4 related articles."</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         5. CONTENT GUIDANCE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Write clear, descriptive titles that communicate the article's value: <em>"Understanding Your DBplus Pension"</em> rather than <em>"Pension Info"</em>.</li>
+        <li>Structure body content with meaningful h2 and h3 subheadings — these drive the sidebar table of contents.</li>
+        <li>Keep paragraphs short (3 – 5 sentences) for on-screen readability at the 720 px max-width.</li>
+        <li>Use blockquotes for member testimonials or key takeaways to break up long text.</li>
+        <li>Include bulleted lists when presenting multiple related points (e.g., plan benefits).</li>
+        <li>Hero images should be relevant, high quality, and at least 900 × 400 px for retina displays.</li>
+        <li>Use the minimal variant for shorter updates that don't need a hero or sidebar.</li>
+        <li>Provide a read-time estimate — it sets expectations and increases engagement.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         6. SEMANTIC HTML
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+
+      <h3 class="mt-3 mb-2">Standard variant</h3>
+<pre class="code-sample"><code>&lt;article class="caat-article" aria-label="Article"&gt;
+  &lt;img class="caat-article__hero-image"
+       src="/content/dam/caat/articles/hero.jpg"
+       alt="Description" loading="lazy"&gt;
+
+  &lt;div class="caat-article__header"&gt;
+    &lt;h1&gt;Article Title&lt;/h1&gt;
+  &lt;/div&gt;
+
+  &lt;div class="caat-article__meta"&gt;
+    &lt;span&gt;Author Name&lt;/span&gt;
+    &lt;span&gt;April 22, 2026&lt;/span&gt;
+    &lt;span&gt;8 min read&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;div class="caat-article__body"&gt;
+    &lt;p&gt;Body content…&lt;/p&gt;
+    &lt;h2&gt;Section Heading&lt;/h2&gt;
+    &lt;p&gt;More content…&lt;/p&gt;
+    &lt;blockquote&gt;Pull quote…&lt;/blockquote&gt;
+  &lt;/div&gt;
+
+  &lt;div class="caat-article__share" aria-label="Share"&gt;
+    &lt;a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"&gt;…&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+      <h3 class="mt-4 mb-2">With sidebar variant</h3>
+<pre class="code-sample"><code>&lt;article class="caat-article caat-article--has-sidebar"&gt;
+  &lt;!-- hero + header + meta same as standard --&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-lg-8"&gt;
+      &lt;div class="caat-article__body"&gt;…&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col-lg-4"&gt;
+      &lt;div class="caat-article__sidebar"&gt;
+        &lt;div class="caat-article__toc"&gt;
+          &lt;h5&gt;Table of Contents&lt;/h5&gt;
+          &lt;nav class="nav flex-column"&gt;
+            &lt;a class="nav-link" href="#section"&gt;Section&lt;/a&gt;
+          &lt;/nav&gt;
+        &lt;/div&gt;
+        &lt;div class="caat-article__related"&gt;
+          &lt;h5&gt;Related Articles&lt;/h5&gt;
+          &lt;a href="#" class="caat-article__related-item"&gt;…&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         7. CSS CONTRACT
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-article</code></td><td>Root article container.</td></tr>
+            <tr><td><code>.caat-article--has-sidebar</code></td><td>Modifier: enables two-column layout with sidebar.</td></tr>
+            <tr><td><code>.caat-article--minimal</code></td><td>Modifier: centered prose, no hero, no sidebar.</td></tr>
+            <tr><td><code>.caat-article__header</code></td><td>Title wrapper with bottom margin.</td></tr>
+            <tr><td><code>.caat-article__meta</code></td><td>Author, date, read-time row — muted small text.</td></tr>
+            <tr><td><code>.caat-article__hero-image</code></td><td>Full-width hero — <code>border-radius</code>, responsive.</td></tr>
+            <tr><td><code>.caat-article__body</code></td><td>Prose container — <code>max-width:720px</code>, <code>line-height:1.75</code>. Full-width when sidebar present.</td></tr>
+            <tr><td><code>.caat-article__sidebar</code></td><td>Sticky sidebar — <code>position:sticky; top:5rem</code>. Static on mobile.</td></tr>
+            <tr><td><code>.caat-article__toc</code></td><td>Table of contents card with nav links and active state.</td></tr>
+            <tr><td><code>.caat-article__share</code></td><td>Share button row — flexbox with gap.</td></tr>
+            <tr><td><code>.caat-article__share-btn</code></td><td>Circular icon button — hover fills blue-900.</td></tr>
+            <tr><td><code>.caat-article__related</code></td><td>Related articles sidebar card.</td></tr>
+            <tr><td><code>.caat-article__related-item</code></td><td>Individual related article link with divider.</td></tr>
+            <tr><td><code>.caat-article__related-title</code></td><td>Related article title — blue-900, 600 weight.</td></tr>
+            <tr><td><code>.caat-article__related-meta</code></td><td>Related article meta — small muted text.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         8. ACCESSIBILITY
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Landmark</td><td>Wrap content in <code>&lt;article&gt;</code> element for semantic meaning.</td></tr>
+            <tr><td>Heading hierarchy</td><td>Single <code>&lt;h1&gt;</code> for title; body uses <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> in order.</td></tr>
+            <tr><td>Hero image</td><td>Informational images use descriptive alt text; decorative images use <code>alt=""</code>.</td></tr>
+            <tr><td>Share buttons</td><td>Each share link has <code>aria-label</code> describing the action.</td></tr>
+            <tr><td>TOC navigation</td><td>Sidebar TOC uses <code>&lt;nav&gt;</code> with heading label.</td></tr>
+            <tr><td>Focus</td><td>Visible <code>:focus-visible</code> ring (--caat-focus) on all interactive elements.</td></tr>
+            <tr><td>Colour contrast</td><td>Body text (ink on white) meets 4.5:1. Headings (blue-900 on white) meet 4.5:1.</td></tr>
+            <tr><td>Motion</td><td>Share button transitions respect <code>prefers-reduced-motion: reduce</code>.</td></tr>
+            <tr><td>Keyboard</td><td>All links and buttons reachable via Tab. Share and TOC links activated via Enter.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         9. SEO
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Article uses semantic <code>&lt;article&gt;</code> element — search engines identify it as the primary content.</li>
+        <li>Single <code>&lt;h1&gt;</code> serves as the page title; subheadings use <code>&lt;h2&gt;</code>/<code>&lt;h3&gt;</code> for a clear page outline.</li>
+        <li>Hero image includes descriptive alt text for image search indexing.</li>
+        <li>Body content is directly in the DOM (not loaded asynchronously) for full crawlability.</li>
+        <li>Structured data (<code>Article</code> schema) should be added via AEM page-level JSON-LD.</li>
+        <li>Publish date and author support rich snippet eligibility.</li>
+        <li>Related article links create internal linking signals to boost article discoverability.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         10. ANALYTICS
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>article-viewed</code></td>
+              <td>Article enters viewport.</td>
+              <td><code>data-analytics-variant</code>, <code>data-analytics-title</code></td>
+            </tr>
+            <tr>
+              <td><code>article-scroll-depth</code></td>
+              <td>User scrolls past 25%, 50%, 75%, 100% of article body.</td>
+              <td><code>data-analytics-depth</code> (percentage)</td>
+            </tr>
+            <tr>
+              <td><code>article-share-click</code></td>
+              <td>User clicks a share button.</td>
+              <td><code>data-analytics-platform</code> (linkedin, twitter, email, copy-link)</td>
+            </tr>
+            <tr>
+              <td><code>article-toc-click</code></td>
+              <td>User clicks a TOC link in sidebar.</td>
+              <td><code>data-analytics-section</code> (heading text)</td>
+            </tr>
+            <tr>
+              <td><code>article-related-click</code></td>
+              <td>User clicks a related article link.</td>
+              <td><code>data-analytics-label</code> (article title), <code>data-analytics-position</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         11. AEM NOTES
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Notes</h2>
+      <ul>
+        <li><strong>Resource type:</strong> <code>caat/components/article-layout</code></li>
+        <li><strong>Sling Model:</strong> <code>ArticleLayoutModel</code> — exposes <code>variant</code>, <code>title</code>, <code>heroImage</code>, <code>heroAltText</code>, <code>authorName</code>, <code>publishDate</code>, <code>readTime</code>, <code>category</code>, <code>bodyContent</code>, <code>showSidebar</code>, <code>tocHeadings[]</code>, <code>relatedArticles[]</code>, <code>showShareButtons</code>, <code>showBreadcrumb</code>.</li>
+        <li><strong>HTL template:</strong> <code>article-layout.html</code> — uses <code>data-sly-test</code> to switch between standard, with-sidebar, and minimal variants. TOC auto-generated from h2 elements in body content via JS.</li>
+        <li><strong>Client library:</strong> <code>caat.components.article-layout</code> — CSS + JS. JS handles TOC active-state scroll tracking, scroll depth analytics, and share button actions.</li>
+        <li><strong>Policy:</strong> Authors can restrict available variants and toggle share button visibility per template policy.</li>
+        <li><strong>Allowed parents:</strong> Layout Container, Section Container, Page template.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         12. DIALOG MODEL
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model</h2>
+<pre class="code-sample"><code>{
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType": "cq/gui/components/authoring/dialog",
+  "tabs": {
+    "properties": {
+      "variant": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
+        "label": "Variant",
+        "name": "./variant",
+        "required": true,
+        "options": ["standard", "with-sidebar", "minimal"]
+      },
+      "title": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Title",
+        "name": "./jcr:title",
+        "required": true,
+        "maxLength": 120
+      },
+      "heroImage": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/pathfield",
+        "label": "Hero image",
+        "name": "./heroImage",
+        "rootPath": "/content/dam/caat"
+      },
+      "heroAltText": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Hero alt text",
+        "name": "./heroAltText"
+      },
+      "authorName": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Author name",
+        "name": "./authorName"
+      },
+      "publishDate": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/datepicker",
+        "label": "Publish date",
+        "name": "./publishDate",
+        "required": true
+      },
+      "readTime": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
+        "label": "Read time",
+        "name": "./readTime"
+      },
+      "category": {
+        "sling:resourceType": "cq/gui/components/coral/common/form/tagfield",
+        "label": "Category",
+        "name": "./category"
+      },
+      "bodyContent": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/rte",
+        "label": "Body content",
+        "name": "./bodyContent",
+        "required": true
+      },
+      "showSidebar": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Show sidebar (TOC + related articles)",
+        "name": "./showSidebar"
+      },
+      "relatedArticles": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
+        "label": "Related articles",
+        "name": "./relatedArticles",
+        "maxItems": 4,
+        "field": {
+          "sling:resourceType": "granite/ui/components/coral/foundation/form/pathfield",
+          "rootPath": "/content/caat"
+        }
+      },
+      "showShareButtons": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Show share buttons",
+        "name": "./showShareButtons"
+      },
+      "showBreadcrumb": {
+        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
+        "label": "Show breadcrumb (minimal variant)",
+        "name": "./showBreadcrumb"
+      }
+    }
+  }
+}</code></pre>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         13. QA CHECKLIST
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Acceptance Checklist</h2>
+      <ul class="list-unstyled">
+        <li class="mb-2"><input type="checkbox" disabled> Standard variant renders hero image, title, meta, and body prose at max-width 720 px.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Body text line-height is 1.75 for readability.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Headings in body use --caat-blue-900 colour.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Blockquote renders with left border (--caat-blue-700) and blue-100 background.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Hero image is full-width with border-radius applied.</li>
+        <li class="mb-2"><input type="checkbox" disabled> With-sidebar variant: main content ~8 cols, sidebar ~4 cols on desktop.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Sidebar is sticky with proper top offset and doesn't overlap navbar.</li>
+        <li class="mb-2"><input type="checkbox" disabled> TOC nav highlights the active section link.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Related articles render as small card list with hover state on title.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Share buttons render as circular icons with hover fill effect.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Sidebar drops below content on tablet/mobile (≤991 px).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Minimal variant: centred prose with breadcrumb, no hero, no sidebar.</li>
+        <li class="mb-2"><input type="checkbox" disabled> All interactive elements have visible focus rings.</li>
+        <li class="mb-2"><input type="checkbox" disabled> <code>prefers-reduced-motion</code> disables transitions.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Analytics events fire correctly for view, scroll depth, share, TOC, and related clicks.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+      </ul>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         14. DEFINITION OF DONE
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem;">Area</th><th>Done means</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Design</strong></td>
+              <td>Figma component matches this contract. All three variants documented with responsive breakpoints. Sidebar, TOC, share, and blockquote states included.</td>
+            </tr>
+            <tr>
+              <td><strong>Development</strong></td>
+              <td>AEM proxy component created. HTL template emits semantic HTML per Section 6. CSS uses design tokens exclusively. JS handles TOC scroll-spy active state and scroll depth tracking. Unit tests pass.</td>
+            </tr>
+            <tr>
+              <td><strong>QA</strong></td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge).</td>
+            </tr>
+            <tr>
+              <td><strong>Launch</strong></td>
+              <td>Component deployed to AEM production. Content authors trained on variant selection and sidebar configuration. Documentation published. Analytics dashboards confirmed receiving events.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div><!-- /component-page-layout -->
+</div><!-- /container -->
+
+<!-- ════════════════════════════════════════════════════════════
+     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
+     ════════════════════════════════════════════════════════════ -->
+<template id="figma-template">
+
+<h1 class="figma-page-title">Article Layout</h1>
+<p class="figma-page-subtitle">CAAT Design System · Prose, sidebar, and share elements</p>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Typography Scale</h2>
+  <div class="figma-row"><span class="figma-row-label">H1</span><div class="figma-row-items"><span style="font-weight:900;letter-spacing:-.04em;color:var(--caat-blue-900);font-size:2rem;">Article Title</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">H2</span><div class="figma-row-items"><span style="font-weight:800;color:var(--caat-blue-900);font-size:1.5rem;">Section Heading</span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Body</span><div class="figma-row-items"><span style="font-size:1rem;line-height:1.75;color:var(--caat-ink);">Body text with 1.75 line height for optimal readability.</span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Share Buttons</h2>
+  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="gap:.5rem;"><span style="width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--caat-grey-200);background:#fff;display:inline-flex;align-items:center;justify-content:center;color:var(--caat-blue-900);font-size:1rem;"><i class="bi bi-link-45deg"></i></span><span style="width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--caat-grey-200);background:#fff;display:inline-flex;align-items:center;justify-content:center;color:var(--caat-blue-900);font-size:1rem;"><i class="bi bi-envelope"></i></span><span style="width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--caat-grey-200);background:#fff;display:inline-flex;align-items:center;justify-content:center;color:var(--caat-blue-900);font-size:1rem;"><i class="bi bi-linkedin"></i></span></div></div>
+  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="width:2.5rem;height:2.5rem;border-radius:50%;border:1px solid var(--caat-blue-900);background:var(--caat-blue-900);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;"><i class="bi bi-link-45deg"></i></span></div></div>
+</div>
+
+<div class="figma-section">
+  <h2 class="figma-section-title">Specifications</h2>
+  <div class="figma-specs">
+    <div class="figma-spec"><strong>Max prose width</strong>720px</div>
+    <div class="figma-spec"><strong>Body line height</strong>1.75</div>
+    <div class="figma-spec"><strong>Blockquote border</strong>4px solid var(--caat-blue-700)</div>
+    <div class="figma-spec"><strong>Share button</strong>2.5rem, 50% radius</div>
+  </div>
+</div>
+
+</template>
+
+<!-- ════════════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

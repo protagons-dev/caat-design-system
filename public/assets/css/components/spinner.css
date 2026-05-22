@@ -1,0 +1,98 @@
+/* ════════════════════════════════════════════════════════════
+   CAAT Design System — Spinner Component
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Rotation keyframes ──────────────────────────────────── */
+@keyframes caat-spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes caat-spinner-grow {
+  0%   { transform: scale(0); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+/* ── Base spinner (border) ───────────────────────────────── */
+.caat-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: -0.125em;
+  border: 0.2em solid var(--caat-blue-900);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: caat-spin 0.75s linear infinite;
+}
+
+/* ── Sizes ────────────────────────────────────────────────── */
+.caat-spinner--sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}
+
+.caat-spinner--lg {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.25em;
+}
+
+/* ── Growing variant ─────────────────────────────────────── */
+.caat-spinner--grow {
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--caat-blue-900);
+  border-radius: 50%;
+  animation: caat-spinner-grow 0.75s linear infinite;
+}
+
+.caat-spinner--grow.caat-spinner--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.caat-spinner--grow.caat-spinner--lg {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* ── Label ────────────────────────────────────────────────── */
+.caat-spinner__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--caat-font-primary);
+  font-size: 1rem;
+  color: var(--caat-ink);
+}
+
+/* ── Button integration ──────────────────────────────────── */
+.caat-button .caat-spinner {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+  border-color: currentColor;
+  border-right-color: transparent;
+  margin-right: 0.5rem;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .caat-spinner,
+  .caat-spinner--grow {
+    animation: none;
+  }
+
+  .caat-spinner {
+    border-right-color: var(--caat-grey-200);
+    opacity: 0.7;
+  }
+
+  .caat-spinner--grow {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
