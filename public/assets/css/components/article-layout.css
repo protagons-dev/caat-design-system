@@ -25,64 +25,25 @@
    is governed by the header group, not a bespoke margin. */
 
 /* ── Body (prose) ────────────────────────────────────────── */
+/* COMPOSES the canonical prose container (.caat-rich-text, text-title.css)
+   for vertical rhythm, headings, paragraphs, lists and links. Only the
+   article-specific reading measure + blockquote styling live here. */
 .caat-article__body {
-  font-family: var(--caat-font-primary);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--caat-color-text);
-  max-width: 720px;
+  max-width: var(--caat-prose-measure);
 }
 
 .caat-article--has-sidebar .caat-article__body {
   max-width: 100%;
 }
 
-.caat-article__body h2 {
-  font-family: var(--caat-font-primary);
-  font-weight: 800;
-  color: var(--caat-color-text-heading);
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.caat-article__body h3 {
-  font-family: var(--caat-font-primary);
-  font-weight: 700;
-  color: var(--caat-color-text-heading);
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.caat-article__body p {
-  margin-bottom: 1.25rem;
-}
-
 .caat-article__body blockquote {
   border-left: 4px solid var(--caat-blue-700);
   padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
+  margin: var(--caat-prose-flow) 0;
   background: var(--caat-color-bg-brand-subtle);
   border-radius: 0 var(--caat-radius) var(--caat-radius) 0;
   font-style: italic;
-  color: var(--caat-blue-900);
-}
-
-.caat-article__body ul {
-  padding-left: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.caat-article__body ul li {
-  margin-bottom: 0.5rem;
-}
-
-.caat-article__body a {
-  color: var(--caat-blue-700);
-  text-decoration: underline;
-}
-
-.caat-article__body a:hover {
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
 }
 
 /* ── Sidebar ─────────────────────────────────────────────── */

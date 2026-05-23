@@ -261,6 +261,21 @@
   --caat-text-body-leading:var(--caat-leading-normal);
   --caat-text-lead-size:   var(--caat-font-size-lg);
 
+  /* ── Long-form prose rhythm ───────────────────────────────────
+     Typographic vertical rhythm for running prose (.caat-rich-text).
+     Principle: space belongs to what FOLLOWS — a heading gets a large
+     gap BEFORE it (new section) and a small gap AFTER (it attaches to
+     its first paragraph). So: heading-before > paragraph-flow >
+     heading-after. This is type-relative spacing, separate from the
+     4px UI spacing scale. */
+  --caat-prose-leading:            1.7;
+  --caat-prose-flow:               1.25rem;  /* between paragraphs / lists */
+  --caat-prose-measure:            68ch;      /* max line length for readability */
+  --caat-prose-h2-space-before:    2.5rem;
+  --caat-prose-h3-space-before:    2rem;
+  --caat-prose-h4-space-before:    1.5rem;
+  --caat-prose-heading-space-after:0.5rem;
+
   /* Headings (size / leading / weight as a set) — map to .caat-title scale */
   --caat-text-display-size: var(--caat-font-size-5xl);  /* weight 900 */
   --caat-text-h1-size: var(--caat-font-size-4xl);

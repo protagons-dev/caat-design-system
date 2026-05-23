@@ -684,23 +684,52 @@
             <tr><td><code>.caat-text--lead</code></td><td>Lead / intro paragraph</td><td>1.25rem</td></tr>
             <tr><td><code>.caat-text--small</code></td><td>Small / caption text</td><td>.875rem</td></tr>
             <tr><td><code>.caat-text--muted</code></td><td>De-emphasized text (60% opacity)</td><td>inherit</td></tr>
-            <tr><td><code>.caat-rich-text</code></td><td>Rich-text container — styles nested headings, paragraphs, links, lists</td><td>inherit</td></tr>
+            <tr><td><code>.caat-rich-text</code></td><td>Canonical long-form prose container — vertical rhythm for headings, paragraphs, lists, links (see below)</td><td>inherit</td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- ── Rich text preview ── -->
-      <h3 class="h5 mt-4 mb-3">Rich Text Preview</h3>
-      <div class="caat-rich-text p-4 border rounded mb-4">
-        <h2>Section heading inside rich text</h2>
-        <p>Body text rendered inside a <code>.caat-rich-text</code> container. Paragraphs get proper spacing and line-height. <a href="#">Links are underlined</a> with <code>--caat-blue-700</code>.</p>
-        <h3>Sub-heading inside rich text</h3>
-        <ul>
-          <li>Unordered list items get comfortable spacing</li>
-          <li>Lists use a <code>1.5rem</code> left padding</li>
-          <li>Each item has <code>.35em</code> bottom margin</li>
-        </ul>
-        <p>Use <strong>bold for emphasis</strong> and <em>italics for secondary emphasis</em>. The container handles all nested elements consistently.</p>
+      <!-- ── Long-form prose rhythm ── -->
+      <h3 class="h5 mt-4 mb-3">Long-form prose &amp; vertical rhythm</h3>
+      <p class="mb-3" style="max-width:48rem;">Running prose (articles, guides, policy) uses a <strong>typographic rhythm</strong>, not the 4px UI spacing scale. The principle: <strong>space belongs to what follows</strong> — a heading opens a <strong>large</strong> gap <em>before</em> it (it begins a new section) and a <strong>small</strong> gap <em>after</em> it (so it attaches to its first paragraph). The cadence is <strong>heading-before&nbsp;&gt;&nbsp;paragraph-flow&nbsp;&gt;&nbsp;heading-after</strong>. Use the canonical <code>.caat-rich-text</code> container; other components (e.g. the Article Layout body) compose it.</p>
+
+      <div class="row g-4 align-items-start mb-4">
+        <div class="col-lg-7">
+          <p class="demo-label">Rendered — <code>.caat-rich-text</code></p>
+          <div class="caat-rich-text p-4 border rounded" style="max-width:var(--caat-prose-measure);">
+            <p>Your DBplus pension provides a secure, predictable retirement income for life. Understanding how it works is the first step to making the most of it.</p>
+            <h2>How your pension is calculated</h2>
+            <p>Notice the generous space <em>above</em> this heading — it signals a new section — and the tighter space <em>below</em> it, so the heading sits with the paragraph it introduces.</p>
+            <p>Following paragraphs are separated by one consistent flow gap, keeping a steady reading rhythm down the page.</p>
+            <h3>Credited interest</h3>
+            <p>Sub-headings open a slightly smaller gap than section headings, so hierarchy is felt through spacing as well as size.</p>
+            <ul>
+              <li>Lists share the paragraph flow gap…</li>
+              <li>…with tighter spacing between items.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <p class="demo-label">Prose tokens</p>
+          <table class="table table-bordered" style="font-size:.85rem;">
+            <thead><tr><th>Token</th><th>Value</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--caat-prose-leading</code></td><td>1.7</td><td>Body line-height</td></tr>
+              <tr><td><code>--caat-prose-flow</code></td><td>1.25rem</td><td>Between paragraphs / lists</td></tr>
+              <tr><td><code>--caat-prose-h2-space-before</code></td><td>2.5rem</td><td>Before an h2 (section)</td></tr>
+              <tr><td><code>--caat-prose-h3-space-before</code></td><td>2rem</td><td>Before an h3</td></tr>
+              <tr><td><code>--caat-prose-h4-space-before</code></td><td>1.5rem</td><td>Before an h4</td></tr>
+              <tr><td><code>--caat-prose-heading-space-after</code></td><td>0.5rem</td><td>After any heading</td></tr>
+              <tr><td><code>--caat-prose-measure</code></td><td>68ch</td><td>Max line length</td></tr>
+            </tbody>
+          </table>
+          <p class="small text-muted mb-0">Heading <em>before</em> ≫ paragraph flow ≫ heading <em>after</em>. The block's first child has no top gap and its last child no bottom gap.</p>
+        </div>
+      </div>
+
+      <div class="alert alert-info" role="note" style="font-size:.9rem;">
+        <i class="bi bi-info-circle me-1"></i>
+        <strong>Prose rhythm vs. Stack rhythm.</strong> Use <strong>prose rhythm</strong> (<code>.caat-rich-text</code>) for running copy, where a heading needs more space before than after. Use the even single-gap <a href="/components/separator.html">Stack</a> rhythm for UI groupings — card content, form fields, hero copy.
       </div>
 
       <!-- ── Eyebrow pattern ── -->
