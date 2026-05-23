@@ -348,15 +348,18 @@ Make it enforceable later with a check that every "Composed of" link resolves to
 | **forms** | button ✅, *field/validation*, *stepper* | extract Field + Stepper (see Part C) |
 | **article-layout** | breadcrumb ✅, rich-text ✅, *share*, *toc*, *related*, *meta* | **Social/Share ❌**, **In-page Nav/ToC ❌**, related→**Card** ✅, **Byline/Meta ❌** |
 
-### F5. Phantom sub-components to promote (prioritized)
-| Promote to a component | Reused by | Priority |
+### F5. Phantom sub-components to promote (prioritized) — ✅ DONE (2026-05-23)
+All six promoted to documented components and their consumers refactored to compose them (duplication removed). Value-identical; audit still 39/39.
+| Promoted component | Now consumed by | Was |
 |---|---|---|
-| **Icon Button / Icon Link** (atom) | underlies social, share, close, nav actions | P1 |
-| **Social / Share Links** | article-layout, navigation (currently 2 copies) | P1 |
-| **In-page Nav (Table of Contents)** | article-layout (any long page) | P1 |
-| **Stat / KPI** | hero, data-visualization | P1 |
-| **Avatar** | testimonials, (future) member portal | P2 |
-| **Byline / Meta** | article-layout | P2 |
+| **Icon Button / Icon Link** (atom) | Social/Share Links, navigation, article share | — (new base) |
+| **Social / Share Links** | article-layout, navigation | 2 copies (`.caat-article__share-btn` + `.caat-footer-social`) |
+| **In-page Nav (Table of Contents)** | article-layout | `.caat-article__toc` |
+| **Stat / KPI** | hero (+ pensions-matter) | Hero-internal `.caat-stat-strip` |
+| **Avatar** | testimonials | `.caat-testimonial__avatar` |
+| **Byline / Meta** | article-layout | `.caat-article__meta` |
+
+> Remaining (lower priority): `related articles` → compose Card; card `kicker` → use `.caat-eyebrow`; data-visualization headline figures → adopt `.caat-stat`.
 
 *Not new components:* **related articles** = a grid of **Card**; the **kicker** = **eyebrow** (consolidate).
 
