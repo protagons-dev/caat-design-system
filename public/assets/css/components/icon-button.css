@@ -1,0 +1,81 @@
+/* ============================================================
+   CAAT Icon Button / Icon Link — Base atom
+   AEM client library: caat/components/icon-button/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+
+   A compact control containing ONLY an icon (no visible text label).
+   Renders as <button> (action) or <a> (link). REQUIRES an accessible
+   name via aria-label. Used by: Social/Share Links, close buttons,
+   nav actions, toolbars. See Interaction States foundation.
+   ============================================================ */
+
+.caat-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;            /* 40px — comfortably exceeds the 24px min target */
+  height: 2.5rem;
+  flex: none;
+  border-radius: var(--caat-radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--caat-color-action-primary);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .1s ease;
+}
+
+/* ── Shape ─────────────────────────────────────────────────── */
+.caat-icon-btn--circle { border-radius: var(--caat-radius-pill); }
+
+/* ── Sizes (all keep a ≥24px hit area) ─────────────────────── */
+.caat-icon-btn--sm { width: 2rem;  height: 2rem;  font-size: 1rem; }
+.caat-icon-btn--lg { width: 3rem;  height: 3rem;  font-size: 1.35rem; }
+
+/* ── Styles ────────────────────────────────────────────────── */
+.caat-icon-btn--outline {
+  border-color: var(--caat-color-border);
+  background: var(--caat-color-bg-page);
+}
+.caat-icon-btn--solid {
+  background: var(--caat-color-action-primary);
+  border-color: var(--caat-color-action-primary);
+  color: var(--caat-color-text-inverse);
+}
+
+/* ── States ────────────────────────────────────────────────── */
+.caat-icon-btn:hover { background: var(--caat-color-state-hover-bg); }
+.caat-icon-btn--outline:hover {
+  background: var(--caat-color-bg-brand);
+  border-color: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
+}
+.caat-icon-btn--solid:hover {
+  background: var(--caat-color-action-primary-hover);
+  border-color: var(--caat-color-action-primary-hover);
+}
+.caat-icon-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--caat-color-focus-ring);
+}
+.caat-icon-btn:active { transform: translateY(1px); }
+.caat-icon-btn:disabled,
+.caat-icon-btn[aria-disabled="true"] {
+  opacity: var(--caat-opacity-disabled);
+  pointer-events: none;
+}
+
+/* ── Brand-coloured (set --caat-icon-btn-brand per platform; used by
+   Social/Share Links). Falls back to the primary action colour. ── */
+.caat-icon-btn--brand { color: var(--caat-icon-btn-brand, var(--caat-color-action-primary)); }
+.caat-icon-btn--brand:hover {
+  background: var(--caat-icon-btn-brand, var(--caat-color-bg-brand));
+  border-color: var(--caat-icon-btn-brand, var(--caat-color-bg-brand));
+  color: var(--caat-color-text-inverse);
+}
+
+/* The glyph itself never intercepts pointer/AT — the control owns the label */
+.caat-icon-btn > .bi,
+.caat-icon-btn__icon { pointer-events: none; }
