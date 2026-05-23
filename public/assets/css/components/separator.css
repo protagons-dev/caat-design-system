@@ -1,52 +1,72 @@
 /* ════════════════════════════════════════════════════════════
-   CAAT Design System — Separator Component
+   CAAT Spacing & Rhythm — Component  (file: separator.css)
+   Depends on: tokens.css (consumes the spacing scale + semantic tokens)
+
+   Separate content with CONSISTENT SPACING and vertical rhythm — not
+   visible rules. Group related items with less space, separate groups
+   with more (proximity). Visible dividers are RESERVED for a genuine
+   thematic break or an "or" choice.
    ════════════════════════════════════════════════════════════ */
 
-/* ── Base ─────────────────────────────────────────────────── */
+/* ── Stack ─────────────────────────────────────────────────────
+   The primary vertical-rhythm tool: applies a single, consistent gap
+   between direct children (and zeroes their own vertical margins, so
+   spacing has one source). Choose the step from the spacing scale. */
+.caat-stack { --caat-stack-gap: var(--caat-space-5); }   /* default 24px */
+.caat-stack > * { margin-block: 0; }
+.caat-stack > * + * { margin-block-start: var(--caat-stack-gap); }
+
+.caat-stack--2xs { --caat-stack-gap: var(--caat-space-2); }  /* 8px  */
+.caat-stack--xs  { --caat-stack-gap: var(--caat-space-3); }  /* 12px */
+.caat-stack--sm  { --caat-stack-gap: var(--caat-space-4); }  /* 16px */
+.caat-stack--md  { --caat-stack-gap: var(--caat-space-5); }  /* 24px (default) */
+.caat-stack--lg  { --caat-stack-gap: var(--caat-space-6); }  /* 32px */
+.caat-stack--xl  { --caat-stack-gap: var(--caat-space-7); }  /* 48px */
+.caat-stack--2xl { --caat-stack-gap: var(--caat-space-8); }  /* 64px */
+
+/* Push one child to the end of a flex-column stack (e.g. pin a CTA) */
+.caat-stack--split { display: flex; flex-direction: column; }
+.caat-stack--split > .caat-stack__push { margin-block-start: auto; }
+
+/* ── Spacer ────────────────────────────────────────────────────
+   An explicit one-off vertical gap. Prefer Stack or section padding;
+   reach for a Spacer only when spacing can't be controlled structurally. */
+.caat-spacer { display: block; height: var(--caat-space-5); }
+.caat-spacer--xs { height: var(--caat-space-2); }
+.caat-spacer--sm { height: var(--caat-space-3); }
+.caat-spacer--md { height: var(--caat-space-5); }
+.caat-spacer--lg { height: var(--caat-space-7); }
+.caat-spacer--xl { height: var(--caat-space-8); }
+
+/* ── Divider (RESERVED) ────────────────────────────────────────
+   A 1px thematic break — only for a genuine change of topic within
+   prose (HTML <hr> semantics). Prefer spacing first. There is no
+   "thick" / "accent" rule by design: heavy full-width bars fence the
+   page and harm reading flow. */
 .caat-separator {
   border: none;
   border-top: 1px solid var(--caat-color-border);
-  margin: 1.5rem 0;
+  margin-block: var(--caat-space-6);
   opacity: 1;
 }
 
-/* ── Thick ────────────────────────────────────────────────── */
-.caat-separator--thick {
-  border-top-width: 3px;
-  border-top-color: var(--caat-blue-900);
-}
-
-/* ── Accent ───────────────────────────────────────────────── */
-.caat-separator--accent {
-  width: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  border-top-width: 3px;
-  border-top-color: var(--caat-green);
-}
-
-/* ── Spaced ───────────────────────────────────────────────── */
-.caat-separator--spaced {
-  margin: 3rem 0;
-}
-
-/* ── With Label ───────────────────────────────────────────── */
+/* ── "Or" divider ──────────────────────────────────────────────
+   The one case a visible line genuinely helps: two alternative
+   actions (e.g. "Sign in … or … Create an account"). */
 .caat-separator--with-label {
   display: flex;
   align-items: center;
   gap: 0;
   border: none;
-  margin: 1.5rem 0;
+  margin-block: var(--caat-space-5);
 }
-
 .caat-separator--with-label::before,
 .caat-separator--with-label::after {
   content: "";
   flex: 1;
   height: 1px;
-  background: var(--caat-grey-200);
+  background: var(--caat-color-border);
 }
-
 .caat-separator__label {
   display: inline-block;
   padding: 0 0.75rem;
@@ -55,6 +75,6 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--caat-color-text);
+  color: var(--caat-color-text-muted);
   background: var(--caat-color-bg-page);
 }

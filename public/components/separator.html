@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="CAAT Design System — Separator AEM Component Contract. Complete authoring, accessibility, and implementation specification.">
-<title>Separator | CAAT Design System — Component Contract</title>
+<meta name="description" content="CAAT Design System — Spacing & Rhythm. Separate content with consistent spacing and vertical rhythm; visible dividers reserved for thematic breaks and 'or' choices.">
+<title>Spacing &amp; Rhythm | CAAT Design System — Component Contract</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,17 +16,19 @@
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
 <link href="/assets/css/components/separator.css" rel="stylesheet">
+<style>
+/* Page-local: visualise the spacing in the demos */
+.rhythm-demo > * { background: var(--caat-color-bg-brand-subtle); border-radius: var(--caat-radius-sm); padding: .65rem .85rem; }
+.rhythm-demo--plain > * { background: transparent; padding: 0; }
+.gap-marker { background: repeating-linear-gradient(45deg, var(--caat-grey-100), var(--caat-grey-100) 4px, #fff 4px, #fff 8px); border-radius: var(--caat-radius-sm); }
+</style>
 </head>
 <body>
 <button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
 <div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
 
-<!-- Skip link -->
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<!-- ════════════════════════════════════════════════════════════
-     NAVBAR
-     ════════════════════════════════════════════════════════════ -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
@@ -41,60 +43,22 @@
         <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
         <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
-        <li class="nav-item"><a class="nav-link" href="/index.html#aem-delivery">AEM Delivery</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- ════════════════════════════════════════════════════════════
-     PAGE BODY
-     ════════════════════════════════════════════════════════════ -->
 <div class="container py-4" id="main">
 <div class="component-page-layout">
 
-  <!-- ──────────────────────────────────────────────────────────
-       LEFT SIDEBAR
-       ────────────────────────────────────────────────────────── -->
   <aside class="component-page-sidebar" aria-label="Component navigation">
-    <!-- Component list -->
-    <p class="eyebrow mb-2">Components</p>
+    <p class="eyebrow mb-2">Related</p>
     <nav class="nav flex-column mb-3">
-      <a class="nav-link" href="/components/button.html">Button</a>
-      <a class="nav-link" href="/components/card.html">Card</a>
-      <a class="nav-link" href="/components/accordion.html">Accordion</a>
-      <a class="nav-link" href="/components/hero.html">Hero</a>
-      <a class="nav-link" href="/components/navigation.html">Navigation</a>
-      <a class="nav-link" href="/components/tabs.html">Tabs</a>
-      <a class="nav-link" href="/components/alerts.html">Alerts</a>
-      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
-      <a class="nav-link" href="/components/forms.html">Forms</a>
-      <a class="nav-link" href="/components/tables.html">Tables</a>
-      <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
-      <a class="nav-link" href="/components/badge.html">Badge</a>
-      <a class="nav-link" href="/components/modal.html">Modal</a>
-      <a class="nav-link" href="/components/list-group.html">List Group</a>
-      <a class="nav-link" href="/components/dropdown.html">Dropdown</a>
-      <a class="nav-link" href="/components/pagination.html">Pagination</a>
-      <a class="nav-link" href="/components/toast.html">Toast</a>
-      <a class="nav-link" href="/components/tooltip.html">Tooltip</a>
-      <a class="nav-link" href="/components/popover.html">Popover</a>
-      <a class="nav-link" href="/components/progress.html">Progress</a>
-      <a class="nav-link" href="/components/offcanvas.html">Offcanvas</a>
-      <a class="nav-link" href="/components/spinner.html">Spinner</a>
-      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
-      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
-      <a class="nav-link" href="/components/search.html">Search</a>
-      <a class="nav-link" href="/components/data-visualization.html">Data Visualization</a>
-      <a class="nav-link" href="/components/image-embed.html">Image / Embed</a>
-      <a class="nav-link" href="/components/download.html">Download</a>
-      <a class="nav-link active" href="/components/separator.html">Separator</a>
-      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
-      <a class="nav-link" href="/components/logo-wall.html">Logo Wall</a>
-      <a class="nav-link" href="/components/feature-resource-hero.html">Feature Resource Hero</a>
+      <a class="nav-link" href="/foundations/design-tokens.html#spacing-radius">Spacing Scale (tokens)</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout (section rhythm)</a>
+      <a class="nav-link active" href="/components/separator.html">Spacing &amp; Rhythm</a>
+      <a class="nav-link" href="/components/index.html">All components →</a>
     </nav>
-
-    <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
     <nav class="nav flex-column">
       <a class="nav-link" href="#demo">Demo</a>
@@ -115,456 +79,357 @@
     </nav>
   </aside>
 
-  <!-- ──────────────────────────────────────────────────────────
-       MAIN CONTENT
-       ────────────────────────────────────────────────────────── -->
   <main>
-
-    <!-- Breadcrumb -->
     <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Separator</li>
+        <li class="breadcrumb-item active" aria-current="page">Spacing &amp; Rhythm</li>
       </ol>
     </nav>
 
-    <!-- Page header -->
     <div class="mb-2">
       <p class="eyebrow">Component Contract</p>
-      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Separator</h1>
-      <p class="text-muted">Visual divider between content sections for the CAAT Pension Plan member experience.</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Spacing &amp; Rhythm</h1>
+      <p class="text-muted">Separate content with consistent spacing and vertical rhythm — not horizontal rules. <span class="text-muted">(Formerly “Separator”.)</span></p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Separator',['/assets/css/tokens.css','/assets/css/components/separator.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Spacing and Rhythm',['/assets/css/tokens.css','/assets/css/components/separator.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION: DEMO
-         ════════════════════════════════════════════════════════ -->
+    <div class="alert alert-info" role="note">
+      <i class="bi bi-info-circle me-1"></i>
+      <strong>Principle:</strong> use <strong>spacing</strong> to separate content — group related items with less space and separate groups with more (proximity). A visible line is the exception, reserved for a genuine topic change or an “or” choice. Spacing values come from the <a href="/foundations/design-tokens.html#spacing-radius">spacing scale</a>.
+    </div>
+
+    <!-- ════ DEMO ════ -->
     <section class="contract-section" id="demo">
       <h2>Live Demo</h2>
 
-      <!-- Variant 1 — Default -->
-      <h3 class="mt-3 mb-2">Default Separator</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <p>Content above the separator.</p>
-          <hr class="caat-separator">
-          <p>Content below the separator.</p>
-        </div>
-      </div>
-
-      <!-- Variant 2 — Thick -->
-      <h3 class="mb-2">Thick Separator</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <p>End of major section.</p>
-          <hr class="caat-separator caat-separator--thick">
-          <p>Beginning of next major section.</p>
-        </div>
-      </div>
-
-      <!-- Variant 3 — Accent -->
-      <h3 class="mb-2">Accent Separator</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <p class="text-center">Decorative divider centred between content.</p>
-          <hr class="caat-separator caat-separator--accent">
-          <p class="text-center">Next content block.</p>
-        </div>
-      </div>
-
-      <!-- Variant 4 — Spaced -->
-      <h3 class="mb-2">Spaced Separator</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <p>Content with extra vertical breathing room.</p>
-          <hr class="caat-separator caat-separator--spaced">
-          <p>Content after generous spacing.</p>
-        </div>
-      </div>
-
-      <!-- Variant 5 — With Label -->
-      <h3 class="mb-2">Separator with Label</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <p>Choose one of the options below.</p>
-          <div class="caat-separator caat-separator--with-label">
-            <span class="caat-separator__label">or</span>
+      <!-- Stack -->
+      <h3 class="mt-3 mb-2">Stack — consistent vertical rhythm</h3>
+      <p class="text-muted mb-3" style="max-width:48rem;"><code>.caat-stack</code> puts one consistent gap between its children (and zeroes their own margins, so spacing has a single source). Pick the step from the scale.</p>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <p class="demo-label">Tight — <code>--sm</code> (16px)</p>
+            <div class="caat-stack caat-stack--sm rhythm-demo">
+              <p class="mb-0">Plan overview</p>
+              <p class="mb-0">Contribution rates</p>
+              <p class="mb-0">Benefit formula</p>
+            </div>
           </div>
-          <p>Alternatively, continue without selecting.</p>
-
-          <div class="caat-separator caat-separator--with-label mt-4">
-            <span class="caat-separator__label">Section Break</span>
+          <div class="col-md-4">
+            <p class="demo-label">Default — <code>--md</code> (24px)</p>
+            <div class="caat-stack caat-stack--md rhythm-demo">
+              <p class="mb-0">Plan overview</p>
+              <p class="mb-0">Contribution rates</p>
+              <p class="mb-0">Benefit formula</p>
+            </div>
           </div>
-          <p>New section content starts here.</p>
+          <div class="col-md-4">
+            <p class="demo-label">Loose — <code>--xl</code> (48px)</p>
+            <div class="caat-stack caat-stack--xl rhythm-demo">
+              <p class="mb-0">Plan overview</p>
+              <p class="mb-0">Contribution rates</p>
+              <p class="mb-0">Benefit formula</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- In-Context: Article Template -->
-      <h3 class="mt-5 mb-2">In Context — Article Layout</h3>
-      <p class="text-muted mb-3">Separators should be used <strong>within content</strong> to divide thematic sections — not as spacers or page-level breaks.</p>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Article example</p>
-          <article style="max-width:42rem;">
-            <h2 style="font-weight:800; color:var(--caat-blue-900); margin-bottom:.5rem;">Understanding your pension options</h2>
-            <p style="color:var(--caat-muted); font-size:.88rem; margin-bottom:1.5rem;">Published May 2026 · 5 min read</p>
-            <p>DBplus offers cost certainty for employers and a secure, predictable pension for life for employees. Here's what you need to know about joining.</p>
-            <h3 style="font-weight:700; margin-top:1.5rem;">Contribution rates</h3>
-            <p>Employers and employees share the cost through fixed contribution rates, making budgeting straightforward and predictable for both parties.</p>
-            <hr class="caat-separator">
-            <h3 style="font-weight:700;">Benefit formula</h3>
-            <p>Your pension is calculated based on your years of service and a percentage of your earnings — providing a clear, guaranteed retirement income.</p>
-            <hr class="caat-separator caat-separator--accent">
-            <h3 style="font-weight:700;">Portability</h3>
-            <p>If you change employers within the CAAT network, your pension transfers seamlessly with no loss of benefits or service credits.</p>
-          </article>
+      </div></div>
+
+      <!-- Proximity / grouping -->
+      <h3 class="mt-4 mb-2">Grouping by proximity</h3>
+      <p class="text-muted mb-3" style="max-width:48rem;">This is what replaces the divider: <strong>less</strong> space within a group, <strong>more</strong> between groups. The structure reads instantly — no lines needed. (Outer stack <code>--xl</code>, inner stacks <code>--2xs</code>.)</p>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <div class="caat-stack caat-stack--xl" style="max-width:32rem;">
+          <div class="caat-stack caat-stack--2xs">
+            <strong style="color:var(--caat-color-text-heading);">When can you retire?</strong>
+            <p class="mb-0 text-muted">You can start an unreduced pension at your normal retirement date.</p>
+          </div>
+          <div class="caat-stack caat-stack--2xs">
+            <strong style="color:var(--caat-color-text-heading);">Bridge benefits</strong>
+            <p class="mb-0 text-muted">A bridge benefit tops up your income until age 65.</p>
+          </div>
+          <div class="caat-stack caat-stack--2xs">
+            <strong style="color:var(--caat-color-text-heading);">Survivor benefits</strong>
+            <p class="mb-0 text-muted">Your eligible survivor continues to receive a pension for life.</p>
+          </div>
         </div>
-      </div>
+      </div></div>
+
+      <!-- Spacer -->
+      <h3 class="mt-4 mb-2">Spacer — explicit one-off gap</h3>
+      <p class="text-muted mb-3" style="max-width:48rem;">For the rare case you can't control spacing structurally. Prefer Stack or section padding.</p>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p class="mb-0">Content above the gap.</p>
+        <div class="caat-spacer--lg gap-marker" aria-hidden="true" style="height:var(--caat-space-7);"></div>
+        <p class="mb-0">Content after a <code>--lg</code> (48px) spacer.</p>
+      </div></div>
+
+      <!-- Reserved: divider -->
+      <h3 class="mt-4 mb-2">Reserved — thematic break</h3>
+      <p class="text-muted mb-3" style="max-width:48rem;">A single 1px rule, only for a genuine change of topic in prose (HTML <code>&lt;hr&gt;</code>). There is no thick/accent rule — heavy bars fence the page.</p>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p>…and that concludes how your pension is calculated.</p>
+        <hr class="caat-separator">
+        <p>On an unrelated note, here's how to update your beneficiary.</p>
+      </div></div>
+
+      <!-- Reserved: or divider -->
+      <h3 class="mt-4 mb-2">Reserved — “or” divider</h3>
+      <p class="text-muted mb-3" style="max-width:48rem;">The one case a visible line genuinely helps: choosing between two alternatives.</p>
+      <div class="demo-shell mb-4"><div class="demo-rendered" style="max-width:24rem;">
+        <a href="#" class="caat-button caat-button--primary" style="width:100%;">Sign in to your account</a>
+        <div class="caat-separator--with-label"><span class="caat-separator__label">or</span></div>
+        <a href="#" class="caat-button caat-button--outline-primary" style="width:100%;">Create an account</a>
+      </div></div>
 
       <!-- Anti-patterns -->
-      <h3 class="mt-4 mb-2">Anti-Patterns</h3>
-      <div class="row g-4 mb-4">
-        <div class="col-md-6">
-          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
-            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't: Separator as spacer</h4>
-            <p class="small text-muted mb-2">Never use a separator purely to add vertical space. Use CSS margin/padding or the Spaced variant only when a visible line is appropriate.</p>
-            <div class="bg-light p-3 rounded">
-              <p class="mb-0 small" style="color:var(--caat-muted);">Content above</p>
-              <hr class="caat-separator" style="opacity:.3;">
-              <p class="mb-0 small" style="color:var(--caat-muted);">&nbsp;</p>
-              <hr class="caat-separator" style="opacity:.3;">
-              <p class="mb-0 small" style="color:var(--caat-muted);">Content below (two separators used as "spacers" ✗)</p>
-            </div>
+      <h3 class="mt-4 mb-2">Anti-patterns</h3>
+      <div class="row g-4 mb-2">
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100" style="border-color:var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Rules as fences</h4>
+            <p class="small text-muted mb-0">Don't put a line between every section. Use spacing (and background tiers from <a href="/foundations/page-layout.html">Page Layout</a>) to separate sections.</p>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="p-3 border rounded h-100" style="border-color: var(--caat-danger) !important;">
-            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't: Full-width page break bands</h4>
-            <p class="small text-muted mb-2">Never use full-bleed coloured bands or thick horizontal bars to "break" the page between sections. Page sections should flow naturally using consistent padding and background colours — not hard visual fences.</p>
-            <div class="bg-light p-3 rounded">
-              <p class="mb-0 small" style="color:var(--caat-muted);">Section A content</p>
-              <div style="height:8px; background:var(--caat-blue-900); margin:1rem -1rem; width:calc(100% + 2rem);" aria-hidden="true"></div>
-              <p class="mb-0 small" style="color:var(--caat-muted);">Section B content (hard break band ✗)</p>
-            </div>
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100" style="border-color:var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Spacers as structure</h4>
+            <p class="small text-muted mb-0">Don't stack empty Spacers to push content around. Use a Stack, grid gap, or section padding.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100" style="border-color:var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Inconsistent gaps</h4>
+            <p class="small text-muted mb-0">Don't hand-pick arbitrary margins. Every gap should be a step on the spacing scale.</p>
           </div>
         </div>
       </div>
-
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 1: SUMMARY
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 1. SUMMARY ════ -->
     <section class="contract-section" id="summary">
       <h2>1. Summary</h2>
       <table class="table table-bordered">
         <tbody>
-          <tr><th>Component name</th><td>Separator</td></tr>
+          <tr><th>Component name</th><td>Spacing &amp; Rhythm <span class="text-muted">(file/resource type: <code>separator</code>)</span></td></tr>
           <tr><th>AEM resource type</th><td><code>caat/components/separator</code></td></tr>
-          <tr><th>Purpose</th><td>Provides a visual horizontal rule to separate content sections, with variants for emphasis, decoration, spacing, and labelled breaks.</td></tr>
-          <tr><th>Variants</th><td>Default, Thick, Accent, Spaced, With Label</td></tr>
-          <tr><th>Status</th><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Rebuild</span></td></tr>
-          <tr><th>Replaces</th><td>Separator (#48)</td></tr>
+          <tr><th>Tier</th><td>Base — consumes the spacing scale + semantic tokens</td></tr>
+          <tr><th>Purpose</th><td>Create separation through consistent spacing and vertical rhythm. Provides Stack and Spacer; a visible divider is reserved for thematic breaks and “or” choices.</td></tr>
+          <tr><th>Variants</th><td>Stack (rhythm) · Spacer (gap) · Divider (thematic, reserved) · “Or” divider</td></tr>
+          <tr><th>Status</th><td><span class="status-badge rebuild"><i class="bi bi-arrow-repeat"></i> Reworked</span></td></tr>
+          <tr><th>Removed</th><td>Thick &amp; accent rules, “spaced” rule (heavy fences) — superseded by Stack/Spacer</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 2: TOKENS
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 2. TOKENS ════ -->
     <section class="contract-section" id="tokens">
       <h2>2. Design Tokens</h2>
       <table class="table table-bordered">
-        <thead><tr><th>Token</th><th>Role</th><th>Value (default)</th></tr></thead>
+        <thead><tr><th>Token</th><th>Role</th></tr></thead>
         <tbody>
-          <tr><td><code>--caat-grey-200</code></td><td>Default line colour</td><td>#e9ecef</td></tr>
-          <tr><td><code>--caat-blue-900</code></td><td>Thick variant line colour</td><td>#003366</td></tr>
-          <tr><td><code>--caat-green</code></td><td>Accent variant line colour</td><td>#2e8540</td></tr>
-          <tr><td><code>--caat-ink</code></td><td>Label text colour</td><td>#212529</td></tr>
-          <tr><td><code>--caat-font-primary</code></td><td>Label font family</td><td>Libre Franklin</td></tr>
+          <tr><td><code>--caat-space-2 … --caat-space-8</code></td><td>Stack gap / Spacer height — every gap is a scale step</td></tr>
+          <tr><td><code>--caat-stack-gap</code></td><td>Per-stack gap (set by size modifiers; defaults to <code>--caat-space-5</code>)</td></tr>
+          <tr><td><code>--caat-color-border</code></td><td>Reserved divider line + “or” rules</td></tr>
+          <tr><td><code>--caat-color-bg-page</code></td><td>“Or” label background (knockout)</td></tr>
+          <tr><td><code>--caat-color-text-muted</code></td><td>“Or” label text</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 3: AUTHORING FIELDS
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 3. AUTHORING ════ -->
     <section class="contract-section" id="authoring">
       <h2>3. Authoring Fields</h2>
       <table class="table table-bordered">
         <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Variant</td><td>Select</td><td>Yes</td><td>Options: Default, Thick, Accent, Spaced, With Label</td></tr>
-          <tr><td>Label text</td><td>Text</td><td>No</td><td>Only visible when variant = "With Label". Max 30 characters.</td></tr>
-          <tr><td>Decorative</td><td>Checkbox</td><td>No</td><td>If checked, applies <code>aria-hidden="true"</code> and <code>role="presentation"</code>.</td></tr>
+          <tr><td>Type</td><td>Select</td><td>Yes</td><td>Spacer · Divider · Or-divider. (Stack is a layout-container option applied to content groups, not a standalone drop-in.)</td></tr>
+          <tr><td>Size</td><td>Select</td><td>For Spacer/Stack</td><td>xs · sm · md · lg · xl — maps to the spacing scale</td></tr>
+          <tr><td>Label</td><td>Text</td><td>For Or-divider</td><td>Usually “or”. Max 24 characters.</td></tr>
+          <tr><td>Decorative</td><td>Checkbox</td><td>No</td><td>Divider only — adds <code>aria-hidden="true"</code> when it's purely visual.</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 4: VALIDATION
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 4. VALIDATION ════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
       <table class="table table-bordered">
         <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
         <tbody>
-          <tr><td>Variant required</td><td>No variant selected</td><td>"Please select a separator variant."</td></tr>
-          <tr><td>Label length</td><td>Label &gt; 30 chars</td><td>"Label text must be 30 characters or fewer."</td></tr>
-          <tr><td>Label required for variant</td><td>Variant = "With Label" and label empty</td><td>"Label text is required for the With Label variant."</td></tr>
+          <tr><td>Size from scale</td><td>Custom size entered</td><td>"Choose a size from the spacing scale — avoid arbitrary values."</td></tr>
+          <tr><td>Label required</td><td>Type = Or-divider, label empty</td><td>"Add a label (e.g. “or”) for the divider."</td></tr>
+          <tr><td>No consecutive spacers</td><td>Two Spacers in a row</td><td>"Use a larger spacer or section padding instead of stacking spacers."</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 5: CONTENT GUIDANCE
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 5. CONTENT GUIDANCE ════ -->
     <section class="contract-section" id="content-guidance">
       <h2>5. Content Guidance</h2>
-
-      <h3 class="h6 mt-3"><i class="bi bi-check-circle-fill text-success me-1"></i> When to use</h3>
+      <h3 class="h6 mt-3"><i class="bi bi-check-circle-fill text-success me-1"></i> Do</h3>
       <ul>
-        <li>Use <strong>Default</strong> for general content separation within a page section (e.g., between paragraphs in an article).</li>
-        <li>Use <strong>Thick</strong> to delineate major thematic shifts within a single content area.</li>
-        <li>Use <strong>Accent</strong> sparingly as a decorative element — typically centred under headings or between testimonials.</li>
-        <li>Use <strong>Spaced</strong> where generous whitespace reinforces visual hierarchy <em>and</em> a visible line is semantically appropriate.</li>
-        <li>Use <strong>With Label</strong> for logical branching ("or") or named section breaks within a flow.</li>
+        <li><strong>Separate with space, not lines.</strong> Use a Stack (or grid gap / section padding) so related items sit closer and groups sit further apart.</li>
+        <li><strong>Use the scale.</strong> Every gap is a step (<code>--caat-space-*</code>). Consistent steps create rhythm.</li>
+        <li><strong>Reserve the divider</strong> for a real change of topic in prose, or an “or” between two actions.</li>
+        <li><strong>Separate page sections</strong> with padding + background tiers (see <a href="/foundations/page-layout.html">Page Layout</a>), not rules.</li>
       </ul>
-
-      <h3 class="h6 mt-4"><i class="bi bi-x-circle-fill text-danger me-1"></i> When NOT to use</h3>
+      <h3 class="h6 mt-4"><i class="bi bi-x-circle-fill text-danger me-1"></i> Don't</h3>
       <div class="alert alert-danger" style="font-size:.9rem;">
-        <strong>Rule 1 — Never use separators as spacers.</strong><br>
-        If the goal is vertical whitespace between sections, use CSS padding/margin on the section container. Stacking invisible or decorative <code>&lt;hr&gt;</code> elements to "push content apart" is a misuse of the component and creates accessibility noise.
-      </div>
-      <div class="alert alert-danger" style="font-size:.9rem;">
-        <strong>Rule 2 — Never use full-width coloured break bands between page sections.</strong><br>
-        The current site uses thick, full-bleed coloured bars (e.g., 8px dark blue bands) to visually "fence off" page sections. This creates a jarring, segmented reading experience. Instead, page sections should transition naturally using consistent padding, alternating background colours (<code>--caat-grey</code> / white), and clear heading hierarchy. The separator component is for <em>within-content</em> use only.
+        <strong>Never use a line as a spacer or a page-section fence.</strong> Heavy/full-width rules between sections create a segmented, choppy read. Let spacing and background do the work.
       </div>
       <ul>
-        <li>Do not stack multiple separators — one is always sufficient.</li>
-        <li>Do not use separators inside cards, accordions, or other contained components (use the component's own internal spacing).</li>
-        <li>Do not use separators between page-level sections — rely on section padding and background colours instead.</li>
+        <li>Don't stack empty Spacers to force layout — use a Stack or container padding.</li>
+        <li>Don't hand-pick arbitrary margins; pull from the scale.</li>
+        <li>Don't reach for a thick/coloured rule for emphasis — there isn't one, by design.</li>
       </ul>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 6: SEMANTIC HTML
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 6. SEMANTIC HTML ════ -->
     <section class="contract-section" id="semantic-html">
       <h2>6. Semantic HTML</h2>
-      <pre><code>&lt;!-- Default / Thick / Accent / Spaced --&gt;
-&lt;hr class="caat-separator caat-separator--{variant}"&gt;
-
-&lt;!-- With Label --&gt;
-&lt;div class="caat-separator caat-separator--with-label"&gt;
-  &lt;span class="caat-separator__label"&gt;or&lt;/span&gt;
+      <pre><code>&lt;!-- Vertical rhythm: one consistent gap between children --&gt;
+&lt;div class="caat-stack caat-stack--lg"&gt;
+  &lt;h2&gt;…&lt;/h2&gt;
+  &lt;p&gt;…&lt;/p&gt;
+  &lt;a class="caat-button …"&gt;…&lt;/a&gt;
 &lt;/div&gt;
 
-&lt;!-- Decorative (aria-hidden) --&gt;
-&lt;hr class="caat-separator" aria-hidden="true" role="presentation"&gt;</code></pre>
+&lt;!-- Explicit one-off gap (rare) --&gt;
+&lt;div class="caat-spacer--lg" aria-hidden="true"&gt;&lt;/div&gt;
+
+&lt;!-- Reserved: thematic break --&gt;
+&lt;hr class="caat-separator"&gt;
+
+&lt;!-- Reserved: "or" divider --&gt;
+&lt;div class="caat-separator--with-label"&gt;&lt;span class="caat-separator__label"&gt;or&lt;/span&gt;&lt;/div&gt;</code></pre>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 7: CSS CONTRACT
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 7. CSS CONTRACT ════ -->
     <section class="contract-section" id="css-contract">
       <h2>7. CSS Contract</h2>
       <table class="table table-bordered">
         <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
         <tbody>
-          <tr><td><code>.caat-separator</code></td><td>Base horizontal rule — 1px solid var(--caat-grey-200), margin 1.5rem 0</td></tr>
-          <tr><td><code>.caat-separator--thick</code></td><td>3px solid var(--caat-blue-900)</td></tr>
-          <tr><td><code>.caat-separator--accent</code></td><td>60px width, 3px, centred, var(--caat-green)</td></tr>
-          <tr><td><code>.caat-separator--spaced</code></td><td>margin 3rem 0</td></tr>
-          <tr><td><code>.caat-separator--with-label</code></td><td>Flexbox line—label—line pattern</td></tr>
-          <tr><td><code>.caat-separator__label</code></td><td>Centred text, uppercase, small, bg white</td></tr>
+          <tr><td><code>.caat-stack</code> + <code>--2xs … --2xl</code></td><td>Consistent gap between direct children (the rhythm tool)</td></tr>
+          <tr><td><code>.caat-stack--split</code> / <code>.caat-stack__push</code></td><td>Flex-column stack that pins one child to the end</td></tr>
+          <tr><td><code>.caat-spacer</code> + <code>--xs … --xl</code></td><td>Explicit vertical gap</td></tr>
+          <tr><td><code>.caat-separator</code></td><td>Reserved 1px thematic break</td></tr>
+          <tr><td><code>.caat-separator--with-label</code> / <code>.caat-separator__label</code></td><td>“Or” divider</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 8: ACCESSIBILITY
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 8. ACCESSIBILITY ════ -->
     <section class="contract-section" id="accessibility">
       <h2>8. Accessibility</h2>
       <table class="table table-bordered">
         <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
         <tbody>
-          <tr><td>Role</td><td><code>&lt;hr&gt;</code> has implicit <code>separator</code> role. Decorative variants use <code>role="presentation"</code> + <code>aria-hidden="true"</code>.</td></tr>
-          <tr><td>Colour contrast</td><td>Not applicable — separator is decorative/structural, not informational.</td></tr>
-          <tr><td>Label variant</td><td>Label text is visible and in DOM; screen readers will read the flex container as text content.</td></tr>
-          <tr><td>Focus</td><td>Separators are not focusable.</td></tr>
+          <tr><td>Spacing is presentational</td><td>Stack/Spacer add no semantics and don't alter reading order — purely visual rhythm.</td></tr>
+          <tr><td>Divider role</td><td><code>&lt;hr&gt;</code> has an implicit <code>separator</code> role. If purely decorative, add <code>aria-hidden="true"</code>.</td></tr>
+          <tr><td>“Or” divider</td><td>The label text is real, in-DOM content read by AT.</td></tr>
+          <tr><td>No empty focusable gaps</td><td>Spacers are non-interactive and non-focusable.</td></tr>
+          <tr><td>Reduced motion</td><td>No animation; nothing to disable. (Global reduced-motion still applies.)</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 9: SEO
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 9. SEO ════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
       <ul>
-        <li>No SEO impact — separators do not contribute to heading structure or indexable content.</li>
-        <li>Ensure separators do not break logical heading hierarchy when placed between sections.</li>
+        <li>No SEO impact — spacing/dividers don't contribute indexable content.</li>
+        <li>Maintain a logical heading hierarchy; rhythm groups content visually, not structurally.</li>
       </ul>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 10: ANALYTICS
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 10. ANALYTICS ════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul>
-        <li>No click/interaction tracking required — separators are non-interactive.</li>
-        <li>Component impression tracking may be applied at the page-section level if needed for layout A/B testing.</li>
-      </ul>
+      <ul><li>None — non-interactive.</li></ul>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 11: AEM NOTES
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 11. AEM NOTES ════ -->
     <section class="contract-section" id="aem-notes">
       <h2>11. AEM Implementation Notes</h2>
       <ul>
-        <li>Resource type: <code>caat/components/separator</code></li>
-        <li>Sling model exposes <code>variant</code> (String) and <code>labelText</code> (String).</li>
-        <li>HTL renders <code>&lt;hr&gt;</code> for all variants except "With Label", which renders a <code>&lt;div&gt;</code> wrapper.</li>
-        <li>Author dialog uses a <code>showhide</code> listener to reveal the label field only when variant = "with-label".</li>
-        <li>Component is policy-enabled; allowed variants can be restricted per template.</li>
+        <li>Resource type: <code>caat/components/separator</code> (kept for continuity).</li>
+        <li>Spacer/Divider/Or render from a <code>type</code> + <code>size</code>/<code>label</code> model.</li>
+        <li><strong>Stack</strong> is best applied as a layout-container style on a parent (e.g. a content container policy), not dropped between components — author guidance over a drop-in.</li>
+        <li>Size options are constrained to the spacing scale (no free-text).</li>
       </ul>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 12: DIALOG MODEL
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 12. DIALOG MODEL ════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
       <pre><code>{
-  "jcr:primaryType": "nt:unstructured",
-  "jcr:title": "Separator",
-  "sling:resourceType": "cq/gui/components/authoring/dialog",
-  "content": {
-    "items": {
-      "tabs": {
-        "items": {
-          "properties": {
-            "items": {
-              "variant": {
-                "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-                "fieldLabel": "Variant",
-                "name": "./variant",
-                "required": true,
-                "items": {
-                  "default": { "text": "Default", "value": "default" },
-                  "thick": { "text": "Thick", "value": "thick" },
-                  "accent": { "text": "Accent", "value": "accent" },
-                  "spaced": { "text": "Spaced", "value": "spaced" },
-                  "with-label": { "text": "With Label", "value": "with-label" }
-                }
-              },
-              "labelText": {
-                "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
-                "fieldLabel": "Label Text",
-                "name": "./labelText",
-                "maxlength": 30,
-                "granite:class": "hide",
-                "granite:data": { "showhide-target": ".labelText-field" }
-              },
-              "decorative": {
-                "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
-                "fieldLabel": "Decorative (hidden from assistive tech)",
-                "name": "./decorative",
-                "value": "true"
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  "type":  { "sling:resourceType": "…/form/select", "name": "./type",
+             "items": { "spacer": {"text":"Spacer","value":"spacer"},
+                        "divider": {"text":"Divider","value":"divider"},
+                        "or": {"text":"Or-divider","value":"or"} } },
+  "size":  { "sling:resourceType": "…/form/select", "name": "./size",
+             "items": { "xs":{}, "sm":{}, "md":{}, "lg":{}, "xl":{} } },
+  "label": { "sling:resourceType": "…/form/textfield", "name": "./label", "maxlength": 24 }
 }</code></pre>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 13: QA CHECKLIST
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 13. QA ════ -->
     <section class="contract-section" id="qa">
       <h2>13. QA Checklist</h2>
       <table class="table table-bordered">
         <thead><tr><th>#</th><th>Check</th><th>Pass?</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td>Default renders 1px grey-200 line full width</td><td></td></tr>
-          <tr><td>2</td><td>Thick renders 3px blue-900 line</td><td></td></tr>
-          <tr><td>3</td><td>Accent is 60px, centred, green</td><td></td></tr>
-          <tr><td>4</td><td>Spaced variant has 3rem margin top and bottom</td><td></td></tr>
-          <tr><td>5</td><td>With Label shows centred text on line</td><td></td></tr>
-          <tr><td>6</td><td>Decorative checkbox applies aria-hidden and role=presentation</td><td></td></tr>
-          <tr><td>7</td><td>Label field hidden unless variant = "With Label"</td><td></td></tr>
-          <tr><td>8</td><td>Responsive — all variants work mobile to desktop</td><td></td></tr>
-          <tr><td>9</td><td>No focus ring on separator elements</td><td></td></tr>
-          <tr><td>10</td><td>Tokens resolve correctly in light theme</td><td></td></tr>
+          <tr><td>1</td><td>Stack gaps are consistent and pull from the scale</td><td></td></tr>
+          <tr><td>2</td><td>Grouping reads via proximity without any lines</td><td></td></tr>
+          <tr><td>3</td><td>Spacer used only where structural spacing isn't possible</td><td></td></tr>
+          <tr><td>4</td><td>Divider appears only at a genuine topic change / “or”</td><td></td></tr>
+          <tr><td>5</td><td>No thick/accent/full-width fence rules anywhere</td><td></td></tr>
+          <tr><td>6</td><td>Decorative dividers carry <code>aria-hidden</code></td><td></td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         SECTION 14: DEFINITION OF DONE
-         ════════════════════════════════════════════════════════ -->
+    <!-- ════ 14. DOD ════ -->
     <section class="contract-section" id="dod">
       <h2>14. Definition of Done</h2>
       <ul>
-        <li><input type="checkbox" disabled> All 5 variants render correctly in design-system preview.</li>
-        <li><input type="checkbox" disabled> CSS uses only design tokens — no hard-coded colours.</li>
-        <li><input type="checkbox" disabled> AEM dialog created with show/hide logic for label field.</li>
-        <li><input type="checkbox" disabled> HTL template passes W3C validation.</li>
-        <li><input type="checkbox" disabled> Accessibility audit — no violations.</li>
-        <li><input type="checkbox" disabled> Responsive testing complete (mobile, tablet, desktop).</li>
-        <li><input type="checkbox" disabled> Code reviewed and merged to develop branch.</li>
+        <li><input type="checkbox" disabled> Stack &amp; Spacer drive all routine separation; gaps come from the scale.</li>
+        <li><input type="checkbox" disabled> Visible rules limited to thematic break + “or” divider.</li>
+        <li><input type="checkbox" disabled> Thick/accent/spaced rule variants removed; no consumers broken.</li>
+        <li><input type="checkbox" disabled> Page-section separation uses padding + background tiers (Page Layout).</li>
         <li><input type="checkbox" disabled> QA checklist signed off.</li>
       </ul>
     </section>
 
   </main>
-</div><!-- /.component-page-layout -->
-</div><!-- /.container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Separator</h1>
-<p class="figma-page-subtitle">CAAT Design System · Divider variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Variants</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator"></div></div>
-  <div class="figma-row"><span class="figma-row-label">Thick</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator caat-separator--thick"></div></div>
-  <div class="figma-row"><span class="figma-row-label">Accent</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator caat-separator--accent"></div></div>
-  <div class="figma-row"><span class="figma-row-label">With label</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-separator caat-separator--with-label"><span class="caat-separator__label">Or</span></div></div></div>
+</div>
 </div>
 
+<!-- Figma export template -->
+<template id="figma-template">
+<h1 class="figma-page-title">Spacing &amp; Rhythm</h1>
+<p class="figma-page-subtitle">CAAT Design System · Stack, Spacer &amp; reserved dividers</p>
 <div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
+  <h2 class="figma-section-title">Stack gaps (spacing scale)</h2>
   <div class="figma-specs">
-    <div class="figma-spec"><strong>Default</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Thick</strong>3px solid var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Accent</strong>3px, 60px wide, var(--caat-green)</div>
+    <div class="figma-spec"><strong>--sm</strong>16px between items</div>
+    <div class="figma-spec"><strong>--md</strong>24px (default)</div>
+    <div class="figma-spec"><strong>--lg</strong>32px</div>
+    <div class="figma-spec"><strong>--xl</strong>48px between groups</div>
   </div>
 </div>
-
+<div class="figma-section">
+  <h2 class="figma-section-title">Reserved dividers</h2>
+  <div class="figma-row"><span class="figma-row-label">Thematic</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator"></div></div>
+  <div class="figma-row"><span class="figma-row-label">Or</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-separator--with-label"><span class="caat-separator__label">or</span></div></div></div>
+</div>
 </template>
 
-<!-- ════════════════════════════════════════════════════════════
-     FOOTER
-     ════════════════════════════════════════════════════════════ -->
-<footer class="py-4 mt-5" style="background:var(--caat-blue-900);">
+<footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
   <div class="container text-white">
     <div class="row align-items-center">
       <div class="col-md-4">
