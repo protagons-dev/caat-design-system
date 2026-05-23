@@ -107,44 +107,9 @@
   align-self: start;
 }
 
-/* ── Table of Contents ───────────────────────────────────── */
-.caat-article__toc {
-  background: var(--caat-color-bg-page);
-  border: 1px solid var(--caat-color-border);
-  border-radius: var(--caat-radius);
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.caat-article__toc h5 {
-  font-family: var(--caat-font-primary);
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--caat-color-text-heading);
-  margin-bottom: 0.75rem;
-}
-
-.caat-article__toc .nav-link {
-  font-size: 0.875rem;
-  padding: 0.3rem 0.75rem;
-  color: var(--caat-color-text);
-  border-left: 3px solid transparent;
-  border-radius: 0;
-}
-
-.caat-article__toc .nav-link:hover {
-  color: var(--caat-blue-700);
-  background: transparent;
-}
-
-.caat-article__toc .nav-link.active {
-  color: var(--caat-blue-900);
-  font-weight: 600;
-  border-left-color: var(--caat-blue-700);
-  background: var(--caat-color-state-selected-subtle);
-}
+/* ── Table of Contents ──────────────────────────────────────
+   Now COMPOSES the In-page Nav component (.caat-in-page-nav,
+   in-page-nav.css). No bespoke ToC styling lives here. */
 
 /* ── Related articles ────────────────────────────────────── */
 .caat-article__related {
@@ -184,7 +149,6 @@
 
 /* Keyboard focus for in-content nav links (AODA conformance — these are
    interactive anchors that previously had :hover but no focus indicator). */
-.caat-article__toc .nav-link:focus-visible,
 .caat-article__related-item:focus-visible {
   outline: 2px solid var(--caat-blue-700);
   outline-offset: 2px;

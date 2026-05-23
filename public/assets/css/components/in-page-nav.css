@@ -1,0 +1,61 @@
+/* ============================================================
+   CAAT In-page Nav (Table of Contents) — Base component
+   AEM client library: caat/components/in-page-nav/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+
+   A vertical "On this page" anchor list for long pages. Styles the
+   Bootstrap .nav-link inside it, so it works with Bootstrap scrollspy
+   (which toggles .active on the current section's link).
+   ============================================================ */
+
+.caat-in-page-nav {
+  background: var(--caat-color-bg-page);
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius);
+  padding: 1.25rem;
+}
+
+/* Optional — when used standalone (not already in a sticky sidebar) */
+.caat-in-page-nav--sticky {
+  position: sticky;
+  top: 5rem;
+}
+
+.caat-in-page-nav__title {
+  font-family: var(--caat-font-primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--caat-color-text-heading);
+  margin-bottom: 0.75rem;
+}
+
+.caat-in-page-nav .nav-link {
+  font-size: 0.875rem;
+  padding: 0.3rem 0.75rem;
+  color: var(--caat-color-text);
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.caat-in-page-nav .nav-link:hover {
+  color: var(--caat-color-text-link-hover);
+  background: transparent;
+}
+
+/* Current section — Bootstrap scrollspy adds .active; aria-current also supported */
+.caat-in-page-nav .nav-link.active,
+.caat-in-page-nav .nav-link[aria-current="true"] {
+  color: var(--caat-color-text-heading);
+  font-weight: 600;
+  border-left-color: var(--caat-color-text-link-hover);
+  background: var(--caat-color-state-selected-subtle);
+}
+
+.caat-in-page-nav .nav-link:focus-visible {
+  outline: 2px solid var(--caat-blue-700);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

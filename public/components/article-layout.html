@@ -17,6 +17,7 @@
 <link href="/assets/css/components/button.css" rel="stylesheet">
 <link href="/assets/css/components/icon-button.css" rel="stylesheet">
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
+<link href="/assets/css/components/in-page-nav.css" rel="stylesheet">
 <link href="/assets/css/components/article-layout.css" rel="stylesheet">
 </head>
 <body>
@@ -273,9 +274,9 @@
               <div class="col-lg-4">
                 <div class="caat-article__sidebar">
                   <!-- Table of Contents -->
-                  <div class="caat-article__toc">
-                    <h5>Table of Contents</h5>
-                    <nav class="nav flex-column">
+                  <div class="caat-in-page-nav mb-4">
+                    <p class="caat-in-page-nav__title">Table of Contents</p>
+                    <nav class="nav flex-column" aria-label="Table of contents">
                       <a class="nav-link active" href="#sidebar-how-calculated">How Your Pension Is Calculated</a>
                       <a class="nav-link" href="#sidebar-credited-interest">The Role of Credited Interest</a>
                       <a class="nav-link" href="#sidebar-retirement">When Can You Retire?</a>
@@ -394,7 +395,7 @@
             <tr><td><a href="/foundations/design-tokens.html#typography">Rich Text</a> / Text&nbsp;&amp;&nbsp;Title</td><td>Article body prose, headings</td><td><span class="status-badge ready">✓ has page · composed</span></td></tr>
             <tr><td>Card ×N</td><td>“Related articles” should be a grid of <a href="/components/card.html">Card</a> teasers</td><td><span class="status-badge rebuild">↻ reimplemented as <code>.caat-article__related</code> — should compose Card</span></td></tr>
             <tr><td><a href="/components/social-links.html">Social / Share Links</a> → <a href="/components/icon-button.html">Icon Button</a></td><td>Share row (LinkedIn, X, email, copy)</td><td><span class="status-badge ready">✓ has page · now composed (was <code>.caat-article__share-btn</code>)</span></td></tr>
-            <tr><td>In-page Nav (Table of Contents)</td><td>Sidebar “On this page” anchor nav</td><td><span class="status-badge retire">✗ no page — reimplemented as <code>.caat-article__toc</code></span></td></tr>
+            <tr><td><a href="/components/in-page-nav.html">In-page Nav (Table of Contents)</a></td><td>Sidebar “On this page” anchor nav</td><td><span class="status-badge ready">✓ has page · now composed (was <code>.caat-article__toc</code>)</span></td></tr>
             <tr><td>Byline / Meta</td><td>Author + date line</td><td><span class="status-badge retire">✗ no page — local <code>.caat-article__meta</code></span></td></tr>
           </tbody>
         </table>
@@ -533,9 +534,10 @@
     &lt;/div&gt;
     &lt;div class="col-lg-4"&gt;
       &lt;div class="caat-article__sidebar"&gt;
-        &lt;div class="caat-article__toc"&gt;
-          &lt;h5&gt;Table of Contents&lt;/h5&gt;
-          &lt;nav class="nav flex-column"&gt;
+        &lt;!-- composes In-page Nav --&gt;
+        &lt;div class="caat-in-page-nav"&gt;
+          &lt;p class="caat-in-page-nav__title"&gt;On this page&lt;/p&gt;
+          &lt;nav class="nav flex-column" aria-label="On this page"&gt;
             &lt;a class="nav-link" href="#section"&gt;Section&lt;/a&gt;
           &lt;/nav&gt;
         &lt;/div&gt;
@@ -566,9 +568,8 @@
             <tr><td><code>.caat-article__hero-image</code></td><td>Full-width hero — <code>border-radius</code>, responsive.</td></tr>
             <tr><td><code>.caat-article__body</code></td><td>Prose container — <code>max-width:720px</code>, <code>line-height:1.75</code>. Full-width when sidebar present.</td></tr>
             <tr><td><code>.caat-article__sidebar</code></td><td>Sticky sidebar — <code>position:sticky; top:5rem</code>. Static on mobile.</td></tr>
-            <tr><td><code>.caat-article__toc</code></td><td>Table of contents card with nav links and active state.</td></tr>
-            <tr><td><code>.caat-article__share</code></td><td>Share button row — flexbox with gap.</td></tr>
-            <tr><td><code>.caat-article__share-btn</code></td><td>Circular icon button — hover fills blue-900.</td></tr>
+            <tr><td><code>.caat-article__toc</code> → <a href="/components/in-page-nav.html"><code>.caat-in-page-nav</code></a></td><td>Composes the In-page Nav component (no bespoke ToC CSS).</td></tr>
+            <tr><td><code>.caat-article__share</code></td><td>Margin-only wrapper; composes <a href="/components/social-links.html">Social/Share Links</a> + <a href="/components/icon-button.html">Icon Button</a>.</td></tr>
             <tr><td><code>.caat-article__related</code></td><td>Related articles sidebar card.</td></tr>
             <tr><td><code>.caat-article__related-item</code></td><td>Individual related article link with divider.</td></tr>
             <tr><td><code>.caat-article__related-title</code></td><td>Related article title — blue-900, 600 weight.</td></tr>
