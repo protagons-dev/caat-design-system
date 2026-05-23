@@ -221,6 +221,17 @@
   --caat-color-focus-ring: var(--caat-focus);
   --caat-color-focus-edge: var(--caat-blue-500);
 
+  /* ── Interaction states ──────────────────────────────────────
+     Token-driven appearance for the standard state matrix. See the
+     Interaction States foundation page. */
+  --caat-color-state-hover-bg:        var(--caat-blue-100);   /* subtle row / nav / list hover */
+  --caat-color-state-selected-bg:     var(--caat-blue-900);   /* current / selected (strong)   */
+  --caat-color-state-selected-text:   var(--caat-color-text-inverse);
+  --caat-color-state-selected-subtle: var(--caat-blue-100);   /* selected (subtle / chips)     */
+  --caat-color-state-disabled-bg:     var(--caat-grey-100);
+  --caat-color-state-invalid:         var(--caat-danger);     /* invalid border / icon (AA on white) */
+  --caat-opacity-state-disabled:      var(--caat-opacity-disabled);
+
   /* ── Feedback (info / success / warning / danger) ────────── */
   --caat-color-feedback-info-bg:     var(--caat-alert-info-bg);
   --caat-color-feedback-info-border: var(--caat-alert-info-border);

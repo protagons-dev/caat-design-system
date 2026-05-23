@@ -143,13 +143,19 @@ Plus a documentation-only use of `.eyebrow` as a section label inside the doc si
 
 **Rationale:** three styles for one concept guarantees visual drift and makes "what's our eyebrow" unanswerable. One definition with explicit on-dark + bilingual rules removes a recurring decision and an accessibility trap.
 
-### B2. Interaction state model — **P0**
+### B2. Interaction state model — **P0** · ✅ RESOLVED (2026-05-23)
+
+> **Done:** Authored the **Interaction States** foundations page (`/foundations/interaction-states.html`) — the 9-state matrix (default/hover/focus-visible/active/disabled/loading/error/selected/read-only) with live demos, token, and ARIA/keyboard per state; a keyboard-interaction reference table; target-size (2.5.8) and colour-independence (1.4.1) rules; and a drop-in component checklist for each contract's Accessibility section. Added reusable `--caat-color-state-*` tokens (all AA-verified). Adoption across the 32 component contracts is the follow-on (folds into the component migration task).
+
 - **Now:** focus ring and hover are defined; other states are per-component and partial. Keyboard interaction documented on only 7/32 components.
 - **Gap:** no canonical list of states every interactive component must define.
 - **Recommend:** a standard matrix — **default, hover, focus-visible, active/pressed, disabled, loading, error/invalid, selected/current, read-only** — with a token-driven appearance for each, and a rule that the contract's Accessibility section must specify keyboard behavior for *every* interactive component (not just the obvious ones).
 - **Rationale:** missing states (no loading button, no invalid input style, unclear focus on custom controls) are the most common real-world UX defects. A required matrix turns "did we handle disabled?" into a checklist item.
 
-### B3. Focus management & visible focus — **P0 (a11y)**
+### B3. Focus management & visible focus — **P0 (a11y)** · ✅ RESOLVED (2026-05-23)
+
+> **Done:** Covered on the Interaction States page (Focus Management section): standardize on `:focus-visible`; DOM-order focus + roving tabindex for composite widgets; overlays trap focus and restore to trigger on `Esc`/close; skip link + landmark requirements; focus-not-obscured (2.4.11). The focus ring itself was made AA-visible in the contrast-audit work (solid blue-500, 3:1 on light & dark).
+
 - **Now:** good `--caat-focus` ring on buttons/inputs.
 - **Gap:** no documented rule for `:focus-visible` (vs `:focus`), focus order, focus trapping in modal/offcanvas, or focus return after close.
 - **Recommend:** standardize on `:focus-visible`, require focus trap + restore for all overlay components, and document skip-link/landmark expectations.

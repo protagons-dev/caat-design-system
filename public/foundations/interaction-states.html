@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Interaction States. The required state matrix, focus management, keyboard interaction, and accessibility rules every interactive component must follow.">
+<title>Interaction States | CAAT Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<style>
+/* ── Page-specific demo styles (token-driven) ── */
+.state-demo {
+  display: flex; flex-wrap: wrap; gap: 1.25rem;
+  padding: 1.5rem; background: #fff;
+  border: 1px solid var(--caat-color-border); border-radius: var(--caat-radius-lg);
+  margin-bottom: 1rem;
+}
+.state-demo--dark { background: var(--caat-color-bg-brand); }
+.state-cell { text-align: center; min-width: 7rem; }
+.state-cell__label {
+  display: block; margin-top: .55rem;
+  font-size: var(--caat-font-size-2xs); color: var(--caat-color-text-muted);
+  text-transform: uppercase; letter-spacing: var(--caat-letter-spacing-label);
+  font-weight: var(--caat-weight-bold);
+}
+.state-demo--dark .state-cell__label { color: rgba(255,255,255,.75); }
+
+/* Generic demo control = a primary button across its states */
+.demo-control {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .6rem 1.1rem; border-radius: var(--caat-radius);
+  border: 2px solid var(--caat-color-action-primary);
+  background: var(--caat-color-action-primary); color: #fff;
+  font-weight: var(--caat-weight-bold); font-size: var(--caat-font-size-sm);
+  cursor: pointer; line-height: 1.2;
+}
+.demo-control--hover { background: var(--caat-color-action-primary-hover); border-color: var(--caat-color-action-primary-hover); }
+.demo-control--focus { box-shadow: var(--caat-focus); outline: none; }
+.demo-control--active { transform: translateY(1px); filter: brightness(.9); }
+.demo-control--disabled { opacity: var(--caat-opacity-state-disabled); cursor: not-allowed; }
+
+.demo-spinner {
+  width: 1rem; height: 1rem; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.45); border-top-color: #fff;
+  animation: demo-spin var(--caat-duration-slow) linear infinite;
+}
+@keyframes demo-spin { to { transform: rotate(360deg); } }
+
+/* Selectable list item demo */
+.demo-item {
+  display: block; padding: .55rem .85rem; border-radius: var(--caat-radius-sm);
+  color: var(--caat-color-text); font-weight: var(--caat-weight-semibold);
+  text-decoration: none; min-width: 9rem; text-align: left;
+  border: 1px solid transparent;
+}
+.demo-item--hover { background: var(--caat-color-state-hover-bg); }
+.demo-item--selected { background: var(--caat-color-state-selected-bg); color: var(--caat-color-state-selected-text); }
+
+.state-matrix th { background: var(--caat-color-bg-brand-subtle); color: var(--caat-blue-900); }
+.state-matrix code { white-space: nowrap; }
+.req-list li { margin-bottom: .35rem; }
+.legend-key {
+  display: inline-block; padding: .15rem .5rem; border-radius: var(--caat-radius-pill);
+  font-size: var(--caat-font-size-2xs); font-weight: var(--caat-weight-bold);
+  background: var(--caat-color-bg-brand-subtle); color: var(--caat-blue-900);
+}
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE BODY
+     ════════════════════════════════════════════════════════════ -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+      <a class="nav-link active" href="/foundations/interaction-states.html">Interaction States</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#matrix">State Matrix</a>
+      <a class="nav-link" href="#focus">Focus Management</a>
+      <a class="nav-link" href="#target-size">Target Size</a>
+      <a class="nav-link" href="#keyboard">Keyboard Reference</a>
+      <a class="nav-link" href="#colour">Don't Rely on Colour</a>
+      <a class="nav-link" href="#checklist">Component Checklist</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="component-page-main">
+
+    <p class="eyebrow">Foundations</p>
+    <h1>Interaction States</h1>
+    <p class="lead mb-4">Every interactive component declares the same set of states, drawn with the same tokens, and operable the same way by keyboard and assistive tech. This is the contract — a component isn't done until each applicable state is handled.</p>
+
+    <!-- ══════════════ OVERVIEW ══════════════ -->
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <p>Missing states — no loading button, no visible focus on a custom control, an invalid field with no message — are the most common real-world UX and accessibility defects. This page makes them a checklist, not an afterthought. Three principles:</p>
+      <ul>
+        <li><strong>Token-driven.</strong> Each state maps to a semantic token (<code>--caat-color-state-*</code>, <code>--caat-focus</code>, <code>--caat-opacity-disabled</code>) — never a per-component value.</li>
+        <li><strong>Keyboard is not optional.</strong> Anything operable by mouse is operable by keyboard, with a visible focus indicator (AODA / WCAG 2.2 AA).</li>
+        <li><strong>State is never colour alone.</strong> Error, selected, and active states carry a non-colour cue too (icon, text, weight, indicator).</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════ STATE MATRIX ══════════════ -->
+    <section id="matrix" class="mb-5">
+      <h2>The State Matrix</h2>
+      <p>Nine states. Not every component has all nine — but the contract must say which apply and how each looks &amp; behaves.</p>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered state-matrix">
+          <thead><tr><th>State</th><th>When</th><th>Treatment (token)</th><th>ARIA / keyboard</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Default</strong></td><td>Resting.</td><td>Component base styles.</td><td>—</td></tr>
+            <tr><td><strong>Hover</strong></td><td>Pointer over an actionable element.</td><td>Darken action (<code>--caat-color-action-*-hover</code>) or <code>--caat-color-state-hover-bg</code>.</td><td>Pointer only — never the sole affordance.</td></tr>
+            <tr><td><strong>Focus-visible</strong></td><td>Keyboard focus.</td><td><code>--caat-focus</code> ring (3:1, light &amp; dark).</td><td><code>:focus-visible</code>. Must be clearly visible.</td></tr>
+            <tr><td><strong>Active / pressed</strong></td><td>Moment of activation.</td><td>Slight depress / darken.</td><td><code>:active</code>; toggle buttons use <code>aria-pressed</code>.</td></tr>
+            <tr><td><strong>Disabled</strong></td><td>Not currently available.</td><td><code>opacity: var(--caat-opacity-disabled)</code>; not focusable.</td><td><code>disabled</code> or <code>aria-disabled="true"</code>. Contrast-exempt.</td></tr>
+            <tr><td><strong>Loading / busy</strong></td><td>Awaiting async result.</td><td>Spinner; keep width to avoid layout shift.</td><td><code>aria-busy="true"</code>; disable re-submit.</td></tr>
+            <tr><td><strong>Error / invalid</strong></td><td>Validation failed.</td><td><code>--caat-color-state-invalid</code> border + message + icon.</td><td><code>aria-invalid="true"</code>, <code>aria-describedby</code> → message.</td></tr>
+            <tr><td><strong>Selected / current</strong></td><td>Chosen / current location.</td><td><code>--caat-color-state-selected-bg</code> + non-colour cue.</td><td><code>aria-current</code> / <code>aria-selected</code>.</td></tr>
+            <tr><td><strong>Read-only</strong></td><td>Visible, not editable (≠ disabled).</td><td>Muted fill; text stays full-contrast.</td><td><code>readonly</code> — still focusable &amp; copyable.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Buttons &amp; actions</h3>
+      <div class="state-demo">
+        <div class="state-cell"><span class="demo-control">Continue</span><span class="state-cell__label">Default</span></div>
+        <div class="state-cell"><span class="demo-control demo-control--hover">Continue</span><span class="state-cell__label">Hover</span></div>
+        <div class="state-cell"><span class="demo-control demo-control--focus">Continue</span><span class="state-cell__label">Focus-visible</span></div>
+        <div class="state-cell"><span class="demo-control demo-control--active">Continue</span><span class="state-cell__label">Active</span></div>
+        <div class="state-cell"><span class="demo-control demo-control--disabled">Continue</span><span class="state-cell__label">Disabled</span></div>
+        <div class="state-cell"><span class="demo-control"><span class="demo-spinner" aria-hidden="true"></span> Saving…</span><span class="state-cell__label">Loading</span></div>
+      </div>
+      <p><small class="text-muted">Hover/focus/active are shown statically here for comparison; in the real component they're triggered by <code>:hover</code>, <code>:focus-visible</code>, and <code>:active</code>.</small></p>
+
+      <h3 class="h5 mt-4 mb-3">Form fields</h3>
+      <div class="state-demo">
+        <div class="state-cell" style="min-width:14rem;">
+          <label class="form-label small mb-1" for="d1">Default</label>
+          <input class="form-control" id="d1" type="text" value="jane@caat.ca">
+        </div>
+        <div class="state-cell" style="min-width:14rem;">
+          <label class="form-label small mb-1" for="d2">Focus</label>
+          <input class="form-control" id="d2" type="text" value="jane@caat.ca" style="border-color:var(--caat-color-focus-edge); box-shadow:var(--caat-focus);">
+        </div>
+        <div class="state-cell" style="min-width:14rem;">
+          <label class="form-label small mb-1" for="d3">Error / invalid</label>
+          <input class="form-control is-invalid" id="d3" type="text" value="jane@" aria-invalid="true" aria-describedby="d3e">
+          <div class="invalid-feedback d-block" id="d3e"><i class="bi bi-exclamation-circle"></i> Enter a valid email, e.g. name@org.ca.</div>
+        </div>
+        <div class="state-cell" style="min-width:14rem;">
+          <label class="form-label small mb-1" for="d4">Disabled</label>
+          <input class="form-control" id="d4" type="text" value="Not editable" disabled>
+        </div>
+        <div class="state-cell" style="min-width:14rem;">
+          <label class="form-label small mb-1" for="d5">Read-only</label>
+          <input class="form-control" id="d5" type="text" value="Member #00482" readonly style="background:var(--caat-color-state-disabled-bg);">
+        </div>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Selectable items</h3>
+      <div class="state-demo">
+        <div class="state-cell" style="min-width:9rem;"><span class="demo-item">Overview</span><span class="state-cell__label">Default</span></div>
+        <div class="state-cell" style="min-width:9rem;"><span class="demo-item demo-item--hover">Overview</span><span class="state-cell__label">Hover</span></div>
+        <div class="state-cell" style="min-width:9rem;"><span class="demo-item demo-item--selected"><i class="bi bi-check2 me-1"></i>Overview</span><span class="state-cell__label">Selected</span></div>
+      </div>
+    </section>
+
+    <!-- ══════════════ FOCUS MANAGEMENT ══════════════ -->
+    <section id="focus" class="mb-5">
+      <h2>Focus Management</h2>
+      <p>A keyboard user must always know where they are and never get trapped. These rules are non-negotiable for AODA.</p>
+      <ul>
+        <li><strong>Use <code>:focus-visible</code>, not <code>:focus</code>.</strong> Show the ring for keyboard/AT users without flashing it on every mouse click.
+<pre class="bg-light p-3 rounded my-2"><code>.my-control:focus-visible { outline: none; box-shadow: var(--caat-focus); }</code></pre></li>
+        <li><strong>Focus order follows DOM order.</strong> Never use positive <code>tabindex</code>. Composite widgets (tabs, menus, radio groups) use a single tab stop + arrow keys (roving <code>tabindex</code>).</li>
+        <li><strong>Overlays trap &amp; restore focus.</strong> Modal, off-canvas, and mega-menu move focus in on open, cycle <code>Tab</code> within, close on <code>Esc</code>, and <strong>return focus to the trigger</strong> on close. (Bootstrap's JS does this — custom overlays must too.)</li>
+        <li><strong>Skip link &amp; landmarks.</strong> Every page starts with a “Skip to main content” link (<code>.skip-link</code>) and uses landmark regions (<code>header</code>/<code>nav</code>/<code>main</code>/<code>footer</code>) so AT users can jump around.</li>
+        <li><strong>Focus stays visible.</strong> Don't let sticky headers cover the focused element (WCAG 2.2 — 2.4.11 Focus Not Obscured); we set <code>scroll-padding-top</code> for this.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════ TARGET SIZE ══════════════ -->
+    <section id="target-size" class="mb-5">
+      <h2>Target Size</h2>
+      <p><span class="legend-key">WCAG 2.2 · 2.5.8 (AA)</span> Pointer targets must be at least <strong>24&nbsp;×&nbsp;24&nbsp;CSS&nbsp;px</strong>, or have 24px of clear spacing around them.</p>
+      <ul>
+        <li>Aim for <strong>44&nbsp;×&nbsp;44&nbsp;px</strong> for primary touch targets (buttons, nav items, form controls) — comfortable on mobile.</li>
+        <li>Small icon buttons (close, edit) must still hit 24px — pad the hit area even if the glyph is smaller.</li>
+        <li>Inline text links inside a paragraph are exempt, but stand-alone link buttons are not.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════ KEYBOARD REFERENCE ══════════════ -->
+    <section id="keyboard" class="mb-5">
+      <h2>Keyboard Reference</h2>
+      <p>Expected keys per interaction pattern (follows the WAI-ARIA Authoring Practices). Every interactive component's contract must state which applies.</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Pattern</th><th>Keys</th></tr></thead>
+          <tbody>
+            <tr><td>Button</td><td><kbd>Enter</kbd> / <kbd>Space</kbd> activate</td></tr>
+            <tr><td>Link</td><td><kbd>Enter</kbd> activates</td></tr>
+            <tr><td>Checkbox</td><td><kbd>Space</kbd> toggles</td></tr>
+            <tr><td>Radio group</td><td><kbd>Tab</kbd> enters group; <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> move &amp; select</td></tr>
+            <tr><td>Select / combobox</td><td><kbd>↑</kbd><kbd>↓</kbd> move; type-ahead; <kbd>Enter</kbd> choose; <kbd>Esc</kbd> close</td></tr>
+            <tr><td>Menu / Dropdown</td><td><kbd>Enter</kbd>/<kbd>Space</kbd>/<kbd>↓</kbd> open; <kbd>↑</kbd><kbd>↓</kbd> move; <kbd>Esc</kbd> close &amp; restore focus</td></tr>
+            <tr><td>Tabs</td><td><kbd>←</kbd><kbd>→</kbd> (or <kbd>↑</kbd><kbd>↓</kbd>) move; <kbd>Home</kbd>/<kbd>End</kbd>; activate on focus or <kbd>Enter</kbd></td></tr>
+            <tr><td>Accordion</td><td><kbd>Enter</kbd>/<kbd>Space</kbd> toggle header; <kbd>Tab</kbd> between headers</td></tr>
+            <tr><td>Modal / Dialog</td><td>Focus trapped; <kbd>Tab</kbd> cycles within; <kbd>Esc</kbd> closes &amp; restores focus</td></tr>
+            <tr><td>Tooltip / Popover</td><td>Shows on focus/hover; <kbd>Esc</kbd> dismisses</td></tr>
+            <tr><td>Slider</td><td><kbd>←</kbd><kbd>→</kbd>/<kbd>↑</kbd><kbd>↓</kbd> adjust; <kbd>Home</kbd>/<kbd>End</kbd>; <kbd>PageUp</kbd>/<kbd>PageDown</kbd> large steps</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════════ COLOUR INDEPENDENCE ══════════════ -->
+    <section id="colour" class="mb-5">
+      <h2>Don't Rely on Colour Alone</h2>
+      <p><span class="legend-key">WCAG · 1.4.1 (A)</span> Colour can't be the only way a state is conveyed — ~8% of men can't distinguish red/green, and colour is lost in greyscale or bright sun.</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100">
+            <h3 class="h6">Error</h3>
+            <p class="small mb-0">Red border <strong>+ an icon + a text message</strong>. Never a red outline by itself.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100">
+            <h3 class="h6">Selected / current</h3>
+            <p class="small mb-0">Background change <strong>+ a checkmark, bold weight, or underline/indicator bar</strong>.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 border rounded h-100">
+            <h3 class="h6">Links in text</h3>
+            <p class="small mb-0">Distinguishable from body text by <strong>more than colour</strong> — weight 600 and/or underline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ COMPONENT CHECKLIST ══════════════ -->
+    <section id="checklist" class="mb-5">
+      <h2>Component Checklist</h2>
+      <p>Drop this into the <strong>Accessibility</strong> section of every interactive component's contract. A component isn't “done” until each box is ticked or marked N/A with a reason.</p>
+      <ul class="req-list">
+        <li>☐ Lists which of the nine states apply, and shows each.</li>
+        <li>☐ Hover, focus-visible, and active are visually distinct from default and from each other.</li>
+        <li>☐ Focus indicator uses <code>--caat-focus</code> and is visible on light <em>and</em> dark backgrounds.</li>
+        <li>☐ Fully operable by keyboard; documents its keys (see the reference above).</li>
+        <li>☐ Disabled is non-focusable; read-only stays focusable and copyable.</li>
+        <li>☐ Loading uses <code>aria-busy</code> and prevents duplicate submits.</li>
+        <li>☐ Invalid sets <code>aria-invalid</code> + <code>aria-describedby</code> and shows an icon + message.</li>
+        <li>☐ Selected/current uses <code>aria-current</code>/<code>aria-selected</code> and a non-colour cue.</li>
+        <li>☐ Pointer targets are ≥ 24px (aim 44px); meets the colour-independence rule (1.4.1).</li>
+        <li>☐ Overlays trap focus and restore it to the trigger on close.</li>
+      </ul>
+      <p class="mt-3"><small class="text-muted">Rationale &amp; references: <code>docs/design-system-recommendations.md</code> §B2–B3.</small></p>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
