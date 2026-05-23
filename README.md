@@ -9,16 +9,18 @@ A Bootstrap 5 component library and website prototype for the CAAT Pension Plan 
 ```
 caat-design-system/
 ├── public/                  # Static site files (served by nginx)
-│   ├── index.html           # Design system documentation & component library
+│   ├── index.html           # Root entry point that opens the component library
+│   ├── archive/             # Archived legacy one-file root page
 │   └── assets/
 │       ├── css/             # Custom stylesheets
 │       ├── js/              # Custom scripts
 │       └── images/          # Local images and icons
 ├── src/                     # Source / working files (tokens, partials, etc.)
 ├── docker/
-│   └── nginx.conf           # nginx server configuration
+│   └── default.conf.template # nginx config (envsubst'd with $PORT at runtime)
 ├── Dockerfile               # Production Docker image
 ├── docker-compose.yml       # Local development orchestration
+├── railway.json             # Railway deployment config
 ├── package.json             # npm scripts
 ├── .dockerignore
 └── .gitignore
@@ -38,7 +40,8 @@ npm start
 docker compose up -d
 ```
 
-Open **http://localhost:3000** in your browser.
+Open **http://localhost:3000** in your browser. The root entry point opens the
+component library at **/components/**.
 
 ### Stop
 ```bash
@@ -65,7 +68,7 @@ docker compose down
 
 ## 🎨 Design Tokens
 
-Core CAAT brand tokens are defined as CSS custom properties in `public/index.html`:
+Core CAAT brand tokens are defined as CSS custom properties in `public/assets/css/tokens.css`:
 
 | Token | Value | Usage |
 |---|---|---|
@@ -105,9 +108,34 @@ Core CAAT brand tokens are defined as CSS custom properties in `public/index.htm
 ## 🐳 Docker Details
 
 - **Base image:** `nginx:1.27-alpine`
-- **Port:** `3000` (host) → `80` (container)
+- **Port:** `3000` (host) → `80` (container) locally; on Railway nginx listens on the injected `$PORT`
 - **Health check:** `GET /health` every 30s
 - **Volume mounts in dev:** `./public` mounted read-only for live edits without rebuilding
+- **Config:** `docker/default.conf.template` is processed by the nginx-alpine entrypoint (`envsubst`), substituting `${PORT}` before nginx starts
+
+---
+
+## ☁️ Deploy to Railway
+
+The app is a static site served by nginx and deploys from the `Dockerfile`.
+Railway injects a `$PORT` env var that the container must bind to — the nginx
+config template handles this automatically.
+
+### Option A — Railway dashboard (GitHub)
+1. Push this repo to GitHub.
+2. In Railway: **New Project → Deploy from GitHub repo** and select it.
+3. Railway reads `railway.json`, builds the Dockerfile, and serves on the
+   generated domain. Health checks hit `/health`.
+
+### Option B — Railway CLI
+```bash
+npm i -g @railway/cli
+railway login
+railway init        # create/link a project
+railway up          # build & deploy from the Dockerfile
+```
+
+No environment variables are required — `PORT` is supplied by Railway.
 
 ---
 

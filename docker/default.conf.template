@@ -1,6 +1,9 @@
 server {
-    listen       80;
-    server_name  localhost;
+    # Railway injects $PORT at runtime; the nginx-alpine entrypoint runs
+    # envsubst on this template (templates/*.template -> conf.d/). Local dev
+    # falls back to the PORT default set in the Dockerfile / docker-compose.
+    listen       ${PORT};
+    server_name  _;
 
     root   /usr/share/nginx/html;
     index  index.html;
@@ -37,7 +40,7 @@ server {
     add_header X-XSS-Protection "1; mode=block" always;
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
 
-    # Disable access log for health checks
+    # Health check endpoint (used by Railway's healthcheck)
     location = /health {
         access_log off;
         return 200 "OK\n";
