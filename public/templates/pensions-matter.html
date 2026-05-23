@@ -17,7 +17,10 @@
 
 <!-- Design system components used on this page -->
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/icon-button.css" rel="stylesheet">
+<link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/navigation.css" rel="stylesheet">
+<link href="/assets/css/components/footer.css" rel="stylesheet">
 <link href="/assets/css/components/stat.css" rel="stylesheet">
 <link href="/assets/css/components/hero.css" rel="stylesheet">
 <link href="/assets/css/components/testimonials.css" rel="stylesheet">
@@ -749,26 +752,38 @@
 
 
 <!-- ════════════════════════════════════════════════════════════
-     FOOTER — caat-full-footer component
-     Component: /components/navigation.html (Variant 3: Full Footer)
+     FOOTER — caat/components/footer  (see /components/footer.html)
      ════════════════════════════════════════════════════════════ -->
-<footer class="caat-full-footer-demo pm-footer"
-        role="contentinfo" data-analytics-component="footer">
+<footer class="caat-footer" role="contentinfo" data-analytics-component="footer">
   <div class="container">
-    <div class="caat-full-footer-grid">
-      <div>
-        <h4 class="caat-full-footer-heading">Quick Links</h4>
-        <ul class="caat-full-footer-list">
+
+    <div class="caat-footer__top">
+      <div class="caat-footer__newsletter">
+        <p class="caat-footer__newsletter-title">Stay informed</p>
+        <p class="caat-footer__newsletter-text">Pension news, events, and resources — a few times a year.</p>
+        <form class="caat-footer__newsletter-form" action="#" aria-label="Newsletter signup">
+          <label class="visually-hidden" for="pm-footer-email">Email address</label>
+          <input class="form-control" id="pm-footer-email" type="email" placeholder="you@example.com" required>
+          <button class="caat-button caat-button--primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <a class="caat-footer__backtotop" href="#main"><i class="bi bi-arrow-up-short" aria-hidden="true"></i> Back to top</a>
+    </div>
+
+    <div class="caat-footer__grid">
+      <nav class="caat-footer__col" aria-labelledby="pmf-quick">
+        <h2 class="caat-footer__heading" id="pmf-quick">Quick Links</h2>
+        <ul class="caat-footer__list">
           <li><a href="#">Estimate your pension</a></li>
           <li><a href="#">Make a purchase</a></li>
           <li><a href="#">Plan Ambassadors</a></li>
           <li><a href="#">Employers</a></li>
           <li><a href="#">Employer education</a></li>
         </ul>
-      </div>
-      <div>
-        <h4 class="caat-full-footer-heading">Pension Solutions</h4>
-        <ul class="caat-full-footer-list">
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-solutions">
+        <h2 class="caat-footer__heading" id="pmf-solutions">Pension Solutions</h2>
+        <ul class="caat-footer__list">
           <li><a href="#">Why join DBplus?</a></li>
           <li><a href="#">How to join DBplus</a></li>
           <li><a href="#">What employers get</a></li>
@@ -776,20 +791,20 @@
           <li><a href="#">Success stories</a></li>
           <li><a href="#">Resources for interested parties</a></li>
         </ul>
-      </div>
-      <div>
-        <h4 class="caat-full-footer-heading">Your Pension</h4>
-        <ul class="caat-full-footer-list">
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-your">
+        <h2 class="caat-footer__heading" id="pmf-your">Your Pension</h2>
+        <ul class="caat-footer__list">
           <li><a href="#">Members</a></li>
           <li><a href="#">Member resources</a></li>
           <li><a href="#">Start your pension</a></li>
           <li><a href="#">Collecting your pension</a></li>
           <li><a href="#">Member newsletters</a></li>
         </ul>
-      </div>
-      <div>
-        <h4 class="caat-full-footer-heading">Contact Us</h4>
-        <ul class="caat-full-footer-list">
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-contact">
+        <h2 class="caat-footer__heading" id="pmf-contact">Contact Us</h2>
+        <ul class="caat-footer__list">
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">Careers</a></li>
           <li><a href="#">About us</a></li>
@@ -797,26 +812,33 @@
           <li><a href="#">Support Centre</a></li>
           <li><a href="#">Events</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
-    <div class="caat-full-footer-bottom">
-      <div class="caat-full-footer-logo">
-        <a href="/" aria-label="CAAT Pension Plan — Home">
-          <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="56">
-        </a>
-      </div>
-      <div class="caat-footer-legal" role="navigation" aria-label="Legal links">
+
+    <div class="caat-footer__bottom">
+      <a href="/" class="caat-footer__logo" aria-label="CAAT Pension Plan — Home">
+        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="56">
+      </a>
+      <nav class="caat-footer__legal" aria-label="Legal links">
         <a href="#">Site map</a>
         <a href="#">Privacy</a>
         <a href="#">Terms of use</a>
         <a href="#">Accessibility</a>
-      </div>
-      <div class="caat-footer-social">
-        <a href="https://www.linkedin.com/company/caat-pension-plan/" aria-label="CAAT on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-        <a href="https://www.youtube.com/@CAATPensionPlanYoutube" aria-label="CAAT on YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+      </nav>
+      <div class="caat-footer__meta">
+        <div class="caat-footer__lang">
+          <a href="#" aria-current="true" lang="en">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" lang="fr" hreflang="fr">FR</a>
+        </div>
+        <div class="caat-footer__social caat-social-links">
+          <a href="https://www.linkedin.com/company/caat-pension-plan/" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand is-linkedin" aria-label="CAAT on LinkedIn (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@CAATPensionPlanYoutube" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand is-youtube" aria-label="CAAT on YouTube (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+        </div>
       </div>
     </div>
-    <p class="caat-footer-copyright"><small>&copy; 2026 CAAT Pension Plan. All Rights Reserved.</small></p>
+
+    <p class="caat-footer__copyright"><small>&copy; 2026 CAAT Pension Plan. All Rights Reserved.</small></p>
   </div>
 </footer>
 

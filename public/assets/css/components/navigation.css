@@ -260,52 +260,9 @@
   padding: .5rem 1.1rem;
 }
 
-/* ── Full Footer ───────────────────────────────────────────── */
-.caat-full-footer-demo {
-  background: var(--caat-beige); color: var(--caat-color-text);
-  border: 1px solid var(--caat-color-border); border-radius: var(--caat-radius-lg);
-  padding: 2.75rem 2rem 1.5rem; box-shadow: var(--caat-shadow-sm);
-}
-.caat-full-footer-grid {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.25rem;
-}
-.caat-full-footer-heading {
-  display: flex; align-items: center; gap: .45rem;
-  font-size: .78rem; text-transform: uppercase; letter-spacing: .06em;
-  font-weight: 900; color: var(--caat-color-text); margin-bottom: 1.25rem;
-}
-.caat-full-footer-heading::before {
-  content: ""; width: .7rem; height: .7rem;
-  background: var(--caat-lime); box-shadow: 0 0 0 2px rgba(149,227,92,.35);
-  display: inline-block;
-}
-.caat-full-footer-list {
-  list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem;
-}
-.caat-full-footer-list a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
-.caat-full-footer-list a:hover,
-.caat-full-footer-list a:focus {
-  text-decoration: underline; text-underline-offset: .25rem; color: var(--caat-color-text-heading);
-}
-.caat-full-footer-bottom {
-  display: grid; grid-template-columns: minmax(10rem, 1fr) auto minmax(10rem, 1fr);
-  gap: 1rem; align-items: end; margin-top: 3.25rem;
-}
-.caat-full-footer-logo { display: inline-block; }
-.caat-full-footer-logo img { height: 5.5rem; width: auto; }
-.caat-footer-legal {
-  display: flex; gap: 1.35rem; flex-wrap: wrap; justify-content: center;
-}
-.caat-footer-legal a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
-.caat-footer-legal a:hover,
-.caat-footer-legal a:focus { text-decoration: underline; text-underline-offset: .25rem; }
-/* Footer social — COMPOSES Social/Share Links (.caat-social-links) +
-   Icon Button (.caat-icon-btn--circle --brand). This wrapper only sets
-   footer alignment; control styling lives in those components. */
-.caat-footer-social {
-  justify-content: flex-end;
-}
-.caat-footer-copyright { text-align: center; margin-top: 1.65rem; color: var(--caat-color-text); }
+/* ── Footer ────────────────────────────────────────────────────
+   The site footer is now its own component — see footer.css /
+   /components/footer.html. It is no longer part of Navigation. */
 
 /* ── Legacy Mobile Menu Demo ───────────────────────────────── */
 .caat-mobile-nav-demo {
@@ -450,18 +407,7 @@
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 991.98px) {
   .caat-navbar .mega-menu { display: none !important; }
-  .caat-full-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .caat-full-footer-bottom { grid-template-columns: 1fr; text-align: left; }
-  .caat-footer-legal, .caat-footer-social { justify-content: flex-start; }
-  .caat-footer-copyright { text-align: left; }
 }
 @media (min-width: 992px) {
   .caat-navbar .navbar-nav .dropdown { position: static; }
-}
-@media (max-width: 575.98px) {
-  .caat-full-footer-demo { padding: 1.5rem 1rem; }
-  .caat-full-footer-grid { grid-template-columns: 1fr; }
-  .caat-full-footer-bottom { margin-top: 2rem; }
-  .caat-footer-legal { display: grid; gap: .75rem; }
-  .caat-full-footer-logo img { height: 3rem; }
 }

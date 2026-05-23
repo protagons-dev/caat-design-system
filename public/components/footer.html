@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Footer AEM Component Contract. Site footer with link navigation, newsletter signup, language toggle, social links and back-to-top.">
+<title>Footer | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/icon-button.css" rel="stylesheet">
+<link href="/assets/css/components/social-links.css" rel="stylesheet">
+<link href="/assets/css/components/footer.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Composed of</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/social-links.html">Social / Share Links</a>
+      <a class="nav-link" href="/components/icon-button.html">Icon Button</a>
+      <a class="nav-link" href="/components/button.html">Button</a>
+    </nav>
+    <p class="eyebrow mb-2">Used by</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/navigation.html">Navigation</a>
+      <a class="nav-link" href="/components/index.html">Every page →</a>
+    </nav>
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#composed-of">Composed of</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main>
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Footer</li>
+      </ol>
+    </nav>
+
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Footer</h1>
+      <p class="text-muted">The site footer — link navigation, newsletter signup, language toggle, social links, and back-to-top.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Footer',['/assets/css/tokens.css','/assets/css/components/footer.css','/assets/css/components/icon-button.css','/assets/css/components/social-links.css','/assets/css/components/button.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════ DEMO ════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+      <div class="demo-shell demo-shell--full mb-4">
+        <footer class="caat-footer" role="contentinfo">
+          <div class="container">
+
+            <div class="caat-footer__top">
+              <div class="caat-footer__newsletter">
+                <p class="caat-footer__newsletter-title">Stay informed</p>
+                <p class="caat-footer__newsletter-text">Pension news, events, and resources — a few times a year.</p>
+                <form class="caat-footer__newsletter-form" action="#" aria-label="Newsletter signup">
+                  <label class="visually-hidden" for="footer-email">Email address</label>
+                  <input class="form-control" id="footer-email" type="email" placeholder="you@example.com" required>
+                  <button class="caat-button caat-button--primary" type="submit">Subscribe</button>
+                </form>
+              </div>
+              <a class="caat-footer__backtotop" href="#main"><i class="bi bi-arrow-up-short" aria-hidden="true"></i> Back to top</a>
+            </div>
+
+            <div class="caat-footer__grid">
+              <nav class="caat-footer__col" aria-labelledby="ft-quick">
+                <h2 class="caat-footer__heading" id="ft-quick">Quick links</h2>
+                <ul class="caat-footer__list">
+                  <li><a href="#">About CAAT</a></li>
+                  <li><a href="#">Newsroom</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Contact us</a></li>
+                </ul>
+              </nav>
+              <nav class="caat-footer__col" aria-labelledby="ft-solutions">
+                <h2 class="caat-footer__heading" id="ft-solutions">Pension solutions</h2>
+                <ul class="caat-footer__list">
+                  <li><a href="#">DBplus</a></li>
+                  <li><a href="#">DBprime</a></li>
+                  <li><a href="#">Why CAAT</a></li>
+                  <li><a href="#">How to join</a></li>
+                </ul>
+              </nav>
+              <nav class="caat-footer__col" aria-labelledby="ft-your">
+                <h2 class="caat-footer__heading" id="ft-your">Your pension</h2>
+                <ul class="caat-footer__list">
+                  <li><a href="#">My Pension</a></li>
+                  <li><a href="#">Contributions</a></li>
+                  <li><a href="#">Retirement planning</a></li>
+                  <li><a href="#">Life events</a></li>
+                  <li><a href="#">Forms &amp; resources</a></li>
+                </ul>
+              </nav>
+              <nav class="caat-footer__col" aria-labelledby="ft-contact">
+                <h2 class="caat-footer__heading" id="ft-contact">Contact us</h2>
+                <ul class="caat-footer__list">
+                  <li><a href="#">Member support</a></li>
+                  <li><a href="#">Employer support</a></li>
+                  <li><a href="#">General inquiries</a></li>
+                  <li><a href="#">Office locations</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="caat-footer__bottom">
+              <a href="/" class="caat-footer__logo" aria-label="CAAT Pension Plan — Home">
+                <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="56" loading="lazy">
+              </a>
+              <nav class="caat-footer__legal" aria-label="Legal">
+                <a href="#">Site map</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms of use</a>
+                <a href="#">Accessibility</a>
+              </nav>
+              <div class="caat-footer__meta">
+                <div class="caat-footer__lang">
+                  <a href="#" aria-current="true" lang="en">EN</a>
+                  <span aria-hidden="true">·</span>
+                  <a href="#" lang="fr" hreflang="fr">FR</a>
+                </div>
+                <div class="caat-footer__social caat-social-links">
+                  <a href="https://www.linkedin.com/company/caatpension" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand is-linkedin" aria-label="CAAT on LinkedIn (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                  <a href="https://www.youtube.com/@caatpension" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand is-youtube" aria-label="CAAT on YouTube (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <p class="caat-footer__copyright">&copy; 2026 CAAT Pension Plan. All rights reserved.</p>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- ════ 1. SUMMARY ════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Footer</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/footer</code></td></tr>
+          <tr><th>Tier</th><td>Composite (organism) — composes Social/Share Links + Button</td></tr>
+          <tr><th>Purpose</th><td>The standard site footer: secondary navigation, newsletter signup, language toggle, social links, legal, and back-to-top. Appears on every page.</td></tr>
+          <tr><th>Regions</th><td>Newsletter + back-to-top · 4 link columns · brand / legal / language / social · copyright</td></tr>
+          <tr><th>Status</th><td><span class="status-badge planned"><i class="bi bi-stars"></i> New</span></td></tr>
+          <tr><th>Replaces</th><td><code>.caat-full-footer-demo</code> (was buried in Navigation, copy-pasted into the template — caused drift)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ COMPOSED OF ════ -->
+    <section class="contract-section" id="composed-of">
+      <h2>Composed of</h2>
+      <p>A composite — it composes existing components rather than re-implementing them (see <code>docs/design-system-recommendations.md</code> §F).</p>
+      <table class="contract-table">
+        <thead><tr><th>Constituent</th><th>Role</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/components/social-links.html">Social / Share Links</a> → <a href="/components/icon-button.html">Icon Button</a></td><td>LinkedIn / YouTube links</td><td><span class="status-badge ready">✓ composed</span></td></tr>
+          <tr><td><a href="/components/button.html">Button</a></td><td>Newsletter “Subscribe”</td><td><span class="status-badge ready">✓ composed</span></td></tr>
+          <tr><td>Form field</td><td>Newsletter email (Bootstrap <code>.form-control</code> + AODA border)</td><td><span class="status-badge ready">✓</span></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 2. TOKENS ════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-beige</code></td><td>Footer background (warm light surface)</td></tr>
+          <tr><td><code>--caat-color-text</code> / <code>--caat-color-text-heading</code> / <code>--caat-color-text-muted</code></td><td>Links / headings / copyright</td></tr>
+          <tr><td><code>--caat-color-border</code></td><td>Section dividers (top band, bottom row)</td></tr>
+          <tr><td><code>--caat-space-1 … --caat-space-8</code></td><td>All spacing (scale-based, no ad-hoc rem)</td></tr>
+          <tr><td><code>--caat-font-size-2xs</code>, <code>--caat-letter-spacing-label</code></td><td>Column headings</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 3. AUTHORING ════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Columns</td><td>Multifield</td><td>Yes</td><td>Per column: heading + link list (each becomes a labelled <code>&lt;nav&gt;</code>)</td></tr>
+          <tr><td>Newsletter</td><td>Group</td><td>No</td><td>Title, blurb, form action; toggle on/off</td></tr>
+          <tr><td>Legal links</td><td>Multifield</td><td>Yes</td><td>Site map, Privacy, Terms, Accessibility</td></tr>
+          <tr><td>Languages</td><td>Multifield</td><td>No</td><td>EN / FR with hreflang</td></tr>
+          <tr><td>Social</td><td>Reference</td><td>No</td><td>Social/Share Links instance</td></tr>
+          <tr><td>Copyright</td><td>Text</td><td>Yes</td><td>Year auto-injected</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 4. VALIDATION ════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+        <tbody>
+          <tr><td>Column heading required</td><td>A column has links but no heading</td><td>"Each footer column needs a heading (it labels the navigation region)."</td></tr>
+          <tr><td>Newsletter email</td><td>Submitted value not an email</td><td>"Enter a valid email address."</td></tr>
+          <tr><td>Single contentinfo</td><td>More than one footer landmark per page</td><td>"Only one footer (contentinfo) is allowed per page."</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 5. CONTENT GUIDANCE ════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Group links by audience/task (Quick links, Pension solutions, Your pension, Contact). 4–6 links per column.</li>
+        <li>Keep the newsletter blurb to one line; set expectations on frequency.</li>
+        <li>Legal links are mandatory for AODA/privacy: Accessibility, Privacy, Terms, Site map.</li>
+        <li>Provide the EN/FR toggle on every page; mark the current language <code>aria-current</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 6. SEMANTIC HTML ════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;footer class="caat-footer" role="contentinfo"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="caat-footer__top"&gt;…newsletter… &lt;a class="caat-footer__backtotop" href="#main"&gt;Back to top&lt;/a&gt;&lt;/div&gt;
+
+    &lt;div class="caat-footer__grid"&gt;
+      &lt;nav class="caat-footer__col" aria-labelledby="ft-quick"&gt;
+        &lt;h2 class="caat-footer__heading" id="ft-quick"&gt;Quick links&lt;/h2&gt;
+        &lt;ul class="caat-footer__list"&gt;…&lt;/ul&gt;
+      &lt;/nav&gt;
+      …
+    &lt;/div&gt;
+
+    &lt;div class="caat-footer__bottom"&gt;…logo · legal nav · lang + social…&lt;/div&gt;
+    &lt;p class="caat-footer__copyright"&gt;…&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+    </section>
+
+    <!-- ════ 7. CSS CONTRACT ════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-footer</code></td><td>Full-bleed container (beige surface) with an inner <code>.container</code></td></tr>
+          <tr><td><code>.caat-footer__top</code> / <code>__newsletter</code> / <code>__backtotop</code></td><td>Top band</td></tr>
+          <tr><td><code>.caat-footer__grid</code> / <code>__col</code> / <code>__heading</code> / <code>__list</code></td><td>Link-navigation columns</td></tr>
+          <tr><td><code>.caat-footer__bottom</code> / <code>__logo</code> / <code>__legal</code> / <code>__meta</code> / <code>__lang</code> / <code>__social</code></td><td>Bottom row</td></tr>
+          <tr><td><code>.caat-footer__copyright</code></td><td>Copyright line</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 8. ACCESSIBILITY ════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+        <tbody>
+          <tr><td>Landmark</td><td>One <code>&lt;footer role="contentinfo"&gt;</code> per page.</td></tr>
+          <tr><td>Navigation regions</td><td>Each link column is a <code>&lt;nav aria-labelledby&gt;</code> named by its <code>&lt;h2&gt;</code> — real heading structure, not <code>&lt;p&gt;</code>.</td></tr>
+          <tr><td>Language toggle</td><td>Current language carries <code>aria-current="true"</code>; the other has <code>hreflang</code>.</td></tr>
+          <tr><td>External links</td><td>Social links: <code>rel="noopener"</code> + “(opens in a new tab)”.</td></tr>
+          <tr><td>Newsletter</td><td>Email input has a label (visually hidden); the field meets the 3:1 border (AODA).</td></tr>
+          <tr><td>Back to top</td><td>A real link to <code>#main</code> (the skip-link target) — keyboard reachable.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 9. SEO ════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul>
+        <li>Footer links aid crawl/discovery — keep them real, descriptive anchors.</li>
+        <li>Language links use <code>hreflang</code>; social profile links may use <code>rel="me"</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 10. ANALYTICS ════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <ul>
+        <li>Track <code>footer:link</code> clicks (column + label), <code>footer:newsletter-submit</code>, <code>footer:lang-switch</code>, and <code>footer:back-to-top</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 11. AEM NOTES ════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li>Resource type: <code>caat/components/footer</code> — a single shared footer included by the page template (not copy-pasted).</li>
+        <li>Columns, legal, languages and newsletter are authorable; social delegates to the Social/Share Links component.</li>
+        <li>Copyright year injected server-side.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 12. DIALOG MODEL ════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (cq:dialog)</h2>
+      <pre><code>{
+  "columns":    { "sling:resourceType": "…/form/multifield", "field": { "heading": "…", "links": "…" } },
+  "newsletter": { "title": "…", "text": "…", "action": "…", "enabled": "true" },
+  "legal":      { "sling:resourceType": "…/form/multifield" },
+  "languages":  { "sling:resourceType": "…/form/multifield", "field": { "label": "…", "href": "…", "hreflang": "…" } },
+  "copyright":  { "sling:resourceType": "…/form/textfield" }
+}</code></pre>
+    </section>
+
+    <!-- ════ 13. QA ════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Checklist</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>#</th><th>Check</th><th>Pass?</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>One <code>role="contentinfo"</code> footer; columns are labelled <code>&lt;nav&gt;</code> with <code>&lt;h2&gt;</code> headings</td><td></td></tr>
+          <tr><td>2</td><td>Social links render via Icon Button (circle, brand) — not bare glyphs</td><td></td></tr>
+          <tr><td>3</td><td>Newsletter field labelled; submit is a Button; field border ≥ 3:1</td><td></td></tr>
+          <tr><td>4</td><td>EN/FR toggle marks current with aria-current</td><td></td></tr>
+          <tr><td>5</td><td>Back-to-top moves focus to main content</td><td></td></tr>
+          <tr><td>6</td><td>Responsive: 4 → 2 → 1 columns; no decorative “squares” on headings</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 14. DOD ════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <ul>
+        <li><input type="checkbox" disabled> Standalone component; Navigation + template both consume it (no copy-paste drift).</li>
+        <li><input type="checkbox" disabled> Composes Social/Share Links + Button; no re-implemented controls.</li>
+        <li><input type="checkbox" disabled> Real heading + landmark structure; AODA verified.</li>
+        <li><input type="checkbox" disabled> Spacing token-driven; the decorative lime squares removed.</li>
+        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>
