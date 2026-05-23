@@ -147,6 +147,7 @@
     <nav class="nav flex-column">
       <a class="nav-link" href="#overview">Overview</a>
       <a class="nav-link" href="#colour">Colour</a>
+      <a class="nav-link" href="#contrast">Contrast (AODA / AA)</a>
       <a class="nav-link" href="#semantic">Semantic Tokens</a>
       <a class="nav-link" href="#typography">Typography</a>
       <a class="nav-link" href="#spacing-radius">Spacing &amp; Radius</a>
@@ -436,6 +437,55 @@
     <!-- ══════════════════════════════════════════════════════
          TYPOGRAPHY
          ══════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════
+         CONTRAST / ACCESSIBILITY
+         ══════════════════════════════════════════════════════ -->
+    <section id="contrast" class="mb-5">
+      <h2>Colour Contrast (AODA / WCAG AA)</h2>
+      <p>CAAT is bound by the <strong>AODA</strong>, which requires <strong>WCAG 2.0 AA today and WCAG 2.2 AA by 2027</strong> — we build to 2.2 AA now. Colour contrast thresholds:</p>
+      <ul>
+        <li><strong>4.5:1</strong> — normal text</li>
+        <li><strong>3:1</strong> — large text (≥24px, or ≥18.66px bold)</li>
+        <li><strong>3:1</strong> — UI components, graphical objects &amp; focus indicators (1.4.11)</li>
+      </ul>
+      <p>An audit script computes the ratio for every real pairing. Re-run after any colour change:</p>
+<pre class="bg-light p-3 rounded mb-4"><code>node scripts/contrast-audit.js   <span class="text-muted"># exits non-zero if any required pairing fails</span></code></pre>
+
+      <div class="alert alert-success" role="status">
+        <i class="bi bi-check-circle-fill me-1"></i>
+        <strong>Status: all 34 required pairings pass AA.</strong> Three issues were found and fixed at the token layer (below).
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Fixes applied</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Issue</th><th>Was</th><th>Now</th></tr></thead>
+          <tbody>
+            <tr><td>Focus ring invisible</td><td><code>rgba(47,149,210,.35)</code> — 1.47:1 on white</td><td>Solid <code>--caat-blue-500</code> — 3.31:1 light / 3.82:1 dark</td></tr>
+            <tr><td>Secondary button (white on green)</td><td><code>--caat-green</code> — 3.06:1</td><td><code>--caat-green-700</code> fill — 4.95:1 (hover green-900)</td></tr>
+            <tr><td>Form-control borders too faint</td><td><code>grey-200</code> — 1.26:1</td><td><code>--caat-color-border-interactive</code> (<code>grey-500</code>) — 4.21:1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Usage restrictions (colours that fail on light surfaces)</h3>
+      <p>These colours are fine in their intended role but must <strong>not</strong> be used as described:</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Colour</th><th>Ratio on white</th><th>Rule</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-warning</code> (amber)</td><td>2.0:1</td><td><strong>Dark text only</strong>, never white. Don't signal by colour alone — pair with an icon/label (1.4.1).</td></tr>
+            <tr><td><code>--caat-teal</code></td><td>2.9:1 (white on teal)</td><td>Decorative accent — don't place white (or any 4.5:1 text) on it.</td></tr>
+            <tr><td><code>--caat-lime</code></td><td>1.56:1</td><td>Use <em>on dark</em> or as a fill behind dark text (e.g. selection, hero eyebrow) — never as text/UI on white.</td></tr>
+            <tr><td><code>--caat-blue-300</code></td><td>1.63:1</td><td>Tint / on-dark text only — not a UI boundary on white.</td></tr>
+            <tr><td><code>--caat-grey-200</code> / <code>-300</code></td><td>1.26 / 1.46:1</td><td>Decorative dividers only (1.4.11 exempt). For control borders use <code>--caat-color-border-interactive</code>.</td></tr>
+            <tr><td><code>--caat-disabled</code></td><td>2.92:1</td><td>Disabled text — <strong>WCAG-exempt</strong> by design (inactive controls).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
     <!-- ══════════════════════════════════════════════════════
          SEMANTIC TOKENS
          ══════════════════════════════════════════════════════ -->

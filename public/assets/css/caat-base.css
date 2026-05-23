@@ -62,6 +62,11 @@ a:hover { color: var(--caat-blue-700); }
 
 /* ── Focus ring ────────────────────────────────────────────── */
 .btn:focus, .btn.focus-demo { box-shadow: var(--caat-focus) !important; outline: 0; }
+/* Form-control borders must meet 3:1 (WCAG 1.4.11) — the default light grey
+   does not. Use the interactive border token at rest. */
+.form-control, .form-select {
+  border-color: var(--caat-color-border-interactive);
+}
 .form-control:focus, .form-select:focus, .form-check-input:focus {
   border-color: var(--caat-color-focus-edge); box-shadow: var(--caat-color-focus-ring);
 }

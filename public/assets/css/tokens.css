@@ -43,6 +43,7 @@
   --caat-grey-200:   #dfe6ef;
   --caat-grey-300:   #cbd7e3;
   --caat-grey-100:   #e8ecf1;
+  --caat-grey-500:   #6f7d8c;   /* AA: meets 3:1 on white (4.2:1) — interactive borders */
 
   --caat-ink:        #102637;
   --caat-muted:      #506273;
@@ -146,7 +147,9 @@
   --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);  /* default      (kept) */
   --caat-shadow-md:  0 1rem 2.5rem rgba(0,55,80,.14);     /* dropdown / popover  */
   --caat-shadow-lg:  0 1.5rem 3.5rem rgba(0,55,80,.20);   /* modal / dialog      */
-  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);   /* focus ring   (kept) */
+  /* Focus ring: SOLID blue-500 — meets WCAG 1.4.11 (3:1) on BOTH light (3.31:1)
+     and dark navy (~4.5:1) surfaces. Was rgba(...,.35), which failed at 1.47:1. */
+  --caat-focus:      0 0 0 .1875rem var(--caat-blue-500);
 
   /* ── Z-index scale (coexists with Bootstrap's 1000–1090) ─── */
   --caat-z-base:     0;
@@ -203,14 +206,16 @@
   --caat-color-bg-overlay:      rgba(0,0,0,.25);        /* modal/drawer scrim */
 
   /* ── Borders / dividers ──────────────────────────────────── */
-  --caat-color-border:         var(--caat-grey-200);
+  --caat-color-border:         var(--caat-grey-200);   /* decorative dividers (1.4.11 exempt) */
   --caat-color-border-strong:  var(--caat-grey-300);
+  --caat-color-border-interactive: var(--caat-grey-500); /* form-control borders — meets 3:1 */
 
   /* ── Actions ─────────────────────────────────────────────── */
   --caat-color-action-primary:        var(--caat-blue-900);
   --caat-color-action-primary-hover:  var(--caat-blue-700);
-  --caat-color-action-secondary:      var(--caat-green);
-  --caat-color-action-secondary-hover:var(--caat-green-700);
+  /* AA: white text needs green-700 (4.95:1); plain --caat-green is 3.06:1 (fail). */
+  --caat-color-action-secondary:      var(--caat-green-700);
+  --caat-color-action-secondary-hover:var(--caat-green-900);
 
   /* ── Focus ───────────────────────────────────────────────── */
   --caat-color-focus-ring: var(--caat-focus);

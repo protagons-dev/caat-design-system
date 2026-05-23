@@ -46,15 +46,17 @@
   pointer-events: none;
 }
 
-/* ── Secondary ─────────────────────────────────────────────── */
+/* ── Secondary ───────────────────────────────────────────────
+   AA: white text on plain --caat-green is only 3.06:1 (fail). Resting
+   fill uses green-700 (4.95:1); hover/active go darker still. */
 .caat-button--secondary {
-  background: var(--caat-green);
-  border-color: var(--caat-green);
+  background: var(--caat-green-700);
+  border-color: var(--caat-green-700);
   color: #fff;
 }
 .caat-button--secondary:hover {
-  background: var(--caat-green-700);
-  border-color: var(--caat-green-700);
+  background: var(--caat-green-900);
+  border-color: var(--caat-green-900);
   color: #fff;
   transform: translateY(-1px);
 }

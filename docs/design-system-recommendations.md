@@ -66,7 +66,10 @@ The current `tokens.css` is a flat list of ~60 values. Modern systems organize t
 - **Recommend:** a 4px-based scale (`--space-1: .25rem` … `--space-16: 4rem`) and *reference it* in component CSS and the layout guide.
 - **Rationale:** consistent spacing is the cheapest way to look intentional. Tokenizing the rhythm that `page-layout.html` already describes makes it enforceable, not just advisory.
 
-### A3. Semantic colour layer + AODA contrast audit — **P0 (legal)**
+### A3. Semantic colour layer + AODA contrast audit — **P0 (legal)** · ✅ RESOLVED (2026-05-23)
+
+> **Done:** Semantic colour layer added (Part A intro). Contrast audit scripted (`scripts/contrast-audit.js`) and run over 34 required pairings — **all pass AA**. Three failures fixed at the token layer: focus ring (was `rgba(...,.35)` 1.47:1 → solid blue-500, 3.31:1 light / 3.82:1 dark), secondary button (white on `--caat-green` 3.06:1 → green-700 fill 4.95:1), form-control borders (grey-200 1.26:1 → new `--caat-color-border-interactive` / `grey-500` 4.21:1). Usage restrictions documented for warning/teal/lime/blue-300/dividers; disabled text noted as WCAG-exempt. Results live on the Design Tokens page (Contrast section). Re-run the script after any colour change.
+
 - **Now:** ~40 colour values including good alert/status sets. But roles are implicit (`--bs-primary` = blue-900) and **contrast is unverified**.
 - **Gap:** no semantic names (`--color-text-default`, `--color-bg-subtle`, `--color-border`, `--color-action-primary`, `--color-focus`), and no record that `--caat-blue (#0f6791)` on white, `--caat-muted (#506273)`, lime selection, etc. meet **4.5:1** (text) / **3:1** (large text & UI).
 - **Recommend:** (1) introduce a semantic colour layer; (2) run a contrast audit of every foreground/background pairing and record pass/fail in the tokens page; (3) fix or restrict any pair that fails AA. Pay special attention to: muted text on tinted backgrounds, green/lime on white, status text colours, and link colour on coloured sections.
