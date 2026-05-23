@@ -8,9 +8,9 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--caat-grey-200);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
-  background: #fff;
+  background: var(--caat-color-bg-page);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .caat-download__icon--docx {
-  background: var(--caat-blue-100);
+  background: var(--caat-color-bg-brand-subtle);
   color: var(--caat-blue-700);
 }
 
@@ -54,7 +54,7 @@
 .caat-download__title {
   font-family: var(--caat-font-primary);
   font-weight: 600;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin: 0;
   font-size: 1rem;
   line-height: 1.4;
@@ -85,9 +85,9 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--caat-grey-200);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
-  background: #fff;
+  background: var(--caat-color-bg-page);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -133,7 +133,7 @@
   font-family: var(--caat-font-primary);
   font-weight: 700;
   font-size: 1.125rem;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--caat-blue-100);

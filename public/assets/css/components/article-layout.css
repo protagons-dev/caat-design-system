@@ -160,7 +160,7 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin-bottom: 0.75rem;
 }
 
@@ -169,7 +169,7 @@
   text-decoration: none;
   color: inherit;
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 
 .caat-article__related-item:last-child {
@@ -177,15 +177,25 @@
   padding-bottom: 0;
 }
 
-.caat-article__related-item:hover .caat-article__related-title {
-  color: var(--caat-blue-700);
+.caat-article__related-item:hover .caat-article__related-title,
+.caat-article__related-item:focus-visible .caat-article__related-title {
+  color: var(--caat-color-text-link-hover);
+}
+
+/* Keyboard focus for in-content nav links (AODA conformance — these are
+   interactive anchors that previously had :hover but no focus indicator). */
+.caat-article__toc .nav-link:focus-visible,
+.caat-article__related-item:focus-visible {
+  outline: 2px solid var(--caat-blue-700);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .caat-article__related-title {
   font-family: var(--caat-font-primary);
   font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin-bottom: 0.125rem;
   line-height: 1.35;
 }
@@ -207,8 +217,8 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  border: 1px solid var(--caat-grey-200);
-  background: #fff;
+  border: 1px solid var(--caat-color-border);
+  background: var(--caat-color-bg-page);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -220,8 +230,8 @@
 }
 
 .caat-article__share-btn:hover {
-  background: var(--caat-blue-900);
-  color: #fff;
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
   border-color: var(--caat-blue-900);
 }
 

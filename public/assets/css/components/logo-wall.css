@@ -50,9 +50,15 @@
   width: 100%;
   min-height: 5rem;
 }
-.caat-logo-wall__item:hover {
+.caat-logo-wall__item:hover,
+.caat-logo-wall__item:focus-visible {
   box-shadow: var(--caat-shadow-sm);
   transform: translateY(-2px);
+}
+/* Keyboard focus ring for linked logos (AODA conformance) */
+.caat-logo-wall__item:focus-visible {
+  outline: none;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-logo-wall__item img {
