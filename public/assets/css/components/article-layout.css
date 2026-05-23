@@ -7,28 +7,22 @@
   width: 100%;
   border-radius: var(--caat-radius);
   display: block;
-  margin-bottom: 2rem;
 }
 
-/* ── Header ──────────────────────────────────────────────── */
-.caat-article__header {
-  margin-bottom: 2rem;
-}
-
+/* ── Header ───────────────────────────────────────────────────
+   The header is a tight stack grouping the title + byline; the
+   article column is a stack for consistent block rhythm (see
+   separator.css / .caat-stack). No bespoke structural margins. */
 .caat-article__header h1 {
   font-family: var(--caat-font-primary);
   font-weight: 900;
   letter-spacing: -0.04em;
   color: var(--caat-color-text-heading);
-  margin-bottom: 0.75rem;
 }
 
-/* ── Meta ─────────────────────────────────────────────────── */
-/* Byline — COMPOSES the Byline/Meta component (.caat-byline, byline.css).
-   Only the article-specific bottom spacing remains here. */
-.caat-article__meta {
-  margin-bottom: 1.5rem;
-}
+/* ── Meta ─────────────────────────────────────────────────────
+   Byline — COMPOSES the Byline/Meta component (.caat-byline). Spacing
+   is governed by the header group, not a bespoke margin. */
 
 /* ── Body (prose) ────────────────────────────────────────── */
 .caat-article__body {
@@ -164,10 +158,11 @@
    COMPOSES Social/Share Links (.caat-social-links) + Icon Button
    (.caat-icon-btn--circle --outline). This wrapper only owns the
    vertical spacing; the control styling lives in those components. */
-.caat-article__share {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
+/* Share row spacing: governed by the article column stack when share is a
+   direct child (standard/minimal). When nested after the body (sidebar
+   variant) it gets an explicit top gap from the spacing scale. */
+.caat-article__share { margin: 0; }
+.caat-article__body > .caat-article__share { margin-top: var(--caat-space-6); }
 
 /* ── Minimal variant (centered prose) ────────────────────── */
 .caat-article--minimal .caat-article__body {
