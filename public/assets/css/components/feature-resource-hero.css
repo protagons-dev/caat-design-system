@@ -36,7 +36,7 @@
   font-family: var(--caat-font-primary);
   font-weight: 900;
   font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   letter-spacing: -.02em;
   line-height: 1.15;
   margin-bottom: .75rem;
@@ -103,7 +103,7 @@
 
 /* ── Variant: dark background ── */
 .caat-feature-hero--dark {
-  background: var(--caat-blue-900);
+  background: var(--caat-color-bg-brand);
   border-radius: var(--caat-radius-lg);
   padding: 3rem 2rem;
 }
@@ -145,7 +145,7 @@
 /* Card overlay on the body content */
 .caat-feature-hero--fullbleed .caat-feature-hero__body {
   background: rgba(0,94,128,.94);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
   border-radius: 0 0 4.5rem 0;
   padding: 2rem;
   box-shadow: var(--caat-shadow);
@@ -158,7 +158,7 @@
   background: rgba(0,82,112,.98);
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__title {
-  color: #fff;
+  color: var(--caat-color-text-inverse);
   font-weight: 800;
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__subtitle {

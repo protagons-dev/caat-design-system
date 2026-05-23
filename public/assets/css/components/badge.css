@@ -19,12 +19,12 @@
 /* --- Variants --- */
 .caat-badge--primary {
   background-color: var(--caat-blue-900, #003750);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 
 .caat-badge--secondary {
   background-color: var(--caat-green-700, #367f32);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 
 .caat-badge--info {
@@ -39,18 +39,18 @@
 
 .caat-badge--danger {
   background-color: var(--caat-danger);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 
 .caat-badge--light {
   background-color: var(--caat-grey);
-  color: var(--caat-ink, #102637);
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  color: var(--caat-color-text);
+  border: 1px solid var(--caat-color-border);
 }
 
 .caat-badge--dark {
   background-color: var(--caat-ink, #102637);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 
 /* --- Pill --- */
@@ -62,7 +62,7 @@
 /* Light-outline pill (for category labels on cards) */
 .caat-badge--outline {
   background: transparent;
-  border: 1px solid var(--caat-grey-200);
+  border: 1px solid var(--caat-color-border);
   color: var(--caat-color-text);
 }
 

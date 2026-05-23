@@ -241,6 +241,7 @@
   /* ── Feedback (info / success / warning / danger) ────────── */
   --caat-color-feedback-info-bg:     var(--caat-alert-info-bg);
   --caat-color-feedback-info-border: var(--caat-alert-info-border);
+  --caat-color-feedback-info-text:   var(--caat-blue-900);
   --caat-color-feedback-success-bg:     var(--caat-success-bg);
   --caat-color-feedback-success-border: var(--caat-alert-success-border);
   --caat-color-feedback-success-text:   var(--caat-success-text);

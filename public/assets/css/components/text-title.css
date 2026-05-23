@@ -6,7 +6,7 @@
 .caat-title {
   font-family: var(--caat-font-primary);
   font-weight: 800;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   letter-spacing: -0.02em;
   line-height: 1.2;
   margin-bottom: 0.5em;
@@ -104,7 +104,7 @@
 .caat-rich-text h3,
 .caat-rich-text h4 {
   font-weight: 800;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   letter-spacing: -0.02em;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
@@ -155,7 +155,7 @@
 /* ── Type Scale Table ───────────────────────────────────── */
 .caat-type-scale {
   font-family: var(--caat-font-primary);
-  border: 1px solid var(--caat-grey-200);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius, 0.75rem);
   overflow: hidden;
   background: #fff;
@@ -167,7 +167,7 @@
   gap: 1.25rem;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 
 .caat-type-scale__row:last-child {
@@ -196,7 +196,7 @@
   font-size: 0.6875rem;
   font-weight: 600;
   font-family: "SF Mono", "Fira Code", monospace;
-  color: var(--caat-muted, #506273);
+  color: var(--caat-color-text-muted);
   white-space: nowrap;
   text-align: right;
   background: var(--caat-grey, #eff2f7);

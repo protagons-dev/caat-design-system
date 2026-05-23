@@ -1,7 +1,7 @@
 /* ============================================================
    CAAT Hero — Component CSS
    AEM client library: caat/components/hero/clientlibs/css
-   Depends on: tokens.css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ============================================================ */
 
 .caat-composable-hero { position: relative; }
@@ -36,7 +36,7 @@
 .caat-hero-card {
   width: min(28rem, calc(100% - 2rem));
   background: rgba(0,94,128,.94);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
   border-radius: 0 0 4.5rem 0;
   padding: 2rem;
   box-shadow: var(--caat-shadow);
@@ -54,17 +54,17 @@
 
 .caat-hero-card .accent-rule {
   width: 12rem; max-width: 70%; height: .35rem;
-  background: var(--caat-green);
+  background: var(--caat-green); /* decorative brand accent */
   margin: 1rem 0 1.25rem;
 }
 .caat-hero-card h1,
 .caat-hero-card h2,
-.caat-hero-card h3 { font-weight: 800; letter-spacing: -.03em; color: #fff; }
+.caat-hero-card h3 { font-weight: 800; letter-spacing: -.03em; color: var(--caat-color-text-inverse); }
 .caat-hero-card p { color: rgba(255,255,255,.88); }
 .caat-hero-card .eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
-.caat-hero-card .btn { border-color: #fff; color: #fff; }
+.caat-hero-card .btn { border-color: #fff; color: var(--caat-color-text-inverse); }
 .caat-hero-card .btn:hover,
-.caat-hero-card .btn:focus { background: #fff; color: var(--caat-blue-900); }
+.caat-hero-card .btn:focus { background: #fff; color: var(--caat-color-action-primary); }
 
 /* ── Slight overlap variant ────────────────────────────────── */
 .caat-hero-slight-overlap .caat-hero-media {
@@ -76,7 +76,7 @@
   left: 2rem !important; top: auto !important; right: auto !important; bottom: 1.5rem !important;
   transform: none !important; margin: 0 !important;
   width: min(28rem, calc(100% - 4rem)) !important;
-  background: var(--caat-blue-900) !important;
+  background: var(--caat-color-bg-brand) !important;
   border-radius: 0 0 3rem 0 !important;
   padding: 1.5rem !important;
   box-shadow: var(--caat-shadow) !important;
@@ -93,8 +93,8 @@
 .caat-stat-strip {
   display: flex;
   justify-content: center;
-  background: var(--caat-blue-900);
-  color: #fff;
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
   padding: 1.25rem 2rem;
   margin: 0;
   border-radius: 0;

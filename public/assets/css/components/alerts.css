@@ -1,5 +1,6 @@
 /* ==========================================================================
    Alert Component – CAAT Design System
+   Depends on: tokens.css (consumes SEMANTIC feedback tokens)
    ========================================================================== */
 
 .caat-alert {
@@ -17,27 +18,27 @@
 
 /* --- Variants --- */
 .caat-alert--info {
-  background-color: var(--caat-alert-info-bg, #cfe2ff);
-  border-color: var(--caat-alert-info-border, #9ec5fe);
-  color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-feedback-info-bg);
+  border-color: var(--caat-color-feedback-info-border);
+  color: var(--caat-color-feedback-info-text);
 }
 
 .caat-alert--success {
-  background-color: var(--caat-alert-success-bg, #d1e7dd);
-  border-color: var(--caat-alert-success-border, #a3cfbb);
-  color: var(--caat-success-text);
+  background-color: var(--caat-color-feedback-success-bg);
+  border-color: var(--caat-color-feedback-success-border);
+  color: var(--caat-color-feedback-success-text);
 }
 
 .caat-alert--warning {
-  background-color: var(--caat-alert-warning-bg, #fff3cd);
-  border-color: var(--caat-alert-warning-border, #ffe69c);
-  color: var(--caat-warning-text);
+  background-color: var(--caat-color-feedback-warning-bg);
+  border-color: var(--caat-color-feedback-warning-border);
+  color: var(--caat-color-feedback-warning-text);
 }
 
 .caat-alert--danger {
-  background-color: var(--caat-alert-danger-bg, #f8d7da);
-  border-color: var(--caat-alert-danger-border, #f1aeb5);
-  color: var(--caat-danger-text);
+  background-color: var(--caat-color-feedback-danger-bg);
+  border-color: var(--caat-color-feedback-danger-border);
+  color: var(--caat-color-feedback-danger-text);
 }
 
 /* --- Icon --- */
@@ -83,7 +84,7 @@
 }
 
 .caat-alert__close:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline: 2px solid var(--caat-color-text-link);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -94,7 +95,7 @@
   text-decoration: underline;
 }
 
-.caat-alert--info a { color: var(--caat-blue-900, #003750); }
-.caat-alert--success a { color: var(--caat-success-text); }
-.caat-alert--warning a { color: var(--caat-warning-text); }
-.caat-alert--danger a { color: var(--caat-danger-text); }
+.caat-alert--info a { color: var(--caat-color-feedback-info-text); }
+.caat-alert--success a { color: var(--caat-color-feedback-success-text); }
+.caat-alert--warning a { color: var(--caat-color-feedback-warning-text); }
+.caat-alert--danger a { color: var(--caat-color-feedback-danger-text); }
