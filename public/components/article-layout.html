@@ -15,6 +15,8 @@
 <link href="/assets/css/components/badge.css" rel="stylesheet">
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/icon-button.css" rel="stylesheet">
+<link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/article-layout.css" rel="stylesheet">
 </head>
 <body>
@@ -193,11 +195,11 @@
               <p>If you have questions about your pension or want personalized guidance, our member services team is here to help. Reach out by phone or email and we'll connect you with a pension advisor.</p>
             </div>
 
-            <div class="caat-article__share" aria-label="Share this article">
-              <a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-              <a href="#" class="caat-article__share-btn" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-              <a href="#" class="caat-article__share-btn" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
-              <a href="#" class="caat-article__share-btn" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
+            <div class="caat-article__share caat-social-links" role="group" aria-label="Share this article">
+              <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+              <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+              <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+              <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
             </div>
           </article>
 
@@ -258,11 +260,11 @@
                   <h2 id="sidebar-planning">Planning for Your Future</h2>
                   <p>We encourage all members to log in to the CAAT member portal regularly to review their pension statement, estimate their retirement income, and update their beneficiary information.</p>
 
-                  <div class="caat-article__share" aria-label="Share this article">
-                    <a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-                    <a href="#" class="caat-article__share-btn" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-                    <a href="#" class="caat-article__share-btn" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
-                    <a href="#" class="caat-article__share-btn" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
+                  <div class="caat-article__share caat-social-links" role="group" aria-label="Share this article">
+                    <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share on Twitter"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share via email"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+                    <a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Copy link"><i class="bi bi-link-45deg" aria-hidden="true"></i></a>
                   </div>
                 </div>
               </div>
@@ -391,7 +393,7 @@
             <tr><td><a href="/components/breadcrumb.html">Breadcrumb</a></td><td>Page trail above the title</td><td><span class="status-badge ready">✓ has page · composed</span></td></tr>
             <tr><td><a href="/foundations/design-tokens.html#typography">Rich Text</a> / Text&nbsp;&amp;&nbsp;Title</td><td>Article body prose, headings</td><td><span class="status-badge ready">✓ has page · composed</span></td></tr>
             <tr><td>Card ×N</td><td>“Related articles” should be a grid of <a href="/components/card.html">Card</a> teasers</td><td><span class="status-badge rebuild">↻ reimplemented as <code>.caat-article__related</code> — should compose Card</span></td></tr>
-            <tr><td>Social / Share Links</td><td>Share row (LinkedIn, X, email, copy)</td><td><span class="status-badge retire">✗ no page — reimplemented as <code>.caat-article__share-btn</code> (also duplicated in Navigation)</span></td></tr>
+            <tr><td><a href="/components/social-links.html">Social / Share Links</a> → <a href="/components/icon-button.html">Icon Button</a></td><td>Share row (LinkedIn, X, email, copy)</td><td><span class="status-badge ready">✓ has page · now composed (was <code>.caat-article__share-btn</code>)</span></td></tr>
             <tr><td>In-page Nav (Table of Contents)</td><td>Sidebar “On this page” anchor nav</td><td><span class="status-badge retire">✗ no page — reimplemented as <code>.caat-article__toc</code></span></td></tr>
             <tr><td>Byline / Meta</td><td>Author + date line</td><td><span class="status-badge retire">✗ no page — local <code>.caat-article__meta</code></span></td></tr>
           </tbody>
@@ -518,7 +520,7 @@
   &lt;/div&gt;
 
   &lt;div class="caat-article__share" aria-label="Share"&gt;
-    &lt;a href="#" class="caat-article__share-btn" aria-label="Share on LinkedIn"&gt;…&lt;/a&gt;
+    &lt;a href="#" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--outline" aria-label="Share on LinkedIn"&gt;…&lt;/a&gt;
   &lt;/div&gt;
 &lt;/article&gt;</code></pre>
 

@@ -299,18 +299,11 @@
 .caat-footer-legal a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
 .caat-footer-legal a:hover,
 .caat-footer-legal a:focus { text-decoration: underline; text-underline-offset: .25rem; }
+/* Footer social — COMPOSES Social/Share Links (.caat-social-links) +
+   Icon Button (.caat-icon-btn--circle --brand). This wrapper only sets
+   footer alignment; control styling lives in those components. */
 .caat-footer-social {
-  display: flex; gap: .75rem; justify-content: flex-end; align-items: center;
-}
-.caat-footer-social a {
-  display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem;
-  border-radius: 50%; color: #0a66c2; /* LinkedIn brand */ text-decoration: none;
-  transition: background .15s;
-}
-.caat-footer-social a:last-child { color: #ff0000; /* YouTube brand */ }
-.caat-footer-social a:hover,
-.caat-footer-social a:focus {
-  background: var(--caat-color-bg-brand-subtle); box-shadow: var(--caat-color-focus-ring);
+  justify-content: flex-end;
 }
 .caat-footer-copyright { text-align: center; margin-top: 1.65rem; color: var(--caat-color-text); }
 

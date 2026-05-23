@@ -205,39 +205,13 @@
   color: var(--caat-color-text-muted);
 }
 
-/* ── Share buttons ───────────────────────────────────────── */
+/* ── Share row ────────────────────────────────────────────────
+   COMPOSES Social/Share Links (.caat-social-links) + Icon Button
+   (.caat-icon-btn--circle --outline). This wrapper only owns the
+   vertical spacing; the control styling lives in those components. */
 .caat-article__share {
-  display: flex;
-  gap: 0.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-
-.caat-article__share-btn {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  border: 1px solid var(--caat-color-border);
-  background: var(--caat-color-bg-page);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--caat-blue-900);
-  font-size: 1rem;
-  transition: background 0.2s ease, color 0.2s ease;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.caat-article__share-btn:hover {
-  background: var(--caat-color-bg-brand);
-  color: var(--caat-color-text-inverse);
-  border-color: var(--caat-blue-900);
-}
-
-.caat-article__share-btn:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
 }
 
 /* ── Minimal variant (centered prose) ────────────────────── */
@@ -258,11 +232,5 @@
   .caat-article__sidebar {
     position: static;
     margin-top: 2rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .caat-article__share-btn {
-    transition: none;
   }
 }

@@ -1,0 +1,26 @@
+/* ============================================================
+   CAAT Social / Share Links — composes Icon Button
+   AEM client library: caat/components/social-links/clientlibs/css
+   Depends on: tokens.css, icon-button.css
+
+   A horizontal group of Icon Buttons. Two modes:
+   • Social profiles — brand-coloured external links (footer, contact)
+   • Share actions  — neutral outline buttons that share THIS page
+   The control styling lives in icon-button.css; this file is the
+   layout wrapper + per-platform brand colours.
+   ============================================================ */
+
+.caat-social-links {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+/* Platform brand colours — set on a child .caat-icon-btn--brand.
+   These are external brand constants, not design tokens. */
+.caat-social-links .is-linkedin  { --caat-icon-btn-brand: #0a66c2; }
+.caat-social-links .is-youtube   { --caat-icon-btn-brand: #ff0000; }
+.caat-social-links .is-facebook  { --caat-icon-btn-brand: #1877f2; }
+.caat-social-links .is-x         { --caat-icon-btn-brand: #1d1d1f; }
+.caat-social-links .is-instagram { --caat-icon-btn-brand: #c13584; }
