@@ -1,0 +1,81 @@
+/* ============================================================
+   CAAT Stat / KPI — Component
+   AEM client library: caat/components/stat/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+
+   A figure + label (e.g. "$4.2B · Plan assets"). Use a single
+   .caat-stat standalone, or group several in a .caat-stat-strip
+   (the dark band beneath a hero). Preferred markup uses
+   __value/__label; the legacy strong/span API is also supported.
+   ============================================================ */
+
+/* ── Single stat (light context) ───────────────────────────── */
+.caat-stat { text-align: center; }
+.caat-stat__value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+  color: var(--caat-color-text-heading);
+}
+.caat-stat__value small { font-size: .65em; font-weight: 400; }
+.caat-stat__label {
+  font-size: .82rem;
+  color: var(--caat-color-text-muted);
+}
+
+/* ── Strip — a row of stats with dividers (dark band, e.g. hero) ── */
+.caat-stat-strip {
+  display: flex;
+  justify-content: center;
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
+  padding: 1.25rem 2rem;
+  margin: 0;
+  border-radius: 0;
+}
+.caat-stat-strip .caat-stat,
+.caat-stat-item {
+  text-align: center;
+  flex: 1;
+  padding: 0 1.5rem;
+  position: relative;
+}
+.caat-stat-strip .caat-stat + .caat-stat::before,
+.caat-stat-item + .caat-stat-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 15%; height: 70%;
+  width: 1px;
+  background: rgba(255,255,255,.25);
+}
+/* On the dark strip the value inherits white; the label is dimmed white */
+.caat-stat-strip .caat-stat__value { color: var(--caat-color-text-inverse); }
+.caat-stat-strip .caat-stat__label { color: rgba(255,255,255,.65); }
+
+/* ── Legacy element API (strong/label-span) — kept value-identical ── */
+.caat-stat-item strong {
+  font-size: 1.75rem;
+  font-weight: 900;
+  display: block;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+}
+.caat-stat-item strong small {
+  font-size: .65em;
+  font-weight: 400;
+}
+.caat-stat-item span {
+  font-size: .82rem;
+  color: rgba(255,255,255,.65);
+}
+
+@media (max-width: 575.98px) {
+  .caat-stat-strip { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }
+  .caat-stat-strip .caat-stat + .caat-stat::before,
+  .caat-stat-item + .caat-stat-item::before {
+    width: 70%; height: 1px;
+    top: -0.5rem; left: 15%;
+  }
+}
