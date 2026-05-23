@@ -1,0 +1,36 @@
+/* ============================================================
+   CAAT Avatar — Base component
+   AEM client library: caat/components/avatar/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+
+   A circular representation of a person — photo, initials, or icon.
+   Used by: Testimonials, (future) member portal, advisor cards.
+   ============================================================ */
+
+.caat-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--caat-color-border);   /* placeholder while a photo loads */
+  flex-shrink: 0;
+}
+
+/* Photo avatars are <img>; placeholders are <span> and centre their content */
+.caat-avatar--initials,
+.caat-avatar--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--caat-font-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--caat-color-text-inverse);
+  background-color: var(--caat-color-bg-brand);
+  text-transform: uppercase;
+}
+.caat-avatar--icon { font-size: 1.25rem; }
+
+/* Sizes */
+.caat-avatar--sm { width: 36px; height: 36px; font-size: .85rem; }
+.caat-avatar--lg { width: 64px; height: 64px; font-size: 1.25rem; }

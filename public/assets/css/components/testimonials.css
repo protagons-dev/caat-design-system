@@ -28,38 +28,8 @@
   gap: 0.75rem;
 }
 
-.caat-testimonial__avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--caat-grey-200, #dfe6ef);
-}
-
-/* --- No-Photo: Initials Placeholder --- */
-.caat-testimonial__avatar--initials {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--caat-font-primary);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--caat-color-text-inverse);
-  background-color: var(--caat-color-bg-brand);
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-
-/* --- No-Photo: Icon Placeholder --- */
-.caat-testimonial__avatar--icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--caat-color-text-inverse);
-  background-color: var(--caat-color-bg-brand);
-  font-size: 1.25rem;
-  flex-shrink: 0;
-}
+/* Avatar — COMPOSES the Avatar component (.caat-avatar, avatar.css).
+   No bespoke avatar styling lives here. */
 
 .caat-testimonial__name {
   font-weight: 700;

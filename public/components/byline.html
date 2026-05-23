@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Byline / Meta AEM Component Contract. A small author/date/read-time metadata row.">
+<title>Byline / Meta | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/avatar.css" rel="stylesheet">
+<link href="/assets/css/components/byline.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Used by</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
+      <a class="nav-link" href="/components/blog-listing.html">Blog Listing</a>
+      <a class="nav-link" href="/components/index.html">All components →</a>
+    </nav>
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#usedby">Used by</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main>
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Byline / Meta</li>
+      </ol>
+    </nav>
+
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Byline / Meta</h1>
+      <p class="text-muted">A small metadata row — author, date, read-time, category — shown beneath a title.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Byline',['/assets/css/tokens.css','/assets/css/components/byline.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+      <h3 class="mt-3 mb-2">Default</h3>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p class="demo-label">Rendered</p>
+        <p class="caat-byline">
+          <span><i class="bi bi-person" aria-hidden="true"></i> <span class="caat-byline__author">Jane Smith</span></span>
+          <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 22, 2026</span>
+          <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
+        </p>
+      </div></div>
+
+      <h3 class="mb-2">With avatar</h3>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p class="demo-label">Rendered</p>
+        <div class="caat-byline">
+          <img class="caat-avatar caat-avatar--sm" src="https://i.pravatar.cc/72?img=12" alt="Jane Smith">
+          <span><span class="caat-byline__author">Jane Smith</span> · Senior Pension Advisor</span>
+          <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 22, 2026</span>
+        </div>
+      </div></div>
+    </section>
+
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Byline / Meta</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/byline</code></td></tr>
+          <tr><th>Tier</th><td>Base — may optionally compose <a href="/components/avatar.html">Avatar</a></td></tr>
+          <tr><th>Purpose</th><td>Present article/teaser metadata (author, date, read-time, category) in one consistent muted row.</td></tr>
+          <tr><th>Variants</th><td>Default · With avatar</td></tr>
+          <tr><th>Status</th><td><span class="status-badge planned"><i class="bi bi-stars"></i> New</span></td></tr>
+          <tr><th>Replaces</th><td><code>.caat-article__meta</code> (Article-internal)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="usedby">
+      <h2>Used by</h2>
+      <ul>
+        <li><a href="/components/article-layout.html">Article Layout</a> — author/date/read-time under the title.</li>
+        <li><a href="/components/blog-listing.html">Blog Listing</a> — teaser metadata (candidate to adopt).</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-color-text-muted</code></td><td>Meta text</td></tr>
+          <tr><td><code>--caat-color-text</code></td><td>Emphasised author name</td></tr>
+          <tr><td><code>--caat-font-primary</code></td><td>Font</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Author</td><td>Text</td><td>No</td><td>Emphasised; optional Avatar</td></tr>
+          <tr><td>Date</td><td>Date</td><td>No</td><td>Rendered via <code>&lt;time datetime&gt;</code></td></tr>
+          <tr><td>Read time</td><td>Text</td><td>No</td><td>e.g. "5 min read"</td></tr>
+          <tr><td>Category</td><td>Text</td><td>No</td><td>Optional topic label</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+        <tbody>
+          <tr><td>At least one field</td><td>All meta fields empty</td><td>"Add at least one metadata field."</td></tr>
+          <tr><td>Valid date</td><td>Date malformed</td><td>"Enter a valid date."</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Keep it to 2–4 items; order author → date → read-time.</li>
+        <li>Use a relative-friendly absolute date ("May 22, 2026"), not "2 days ago".</li>
+        <li>Pair with an Avatar only when the author is a real, named person.</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;p class="caat-byline"&gt;
+  &lt;span&gt;&lt;i class="bi bi-person" aria-hidden="true"&gt;&lt;/i&gt; &lt;span class="caat-byline__author"&gt;Jane Smith&lt;/span&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;i class="bi bi-calendar3" aria-hidden="true"&gt;&lt;/i&gt; &lt;time datetime="2026-05-22"&gt;May 22, 2026&lt;/time&gt;&lt;/span&gt;
+  &lt;span&gt;&lt;i class="bi bi-clock" aria-hidden="true"&gt;&lt;/i&gt; 5 min read&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+    </section>
+
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-byline</code></td><td>Flex row, muted small text, wraps</td></tr>
+          <tr><td><code>.caat-byline__author</code></td><td>Emphasised author name</td></tr>
+          <tr><td><code>.caat-byline i</code></td><td>Leading icon spacing</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+        <tbody>
+          <tr><td>Machine-readable date</td><td>Use <code>&lt;time datetime="…"&gt;</code> for the date.</td></tr>
+          <tr><td>Icons</td><td>Leading icons are <code>aria-hidden="true"</code>; the text label conveys meaning.</td></tr>
+          <tr><td>Contrast</td><td>Muted text on white meets AA (6.3:1).</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul><li>Map author/date to <code>Article</code> structured data (<code>author</code>, <code>datePublished</code>).</li></ul>
+    </section>
+
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <ul><li>No tracking; author/category may feed content reporting dimensions.</li></ul>
+    </section>
+
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li>Resource type: <code>caat/components/byline</code>; optional Avatar via Sling delegation.</li>
+        <li>Date formatted server-side; <code>datetime</code> attribute carries ISO value.</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (cq:dialog)</h2>
+      <pre><code>{
+  "author":   { "sling:resourceType": "…/form/textfield", "name": "./author" },
+  "date":     { "sling:resourceType": "…/form/datepicker", "name": "./date" },
+  "readTime": { "sling:resourceType": "…/form/textfield", "name": "./readTime" },
+  "category": { "sling:resourceType": "…/form/textfield", "name": "./category" }
+}</code></pre>
+    </section>
+
+    <section class="contract-section" id="qa">
+      <h2>13. QA Checklist</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>#</th><th>Check</th><th>Pass?</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Row wraps gracefully on mobile</td><td></td></tr>
+          <tr><td>2</td><td>Author emphasised; other items muted</td><td></td></tr>
+          <tr><td>3</td><td>Date uses <code>&lt;time datetime&gt;</code>; icons aria-hidden</td><td></td></tr>
+          <tr><td>4</td><td>Optional avatar aligns to the row</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <ul>
+        <li><input type="checkbox" disabled> Token-driven; AA verified.</li>
+        <li><input type="checkbox" disabled> Article Layout refactored to compose it (was <code>.caat-article__meta</code>).</li>
+        <li><input type="checkbox" disabled> Date is machine-readable; icons aria-hidden.</li>
+        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

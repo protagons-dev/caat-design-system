@@ -15,6 +15,7 @@
 <link href="/assets/css/components/badge.css" rel="stylesheet">
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/avatar.css" rel="stylesheet">
 <link href="/assets/css/components/testimonials.css" rel="stylesheet">
 </head>
 <body>
@@ -150,7 +151,7 @@
           <p>"After 32 years of teaching, I retired knowing my CAAT pension would be there for me. The defined benefit plan gives me peace of mind — I never have to worry about outliving my savings."</p>
         </blockquote>
         <div class="caat-testimonial__attribution">
-          <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=32" alt="Photo of Margaret Chen" width="64" height="64">
+          <img class="caat-avatar" src="https://i.pravatar.cc/80?img=32" alt="Photo of Margaret Chen" width="64" height="64">
           <div>
             <strong>Margaret Chen</strong><br>
             <span class="text-muted">Retired Educator · Durham College</span>
@@ -166,7 +167,7 @@
             <p>"Retiring at 60 felt like a dream, but CAAT made it a reality. My pension income replaced 70% of my working salary from day one."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=51" alt="Photo of Robert Tremblay" width="64" height="64">
+            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=51" alt="Photo of Robert Tremblay" width="64" height="64">
             <div>
               <strong>Robert Tremblay</strong><br>
               <span class="text-muted">Retired Facilities Manager · Conestoga College</span>
@@ -178,7 +179,7 @@
             <p>"The inflation protection built into my CAAT pension means my purchasing power stays strong year after year. That's something no RRSP can guarantee."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=29" alt="Photo of Linda Kaur" width="64" height="64">
+            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=29" alt="Photo of Linda Kaur" width="64" height="64">
             <div>
               <strong>Linda Kaur</strong><br>
               <span class="text-muted">Retired Librarian · Sheridan College</span>
@@ -190,7 +191,7 @@
             <p>"We partnered with CAAT five years ago. Since then, employee satisfaction scores around benefits have jumped 40%. It sells itself."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <img class="caat-testimonial__avatar" src="https://i.pravatar.cc/80?img=60" alt="Photo of Angela Russo" width="64" height="64">
+            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=60" alt="Photo of Angela Russo" width="64" height="64">
             <div>
               <strong>Angela Russo</strong><br>
               <span class="text-muted">COO · Ontario Digital Service Corp</span>
@@ -207,7 +208,7 @@
             <p>"Joining CAAT was the best HR decision we ever made. Our employees feel secure about their future, and that shows in retention."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">TK</span>
+            <span class="caat-avatar caat-avatar--initials" aria-hidden="true">TK</span>
             <div>
               <strong>Tom Kirkwood</strong><br>
               <span class="text-muted">VP People &amp; Culture · GreenTech Solutions</span>
@@ -219,7 +220,7 @@
             <p>"I didn't fully appreciate my pension until I retired. Now I get a steady cheque every month — no market stress, no guesswork."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <span class="caat-testimonial__avatar caat-testimonial__avatar--initials" aria-hidden="true">PR</span>
+            <span class="caat-avatar caat-avatar--initials" aria-hidden="true">PR</span>
             <div>
               <strong>Patricia Rowe</strong><br>
               <span class="text-muted">Retired Administrative Coordinator · Humber College</span>
@@ -231,7 +232,7 @@
             <p>"The CAAT team walked us through every step of onboarding. Our staff had questions answered within days, not weeks."</p>
           </blockquote>
           <div class="caat-testimonial__attribution">
-            <span class="caat-testimonial__avatar caat-testimonial__avatar--icon" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
+            <span class="caat-avatar caat-avatar--icon" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
             <div>
               <strong>Anonymous Member</strong><br>
               <span class="text-muted">2024 Member Satisfaction Survey</span>
@@ -348,7 +349,7 @@
     &lt;p&gt;"Quote text here..."&lt;/p&gt;
   &lt;/blockquote&gt;
   &lt;div class="caat-testimonial__attribution"&gt;
-    &lt;img class="caat-testimonial__avatar"
+    &lt;img class="caat-avatar"
          src="/path/to/avatar.jpg"
          alt="Photo of [Name]"
          width="64" height="64"&gt;
@@ -392,7 +393,7 @@
           <tbody>
             <tr><td><code>.caat-testimonial</code></td><td>Root wrapper</td><td>Single testimonial card/block. Contains quote + attribution.</td></tr>
             <tr><td><code>.caat-testimonial__quote</code></td><td><code>&lt;blockquote&gt;</code></td><td>Styled with left border accent, larger font, italic styling.</td></tr>
-            <tr><td><code>.caat-testimonial__avatar</code></td><td><code>&lt;img&gt;</code></td><td>Circular avatar, 64×64px. Object-fit: cover.</td></tr>
+            <tr><td><code>.caat-avatar</code></td><td><code>&lt;img&gt;</code></td><td>Circular avatar, 64×64px. Object-fit: cover.</td></tr>
             <tr><td><code>.caat-testimonial__attribution</code></td><td>Attribution row</td><td>Flex row with avatar + name/role stack.</td></tr>
             <tr><td><code>.caat-testimonial-carousel</code></td><td>Carousel wrapper</td><td>Extends Bootstrap carousel with CAAT styling.</td></tr>
             <tr><td><code>.caat-testimonial-grid</code></td><td>Grid wrapper</td><td>CSS Grid, 1 col mobile → 2 cols tablet → 3 cols desktop.</td></tr>
@@ -596,7 +597,7 @@
         <div class="caat-testimonial__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
         <blockquote class="caat-testimonial__quote">"CAAT's DBplus pension gives me confidence about my retirement."</blockquote>
         <div class="caat-testimonial__attribution">
-          <div class="caat-testimonial__avatar caat-testimonial__avatar--initials" style="width:48px;height:48px;border-radius:50%;">JS</div>
+          <div class="caat-avatar caat-avatar--initials" style="width:48px;height:48px;border-radius:50%;">JS</div>
           <div><div class="caat-testimonial__name">Jane Smith</div><div class="caat-testimonial__role">HR Director, Acme Corp</div></div>
         </div>
       </div>

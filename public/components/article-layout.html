@@ -18,6 +18,7 @@
 <link href="/assets/css/components/icon-button.css" rel="stylesheet">
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/in-page-nav.css" rel="stylesheet">
+<link href="/assets/css/components/byline.css" rel="stylesheet">
 <link href="/assets/css/components/article-layout.css" rel="stylesheet">
 </head>
 <body>
@@ -155,7 +156,7 @@
               <h1>Understanding Your DBplus Pension</h1>
             </div>
 
-            <div class="caat-article__meta">
+            <div class="caat-article__meta caat-byline">
               <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
               <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
               <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
@@ -220,7 +221,7 @@
               <h1>Understanding Your DBplus Pension</h1>
             </div>
 
-            <div class="caat-article__meta">
+            <div class="caat-article__meta caat-byline">
               <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
               <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
               <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
@@ -332,7 +333,7 @@
               <h1>Understanding Your DBplus Pension</h1>
             </div>
 
-            <div class="caat-article__meta" style="max-width:720px;margin-left:auto;margin-right:auto;">
+            <div class="caat-article__meta caat-byline" style="max-width:720px;margin-left:auto;margin-right:auto;">
               <span><i class="bi bi-person" aria-hidden="true"></i> Sarah Mitchell</span>
               <span><i class="bi bi-calendar3" aria-hidden="true"></i> April 22, 2026</span>
               <span><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
@@ -396,7 +397,7 @@
             <tr><td>Card ×N</td><td>“Related articles” should be a grid of <a href="/components/card.html">Card</a> teasers</td><td><span class="status-badge rebuild">↻ reimplemented as <code>.caat-article__related</code> — should compose Card</span></td></tr>
             <tr><td><a href="/components/social-links.html">Social / Share Links</a> → <a href="/components/icon-button.html">Icon Button</a></td><td>Share row (LinkedIn, X, email, copy)</td><td><span class="status-badge ready">✓ has page · now composed (was <code>.caat-article__share-btn</code>)</span></td></tr>
             <tr><td><a href="/components/in-page-nav.html">In-page Nav (Table of Contents)</a></td><td>Sidebar “On this page” anchor nav</td><td><span class="status-badge ready">✓ has page · now composed (was <code>.caat-article__toc</code>)</span></td></tr>
-            <tr><td>Byline / Meta</td><td>Author + date line</td><td><span class="status-badge retire">✗ no page — local <code>.caat-article__meta</code></span></td></tr>
+            <tr><td><a href="/components/byline.html">Byline / Meta</a></td><td>Author + date line</td><td><span class="status-badge ready">✓ has page · now composed (<code>.caat-byline</code>)</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -507,7 +508,7 @@
     &lt;h1&gt;Article Title&lt;/h1&gt;
   &lt;/div&gt;
 
-  &lt;div class="caat-article__meta"&gt;
+  &lt;div class="caat-article__meta caat-byline"&gt;
     &lt;span&gt;Author Name&lt;/span&gt;
     &lt;span&gt;April 22, 2026&lt;/span&gt;
     &lt;span&gt;8 min read&lt;/span&gt;
@@ -564,7 +565,7 @@
             <tr><td><code>.caat-article--has-sidebar</code></td><td>Modifier: enables two-column layout with sidebar.</td></tr>
             <tr><td><code>.caat-article--minimal</code></td><td>Modifier: centered prose, no hero, no sidebar.</td></tr>
             <tr><td><code>.caat-article__header</code></td><td>Title wrapper with bottom margin.</td></tr>
-            <tr><td><code>.caat-article__meta</code></td><td>Author, date, read-time row — muted small text.</td></tr>
+            <tr><td><code>.caat-article__meta</code> + <a href="/components/byline.html"><code>.caat-byline</code></a></td><td>Composes the Byline/Meta component; <code>__meta</code> only adds bottom spacing.</td></tr>
             <tr><td><code>.caat-article__hero-image</code></td><td>Full-width hero — <code>border-radius</code>, responsive.</td></tr>
             <tr><td><code>.caat-article__body</code></td><td>Prose container — <code>max-width:720px</code>, <code>line-height:1.75</code>. Full-width when sidebar present.</td></tr>
             <tr><td><code>.caat-article__sidebar</code></td><td>Sticky sidebar — <code>position:sticky; top:5rem</code>. Static on mobile.</td></tr>

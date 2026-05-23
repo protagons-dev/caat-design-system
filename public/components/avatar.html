@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Avatar AEM Component Contract. A circular photo, initials, or icon representation of a person.">
+<title>Avatar | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/avatar.css" rel="stylesheet">
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Used by</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/components/testimonials.html">Testimonials</a>
+      <a class="nav-link" href="/components/index.html">All components →</a>
+    </nav>
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#usedby">Used by</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main>
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Avatar</li>
+      </ol>
+    </nav>
+
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Avatar</h1>
+      <p class="text-muted">A circular representation of a person — photo, initials, or icon fallback.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Avatar',['/assets/css/tokens.css','/assets/css/components/avatar.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+      <h3 class="mt-3 mb-2">Types</h3>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p class="demo-label">Rendered</p>
+        <div class="d-flex flex-wrap gap-4 align-items-center">
+          <span class="text-center"><img class="caat-avatar" src="https://i.pravatar.cc/96?img=32" alt="Margaret Chen"><span class="d-block small text-muted mt-1">Photo</span></span>
+          <span class="text-center"><span class="caat-avatar caat-avatar--initials" aria-hidden="true">TK</span><span class="d-block small text-muted mt-1">Initials</span></span>
+          <span class="text-center"><span class="caat-avatar caat-avatar--icon" aria-hidden="true"><i class="bi bi-person-fill"></i></span><span class="d-block small text-muted mt-1">Icon</span></span>
+        </div>
+      </div></div>
+      <h3 class="mb-2">Sizes</h3>
+      <div class="demo-shell mb-4"><div class="demo-rendered">
+        <p class="demo-label">Rendered</p>
+        <div class="d-flex flex-wrap gap-4 align-items-center">
+          <span class="caat-avatar caat-avatar--initials caat-avatar--sm" aria-hidden="true">SM</span>
+          <span class="caat-avatar caat-avatar--initials" aria-hidden="true">MD</span>
+          <span class="caat-avatar caat-avatar--initials caat-avatar--lg" aria-hidden="true">LG</span>
+        </div>
+        <p class="small text-muted mt-2 mb-0">sm 36px · md 48px · lg 64px</p>
+      </div></div>
+    </section>
+
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Avatar</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/avatar</code></td></tr>
+          <tr><th>Tier</th><td>Base (atom) — composes nothing but tokens</td></tr>
+          <tr><th>Purpose</th><td>Represent a person with a photo, or fall back to initials / a generic icon.</td></tr>
+          <tr><th>Variants</th><td>Photo · Initials · Icon &nbsp;·&nbsp; sm · md · lg</td></tr>
+          <tr><th>Status</th><td><span class="status-badge planned"><i class="bi bi-stars"></i> New</span></td></tr>
+          <tr><th>Replaces</th><td><code>.caat-testimonial__avatar</code> (Testimonials-internal)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="usedby">
+      <h2>Used by</h2>
+      <ul>
+        <li><a href="/components/testimonials.html">Testimonials</a> — member photo / initials.</li>
+        <li>Future: member portal header, advisor cards, comment threads.</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Token</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-color-border</code></td><td>Photo placeholder background (while loading)</td></tr>
+          <tr><td><code>--caat-color-bg-brand</code> / <code>--caat-color-text-inverse</code></td><td>Initials &amp; icon fallback fill + glyph</td></tr>
+          <tr><td><code>--caat-font-primary</code></td><td>Initials</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Image</td><td>Image</td><td>No</td><td>Headshot; if empty, falls back to initials or icon</td></tr>
+          <tr><td>Name</td><td>Text</td><td>Yes</td><td>Used for alt text and to derive initials</td></tr>
+          <tr><td>Size</td><td>Select</td><td>No</td><td>sm · md (default) · lg</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+        <tbody>
+          <tr><td>Name required</td><td>Name empty</td><td>"A name is required (used for alt text / initials)."</td></tr>
+          <tr><td>Image alt</td><td>Image set, name empty</td><td>"Provide a name so the avatar has alt text."</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li>Prefer a real photo; use initials when none exists; use the icon only as a last resort (anonymous).</li>
+        <li>Initials = first letters of given + family name, uppercase, max 2 characters.</li>
+        <li>Keep avatars consistent in size within a single context (e.g. a testimonial grid).</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;!-- Photo (meaningful → real alt) --&gt;
+&lt;img class="caat-avatar" src="…" alt="Margaret Chen" width="48" height="48"&gt;
+
+&lt;!-- Initials / icon fallback (decorative → aria-hidden; name shown nearby) --&gt;
+&lt;span class="caat-avatar caat-avatar--initials" aria-hidden="true"&gt;MC&lt;/span&gt;
+&lt;span class="caat-avatar caat-avatar--icon" aria-hidden="true"&gt;&lt;i class="bi bi-person-fill"&gt;&lt;/i&gt;&lt;/span&gt;</code></pre>
+    </section>
+
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td><code>.caat-avatar</code></td><td>Base — 48px circle (photo or fallback)</td></tr>
+          <tr><td><code>.caat-avatar--initials</code> / <code>--icon</code></td><td>Brand-fill fallbacks</td></tr>
+          <tr><td><code>.caat-avatar--sm</code> / <code>--lg</code></td><td>36px / 64px</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Requirement</th><th>Implementation</th></tr></thead>
+        <tbody>
+          <tr><td>Photo alt</td><td>Meaningful photo uses the person's name as <code>alt</code>.</td></tr>
+          <tr><td>Fallbacks</td><td>Initials/icon are <code>aria-hidden="true"</code> — the name is conveyed by adjacent text (e.g. testimonial name), so the avatar isn't announced twice.</td></tr>
+          <tr><td>Contrast</td><td>White initials/glyph on brand navy fill — AA verified.</td></tr>
+          <tr><td>Not interactive</td><td>Decorative by default; if it links to a profile, wrap in a real link.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <ul><li>Photo <code>alt</code> contributes the person's name; lazy-load below-the-fold avatars.</li></ul>
+    </section>
+
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <ul><li>No tracking unless the avatar links to a profile.</li></ul>
+    </section>
+
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li>Resource type: <code>caat/components/avatar</code>.</li>
+        <li>Sling model derives initials from <code>name</code> when no image is set; chooses the icon fallback if neither.</li>
+      </ul>
+    </section>
+
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (cq:dialog)</h2>
+      <pre><code>{
+  "image": { "sling:resourceType": "…/form/fileupload", "name": "./image" },
+  "name":  { "sling:resourceType": "…/form/textfield", "name": "./name", "required": true },
+  "size":  { "sling:resourceType": "…/form/select", "name": "./size" }
+}</code></pre>
+    </section>
+
+    <section class="contract-section" id="qa">
+      <h2>13. QA Checklist</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>#</th><th>Check</th><th>Pass?</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Photo, initials, and icon all render as 48px circles</td><td></td></tr>
+          <tr><td>2</td><td>Photo has name alt; fallbacks are aria-hidden</td><td></td></tr>
+          <tr><td>3</td><td>Sizes sm/md/lg correct</td><td></td></tr>
+          <tr><td>4</td><td>Initials/icon white on navy meet AA</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <ul>
+        <li><input type="checkbox" disabled> Token-driven; fallbacks AA verified.</li>
+        <li><input type="checkbox" disabled> Testimonials refactored to consume it (was <code>.caat-testimonial__avatar</code>).</li>
+        <li><input type="checkbox" disabled> Alt/aria behaviour verified.</li>
+        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+</body>
+</html>

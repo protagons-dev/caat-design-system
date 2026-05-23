@@ -1,0 +1,26 @@
+/* ============================================================
+   CAAT Byline / Meta — Base component
+   AEM client library: caat/components/byline/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+
+   A small metadata row — author, date, read-time, category — shown
+   under a title. Used by: Article Layout, Blog Listing teasers.
+   ============================================================ */
+
+.caat-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  font-family: var(--caat-font-primary);
+  font-size: 0.875rem;
+  color: var(--caat-color-text-muted);
+}
+
+.caat-byline i { margin-right: 0.25rem; }
+
+/* Emphasised author name */
+.caat-byline__author {
+  font-weight: 600;
+  color: var(--caat-color-text);
+}
