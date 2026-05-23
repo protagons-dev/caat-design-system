@@ -4,13 +4,12 @@
 
 /* --- Single Testimonial --- */
 .caat-testimonial {
-  position: relative;
   padding: 2rem;
   background: var(--caat-color-bg-page);
   border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
   box-shadow: var(--caat-shadow-sm);
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;  /* explicit so it's safe as a <figure> (resets UA margin) */
 }
 
 .caat-testimonial__quote {
@@ -66,11 +65,11 @@
   width: 2.75rem;
   height: 2.75rem;
   opacity: 1;
-  background-color: var(--caat-blue-900, #003750);
-  border: 2px solid var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-action-primary);
+  border: 2px solid var(--caat-color-action-primary);
   border-radius: 50%;
   box-shadow: var(--caat-shadow-sm);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .caat-testimonial-carousel .carousel-control-prev {
@@ -81,10 +80,11 @@
   right: -0.5rem;
 }
 
+/* Hover darkens (consistent with every other control); was a blue→green shift */
 .caat-testimonial-carousel .carousel-control-prev:hover,
 .caat-testimonial-carousel .carousel-control-next:hover {
-  background-color: var(--caat-green, #55a546);
-  border-color: var(--caat-green, #55a546);
+  background-color: var(--caat-color-action-primary-hover);
+  border-color: var(--caat-color-action-primary-hover);
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -101,7 +101,11 @@
 }
 
 .caat-testimonial-carousel .carousel-indicators [data-bs-target] {
-  background-color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-action-primary);
+}
+.caat-testimonial-carousel .carousel-indicators [data-bs-target]:focus-visible {
+  outline: 2px solid var(--caat-blue-700, #0b5a80);
+  outline-offset: 2px;
 }
 
 /* --- Grid --- */

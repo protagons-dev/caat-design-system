@@ -144,101 +144,140 @@
     <section class="contract-section" id="demo">
       <h2>Live Demo</h2>
 
-      <!-- Variant 1: Single Blockquote -->
-      <h3 class="mt-4 mb-3">Variant 1 — Single Blockquote</h3>
-      <div class="caat-testimonial" data-analytics-component="testimonial" data-analytics-variant="single">
+      <p class="text-muted mb-4" style="max-width:48rem;">Two independent axes: a <strong>layout</strong> (single · grid · carousel) and an <strong>avatar</strong> type (photo · initials · icon), with an optional star rating above any quote. Each card is a <code>&lt;figure&gt;</code>/<code>&lt;figcaption&gt;</code> composing the <a href="/components/avatar.html">Avatar</a> component.</p>
+
+      <!-- Layout: Single (photo avatar + star rating) -->
+      <h3 class="mt-4 mb-3">Layout — Single <span class="text-muted" style="font-weight:400;font-size:.8rem;">· photo · with rating</span></h3>
+      <figure class="caat-testimonial" data-analytics-component="testimonial" data-analytics-variant="single">
+        <div class="caat-testimonial__stars" role="img" aria-label="Rated 5 out of 5">
+          <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
+        </div>
         <blockquote class="caat-testimonial__quote">
           <p>"After 32 years of teaching, I retired knowing my CAAT pension would be there for me. The defined benefit plan gives me peace of mind — I never have to worry about outliving my savings."</p>
         </blockquote>
-        <div class="caat-testimonial__attribution">
-          <img class="caat-avatar" src="https://i.pravatar.cc/80?img=32" alt="Photo of Margaret Chen" width="64" height="64">
+        <figcaption class="caat-testimonial__attribution">
+          <img class="caat-avatar" src="https://i.pravatar.cc/96?img=32" alt="Margaret Chen" width="48" height="48">
           <div>
-            <strong>Margaret Chen</strong><br>
-            <span class="text-muted">Retired Educator · Durham College</span>
+            <div class="caat-testimonial__name">Margaret Chen</div>
+            <div class="caat-testimonial__role">Retired Educator · Durham College</div>
           </div>
-        </div>
-      </div>
+        </figcaption>
+      </figure>
 
-      <!-- Variant 2: Grid -->
-      <h3 class="mt-5 mb-3">Variant 2 — Grid Layout</h3>
+      <!-- Layout: Grid (photo avatars) -->
+      <h3 class="mt-5 mb-3">Layout — Grid <span class="text-muted" style="font-weight:400;font-size:.8rem;">· photo</span></h3>
       <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="grid">
-        <div class="caat-testimonial">
+        <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"Retiring at 60 felt like a dream, but CAAT made it a reality. My pension income replaced 70% of my working salary from day one."</p>
           </blockquote>
-          <div class="caat-testimonial__attribution">
-            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=51" alt="Photo of Robert Tremblay" width="64" height="64">
+          <figcaption class="caat-testimonial__attribution">
+            <img class="caat-avatar" src="https://i.pravatar.cc/96?img=51" alt="Robert Tremblay" width="48" height="48">
             <div>
-              <strong>Robert Tremblay</strong><br>
-              <span class="text-muted">Retired Facilities Manager · Conestoga College</span>
+              <div class="caat-testimonial__name">Robert Tremblay</div>
+              <div class="caat-testimonial__role">Retired Facilities Manager · Conestoga College</div>
             </div>
-          </div>
-        </div>
-        <div class="caat-testimonial">
+          </figcaption>
+        </figure>
+        <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"The inflation protection built into my CAAT pension means my purchasing power stays strong year after year. That's something no RRSP can guarantee."</p>
           </blockquote>
-          <div class="caat-testimonial__attribution">
-            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=29" alt="Photo of Linda Kaur" width="64" height="64">
+          <figcaption class="caat-testimonial__attribution">
+            <img class="caat-avatar" src="https://i.pravatar.cc/96?img=29" alt="Linda Kaur" width="48" height="48">
             <div>
-              <strong>Linda Kaur</strong><br>
-              <span class="text-muted">Retired Librarian · Sheridan College</span>
+              <div class="caat-testimonial__name">Linda Kaur</div>
+              <div class="caat-testimonial__role">Retired Librarian · Sheridan College</div>
             </div>
-          </div>
-        </div>
-        <div class="caat-testimonial">
+          </figcaption>
+        </figure>
+        <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"We partnered with CAAT five years ago. Since then, employee satisfaction scores around benefits have jumped 40%. It sells itself."</p>
           </blockquote>
-          <div class="caat-testimonial__attribution">
-            <img class="caat-avatar" src="https://i.pravatar.cc/80?img=60" alt="Photo of Angela Russo" width="64" height="64">
+          <figcaption class="caat-testimonial__attribution">
+            <img class="caat-avatar" src="https://i.pravatar.cc/96?img=60" alt="Angela Russo" width="48" height="48">
             <div>
-              <strong>Angela Russo</strong><br>
-              <span class="text-muted">COO · Ontario Digital Service Corp</span>
+              <div class="caat-testimonial__name">Angela Russo</div>
+              <div class="caat-testimonial__role">COO · Ontario Digital Service Corp</div>
             </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
       </div>
 
-      <!-- Variant 3: Without Photo -->
-      <h3 class="mt-5 mb-3">Variant 3 — Without Photo</h3>
+      <!-- Layout: Carousel -->
+      <h3 class="mt-5 mb-3">Layout — Carousel</h3>
+      <div id="testimonialCarousel" class="caat-testimonial-carousel carousel slide" data-analytics-component="testimonial" data-analytics-variant="carousel" aria-roledescription="carousel" aria-label="Member testimonials">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" aria-roledescription="slide" aria-label="1 of 2">
+            <figure class="caat-testimonial">
+              <blockquote class="caat-testimonial__quote">
+                <p>"I didn't fully appreciate my pension until I retired. Now I get a steady cheque every month — no market stress, no guesswork."</p>
+              </blockquote>
+              <figcaption class="caat-testimonial__attribution">
+                <img class="caat-avatar" src="https://i.pravatar.cc/96?img=45" alt="Patricia Rowe" width="48" height="48">
+                <div>
+                  <div class="caat-testimonial__name">Patricia Rowe</div>
+                  <div class="caat-testimonial__role">Retired Administrative Coordinator · Humber College</div>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="carousel-item" aria-roledescription="slide" aria-label="2 of 2">
+            <figure class="caat-testimonial">
+              <blockquote class="caat-testimonial__quote">
+                <p>"Joining CAAT was the best HR decision we ever made. Our employees feel secure about their future, and that shows in retention."</p>
+              </blockquote>
+              <figcaption class="caat-testimonial__attribution">
+                <img class="caat-avatar" src="https://i.pravatar.cc/96?img=12" alt="Tom Kirkwood" width="48" height="48">
+                <div>
+                  <div class="caat-testimonial__name">Tom Kirkwood</div>
+                  <div class="caat-testimonial__role">VP People &amp; Culture · GreenTech Solutions</div>
+                </div>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <!-- Avatar fallbacks (no photo) -->
+      <h3 class="mt-5 mb-3">Avatar fallbacks <span class="text-muted" style="font-weight:400;font-size:.8rem;">· initials &amp; icon</span></h3>
+      <p class="text-muted mb-3" style="max-width:48rem;">When no photo exists, the <a href="/components/avatar.html">Avatar</a> falls back to initials, then a generic icon. The avatar type is independent of the layout.</p>
       <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="no-photo">
-        <div class="caat-testimonial">
+        <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"Joining CAAT was the best HR decision we ever made. Our employees feel secure about their future, and that shows in retention."</p>
           </blockquote>
-          <div class="caat-testimonial__attribution">
+          <figcaption class="caat-testimonial__attribution">
             <span class="caat-avatar caat-avatar--initials" aria-hidden="true">TK</span>
             <div>
-              <strong>Tom Kirkwood</strong><br>
-              <span class="text-muted">VP People &amp; Culture · GreenTech Solutions</span>
+              <div class="caat-testimonial__name">Tom Kirkwood</div>
+              <div class="caat-testimonial__role">VP People &amp; Culture · GreenTech Solutions</div>
             </div>
-          </div>
-        </div>
-        <div class="caat-testimonial">
-          <blockquote class="caat-testimonial__quote">
-            <p>"I didn't fully appreciate my pension until I retired. Now I get a steady cheque every month — no market stress, no guesswork."</p>
-          </blockquote>
-          <div class="caat-testimonial__attribution">
-            <span class="caat-avatar caat-avatar--initials" aria-hidden="true">PR</span>
-            <div>
-              <strong>Patricia Rowe</strong><br>
-              <span class="text-muted">Retired Administrative Coordinator · Humber College</span>
-            </div>
-          </div>
-        </div>
-        <div class="caat-testimonial">
+          </figcaption>
+        </figure>
+        <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"The CAAT team walked us through every step of onboarding. Our staff had questions answered within days, not weeks."</p>
           </blockquote>
-          <div class="caat-testimonial__attribution">
+          <figcaption class="caat-testimonial__attribution">
             <span class="caat-avatar caat-avatar--icon" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
             <div>
-              <strong>Anonymous Member</strong><br>
-              <span class="text-muted">2024 Member Satisfaction Survey</span>
+              <div class="caat-testimonial__name">Anonymous Member</div>
+              <div class="caat-testimonial__role">2024 Member Satisfaction Survey</div>
             </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -253,7 +292,8 @@
             <tr><td><strong>Component path</strong></td><td><code>caat/components/testimonial</code></td></tr>
             <tr><td><strong>Status</strong></td><td><span class="status-badge new"><i class="bi bi-stars"></i> New</span></td></tr>
             <tr><td><strong>Purpose</strong></td><td>Display member quotes and testimonials to build trust and social proof, showcasing real experiences from CAAT pension plan members and employer partners.</td></tr>
-            <tr><td><strong>Variants</strong></td><td>Single blockquote · Carousel/slider · Grid layout</td></tr>
+            <tr><td><strong>Tier</strong></td><td>Composite — composes <a href="/components/avatar.html">Avatar</a></td></tr>
+            <tr><td><strong>Variants</strong></td><td><strong>Layout:</strong> single · grid · carousel &nbsp;·&nbsp; <strong>Avatar:</strong> photo · initials · icon &nbsp;·&nbsp; optional star rating (independent axes)</td></tr>
             <tr><td><strong>Allowed on</strong></td><td>Homepage, About, Employers, Member Stories, Landing Pages</td></tr>
           </tbody>
         </table>
@@ -269,12 +309,15 @@
         <table class="contract-table">
           <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
           <tbody>
-            <tr><td><code>--caat-testimonial-bg</code></td><td><code>var(--caat-gray-50)</code></td><td>Card/quote background</td></tr>
-            <tr><td><code>--caat-testimonial-border</code></td><td><code>var(--caat-blue-500)</code></td><td>Left border accent on blockquote</td></tr>
-            <tr><td><code>--caat-testimonial-quote-size</code></td><td><code>1.125rem</code></td><td>Quote text font size</td></tr>
-            <tr><td><code>--caat-testimonial-avatar-size</code></td><td><code>64px</code></td><td>Avatar width/height</td></tr>
-            <tr><td><code>--caat-testimonial-radius</code></td><td><code>var(--caat-radius-lg)</code></td><td>Card border radius</td></tr>
-            <tr><td><code>--caat-testimonial-gap</code></td><td><code>1.5rem</code></td><td>Grid gap between cards</td></tr>
+            <tr><td><code>--caat-color-bg-page</code></td><td>#fff</td><td>Card background</td></tr>
+            <tr><td><code>--caat-color-border</code></td><td>grey-200</td><td>Card border (1px, all sides)</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>.75rem</td><td>Card border radius</td></tr>
+            <tr><td><code>--caat-shadow-sm</code></td><td>—</td><td>Card elevation</td></tr>
+            <tr><td><code>--caat-color-text</code></td><td>ink</td><td>Quote text (italic, 1.1rem)</td></tr>
+            <tr><td><code>--caat-color-text-heading</code> / <code>--caat-color-text-muted</code></td><td>blue-900 / muted</td><td>Attribution name / role</td></tr>
+            <tr><td><code>--caat-warning</code></td><td>#efaa39</td><td>Star rating</td></tr>
+            <tr><td><code>--caat-color-action-primary</code> / <code>-hover</code></td><td>blue-900 / blue-700</td><td>Carousel controls + indicators (hover darkens)</td></tr>
+            <tr><td colspan="3" class="text-muted">Avatar sizing/colours are inherited from the composed <a href="/components/avatar.html">Avatar</a> component (48px).</td></tr>
           </tbody>
         </table>
       </div>
@@ -293,7 +336,7 @@
             <tr><td><strong>Attribution Name</strong></td><td>Text</td><td>Yes</td><td>Full name of the person providing the testimonial.</td></tr>
             <tr><td><strong>Attribution Role</strong></td><td>Text</td><td>No</td><td>Job title or role of the quoted person (e.g., "Retired Educator").</td></tr>
             <tr><td><strong>Employer Name</strong></td><td>Text</td><td>No</td><td>Organization/employer name (e.g., "Durham College").</td></tr>
-            <tr><td><strong>Avatar Image</strong></td><td>Image</td><td>No</td><td>Headshot photo. Rendered at 64×64px. Falls back to initials placeholder if empty.</td></tr>
+            <tr><td><strong>Avatar Image</strong></td><td>Image</td><td>No</td><td>Headshot, rendered 48×48px via the <a href="/components/avatar.html">Avatar</a> component. Falls back to initials, then a generic icon, if empty.</td></tr>
             <tr><td><strong>Star Rating</strong></td><td>Number (1–5)</td><td>No</td><td>Optional star rating displayed above the quote. Omit to hide rating.</td></tr>
             <tr><td><strong>Display Variant</strong></td><td>Select</td><td>Yes</td><td>Options: <code>single</code> | <code>carousel</code> | <code>grid</code></td></tr>
           </tbody>
@@ -393,7 +436,8 @@
           <tbody>
             <tr><td><code>.caat-testimonial</code></td><td>Root wrapper</td><td>Single testimonial card/block. Contains quote + attribution.</td></tr>
             <tr><td><code>.caat-testimonial__quote</code></td><td><code>&lt;blockquote&gt;</code></td><td>Styled with left border accent, larger font, italic styling.</td></tr>
-            <tr><td><code>.caat-avatar</code></td><td><code>&lt;img&gt;</code></td><td>Circular avatar, 64×64px. Object-fit: cover.</td></tr>
+            <tr><td><code>.caat-avatar</code></td><td><a href="/components/avatar.html">Avatar</a></td><td>Composed component — 48px circle (photo / initials / icon). No avatar CSS in this component.</td></tr>
+            <tr><td><code>.caat-testimonial__name</code> / <code>__role</code></td><td>Attribution</td><td>Name (heading colour, 700) / role (muted) — now used by the markup.</td></tr>
             <tr><td><code>.caat-testimonial__attribution</code></td><td>Attribution row</td><td>Flex row with avatar + name/role stack.</td></tr>
             <tr><td><code>.caat-testimonial-carousel</code></td><td>Carousel wrapper</td><td>Extends Bootstrap carousel with CAAT styling.</td></tr>
             <tr><td><code>.caat-testimonial-grid</code></td><td>Grid wrapper</td><td>CSS Grid, 1 col mobile → 2 cols tablet → 3 cols desktop.</td></tr>
