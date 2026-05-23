@@ -1,0 +1,37 @@
+/* ============================================================
+   CAAT CTA — Call-to-action section
+   AEM client library: caat/components/cta/clientlibs/css
+   Depends on: tokens.css, button.css, text-title.css
+
+   A centered prompt: title + supporting text + action button(s),
+   with an optional fine-print disclaimer. Composes Text/Title + Button.
+   ============================================================ */
+
+.caat-cta { text-align: center; }
+
+.caat-cta__text {
+  max-width: 38rem;
+  margin: 0 auto;
+  color: var(--caat-color-text-muted);
+}
+
+.caat-cta__actions {
+  display: flex;
+  gap: var(--caat-space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--caat-space-5);
+}
+
+.caat-cta__disclaimer {
+  max-width: 40rem;
+  margin: var(--caat-space-6) auto 0;
+  padding-top: var(--caat-space-4);
+  border-top: 1px solid var(--caat-color-border);
+  font-size: var(--caat-font-size-xs);
+  color: var(--caat-color-text-muted);
+}
+
+/* On a brand (dark) section, lift the copy to inverse */
+.caat-section--brand .caat-cta__text,
+.caat-cta--on-brand .caat-cta__text { color: rgba(255,255,255,.85); }

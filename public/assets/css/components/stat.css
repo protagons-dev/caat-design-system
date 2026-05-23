@@ -25,6 +25,36 @@
   color: var(--caat-color-text-muted);
 }
 
+/* Larger value sizes for hero/headline figures.
+   Two APIs: a wrapper modifier (.caat-stat--lg) sizes the value within a
+   .caat-stat; an element modifier (.caat-stat__value--lg) sizes a value used
+   standalone — e.g. composed inside a Card body without a .caat-stat wrapper. */
+.caat-stat--lg .caat-stat__value,
+.caat-stat__value--lg { font-size: 2.5rem; }
+.caat-stat--xl .caat-stat__value,
+.caat-stat__value--xl { font-size: 3rem; }
+
+/* ── Stat card ─────────────────────────────────────────────────
+   A stat presented as a filled card, with an optional leading
+   "context" word ("only", "despite") — for big comparison figures.
+   Composes the base .caat-stat (value + label). */
+.caat-stat-card {
+  padding: var(--caat-space-6);
+  border-radius: var(--caat-radius-lg);
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
+}
+.caat-stat-card--green { background: var(--caat-color-action-secondary); } /* green-700, AA */
+.caat-stat-card--blue  { background: var(--caat-color-bg-brand); }          /* blue-900 */
+.caat-stat-card__context {
+  display: block;
+  font-size: var(--caat-font-size-xs);
+  opacity: .7;
+  margin-bottom: var(--caat-space-1);
+}
+.caat-stat-card .caat-stat__value { font-size: 3rem; color: var(--caat-color-text-inverse); }
+.caat-stat-card .caat-stat__label { color: rgba(255,255,255,.88); }
+
 /* ── Strip — a row of stats with dividers (dark band, e.g. hero) ── */
 .caat-stat-strip {
   display: flex;

@@ -1,243 +1,78 @@
 /* ═══════════════════════════════════════════════════════════
-   Template: Pensions Matter — Page-level layout utilities
-   Uses design-system components exclusively; only adds
-   page-specific section rhythm and layout helpers.
+   Template: Pensions Matter — Page-level layout only
+   ───────────────────────────────────────────────────────────
+   This page is built from design-system components:
+     • Sections .......... Layout (.caat-section / --grey / --brand)
+     • Headings .......... Text/Title (.caat-title, .caat-title__subtitle)
+     • Comparison stats .. Stat (.caat-stat, .caat-stat-card)
+     • Feature cards ..... Card (.caat-card + .icon-token)
+     • Video ............. Image/Embed (.caat-embed)
+     • Call-to-action .... CTA (.caat-cta)
+     • Hero / strip ...... Feature Hero, Stat strip
+     • Footer ............ Footer (.caat-footer)
+   What remains below is genuinely page-specific layout that no
+   single component owns — placement, measure, and one bespoke
+   two-column video row. No component styles are re-implemented here.
    ═══════════════════════════════════════════════════════════ */
 
-/* ── Page section rhythm ── */
-.pm-section {
-  padding: 4rem 0;
+/* ── Hero: keep content above the full-bleed background image ── */
+.pm-hero__content { z-index: 2; }
+
+/* ── Stat strip docks under the hero, so round only its bottom ── */
+.pm-stat-strip--rounded {
+  border-radius: 0 0 var(--caat-radius-lg) var(--caat-radius-lg);
 }
-.pm-section--grey {
-  background: var(--caat-grey);
-}
-.pm-section--blue {
-  background: var(--caat-blue-900);
-  color: #fff;
-}
-.pm-section__title {
-  font-family: var(--caat-font-primary);
-  font-weight: 900;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  color: var(--caat-blue-900);
-  letter-spacing: -.02em;
-  text-align: center;
-  margin-bottom: .5rem;
-}
-.pm-section--blue .pm-section__title { color: #fff; }
-.pm-section__subtitle {
-  text-align: center;
-  color: var(--caat-muted);
+
+/* ── Centered, readable measure for intro/lede paragraphs ──────
+   (Section headers get their measure from .caat-section__header;
+   this is for body paragraphs that sit outside the header.) */
+.pm-lede {
   max-width: 44rem;
-  margin: 0 auto 2.5rem;
-  font-size: 1.05rem;
-}
-.pm-section--blue .pm-section__subtitle { color: rgba(255,255,255,.75); }
-
-/* ── Stat comparison cards (81% vs 40%) ── */
-.pm-contrast-card {
-  border-radius: var(--caat-radius-lg);
-  padding: 2rem;
-  text-align: center;
-  color: #fff;
-}
-.pm-contrast-card--green { background: var(--caat-green-700); }
-.pm-contrast-card--blue  { background: var(--caat-blue-900); }
-.pm-contrast-card__context {
-  font-size: .8rem;
-  opacity: .7;
-  display: block;
-  margin-bottom: .35rem;
-}
-.pm-contrast-card__value {
-  font-size: 3rem;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: .35rem;
-}
-.pm-contrast-card__label {
-  font-size: .9rem;
-  color: rgba(255,255,255,.85);
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ── Icon feature cards ── */
-.pm-icon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1.5rem;
-}
-.pm-icon-card {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  background: #fff;
-  border: 1px solid var(--caat-grey-200);
-  border-radius: var(--caat-radius);
-  transition: box-shadow .18s, transform .18s;
-}
-.pm-icon-card:hover {
-  box-shadow: var(--caat-shadow);
-  transform: translateY(-2px);
-}
-.pm-icon-card__icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  background: var(--caat-blue-100);
-  color: var(--caat-blue-900);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: .75rem;
-}
-.pm-icon-card__icon--green {
-  background: var(--caat-green-100);
-  color: var(--caat-green-700);
-}
-.pm-icon-card h3 {
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--caat-blue-900);
-  margin-bottom: .35rem;
-}
-.pm-icon-card p {
-  font-size: .85rem;
-  color: var(--caat-muted);
-  margin-bottom: 0;
+/* ── Narrower card grid for the 6-up "why" benefits ── */
+.pm-grid--narrow {
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ── Metrics row ── */
-.pm-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-  gap: 1.5rem;
-  text-align: center;
-  margin-top: 2rem;
-}
-.pm-metric__value {
-  font-size: 2.8rem;
-  font-weight: 900;
-  line-height: 1;
-}
-.pm-section--blue .pm-metric__value { color: #fff; }
-.pm-metric__unit {
-  font-size: 1rem;
-  font-weight: 400;
-}
-.pm-metric__label {
-  font-size: .8rem;
-  margin-top: .25rem;
-}
-.pm-section--blue .pm-metric__label { color: rgba(255,255,255,.7); }
-
-/* ── CTA section ── */
-.pm-cta {
-  text-align: center;
-  padding: 2rem 0;
-}
-.pm-cta h2 {
-  font-weight: 900;
-  font-size: 1.75rem;
-  color: var(--caat-blue-900);
-  margin-bottom: .75rem;
-}
-.pm-cta p {
-  max-width: 38rem;
-  margin: 0 auto .75rem;
-  color: var(--caat-muted);
-}
-.pm-cta__disclaimer {
-  max-width: 40rem;
-  margin: 1.5rem auto 0;
-  font-size: .78rem;
-  color: var(--caat-muted);
-  border-top: 1px solid var(--caat-grey-200);
-  padding-top: 1rem;
+/* ── Pull-quotes sit at a comfortable reading width ── */
+.pm-testimonial-wrapper {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ── Video embed ── */
+/* ── Video row: embed beside a short caption/CTA ──────────────
+   Composes the Image/Embed component; this only lays the two
+   columns out and lifts the embed with the standard shadow. */
 .pm-video-row {
   display: grid;
   grid-template-columns: 1.2fr .8fr;
   gap: 2rem;
   align-items: center;
 }
-.pm-video-embed {
-  border-radius: var(--caat-radius-lg);
-  overflow: hidden;
+.pm-video-row .caat-embed__wrapper {
   box-shadow: var(--caat-shadow);
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
-.pm-video-embed iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
-/* ── Footnotes ── */
+/* ── Footnotes / sources ── */
 .pm-footnotes {
-  border-top: 1px solid var(--caat-grey-200);
+  border-top: 1px solid var(--caat-color-border);
   padding-top: 1.5rem;
   margin-top: 3rem;
 }
 .pm-footnotes ol {
   padding-left: 1.25rem;
   font-size: .75rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   line-height: 1.6;
 }
 
 /* ── Responsive ── */
 @media (max-width: 991.98px) {
   .pm-video-row { grid-template-columns: 1fr; }
-}
-@media (max-width: 767.98px) {
-  .pm-metrics { grid-template-columns: 1fr 1fr; }
-}
-
-/* ── Template utility classes (replacing inline styles) ── */
-.pm-section__body {
-  max-width: 44rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.pm-contrast-card__value--dark {
-  color: var(--caat-blue-900);
-  margin-bottom: .35rem;
-}
-.pm-icon-grid--narrow {
-  max-width: 56rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.pm-testimonial-wrapper {
-  max-width: 48rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.pm-hero__content {
-  z-index: 2;
-}
-.pm-stat-strip--rounded {
-  border-radius: 0 0 var(--caat-radius-lg) var(--caat-radius-lg);
-}
-.pm-video-row__title {
-  font-weight: 900;
-  font-size: 1.5rem;
-  color: var(--caat-blue-900);
-  margin-bottom: .5rem;
-}
-.pm-video-row__subtitle {
-  font-size: .9rem;
-  color: var(--caat-muted);
-  margin-bottom: 1rem;
-}
-.pm-footer {
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
 }

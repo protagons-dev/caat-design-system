@@ -22,10 +22,14 @@
 <link href="/assets/css/components/avatar.css" rel="stylesheet">
 <link href="/assets/css/components/navigation.css" rel="stylesheet">
 <link href="/assets/css/components/footer.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/layout.css" rel="stylesheet">
 <link href="/assets/css/components/stat.css" rel="stylesheet">
 <link href="/assets/css/components/hero.css" rel="stylesheet">
 <link href="/assets/css/components/testimonials.css" rel="stylesheet">
 <link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/cta.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
 <link href="/assets/css/components/logo-wall.css" rel="stylesheet">
 <link href="/assets/css/components/feature-resource-hero.css" rel="stylesheet">
 <link href="/assets/css/components/data-visualization.css" rel="stylesheet">
@@ -338,19 +342,25 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: The demand is growing
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" aria-labelledby="demand-heading">
+<section class="caat-section" aria-labelledby="demand-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="demand-heading">The demand for employers to take a leading role is growing</h2>
-    <p class="pm-section__subtitle">Employees want and need more focus on their financial wellness in the workplace. While many CEOs, CHROs and CFOs say they are changing their talent strategies, only the most forward-looking leaders are gaining a real competitive advantage by providing what employees really want—a better pension plan.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="demand-heading">The demand for employers to take a leading role is growing</h2>
+      <p class="caat-title__subtitle">Employees want and need more focus on their financial wellness in the workplace. While many CEOs, CHROs and CFOs say they are changing their talent strategies, only the most forward-looking leaders are gaining a real competitive advantage by providing what employees really want—a better pension plan.</p>
+    </div>
 
     <div class="row g-4 justify-content-center mt-3" role="region" aria-label="Key demand statistics">
       <div class="col-md-5 text-center">
-        <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">77%</div>
+        <div class="caat-stat caat-stat--xl">
+          <span class="caat-stat__value" aria-hidden="true">77%</span>
+        </div>
         <p>of employees say employers are responsible for offering a pension plan.<sup><a href="#sources">1</a></sup></p>
         <span class="visually-hidden">77 percent of employees say employers are responsible for offering a pension plan.</span>
       </div>
       <div class="col-md-5 text-center">
-        <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">89%</div>
+        <div class="caat-stat caat-stat--xl">
+          <span class="caat-stat__value" aria-hidden="true">89%</span>
+        </div>
         <p>of employers are already being impacted by the loss of talent and say competing for talent will become more challenging.<sup><a href="#sources">2</a></sup></p>
         <span class="visually-hidden">89 percent of employers are already being impacted by talent loss.</span>
       </div>
@@ -362,24 +372,26 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: Financial well-being gap (81% vs 40%)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section pm-section--grey" aria-labelledby="wellbeing-heading">
+<section class="caat-section caat-section--grey" aria-labelledby="wellbeing-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="wellbeing-heading">What leaders need to know:</h2>
-    <p class="pm-section__subtitle">Employees are struggling with their financial well-being.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="wellbeing-heading">What leaders need to know:</h2>
+      <p class="caat-title__subtitle">Employees are struggling with their financial well-being.</p>
+    </div>
     <div class="row g-4 justify-content-center" role="region" aria-label="Financial well-being comparison">
       <div class="col-md-5">
-        <div class="pm-contrast-card pm-contrast-card--green">
-          <span class="pm-contrast-card__context">despite</span>
-          <div class="pm-contrast-card__value" aria-hidden="true">81%</div>
-          <p class="pm-contrast-card__label">of the C-suite rating their employees' financial well-being as excellent or good.</p>
+        <div class="caat-stat-card caat-stat-card--green caat-stat">
+          <span class="caat-stat-card__context">despite</span>
+          <span class="caat-stat__value" aria-hidden="true">81%</span>
+          <p class="caat-stat__label">of the C-suite rating their employees' financial well-being as excellent or good.</p>
           <span class="visually-hidden">81 percent of C-suite rate employee financial well-being as excellent or good.</span>
         </div>
       </div>
       <div class="col-md-5">
-        <div class="pm-contrast-card pm-contrast-card--blue">
-          <span class="pm-contrast-card__context">only</span>
-          <div class="pm-contrast-card__value" aria-hidden="true">40%</div>
-          <p class="pm-contrast-card__label">of employees report having 'excellent' or 'good' financial well-being.<sup><a href="#sources">3</a></sup></p>
+        <div class="caat-stat-card caat-stat-card--blue caat-stat">
+          <span class="caat-stat-card__context">only</span>
+          <span class="caat-stat__value" aria-hidden="true">40%</span>
+          <p class="caat-stat__label">of employees report having 'excellent' or 'good' financial well-being.<sup><a href="#sources">3</a></sup></p>
           <span class="visually-hidden">Only 40 percent of employees report excellent or good financial well-being.</span>
         </div>
       </div>
@@ -391,33 +403,41 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: Employees want better pensions (3 stat cards)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" aria-labelledby="want-heading">
+<section class="caat-section" aria-labelledby="want-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="want-heading">Employees want <em><strong>better</strong></em> workplace pensions</h2>
-    <p class="pm-section__subtitle">Why employers are offering a benefit that lasts a lifetime—literally.</p>
-    <p class="text-center mb-2 pm-section__body">Retirement security is a top source of stress for working Canadians. Organizations across Canada are now tapping into the link between workplace retirement plans, corporate social responsibility (CSR) and branding as a responsible employer of choice.</p>
-    <p class="text-center fw-semibold mb-4 pm-section__body">Job seekers expect a workplace pension, and prefer employers who offer them.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="want-heading">Employees want <em><strong>better</strong></em> workplace pensions</h2>
+      <p class="caat-title__subtitle">Why employers are offering a benefit that lasts a lifetime—literally.</p>
+    </div>
+    <p class="text-center mb-2 pm-lede">Retirement security is a top source of stress for working Canadians. Organizations across Canada are now tapping into the link between workplace retirement plans, corporate social responsibility (CSR) and branding as a responsible employer of choice.</p>
+    <p class="text-center fw-semibold mb-4 pm-lede">Job seekers expect a workplace pension, and prefer employers who offer them.</p>
 
     <div class="row g-4 justify-content-center">
       <div class="col-md-4">
-        <div class="pm-icon-card" role="figure" aria-label="70 percent plus of Canadians would forego a raise for a pension">
-          <div class="pm-icon-card__icon"><i class="bi bi-cash-coin" aria-hidden="true"></i></div>
-          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">70%+</div>
-          <p>of Canadians would <b>forego a raise</b> in favour of a workplace pension plan.<sup><a href="#sources">4</a></sup></p>
+        <div class="caat-card" role="figure" aria-label="70 percent plus of Canadians would forego a raise for a pension">
+          <div class="card-body p-4 text-center">
+            <span class="icon-token"><i class="bi bi-cash-coin" aria-hidden="true"></i></span>
+            <span class="caat-stat__value caat-stat__value--xl" aria-hidden="true">70%+</span>
+            <p>of Canadians would <b>forego a raise</b> in favour of a workplace pension plan.<sup><a href="#sources">4</a></sup></p>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="pm-icon-card" role="figure" aria-label="84 percent consider a retirement plan critical">
-          <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-check2-square" aria-hidden="true"></i></div>
-          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">84%</div>
-          <p>consider an employer-sponsored retirement plan to be a <b>critical benefit</b>.<sup><a href="#sources">5</a></sup></p>
+        <div class="caat-card" role="figure" aria-label="84 percent consider a retirement plan critical">
+          <div class="card-body p-4 text-center">
+            <span class="icon-token green"><i class="bi bi-check2-square" aria-hidden="true"></i></span>
+            <span class="caat-stat__value caat-stat__value--xl" aria-hidden="true">84%</span>
+            <p>consider an employer-sponsored retirement plan to be a <b>critical benefit</b>.<sup><a href="#sources">5</a></sup></p>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="pm-icon-card" role="figure" aria-label="79 percent would change jobs for a better pension">
-          <div class="pm-icon-card__icon"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
-          <div class="pm-contrast-card__value pm-contrast-card__value--dark" aria-hidden="true">79%</div>
-          <p>of Canadians say they are likely or very likely to <b>change jobs for a better pension</b>.<sup><a href="#sources">6</a></sup></p>
+        <div class="caat-card" role="figure" aria-label="79 percent would change jobs for a better pension">
+          <div class="card-body p-4 text-center">
+            <span class="icon-token"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></span>
+            <span class="caat-stat__value caat-stat__value--xl" aria-hidden="true">79%</span>
+            <p>of Canadians say they are likely or very likely to <b>change jobs for a better pension</b>.<sup><a href="#sources">6</a></sup></p>
+          </div>
         </div>
       </div>
     </div>
@@ -428,32 +448,42 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: Power of workplace pensions (4 feature cards + quote)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section pm-section--grey" aria-labelledby="power-heading">
+<section class="caat-section caat-section--grey" aria-labelledby="power-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="power-heading">The power of workplace pensions</h2>
-    <p class="pm-section__subtitle">A win-win for employers and employees.</p>
-    <p class="text-center mb-4 pm-section__body">Offering a secure workplace pension and retirement income is a key differentiator and competitive advantage for employers. It demonstrates investment in their talent, provides immediate value on a business and improves employee productivity and engagement.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="power-heading">The power of workplace pensions</h2>
+      <p class="caat-title__subtitle">A win-win for employers and employees.</p>
+    </div>
+    <p class="text-center mb-4 pm-lede">Offering a secure workplace pension and retirement income is a key differentiator and competitive advantage for employers. It demonstrates investment in their talent, provides immediate value on a business and improves employee productivity and engagement.</p>
 
-    <div class="pm-icon-grid">
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-person-plus" aria-hidden="true"></i></div>
-        <h3>Better talent attraction</h3>
-        <p>Demonstrate a long-term investment in both existing and incoming talent, while reducing turnover costs and time.</p>
+    <div class="caat-card-grid">
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+          <h3 class="caat-title caat-title--h6">Better talent attraction</h3>
+          <p>Demonstrate a long-term investment in both existing and incoming talent, while reducing turnover costs and time.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
-        <h3>Boosted brand and bottom line</h3>
-        <p>Pensions enhance compensation efficiency and workplace productivity, so employers can support employees' savings needs while improving the bottom line.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
+          <h3 class="caat-title caat-title--h6">Boosted brand and bottom line</h3>
+          <p>Pensions enhance compensation efficiency and workplace productivity, so employers can support employees' savings needs while improving the bottom line.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
-        <h3>No liabilities, minimized risks</h3>
-        <p>There are no financial risks when joining DBplus. Employers' contributions are fixed and will not change, unless requested by the employer. Both employee and employer contribute to the Plan.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+          <h3 class="caat-title caat-title--h6">No liabilities, minimized risks</h3>
+          <p>There are no financial risks when joining DBplus. Employers' contributions are fixed and will not change, unless requested by the employer. Both employee and employer contribute to the Plan.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
-        <h3>Achieve ESG and financial wellness</h3>
-        <p>Promote corporate social responsibility by helping employees save towards a paycheque for life, which improves our social security system, quality and satisfaction of life, and holistic wellness.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-heart-pulse" aria-hidden="true"></i></span>
+          <h3 class="caat-title caat-title--h6">Achieve ESG and financial wellness</h3>
+          <p>Promote corporate social responsibility by helping employees save towards a paycheque for life, which improves our social security system, quality and satisfaction of life, and holistic wellness.</p>
+        </div>
       </div>
     </div>
 
@@ -480,13 +510,15 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: DBplus by CAAT
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" aria-labelledby="dbplus-heading">
+<section class="caat-section" aria-labelledby="dbplus-heading">
   <div class="container text-center">
-    <h2 class="pm-section__title" id="dbplus-heading">DBplus by the CAAT Pension Plan</h2>
-    <p class="pm-section__subtitle">Canada's modern workplace pension plan</p>
-    <p class="pm-section__body fw-semibold mb-3">There's a reason employers choose DBplus to meet their business goals.</p>
-    <p class="pm-section__body"><b>CAAT Pension Plan</b> is one of Canada's most sustainable, fastest-growing, and highest-performing pension plans. And, we're a not-for-profit.</p>
-    <p class="pm-section__body">Our <b>DBplus</b> offering is a unique and innovative design that unites the best of defined benefit, defined contribution and group RRSPs.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="dbplus-heading">DBplus by the CAAT Pension Plan</h2>
+      <p class="caat-title__subtitle">Canada's modern workplace pension plan</p>
+    </div>
+    <p class="pm-lede fw-semibold mb-3">There's a reason employers choose DBplus to meet their business goals.</p>
+    <p class="pm-lede"><b>CAAT Pension Plan</b> is one of Canada's most sustainable, fastest-growing, and highest-performing pension plans. And, we're a not-for-profit.</p>
+    <p class="pm-lede">Our <b>DBplus</b> offering is a unique and innovative design that unites the best of defined benefit, defined contribution and group RRSPs.</p>
   </div>
 </section>
 
@@ -494,34 +526,48 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: Why employers select DBplus (6 benefit cards)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section pm-section--grey" aria-labelledby="why-heading">
+<section class="caat-section caat-section--grey" aria-labelledby="why-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="why-heading">Why employers select DBplus as the retirement solution of choice</h2>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="why-heading">Why employers select DBplus as the retirement solution of choice</h2>
+    </div>
 
-    <div class="pm-icon-grid pm-icon-grid--narrow">
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-people" aria-hidden="true"></i></div>
-        <p class="mb-0">Improve retention, recruiting, and productivity at no added cost.</p>
+    <div class="caat-card-grid pm-grid--narrow">
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-people" aria-hidden="true"></i></span>
+          <p class="mb-0">Improve retention, recruiting, and productivity at no added cost.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-piggy-bank" aria-hidden="true"></i></div>
-        <p class="mb-0">Cost-certainty with fixed contributions.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-piggy-bank" aria-hidden="true"></i></span>
+          <p class="mb-0">Cost-certainty with fixed contributions.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-sliders" aria-hidden="true"></i></div>
-        <p class="mb-0">Flexible options to suit organizational needs and budget.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-sliders" aria-hidden="true"></i></span>
+          <p class="mb-0">Flexible options to suit organizational needs and budget.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-calculator" aria-hidden="true"></i></div>
-        <p class="mb-0">Simple accounting and no hidden or extra costs for all services.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-calculator" aria-hidden="true"></i></span>
+          <p class="mb-0">Simple accounting and no hidden or extra costs for all services.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon pm-icon-card__icon--green"><i class="bi bi-headset" aria-hidden="true"></i></div>
-        <p class="mb-0">Fully supported transition by a team of pension experts.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-headset" aria-hidden="true"></i></span>
+          <p class="mb-0">Fully supported transition by a team of pension experts.</p>
+        </div>
       </div>
-      <div class="pm-icon-card">
-        <div class="pm-icon-card__icon"><i class="bi bi-list-check" aria-hidden="true"></i></div>
-        <p class="mb-0">Simple steps to implement.</p>
+      <div class="caat-card">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-list-check" aria-hidden="true"></i></span>
+          <p class="mb-0">Simple steps to implement.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -532,22 +578,26 @@
      SECTION: Video — "A modern business solution"
      Video ID: lKio-saZuQE (from original source)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" aria-labelledby="video-heading">
+<section class="caat-section" aria-labelledby="video-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="video-heading">A modern business solution that improves the bottom line</h2>
-    <p class="pm-section__subtitle">The cost certainty employers want and the valuable lifetime income employees need.</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="video-heading">A modern business solution that improves the bottom line</h2>
+      <p class="caat-title__subtitle">The cost certainty employers want and the valuable lifetime income employees need.</p>
+    </div>
 
     <div class="pm-video-row">
-      <div class="pm-video-embed">
-        <iframe src="https://www.youtube.com/embed/lKio-saZuQE?rel=0"
-                title="CAAT Pension Plan — A modern business solution"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                loading="lazy"
-                allowfullscreen></iframe>
+      <div class="caat-embed">
+        <div class="caat-embed__wrapper">
+          <iframe class="caat-embed__iframe" src="https://www.youtube.com/embed/lKio-saZuQE?rel=0"
+                  title="CAAT Pension Plan — A modern business solution"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  allowfullscreen></iframe>
+        </div>
       </div>
       <div class="text-center d-flex flex-column align-items-center justify-content-center">
-        <h3 class="pm-video-row__title">Why DBplus?</h3>
-        <p class="pm-video-row__subtitle">See how CAAT's DBplus plan delivers cost certainty for employers and lifetime income for employees.</p>
+        <h3 class="caat-title caat-title--h3">Why DBplus?</h3>
+        <p class="pm-lede mb-3">See how CAAT's DBplus plan delivers cost certainty for employers and lifetime income for employees.</p>
         <a href="https://www.youtube.com/@CAATPensionPlanYoutube" target="_blank" rel="noopener noreferrer"
            class="caat-button caat-button--outline-primary caat-button--sm">
           Watch more videos <i class="bi bi-play-circle caat-button__icon" aria-hidden="true"></i>
@@ -562,7 +612,7 @@
      SECTION: Employer logos + quote — caat-logo-wall component
      Component: /components/logo-wall.html
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section pm-section--grey" aria-labelledby="employers-heading">
+<section class="caat-section caat-section--grey" aria-labelledby="employers-heading">
   <div class="container">
     <div class="caat-logo-wall" data-analytics-component="logo-wall" data-analytics-variant="default">
       <div class="caat-logo-wall__header">
@@ -619,12 +669,14 @@
      Uses: caat-dataviz horizontal bar chart
      Component: /components/data-visualization.html
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" aria-labelledby="value-heading">
+<section class="caat-section" aria-labelledby="value-heading">
   <div class="container">
-    <h2 class="pm-section__title" id="value-heading">A modern workplace retirement solution that delivers more value</h2>
-    <p class="pm-section__subtitle">Here's how the power of Plus measures up.</p>
-    <p class="text-center mb-2 pm-section__body">The expected pension per dollar contributed is meaningfully higher with a modern DB plan, like CAAT's DBplus.<sup><a href="#sources">8</a></sup></p>
-    <p class="text-center fw-semibold mb-4 pm-section__body">What each $1 of contribution provides on average in retirement:</p>
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="value-heading">A modern workplace retirement solution that delivers more value</h2>
+      <p class="caat-title__subtitle">Here's how the power of Plus measures up.</p>
+    </div>
+    <p class="text-center mb-2 pm-lede">The expected pension per dollar contributed is meaningfully higher with a modern DB plan, like CAAT's DBplus.<sup><a href="#sources">8</a></sup></p>
+    <p class="text-center fw-semibold mb-4 pm-lede">What each $1 of contribution provides on average in retirement:</p>
 
     <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -685,28 +737,38 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: Strength & sustainability (blue band with metrics)
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section pm-section--blue" aria-labelledby="strength-heading">
-  <div class="container text-center">
-    <h2 class="pm-section__title" id="strength-heading">As a world-class pension plan, our expert team focuses on strength and sustainability over the long term</h2>
-    <div class="pm-metrics" role="region" aria-label="CAAT plan performance metrics">
-      <div>
-        <div class="pm-metric__value" aria-hidden="true">97%</div>
-        <div class="pm-metric__label">endorsement rate from CAAT's participating employers and members</div>
+<section class="caat-section caat-section--brand" aria-labelledby="strength-heading">
+  <div class="container">
+    <div class="caat-section__header">
+      <h2 class="caat-title caat-title--h2" id="strength-heading">As a world-class pension plan, our expert team focuses on strength and sustainability over the long term</h2>
+    </div>
+    <div class="row g-4 justify-content-center" role="region" aria-label="CAAT plan performance metrics">
+      <div class="col-6 col-md-3">
+        <div class="caat-stat caat-stat--lg">
+          <span class="caat-stat__value" aria-hidden="true">97%</span>
+          <span class="caat-stat__label">endorsement rate from CAAT's participating employers and members</span>
+        </div>
         <span class="visually-hidden">97 percent endorsement rate from participating employers and members</span>
       </div>
-      <div>
-        <div class="pm-metric__value" aria-hidden="true">+9.6%</div>
-        <div class="pm-metric__label">average 10-year net return rate</div>
+      <div class="col-6 col-md-3">
+        <div class="caat-stat caat-stat--lg">
+          <span class="caat-stat__value" aria-hidden="true">+9.6%</span>
+          <span class="caat-stat__label">average 10-year net return rate</span>
+        </div>
         <span class="visually-hidden">Plus 9.6 percent average 10-year net return rate</span>
       </div>
-      <div>
-        <div class="pm-metric__value" aria-hidden="true">$23.3 <span class="pm-metric__unit">Billion</span></div>
-        <div class="pm-metric__label">Net Assets</div>
+      <div class="col-6 col-md-3">
+        <div class="caat-stat caat-stat--lg">
+          <span class="caat-stat__value" aria-hidden="true">$23.3 <small>Billion</small></span>
+          <span class="caat-stat__label">Net Assets</span>
+        </div>
         <span class="visually-hidden">23.3 billion dollars in net assets</span>
       </div>
-      <div>
-        <div class="pm-metric__value" aria-hidden="true">$6.1 <span class="pm-metric__unit">Billion</span></div>
-        <div class="pm-metric__label">Funding reserves</div>
+      <div class="col-6 col-md-3">
+        <div class="caat-stat caat-stat--lg">
+          <span class="caat-stat__value" aria-hidden="true">$6.1 <small>Billion</small></span>
+          <span class="caat-stat__label">Funding reserves</span>
+        </div>
         <span class="visually-hidden">6.1 billion dollars in funding reserves</span>
       </div>
     </div>
@@ -717,20 +779,21 @@
 <!-- ════════════════════════════════════════════════════════════
      SECTION: CTA — Let's build financial security together
      ════════════════════════════════════════════════════════════ -->
-<section class="pm-section" id="cta" aria-labelledby="cta-heading">
+<section class="caat-section" id="cta" aria-labelledby="cta-heading">
   <div class="container">
-    <div class="pm-cta">
-      <h2 id="cta-heading">Let's build financial security together</h2>
-      <p>CAAT's fully managed retirement programs are designed with lifetime income and institutional support at their core. Whether you are looking to evolve your DC plan offering or eliminate the drawdown or decumulation burden altogether, we can help you explore what is possible.</p>
-      <a href="https://go.caatpension.ca/pension-solutions?utm_content=/pension-matter"
-         target="_blank" rel="noopener noreferrer"
-         class="caat-button caat-button--primary caat-button--lg">
-        Talk to us today <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
-      </a>
-      <div class="pm-cta__disclaimer" role="note">
+    <div class="caat-cta">
+      <h2 class="caat-title caat-title--h3" id="cta-heading">Let's build financial security together</h2>
+      <p class="caat-cta__text">CAAT's fully managed retirement programs are designed with lifetime income and institutional support at their core. Whether you are looking to evolve your DC plan offering or eliminate the drawdown or decumulation burden altogether, we can help you explore what is possible.</p>
+      <div class="caat-cta__actions">
+        <a href="https://go.caatpension.ca/pension-solutions?utm_content=/pension-matter"
+           target="_blank" rel="noopener noreferrer"
+           class="caat-button caat-button--primary caat-button--lg">
+          Talk to us today <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="caat-cta__disclaimer" role="note">
         CAAT's experts are all straight salary and do not earn bonuses or commissions. As a non-profit, our focus is on improving outcomes for employers, employees, and Canada. We want to help you win the race for talent and will help any way we can. No pressure. No obligations. All confidential.
       </div>
-      <p class="text-center mt-3"><small>© CAAT Pension Plan. All Rights Reserved.</small></p>
     </div>
 
     <!-- Footnotes -->

@@ -1,0 +1,32 @@
+/* ============================================================
+   CAAT Layout — Section utilities
+   Depends on: tokens.css, text-title.css (headers compose .caat-title)
+
+   Concrete implementation of the Page Layout foundation's section
+   rhythm + alternating background tiers. Use these instead of bespoke
+   page-level section CSS, so vertical rhythm and tiers are consistent
+   across pages (and never need re-implementing per template).
+   ============================================================ */
+
+.caat-section { padding: var(--caat-space-8) 0; }
+.caat-section--sm { padding: var(--caat-space-7) 0; }
+.caat-section--lg { padding: var(--caat-space-9) 0; }
+
+/* Background tiers — alternate to separate sections (no rules/fences) */
+.caat-section--grey  { background: var(--caat-color-bg-subtle); }
+.caat-section--beige { background: var(--caat-beige); }
+.caat-section--brand { background: var(--caat-color-bg-brand); color: var(--caat-color-text-inverse); }
+
+/* Centered section header — composes Text/Title (.caat-title + subtitle) */
+.caat-section__header {
+  max-width: 44rem;
+  margin: 0 auto var(--caat-space-6);
+  text-align: center;
+}
+.caat-section--brand .caat-title { color: var(--caat-color-text-inverse); }
+.caat-section--brand .caat-title__subtitle { color: rgba(255,255,255,.78); }
+
+/* Components placed on a brand band inherit the inverse text context
+   (Stat hard-codes a dark value colour for light backgrounds). */
+.caat-section--brand .caat-stat__value { color: var(--caat-color-text-inverse); }
+.caat-section--brand .caat-stat__label { color: rgba(255,255,255,.7); }
