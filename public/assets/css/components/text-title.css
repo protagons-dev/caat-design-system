@@ -41,16 +41,19 @@
   border-bottom: 3px solid var(--caat-blue-100);
 }
 
-/* ── Eyebrow ────────────────────────────────────────────── */
+/* ── Eyebrow ──────────────────────────────────────────────
+   DEPRECATED: prefer the canonical .caat-eyebrow (caat-base.css).
+   Kept as a token-driven alias so existing markup/AEM keeps working;
+   renders identically to the canonical eyebrow. */
 .caat-title__eyebrow {
   display: block;
   font-family: var(--caat-font-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: var(--caat-text-eyebrow-size);
+  font-weight: var(--caat-text-eyebrow-weight);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--caat-blue-700);
-  margin-bottom: 0.5rem;
+  letter-spacing: var(--caat-text-eyebrow-tracking);
+  color: var(--caat-color-eyebrow);
+  margin-bottom: var(--caat-space-2);
 }
 
 /* ── Subtitle ───────────────────────────────────────────── */

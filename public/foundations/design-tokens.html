@@ -147,9 +147,12 @@
     <nav class="nav flex-column">
       <a class="nav-link" href="#overview">Overview</a>
       <a class="nav-link" href="#colour">Colour</a>
+      <a class="nav-link" href="#semantic">Semantic Tokens</a>
       <a class="nav-link" href="#typography">Typography</a>
       <a class="nav-link" href="#spacing-radius">Spacing &amp; Radius</a>
-      <a class="nav-link" href="#shadows">Shadows</a>
+      <a class="nav-link" href="#shadows">Shadows &amp; Elevation</a>
+      <a class="nav-link" href="#motion">Motion</a>
+      <a class="nav-link" href="#layering">Z-index / Layering</a>
       <a class="nav-link" href="#focus">Focus</a>
       <a class="nav-link" href="#bootstrap-overrides">Bootstrap Overrides</a>
       <a class="nav-link" href="#usage">Usage Guidelines</a>
@@ -175,16 +178,34 @@
       <p>Design tokens are named CSS custom properties that encode the brand's visual decisions. Every CAAT component references tokens instead of hard-coded values, ensuring consistency and enabling theming at a single point of change.</p>
       <p>All tokens are defined in <code>/assets/css/tokens.css</code> on the <code>:root</code> selector and are available globally. Components should <strong>never</strong> use raw hex values or pixel measurements — always reference the token.</p>
 
+      <h3 class="h5 mt-4 mb-3">Token tiers</h3>
+      <p>Tokens are organized in tiers so a brand change happens in one place and cascades everywhere:</p>
+      <div class="table-responsive mt-2">
+        <table class="table table-bordered">
+          <thead><tr><th>Tier</th><th>Role</th><th>Example</th><th>Who uses it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1 · Primitive</strong></td><td>Raw values. The only place literal colours / sizes live.</td><td><code>--caat-blue-900: #003750</code></td><td>Semantic tier (rarely components directly)</td></tr>
+            <tr><td><strong>2 · Semantic</strong></td><td>Intent-based aliases. <strong>Components should consume these.</strong></td><td><code>--caat-color-action-primary: var(--caat-blue-900)</code></td><td>Components &amp; templates</td></tr>
+            <tr><td><strong>3 · Bootstrap</strong></td><td>Maps semantic tokens onto Bootstrap's <code>--bs-*</code> vars.</td><td><code>--bs-primary: var(--caat-color-action-primary)</code></td><td>Bootstrap internals</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2"><small class="text-muted">Theme: light only (by decision). The semantic tier still earns its keep — a rebrand or future theme only re-points Tier 2. See <code>docs/design-system-recommendations.md</code> §A.</small></p>
+
       <div class="table-responsive mt-4">
         <table class="table table-bordered">
-          <thead><tr><th>Category</th><th>Count</th><th>Prefix</th></tr></thead>
+          <thead><tr><th>Category</th><th>Prefix</th></tr></thead>
           <tbody>
-            <tr><td>Colour</td><td>16</td><td><code>--caat-blue-*</code>, <code>--caat-green-*</code>, <code>--caat-*</code></td></tr>
-            <tr><td>Typography</td><td>4</td><td><code>--caat-font-*</code>, <code>--caat-letter-spacing-*</code></td></tr>
-            <tr><td>Spacing / Radius</td><td>2</td><td><code>--caat-radius</code>, <code>--caat-radius-lg</code></td></tr>
-            <tr><td>Shadows</td><td>2</td><td><code>--caat-shadow</code>, <code>--caat-shadow-sm</code></td></tr>
-            <tr><td>Focus</td><td>1</td><td><code>--caat-focus</code></td></tr>
-            <tr><td>Bootstrap overrides</td><td>8</td><td><code>--bs-*</code></td></tr>
+            <tr><td>Colour (primitive)</td><td><code>--caat-blue-*</code>, <code>--caat-green-*</code>, <code>--caat-grey-*</code>, …</td></tr>
+            <tr><td>Colour (semantic)</td><td><code>--caat-color-text-*</code>, <code>--caat-color-bg-*</code>, <code>--caat-color-action-*</code>, <code>--caat-color-feedback-*</code></td></tr>
+            <tr><td>Typography</td><td><code>--caat-font-size-*</code>, <code>--caat-leading-*</code>, <code>--caat-weight-*</code>, <code>--caat-text-*</code></td></tr>
+            <tr><td>Spacing</td><td><code>--caat-space-1 … --caat-space-9</code></td></tr>
+            <tr><td>Radius / Border</td><td><code>--caat-radius-*</code>, <code>--caat-border-*</code></td></tr>
+            <tr><td>Elevation</td><td><code>--caat-shadow-sm/-/-md/-lg</code></td></tr>
+            <tr><td>Motion</td><td><code>--caat-duration-*</code>, <code>--caat-ease-*</code></td></tr>
+            <tr><td>Layering</td><td><code>--caat-z-*</code></td></tr>
+            <tr><td>Focus / Opacity</td><td><code>--caat-focus</code>, <code>--caat-opacity-*</code></td></tr>
+            <tr><td>Bootstrap overrides</td><td><code>--bs-*</code></td></tr>
           </tbody>
         </table>
       </div>
@@ -397,8 +418,9 @@
             <tr><td>Secondary text</td><td><code>--caat-muted</code></td><td>Subtitles, captions, meta</td></tr>
             <tr><td>Primary buttons / links</td><td><code>--caat-blue-900</code></td><td>CTAs, navigation links</td></tr>
             <tr><td>Secondary actions</td><td><code>--caat-green</code></td><td>Secondary buttons, accents</td></tr>
-            <tr><td>Eyebrow labels</td><td><code>--caat-green-700</code></td><td>Category labels above headings</td></tr>
-            <tr><td>Eyebrow on dark</td><td><code>--caat-lime</code></td><td>Labels on dark backgrounds</td></tr>
+            <tr><td>Eyebrow labels</td><td><code>--caat-color-eyebrow</code> → <code>--caat-blue-700</code></td><td>Category labels above headings</td></tr>
+            <tr><td>Eyebrow on dark</td><td><code>--caat-color-eyebrow-on-dark</code> → <code>--caat-blue-300</code></td><td>Labels on dark backgrounds (default)</td></tr>
+            <tr><td>Eyebrow on dark — hero</td><td><code>--caat-color-eyebrow-on-dark-hero</code> → <code>--caat-lime</code></td><td>Hero eyebrows only — deliberate brand accent</td></tr>
             <tr><td>Section backgrounds</td><td><code>--caat-grey</code></td><td>Alternating section bands</td></tr>
             <tr><td>Dark section backgrounds</td><td><code>--caat-blue-900</code></td><td>Stat strips, dark heroes, footers</td></tr>
             <tr><td>Card / input borders</td><td><code>--caat-grey-200</code></td><td>Card outlines, dividers</td></tr>
@@ -414,6 +436,63 @@
     <!-- ══════════════════════════════════════════════════════
          TYPOGRAPHY
          ══════════════════════════════════════════════════════ -->
+    <!-- ══════════════════════════════════════════════════════
+         SEMANTIC TOKENS
+         ══════════════════════════════════════════════════════ -->
+    <section id="semantic" class="mb-5">
+      <h2>Semantic Tokens</h2>
+      <p>Semantic tokens express <em>intent</em> ("primary action", "muted text") rather than a raw value. <strong>Components should reference these</strong> — they alias the primitive palette, so a brand change happens once, here.</p>
+
+      <h3 class="h5 mt-4 mb-3">Text</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Aliases</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-color-text</code></td><td><code>--caat-ink</code></td><td>Default body text</td></tr>
+            <tr><td><code>--caat-color-text-muted</code></td><td><code>--caat-muted</code></td><td>Secondary / supporting text</td></tr>
+            <tr><td><code>--caat-color-text-inverse</code></td><td><code>#fff</code></td><td>Text on dark / brand backgrounds</td></tr>
+            <tr><td><code>--caat-color-text-link</code></td><td><code>--caat-blue-900</code></td><td>Links (resting)</td></tr>
+            <tr><td><code>--caat-color-text-link-hover</code></td><td><code>--caat-blue-700</code></td><td>Links (hover)</td></tr>
+            <tr><td><code>--caat-color-text-disabled</code></td><td><code>--caat-disabled</code></td><td>Disabled text</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Surfaces &amp; borders</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Aliases</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-color-bg-page</code></td><td><code>#fff</code></td><td>Page background</td></tr>
+            <tr><td><code>--caat-color-bg-subtle</code></td><td><code>--caat-grey</code></td><td>Tinted section band</td></tr>
+            <tr><td><code>--caat-color-bg-brand</code></td><td><code>--caat-blue-900</code></td><td>Dark brand band</td></tr>
+            <tr><td><code>--caat-color-bg-brand-subtle</code></td><td><code>--caat-blue-100</code></td><td>Light brand tint</td></tr>
+            <tr><td><code>--caat-color-bg-overlay</code></td><td><code>rgba(0,0,0,.25)</code></td><td>Modal / drawer scrim</td></tr>
+            <tr><td><code>--caat-color-border</code></td><td><code>--caat-grey-200</code></td><td>Default borders / dividers</td></tr>
+            <tr><td><code>--caat-color-border-strong</code></td><td><code>--caat-grey-300</code></td><td>Emphasised borders</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Actions &amp; focus</h3>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Aliases</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-color-action-primary</code></td><td><code>--caat-blue-900</code></td><td>Primary buttons / CTAs</td></tr>
+            <tr><td><code>--caat-color-action-primary-hover</code></td><td><code>--caat-blue-700</code></td><td>Primary hover</td></tr>
+            <tr><td><code>--caat-color-action-secondary</code></td><td><code>--caat-green</code></td><td>Secondary actions</td></tr>
+            <tr><td><code>--caat-color-focus-ring</code></td><td><code>--caat-focus</code></td><td>Focus glow (box-shadow)</td></tr>
+            <tr><td><code>--caat-color-focus-edge</code></td><td><code>--caat-blue-500</code></td><td>Focused input border</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Feedback</h3>
+      <p>Each status has matching <code>-bg</code>, <code>-border</code>, and (where text sits on the fill) <code>-text</code> tokens: <code>--caat-color-feedback-info-*</code>, <code>-success-*</code>, <code>-warning-*</code>, <code>-danger-*</code>.</p>
+    </section>
+
+
     <section id="typography" class="mb-5">
       <h2>Typography</h2>
       <p>CAAT uses <strong>Libre Franklin</strong> as its sole typeface across all digital touchpoints. The font is loaded from Google Fonts in weights 300–900.</p>
@@ -519,7 +598,7 @@
         </div>
         <div class="caat-type-scale__row">
           <span class="caat-type-scale__label">Eyebrow</span>
-          <span class="caat-type-scale__sample" style="font-weight:700; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--caat-green-700);">SECTION LABEL</span>
+          <span class="caat-type-scale__sample" style="font-weight:700; font-size:.75rem; text-transform:uppercase; letter-spacing:.08em; color:var(--caat-color-eyebrow);">SECTION LABEL</span>
           <span class="caat-type-scale__meta">.75rem / 700 / .08em / uppercase</span>
         </div>
       </div>
@@ -540,7 +619,7 @@
             <tr><td><code>.caat-title--h5</code></td><td>Minor heading</td><td>1.25rem</td><td>800</td></tr>
             <tr><td><code>.caat-title--h6</code></td><td>Smallest heading</td><td>1rem</td><td>800</td></tr>
             <tr><td><code>.caat-title--section</code></td><td>Section heading with bottom border</td><td>1.75rem</td><td>800</td></tr>
-            <tr><td><code>.caat-title__eyebrow</code></td><td>Uppercase label above a heading</td><td>.75rem</td><td>700</td></tr>
+            <tr><td><code>.caat-title__eyebrow</code> <span class="badge bg-secondary">deprecated</span></td><td>Alias of <code>.caat-eyebrow</code> — use the canonical class</td><td>.75rem</td><td>700</td></tr>
             <tr><td><code>.caat-title__subtitle</code></td><td>Supporting text below a heading</td><td>1.25rem</td><td>400</td></tr>
           </tbody>
         </table>
@@ -573,16 +652,54 @@
         <p>Use <strong>bold for emphasis</strong> and <em>italics for secondary emphasis</em>. The container handles all nested elements consistently.</p>
       </div>
 
-      <!-- ── Eyebrow + title composition ── -->
-      <h3 class="h5 mt-4 mb-3">Composition: Eyebrow + Title + Subtitle</h3>
-      <div class="p-4 bg-light rounded mb-4">
-        <span class="caat-title__eyebrow">Pension Solutions</span>
+      <!-- ── Eyebrow pattern ── -->
+      <h3 class="h5 mt-4 mb-3">Eyebrow (overline label)</h3>
+      <p class="mb-3">A short kicker above a heading used for <strong>categorization or context only</strong>. There is now <strong>one canonical class</strong>, <code>.caat-eyebrow</code>, driven by the <code>--caat-text-eyebrow-*</code> / <code>--caat-color-eyebrow</code> tokens. Legacy classes (<code>.caat-title__eyebrow</code>, <code>.caat-feature-hero__eyebrow</code>, generic <code>.eyebrow</code>) now consume the same tokens, so they can no longer drift.</p>
+
+      <!-- On light -->
+      <div class="p-4 bg-light rounded mb-3">
+        <span class="caat-eyebrow">Pension Solutions</span>
         <h2 class="caat-title caat-title--h2">A better pension matters</h2>
         <p class="caat-title__subtitle">The attraction and retention strategy every employer should be thinking about.</p>
       </div>
-<pre class="bg-light p-3 rounded mb-4"><code>&lt;span class="caat-title__eyebrow"&gt;Pension Solutions&lt;/span&gt;
+      <!-- On dark -->
+      <div class="p-4 rounded mb-3" style="background:var(--caat-color-bg-brand);">
+        <span class="caat-eyebrow caat-eyebrow--on-dark">Pension Solutions</span>
+        <h2 class="caat-title caat-title--h2" style="color:#fff;">A better pension matters</h2>
+        <p style="color:rgba(255,255,255,.8); margin:0;">Add <code style="color:#fff;">--on-dark</code> over imagery or dark brand bands.</p>
+      </div>
+<pre class="bg-light p-3 rounded mb-4"><code>&lt;!-- on light --&gt;
+&lt;span class="caat-eyebrow"&gt;Pension Solutions&lt;/span&gt;
 &lt;h2 class="caat-title caat-title--h2"&gt;A better pension matters&lt;/h2&gt;
-&lt;p class="caat-title__subtitle"&gt;The attraction and retention…&lt;/p&gt;</code></pre>
+
+&lt;!-- on dark / imagery --&gt;
+&lt;span class="caat-eyebrow caat-eyebrow--on-dark"&gt;Pension Solutions&lt;/span&gt;</code></pre>
+
+      <div class="row g-4 mb-2">
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color:var(--caat-success) !important;">
+            <h4 class="h6 text-success"><i class="bi bi-check-circle-fill me-1"></i> Do</h4>
+            <ul class="mb-0 small">
+              <li>Use above a <strong>page or section title</strong> to label topic, series, or content type.</li>
+              <li>Keep it short — <strong>≤ 24 characters / 2–3 words</strong>. Allow for French running ~30% longer.</li>
+              <li>Make the headline stand on its own — the eyebrow only adds context.</li>
+              <li>Add <code>--on-dark</code> over dark/photographic backgrounds.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="p-3 border rounded h-100" style="border-color:var(--caat-danger) !important;">
+            <h4 class="h6 text-danger"><i class="bi bi-x-circle-fill me-1"></i> Don't</h4>
+            <ul class="mb-0 small">
+              <li><strong>Don't mark it up as a heading</strong> (<code>&lt;h*&gt;</code>) — use <code>&lt;span&gt;</code>/<code>&lt;p&gt;</code> so it doesn't pollute the document outline for screen readers.</li>
+              <li>Don't put critical information in it — users skip it on first scan.</li>
+              <li>Don't use it above sub-headings inside body content.</li>
+              <li>Don't restyle per-instance — change the tokens, not the element.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p><small class="text-muted">Accessibility &amp; rationale: see <code>docs/design-system-recommendations.md</code> §B1.</small></p>
     </section>
 
 
@@ -592,10 +709,35 @@
     <section id="spacing-radius" class="mb-5">
       <h2>Spacing &amp; Radius</h2>
 
+      <h3 class="h5 mb-3">Spacing Scale</h3>
+      <p class="mb-3">A 4px-based scale. Use these for padding, margins, and gaps instead of arbitrary values — it's what keeps rhythm consistent across components and the page-layout grid.</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th></th><th>Typical usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-space-1</code></td><td>.25rem · 4px</td><td><span class="spacing-bar" style="width:4px;"></span></td><td>Icon gaps, hairline insets</td></tr>
+            <tr><td><code>--caat-space-2</code></td><td>.5rem · 8px</td><td><span class="spacing-bar" style="width:8px;"></span></td><td>Tight gaps, chip padding</td></tr>
+            <tr><td><code>--caat-space-3</code></td><td>.75rem · 12px</td><td><span class="spacing-bar" style="width:12px;"></span></td><td>Input padding, small gaps</td></tr>
+            <tr><td><code>--caat-space-4</code></td><td>1rem · 16px</td><td><span class="spacing-bar" style="width:16px;"></span></td><td>Default element spacing</td></tr>
+            <tr><td><code>--caat-space-5</code></td><td>1.5rem · 24px</td><td><span class="spacing-bar" style="width:24px;"></span></td><td>Card padding, stack gaps</td></tr>
+            <tr><td><code>--caat-space-6</code></td><td>2rem · 32px</td><td><span class="spacing-bar" style="width:32px;"></span></td><td>Group separation</td></tr>
+            <tr><td><code>--caat-space-7</code></td><td>3rem · 48px</td><td><span class="spacing-bar" style="width:48px;"></span></td><td>Sub-section spacing</td></tr>
+            <tr><td><code>--caat-space-8</code></td><td>4rem · 64px</td><td><span class="spacing-bar" style="width:64px;"></span></td><td>Section padding (mobile)</td></tr>
+            <tr><td><code>--caat-space-9</code></td><td>6rem · 96px</td><td><span class="spacing-bar" style="width:96px;"></span></td><td>Section padding (desktop)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="h5 mt-4 mb-3">Radius</h3>
       <div class="table-responsive mb-4">
         <table class="table table-bordered">
           <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
           <tbody>
+            <tr>
+              <td><code>--caat-radius-sm</code></td>
+              <td>.375rem (6px)</td>
+              <td>Small controls, tags, inline code</td>
+            </tr>
             <tr>
               <td><code>--caat-radius</code></td>
               <td>.75rem (12px)</td>
@@ -605,6 +747,11 @@
               <td><code>--caat-radius-lg</code></td>
               <td>1.25rem (20px)</td>
               <td>Hero frames, modals, large panels, stat strips</td>
+            </tr>
+            <tr>
+              <td><code>--caat-radius-pill</code></td>
+              <td>999px</td>
+              <td>Pills, status badges, toggles</td>
             </tr>
           </tbody>
         </table>
@@ -640,21 +787,32 @@
          SHADOWS
          ══════════════════════════════════════════════════════ -->
     <section id="shadows" class="mb-5">
-      <h2>Shadows</h2>
+      <h2>Shadows &amp; Elevation</h2>
+      <p class="mb-3">Elevation maps to a role, not a pixel value — pick by what the surface <em>is</em>, so layering reads as a system.</p>
 
       <div class="table-responsive mb-4">
         <table class="table table-bordered">
-          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <thead><tr><th>Token</th><th>Value</th><th>Elevation role</th></tr></thead>
           <tbody>
             <tr>
               <td><code>--caat-shadow-sm</code></td>
               <td>0 .25rem .75rem rgba(0,55,80,.08)</td>
-              <td>Subtle lift: cards on hover, dropdowns</td>
+              <td>Raised card / card-on-hover</td>
             </tr>
             <tr>
               <td><code>--caat-shadow</code></td>
               <td>0 .75rem 1.75rem rgba(0,55,80,.10)</td>
-              <td>Default elevation: cards, hero frames, modals</td>
+              <td>Default elevation: cards, hero frames</td>
+            </tr>
+            <tr>
+              <td><code>--caat-shadow-md</code></td>
+              <td>0 1rem 2.5rem rgba(0,55,80,.14)</td>
+              <td>Dropdown / popover</td>
+            </tr>
+            <tr>
+              <td><code>--caat-shadow-lg</code></td>
+              <td>0 1.5rem 3.5rem rgba(0,55,80,.20)</td>
+              <td>Modal / dialog</td>
             </tr>
           </tbody>
         </table>
@@ -674,6 +832,56 @@
           <div class="shadow-demo" style="box-shadow: var(--caat-shadow);"></div>
           <code class="d-block mt-2">--caat-shadow</code>
         </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         MOTION
+         ══════════════════════════════════════════════════════ -->
+    <section id="motion" class="mb-5">
+      <h2>Motion</h2>
+      <p class="mb-3">Consistent timing makes the UI feel like one product. Pair a duration with an easing; default to <code>--caat-duration-base</code> + <code>--caat-ease-standard</code> for most transitions.</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-duration-fast</code></td><td>120ms</td><td>Hover, small state changes</td></tr>
+            <tr><td><code>--caat-duration-base</code></td><td>200ms</td><td>Default — most transitions</td></tr>
+            <tr><td><code>--caat-duration-slow</code></td><td>320ms</td><td>Drawers, modals, expand/collapse</td></tr>
+            <tr><td><code>--caat-ease-standard</code></td><td>cubic-bezier(.2, 0, 0, 1)</td><td>Most transitions</td></tr>
+            <tr><td><code>--caat-ease-emphasized</code></td><td>cubic-bezier(.3, 0, 0, 1)</td><td>Enter / expand</td></tr>
+            <tr><td><code>--caat-ease-exit</code></td><td>cubic-bezier(.4, 0, 1, 1)</td><td>Leave / collapse</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info" role="note">
+        <i class="bi bi-universal-access me-1"></i>
+        <strong>Reduced motion is handled globally.</strong> <code>caat-base.css</code> honours <code>prefers-reduced-motion: reduce</code> and collapses animations/transitions for users who request it — you don't need to repeat it per component (WCAG 2.2).
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         Z-INDEX / LAYERING
+         ══════════════════════════════════════════════════════ -->
+    <section id="layering" class="mb-5">
+      <h2>Z-index / Layering</h2>
+      <p class="mb-3">A single ordered scale prevents stacking bugs (modal behind a sticky header, toast behind a backdrop). It is deliberately aligned to <strong>coexist with Bootstrap's</strong> 1000–1090 range — use these instead of inventing <code>z-index</code> values.</p>
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+          <thead><tr><th>Token</th><th>Value</th><th>Layer</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-z-base</code></td><td>0</td><td>Default flow</td></tr>
+            <tr><td><code>--caat-z-sticky</code></td><td>1020</td><td>Sticky header (= Bootstrap)</td></tr>
+            <tr><td><code>--caat-z-drawer</code></td><td>1045</td><td>Off-canvas / drawer</td></tr>
+            <tr><td><code>--caat-z-backdrop</code></td><td>1050</td><td>Overlay backdrop</td></tr>
+            <tr><td><code>--caat-z-modal</code></td><td>1055</td><td>Dialog</td></tr>
+            <tr><td><code>--caat-z-popover</code></td><td>1070</td><td>Popover / tooltip</td></tr>
+            <tr><td><code>--caat-z-toast</code></td><td>1090</td><td>Toast / snackbar</td></tr>
+            <tr><td><code>--caat-z-skiplink</code></td><td>1100</td><td>Skip link — always on top</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -787,60 +995,8 @@
       <p>All tokens are defined in a single file that every component and template imports:</p>
 <pre class="bg-light p-3 rounded"><code>/assets/css/tokens.css</code></pre>
 
-      <h3 class="h5 mt-4">Full Source</h3>
-<pre class="bg-light p-3 rounded"><code>:root {
-  /* ── Colour tokens ── */
-  --caat-blue:       #0f6791;
-  --caat-blue-900:   #003750;
-  --caat-blue-700:   #0b5a80;
-  --caat-blue-500:   #2f95d2;
-  --caat-blue-300:   #9dd2ed;
-  --caat-blue-100:   #e7f4fb;
-
-  --caat-green:      #55a546;
-  --caat-green-900:  #204b1f;
-  --caat-green-700:  #367f32;
-  --caat-green-100:  #e8f5e6;
-
-  --caat-lime:       #95e35c;
-  --caat-teal:       #12a7b8;
-
-  --caat-grey:       #eff2f7;
-  --caat-grey-200:   #dfe6ef;
-  --caat-grey-300:   #cbd7e3;
-
-  --caat-ink:        #102637;
-  --caat-muted:      #506273;
-
-  --caat-warning:    #efaa39;
-  --caat-danger:     #b83232;
-  --caat-success:    #2f7d32;
-  --caat-beige:      #f8f5ee;
-
-  /* ── Spacing / radius / shadow ── */
-  --caat-radius:     .75rem;
-  --caat-radius-lg:  1.25rem;
-  --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);
-  --caat-shadow-sm:  0 .25rem .75rem rgba(0,55,80,.08);
-  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);
-
-  /* ── Typography ── */
-  --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
-  --caat-font-secondary: Arial, Helvetica, sans-serif;
-  --caat-letter-spacing-normal: 0;
-  --caat-letter-spacing-tight:  -.015em;
-  --caat-letter-spacing-label:  .06em;
-
-  /* ── Bootstrap overrides ── */
-  --bs-body-font-family: var(--caat-font-primary);
-  --bs-body-color:       var(--caat-ink);
-  --bs-primary:          var(--caat-blue-900);
-  --bs-primary-rgb:      0,55,80;
-  --bs-secondary:        var(--caat-green);
-  --bs-secondary-rgb:    85,165,70;
-  --bs-link-color:       var(--caat-blue-900);
-  --bs-link-hover-color: var(--caat-blue-700);
-}</code></pre>
+      <p class="mt-3">The file is organized in three tiers — <strong>Primitives</strong> (raw values), <strong>Semantic</strong> (intent aliases that components consume), and <strong>Bootstrap</strong> overrides. Rather than duplicate it here (which drifts out of date), view the canonical source directly:</p>
+      <p><a class="btn btn-outline-primary btn-sm" href="/assets/css/tokens.css"><i class="bi bi-filetype-css me-1"></i> Open tokens.css</a></p>
     </section>
 
   </main>

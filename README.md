@@ -139,6 +139,16 @@ No environment variables are required — `PORT` is supplied by Railway.
 
 ---
 
+## 📐 Design System Direction
+
+See **[`docs/design-system-recommendations.md`](docs/design-system-recommendations.md)** for a
+comprehensive gap analysis and prioritized recommendations — token architecture,
+missing foundations (type/spacing/motion/z-index scales), cross-cutting decisions
+(eyebrows, interaction states, bilingual EN/FR, accessibility), missing components,
+and a phased roadmap grounded in AODA/WCAG 2.2 and current design-system practice.
+
+---
+
 ## 📋 Roadmap
 
 - [ ] Extract CSS tokens to `src/tokens.css`

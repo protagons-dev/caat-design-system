@@ -21,13 +21,16 @@
 .caat-feature-hero__body {
   max-width: 36rem;
 }
+/* DEPRECATED: prefer the canonical .caat-eyebrow (caat-base.css).
+   Token-driven alias — note the light-bg colour unifies to the canonical
+   blue (was green-700). */
 .caat-feature-hero__eyebrow {
-  font-size: .75rem;
-  font-weight: 700;
+  font-size: var(--caat-text-eyebrow-size);
+  font-weight: var(--caat-text-eyebrow-weight);
   text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--caat-green-700);
-  margin-bottom: .5rem;
+  letter-spacing: var(--caat-text-eyebrow-tracking);
+  color: var(--caat-color-eyebrow);
+  margin-bottom: var(--caat-space-2);
 }
 .caat-feature-hero__title {
   font-family: var(--caat-font-primary);
@@ -106,7 +109,7 @@
 }
 .caat-feature-hero--dark .caat-feature-hero__title { color: #fff; }
 .caat-feature-hero--dark .caat-feature-hero__subtitle { color: rgba(255,255,255,.75); }
-.caat-feature-hero--dark .caat-feature-hero__eyebrow { color: var(--caat-lime); }
+.caat-feature-hero--dark .caat-feature-hero__eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
 
 /* ── Variant: fullbleed (full-width bg image with card overlay) ── */
 .caat-feature-hero--fullbleed {
@@ -162,7 +165,7 @@
   color: rgba(255,255,255,.88);
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__eyebrow {
-  color: rgba(255,255,255,.7);
+  color: var(--caat-color-eyebrow-on-dark-hero);
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__accent-rule {
   width: 12rem;

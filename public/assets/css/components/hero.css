@@ -61,7 +61,7 @@
 .caat-hero-card h2,
 .caat-hero-card h3 { font-weight: 800; letter-spacing: -.03em; color: #fff; }
 .caat-hero-card p { color: rgba(255,255,255,.88); }
-.caat-hero-card .eyebrow { color: rgba(255,255,255,.7); }
+.caat-hero-card .eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
 .caat-hero-card .btn { border-color: #fff; color: #fff; }
 .caat-hero-card .btn:hover,
 .caat-hero-card .btn:focus { background: #fff; color: var(--caat-blue-900); }

@@ -322,9 +322,9 @@
           <thead><tr><th>Token</th><th>Role</th><th>Value (light)</th></tr></thead>
           <tbody>
             <tr><td><code>--caat-blue-900</code></td><td>Heading colour</td><td>#002B5C</td></tr>
-            <tr><td><code>--caat-blue-700</code></td><td>Eyebrow colour, link colour</td><td>#00407A</td></tr>
+            <tr><td><code>--caat-color-eyebrow</code> → <code>--caat-blue-700</code></td><td>Eyebrow colour (canonical token)</td><td>#0b5a80</td></tr>
             <tr><td><code>--caat-blue-100</code></td><td>Section border accent</td><td>#E0EBF5</td></tr>
-            <tr><td><code>--caat-green</code></td><td>Alternate eyebrow colour</td><td>#2E8540</td></tr>
+            <tr><td><code>--caat-color-eyebrow-on-dark</code> → <code>--caat-blue-300</code></td><td>Eyebrow colour on dark / imagery</td><td>#9dd2ed</td></tr>
             <tr><td><code>--caat-grey-200</code></td><td>Divider / subtle backgrounds</td><td>#E9ECEF</td></tr>
             <tr><td><code>--caat-focus</code></td><td>Focus ring on links</td><td>#4D90FE</td></tr>
             <tr><td><code>--caat-ink</code></td><td>Body text colour</td><td>#212529</td></tr>
@@ -444,7 +444,7 @@
             <tr><td><code>.caat-title</code></td><td>Base heading. Blue-900, weight 800, tight letter-spacing.</td></tr>
             <tr><td><code>.caat-title--display</code></td><td>Extra-large display heading. 3.5 rem, weight 900, tighter spacing.</td></tr>
             <tr><td><code>.caat-title--section</code></td><td>Section heading with bottom border accent.</td></tr>
-            <tr><td><code>.caat-title__eyebrow</code></td><td>Small uppercase label above the heading. Blue-700, weight 700.</td></tr>
+            <tr><td><code>.caat-title__eyebrow</code></td><td>Small uppercase label above the heading (.75rem / 700 / .08em). Component-scoped alias of the canonical <code>.caat-eyebrow</code> — both share the <code>--caat-text-eyebrow-*</code> tokens. Use <code>.caat-eyebrow--on-dark</code> over dark backgrounds.</td></tr>
             <tr><td><code>.caat-title__subtitle</code></td><td>Supporting text below heading. Larger size, muted opacity.</td></tr>
             <tr><td><code>.caat-text</code></td><td>Base body text. Ink colour, line-height 1.6.</td></tr>
             <tr><td><code>.caat-text--lead</code></td><td>Lead paragraph. 1.25 rem font-size.</td></tr>

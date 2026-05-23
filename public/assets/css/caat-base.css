@@ -6,6 +6,18 @@
 
 html { scroll-padding-top: 5rem; }
 
+/* ── Reduced motion ────────────────────────────────────────────
+   Honour the user's OS-level "reduce motion" preference globally.
+   WCAG 2.2 expectation; near-zero cost. Components inherit this. */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   font-family: var(--caat-font-primary);
   font-size: 1rem;
@@ -51,18 +63,34 @@ a:hover { color: var(--caat-blue-700); }
 /* ── Focus ring ────────────────────────────────────────────── */
 .btn:focus, .btn.focus-demo { box-shadow: var(--caat-focus) !important; outline: 0; }
 .form-control:focus, .form-select:focus, .form-check-input:focus {
-  border-color: var(--caat-blue-500); box-shadow: var(--caat-focus);
+  border-color: var(--caat-color-focus-edge); box-shadow: var(--caat-color-focus-ring);
 }
 
-/* ── Eyebrow ───────────────────────────────────────────────── */
+/* ── Eyebrow ───────────────────────────────────────────────────
+   CANONICAL eyebrow / overline pattern. One token-driven definition
+   (semantic --caat-text-eyebrow-* / --caat-color-eyebrow). Use the
+   --on-dark modifier over imagery / dark brand bands.
+
+   An eyebrow is a LABEL, not a heading — keep it as a <p>/<span> next
+   to the heading; never emit a phantom <h*> (it would pollute the
+   document outline). See design-system-recommendations.md §B1.
+
+   `.caat-eyebrow` is the canonical class. `.eyebrow` (generic/doc-site)
+   and the legacy component variants below all consume the same tokens
+   so they can no longer drift. */
+.caat-eyebrow,
 .eyebrow {
-  color: var(--caat-blue-700);
+  display: block;
+  color: var(--caat-color-eyebrow);
   text-transform: uppercase;
-  letter-spacing: var(--caat-letter-spacing-label) !important;
-  font-weight: 800;
-  font-size: .78rem;
-  margin-bottom: .5rem;
+  letter-spacing: var(--caat-text-eyebrow-tracking) !important;
+  font-weight: var(--caat-text-eyebrow-weight);
+  font-size: var(--caat-text-eyebrow-size);
+  line-height: var(--caat-leading-snug);
+  margin-bottom: var(--caat-space-2);
 }
+.caat-eyebrow--on-dark,
+.eyebrow--on-dark { color: var(--caat-color-eyebrow-on-dark); }
 
 /* ── Component documentation page layout ───────────────────── */
 .component-page-layout {

@@ -1,11 +1,27 @@
 /* ============================================================
    CAAT Design System — Design Tokens
-   Extracted from the single-file design system for use across
-   individual component pages and AEM client libraries.
+   ------------------------------------------------------------
+   Organized in tiers (see docs/design-system-recommendations.md §A):
+
+     TIER 1 — PRIMITIVES   Raw values. Namespaced --caat-*. The only
+                           place literal colours / sizes are declared.
+     TIER 2 — SEMANTIC     Intent-based aliases (--caat-color-text-*,
+                           --caat-font-*, etc.). Components SHOULD consume
+                           these, not primitives, so global changes and
+                           rebrands happen in one place.
+     TIER 3 — BOOTSTRAP    Maps our semantic tokens onto Bootstrap's vars.
+
+   Theme: light only (no dark scaffold by decision). The semantic tier is
+   still used so a future theme or rebrand only re-points Tier 2.
    ============================================================ */
 
 :root {
-  /* ── Colour tokens ──────────────────────────────────────── */
+
+  /* ══════════════════════════════════════════════════════════
+     TIER 1 — PRIMITIVES
+     ══════════════════════════════════════════════════════════ */
+
+  /* ── Colour ──────────────────────────────────────────────── */
   --caat-blue:       #0f6791;
   --caat-blue-900:   #003750;
   --caat-blue-700:   #0b5a80;
@@ -30,6 +46,7 @@
 
   --caat-ink:        #102637;
   --caat-muted:      #506273;
+  --caat-white:      #fff;
 
   --caat-warning:    #efaa39;
   --caat-warning-dark: #d4a017;
@@ -60,27 +77,199 @@
   /* Neutral */
   --caat-disabled:   #8a99a8;
 
-  /* ── Spacing / radius / shadow ──────────────────────────── */
-  --caat-radius:     .75rem;
-  --caat-radius-lg:  1.25rem;
-  --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);
-  --caat-shadow-sm:  0 .25rem .75rem rgba(0,55,80,.08);
-  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);
-
-  /* ── Typography ─────────────────────────────────────────── */
+  /* ── Typography primitives ───────────────────────────────── */
   --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
   --caat-font-secondary: Arial, Helvetica, sans-serif;
+  --caat-font-mono:      ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Font-size scale (rem). Paired line-heights below.
+     Values formalize the EXISTING .caat-title scale (display 3.5 / h1 2.5 /
+     h2 2 / h3 1.75 / h4 1.5 / h5 1.25 / h6 1) plus lead/body/small. Ad-hoc
+     sizes scattered in components (.72/.78/.82/.84/.92rem) should migrate
+     to the nearest step. */
+  --caat-font-size-2xs: .75rem;    /* 12px — eyebrow, caption, badge   */
+  --caat-font-size-xs:  .875rem;   /* 14px — small / meta              */
+  --caat-font-size-sm:  .9375rem;  /* 15px — secondary UI labels       */
+  --caat-font-size-md:  1rem;      /* 16px — body (base) · h6          */
+  --caat-font-size-lg:  1.25rem;   /* 20px — lead · h5                 */
+  --caat-font-size-xl:  1.5rem;    /* 24px — h4                        */
+  --caat-font-size-2xl: 1.75rem;   /* 28px — h3                        */
+  --caat-font-size-3xl: 2rem;      /* 32px — h2                        */
+  --caat-font-size-4xl: 2.5rem;    /* 40px — h1                        */
+  --caat-font-size-5xl: 3.5rem;    /* 56px — display                   */
+
+  /* Line-heights (unitless) — match the documented scale */
+  --caat-leading-tight:   1.1;   /* display                  */
+  --caat-leading-heading: 1.2;   /* standard headings        */
+  --caat-leading-snug:    1.4;   /* short UI text            */
+  --caat-leading-normal:  1.6;   /* body copy                */
+
+  /* Font weights — system already uses 400/600/700/800/900 informally */
+  --caat-weight-regular:   400;
+  --caat-weight-medium:    500;
+  --caat-weight-semibold:  600;
+  --caat-weight-bold:      700;
+  --caat-weight-extrabold: 800;
+  --caat-weight-black:     900;
+
+  /* Letter-spacing */
   --caat-letter-spacing-normal: 0;
   --caat-letter-spacing-tight:  -.015em;
   --caat-letter-spacing-label:  .06em;
+  --caat-letter-spacing-wide:   .08em;   /* eyebrows / overlines */
 
-  /* ── Bootstrap overrides ────────────────────────────────── */
-  --bs-body-font-family: var(--caat-font-primary);
-  --bs-body-color:       var(--caat-ink);
-  --bs-primary:          var(--caat-blue-900);
+  /* ── Spacing scale (4px base) ────────────────────────────── */
+  --caat-space-0:  0;
+  --caat-space-1:  .25rem;   /*  4px */
+  --caat-space-2:  .5rem;    /*  8px */
+  --caat-space-3:  .75rem;   /* 12px */
+  --caat-space-4:  1rem;     /* 16px */
+  --caat-space-5:  1.5rem;   /* 24px */
+  --caat-space-6:  2rem;     /* 32px */
+  --caat-space-7:  3rem;     /* 48px */
+  --caat-space-8:  4rem;     /* 64px */
+  --caat-space-9:  6rem;     /* 96px */
+
+  /* ── Radius scale ────────────────────────────────────────── */
+  --caat-radius-sm:  .375rem;
+  --caat-radius:     .75rem;    /* default (kept) */
+  --caat-radius-lg:  1.25rem;   /* (kept)         */
+  --caat-radius-pill: 999px;
+
+  /* ── Border widths ───────────────────────────────────────── */
+  --caat-border-1: 1px;
+  --caat-border-2: 2px;
+  --caat-border-4: 4px;
+
+  /* ── Elevation / shadow scale ────────────────────────────── */
+  --caat-shadow-sm:  0 .25rem .75rem rgba(0,55,80,.08);   /* raised card  (kept) */
+  --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);  /* default      (kept) */
+  --caat-shadow-md:  0 1rem 2.5rem rgba(0,55,80,.14);     /* dropdown / popover  */
+  --caat-shadow-lg:  0 1.5rem 3.5rem rgba(0,55,80,.20);   /* modal / dialog      */
+  --caat-focus:      0 0 0 .25rem rgba(47,149,210,.35);   /* focus ring   (kept) */
+
+  /* ── Z-index scale (coexists with Bootstrap's 1000–1090) ─── */
+  --caat-z-base:     0;
+  --caat-z-sticky:   1020;   /* sticky header (= Bootstrap)   */
+  --caat-z-drawer:   1045;   /* doc-site / off-canvas drawer  */
+  --caat-z-backdrop: 1050;   /* overlay backdrop              */
+  --caat-z-modal:    1055;   /* dialog                        */
+  --caat-z-popover:  1070;   /* popover / tooltip             */
+  --caat-z-toast:    1090;   /* toast / snackbar              */
+  --caat-z-skiplink: 1100;   /* skip link — always on top     */
+
+  /* ── Motion ──────────────────────────────────────────────── */
+  --caat-duration-fast: 120ms;
+  --caat-duration-base: 200ms;
+  --caat-duration-slow: 320ms;
+  --caat-ease-standard:   cubic-bezier(.2, 0, 0, 1);    /* most transitions */
+  --caat-ease-emphasized: cubic-bezier(.3, 0, 0, 1);    /* enter/expand     */
+  --caat-ease-exit:       cubic-bezier(.4, 0, 1, 1);    /* leave/collapse   */
+
+  /* ── Opacity ─────────────────────────────────────────────── */
+  --caat-opacity-disabled: .5;
+  --caat-opacity-muted:    .7;
+  --caat-opacity-backdrop: .25;
+
+  /* ── Breakpoints (REFERENCE ONLY) ────────────────────────────
+     CSS custom properties cannot be used inside @media queries, so
+     these are documentation of the values we design to. They match
+     Bootstrap 5 — keep using Bootstrap's grid/utility breakpoints:
+       sm 576px · md 768px · lg 992px · xl 1200px · xxl 1400px
+     ──────────────────────────────────────────────────────────── */
+
+
+  /* ══════════════════════════════════════════════════════════
+     TIER 2 — SEMANTIC (intent)
+     Components should reference THESE. Change a brand decision here
+     and it propagates everywhere. (Light theme only.)
+     ══════════════════════════════════════════════════════════ */
+
+  /* ── Text ────────────────────────────────────────────────── */
+  --caat-color-text:           var(--caat-ink);
+  --caat-color-text-muted:     var(--caat-muted);
+  --caat-color-text-inverse:   var(--caat-white);
+  --caat-color-text-link:      var(--caat-blue-900);
+  --caat-color-text-link-hover:var(--caat-blue-700);
+  --caat-color-text-on-brand:  var(--caat-white);
+  --caat-color-text-disabled:  var(--caat-disabled);
+
+  /* ── Surfaces / backgrounds ──────────────────────────────── */
+  --caat-color-bg-page:         var(--caat-white);
+  --caat-color-bg-subtle:       var(--caat-grey);       /* tinted section   */
+  --caat-color-bg-muted:        var(--caat-grey-100);
+  --caat-color-bg-brand:        var(--caat-blue-900);   /* dark brand band  */
+  --caat-color-bg-brand-subtle: var(--caat-blue-100);   /* light brand tint */
+  --caat-color-bg-overlay:      rgba(0,0,0,.25);        /* modal/drawer scrim */
+
+  /* ── Borders / dividers ──────────────────────────────────── */
+  --caat-color-border:         var(--caat-grey-200);
+  --caat-color-border-strong:  var(--caat-grey-300);
+
+  /* ── Actions ─────────────────────────────────────────────── */
+  --caat-color-action-primary:        var(--caat-blue-900);
+  --caat-color-action-primary-hover:  var(--caat-blue-700);
+  --caat-color-action-secondary:      var(--caat-green);
+  --caat-color-action-secondary-hover:var(--caat-green-700);
+
+  /* ── Focus ───────────────────────────────────────────────── */
+  --caat-color-focus-ring: var(--caat-focus);
+  --caat-color-focus-edge: var(--caat-blue-500);
+
+  /* ── Feedback (info / success / warning / danger) ────────── */
+  --caat-color-feedback-info-bg:     var(--caat-alert-info-bg);
+  --caat-color-feedback-info-border: var(--caat-alert-info-border);
+  --caat-color-feedback-success-bg:     var(--caat-success-bg);
+  --caat-color-feedback-success-border: var(--caat-alert-success-border);
+  --caat-color-feedback-success-text:   var(--caat-success-text);
+  --caat-color-feedback-warning-bg:     var(--caat-warning-bg);
+  --caat-color-feedback-warning-border: var(--caat-alert-warning-border);
+  --caat-color-feedback-warning-text:   var(--caat-warning-text);
+  --caat-color-feedback-danger-bg:      var(--caat-danger-bg);
+  --caat-color-feedback-danger-border:  var(--caat-alert-danger-border);
+  --caat-color-feedback-danger-text:    var(--caat-danger-text);
+
+  /* ── Typographic roles ───────────────────────────────────── */
+  --caat-font-body:    var(--caat-font-primary);
+  --caat-font-heading: var(--caat-font-primary);
+
+  /* Body */
+  --caat-text-body-size:   var(--caat-font-size-md);
+  --caat-text-body-leading:var(--caat-leading-normal);
+  --caat-text-lead-size:   var(--caat-font-size-lg);
+
+  /* Headings (size / leading / weight as a set) — map to .caat-title scale */
+  --caat-text-display-size: var(--caat-font-size-5xl);  /* weight 900 */
+  --caat-text-h1-size: var(--caat-font-size-4xl);
+  --caat-text-h2-size: var(--caat-font-size-3xl);
+  --caat-text-h3-size: var(--caat-font-size-2xl);
+  --caat-text-h4-size: var(--caat-font-size-xl);
+  --caat-text-h5-size: var(--caat-font-size-lg);
+  --caat-text-h6-size: var(--caat-font-size-md);
+  --caat-text-heading-leading:  var(--caat-leading-heading);
+  --caat-text-heading-weight:   var(--caat-weight-extrabold);
+  --caat-text-heading-tracking: var(--caat-letter-spacing-tight);
+
+  /* Eyebrow / overline label role — SINGLE SOURCE for the eyebrow pattern.
+     Canonical spec (matches the documented Type-Scale row + both product
+     components): .75rem / 700 / .08em / uppercase. */
+  --caat-text-eyebrow-size:    var(--caat-font-size-2xs);
+  --caat-text-eyebrow-weight:  var(--caat-weight-bold);       /* 700 */
+  --caat-text-eyebrow-tracking:var(--caat-letter-spacing-wide); /* .08em */
+  --caat-color-eyebrow:        var(--caat-blue-700);   /* on light bg */
+  --caat-color-eyebrow-on-dark:var(--caat-blue-300);   /* neutral default on dark/image bg */
+  --caat-color-eyebrow-on-dark-hero: var(--caat-lime); /* deliberate CAAT brand accent — hero eyebrows only */
+
+
+  /* ══════════════════════════════════════════════════════════
+     TIER 3 — BOOTSTRAP OVERRIDES (consume semantic tokens)
+     ══════════════════════════════════════════════════════════ */
+  --bs-body-font-family: var(--caat-font-body);
+  --bs-body-color:       var(--caat-color-text);
+  --bs-primary:          var(--caat-color-action-primary);
   --bs-primary-rgb:      0,55,80;
-  --bs-secondary:        var(--caat-green);
+  --bs-secondary:        var(--caat-color-action-secondary);
   --bs-secondary-rgb:    85,165,70;
-  --bs-link-color:       var(--caat-blue-900);
-  --bs-link-hover-color: var(--caat-blue-700);
+  --bs-link-color:       var(--caat-color-text-link);
+  --bs-link-hover-color: var(--caat-color-text-link-hover);
 }
