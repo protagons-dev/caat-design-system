@@ -95,7 +95,7 @@ a.caat-list-group__item--active {
 
 .caat-list-group__text-secondary {
   font-size: 0.82rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   margin-top: 0.15rem;
 }
 

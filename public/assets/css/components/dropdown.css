@@ -42,7 +42,7 @@
 }
 
 .caat-dropdown .dropdown-item.disabled {
-  color: var(--caat-disabled);
+  color: var(--caat-color-text-disabled);
   pointer-events: none;
 }
 
@@ -59,7 +59,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   padding: 0.5rem 1rem 0.25rem;
 }
 

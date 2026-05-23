@@ -86,7 +86,7 @@
   position: relative;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   counter-increment: step;
 }
 
@@ -98,7 +98,7 @@
   margin: 0 auto 0.4rem;
   border-radius: 50%;
   background: var(--caat-grey-200, #dfe6ef);
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   line-height: 2.25rem;
   font-size: 0.9rem;
   font-weight: 700;
@@ -145,7 +145,7 @@
 /* --- Privacy / Consent --- */
 .caat-form__privacy {
   font-size: 0.82rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   line-height: 1.5;
 }
 

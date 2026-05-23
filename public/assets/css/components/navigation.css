@@ -55,7 +55,7 @@
 
 /* ── Navigation Items (L1) ─────────────────────────────────── */
 .caat-navbar .navbar-nav .nav-link {
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   font-weight: 600;
   font-size: .9rem;
   padding: .6rem 1rem;
@@ -148,7 +148,7 @@
 .caat-navbar .mega-menu .mega-links a {
   display: block;
   padding: .45rem .65rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 500;
   font-size: .88rem;
@@ -165,7 +165,7 @@
   display: block;
   font-size: .76rem;
   font-weight: 400;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   margin-top: .1rem;
 }
 
@@ -198,7 +198,7 @@
 }
 .caat-navbar .mega-promo-text {
   font-size: .82rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   line-height: 1.5;
 }
 .caat-navbar .mega-promo .btn {
@@ -234,7 +234,7 @@
 .caat-navbar .nav-search-wrap .bi-search {
   position: absolute;
   right: .75rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   pointer-events: none;
   font-size: .85rem;
 }
@@ -242,7 +242,7 @@
   display: inline-flex;
   align-items: center;
   gap: .35rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 600;
   font-size: .85rem;
@@ -262,7 +262,7 @@
 
 /* ── Full Footer ───────────────────────────────────────────── */
 .caat-full-footer-demo {
-  background: var(--caat-beige); color: var(--caat-ink);
+  background: var(--caat-beige); color: var(--caat-color-text);
   border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-lg);
   padding: 2.75rem 2rem 1.5rem; box-shadow: var(--caat-shadow-sm);
 }
@@ -272,7 +272,7 @@
 .caat-full-footer-heading {
   display: flex; align-items: center; gap: .45rem;
   font-size: .78rem; text-transform: uppercase; letter-spacing: .06em;
-  font-weight: 900; color: var(--caat-ink); margin-bottom: 1.25rem;
+  font-weight: 900; color: var(--caat-color-text); margin-bottom: 1.25rem;
 }
 .caat-full-footer-heading::before {
   content: ""; width: .7rem; height: .7rem;
@@ -282,7 +282,7 @@
 .caat-full-footer-list {
   list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem;
 }
-.caat-full-footer-list a { font-weight: 500; color: var(--caat-ink); text-decoration: none; }
+.caat-full-footer-list a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
 .caat-full-footer-list a:hover,
 .caat-full-footer-list a:focus {
   text-decoration: underline; text-underline-offset: .25rem; color: var(--caat-blue-900);
@@ -296,7 +296,7 @@
 .caat-footer-legal {
   display: flex; gap: 1.35rem; flex-wrap: wrap; justify-content: center;
 }
-.caat-footer-legal a { font-weight: 500; color: var(--caat-ink); text-decoration: none; }
+.caat-footer-legal a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
 .caat-footer-legal a:hover,
 .caat-footer-legal a:focus { text-decoration: underline; text-underline-offset: .25rem; }
 .caat-footer-social {
@@ -312,7 +312,7 @@
 .caat-footer-social a:focus {
   background: var(--caat-blue-100); box-shadow: var(--caat-focus);
 }
-.caat-footer-copyright { text-align: center; margin-top: 1.65rem; color: var(--caat-ink); }
+.caat-footer-copyright { text-align: center; margin-top: 1.65rem; color: var(--caat-color-text); }
 
 /* ── Legacy Mobile Menu Demo ───────────────────────────────── */
 .caat-mobile-nav-demo {
@@ -345,7 +345,7 @@
 .caat-mobile-links a {
   display: flex; align-items: center; justify-content: space-between;
   padding: .85rem 1rem; background: #fff; border: 1px solid var(--caat-grey-200);
-  border-radius: .75rem; text-decoration: none; color: var(--caat-ink); font-weight: 800;
+  border-radius: .75rem; text-decoration: none; color: var(--caat-color-text); font-weight: 800;
 }
 .caat-mobile-links a:hover,
 .caat-mobile-links a:focus {
@@ -355,7 +355,7 @@
   display: flex; flex-wrap: wrap; gap: .75rem;
   margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--caat-grey-200);
 }
-.caat-mobile-utility a { font-size: .9rem; text-decoration: none; color: var(--caat-ink); }
+.caat-mobile-utility a { font-size: .9rem; text-decoration: none; color: var(--caat-color-text); }
 .caat-mobile-actions { display: grid; gap: .75rem; margin-top: 1rem; }
 .caat-mobile-actions .btn { width: 100%; }
 
@@ -384,7 +384,7 @@
 .caat-navbar .mobile-nav-accordion .accordion-button {
   font-weight: 700;
   font-size: .95rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   padding: .85rem .25rem;
   box-shadow: none !important;
   background: transparent;
@@ -406,7 +406,7 @@
 .caat-navbar .mobile-nav-accordion .mobile-subnav a {
   display: block;
   padding: .5rem .75rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 500;
   font-size: .9rem;
@@ -422,7 +422,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .05em;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   padding: .75rem .75rem .25rem;
 }
 
@@ -435,7 +435,7 @@
 .caat-navbar .mobile-nav-links a {
   display: block;
   padding: .75rem .25rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 700;
   font-size: .95rem;

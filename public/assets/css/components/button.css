@@ -1,7 +1,7 @@
 /* ============================================================
    CAAT Button — Component CSS
    AEM client library: caat/components/button/clientlibs/css
-   Depends on: tokens.css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ============================================================ */
 
 .caat-button {
@@ -13,7 +13,7 @@
   padding: .7rem 1.15rem;
   max-width: 20rem;
   border-radius: var(--caat-radius, .75rem);
-  font-family: var(--caat-font-primary, "Libre Franklin", Arial, sans-serif);
+  font-family: var(--caat-font-body, "Libre Franklin", Arial, sans-serif);
   font-weight: 700;
   line-height: 1.25;
   text-decoration: none;
@@ -24,116 +24,143 @@
 
 /* ── Primary ───────────────────────────────────────────────── */
 .caat-button--primary {
-  background: var(--caat-blue-900);
-  border-color: var(--caat-blue-900);
-  color: #fff;
+  background: var(--caat-color-action-primary);
+  border-color: var(--caat-color-action-primary);
+  color: var(--caat-color-text-inverse);
 }
 .caat-button--primary:hover {
-  background: var(--caat-blue-700);
-  border-color: var(--caat-blue-700);
-  color: #fff;
+  background: var(--caat-color-action-primary-hover);
+  border-color: var(--caat-color-action-primary-hover);
+  color: var(--caat-color-text-inverse);
   transform: translateY(-1px);
 }
 .caat-button--primary:active {
-  background: var(--caat-blue-900);
-  border-color: var(--caat-blue-900);
+  background: var(--caat-color-action-primary-active);
+  border-color: var(--caat-color-action-primary-active);
+  transform: none;
 }
 .caat-button--primary:disabled,
 .caat-button--primary[aria-disabled="true"] {
-  background: var(--caat-grey-200);
-  border-color: var(--caat-grey-200);
-  color: var(--caat-disabled);
+  background: var(--caat-color-state-disabled-bg);
+  border-color: var(--caat-color-state-disabled-bg);
+  color: var(--caat-color-text-disabled);
   pointer-events: none;
 }
 
 /* ── Secondary ───────────────────────────────────────────────
-   AA: white text on plain --caat-green is only 3.06:1 (fail). Resting
-   fill uses green-700 (4.95:1); hover/active go darker still. */
+   --caat-color-action-secondary is AA-safe (resolves to green-700,
+   4.95:1 with white text); hover/active go darker. */
 .caat-button--secondary {
-  background: var(--caat-green-700);
-  border-color: var(--caat-green-700);
-  color: #fff;
+  background: var(--caat-color-action-secondary);
+  border-color: var(--caat-color-action-secondary);
+  color: var(--caat-color-text-inverse);
 }
 .caat-button--secondary:hover {
-  background: var(--caat-green-900);
-  border-color: var(--caat-green-900);
-  color: #fff;
+  background: var(--caat-color-action-secondary-hover);
+  border-color: var(--caat-color-action-secondary-hover);
+  color: var(--caat-color-text-inverse);
   transform: translateY(-1px);
 }
 .caat-button--secondary:active {
-  background: var(--caat-green-900);
-  border-color: var(--caat-green-900);
+  background: var(--caat-color-action-secondary-active);
+  border-color: var(--caat-color-action-secondary-active);
+  transform: none;
 }
 
 /* ── Outline primary ───────────────────────────────────────── */
 .caat-button--outline-primary {
   background: transparent;
-  border-color: var(--caat-blue-900);
-  color: var(--caat-blue-900);
+  border-color: var(--caat-color-action-primary);
+  color: var(--caat-color-action-primary);
 }
 .caat-button--outline-primary:hover,
 .caat-button--outline-primary:active {
-  background: var(--caat-blue-900);
-  border-color: var(--caat-blue-900);
-  color: #fff;
+  background: var(--caat-color-action-primary);
+  border-color: var(--caat-color-action-primary);
+  color: var(--caat-color-text-inverse);
 }
 
 /* ── Outline secondary ─────────────────────────────────────── */
 .caat-button--outline-secondary {
   background: transparent;
-  border-color: var(--caat-green-700);
-  color: var(--caat-green-700);
+  border-color: var(--caat-color-action-secondary);
+  color: var(--caat-color-action-secondary);
 }
 .caat-button--outline-secondary:hover,
 .caat-button--outline-secondary:active {
-  background: var(--caat-green-700);
-  border-color: var(--caat-green-700);
-  color: #fff;
+  background: var(--caat-color-action-secondary);
+  border-color: var(--caat-color-action-secondary);
+  color: var(--caat-color-text-inverse);
 }
 
-/* ── Outline white (for dark backgrounds: hero, blue sections) ── */
+/* ── Outline white (for dark backgrounds: hero, blue sections) ──
+   #fff is intentional here — a white control on a dark surface. */
 .caat-button--outline-white {
   background: transparent;
   border-color: #fff;
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 .caat-button--outline-white:hover,
 .caat-button--outline-white:active {
   background: #fff;
   border-color: #fff;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-action-primary);
 }
 
 /* ── Text link ─────────────────────────────────────────────── */
 .caat-button--link {
   background: transparent;
   border-color: transparent;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-link);
   text-decoration: none;
   padding-left: 0;
   padding-right: 0;
 }
 .caat-button--link:hover {
-  color: var(--caat-blue-700);
+  color: var(--caat-color-text-link-hover);
   text-decoration: underline;
 }
 
 /* ── Focus ─────────────────────────────────────────────────── */
 .caat-button:focus-visible {
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
   outline: 0;
 }
+
+/* ── Loading / busy ────────────────────────────────────────────
+   Set aria-busy="true" (or add .caat-button--loading) while an async
+   action is in flight: a leading spinner appears in the button's own
+   text colour, the width is preserved, and clicks are blocked. The
+   global prefers-reduced-motion rule freezes the spin. See the
+   Interaction States foundation. */
+.caat-button--loading,
+.caat-button[aria-busy="true"] {
+  pointer-events: none;
+  cursor: default;
+}
+.caat-button--loading::before,
+.caat-button[aria-busy="true"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  flex: none;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: caat-button-spin var(--caat-duration-slow) linear infinite;
+}
+@keyframes caat-button-spin { to { transform: rotate(360deg); } }
 
 /* ── Sizes ─────────────────────────────────────────────────── */
 .caat-button--sm {
   padding: .48rem .9rem;
   min-height: 2.25rem;
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
 }
 .caat-button--lg {
   padding: .875rem 1.35rem;
   min-height: 3.25rem;
-  font-size: 1.125rem;
+  font-size: 1.125rem; /* not a type-scale step — left as-is */
 }
 
 /* ── Full width on mobile ──────────────────────────────────── */

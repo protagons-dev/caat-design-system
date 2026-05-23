@@ -62,7 +62,7 @@
 
 .caat-download__meta {
   font-size: 0.8125rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   margin: 0.125rem 0 0;
 }
 
@@ -120,7 +120,7 @@
 
 .caat-download--card .caat-download__description {
   font-size: 0.875rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   margin: 0.25rem 0 0;
 }
 

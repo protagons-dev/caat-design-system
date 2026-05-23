@@ -32,7 +32,7 @@
 }
 
 .caat-breadcrumb .breadcrumb-item.active {
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   font-weight: 400;
 }
 
@@ -42,7 +42,7 @@
 
 /* --- Truncated breadcrumb --- */
 .caat-breadcrumb--truncated .breadcrumb-item--ellipsis {
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   pointer-events: none;
 }
 

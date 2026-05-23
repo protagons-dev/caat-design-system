@@ -41,10 +41,10 @@
   font-weight: var(--caat-weight-bold); font-size: var(--caat-font-size-sm);
   cursor: pointer; line-height: 1.2;
 }
-.demo-control--hover { background: var(--caat-color-action-primary-hover); border-color: var(--caat-color-action-primary-hover); }
-.demo-control--focus { box-shadow: var(--caat-focus); outline: none; }
-.demo-control--active { transform: translateY(1px); filter: brightness(.9); }
-.demo-control--disabled { opacity: var(--caat-opacity-state-disabled); cursor: not-allowed; }
+.demo-control--hover { background: var(--caat-color-action-primary-hover); border-color: var(--caat-color-action-primary-hover); transform: translateY(-1px); }
+.demo-control--focus { box-shadow: var(--caat-color-focus-ring); outline: none; }
+.demo-control--active { background: var(--caat-color-action-primary-active); border-color: var(--caat-color-action-primary-active); }
+.demo-control--disabled { background: var(--caat-color-state-disabled-bg); border-color: var(--caat-color-state-disabled-bg); color: var(--caat-color-text-disabled); cursor: not-allowed; }
 
 .demo-spinner {
   width: 1rem; height: 1rem; border-radius: 50%;
@@ -159,8 +159,8 @@
             <tr><td><strong>Default</strong></td><td>Resting.</td><td>Component base styles.</td><td>—</td></tr>
             <tr><td><strong>Hover</strong></td><td>Pointer over an actionable element.</td><td>Darken action (<code>--caat-color-action-*-hover</code>) or <code>--caat-color-state-hover-bg</code>.</td><td>Pointer only — never the sole affordance.</td></tr>
             <tr><td><strong>Focus-visible</strong></td><td>Keyboard focus.</td><td><code>--caat-focus</code> ring (3:1, light &amp; dark).</td><td><code>:focus-visible</code>. Must be clearly visible.</td></tr>
-            <tr><td><strong>Active / pressed</strong></td><td>Moment of activation.</td><td>Slight depress / darken.</td><td><code>:active</code>; toggle buttons use <code>aria-pressed</code>.</td></tr>
-            <tr><td><strong>Disabled</strong></td><td>Not currently available.</td><td><code>opacity: var(--caat-opacity-disabled)</code>; not focusable.</td><td><code>disabled</code> or <code>aria-disabled="true"</code>. Contrast-exempt.</td></tr>
+            <tr><td><strong>Active / pressed</strong></td><td>Moment of activation.</td><td>Darken to the action's <code>-active</code> shade (e.g. <code>--caat-color-action-primary-active</code>).</td><td><code>:active</code>; toggle buttons use <code>aria-pressed</code>.</td></tr>
+            <tr><td><strong>Disabled</strong></td><td>Not currently available.</td><td>Muted fill (<code>--caat-color-state-disabled-bg</code>) for filled controls, or <code>opacity: var(--caat-opacity-disabled)</code>; not focusable.</td><td><code>disabled</code> or <code>aria-disabled="true"</code>. Contrast-exempt.</td></tr>
             <tr><td><strong>Loading / busy</strong></td><td>Awaiting async result.</td><td>Spinner; keep width to avoid layout shift.</td><td><code>aria-busy="true"</code>; disable re-submit.</td></tr>
             <tr><td><strong>Error / invalid</strong></td><td>Validation failed.</td><td><code>--caat-color-state-invalid</code> border + message + icon.</td><td><code>aria-invalid="true"</code>, <code>aria-describedby</code> → message.</td></tr>
             <tr><td><strong>Selected / current</strong></td><td>Chosen / current location.</td><td><code>--caat-color-state-selected-bg</code> + non-colour cue.</td><td><code>aria-current</code> / <code>aria-selected</code>.</td></tr>

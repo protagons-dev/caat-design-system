@@ -74,6 +74,7 @@ const REQUIRED = [
   ['Eyebrow (blue-700) on blue-100',      C.blue700, C.blue100, 'text'],
   ['Th text (blue-900) on blue-100',      C.blue900, C.blue100, 'text'],
   ['White on blue-900 (primary / dark band)', C.white, C.blue900, 'text'],
+  ['White on blue-950 (primary active)',  C.white, '#00283a', 'text'],
   ['White on blue-700 (primary hover)',   C.white, C.blue700, 'text'],
   ['White on blue (#0f6791)',             C.white, C.blue,   'text'],
   ['White on green-700 (secondary btn — FIXED)', C.white, C.green700, 'text'],

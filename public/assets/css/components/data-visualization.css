@@ -33,7 +33,7 @@
 
 .caat-dataviz__label {
   font-size: .875rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   margin-top: .25rem;
 }
 
@@ -62,7 +62,7 @@
   text-align: left;
   font-size: .875rem;
   font-weight: 600;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
 }
 
 .caat-dataviz__bar-track {
@@ -200,7 +200,7 @@
   padding: 1rem;
   border-radius: .5rem;
   font-size: .875rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   margin-top: 1rem;
 }
 .caat-dataviz__note strong {
@@ -233,7 +233,7 @@
 .caat-dataviz__table-fallback caption {
   caption-side: top;
   font-weight: 700;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   padding-bottom: .5rem;
   font-size: .8rem;
 }

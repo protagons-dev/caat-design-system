@@ -15,6 +15,17 @@
 <link href="/assets/css/components/badge.css" rel="stylesheet">
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<style>
+/* Forced-state previews for the documentation demos only (not part of the
+   component). These mirror the real :hover / :focus-visible / :active /
+   :disabled rules in button.css so the static demos render accurately. */
+.caat-button.is-focus { box-shadow: var(--caat-color-focus-ring); outline: 0; }
+.caat-button--primary.is-hover { background: var(--caat-color-action-primary-hover); border-color: var(--caat-color-action-primary-hover); transform: translateY(-1px); }
+.caat-button--primary.is-active { background: var(--caat-color-action-primary-active); border-color: var(--caat-color-action-primary-active); }
+.caat-button--secondary.is-hover { background: var(--caat-color-action-secondary-hover); border-color: var(--caat-color-action-secondary-hover); transform: translateY(-1px); }
+.caat-button--secondary.is-active { background: var(--caat-color-action-secondary-active); border-color: var(--caat-color-action-secondary-active); }
+.caat-button.is-disabled { background: var(--caat-color-state-disabled-bg); border-color: var(--caat-color-state-disabled-bg); color: var(--caat-color-text-disabled); pointer-events: none; }
+</style>
 </head>
 <body>
 <button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
@@ -176,15 +187,17 @@
 
       <!-- States -->
       <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. Buttons implement default, hover, focus-visible, active, disabled, and loading; error / selected / read-only do not apply.</p>
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-wrap gap-3 align-items-center">
             <a href="#" class="caat-button caat-button--primary">Default</a>
-            <a href="#" class="caat-button caat-button--primary" style="background:var(--caat-blue-700);border-color:var(--caat-blue-700);transform:translateY(-1px);">Hover</a>
-            <a href="#" class="caat-button caat-button--primary" style="box-shadow:var(--caat-focus);">Focus</a>
-            <a href="#" class="caat-button caat-button--primary" style="background:#00283a;border-color:#00283a;">Active</a>
-            <a class="caat-button caat-button--primary" aria-disabled="true" style="background:#dfe6ef;border-color:#dfe6ef;color:#8a99a8;pointer-events:none;">Disabled</a>
+            <a href="#" class="caat-button caat-button--primary is-hover">Hover</a>
+            <a href="#" class="caat-button caat-button--primary is-focus">Focus</a>
+            <a href="#" class="caat-button caat-button--primary is-active">Active</a>
+            <button type="button" class="caat-button caat-button--primary caat-button--loading" aria-busy="true">Saving…</button>
+            <a class="caat-button caat-button--primary is-disabled" aria-disabled="true">Disabled</a>
           </div>
         </div>
       </div>
@@ -271,7 +284,6 @@
       <ol>
         <li>This component does not handle icon-only toggle buttons (use a separate Toggle component)</li>
         <li>It does not render navigation menus or dropdowns</li>
-        <li>It does not include loading / spinner states</li>
         <li>It does not manage client-side routing or SPA behaviour</li>
         <li>It does not replace inline text hyperlinks within body copy</li>
       </ol>

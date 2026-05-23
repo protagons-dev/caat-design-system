@@ -23,7 +23,7 @@
 }
 .caat-logo-wall__subtitle {
   font-size: 1rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   max-width: 38rem;
   margin: 0 auto 1rem;
 }

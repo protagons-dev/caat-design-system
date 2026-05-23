@@ -23,6 +23,7 @@
 
   /* ── Colour ──────────────────────────────────────────────── */
   --caat-blue:       #0f6791;
+  --caat-blue-950:   #00283a;   /* pressed / active (darker than 900) */
   --caat-blue-900:   #003750;
   --caat-blue-700:   #0b5a80;
   --caat-blue-500:   #2f95d2;
@@ -190,6 +191,7 @@
 
   /* ── Text ────────────────────────────────────────────────── */
   --caat-color-text:           var(--caat-ink);
+  --caat-color-text-heading:   var(--caat-blue-900);   /* headings / titles */
   --caat-color-text-muted:     var(--caat-muted);
   --caat-color-text-inverse:   var(--caat-white);
   --caat-color-text-link:      var(--caat-blue-900);
@@ -210,12 +212,16 @@
   --caat-color-border-strong:  var(--caat-grey-300);
   --caat-color-border-interactive: var(--caat-grey-500); /* form-control borders — meets 3:1 */
 
-  /* ── Actions ─────────────────────────────────────────────── */
+  /* ── Actions ──────────────────────────────────────────────────
+     Each action role has resting / hover / active (pressed) shades so
+     the state matrix is fully token-driven and active is distinct. */
   --caat-color-action-primary:        var(--caat-blue-900);
   --caat-color-action-primary-hover:  var(--caat-blue-700);
+  --caat-color-action-primary-active: var(--caat-blue-950);
   /* AA: white text needs green-700 (4.95:1); plain --caat-green is 3.06:1 (fail). */
-  --caat-color-action-secondary:      var(--caat-green-700);
-  --caat-color-action-secondary-hover:var(--caat-green-900);
+  --caat-color-action-secondary:       var(--caat-green-700);
+  --caat-color-action-secondary-hover: var(--caat-green-900);
+  --caat-color-action-secondary-active:var(--caat-green-900);
 
   /* ── Focus ───────────────────────────────────────────────── */
   --caat-color-focus-ring: var(--caat-focus);
@@ -228,7 +234,7 @@
   --caat-color-state-selected-bg:     var(--caat-blue-900);   /* current / selected (strong)   */
   --caat-color-state-selected-text:   var(--caat-color-text-inverse);
   --caat-color-state-selected-subtle: var(--caat-blue-100);   /* selected (subtle / chips)     */
-  --caat-color-state-disabled-bg:     var(--caat-grey-100);
+  --caat-color-state-disabled-bg:     var(--caat-grey-200);   /* disabled control surface */
   --caat-color-state-invalid:         var(--caat-danger);     /* invalid border / icon (AA on white) */
   --caat-opacity-state-disabled:      var(--caat-opacity-disabled);
 

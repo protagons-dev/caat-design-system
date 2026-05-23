@@ -22,6 +22,6 @@
   border-color: var(--caat-grey-200);
 }
 .caat-accordion .accordion-body {
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   line-height: 1.6;
 }

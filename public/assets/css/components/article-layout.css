@@ -30,7 +30,7 @@
   gap: 1rem;
   font-family: var(--caat-font-primary);
   font-size: 0.875rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   margin-bottom: 1.5rem;
   align-items: center;
 }
@@ -44,7 +44,7 @@
   font-family: var(--caat-font-primary);
   font-size: 1rem;
   line-height: 1.75;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   max-width: 720px;
 }
 
@@ -129,7 +129,7 @@
 .caat-article__toc .nav-link {
   font-size: 0.875rem;
   padding: 0.3rem 0.75rem;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   border-left: 3px solid transparent;
   border-radius: 0;
 }
@@ -192,7 +192,7 @@
 
 .caat-article__related-meta {
   font-size: 0.75rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
 }
 
 /* ── Share buttons ───────────────────────────────────────── */

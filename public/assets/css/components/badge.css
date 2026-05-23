@@ -29,12 +29,12 @@
 
 .caat-badge--info {
   background-color: var(--caat-info);
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
 }
 
 .caat-badge--warning {
   background-color: var(--caat-warning);
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
 }
 
 .caat-badge--danger {
@@ -63,7 +63,7 @@
 .caat-badge--outline {
   background: transparent;
   border: 1px solid var(--caat-grey-200);
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
 }
 
 /* --- Soft variants (pastel bg + dark text — for category pills on cards) --- */

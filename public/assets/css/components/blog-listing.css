@@ -100,7 +100,7 @@
   font-family: var(--caat-font-primary);
   font-size: 0.9375rem;
   line-height: 1.55;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   margin: 0 0 1rem;
   flex: 1;
 }
@@ -109,7 +109,7 @@
 .caat-blog-listing__meta {
   font-family: var(--caat-font-primary);
   font-size: 0.8125rem;
-  color: var(--caat-muted);
+  color: var(--caat-color-text-muted);
   display: flex;
   gap: 0.75rem;
   align-items: center;
@@ -135,7 +135,7 @@
   border-radius: 50rem;
   border: 1px solid var(--caat-grey-200);
   background: #fff;
-  color: var(--caat-ink);
+  color: var(--caat-color-text);
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
