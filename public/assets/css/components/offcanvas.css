@@ -1,11 +1,12 @@
 /* ═══════════════════════════════════════════════════════════
    CAAT Design System — Offcanvas Component
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Panel base ─────────────────────────────────────────── */
 .caat-offcanvas {
   font-family: var(--caat-font-primary), sans-serif;
-  background-color: #fff;
+  background-color: var(--caat-color-bg-page);
   border: none;
   box-shadow: var(--caat-shadow);
 }
@@ -24,16 +25,16 @@
 
 /* ── Header ─────────────────────────────────────────────── */
 .caat-offcanvas__header {
-  background-color: #fff;
+  background-color: var(--caat-color-bg-page);
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 
 .caat-offcanvas__title {
   font-family: var(--caat-font-primary), sans-serif;
   font-weight: 800;
   font-size: 1.25rem;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin: 0;
 }
 
@@ -53,11 +54,11 @@
 .caat-offcanvas__close:focus,
 .caat-offcanvas__close:focus-visible {
   outline: none;
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-offcanvas__close:hover {
-  color: var(--caat-blue-700);
+  color: var(--caat-color-text-link-hover);
 }
 
 /* ── Body ───────────────────────────────────────────────── */
@@ -72,17 +73,17 @@
 .caat-offcanvas__body .nav-link {
   color: var(--caat-color-text);
   padding: .5rem 0;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
   font-size: .9375rem;
 }
 
 .caat-offcanvas__body .nav-link:hover {
-  color: var(--caat-blue-700);
+  color: var(--caat-color-text-link-hover);
 }
 
 .caat-offcanvas__body .nav-link:focus-visible {
   outline: none;
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: var(--caat-radius);
 }
 

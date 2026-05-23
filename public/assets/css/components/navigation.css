@@ -6,8 +6,8 @@
 
 /* ── Desktop Navbar Shell ──────────────────────────────────── */
 .caat-navbar {
-  background: #fff;
-  border-bottom: 1px solid var(--caat-grey-200);
+  background: var(--caat-color-bg-page);
+  border-bottom: 1px solid var(--caat-color-border);
   box-shadow: var(--caat-shadow-sm);
   padding: 0;
   font-family: var(--caat-font-primary);
@@ -15,7 +15,7 @@
 
 /* Utility row */
 .caat-navbar .utility-bar {
-  background: var(--caat-blue-900);
+  background: var(--caat-color-bg-brand);
   padding: .4rem 0;
   font-size: .78rem;
 }
@@ -27,7 +27,7 @@
 }
 .caat-navbar .utility-bar a:hover,
 .caat-navbar .utility-bar a:focus {
-  color: #fff;
+  color: var(--caat-color-text-inverse);
   text-decoration: underline;
   text-underline-offset: .2rem;
 }
@@ -65,12 +65,12 @@
 }
 .caat-navbar .navbar-nav .nav-link:hover,
 .caat-navbar .navbar-nav .nav-link:focus {
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   background: var(--caat-blue-50, rgba(0,92,153,.05));
 }
 .caat-navbar .navbar-nav .nav-link.active {
-  color: var(--caat-blue-900);
-  background: var(--caat-blue-100);
+  color: var(--caat-color-text-heading);
+  background: var(--caat-color-bg-brand-subtle);
 }
 
 /* Dropdown caret override */
@@ -104,7 +104,7 @@
   box-shadow: var(--caat-shadow);
   padding: 2rem 0;
   margin-top: 0;
-  background: #fff;
+  background: var(--caat-color-bg-page);
   animation: megaSlideDown .2s ease forwards;
 }
 @keyframes megaSlideDown {
@@ -125,7 +125,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: .07em;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin-bottom: .75rem;
   padding-bottom: .5rem;
   border-bottom: 2px solid var(--caat-lime, #95e35c);
@@ -158,7 +158,7 @@
 .caat-navbar .mega-menu .mega-links a:hover,
 .caat-navbar .mega-menu .mega-links a:focus {
   background: var(--caat-blue-50, rgba(0,92,153,.05));
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   padding-left: 1rem;
 }
 .caat-navbar .mega-menu .mega-links a .mega-link-desc {
@@ -174,7 +174,7 @@
   list-style: none;
   padding: 0 0 0 1rem;
   margin: .15rem 0 .5rem;
-  border-left: 2px solid var(--caat-grey-200);
+  border-left: 2px solid var(--caat-color-border);
 }
 .caat-navbar .mega-menu .mega-links .mega-subnav a {
   font-size: .82rem;
@@ -194,7 +194,7 @@
 .caat-navbar .mega-promo-title {
   font-weight: 800;
   font-size: .92rem;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
 }
 .caat-navbar .mega-promo-text {
   font-size: .82rem;
@@ -214,7 +214,7 @@
 }
 .caat-navbar .nav-search-input {
   width: 11rem;
-  border: 1px solid var(--caat-grey-200);
+  border: 1px solid var(--caat-color-border);
   border-radius: 2rem;
   padding: .45rem 2.2rem .45rem .9rem;
   font-size: .85rem;
@@ -222,9 +222,9 @@
 }
 .caat-navbar .nav-search-input:focus {
   width: 14rem;
-  border-color: var(--caat-blue-900);
+  border-color: var(--caat-color-text-heading);
   outline: 0;
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
 }
 .caat-navbar .nav-search-wrap {
   position: relative;
@@ -251,8 +251,8 @@
   transition: background .15s;
 }
 .caat-navbar .nav-login:hover {
-  background: var(--caat-grey-100);
-  color: var(--caat-blue-900);
+  background: var(--caat-color-bg-muted);
+  color: var(--caat-color-text-heading);
 }
 .caat-navbar .nav-cta {
   white-space: nowrap;
@@ -263,7 +263,7 @@
 /* ── Full Footer ───────────────────────────────────────────── */
 .caat-full-footer-demo {
   background: var(--caat-beige); color: var(--caat-color-text);
-  border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-lg);
+  border: 1px solid var(--caat-color-border); border-radius: var(--caat-radius-lg);
   padding: 2.75rem 2rem 1.5rem; box-shadow: var(--caat-shadow-sm);
 }
 .caat-full-footer-grid {
@@ -285,7 +285,7 @@
 .caat-full-footer-list a { font-weight: 500; color: var(--caat-color-text); text-decoration: none; }
 .caat-full-footer-list a:hover,
 .caat-full-footer-list a:focus {
-  text-decoration: underline; text-underline-offset: .25rem; color: var(--caat-blue-900);
+  text-decoration: underline; text-underline-offset: .25rem; color: var(--caat-color-text-heading);
 }
 .caat-full-footer-bottom {
   display: grid; grid-template-columns: minmax(10rem, 1fr) auto minmax(10rem, 1fr);
@@ -310,23 +310,23 @@
 .caat-footer-social a:last-child { color: #ff0000; /* YouTube brand */ }
 .caat-footer-social a:hover,
 .caat-footer-social a:focus {
-  background: var(--caat-blue-100); box-shadow: var(--caat-focus);
+  background: var(--caat-color-bg-brand-subtle); box-shadow: var(--caat-color-focus-ring);
 }
 .caat-footer-copyright { text-align: center; margin-top: 1.65rem; color: var(--caat-color-text); }
 
 /* ── Legacy Mobile Menu Demo ───────────────────────────────── */
 .caat-mobile-nav-demo {
-  border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-lg);
-  background: #fff; box-shadow: var(--caat-shadow-sm); overflow: hidden;
+  border: 1px solid var(--caat-color-border); border-radius: var(--caat-radius-lg);
+  background: var(--caat-color-bg-page); box-shadow: var(--caat-shadow-sm); overflow: hidden;
 }
 .caat-mobile-topbar {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--caat-grey-200);
+  gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--caat-color-border);
 }
 .caat-mobile-topbar img { height: 2.5rem; width: auto; }
 .caat-menu-button {
-  border: 1px solid var(--caat-blue-900); background: #fff;
-  color: var(--caat-blue-900); border-radius: .5rem;
+  border: 1px solid var(--caat-blue-900); background: var(--caat-color-bg-page);
+  color: var(--caat-color-text-heading); border-radius: .5rem;
   padding: .55rem .75rem; font-weight: 800;
   display: inline-flex; gap: .45rem; align-items: center;
 }
@@ -339,21 +339,21 @@
 .caat-mobile-search .form-control { padding-right: 2.75rem; }
 .caat-mobile-search i {
   position: absolute; right: 1rem; top: 50%;
-  transform: translateY(-50%); color: var(--caat-blue-900);
+  transform: translateY(-50%); color: var(--caat-color-text-heading);
 }
 .caat-mobile-links { display: grid; gap: .5rem; }
 .caat-mobile-links a {
   display: flex; align-items: center; justify-content: space-between;
-  padding: .85rem 1rem; background: #fff; border: 1px solid var(--caat-grey-200);
+  padding: .85rem 1rem; background: var(--caat-color-bg-page); border: 1px solid var(--caat-color-border);
   border-radius: .75rem; text-decoration: none; color: var(--caat-color-text); font-weight: 800;
 }
 .caat-mobile-links a:hover,
 .caat-mobile-links a:focus {
-  border-color: var(--caat-blue-300); box-shadow: var(--caat-focus); color: var(--caat-blue-900);
+  border-color: var(--caat-blue-300); box-shadow: var(--caat-color-focus-ring); color: var(--caat-color-text-heading);
 }
 .caat-mobile-utility {
   display: flex; flex-wrap: wrap; gap: .75rem;
-  margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--caat-grey-200);
+  margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--caat-color-border);
 }
 .caat-mobile-utility a { font-size: .9rem; text-decoration: none; color: var(--caat-color-text); }
 .caat-mobile-actions { display: grid; gap: .75rem; margin-top: 1rem; }
@@ -365,7 +365,7 @@
   width: 22rem;
 }
 .caat-navbar .offcanvas-header {
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
   padding: 1rem 1.25rem;
 }
 .caat-navbar .offcanvas-header img {
@@ -379,7 +379,7 @@
 /* Mobile accordion nav (L1 → L4) */
 .caat-navbar .mobile-nav-accordion .accordion-item {
   border: 0;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 .caat-navbar .mobile-nav-accordion .accordion-button {
   font-weight: 700;
@@ -390,7 +390,7 @@
   background: transparent;
 }
 .caat-navbar .mobile-nav-accordion .accordion-button:not(.collapsed) {
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   background: transparent;
 }
 .caat-navbar .mobile-nav-accordion .accordion-body {
@@ -415,7 +415,7 @@
 }
 .caat-navbar .mobile-nav-accordion .mobile-subnav a:hover {
   background: var(--caat-blue-50, rgba(0,92,153,.05));
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
 }
 .caat-navbar .mobile-nav-accordion .mobile-subnav-heading {
   font-size: .72rem;
@@ -439,17 +439,17 @@
   text-decoration: none;
   font-weight: 700;
   font-size: .95rem;
-  border-bottom: 1px solid var(--caat-grey-200);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 .caat-navbar .mobile-nav-links a:hover {
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
 }
 
 /* Mobile CTA area */
 .caat-navbar .mobile-nav-cta {
   padding-top: 1.25rem;
   margin-top: .75rem;
-  border-top: 1px solid var(--caat-grey-200);
+  border-top: 1px solid var(--caat-color-border);
   display: grid;
   gap: .75rem;
 }

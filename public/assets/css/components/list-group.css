@@ -9,7 +9,7 @@
   padding: 0;
   margin: 0;
   border-radius: var(--caat-radius);
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border: 1px solid var(--caat-color-border);
 }
 
 /* --- Base item --- */
@@ -17,9 +17,9 @@
   display: block;
   padding: 0.875rem 1.25rem;
   font-size: 0.95rem;
-  color: var(--caat-ink, #102637);
-  background: #fff;
-  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+  color: var(--caat-color-text);
+  background: var(--caat-color-bg-page);
+  border-bottom: 1px solid var(--caat-color-border);
 }
 
 .caat-list-group__item:first-child {
@@ -36,7 +36,7 @@
 /* --- Actionable items (links/buttons) --- */
 a.caat-list-group__item--action,
 .caat-list-group__item--action a {
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-link);
   text-decoration: none;
   font-weight: 500;
 }
@@ -48,7 +48,7 @@ a.caat-list-group__item--action {
 
 a.caat-list-group__item--action:hover,
 .caat-list-group__item--action:hover {
-  background-color: var(--caat-blue-100, #e7f4fb);
+  background-color: var(--caat-color-state-hover-bg);
   color: var(--caat-blue-900, #003750);
 }
 
@@ -61,13 +61,13 @@ a.caat-list-group__item--action:focus-visible,
 
 /* --- Active item --- */
 .caat-list-group__item--active {
-  background-color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-state-selected-bg);
   border-color: var(--caat-blue-900, #003750);
-  color: #fff;
+  color: var(--caat-color-state-selected-text);
 }
 
 a.caat-list-group__item--active {
-  color: #fff;
+  color: var(--caat-color-state-selected-text);
 }
 
 /* --- Badge inside item (extends .caat-badge--pill) --- */
@@ -80,8 +80,8 @@ a.caat-list-group__item--active {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1;
-  color: #fff;
-  background-color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-inverse);
+  background-color: var(--caat-color-bg-brand);
   border-radius: 50rem;
   white-space: nowrap;
 }

@@ -1,7 +1,7 @@
 /* ==========================================================================
    Form Component – CAAT Design System
    Extends Bootstrap form classes with CAAT brand overrides.
-   Matches the monolith's Account Engagement form patterns.
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ========================================================================== */
 
 /* --- Form wrapper --- */
@@ -17,7 +17,7 @@
 /* --- Bootstrap overrides: labels --- */
 .caat-form .form-label {
   font-weight: 700;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
   font-size: 0.9rem;
 }
 
@@ -36,7 +36,7 @@
 .caat-form .form-control:focus,
 .caat-form .form-select:focus {
   border-color: var(--caat-blue-900, #003750);
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Validation states (Bootstrap native) --- */
@@ -45,13 +45,13 @@
 }
 
 .caat-form .is-invalid {
-  border-color: var(--caat-danger) !important;
+  border-color: var(--caat-color-state-invalid) !important;
 }
 
 /* --- Checkbox / Radio overrides --- */
 .caat-form .form-check-input:checked {
-  background-color: var(--caat-blue-900, #003750);
-  border-color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-action-primary);
+  border-color: var(--caat-color-action-primary);
 }
 
 .caat-form__check {
@@ -64,7 +64,7 @@
 .caat-form__check input[type="checkbox"],
 .caat-form__check input[type="radio"] {
   margin-top: 0.3rem;
-  accent-color: var(--caat-blue-900, #003750);
+  accent-color: var(--caat-color-action-primary);
   width: 1.1rem;
   height: 1.1rem;
   flex-shrink: 0;
@@ -97,7 +97,7 @@
   height: 2.25rem;
   margin: 0 auto 0.4rem;
   border-radius: 50%;
-  background: var(--caat-grey-200, #dfe6ef);
+  background: var(--caat-color-state-disabled-bg);
   color: var(--caat-color-text-muted);
   line-height: 2.25rem;
   font-size: 0.9rem;
@@ -105,18 +105,18 @@
 }
 
 .caat-form__progress li.active {
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
 }
 
 .caat-form__progress li.active::before {
-  background: var(--caat-blue-900, #003750);
-  color: #fff;
+  background: var(--caat-color-state-selected-bg);
+  color: var(--caat-color-state-selected-text);
 }
 
 .caat-form__progress li.completed::before {
   content: '\2713';
-  background: var(--caat-green, #55a546);
-  color: #fff;
+  background: var(--caat-green, #55a546); /* completed = brand green accent */
+  color: var(--caat-color-text-inverse);
 }
 
 /* connector line between steps */
@@ -127,7 +127,7 @@
   left: calc(-50% + 1.125rem);
   right: calc(50% + 1.125rem);
   height: 2px;
-  background: var(--caat-grey-200, #dfe6ef);
+  background: var(--caat-color-state-disabled-bg);
 }
 
 .caat-form__progress li.completed + li::after,
@@ -150,7 +150,7 @@
 }
 
 .caat-form__privacy a {
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-link);
   text-decoration: underline;
 }
 
@@ -181,13 +181,13 @@
 
 .caat-form__thank-you h1 {
   font-weight: 800;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
   margin-bottom: 0.5rem;
 }
 
 /* --- Demo card --- */
 .demo-card {
-  background: #fff;
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  background: var(--caat-color-bg-page);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
 }

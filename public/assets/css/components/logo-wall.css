@@ -18,7 +18,7 @@
   font-family: var(--caat-font-primary);
   font-weight: 900;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   margin-bottom: .5rem;
 }
 .caat-logo-wall__subtitle {
@@ -44,8 +44,8 @@
   justify-content: center;
   padding: 1rem;
   border-radius: var(--caat-radius);
-  background: #fff;
-  border: 1px solid var(--caat-grey-200);
+  background: var(--caat-color-bg-page);
+  border: 1px solid var(--caat-color-border);
   transition: box-shadow .2s ease, transform .2s ease;
   width: 100%;
   min-height: 5rem;
@@ -80,11 +80,11 @@
 
 /* ── Variant: dark background ── */
 .caat-logo-wall--dark {
-  background: var(--caat-blue-900);
+  background: var(--caat-color-bg-brand);
   padding: 2.5rem 0;
   border-radius: var(--caat-radius-lg);
 }
-.caat-logo-wall--dark .caat-logo-wall__title { color: #fff; }
+.caat-logo-wall--dark .caat-logo-wall__title { color: var(--caat-color-text-inverse); }
 .caat-logo-wall--dark .caat-logo-wall__subtitle { color: rgba(255,255,255,.7); }
 .caat-logo-wall--dark .caat-logo-wall__item {
   background: rgba(255,255,255,.08);

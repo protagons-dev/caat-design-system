@@ -1,17 +1,18 @@
 /* ==========================================================================
    Modal Component – CAAT Design System
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ========================================================================== */
 
 /* --- Header --- */
 .caat-modal .modal-header {
-  border-bottom: 2px solid var(--caat-grey-200, #dfe6ef);
+  border-bottom: 2px solid var(--caat-color-border);
   padding: 1.25rem 1.5rem;
 }
 
 .caat-modal .modal-title {
   font-family: var(--caat-font-primary);
   font-weight: 800;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
   font-size: 1.2rem;
 }
 
@@ -26,12 +27,12 @@
   font-family: var(--caat-font-primary);
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
 }
 
 /* --- Footer --- */
 .caat-modal .modal-footer {
-  border-top: 1px solid var(--caat-grey-200, #dfe6ef);
+  border-top: 1px solid var(--caat-color-border);
   padding: 1rem 1.5rem;
   gap: 0.5rem;
 }

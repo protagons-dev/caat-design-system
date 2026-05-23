@@ -8,7 +8,7 @@
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
   border-radius: var(--caat-radius);
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border: 1px solid var(--caat-color-border);
 }
 
 /* --- Base Table --- */
@@ -23,15 +23,15 @@
   caption-side: top;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
   padding: 0.75rem 1rem;
   text-align: left;
 }
 
 /* --- Header --- */
 .caat-table thead th {
-  background: var(--caat-blue-900, #003750);
-  color: #fff;
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
   font-weight: 600;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -44,19 +44,19 @@
 /* --- Body Cells --- */
 .caat-table tbody td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
-  color: var(--caat-ink, #102637);
+  border-bottom: 1px solid var(--caat-color-border);
+  color: var(--caat-color-text);
   vertical-align: top;
 }
 
 /* --- Striped --- */
 .caat-table--striped tbody tr:nth-child(even) {
-  background-color: var(--caat-grey);
+  background-color: var(--caat-color-bg-subtle);
 }
 
 /* --- Hover --- */
 .caat-table--hover tbody tr:hover {
-  background-color: var(--caat-blue-100, #e7f4fb);
+  background-color: var(--caat-color-state-hover-bg);
 }
 
 /* --- Sortable Header Button --- */
@@ -99,7 +99,7 @@
   .caat-table--stacked tbody tr {
     display: block;
     margin-bottom: 1rem;
-    border: 1px solid var(--caat-grey-200, #dfe6ef);
+    border: 1px solid var(--caat-color-border);
     border-radius: var(--caat-radius);
     padding: 0.75rem;
   }
@@ -108,7 +108,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0.4rem 0;
-    border-bottom: 1px solid var(--caat-grey-200);
+    border-bottom: 1px solid var(--caat-color-border);
   }
 
   .caat-table--stacked tbody td:last-child {
@@ -118,7 +118,7 @@
   .caat-table--stacked tbody td::before {
     content: attr(data-label);
     font-weight: 600;
-    color: var(--caat-blue-900, #003750);
+    color: var(--caat-color-text-heading);
     margin-right: 1rem;
   }
 }

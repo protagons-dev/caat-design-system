@@ -29,17 +29,17 @@
   font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.5;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-link);
   text-decoration: none;
-  background-color: #fff;
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  background-color: var(--caat-color-bg-page);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius, .75rem);
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
   cursor: pointer;
 }
 
 .caat-pagination__link:hover {
-  background-color: var(--caat-blue-100, #e7f4fb);
+  background-color: var(--caat-color-state-hover-bg);
   border-color: var(--caat-blue-700, #0b5a80);
   color: var(--caat-blue-900, #003750);
 }
@@ -52,9 +52,9 @@
 
 /* --- Active --- */
 .caat-pagination__item--active .caat-pagination__link {
-  background-color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-state-selected-bg);
   border-color: var(--caat-blue-900, #003750);
-  color: #fff;
+  color: var(--caat-color-state-selected-text);
   font-weight: 700;
   pointer-events: none;
 }
@@ -63,7 +63,7 @@
 .caat-pagination__item--disabled .caat-pagination__link {
   color: var(--caat-grey-200, #dfe6ef);
   background-color: var(--caat-grey);
-  border-color: var(--caat-grey-200, #dfe6ef);
+  border-color: var(--caat-color-border);
   pointer-events: none;
   opacity: 0.65;
 }
@@ -92,14 +92,14 @@
   min-width: 44px;
   min-height: 44px;
   padding: 0.375rem 0.5rem;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
   cursor: default;
 }
 
 /* --- Results text --- */
 .caat-pagination__results {
   font-size: 0.875rem;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
 }
 
 /* --- Wrapper for centering pagination with results --- */

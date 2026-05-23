@@ -18,10 +18,10 @@
 .caat-toast {
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
   border-radius: var(--caat-radius, .75rem);
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border: 1px solid var(--caat-color-border);
   box-shadow: var(--caat-shadow-sm);
-  background-color: #fff;
-  color: var(--caat-ink, #102637);
+  background-color: var(--caat-color-bg-page);
+  color: var(--caat-color-text);
   overflow: hidden;
   animation: caat-toast-slide-in 0.3s ease-out;
 }
@@ -37,8 +37,8 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 0.75rem;
-  background-color: #fff;
-  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+  background-color: var(--caat-color-bg-page);
+  border-bottom: 1px solid var(--caat-color-border);
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -72,7 +72,7 @@
   border: none;
   border-radius: var(--caat-radius, .75rem);
   font-size: 1rem;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
   cursor: pointer;
   opacity: 0.65;
   transition: opacity 0.15s ease-in-out;

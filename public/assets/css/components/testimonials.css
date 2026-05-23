@@ -6,8 +6,8 @@
 .caat-testimonial {
   position: relative;
   padding: 2rem;
-  background: #fff;
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  background: var(--caat-color-bg-page);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
   box-shadow: var(--caat-shadow-sm);
   margin-bottom: 1.5rem;
@@ -18,7 +18,7 @@
   font-size: 1.1rem;
   font-style: italic;
   line-height: 1.7;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
   margin: 0 0 1.25rem;
 }
 
@@ -44,8 +44,8 @@
   font-family: var(--caat-font-primary);
   font-weight: 700;
   font-size: 1rem;
-  color: #fff;
-  background-color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-inverse);
+  background-color: var(--caat-color-bg-brand);
   text-transform: uppercase;
   flex-shrink: 0;
 }
@@ -55,8 +55,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background-color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-inverse);
+  background-color: var(--caat-color-bg-brand);
   font-size: 1.25rem;
   flex-shrink: 0;
 }
@@ -64,7 +64,7 @@
 .caat-testimonial__name {
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-heading);
 }
 
 .caat-testimonial__role {

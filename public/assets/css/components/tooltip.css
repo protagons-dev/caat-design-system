@@ -15,8 +15,8 @@
 }
 
 .tooltip-inner {
-  background-color: var(--caat-blue-900);
-  color: #fff;
+  background-color: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
   border-radius: var(--caat-radius);
   font-family: var(--caat-font-primary), sans-serif;
   font-size: 0.8125rem;
@@ -29,22 +29,22 @@
 /* ── Arrow colours ───────────────────────────────────────── */
 .bs-tooltip-top .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^="top"] .tooltip-arrow::before {
-  border-top-color: var(--caat-blue-900);
+  border-top-color: var(--caat-color-bg-brand);
 }
 
 .bs-tooltip-end .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^="right"] .tooltip-arrow::before {
-  border-right-color: var(--caat-blue-900);
+  border-right-color: var(--caat-color-bg-brand);
 }
 
 .bs-tooltip-bottom .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^="bottom"] .tooltip-arrow::before {
-  border-bottom-color: var(--caat-blue-900);
+  border-bottom-color: var(--caat-color-bg-brand);
 }
 
 .bs-tooltip-start .tooltip-arrow::before,
 .bs-tooltip-auto[data-popper-placement^="left"] .tooltip-arrow::before {
-  border-left-color: var(--caat-blue-900);
+  border-left-color: var(--caat-color-bg-brand);
 }
 
 /* ── Icon trigger ────────────────────────────────────────── */

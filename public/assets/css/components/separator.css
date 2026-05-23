@@ -5,7 +5,7 @@
 /* ── Base ─────────────────────────────────────────────────── */
 .caat-separator {
   border: none;
-  border-top: 1px solid var(--caat-grey-200);
+  border-top: 1px solid var(--caat-color-border);
   margin: 1.5rem 0;
   opacity: 1;
 }
@@ -56,5 +56,5 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--caat-color-text);
-  background: #fff;
+  background: var(--caat-color-bg-page);
 }

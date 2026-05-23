@@ -129,12 +129,12 @@
 /* Completed step: both halves filled blue */
 .caat-progress-stepped__step--completed::before,
 .caat-progress-stepped__step--completed::after {
-  background-color: var(--caat-blue-900);
+  background-color: var(--caat-color-state-selected-bg);
 }
 
 /* Active step: left half filled (connecting from completed) */
 .caat-progress-stepped__step--active::before {
-  background-color: var(--caat-blue-900);
+  background-color: var(--caat-color-state-selected-bg);
 }
 
 /* Circle indicator */
@@ -165,17 +165,17 @@
 
 /* Completed state */
 .caat-progress-stepped__step--completed .caat-progress-stepped__indicator {
-  background-color: var(--caat-blue-900);
-  border-color: var(--caat-blue-900);
-  color: #fff;
+  background-color: var(--caat-color-state-selected-bg);
+  border-color: var(--caat-color-state-selected-bg);
+  color: var(--caat-color-state-selected-text);
 }
 
 /* Active state */
 .caat-progress-stepped__step--active .caat-progress-stepped__indicator {
-  background-color: #fff;
+  background-color: var(--caat-color-bg-page);
   border-color: var(--caat-blue-900);
   color: var(--caat-blue-900);
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-progress-stepped__step--active .caat-progress-stepped__label {

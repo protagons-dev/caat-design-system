@@ -14,14 +14,14 @@
 }
 
 .caat-breadcrumb .breadcrumb-item a {
-  color: var(--caat-blue-900, #003750);
+  color: var(--caat-color-text-link);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.15s ease;
 }
 
 .caat-breadcrumb .breadcrumb-item a:hover {
-  color: var(--caat-blue-700, #0b5a80);
+  color: var(--caat-color-text-link-hover);
   text-decoration: underline;
 }
 

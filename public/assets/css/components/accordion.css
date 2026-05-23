@@ -1,25 +1,25 @@
 /* ============================================================
    CAAT Accordion — Component CSS
    AEM client library: caat/components/accordion/clientlibs/css
-   Depends on: tokens.css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ============================================================ */
 
 .caat-accordion .accordion-button {
   font-weight: 800;
-  color: var(--caat-blue-900);
+  color: var(--caat-color-text-heading);
   font-family: var(--caat-font-primary);
 }
 .caat-accordion .accordion-button:not(.collapsed) {
-  color: var(--caat-blue-900);
-  background: var(--caat-blue-100);
-  box-shadow: inset 0 -1px 0 var(--caat-grey-200);
+  color: var(--caat-color-text-heading);
+  background: var(--caat-color-state-selected-subtle);
+  box-shadow: inset 0 -1px 0 var(--caat-color-border);
 }
 .caat-accordion .accordion-button:focus {
-  box-shadow: var(--caat-focus);
+  box-shadow: var(--caat-color-focus-ring);
   border-color: var(--caat-blue-300);
 }
 .caat-accordion .accordion-item {
-  border-color: var(--caat-grey-200);
+  border-color: var(--caat-color-border);
 }
 .caat-accordion .accordion-body {
   color: var(--caat-color-text);

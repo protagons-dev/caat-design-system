@@ -1,5 +1,6 @@
 /* ==========================================================================
    Dropdown Component – CAAT Design System
+   Depends on: tokens.css (consumes SEMANTIC tokens)
    ========================================================================== */
 
 .caat-dropdown {
@@ -8,7 +9,7 @@
 
 /* --- Menu --- */
 .caat-dropdown .dropdown-menu {
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius);
   box-shadow: var(--caat-shadow);
   padding: 0.5rem 0;
@@ -19,15 +20,15 @@
 /* --- Items --- */
 .caat-dropdown .dropdown-item {
   padding: 0.5rem 1rem;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
   font-weight: 500;
   transition: background-color 0.12s ease, color 0.12s ease;
 }
 
 .caat-dropdown .dropdown-item:hover,
 .caat-dropdown .dropdown-item:focus {
-  background-color: var(--caat-blue-100, #e7f4fb);
-  color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-state-hover-bg);
+  color: var(--caat-color-text-heading);
 }
 
 .caat-dropdown .dropdown-item:focus-visible {
@@ -37,8 +38,8 @@
 
 .caat-dropdown .dropdown-item.active,
 .caat-dropdown .dropdown-item:active {
-  background-color: var(--caat-blue-900, #003750);
-  color: #fff;
+  background-color: var(--caat-color-state-selected-bg);
+  color: var(--caat-color-state-selected-text);
 }
 
 .caat-dropdown .dropdown-item.disabled {
@@ -64,13 +65,13 @@
 }
 
 .caat-dropdown .dropdown-divider {
-  border-top-color: var(--caat-grey-200, #dfe6ef);
+  border-top-color: var(--caat-color-border);
   margin: 0.35rem 0;
 }
 
 /* --- Dark variant --- */
 .caat-dropdown .dropdown-menu-dark {
-  background-color: var(--caat-blue-900, #003750);
+  background-color: var(--caat-color-bg-brand);
   border-color: rgba(255, 255, 255, 0.1);
 }
 

@@ -6,10 +6,10 @@
 .popover.caat-popover {
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
   max-width: 300px;
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
+  border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius, .75rem);
   box-shadow: var(--caat-shadow-sm);
-  background-color: #fff;
+  background-color: var(--caat-color-bg-page);
 }
 
 /* --- Header / Title --- */
@@ -18,9 +18,9 @@
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
   font-weight: 700;
   font-size: 0.875rem;
-  color: var(--caat-blue-900, #003750);
-  background-color: var(--caat-blue-100, #e7f4fb);
-  border-bottom: 1px solid var(--caat-grey-200, #dfe6ef);
+  color: var(--caat-color-text-heading);
+  background-color: var(--caat-color-bg-brand-subtle);
+  border-bottom: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius, .75rem) var(--caat-radius, .75rem) 0 0;
   padding: 0.625rem 0.875rem;
 }
@@ -31,7 +31,7 @@
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
   font-size: 0.8125rem;
   line-height: 1.5;
-  color: var(--caat-ink, #102637);
+  color: var(--caat-color-text);
   padding: 0.75rem 0.875rem;
 }
 
@@ -74,14 +74,14 @@
   height: 1.75rem;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid var(--caat-grey-200, #dfe6ef);
-  background: #fff;
+  border: 1px solid var(--caat-color-border);
+  background: var(--caat-color-bg-page);
   color: var(--caat-blue-700, #0b5a80);
   font-size: 1rem;
   cursor: pointer;
 }
 
 .caat-popover .caat-popover-help:hover {
-  background-color: var(--caat-blue-100, #e7f4fb);
+  background-color: var(--caat-color-state-hover-bg);
   color: var(--caat-blue-900, #003750);
 }
