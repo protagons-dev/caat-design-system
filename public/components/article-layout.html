@@ -93,6 +93,7 @@
     <nav class="nav flex-column">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#composed-of">Composed of</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
       <a class="nav-link" href="#authoring">3. Authoring Fields</a>
       <a class="nav-link" href="#validation">4. Validation</a>
@@ -370,10 +371,33 @@
             <tr><td><strong>Resource type</strong></td><td><code>caat/components/article-layout</code></td></tr>
             <tr><td><strong>Purpose</strong></td><td>Renders long-form pension education content with optional hero image, sidebar table of contents, related articles, and share actions. Designed for readability and member engagement.</td></tr>
             <tr><td><strong>Variants</strong></td><td>Standard · With Sidebar · Minimal</td></tr>
+            <tr><td><strong>Tier</strong></td><td>Composite (organism) — built by composing base components</td></tr>
             <tr><td><strong>Status</strong></td><td>Enhance</td></tr>
           </tbody>
         </table>
       </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════
+         COMPOSED OF (dependency manifest — see recommendations Part F)
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="composed-of">
+      <h2>Composed of</h2>
+      <p>This is a <strong>composite</strong> component. Per the composition rules, it should <em>compose</em> these components rather than reimplement them. Every dependency must have its own component page (the “completeness rule”).</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Constituent</th><th>Role here</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/components/breadcrumb.html">Breadcrumb</a></td><td>Page trail above the title</td><td><span class="status-badge ready">✓ has page · composed</span></td></tr>
+            <tr><td><a href="/foundations/design-tokens.html#typography">Rich Text</a> / Text&nbsp;&amp;&nbsp;Title</td><td>Article body prose, headings</td><td><span class="status-badge ready">✓ has page · composed</span></td></tr>
+            <tr><td>Card ×N</td><td>“Related articles” should be a grid of <a href="/components/card.html">Card</a> teasers</td><td><span class="status-badge rebuild">↻ reimplemented as <code>.caat-article__related</code> — should compose Card</span></td></tr>
+            <tr><td>Social / Share Links</td><td>Share row (LinkedIn, X, email, copy)</td><td><span class="status-badge retire">✗ no page — reimplemented as <code>.caat-article__share-btn</code> (also duplicated in Navigation)</span></td></tr>
+            <tr><td>In-page Nav (Table of Contents)</td><td>Sidebar “On this page” anchor nav</td><td><span class="status-badge retire">✗ no page — reimplemented as <code>.caat-article__toc</code></span></td></tr>
+            <tr><td>Byline / Meta</td><td>Author + date line</td><td><span class="status-badge retire">✗ no page — local <code>.caat-article__meta</code></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-0"><small class="text-muted">Article-layout’s <em>own</em> contract covers only what is genuinely article-specific: the responsive grid, sticky sidebar, hero image, and reading measure. See <code>docs/design-system-recommendations.md</code> §F.</small></p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════

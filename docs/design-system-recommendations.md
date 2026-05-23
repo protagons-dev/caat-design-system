@@ -276,7 +276,7 @@ The component contract is excellent; these gaps are *around* it.
 | D8 | **No versioning / changelog** | Add a changelog + semver discipline; record breaking token/markup changes | P1 |
 | D9 | **No contribution / governance model** | Document how a component is proposed, reviewed, and promoted through the lifecycle (D5); who owns the system | P1 |
 | D10 | **Figma ↔ code parity** unstated | Note the source of truth and how design and tokens stay in sync | P2 |
-| D11 | **Pattern vs component distinction** absent | Add a "Patterns" section (Part C) distinct from components; many items above are compositions | P1 |
+| D11 | **Pattern vs component distinction** absent | Add a "Patterns" section (Part C) distinct from components; many items above are compositions. **Expanded in [Part F](#part-f--component-composition-tiers--dependency-completeness)** — tier taxonomy + dependency audit. | P1 |
 | D12 | **No principles page** | Articulate 4–6 design principles that justify decisions (clarity, trust, plain language, accessibility-first) | P2 |
 
 ---
@@ -302,6 +302,65 @@ A dependency-aware ordering (foundations unlock everything downstream):
 **Phase 3 — Maturity (P2)**
 11. Dark mode build-out (if A4 = yes), elevation scale, density, breakpoint/radius/opacity tokens.
 12. Remaining components (avatar, timeline, pull quote, segmented control…), index categorization (D6), naming normalization (D7), principles page (D12).
+
+---
+
+# Part F — Component composition, tiers & dependency completeness
+
+Triggered by a real finding: `article-layout` reuses the standalone **Breadcrumb** component but **reimplements** social icons, table-of-contents, and related-articles internally — and social icons are also hand-built a *second* time in `navigation` (`.caat-article__share-btn` vs `.caat-footer-social`). Composites that reimplement shared parts instead of composing them cause silent duplication and drift (the eyebrow's three variants and the card "kicker" were the same disease).
+
+### F1. A 3-tier taxonomy — **P1**
+Tag every component with a tier. Components may only depend "downward."
+
+| Tier | Definition | Examples |
+|---|---|---|
+| **Base** (atoms/molecules) | Self-contained; composes nothing (or only tokens) | button, badge, breadcrumb, alert, separator, spinner, progress, tooltip, popover, toast, image-embed, text-title, pagination, tables, tabs, accordion, modal, offcanvas, dropdown, search, list-group, download-item, eyebrow |
+| **Composite** (organisms) | Built by composing base components | card, hero, feature-resource-hero, navigation, blog-listing, testimonials, data-visualization, forms, article-layout |
+| **Pattern / Template** | Full-page compositions | pensions-matter, the article page |
+
+### F2. Two rules for composites
+1. **Compose, don't reimplement.** A composite references base components; it must never hand-rebuild a button, icon, eyebrow, or card internally. (Violations today: §F4.)
+2. **Declare dependencies.** Add a **"Composed of"** block to every composite's contract (and a reciprocal **"Used by"** to bases). Proposed contract addition:
+   ```
+   ## Composed of
+   - [Breadcrumb](/components/breadcrumb.html)
+   - [Rich Text](/components/text-title.html)
+   - [Social / Share Links](/components/social-links.html)
+   - [In-page Nav](/components/in-page-nav.html)
+   - [Card](/components/card.html) ×N (related articles)
+   ```
+
+### F3. The completeness rule — **P1**
+> **A composite may only depend on components that have their own documented page.** No "phantom" sub-components defined solely inside a composite.
+
+Make it enforceable later with a check that every "Composed of" link resolves to an existing page.
+
+### F4. Dependency audit (composites → constituents → page status)
+| Composite | Composed of | Gaps |
+|---|---|---|
+| **card** | badge ✅, button ✅, *kicker* | kicker ⚠ duplicates **eyebrow** → use `.caat-eyebrow` |
+| **hero** | button ✅, eyebrow ✅, *stat-strip* | **Stat/KPI ❌** no page |
+| **feature-resource-hero** | button ✅, eyebrow ✅, image-embed ✅ | — |
+| **navigation** | button ✅, search ✅, dropdown ✅, offcanvas ✅, accordion ✅, *footer-social* | **Social/Share Links ❌** (reimplemented) |
+| **blog-listing** | card ✅, badge ✅, pagination ✅ | — |
+| **testimonials** | card ✅, *avatar*, carousel (Bootstrap) | **Avatar ❌** no page |
+| **data-visualization** | tables ✅, *stat* | **Stat/KPI ❌** no page |
+| **forms** | button ✅, *field/validation*, *stepper* | extract Field + Stepper (see Part C) |
+| **article-layout** | breadcrumb ✅, rich-text ✅, *share*, *toc*, *related*, *meta* | **Social/Share ❌**, **In-page Nav/ToC ❌**, related→**Card** ✅, **Byline/Meta ❌** |
+
+### F5. Phantom sub-components to promote (prioritized)
+| Promote to a component | Reused by | Priority |
+|---|---|---|
+| **Icon Button / Icon Link** (atom) | underlies social, share, close, nav actions | P1 |
+| **Social / Share Links** | article-layout, navigation (currently 2 copies) | P1 |
+| **In-page Nav (Table of Contents)** | article-layout (any long page) | P1 |
+| **Stat / KPI** | hero, data-visualization | P1 |
+| **Avatar** | testimonials, (future) member portal | P2 |
+| **Byline / Meta** | article-layout | P2 |
+
+*Not new components:* **related articles** = a grid of **Card**; the **kicker** = **eyebrow** (consolidate).
+
+> Sequencing: this slots into Phase 2. Do F1–F3 (taxonomy + standard + rule) first, then promote the P1 phantom components (Social/Share, In-page Nav, Stat/KPI, Icon Button) and refactor `article-layout` + `navigation` to consume them — which also removes the social-icon duplication.
 
 ---
 
