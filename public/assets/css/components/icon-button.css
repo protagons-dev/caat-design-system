@@ -45,24 +45,32 @@
   color: var(--caat-color-text-inverse);
 }
 
-/* ── States ────────────────────────────────────────────────── */
-.caat-icon-btn:hover { background: var(--caat-color-state-hover-bg); }
-.caat-icon-btn--outline:hover {
+/* ── States ──────────────────────────────────────────────────
+   .is-hover/.is-active/.is-focus mirror the pseudo-classes so states
+   can be shown statically (Figma export, docs). */
+.caat-icon-btn:hover,
+.caat-icon-btn.is-hover { background: var(--caat-color-state-hover-bg); }
+.caat-icon-btn--outline:hover,
+.caat-icon-btn--outline.is-hover {
   background: var(--caat-color-bg-brand);
   border-color: var(--caat-color-bg-brand);
   color: var(--caat-color-text-inverse);
 }
-.caat-icon-btn--solid:hover {
+.caat-icon-btn--solid:hover,
+.caat-icon-btn--solid.is-hover {
   background: var(--caat-color-action-primary-hover);
   border-color: var(--caat-color-action-primary-hover);
 }
-.caat-icon-btn:focus-visible {
+.caat-icon-btn:focus-visible,
+.caat-icon-btn.is-focus {
   outline: none;
   box-shadow: var(--caat-color-focus-ring);
 }
-.caat-icon-btn:active { transform: translateY(1px); }
+.caat-icon-btn:active,
+.caat-icon-btn.is-active { transform: translateY(1px); }
 .caat-icon-btn:disabled,
-.caat-icon-btn[aria-disabled="true"] {
+.caat-icon-btn[aria-disabled="true"],
+.caat-icon-btn.is-disabled {
   opacity: var(--caat-opacity-disabled);
   pointer-events: none;
 }
@@ -70,7 +78,8 @@
 /* ── Brand-coloured (set --caat-icon-btn-brand per platform; used by
    Social/Share Links). Falls back to the primary action colour. ── */
 .caat-icon-btn--brand { color: var(--caat-icon-btn-brand, var(--caat-color-action-primary)); }
-.caat-icon-btn--brand:hover {
+.caat-icon-btn--brand:hover,
+.caat-icon-btn--brand.is-hover {
   background: var(--caat-icon-btn-brand, var(--caat-color-bg-brand));
   border-color: var(--caat-icon-btn-brand, var(--caat-color-bg-brand));
   color: var(--caat-color-text-inverse);

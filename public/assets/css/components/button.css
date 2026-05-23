@@ -28,19 +28,22 @@
   border-color: var(--caat-color-action-primary);
   color: var(--caat-color-text-inverse);
 }
-.caat-button--primary:hover {
+.caat-button--primary:hover,
+.caat-button--primary.is-hover {
   background: var(--caat-color-action-primary-hover);
   border-color: var(--caat-color-action-primary-hover);
   color: var(--caat-color-text-inverse);
   transform: translateY(-1px);
 }
-.caat-button--primary:active {
+.caat-button--primary:active,
+.caat-button--primary.is-active {
   background: var(--caat-color-action-primary-active);
   border-color: var(--caat-color-action-primary-active);
   transform: none;
 }
 .caat-button--primary:disabled,
-.caat-button--primary[aria-disabled="true"] {
+.caat-button--primary[aria-disabled="true"],
+.caat-button--primary.is-disabled {
   background: var(--caat-color-state-disabled-bg);
   border-color: var(--caat-color-state-disabled-bg);
   color: var(--caat-color-text-disabled);
@@ -55,13 +58,15 @@
   border-color: var(--caat-color-action-secondary);
   color: var(--caat-color-text-inverse);
 }
-.caat-button--secondary:hover {
+.caat-button--secondary:hover,
+.caat-button--secondary.is-hover {
   background: var(--caat-color-action-secondary-hover);
   border-color: var(--caat-color-action-secondary-hover);
   color: var(--caat-color-text-inverse);
   transform: translateY(-1px);
 }
-.caat-button--secondary:active {
+.caat-button--secondary:active,
+.caat-button--secondary.is-active {
   background: var(--caat-color-action-secondary-active);
   border-color: var(--caat-color-action-secondary-active);
   transform: none;
@@ -74,7 +79,9 @@
   color: var(--caat-color-action-primary);
 }
 .caat-button--outline-primary:hover,
-.caat-button--outline-primary:active {
+.caat-button--outline-primary:active,
+.caat-button--outline-primary.is-hover,
+.caat-button--outline-primary.is-active {
   background: var(--caat-color-action-primary);
   border-color: var(--caat-color-action-primary);
   color: var(--caat-color-text-inverse);
@@ -87,7 +94,9 @@
   color: var(--caat-color-action-secondary);
 }
 .caat-button--outline-secondary:hover,
-.caat-button--outline-secondary:active {
+.caat-button--outline-secondary:active,
+.caat-button--outline-secondary.is-hover,
+.caat-button--outline-secondary.is-active {
   background: var(--caat-color-action-secondary);
   border-color: var(--caat-color-action-secondary);
   color: var(--caat-color-text-inverse);
@@ -101,7 +110,9 @@
   color: var(--caat-color-text-inverse);
 }
 .caat-button--outline-white:hover,
-.caat-button--outline-white:active {
+.caat-button--outline-white:active,
+.caat-button--outline-white.is-hover,
+.caat-button--outline-white.is-active {
   background: #fff;
   border-color: #fff;
   color: var(--caat-color-action-primary);
@@ -116,13 +127,17 @@
   padding-left: 0;
   padding-right: 0;
 }
-.caat-button--link:hover {
+.caat-button--link:hover,
+.caat-button--link.is-hover {
   color: var(--caat-color-text-link-hover);
   text-decoration: underline;
 }
 
-/* ── Focus ─────────────────────────────────────────────────── */
-.caat-button:focus-visible {
+/* ── Focus ───────────────────────────────────────────────────
+   .is-focus mirrors :focus-visible so the focus ring can be shown
+   statically (Figma export, docs) where pseudo-classes don't fire. */
+.caat-button:focus-visible,
+.caat-button.is-focus {
   box-shadow: var(--caat-color-focus-ring);
   outline: 0;
 }

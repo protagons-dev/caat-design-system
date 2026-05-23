@@ -15,17 +15,6 @@
 <link href="/assets/css/components/badge.css" rel="stylesheet">
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
-<style>
-/* Forced-state previews for the documentation demos only (not part of the
-   component). These mirror the real :hover / :focus-visible / :active /
-   :disabled rules in button.css so the static demos render accurately. */
-.caat-button.is-focus { box-shadow: var(--caat-color-focus-ring); outline: 0; }
-.caat-button--primary.is-hover { background: var(--caat-color-action-primary-hover); border-color: var(--caat-color-action-primary-hover); transform: translateY(-1px); }
-.caat-button--primary.is-active { background: var(--caat-color-action-primary-active); border-color: var(--caat-color-action-primary-active); }
-.caat-button--secondary.is-hover { background: var(--caat-color-action-secondary-hover); border-color: var(--caat-color-action-secondary-hover); transform: translateY(-1px); }
-.caat-button--secondary.is-active { background: var(--caat-color-action-secondary-active); border-color: var(--caat-color-action-secondary-active); }
-.caat-button.is-disabled { background: var(--caat-color-state-disabled-bg); border-color: var(--caat-color-state-disabled-bg); color: var(--caat-color-text-disabled); pointer-events: none; }
-</style>
 </head>
 <body>
 <button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
@@ -160,14 +149,14 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-wrap gap-3 align-items-center">
-            <a href="#" class="caat-button caat-button--primary">Primary</a>
-            <a href="#" class="caat-button caat-button--secondary">Secondary</a>
-            <a href="#" class="caat-button caat-button--outline-primary">Outline Primary</a>
-            <a href="#" class="caat-button caat-button--outline-secondary">Outline Secondary</a>
+            <a href="#" class="caat-button caat-button--primary" data-figma="Primary" data-figma-group="Variants">Primary</a>
+            <a href="#" class="caat-button caat-button--secondary" data-figma="Secondary" data-figma-group="Variants">Secondary</a>
+            <a href="#" class="caat-button caat-button--outline-primary" data-figma="Outline Primary" data-figma-group="Variants">Outline Primary</a>
+            <a href="#" class="caat-button caat-button--outline-secondary" data-figma="Outline Secondary" data-figma-group="Variants">Outline Secondary</a>
             <span class="d-inline-flex p-3 rounded" style="background:var(--caat-blue-900);">
-              <a href="#" class="caat-button caat-button--outline-white">Outline White</a>
+              <a href="#" class="caat-button caat-button--outline-white" data-figma="Outline White" data-figma-group="Variants" data-figma-dark>Outline White</a>
             </span>
-            <a href="#" class="caat-button caat-button--link">Text Link</a>
+            <a href="#" class="caat-button caat-button--link" data-figma="Text Link" data-figma-group="Variants">Text Link</a>
           </div>
         </div>
       </div>
@@ -178,9 +167,9 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-wrap gap-3 align-items-center">
-            <a href="#" class="caat-button caat-button--primary caat-button--sm">Small</a>
-            <a href="#" class="caat-button caat-button--primary">Default</a>
-            <a href="#" class="caat-button caat-button--primary caat-button--lg">Large</a>
+            <a href="#" class="caat-button caat-button--primary caat-button--sm" data-figma="Small" data-figma-group="Sizes">Small</a>
+            <a href="#" class="caat-button caat-button--primary" data-figma="Default" data-figma-group="Sizes">Default</a>
+            <a href="#" class="caat-button caat-button--primary caat-button--lg" data-figma="Large" data-figma-group="Sizes">Large</a>
           </div>
         </div>
       </div>
@@ -192,12 +181,12 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-wrap gap-3 align-items-center">
-            <a href="#" class="caat-button caat-button--primary">Default</a>
-            <a href="#" class="caat-button caat-button--primary is-hover">Hover</a>
-            <a href="#" class="caat-button caat-button--primary is-focus">Focus</a>
-            <a href="#" class="caat-button caat-button--primary is-active">Active</a>
-            <button type="button" class="caat-button caat-button--primary caat-button--loading" aria-busy="true">Saving…</button>
-            <a class="caat-button caat-button--primary is-disabled" aria-disabled="true">Disabled</a>
+            <a href="#" class="caat-button caat-button--primary" data-figma="Default" data-figma-group="States">Default</a>
+            <a href="#" class="caat-button caat-button--primary is-hover" data-figma="Hover" data-figma-group="States">Hover</a>
+            <a href="#" class="caat-button caat-button--primary is-focus" data-figma="Focus" data-figma-group="States">Focus</a>
+            <a href="#" class="caat-button caat-button--primary is-active" data-figma="Active" data-figma-group="States">Active</a>
+            <button type="button" class="caat-button caat-button--primary caat-button--loading" aria-busy="true" data-figma="Loading" data-figma-group="States">Saving…</button>
+            <a class="caat-button caat-button--primary is-disabled" aria-disabled="true" data-figma="Disabled" data-figma-group="States">Disabled</a>
           </div>
         </div>
       </div>
@@ -208,13 +197,13 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-wrap gap-3 align-items-center">
-            <a href="/report.pdf" download class="caat-button caat-button--primary">
+            <a href="/report.pdf" download class="caat-button caat-button--primary" data-figma="With icon" data-figma-group="Special use cases">
               <i class="bi bi-download caat-button__icon" aria-hidden="true"></i> Download Report
             </a>
-            <a href="https://example.com" target="_blank" rel="noopener" class="caat-button caat-button--outline-primary">
+            <a href="https://example.com" target="_blank" rel="noopener" class="caat-button caat-button--outline-primary" data-figma="External link" data-figma-group="Special use cases">
               External Link <i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"></i>
             </a>
-            <button type="submit" class="caat-button caat-button--secondary">Submit</button>
+            <button type="submit" class="caat-button caat-button--secondary" data-figma="Submit" data-figma-group="Special use cases">Submit</button>
           </div>
         </div>
       </div>
@@ -805,334 +794,6 @@ dialog:
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
 
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Button</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants, states, and sizes</p>
-
-
-<!-- ═══ VARIANTS ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Variants</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Primary</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">Primary</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Secondary</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary">Secondary</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Outline Primary</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary">Outline Primary</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Outline Secondary</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-secondary">Outline Secondary</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Outline White</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white">Outline White</a>
-      </div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Link</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--link">Text Link</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ PRIMARY STATES ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Primary — States</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Hover</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary is-hover">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Active</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary is-active">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Focus</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary is-focus">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Disabled</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary is-disabled" aria-disabled="true">Button Label</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ SECONDARY STATES ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Secondary — States</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Hover</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary is-hover">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Active</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary is-active">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Focus</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary is-focus">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Disabled</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--secondary is-disabled" aria-disabled="true">Button Label</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ OUTLINE PRIMARY STATES ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Outline Primary — States</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Hover</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary is-hover">Button Label</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Focus</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary is-focus">Button Label</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ OUTLINE WHITE STATES ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Outline White — States (on dark background)</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white">Button Label</a>
-      </div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Hover</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white is-hover">Button Label</a>
-      </div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Focus</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white is-focus">Button Label</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ SIZES ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Sizes</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Small</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary caat-button--sm">Small Button</a>
-      <a class="caat-button caat-button--outline-primary caat-button--sm">Small Outline</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">Default Button</a>
-      <a class="caat-button caat-button--outline-primary">Default Outline</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Large</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary caat-button--lg">Large Button</a>
-      <a class="caat-button caat-button--outline-primary caat-button--lg">Large Outline</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ WITH ICONS ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">With Icons</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Icon left</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">
-        <i class="bi bi-download caat-button__icon" aria-hidden="true"></i> Download Report
-      </a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Icon right</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">
-        Talk to us <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">External link</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary">
-        External Link <i class="bi bi-box-arrow-up-right caat-button__icon" aria-hidden="true"></i>
-      </a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">PDF download</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--outline-primary">
-        <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download PDF
-      </a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Submit</span>
-    <div class="figma-row-items">
-      <button type="submit" class="caat-button caat-button--secondary">Submit</button>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">On dark + icon</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white">
-          <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download brochure
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ BUTTON PAIRS ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Common Pairings</h2>
-
-  <div class="figma-row">
-    <span class="figma-row-label">Primary + Outline</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">Join DBplus</a>
-      <a class="caat-button caat-button--outline-primary">Learn more</a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Primary + Link</span>
-    <div class="figma-row-items">
-      <a class="caat-button caat-button--primary">Get started</a>
-      <a class="caat-button caat-button--link">View details <i class="bi bi-arrow-right caat-button__icon"></i></a>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">On dark bg</span>
-    <div class="figma-row-items">
-      <div class="figma-dark-swatch">
-        <a class="caat-button caat-button--outline-white">Talk to us <i class="bi bi-arrow-right caat-button__icon"></i></a>
-        <a class="caat-button caat-button--outline-white is-hover">Hover state</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══ SPECS ═══ -->
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Font</strong>Libre Franklin 700</div>
-    <div class="figma-spec"><strong>Border radius</strong>0.75rem (12px)</div>
-    <div class="figma-spec"><strong>Border</strong>2px solid</div>
-    <div class="figma-spec"><strong>Min height (sm)</strong>2.25rem (36px)</div>
-    <div class="figma-spec"><strong>Min height (default)</strong>2.75rem (44px)</div>
-    <div class="figma-spec"><strong>Min height (lg)</strong>3.25rem (52px)</div>
-    <div class="figma-spec"><strong>Padding (sm)</strong>.48rem .9rem</div>
-    <div class="figma-spec"><strong>Padding (default)</strong>.7rem 1.15rem</div>
-    <div class="figma-spec"><strong>Padding (lg)</strong>.875rem 1.35rem</div>
-    <div class="figma-spec"><strong>Focus ring</strong>0 0 0 4px rgba(47,149,210,.35)</div>
-    <div class="figma-spec"><strong>Hover lift</strong>translateY(-1px)</div>
-    <div class="figma-spec"><strong>Transition</strong>all .18s ease</div>
-  </div>
-
-  <h3 class="figma-colour-heading">Colour values</h3>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Primary bg</strong>#003750 (--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Primary hover</strong>#0b5a80 (--caat-blue-700)</div>
-    <div class="figma-spec"><strong>Secondary bg</strong>#55a546 (--caat-green)</div>
-    <div class="figma-spec"><strong>Secondary hover</strong>#367f32 (--caat-green-700)</div>
-    <div class="figma-spec"><strong>Disabled bg</strong>#dfe6ef (--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Disabled text</strong>#8a99a8 (--caat-disabled)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

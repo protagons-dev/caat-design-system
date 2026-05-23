@@ -8,8 +8,26 @@
  *
  * NO computed-style inlining — that breaks layout, cascade, and specificity.
  *
+ * ── Markup source (two modes) ───────────────────────────────────────────────
+ * PREFERRED — annotate the page's live demo instances; the exporter assembles
+ * the variant/state sheet from them, so the demo IS the single source of truth:
+ *
+ *   <a class="caat-button caat-button--primary"
+ *      data-figma="Default"  data-figma-group="Primary">Button Label</a>
+ *   <a class="caat-button caat-button--primary"
+ *      data-figma="Hover"    data-figma-group="Primary"
+ *      data-figma-state="hover">Button Label</a>            ← exporter adds .is-hover
+ *
+ *   Attributes:
+ *     data-figma="<label>"        Row label; marks this element for export (uses outerHTML).
+ *     data-figma-group="<title>"  Section grouping (default "Component"); order preserved.
+ *     data-figma-state="<name>"   Adds class .is-<name> to the exported clone (hover/active/focus/…).
+ *     data-figma-dark             Render the instance inside a dark swatch (e.g. outline-white).
+ *
+ * FALLBACK — a hand-authored <template id="figma-template"> … markup … </template>
+ * is still honoured when no [data-figma] annotations are present (legacy pages).
+ *
  * Usage on any component page:
- *   <template id="figma-template"> … markup … </template>
  *   <a onclick="downloadFigmaHTML('Button',['/assets/css/tokens.css','/assets/css/components/button.css'])">
  */
 
@@ -201,6 +219,72 @@ function resolveAllVars(css, varMap, depth) {
 }
 
 /* ────────────────────────────────────────────────────────────
+   Spec collector — assemble the Figma sheet from annotated demos
+   ──────────────────────────────────────────────────────────── */
+
+const FIGMA_ATTRS = ['data-figma', 'data-figma-group', 'data-figma-state', 'data-figma-dark'];
+
+/** Remove all data-figma* attributes from a node and its descendants. */
+function stripFigmaAttrs(node) {
+  if (node.nodeType !== 1) return;
+  FIGMA_ATTRS.forEach(a => node.removeAttribute(a));
+  node.querySelectorAll('[data-figma],[data-figma-group],[data-figma-state],[data-figma-dark]')
+      .forEach(el => FIGMA_ATTRS.forEach(a => el.removeAttribute(a)));
+}
+
+/** HTML-escape a string for safe insertion into the generated markup. */
+function escapeHTML(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+/**
+ * Collect [data-figma] annotated instances from the page, in document order,
+ * grouped by data-figma-group. Returns [] when the page uses no annotations
+ * (so the caller can fall back to <template id="figma-template">).
+ */
+function collectFigmaSpecs(root) {
+  const els = Array.from(root.querySelectorAll('[data-figma]'));
+  if (!els.length) return [];
+
+  const groups = [];
+  const byTitle = {};
+  for (const el of els) {
+    const title = el.getAttribute('data-figma-group') || 'Component';
+    if (!byTitle[title]) { byTitle[title] = { title, rows: [] }; groups.push(byTitle[title]); }
+
+    const clone = el.cloneNode(true);
+    const state = el.getAttribute('data-figma-state');
+    if (state) state.split(/\s+/).forEach(s => clone.classList.add('is-' + s));
+    stripFigmaAttrs(clone);
+
+    byTitle[title].rows.push({
+      label: el.getAttribute('data-figma') || '',
+      dark:  el.hasAttribute('data-figma-dark'),
+      html:  clone.outerHTML
+    });
+  }
+  return groups;
+}
+
+/** Build the Figma sheet body markup from collected spec groups. */
+function buildFigmaBody(componentName, groups) {
+  let html = `<h1 class="figma-page-title">${escapeHTML(componentName)}</h1>\n` +
+             `<p class="figma-page-subtitle">CAAT Design System · Variants &amp; states</p>\n`;
+  for (const g of groups) {
+    html += `\n<div class="figma-section">\n  <h2 class="figma-section-title">${escapeHTML(g.title)}</h2>\n`;
+    for (const r of g.rows) {
+      const item = r.dark ? `<div class="figma-dark-swatch">${r.html}</div>` : r.html;
+      html += `  <div class="figma-row">\n` +
+              `    <span class="figma-row-label">${escapeHTML(r.label)}</span>\n` +
+              `    <div class="figma-row-items">${item}</div>\n` +
+              `  </div>\n`;
+    }
+    html += `</div>\n`;
+  }
+  return html;
+}
+
+/* ────────────────────────────────────────────────────────────
    Main export function
    ──────────────────────────────────────────────────────────── */
 
@@ -249,10 +333,21 @@ async function downloadFigmaHTML(componentName, cssFiles) {
     const resolvedComponentSheets = componentSheets.map(s => resolveAllVars(s, varMap));
     const resolvedLayoutCSS       = resolveAllVars(FIGMA_LAYOUT_CSS, varMap);
 
-    // 4. Get template markup and resolve any inline CAAT var() in it
-    const tpl = document.getElementById('figma-template');
-    if (!tpl) throw new Error('Missing <template id="figma-template"> on this page.');
-    const bodyMarkup = resolveAllVars(tpl.innerHTML, varMap);
+    // 4. Get markup. PREFERRED: assemble from [data-figma] annotated demos
+    //    (single source of truth). FALLBACK: a legacy <template id="figma-template">.
+    let rawMarkup;
+    const specGroups = collectFigmaSpecs(document);
+    if (specGroups.length) {
+      rawMarkup = buildFigmaBody(componentName, specGroups);
+    } else {
+      const tpl = document.getElementById('figma-template');
+      if (!tpl) {
+        throw new Error('No [data-figma] annotations and no <template id="figma-template"> on this page.');
+      }
+      rawMarkup = tpl.innerHTML;
+    }
+    // Resolve any inline CAAT var() in the gathered markup
+    const bodyMarkup = resolveAllVars(rawMarkup, varMap);
 
     // 5. Assemble self-contained HTML.
     //    - Bootstrap CSS: embedded RAW (its own var system stays intact)

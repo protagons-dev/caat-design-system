@@ -87,7 +87,7 @@
       <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Byline / Meta</h1>
       <p class="text-muted">A small metadata row — author, date, read-time, category — shown beneath a title.</p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Byline',['/assets/css/tokens.css','/assets/css/components/byline.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Byline',['/assets/css/tokens.css','/assets/css/components/byline.css','/assets/css/components/avatar.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
@@ -96,7 +96,7 @@
       <h3 class="mt-3 mb-2">Default</h3>
       <div class="demo-shell mb-4"><div class="demo-rendered">
         <p class="demo-label">Rendered</p>
-        <p class="caat-byline">
+        <p class="caat-byline" data-figma="Default" data-figma-group="Byline">
           <span><i class="bi bi-person" aria-hidden="true"></i> <span class="caat-byline__author">Jane Smith</span></span>
           <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 22, 2026</span>
           <span><i class="bi bi-clock" aria-hidden="true"></i> 5 min read</span>
@@ -106,7 +106,7 @@
       <h3 class="mb-2">With avatar</h3>
       <div class="demo-shell mb-4"><div class="demo-rendered">
         <p class="demo-label">Rendered</p>
-        <div class="caat-byline">
+        <div class="caat-byline" data-figma="With avatar" data-figma-group="Byline">
           <img class="caat-avatar caat-avatar--sm" src="https://i.pravatar.cc/72?img=12" alt="Jane Smith">
           <span><span class="caat-byline__author">Jane Smith</span> · Senior Pension Advisor</span>
           <span><i class="bi bi-calendar3" aria-hidden="true"></i> May 22, 2026</span>
