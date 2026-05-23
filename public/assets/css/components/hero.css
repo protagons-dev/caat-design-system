@@ -54,8 +54,7 @@
 
 .caat-hero-card .accent-rule {
   width: 12rem; max-width: 70%; height: .35rem;
-  background: var(--caat-green); /* decorative brand accent */
-  margin: 1rem 0 1.25rem;
+  background: var(--caat-green); /* decorative brand accent — spacing via .caat-stack */
 }
 .caat-hero-card h1,
 .caat-hero-card h2,
@@ -86,7 +85,7 @@
   transform: translateY(-2px) !important;
 }
 .caat-hero-slight-overlap .caat-hero-card .accent-rule {
-  height: .25rem; margin: .85rem 0 1rem;
+  height: .25rem;
 }
 
 /* ── Stats strip ──────────────────────────────────────────────
