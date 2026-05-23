@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <ul class="caat-list-group" data-analytics-component="list-group">
+          <ul class="caat-list-group" data-analytics-component="list-group" data-figma="Basic" data-figma-group="Variants">
             <li class="caat-list-group__item">Understanding your DBplus pension</li>
             <li class="caat-list-group__item caat-list-group__item--active" aria-current="true">Contribution rates &amp; schedules</li>
             <li class="caat-list-group__item">Retirement income estimator</li>
@@ -164,7 +164,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-list-group" role="list" data-analytics-component="list-group">
+          <div class="caat-list-group" role="list" data-analytics-component="list-group" data-figma="Actionable" data-figma-group="Variants">
             <a href="#" class="caat-list-group__item caat-list-group__item--action caat-list-group__item--active" aria-current="true" role="listitem">
               View my pension statement
             </a>
@@ -189,7 +189,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <ul class="caat-list-group" data-analytics-component="list-group">
+          <ul class="caat-list-group" data-analytics-component="list-group" data-figma="With badges" data-figma-group="Variants">
             <li class="caat-list-group__item d-flex justify-content-between align-items-center">
               Pension statements
               <span class="caat-list-group__badge">3<span class="visually-hidden"> new statements</span></span>
@@ -215,7 +215,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <ul class="caat-list-group" data-analytics-component="list-group">
+          <ul class="caat-list-group" data-analytics-component="list-group" data-figma="Icons + secondary text" data-figma-group="Variants">
             <li class="caat-list-group__item">
               <div class="d-flex align-items-start">
                 <i class="bi bi-file-earmark-pdf me-3 fs-4 text-danger" aria-hidden="true"></i>
@@ -261,7 +261,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="card" style="max-width:28rem;">
+          <div class="card" style="max-width:28rem;" data-figma="Flush (in card)" data-figma-group="Variants">
             <div class="card-header"><strong>Quick Links</strong></div>
             <ul class="caat-list-group caat-list-group--flush" data-analytics-component="list-group">
               <li class="caat-list-group__item caat-list-group__item--action">
@@ -277,6 +277,21 @@
                 <a href="#">Contact your plan administrator</a>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. Actionable items implement default, hover, focus, and active (current/selected). The static <code>is-*</code> classes mirror the live pseudo-class states.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-list-group" role="list" style="max-width:24rem;">
+            <a href="#" class="caat-list-group__item caat-list-group__item--action" role="listitem" data-figma="Default" data-figma-group="States">Default item</a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action is-hover" role="listitem" data-figma="Hover" data-figma-group="States">Hover item</a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action is-focus" role="listitem" data-figma="Focus" data-figma-group="States">Focus item</a>
+            <a href="#" class="caat-list-group__item caat-list-group__item--action caat-list-group__item--active" aria-current="true" role="listitem" data-figma="Active" data-figma-group="States">Active item</a>
           </div>
         </div>
       </div>
@@ -783,39 +798,6 @@ fields:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">List Group</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Item States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-ink);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-blue-900);background:var(--caat-blue-100);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);min-width:16rem;">List item</div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">With Badge</h2>
-  <div class="figma-row"><span class="figma-row-label">Badge</span><div class="figma-row-items"><div style="padding:.875rem 1.25rem;font-size:.95rem;color:var(--caat-ink);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);min-width:16rem;display:flex;justify-content:space-between;align-items:center;">Documents <span class="caat-list-group__badge">3</span></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Padding</strong>0.875rem 1.25rem</div>
-    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Active bg</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Hover bg</strong>var(--caat-blue-100)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

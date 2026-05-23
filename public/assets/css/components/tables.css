@@ -55,7 +55,8 @@
 }
 
 /* --- Hover --- */
-.caat-table--hover tbody tr:hover {
+.caat-table--hover tbody tr:hover,
+.caat-table--hover tbody tr.is-hover {
   background-color: var(--caat-color-state-hover-bg);
 }
 

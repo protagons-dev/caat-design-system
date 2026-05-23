@@ -150,7 +150,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-dropdown dropdown" data-analytics-component="dropdown">
-            <button class="caat-button caat-button--primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            <button class="caat-button caat-button--primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-figma="Standard" data-figma-group="Variants">
               Account Actions
             </button>
             <ul class="dropdown-menu caat-dropdown__menu">
@@ -168,7 +168,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-dropdown btn-group" data-analytics-component="dropdown">
+          <div class="caat-dropdown btn-group" data-analytics-component="dropdown" data-figma="Split Button" data-figma-group="Variants">
             <button type="button" class="caat-button caat-button--primary">Download Statement</button>
             <button type="button" class="caat-button caat-button--primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
               <span class="visually-hidden">Toggle Dropdown</span>
@@ -188,7 +188,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-dropdown dropdown" data-analytics-component="dropdown">
-            <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            <button class="caat-button caat-button--outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" data-figma="Outline trigger" data-figma-group="Variants">
               Manage Plan
             </button>
             <ul class="dropdown-menu caat-dropdown__menu">
@@ -258,6 +258,54 @@
               <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Settings</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="dropdown-select">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open menus -->
+      <h3 class="mb-2">Open Menu</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">The menu panels shown statically (with <code>.show</code>) so the menu anatomy — headers, items, dividers, disabled — is visible without interaction.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex gap-4 flex-wrap" style="min-height:16rem;">
+            <div class="caat-dropdown">
+              <ul class="dropdown-menu caat-dropdown__menu show position-static d-block" data-figma="Light menu" data-figma-group="Menu">
+                <li><h6 class="dropdown-header">Plan Options</h6></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#"><i class="bi bi-eye me-2"></i>View Details</a></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#"><i class="bi bi-pencil me-2"></i>Edit Contributions</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><h6 class="dropdown-header">Beneficiaries</h6></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#"><i class="bi bi-people me-2"></i>Update Beneficiaries</a></li>
+                <li><a class="dropdown-item caat-dropdown__item disabled" aria-disabled="true"><i class="bi bi-lock me-2"></i>Transfer Out (Locked)</a></li>
+              </ul>
+            </div>
+            <div class="caat-dropdown">
+              <ul class="dropdown-menu dropdown-menu-dark caat-dropdown__menu show position-static d-block" data-figma="Dark menu" data-figma-group="Menu">
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Dashboard</a></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item caat-dropdown__item" href="#">Log Out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. Menu items implement default, hover, focus, active (selected), and disabled. The static <code>is-*</code> classes mirror the live pseudo-class states.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-dropdown">
+            <ul class="dropdown-menu caat-dropdown__menu show position-static d-block" style="max-width:14rem;">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-figma="Default" data-figma-group="States">Menu Item</a></li>
+              <li><a class="dropdown-item caat-dropdown__item is-hover" href="#" data-figma="Hover" data-figma-group="States">Menu Item</a></li>
+              <li><a class="dropdown-item caat-dropdown__item is-focus" href="#" data-figma="Focus" data-figma-group="States">Menu Item</a></li>
+              <li><a class="dropdown-item caat-dropdown__item is-active" href="#" data-figma="Active" data-figma-group="States">Menu Item</a></li>
+              <li><a class="dropdown-item caat-dropdown__item disabled" aria-disabled="true" data-figma="Disabled" data-figma-group="States">Menu Item</a></li>
             </ul>
           </div>
         </div>
@@ -817,52 +865,6 @@ jcr:root:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Dropdown</h1>
-<p class="figma-page-subtitle">CAAT Design System · Menu variants and states</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Menu Items — States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Menu Item</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;background:var(--caat-blue-100);color:var(--caat-blue-900);font-weight:500;border-radius:.25rem;">Menu Item</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;background:var(--caat-blue-900);color:#fff;font-weight:500;border-radius:.25rem;">Menu Item</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Disabled</span><div class="figma-row-items"><div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-disabled);font-weight:500;">Menu Item</div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Menu Anatomy</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Light menu</span>
-    <div class="figma-row-items">
-      <div style="border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);box-shadow:var(--caat-shadow);padding:.5rem 0;min-width:12rem;background:#fff;">
-        <div style="padding:.5rem 1rem .25rem;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--caat-muted);">Section</div>
-        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action one</div>
-        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action two</div>
-        <hr style="border-top:1px solid var(--caat-grey-200);margin:.35rem 0;">
-        <div style="padding:.5rem 1rem;font-size:.9rem;color:var(--caat-ink);font-weight:500;">Action three</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow)</div>
-    <div class="figma-spec"><strong>Item padding</strong>0.5rem 1rem</div>
-    <div class="figma-spec"><strong>Font size</strong>0.9rem</div>
-    <div class="figma-spec"><strong>Min width</strong>12rem</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-dataviz" role="region" aria-label="Key pension statistics: $2.1B assets under management, 85,000+ members, 96% funded ratio, 4.2% average return">
+          <div class="caat-dataviz" data-figma="Stat Cards" data-figma-group="Variants" role="region" aria-label="Key pension statistics: $2.1B assets under management, 85,000+ members, 96% funded ratio, 4.2% average return">
             <div class="caat-dataviz__row">
               <div class="caat-dataviz__card">
                 <div class="caat-dataviz__value">$2.1B</div>
@@ -181,7 +181,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-dataviz" role="img" aria-label="Contribution rates by tier: Member Tier 1 at 7.2%, Member Tier 2 at 9.6%, Employer Tier 1 at 8.4%, Employer Tier 2 at 10.0%, Voluntary Add-on at 3.0%">
+          <div class="caat-dataviz" data-figma="Horizontal Bar Chart" data-figma-group="Variants" role="img" aria-label="Contribution rates by tier: Member Tier 1 at 7.2%, Member Tier 2 at 9.6%, Employer Tier 1 at 8.4%, Employer Tier 2 at 10.0%, Voluntary Add-on at 3.0%">
             <h4 class="caat-dataviz__title">Contribution Rates by Tier</h4>
             <div class="caat-dataviz__bar-chart">
               <div class="caat-dataviz__bar-row">
@@ -235,7 +235,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-dataviz">
+          <div class="caat-dataviz" data-figma="Donut / Ring Chart" data-figma-group="Variants">
             <h4 class="caat-dataviz__title">Portfolio Allocation</h4>
             <div class="caat-dataviz__donut-wrapper">
               <div class="caat-dataviz__donut" style="background:conic-gradient(var(--caat-blue-900) 0% 45%, var(--caat-blue-700) 45% 75%, var(--caat-green) 75% 90%, var(--caat-grey-200) 90% 100%);" role="img" aria-label="Portfolio allocation: Equities 45%, Fixed Income 30%, Real Assets 15%, Cash 10%">
@@ -276,7 +276,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-dataviz">
+          <div class="caat-dataviz" data-figma="Comparison Table" data-figma-group="Variants">
             <h4 class="caat-dataviz__title">Plan Performance vs Benchmark</h4>
             <div class="table-responsive">
               <table class="caat-dataviz__comparison-table">
@@ -727,52 +727,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Data Visualization</h1>
-<p class="figma-page-subtitle">CAAT Design System · Stat cards, charts, and legends</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Stat Card</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <div class="caat-dataviz__card" style="min-width:10rem;"><div class="caat-dataviz__value">$73B</div><div class="caat-dataviz__label">Total Assets</div><div class="caat-dataviz__trend caat-dataviz__trend--up">↑ 8.2%</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Bar Chart</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Horizontal</span>
-    <div class="figma-row-items" style="flex:1;max-width:28rem;">
-      <div class="caat-dataviz__bar-chart" style="width:100%;">
-        <div class="caat-dataviz__bar-row"><span class="caat-dataviz__bar-label">DBplus</span><div class="caat-dataviz__bar-track"><div class="caat-dataviz__bar" style="width:78%;">78%</div></div></div>
-        <div class="caat-dataviz__bar-row"><span class="caat-dataviz__bar-label">DBprime</span><div class="caat-dataviz__bar-track"><div class="caat-dataviz__bar" style="width:45%;">45%</div></div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Stat value</strong>2.5rem, weight 900</div>
-    <div class="figma-spec"><strong>Card padding</strong>1.5rem</div>
-    <div class="figma-spec"><strong>Bar height</strong>2rem</div>
-    <div class="figma-spec"><strong>Bar bg</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Track bg</strong>var(--caat-blue-100)</div>
-    <div class="figma-spec"><strong>Trend up</strong>var(--caat-green-700)</div>
-    <div class="figma-spec"><strong>Trend down</strong>var(--caat-danger-dark)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

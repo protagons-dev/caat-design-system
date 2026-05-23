@@ -112,7 +112,7 @@
         <div class="row g-4">
           <div class="col-md-4">
             <p class="demo-label">Tight — <code>--sm</code> (16px)</p>
-            <div class="caat-stack caat-stack--sm rhythm-demo">
+            <div class="caat-stack caat-stack--sm rhythm-demo" data-figma="Tight (--sm)" data-figma-group="Stack gaps">
               <p class="mb-0">Plan overview</p>
               <p class="mb-0">Contribution rates</p>
               <p class="mb-0">Benefit formula</p>
@@ -120,7 +120,7 @@
           </div>
           <div class="col-md-4">
             <p class="demo-label">Default — <code>--md</code> (24px)</p>
-            <div class="caat-stack caat-stack--md rhythm-demo">
+            <div class="caat-stack caat-stack--md rhythm-demo" data-figma="Default (--md)" data-figma-group="Stack gaps">
               <p class="mb-0">Plan overview</p>
               <p class="mb-0">Contribution rates</p>
               <p class="mb-0">Benefit formula</p>
@@ -128,7 +128,7 @@
           </div>
           <div class="col-md-4">
             <p class="demo-label">Loose — <code>--xl</code> (48px)</p>
-            <div class="caat-stack caat-stack--xl rhythm-demo">
+            <div class="caat-stack caat-stack--xl rhythm-demo" data-figma="Loose (--xl)" data-figma-group="Stack gaps">
               <p class="mb-0">Plan overview</p>
               <p class="mb-0">Contribution rates</p>
               <p class="mb-0">Benefit formula</p>
@@ -162,7 +162,7 @@
       <p class="text-muted mb-3" style="max-width:48rem;">For the rare case you can't control spacing structurally. Prefer Stack or section padding.</p>
       <div class="demo-shell mb-4"><div class="demo-rendered">
         <p class="mb-0">Content above the gap.</p>
-        <div class="caat-spacer--lg gap-marker" aria-hidden="true" style="height:var(--caat-space-7);"></div>
+        <div class="caat-spacer--lg gap-marker" aria-hidden="true" style="height:var(--caat-space-7);" data-figma="Spacer (--lg)" data-figma-group="Stack gaps"></div>
         <p class="mb-0">Content after a <code>--lg</code> (48px) spacer.</p>
       </div></div>
 
@@ -171,7 +171,7 @@
       <p class="text-muted mb-3" style="max-width:48rem;">A single 1px rule, only for a genuine change of topic in prose (HTML <code>&lt;hr&gt;</code>). There is no thick/accent rule — heavy bars fence the page.</p>
       <div class="demo-shell mb-4"><div class="demo-rendered">
         <p>…and that concludes how your pension is calculated.</p>
-        <hr class="caat-separator">
+        <hr class="caat-separator" data-figma="Thematic break" data-figma-group="Reserved dividers">
         <p>On an unrelated note, here's how to update your beneficiary.</p>
       </div></div>
 
@@ -180,7 +180,7 @@
       <p class="text-muted mb-3" style="max-width:48rem;">The one case a visible line genuinely helps: choosing between two alternatives.</p>
       <div class="demo-shell mb-4"><div class="demo-rendered" style="max-width:24rem;">
         <a href="#" class="caat-button caat-button--primary" style="width:100%;">Sign in to your account</a>
-        <div class="caat-separator--with-label"><span class="caat-separator__label">or</span></div>
+        <div class="caat-separator--with-label" data-figma="Or divider" data-figma-group="Reserved dividers"><span class="caat-separator__label">or</span></div>
         <a href="#" class="caat-button caat-button--outline-primary" style="width:100%;">Create an account</a>
       </div></div>
 
@@ -408,26 +408,6 @@
   </main>
 </div>
 </div>
-
-<!-- Figma export template -->
-<template id="figma-template">
-<h1 class="figma-page-title">Spacing &amp; Rhythm</h1>
-<p class="figma-page-subtitle">CAAT Design System · Stack, Spacer &amp; reserved dividers</p>
-<div class="figma-section">
-  <h2 class="figma-section-title">Stack gaps (spacing scale)</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>--sm</strong>16px between items</div>
-    <div class="figma-spec"><strong>--md</strong>24px (default)</div>
-    <div class="figma-spec"><strong>--lg</strong>32px</div>
-    <div class="figma-spec"><strong>--xl</strong>48px between groups</div>
-  </div>
-</div>
-<div class="figma-section">
-  <h2 class="figma-section-title">Reserved dividers</h2>
-  <div class="figma-row"><span class="figma-row-label">Thematic</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><hr class="caat-separator"></div></div>
-  <div class="figma-row"><span class="figma-row-label">Or</span><div class="figma-row-items" style="flex:1;max-width:24rem;"><div class="caat-separator--with-label"><span class="caat-separator__label">or</span></div></div></div>
-</div>
-</template>
 
 <footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
   <div class="container text-white">

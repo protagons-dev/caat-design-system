@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-table__wrapper" data-analytics-component="table">
+          <div class="caat-table__wrapper" data-analytics-component="table" data-figma="Standard (striped + hover)" data-figma-group="Variants">
             <table class="caat-table caat-table--striped caat-table--hover">
               <caption class="caat-table__caption">DBplus Contribution Rates by Year</caption>
               <thead>
@@ -196,7 +196,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-table__wrapper" data-analytics-component="table">
+          <div class="caat-table__wrapper" data-analytics-component="table" data-figma="Responsive (stacked)" data-figma-group="Variants">
             <table class="caat-table caat-table--responsive caat-table--stacked">
               <caption class="caat-table__caption">CAAT Pension Plan Comparison</caption>
               <thead>
@@ -243,7 +243,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-table__wrapper" data-analytics-component="table">
+          <div class="caat-table__wrapper" data-analytics-component="table" data-figma="Sortable" data-figma-group="Variants">
             <table class="caat-table caat-table--hover" aria-labelledby="feeScheduleCaption">
               <caption id="feeScheduleCaption" class="caat-table__caption">Investment Management Fee Schedule</caption>
               <thead>
@@ -300,6 +300,43 @@
                   <td>55</td>
                   <td>10%</td>
                   <td>CDOR + 3%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row states -->
+      <h3 class="mt-3 mb-2">Row states</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-table__wrapper">
+            <table class="caat-table caat-table--hover" data-figma="Row hover" data-figma-group="States">
+              <caption class="caat-table__caption">Row hover state</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Year</th>
+                  <th scope="col">Member Rate</th>
+                  <th scope="col">Employer Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2024</td>
+                  <td>4.0%</td>
+                  <td>4.0%</td>
+                </tr>
+                <tr class="is-hover">
+                  <td>2025</td>
+                  <td>4.2%</td>
+                  <td>4.2%</td>
+                </tr>
+                <tr>
+                  <td>2026</td>
+                  <td>4.4%</td>
+                  <td>4.4%</td>
                 </tr>
               </tbody>
             </table>
@@ -669,43 +706,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Table</h1>
-<p class="figma-page-subtitle">CAAT Design System · Table variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default Table</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Striped</span>
-    <div class="figma-row-items" style="flex:1;max-width:32rem;">
-      <div class="caat-table__wrapper" style="width:100%;">
-        <table class="caat-table caat-table--striped">
-          <thead><tr><th>Plan</th><th>Type</th><th>Members</th></tr></thead>
-          <tbody><tr><td>DBplus</td><td>Defined Benefit</td><td>94,000+</td></tr><tr><td>DBprime</td><td>Defined Benefit</td><td>12,000+</td></tr><tr><td>DC</td><td>Defined Contribution</td><td>5,000+</td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Header bg</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Header text</strong>#fff, 0.85rem, uppercase</div>
-    <div class="figma-spec"><strong>Cell padding</strong>0.75rem 1rem</div>
-    <div class="figma-spec"><strong>Stripe bg</strong>var(--caat-grey)</div>
-    <div class="figma-spec"><strong>Hover bg</strong>var(--caat-blue-100)</div>
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

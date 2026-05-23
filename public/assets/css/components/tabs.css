@@ -24,7 +24,8 @@
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.caat-tabs .nav-tabs .nav-link:hover {
+.caat-tabs .nav-tabs .nav-link:hover,
+.caat-tabs .nav-tabs .nav-link.is-hover {
   color: var(--caat-color-text-heading);
   border-bottom-color: var(--caat-color-bg-brand-subtle);
 }
@@ -35,7 +36,8 @@
   background: transparent;
 }
 
-.caat-tabs .nav-tabs .nav-link:focus-visible {
+.caat-tabs .nav-tabs .nav-link:focus-visible,
+.caat-tabs .nav-tabs .nav-link.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
   border-radius: 4px;
@@ -52,7 +54,8 @@
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.caat-tabs .nav-pills .nav-link:hover {
+.caat-tabs .nav-pills .nav-link:hover,
+.caat-tabs .nav-pills .nav-link.is-hover {
   background-color: var(--caat-color-state-hover-bg);
 }
 
@@ -61,7 +64,8 @@
   color: var(--caat-color-state-selected-text);
 }
 
-.caat-tabs .nav-pills .nav-link:focus-visible {
+.caat-tabs .nav-pills .nav-link:focus-visible,
+.caat-tabs .nav-pills .nav-link.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
 }

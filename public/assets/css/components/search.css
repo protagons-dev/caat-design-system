@@ -20,7 +20,8 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.caat-search__input:focus {
+.caat-search__input:focus,
+.caat-search__input.is-focus {
   border-color: var(--caat-focus);
   box-shadow: var(--caat-color-focus-ring);
   outline: none;
@@ -60,12 +61,14 @@
   transition: color 0.15s ease, background-color 0.15s ease;
 }
 
-.caat-search__clear:hover {
+.caat-search__clear:hover,
+.caat-search__clear.is-hover {
   color: var(--caat-color-text);
   background-color: var(--caat-grey-200);
 }
 
-.caat-search__clear:focus-visible {
+.caat-search__clear:focus-visible,
+.caat-search__clear.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
 }
@@ -105,7 +108,9 @@
 }
 
 .caat-search__suggestion:hover,
-.caat-search__suggestion:focus {
+.caat-search__suggestion:focus,
+.caat-search__suggestion.is-hover,
+.caat-search__suggestion.is-focus {
   background-color: var(--caat-color-state-hover-bg);
 }
 
@@ -148,12 +153,14 @@
   text-decoration: none;
 }
 
-.caat-search-results__title a:hover {
+.caat-search-results__title a:hover,
+.caat-search-results__title a.is-hover {
   text-decoration: underline;
   color: var(--caat-blue-900);
 }
 
-.caat-search-results__title a:focus-visible {
+.caat-search-results__title a:focus-visible,
+.caat-search-results__title a.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
 }
@@ -213,7 +220,8 @@
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
-.caat-search-results__filter:hover {
+.caat-search-results__filter:hover,
+.caat-search-results__filter.is-hover {
   background-color: var(--caat-color-state-hover-bg);
   border-color: var(--caat-blue-700);
   color: var(--caat-blue-900);
@@ -225,13 +233,15 @@
   color: var(--caat-color-state-selected-text);
 }
 
-.caat-search-results__filter--active:hover {
+.caat-search-results__filter--active:hover,
+.caat-search-results__filter--active.is-hover {
   background-color: var(--caat-blue-700);
   border-color: var(--caat-blue-700);
   color: var(--caat-color-state-selected-text);
 }
 
-.caat-search-results__filter:focus-visible {
+.caat-search-results__filter:focus-visible,
+.caat-search-results__filter.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
 }
@@ -296,6 +306,7 @@
   color: var(--caat-blue-700);
 }
 
-.caat-search__no-results .caat-search__helpful-links a:hover {
+.caat-search__no-results .caat-search__helpful-links a:hover,
+.caat-search__no-results .caat-search__helpful-links a.is-hover {
   color: var(--caat-blue-900);
 }

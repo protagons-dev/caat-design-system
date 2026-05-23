@@ -153,7 +153,7 @@
             Open Standard Modal
           </button>
           <div class="modal fade caat-modal" id="demoModalStandard" tabindex="-1" aria-labelledby="demoModalStandardLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
-            <div class="modal-dialog">
+            <div class="modal-dialog" data-figma="Standard (default)" data-figma-group="Variants" style="margin:0;">
               <div class="modal-content">
                 <div class="modal-header caat-modal__header">
                   <h5 class="modal-title" id="demoModalStandardLabel">Confirm Your Selection</h5>
@@ -181,7 +181,7 @@
             Open Large Modal
           </button>
           <div class="modal fade caat-modal" id="demoModalLarge" tabindex="-1" aria-labelledby="demoModalLargeLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg" data-figma="Large (modal-lg)" data-figma-group="Variants" style="margin:0;">
               <div class="modal-content">
                 <div class="modal-header caat-modal__header">
                   <h5 class="modal-title" id="demoModalLargeLabel">Important Pension Disclaimer</h5>
@@ -217,7 +217,7 @@
             Cancel Estimate
           </button>
           <div class="modal fade caat-modal" id="demoModalConfirm" tabindex="-1" aria-labelledby="demoModalConfirmLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
-            <div class="modal-dialog">
+            <div class="modal-dialog" data-figma="Confirmation dialog" data-figma-group="Variants" style="margin:0;">
               <div class="modal-content">
                 <div class="modal-header caat-modal__header">
                   <h5 class="modal-title" id="demoModalConfirmLabel">Cancel Estimate</h5>
@@ -245,7 +245,7 @@
             View Terms &amp; Conditions
           </button>
           <div class="modal fade caat-modal" id="demoModalScrollable" tabindex="-1" aria-labelledby="demoModalScrollableLabel" aria-modal="true" role="dialog" data-analytics-component="modal">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-scrollable" data-figma="Scrollable (terms)" data-figma-group="Variants" style="margin:0;">
               <div class="modal-content">
                 <div class="modal-header caat-modal__header">
                   <h5 class="modal-title" id="demoModalScrollableLabel">Terms and Conditions</h5>
@@ -788,41 +788,6 @@ jcr:root:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Modal</h1>
-<p class="figma-page-subtitle">CAAT Design System · Dialog variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Standard Modal</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <div style="border-radius:var(--caat-radius);box-shadow:var(--caat-shadow);background:#fff;width:24rem;overflow:hidden;">
-        <div style="padding:1.25rem 1.5rem;border-bottom:2px solid var(--caat-grey-200);display:flex;justify-content:space-between;align-items:center;"><span style="font-weight:800;color:var(--caat-blue-900);font-size:1.2rem;">Modal Title</span><span style="font-size:1.25rem;cursor:pointer;">×</span></div>
-        <div style="padding:1.5rem;font-size:.95rem;line-height:1.6;color:var(--caat-ink);">Modal body content goes here. This is a standard informational dialog.</div>
-        <div style="padding:1rem 1.5rem;border-top:1px solid var(--caat-grey-200);display:flex;gap:.5rem;justify-content:flex-end;"><span class="caat-button caat-button--outline-primary caat-button--sm">Cancel</span><span class="caat-button caat-button--primary caat-button--sm">Confirm</span></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow)</div>
-    <div class="figma-spec"><strong>Header border</strong>2px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Title weight</strong>800</div>
-    <div class="figma-spec"><strong>Body font size</strong>0.95rem</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

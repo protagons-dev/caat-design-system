@@ -150,10 +150,10 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex gap-3 flex-wrap align-items-center">
-            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">Top</button>
-            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">Right</button>
-            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">Bottom</button>
-            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">Left</button>
+            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top" data-figma="Top" data-figma-group="Triggers — placement">Top</button>
+            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right" data-figma="Right" data-figma-group="Triggers — placement">Right</button>
+            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom" data-figma="Bottom" data-figma-group="Triggers — placement">Bottom</button>
+            <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left" data-figma="Left" data-figma-group="Triggers — placement">Left</button>
           </div>
         </div>
       </div>
@@ -165,7 +165,7 @@
           <p class="demo-label">Rendered</p>
           <p>
             Your <strong>commuted value</strong>
-            <span class="caat-tooltip" data-bs-toggle="tooltip" title="The lump-sum present value of your future pension payments, calculated using actuarial assumptions." tabindex="0" role="button" aria-label="More information about commuted value">
+            <span class="caat-tooltip" data-bs-toggle="tooltip" title="The lump-sum present value of your future pension payments, calculated using actuarial assumptions." tabindex="0" role="button" aria-label="More information about commuted value" data-figma="Icon trigger" data-figma-group="Trigger Types">
               <i class="bi bi-info-circle-fill caat-tooltip__icon" aria-hidden="true"></i>
             </span>
             is shown on your annual statement.
@@ -180,7 +180,7 @@
           <p class="demo-label">Rendered</p>
           <p>
             Your pension is calculated using your
-            <a href="#" class="caat-tooltip__link" data-bs-toggle="tooltip" title="The average of your highest 60 consecutive months of pensionable earnings.">best-average earnings</a>
+            <a href="#" class="caat-tooltip__link" data-bs-toggle="tooltip" title="The average of your highest 60 consecutive months of pensionable earnings." data-figma="Link trigger" data-figma-group="Trigger Types">best-average earnings</a>
             and years of credited service.
           </p>
         </div>
@@ -191,9 +191,22 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-html="true" title="<strong>Credited service</strong><br>The total years and months you have participated in the CAAT plan.">
+          <button type="button" class="caat-button" data-bs-toggle="tooltip" data-bs-html="true" title="<strong>Credited service</strong><br>The total years and months you have participated in the CAAT plan." data-figma="HTML content trigger" data-figma-group="Trigger Types">
             Hover for details
           </button>
+        </div>
+      </div>
+
+      <!-- Tooltip bubble (static appearance) -->
+      <h3 class="mb-2">Tooltip Bubble</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">The rendered bubble appearance. The live tooltips above are injected by Bootstrap on hover/focus; this static instance shows the styled bubble for the Figma export.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="tooltip bs-tooltip-top show" role="tooltip" style="position:static;display:inline-block;opacity:1;margin:0;" data-figma="Bubble (top)" data-figma-group="Appearance">
+            <div class="tooltip-arrow" style="display:none;"></div>
+            <div class="tooltip-inner">Helpful tooltip text explaining a feature</div>
+          </div>
         </div>
       </div>
 
@@ -584,43 +597,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Tooltip</h1>
-<p class="figma-page-subtitle">CAAT Design System · Tooltip placements</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Tooltip</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <div style="background:var(--caat-blue-900);color:#fff;border-radius:var(--caat-radius);font-size:.8125rem;line-height:1.4;max-width:250px;padding:.5rem .75rem;text-align:left;">Helpful tooltip text explaining a feature</div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Trigger Types</h2>
-  <div class="figma-row"><span class="figma-row-label">Icon trigger</span><div class="figma-row-items"><i class="bi bi-question-circle" style="color:var(--caat-blue-700);font-size:1rem;cursor:pointer;"></i></div></div>
-  <div class="figma-row"><span class="figma-row-label">Link trigger</span><div class="figma-row-items"><span style="color:var(--caat-blue-700);text-decoration:underline dotted;text-underline-offset:3px;cursor:pointer;">What is DBplus?</span></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Background</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Text</strong>#fff, 0.8125rem</div>
-    <div class="figma-spec"><strong>Max width</strong>250px</div>
-    <div class="figma-spec"><strong>Padding</strong>0.5rem 0.75rem</div>
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

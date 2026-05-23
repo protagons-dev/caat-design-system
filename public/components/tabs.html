@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-tabs" data-analytics-component="tabs">
+          <div class="caat-tabs" data-analytics-component="tabs" data-figma="Standard (underline)" data-figma-group="Variants">
             <ul class="nav nav-tabs" id="demoTabsStandard" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="plan-overview-tab" data-bs-toggle="tab" data-bs-target="#plan-overview-panel" type="button" role="tab" aria-controls="plan-overview-panel" aria-selected="true" data-analytics-label="plan-overview">Plan Overview</button>
@@ -192,7 +192,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-tabs" data-analytics-component="tabs">
+          <div class="caat-tabs" data-analytics-component="tabs" data-figma="Pills" data-figma-group="Variants">
             <ul class="nav nav-pills" id="demoTabsPills" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="contributions-tab" data-bs-toggle="tab" data-bs-target="#contributions-panel" type="button" role="tab" aria-controls="contributions-panel" aria-selected="true" data-analytics-label="contributions">Contributions</button>
@@ -224,7 +224,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-tabs caat-tabs--vertical d-flex" data-analytics-component="tabs">
+          <div class="caat-tabs caat-tabs--vertical d-flex" data-analytics-component="tabs" data-figma="Vertical" data-figma-group="Variants">
             <ul class="nav nav-tabs flex-column me-3" id="demoTabsVertical" role="tablist" aria-orientation="vertical">
               <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="eligibility-tab" data-bs-toggle="tab" data-bs-target="#eligibility-panel" type="button" role="tab" aria-controls="eligibility-panel" aria-selected="true" data-analytics-label="eligibility">Eligibility</button>
@@ -250,6 +250,32 @@
                 <p>If you leave a participating employer, your earned pension benefit stays with CAAT. You can choose to leave it in the plan and collect it at retirement, or explore transfer options if available.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. Tab buttons implement default, hover, active (selected), and focus-visible. The static <code>is-*</code> classes mirror the live pseudo-class states for documentation and Figma export.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered — underline tabs</p>
+          <div class="caat-tabs">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation"><button class="nav-link" type="button" data-figma="Default" data-figma-group="States">Default</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link is-hover" type="button" data-figma="Hover" data-figma-group="States">Hover</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link active" type="button" aria-selected="true" data-figma="Active" data-figma-group="States">Active</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link is-focus" type="button" data-figma="Focus" data-figma-group="States">Focus</button></li>
+            </ul>
+          </div>
+          <p class="demo-label mt-4">Rendered — pill tabs</p>
+          <div class="caat-tabs">
+            <ul class="nav nav-pills" role="tablist">
+              <li class="nav-item" role="presentation"><button class="nav-link" type="button" data-figma="Pill Default" data-figma-group="States">Default</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link is-hover" type="button" data-figma="Pill Hover" data-figma-group="States">Hover</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link active" type="button" aria-selected="true" data-figma="Pill Active" data-figma-group="States">Active</button></li>
+              <li class="nav-item" role="presentation"><button class="nav-link is-focus" type="button" data-figma="Pill Focus" data-figma-group="States">Focus</button></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -890,41 +916,6 @@ dialog:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Tabs</h1>
-<p class="figma-page-subtitle">CAAT Design System · Tab and pill variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Standard Tabs — States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-bottom:3px solid transparent;">Tab Label</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-blue-900);border-bottom:3px solid var(--caat-blue-100);">Tab Label</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="padding:.75rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-blue-900);border-bottom:3px solid var(--caat-green);">Tab Label</span></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Pill Tabs — States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-radius:50rem;">Tab Label</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:var(--caat-ink);border-radius:50rem;background:var(--caat-blue-100);">Tab Label</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="padding:.5rem 1.25rem;font-weight:600;font-size:.95rem;color:#fff;border-radius:50rem;background:var(--caat-blue-900);">Tab Label</span></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
-    <div class="figma-spec"><strong>Font weight</strong>600</div>
-    <div class="figma-spec"><strong>Active indicator</strong>3px solid var(--caat-green)</div>
-    <div class="figma-spec"><strong>Pill radius</strong>50rem</div>
-    <div class="figma-spec"><strong>Pill active bg</strong>var(--caat-blue-900)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

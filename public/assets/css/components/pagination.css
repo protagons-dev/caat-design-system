@@ -38,13 +38,15 @@
   cursor: pointer;
 }
 
-.caat-pagination__link:hover {
+.caat-pagination__link:hover,
+.caat-pagination__link.is-hover {
   background-color: var(--caat-color-state-hover-bg);
   border-color: var(--caat-blue-700, #0b5a80);
   color: var(--caat-blue-900, #003750);
 }
 
-.caat-pagination__link:focus-visible {
+.caat-pagination__link:focus-visible,
+.caat-pagination__link.is-focus {
   outline: 3px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
   z-index: 2;

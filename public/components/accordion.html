@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="accordion caat-accordion" id="demoAccordionStandard" data-analytics-component="accordion">
+          <div class="accordion caat-accordion" id="demoAccordionStandard" data-analytics-component="accordion" data-figma="Standard" data-figma-group="Variants">
             <div class="accordion-item">
               <h3 class="accordion-header" id="headingOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-analytics-label="what-is-dbplus">
@@ -195,7 +195,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="accordion accordion-flush caat-accordion" id="demoAccordionFlush" data-analytics-component="accordion">
+          <div class="accordion accordion-flush caat-accordion" id="demoAccordionFlush" data-analytics-component="accordion" data-figma="Flush" data-figma-group="Variants">
             <div class="accordion-item">
               <h3 class="accordion-header" id="headingFlushOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFlushOne" aria-expanded="false" aria-controls="collapseFlushOne" data-analytics-label="what-is-vesting">
@@ -229,7 +229,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="accordion caat-accordion" id="demoAccordionOpen" data-analytics-component="accordion">
+          <div class="accordion caat-accordion" id="demoAccordionOpen" data-analytics-component="accordion" data-figma="Always-Open" data-figma-group="Variants">
             <div class="accordion-item">
               <h3 class="accordion-header" id="headingOpenOne">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOpenOne" aria-expanded="true" aria-controls="collapseOpenOne" data-analytics-label="survivor-benefits">
@@ -252,6 +252,41 @@
                 <div class="accordion-body">
                   Yes. CAAT DBplus provides conditional inflation protection. The plan's board reviews the funding status each year and may grant increases to help your pension keep pace with the cost of living.
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. The accordion button implements collapsed (default), expanded (selected), and focus; hover is subtle and disabled does not apply.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-column gap-3" style="max-width:44rem;">
+            <div class="accordion caat-accordion" data-figma="Collapsed" data-figma-group="States">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button">How do contributions work?</button>
+                </h3>
+              </div>
+            </div>
+            <div class="accordion caat-accordion" data-figma="Expanded" data-figma-group="States">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" aria-expanded="true">What is the CAAT DBplus pension plan?</button>
+                </h3>
+                <div class="accordion-collapse collapse show">
+                  <div class="accordion-body">The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service.</div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion caat-accordion" data-figma="Focus" data-figma-group="States">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed is-focus" type="button">When can I start receiving my pension?</button>
+                </h3>
               </div>
             </div>
           </div>
@@ -850,88 +885,6 @@ dialog:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Accordion</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Collapsed</span>
-    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
-      <div class="accordion caat-accordion">
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">What is DBplus?</button></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Expanded</span>
-    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
-      <div class="accordion caat-accordion">
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button" type="button" aria-expanded="true">What is the CAAT DBplus pension plan?</button></h3>
-          <div class="accordion-collapse collapse show">
-            <div class="accordion-body">The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service. It is available to employees of participating employers across Canada.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Focus</span>
-    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
-      <div class="accordion caat-accordion">
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" style="box-shadow:var(--caat-focus);border-color:var(--caat-blue-300);">How do contributions work?</button></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Multi-item Group</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Stacked</span>
-    <div class="figma-row-items" style="flex-direction:column;align-items:stretch;max-width:44rem;">
-      <div class="accordion caat-accordion">
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button" type="button" aria-expanded="true">What is the CAAT DBplus pension plan?</button></h3>
-          <div class="accordion-collapse collapse show">
-            <div class="accordion-body">The CAAT DBplus pension plan is a defined benefit pension plan that provides a predictable, lifetime retirement income based on your contributions and years of service.</div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">How do I contribute to my pension?</button></h3>
-        </div>
-        <div class="accordion-item">
-          <h3 class="accordion-header"><button class="accordion-button collapsed" type="button">When can I start receiving my pension?</button></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Font</strong>Libre Franklin 800</div>
-    <div class="figma-spec"><strong>Expanded bg</strong>var(--caat-blue-100)</div>
-    <div class="figma-spec"><strong>Text colour</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Border</strong>var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Focus ring</strong>var(--caat-focus)</div>
-    <div class="figma-spec"><strong>Body text</strong>var(--caat-ink), line-height 1.6</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

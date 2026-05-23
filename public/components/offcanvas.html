@@ -148,7 +148,7 @@
       <div class="demo-shell">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button class="caat-button caat-button--primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasStart" aria-controls="offcanvasStart">
+          <button class="caat-button caat-button--primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasStart" aria-controls="offcanvasStart" data-figma="Start (left)" data-figma-group="Triggers — placement">
             <i class="bi bi-list me-1"></i> Open Start Offcanvas
           </button>
           <div class="offcanvas offcanvas-start caat-offcanvas" tabindex="-1" id="offcanvasStart" aria-labelledby="offcanvasStartLabel">
@@ -173,7 +173,7 @@
       <div class="demo-shell">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button class="caat-button caat-button--secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEnd" aria-controls="offcanvasEnd">
+          <button class="caat-button caat-button--secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEnd" aria-controls="offcanvasEnd" data-figma="End (right)" data-figma-group="Triggers — placement">
             <i class="bi bi-funnel me-1"></i> Open Filter Panel
           </button>
           <div class="offcanvas offcanvas-end caat-offcanvas" tabindex="-1" id="offcanvasEnd" aria-labelledby="offcanvasEndLabel">
@@ -197,7 +197,7 @@
       <div class="demo-shell">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button class="caat-button caat-button--outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+          <button class="caat-button caat-button--outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" data-figma="Top" data-figma-group="Triggers — placement">
             <i class="bi bi-bell me-1"></i> Open Notification Banner
           </button>
           <div class="offcanvas offcanvas-top caat-offcanvas" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -217,7 +217,7 @@
       <div class="demo-shell">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button class="caat-button caat-button--secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+          <button class="caat-button caat-button--secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom" data-figma="Bottom" data-figma-group="Triggers — placement">
             <i class="bi bi-shield-check me-1"></i> Open Cookie Consent
           </button>
           <div class="offcanvas offcanvas-bottom caat-offcanvas" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
@@ -234,6 +234,30 @@
                 <button class="caat-button caat-button--primary">Save Preferences</button>
                 <button class="caat-button caat-button--outline-primary" data-bs-dismiss="offcanvas">Dismiss</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel anatomy (static appearance) -->
+      <h3 class="mb-2">Panel Anatomy</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">The rendered panel appearance. The live panels above are slid in by Bootstrap (fixed-position) on trigger; this static instance shows the panel header, title, close button, and body for the Figma export.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="caat-offcanvas" style="position:static;visibility:visible;transform:none;width:320px;display:flex;flex-direction:column;" data-figma="Panel (start)" data-figma-group="Appearance">
+            <div class="caat-offcanvas__header offcanvas-header">
+              <h5 class="caat-offcanvas__title">Member Navigation</h5>
+              <button type="button" class="caat-offcanvas__close" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="caat-offcanvas__body offcanvas-body">
+              <nav>
+                <a class="nav-link" href="#">My Pension Dashboard</a>
+                <a class="nav-link" href="#">Contribution History</a>
+                <a class="nav-link" href="#">Retirement Estimator</a>
+                <a class="nav-link" href="#">Beneficiary Details</a>
+                <a class="nav-link" href="#">Contact CAAT</a>
+              </nav>
             </div>
           </div>
         </div>
@@ -530,40 +554,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Offcanvas</h1>
-<p class="figma-page-subtitle">CAAT Design System · Side panel variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Panel Anatomy</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Start panel</span>
-    <div class="figma-row-items">
-      <div style="width:20rem;background:#fff;box-shadow:var(--caat-shadow);border-radius:0 var(--caat-radius) var(--caat-radius) 0;overflow:hidden;">
-        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--caat-grey-200);display:flex;justify-content:space-between;align-items:center;"><span style="font-weight:800;font-size:1.25rem;color:var(--caat-blue-900);">Menu</span><span style="font-size:1.25rem;cursor:pointer;color:var(--caat-ink);">×</span></div>
-        <div style="padding:1.5rem;font-size:.9375rem;color:var(--caat-ink);line-height:1.6;"><div style="padding:.5rem 0;border-bottom:1px solid var(--caat-grey-200);">Members</div><div style="padding:.5rem 0;border-bottom:1px solid var(--caat-grey-200);">Employers</div><div style="padding:.5rem 0;">About CAAT</div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Width</strong>320px</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow)</div>
-    <div class="figma-spec"><strong>Header padding</strong>1.25rem 1.5rem</div>
-    <div class="figma-spec"><strong>Title weight</strong>800</div>
-    <div class="figma-spec"><strong>Backdrop opacity</strong>0.35</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

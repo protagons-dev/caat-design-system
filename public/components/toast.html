@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Default" data-figma-group="Variants">
             <div class="caat-toast__header toast-header">
               <i class="bi bi-bell caat-toast__icon" aria-hidden="true"></i>
               <span class="caat-toast__title">Notification</span>
@@ -170,7 +170,7 @@
           <p class="demo-label">Rendered</p>
           <div class="d-flex flex-column gap-3">
 
-            <div class="caat-toast caat-toast--success toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast caat-toast--success toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Success" data-figma-group="Variants">
               <div class="caat-toast__header toast-header">
                 <i class="bi bi-check-circle-fill caat-toast__icon" aria-hidden="true"></i>
                 <span class="caat-toast__title">Success</span>
@@ -179,7 +179,7 @@
               <div class="caat-toast__body">Your profile has been updated successfully.</div>
             </div>
 
-            <div class="caat-toast caat-toast--warning toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast caat-toast--warning toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Warning" data-figma-group="Variants">
               <div class="caat-toast__header toast-header">
                 <i class="bi bi-exclamation-triangle-fill caat-toast__icon" aria-hidden="true"></i>
                 <span class="caat-toast__title">Warning</span>
@@ -188,7 +188,7 @@
               <div class="caat-toast__body">Your session will expire in 5 minutes.</div>
             </div>
 
-            <div class="caat-toast caat-toast--error toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast caat-toast--error toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Error" data-figma-group="Variants">
               <div class="caat-toast__header toast-header">
                 <i class="bi bi-x-circle-fill caat-toast__icon" aria-hidden="true"></i>
                 <span class="caat-toast__title">Error</span>
@@ -197,7 +197,7 @@
               <div class="caat-toast__body">Unable to save your changes. Please try again.</div>
             </div>
 
-            <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Info" data-figma-group="Variants">
               <div class="caat-toast__header toast-header">
                 <i class="bi bi-info-circle-fill caat-toast__icon" aria-hidden="true"></i>
                 <span class="caat-toast__title">Info</span>
@@ -215,7 +215,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="caat-toast caat-toast--info toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="With action" data-figma-group="Variants">
             <div class="caat-toast__header toast-header">
               <i class="bi bi-arrow-counterclockwise caat-toast__icon" aria-hidden="true"></i>
               <span class="caat-toast__title">Beneficiary Removed</span>
@@ -228,7 +228,68 @@
         </div>
       </div>
 
-      <!-- 4. Stacked Toasts -->
+      <!-- 4. Interaction States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Interactive states on the dismiss control and the action link. Shown statically via <code>is-*</code> classes that mirror the live <code>:hover</code> / <code>:focus-visible</code> rules.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="d-flex flex-column gap-3">
+
+            <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Close — default" data-figma-group="States">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-bell caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Notification</span>
+                <button type="button" class="caat-toast__close" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Close button — default state.</div>
+            </div>
+
+            <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Close — hover" data-figma-group="States">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-bell caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Notification</span>
+                <button type="button" class="caat-toast__close is-hover" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Close button — hover state.</div>
+            </div>
+
+            <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Close — focus" data-figma-group="States">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-bell caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Notification</span>
+                <button type="button" class="caat-toast__close is-focus" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">Close button — focus state.</div>
+            </div>
+
+            <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Action — hover" data-figma-group="States">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-arrow-counterclockwise caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Beneficiary Removed</span>
+                <button type="button" class="caat-toast__close" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">
+                The beneficiary has been removed. <a href="#" class="caat-toast__action is-hover" onclick="event.preventDefault();">Undo</a>
+              </div>
+            </div>
+
+            <div class="caat-toast toast show" role="alert" aria-live="assertive" aria-atomic="true" data-figma="Action — focus" data-figma-group="States">
+              <div class="caat-toast__header toast-header">
+                <i class="bi bi-arrow-counterclockwise caat-toast__icon" aria-hidden="true"></i>
+                <span class="caat-toast__title">Beneficiary Removed</span>
+                <button type="button" class="caat-toast__close" aria-label="Close"><i class="bi bi-x" aria-hidden="true"></i></button>
+              </div>
+              <div class="caat-toast__body">
+                The beneficiary has been removed. <a href="#" class="caat-toast__action is-focus" onclick="event.preventDefault();">Undo</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Stacked Toasts -->
       <h3 class="mb-2">Stacked Toasts (positioned)</h3>
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
@@ -712,34 +773,6 @@ fields:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Toast</h1>
-<p class="figma-page-subtitle">CAAT Design System · Notification variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Variants</h2>
-  <div class="figma-row"><span class="figma-row-label">Success</span><div class="figma-row-items"><div class="caat-toast caat-toast--success" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-check-circle-fill"></i></span><span class="caat-toast__title">Success</span><span class="caat-toast__meta">Just now</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Your changes have been saved.</div></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Warning</span><div class="figma-row-items"><div class="caat-toast caat-toast--warning" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-exclamation-triangle-fill"></i></span><span class="caat-toast__title">Warning</span><span class="caat-toast__meta">2m ago</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Session will expire in 5 minutes.</div></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Error</span><div class="figma-row-items"><div class="caat-toast caat-toast--error" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-x-circle-fill"></i></span><span class="caat-toast__title">Error</span><span class="caat-toast__meta">Just now</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">Something went wrong. Please try again.</div></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Info</span><div class="figma-row-items"><div class="caat-toast caat-toast--info" style="max-width:22rem;"><div class="caat-toast__header"><span class="caat-toast__icon"><i class="bi bi-info-circle-fill"></i></span><span class="caat-toast__title">Info</span><span class="caat-toast__meta">5m ago</span><button class="caat-toast__close">×</button></div><div class="caat-toast__body">A new report is available for download.</div></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
-    <div class="figma-spec"><strong>Container</strong>fixed bottom-right, max-width 350px</div>
-    <div class="figma-spec"><strong>Animation</strong>slide-in from right, 0.3s</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

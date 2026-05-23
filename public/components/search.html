@@ -150,7 +150,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
 
-          <form class="caat-search" role="search" aria-label="Site search">
+          <form class="caat-search" role="search" aria-label="Site search" data-figma="Search input" data-figma-group="Variants">
             <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
             <input type="search" class="form-control caat-search__input" placeholder="Search CAAT resources..." aria-label="Search CAAT resources">
             <button type="button" class="caat-search__clear" aria-label="Clear search">
@@ -166,13 +166,13 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
 
-          <form class="caat-search" role="search" aria-label="Site search with suggestions">
+          <form class="caat-search" role="search" aria-label="Site search with suggestions" data-figma="With suggestions" data-figma-group="Variants" style="margin-bottom:14rem;">
             <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
             <input type="search" class="form-control caat-search__input" value="pension" aria-label="Search CAAT resources" aria-expanded="true" aria-controls="search-suggestions" aria-autocomplete="list">
             <button type="button" class="caat-search__clear" aria-label="Clear search">
               <i class="bi bi-x-lg" aria-hidden="true"></i>
             </button>
-            <ul class="caat-search__suggestions" id="search-suggestions" role="listbox">
+            <ul class="caat-search__suggestions" id="search-suggestions" role="listbox" style="display:block;">
               <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> pension calculator</li>
               <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> retirement age</li>
               <li class="caat-search__suggestion" role="option"><i class="bi bi-search" aria-hidden="true"></i> contribution rates</li>
@@ -196,7 +196,7 @@
             </button>
           </form>
 
-          <div class="caat-search-results">
+          <div class="caat-search-results" data-figma="Results page" data-figma-group="Variants">
             <p class="caat-search-results__count">12 results for &ldquo;pension benefits&rdquo;</p>
 
             <!-- Filter bar -->
@@ -256,7 +256,7 @@
             </button>
           </form>
 
-          <div class="caat-search__no-results">
+          <div class="caat-search__no-results" data-figma="No results" data-figma-group="Variants">
             <i class="bi bi-search" style="font-size:2.5rem; color:var(--caat-grey-200);"></i>
             <p class="mt-3 mb-1"><strong>No results found for &ldquo;xyz&rdquo;</strong></p>
             <p>Try different keywords or check the spelling of your search term.</p>
@@ -269,6 +269,33 @@
                 <li><a href="#">FAQ</a></li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. The input implements default and focus; suggestions and result filters implement default, hover, focus, and selected. The static <code>is-*</code> classes mirror the live pseudo-class states.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Input</p>
+          <div class="d-flex flex-column gap-3" style="max-width:28rem;">
+            <form class="caat-search" role="search" aria-label="Search default state">
+              <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+              <input type="search" class="form-control caat-search__input" placeholder="Search CAAT resources..." aria-label="Search default" data-figma="Input — Default" data-figma-group="States">
+            </form>
+            <form class="caat-search" role="search" aria-label="Search focus state">
+              <i class="bi bi-search caat-search__icon" aria-hidden="true"></i>
+              <input type="search" class="form-control caat-search__input is-focus" value="pension" aria-label="Search focus" data-figma="Input — Focus" data-figma-group="States">
+            </form>
+          </div>
+
+          <p class="demo-label mt-4">Result filters</p>
+          <div class="caat-search-results__filters" role="group" aria-label="Filter state examples">
+            <button class="caat-search-results__filter" data-figma="Filter — Default" data-figma-group="States">Default</button>
+            <button class="caat-search-results__filter is-hover" data-figma="Filter — Hover" data-figma-group="States">Hover</button>
+            <button class="caat-search-results__filter is-focus" data-figma="Filter — Focus" data-figma-group="States">Focus</button>
+            <button class="caat-search-results__filter caat-search-results__filter--active" aria-pressed="true" data-figma="Filter — Selected" data-figma-group="States">Selected</button>
           </div>
         </div>
       </div>
@@ -690,34 +717,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Search</h1>
-<p class="figma-page-subtitle">CAAT Design System · Input, suggestions, and results</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Search Input</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items" style="flex:1;max-width:28rem;"><div style="position:relative;"><i class="bi bi-search" style="position:absolute;left:.875rem;top:50%;transform:translateY(-50%);color:var(--caat-muted);font-size:1.25rem;"></i><input type="text" placeholder="Search CAAT..." style="width:100%;height:3.5rem;padding-left:3rem;padding-right:3rem;font-size:1.125rem;border:2px solid var(--caat-grey-200);border-radius:var(--caat-radius);color:var(--caat-ink);font-family:var(--caat-font-primary);"></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Focus</span><div class="figma-row-items" style="flex:1;max-width:28rem;"><div style="position:relative;"><i class="bi bi-search" style="position:absolute;left:.875rem;top:50%;transform:translateY(-50%);color:var(--caat-muted);font-size:1.25rem;"></i><input type="text" value="pension" style="width:100%;height:3.5rem;padding-left:3rem;padding-right:3rem;font-size:1.125rem;border:2px solid var(--caat-blue-900);border-radius:var(--caat-radius);color:var(--caat-ink);font-family:var(--caat-font-primary);box-shadow:var(--caat-focus);"></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Height</strong>3.5rem</div>
-    <div class="figma-spec"><strong>Font size</strong>1.125rem</div>
-    <div class="figma-spec"><strong>Border</strong>2px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Focus ring</strong>var(--caat-focus)</div>
-    <div class="figma-spec"><strong>Icon size</strong>1.25rem</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

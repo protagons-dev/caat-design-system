@@ -150,10 +150,10 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-popover d-flex gap-2 flex-wrap align-items-center py-4 justify-content-center">
-            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="top" data-bs-custom-class="caat-popover" title="Top Popover" data-bs-content="This popover appears above the trigger element.">Top</button>
-            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="right" data-bs-custom-class="caat-popover" title="Right Popover" data-bs-content="This popover appears to the right of the trigger element.">Right</button>
-            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-custom-class="caat-popover" title="Bottom Popover" data-bs-content="This popover appears below the trigger element.">Bottom</button>
-            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="left" data-bs-custom-class="caat-popover" title="Left Popover" data-bs-content="This popover appears to the left of the trigger element.">Left</button>
+            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="top" data-bs-custom-class="caat-popover" title="Top Popover" data-bs-content="This popover appears above the trigger element." data-figma="Top" data-figma-group="Triggers — placement">Top</button>
+            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="right" data-bs-custom-class="caat-popover" title="Right Popover" data-bs-content="This popover appears to the right of the trigger element." data-figma="Right" data-figma-group="Triggers — placement">Right</button>
+            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-custom-class="caat-popover" title="Bottom Popover" data-bs-content="This popover appears below the trigger element." data-figma="Bottom" data-figma-group="Triggers — placement">Bottom</button>
+            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-placement="left" data-bs-custom-class="caat-popover" title="Left Popover" data-bs-content="This popover appears to the left of the trigger element." data-figma="Left" data-figma-group="Triggers — placement">Left</button>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-popover d-flex gap-2 flex-wrap align-items-center py-3">
-            <a tabindex="0" class="caat-button btn btn-outline-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-custom-class="caat-popover" title="Dismissible Popover" data-bs-content="Click anywhere else to dismiss this popover. Great for one-time contextual hints.">Dismissible Popover</a>
+            <a tabindex="0" class="caat-button btn btn-outline-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-custom-class="caat-popover" title="Dismissible Popover" data-bs-content="Click anywhere else to dismiss this popover. Great for one-time contextual hints." data-figma="Dismissible" data-figma-group="Trigger Types">Dismissible Popover</a>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-popover d-flex gap-2 flex-wrap align-items-center py-3">
-            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-html="true" data-bs-custom-class="caat-popover" title="Plan Details" data-bs-content="<ul class='mb-1'><li>DBplus defined-benefit plan</li><li>Employer-matched contributions</li><li>Lifetime pension guarantee</li></ul><a href='#'>Learn more <i class='bi bi-arrow-right'></i></a>">Rich Content</button>
+            <button type="button" class="caat-button btn btn-primary" data-bs-toggle="popover" data-bs-html="true" data-bs-custom-class="caat-popover" title="Plan Details" data-bs-content="<ul class='mb-1'><li>DBplus defined-benefit plan</li><li>Employer-matched contributions</li><li>Lifetime pension guarantee</li></ul><a href='#'>Learn more <i class='bi bi-arrow-right'></i></a>" data-figma="Rich content (HTML)" data-figma-group="Trigger Types">Rich Content</button>
           </div>
         </div>
       </div>
@@ -187,9 +187,23 @@
           <p class="demo-label">Rendered</p>
           <div class="caat-popover d-flex gap-2 flex-wrap align-items-center py-3">
             <span class="me-2">Contribution Rate</span>
-            <button type="button" class="caat-popover-help" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-custom-class="caat-popover" title="Contribution Rate" data-bs-content="The percentage of your earnings that is contributed to the pension plan each pay period by you and your employer." aria-label="Help: Contribution Rate">
+            <button type="button" class="caat-popover-help" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-custom-class="caat-popover" title="Contribution Rate" data-bs-content="The percentage of your earnings that is contributed to the pension plan each pay period by you and your employer." aria-label="Help: Contribution Rate" data-figma="Help / info icon" data-figma-group="Trigger Types">
               <i class="bi bi-question-circle-fill" aria-hidden="true"></i>
             </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popover anatomy (static appearance) -->
+      <h3 class="mb-2">Popover Anatomy</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">The rendered bubble appearance. The live popovers above are injected by Bootstrap on click/focus; this static instance shows the styled header + body for the Figma export.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="popover caat-popover bs-popover-top show" role="tooltip" style="position:static;display:inline-block;opacity:1;margin:0;" data-figma="With header + body" data-figma-group="Appearance">
+            <div class="popover-arrow" style="display:none;"></div>
+            <div class="popover-header">Popover Title</div>
+            <div class="popover-body">Popover body content with helpful contextual information.</div>
           </div>
         </div>
       </div>
@@ -591,40 +605,6 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Popover</h1>
-<p class="figma-page-subtitle">CAAT Design System · Popover anatomy</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default Popover</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">With header</span>
-    <div class="figma-row-items">
-      <div style="max-width:300px;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);box-shadow:var(--caat-shadow-sm);background:#fff;">
-        <div style="font-weight:700;font-size:.875rem;color:var(--caat-blue-900);background:var(--caat-blue-100);padding:.625rem .875rem;border-radius:var(--caat-radius) var(--caat-radius) 0 0;border-bottom:1px solid var(--caat-grey-200);">Popover Title</div>
-        <div style="font-size:.8125rem;line-height:1.5;color:var(--caat-ink);padding:.75rem .875rem;">Popover body content with helpful contextual information.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Max width</strong>300px</div>
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
-    <div class="figma-spec"><strong>Header bg</strong>var(--caat-blue-100)</div>
-    <div class="figma-spec"><strong>Body font size</strong>0.8125rem</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

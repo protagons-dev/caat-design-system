@@ -78,11 +78,13 @@
   transition: opacity 0.15s ease-in-out;
 }
 
-.caat-toast__close:hover {
+.caat-toast__close:hover,
+.caat-toast__close.is-hover {
   opacity: 1;
 }
 
-.caat-toast__close:focus-visible {
+.caat-toast__close:focus-visible,
+.caat-toast__close.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
   opacity: 1;
@@ -103,11 +105,13 @@
   margin-left: 0.5rem;
 }
 
-.caat-toast__action:hover {
+.caat-toast__action:hover,
+.caat-toast__action.is-hover {
   color: var(--caat-blue-900, #003750);
 }
 
-.caat-toast__action:focus-visible {
+.caat-toast__action:focus-visible,
+.caat-toast__action.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
 }

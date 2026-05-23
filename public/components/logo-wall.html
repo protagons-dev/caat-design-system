@@ -129,7 +129,7 @@
 
       <!-- Variant 1: Default (bordered cards, grayscale → colour on hover) -->
       <h3 class="h5 mt-4 mb-3">Variant 1 — Default</h3>
-      <div class="caat-logo-wall" data-analytics-component="logo-wall" data-analytics-variant="default">
+      <div class="caat-logo-wall" data-analytics-component="logo-wall" data-analytics-variant="default" data-figma="Default" data-figma-group="Variants">
         <div class="caat-logo-wall__header">
           <h2 class="caat-logo-wall__title">Trusted by leading Canadian employers</h2>
           <p class="caat-logo-wall__subtitle">Organizations across Canada rely on CAAT's DBplus pension plan.</p>
@@ -160,7 +160,7 @@
 
       <!-- Variant 2: Clean (no borders) -->
       <h3 class="h5 mt-4 mb-3">Variant 2 — Clean (no borders)</h3>
-      <div class="caat-logo-wall caat-logo-wall--clean" data-analytics-component="logo-wall" data-analytics-variant="clean">
+      <div class="caat-logo-wall caat-logo-wall--clean" data-analytics-component="logo-wall" data-analytics-variant="clean" data-figma="Clean (no borders)" data-figma-group="Variants">
         <div class="caat-logo-wall__grid" role="list" aria-label="Partner organizations">
           <div class="caat-logo-wall__item" role="listitem">
             <img src="https://placehold.co/200x80/f8f9fa/506273?text=OTIP" alt="OTIP" loading="lazy">
@@ -179,7 +179,7 @@
 
       <!-- Variant 3: Dark background -->
       <h3 class="h5 mt-4 mb-3">Variant 3 — Dark background</h3>
-      <div class="caat-logo-wall caat-logo-wall--dark" data-analytics-component="logo-wall" data-analytics-variant="dark">
+      <div class="caat-logo-wall caat-logo-wall--dark" data-analytics-component="logo-wall" data-analytics-variant="dark" data-figma="Dark background" data-figma-group="Variants">
         <div class="container">
           <div class="caat-logo-wall__header">
             <h2 class="caat-logo-wall__title">Our growing employer network</h2>
@@ -197,6 +197,19 @@
             <div class="caat-logo-wall__item" role="listitem">
               <img src="https://placehold.co/200x80/ffffff/003750?text=Torstar" alt="Torstar" loading="lazy">
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo item states -->
+      <h3 class="h5 mt-4 mb-3">Logo item states</h3>
+      <div class="caat-logo-wall">
+        <div class="caat-logo-wall__grid" role="list" aria-label="Logo item states">
+          <div class="caat-logo-wall__item" role="listitem" data-figma="Default" data-figma-group="States">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Jamieson" alt="Jamieson" loading="lazy">
+          </div>
+          <div class="caat-logo-wall__item is-hover" role="listitem" data-figma="Hover" data-figma-group="States">
+            <img src="https://placehold.co/200x80/f8f9fa/506273?text=Jamieson" alt="Jamieson" loading="lazy">
           </div>
         </div>
       </div>
@@ -471,33 +484,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Logo Wall</h1>
-<p class="figma-page-subtitle">CAAT Design System · Employer logo grid variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Logo Item States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div style="padding:1rem;border-radius:var(--caat-radius);background:#fff;border:1px solid var(--caat-grey-200);min-height:5rem;width:8rem;display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:.85rem;opacity:.6;">Logo</div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><div style="padding:1rem;border-radius:var(--caat-radius);background:#fff;border:1px solid var(--caat-grey-200);min-height:5rem;width:8rem;display:flex;align-items:center;justify-content:center;color:var(--caat-ink);font-size:.85rem;box-shadow:var(--caat-shadow-sm);transform:translateY(-2px);">Logo</div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Grid</strong>auto-fit, minmax(8rem, 1fr)</div>
-    <div class="figma-spec"><strong>Item min-height</strong>5rem</div>
-    <div class="figma-spec"><strong>Logo max-height</strong>3rem</div>
-    <div class="figma-spec"><strong>Default filter</strong>grayscale(100%), opacity 0.6</div>
-    <div class="figma-spec"><strong>Hover filter</strong>grayscale(0%), opacity 1</div>
-  </div>
-</div>
-
-</template>
 
 <script src="/assets/js/figma-export.js"></script>
 </body>

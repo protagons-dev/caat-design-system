@@ -134,7 +134,7 @@
       <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Testimonials</h1>
       <p class="text-muted">Display member quotes and testimonials to build trust and social proof for CAAT Pension Plan.</p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Testimonial',['/assets/css/tokens.css','/assets/css/components/testimonials.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Testimonial',['/assets/css/tokens.css','/assets/css/components/testimonials.css','/assets/css/components/avatar.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
@@ -148,7 +148,7 @@
 
       <!-- Layout: Single (photo avatar + star rating) -->
       <h3 class="mt-4 mb-3">Layout — Single <span class="text-muted" style="font-weight:400;font-size:.8rem;">· photo · with rating</span></h3>
-      <figure class="caat-testimonial" data-analytics-component="testimonial" data-analytics-variant="single">
+      <figure class="caat-testimonial" data-analytics-component="testimonial" data-analytics-variant="single" data-figma="Single (photo + rating)" data-figma-group="Layouts">
         <div class="caat-testimonial__stars" role="img" aria-label="Rated 5 out of 5">
           <i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i><i class="bi bi-star-fill" aria-hidden="true"></i>
         </div>
@@ -166,7 +166,7 @@
 
       <!-- Layout: Grid (photo avatars) -->
       <h3 class="mt-5 mb-3">Layout — Grid <span class="text-muted" style="font-weight:400;font-size:.8rem;">· photo</span></h3>
-      <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="grid">
+      <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="grid" data-figma="Grid (photo)" data-figma-group="Layouts">
         <figure class="caat-testimonial">
           <blockquote class="caat-testimonial__quote">
             <p>"Retiring at 60 felt like a dream, but CAAT made it a reality. My pension income replaced 70% of my working salary from day one."</p>
@@ -207,7 +207,7 @@
 
       <!-- Layout: Carousel -->
       <h3 class="mt-5 mb-3">Layout — Carousel</h3>
-      <div id="testimonialCarousel" class="caat-testimonial-carousel carousel slide" data-analytics-component="testimonial" data-analytics-variant="carousel" aria-roledescription="carousel" aria-label="Member testimonials">
+      <div id="testimonialCarousel" class="caat-testimonial-carousel carousel slide" data-analytics-component="testimonial" data-analytics-variant="carousel" aria-roledescription="carousel" aria-label="Member testimonials" data-figma="Carousel" data-figma-group="Layouts">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
           <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
@@ -254,7 +254,7 @@
       <h3 class="mt-5 mb-3">Avatar fallbacks <span class="text-muted" style="font-weight:400;font-size:.8rem;">· initials &amp; icon</span></h3>
       <p class="text-muted mb-3" style="max-width:48rem;">When no photo exists, the <a href="/components/avatar.html">Avatar</a> falls back to initials, then a generic icon. The avatar type is independent of the layout.</p>
       <div class="caat-testimonial-grid" data-analytics-component="testimonial" data-analytics-variant="no-photo">
-        <figure class="caat-testimonial">
+        <figure class="caat-testimonial" data-figma="Initials avatar" data-figma-group="Avatar fallbacks">
           <blockquote class="caat-testimonial__quote">
             <p>"Joining CAAT was the best HR decision we ever made. Our employees feel secure about their future, and that shows in retention."</p>
           </blockquote>
@@ -266,7 +266,7 @@
             </div>
           </figcaption>
         </figure>
-        <figure class="caat-testimonial">
+        <figure class="caat-testimonial" data-figma="Icon avatar" data-figma-group="Avatar fallbacks">
           <blockquote class="caat-testimonial__quote">
             <p>"The CAAT team walked us through every step of onboarding. Our staff had questions answered within days, not weeks."</p>
           </blockquote>
@@ -623,45 +623,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Testimonial</h1>
-<p class="figma-page-subtitle">CAAT Design System · Quote card variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default Testimonial</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">With avatar</span>
-    <div class="figma-row-items">
-      <div class="caat-testimonial" style="max-width:24rem;">
-        <div class="caat-testimonial__stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-        <blockquote class="caat-testimonial__quote">"CAAT's DBplus pension gives me confidence about my retirement."</blockquote>
-        <div class="caat-testimonial__attribution">
-          <div class="caat-avatar caat-avatar--initials" style="width:48px;height:48px;border-radius:50%;">JS</div>
-          <div><div class="caat-testimonial__name">Jane Smith</div><div class="caat-testimonial__role">HR Director, Acme Corp</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Padding</strong>2rem</div>
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Shadow</strong>var(--caat-shadow-sm)</div>
-    <div class="figma-spec"><strong>Quote size</strong>1.1rem italic</div>
-    <div class="figma-spec"><strong>Avatar</strong>48×48px, border-radius 50%</div>
-    <div class="figma-spec"><strong>Stars colour</strong>var(--caat-warning)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

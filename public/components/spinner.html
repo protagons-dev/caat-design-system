@@ -134,7 +134,7 @@
       <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Spinner</h1>
       <p class="text-muted">Loading indicator for asynchronous operations across the CAAT Pension Plan member experience.</p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Spinner',['/assets/css/tokens.css','/assets/css/components/spinner.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Spinner',['/assets/css/tokens.css','/assets/css/components/spinner.css','/assets/css/components/button.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
@@ -150,9 +150,9 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex align-items-center gap-4">
-            <div class="caat-spinner caat-spinner--sm" role="status"><span class="visually-hidden">Loading…</span></div>
-            <div class="caat-spinner" role="status"><span class="visually-hidden">Loading…</span></div>
-            <div class="caat-spinner caat-spinner--lg" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--sm" role="status" data-figma="Small" data-figma-group="Border spinner"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner" role="status" data-figma="Default" data-figma-group="Border spinner"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--lg" role="status" data-figma="Large" data-figma-group="Border spinner"><span class="visually-hidden">Loading…</span></div>
           </div>
           <p class="demo-label mt-2">Small · Default · Large</p>
         </div>
@@ -164,9 +164,9 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="d-flex align-items-center gap-4">
-            <div class="caat-spinner caat-spinner--grow caat-spinner--sm" role="status"><span class="visually-hidden">Loading…</span></div>
-            <div class="caat-spinner caat-spinner--grow" role="status"><span class="visually-hidden">Loading…</span></div>
-            <div class="caat-spinner caat-spinner--grow caat-spinner--lg" role="status"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--grow caat-spinner--sm" role="status" data-figma="Small" data-figma-group="Growing spinner"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--grow" role="status" data-figma="Default" data-figma-group="Growing spinner"><span class="visually-hidden">Loading…</span></div>
+            <div class="caat-spinner caat-spinner--grow caat-spinner--lg" role="status" data-figma="Large" data-figma-group="Growing spinner"><span class="visually-hidden">Loading…</span></div>
           </div>
           <p class="demo-label mt-2">Small · Default · Large</p>
         </div>
@@ -177,7 +177,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-spinner__label" role="status">
+          <div class="caat-spinner__label" role="status" data-figma="With label" data-figma-group="Usage">
             <div class="caat-spinner caat-spinner--sm" aria-hidden="true"></div>
             Loading your pension details&hellip;
           </div>
@@ -189,7 +189,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <button class="caat-button caat-button--primary" type="button" disabled>
+          <button class="caat-button caat-button--primary" type="button" disabled data-figma="In button" data-figma-group="Usage">
             <span class="caat-spinner" aria-hidden="true"></span>
             Processing&hellip;
           </button>
@@ -502,39 +502,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Spinner</h1>
-<p class="figma-page-subtitle">CAAT Design System · Loading indicators</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Border Spinner</h2>
-  <div class="figma-row"><span class="figma-row-label">Small</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--sm" role="status"></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div class="caat-spinner" role="status"></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Large</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--lg" role="status"></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Growing Spinner</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><div class="caat-spinner caat-spinner--grow" role="status"></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Colour</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Size (sm)</strong>1rem</div>
-    <div class="figma-spec"><strong>Size (default)</strong>2rem</div>
-    <div class="figma-spec"><strong>Size (lg)</strong>3rem</div>
-    <div class="figma-spec"><strong>Border width</strong>0.2em</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

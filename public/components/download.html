@@ -134,7 +134,7 @@
       <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Download</h1>
       <p class="text-muted">File download link with metadata and icon for pension plan documents across the CAAT member experience.</p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Download',['/assets/css/tokens.css','/assets/css/components/download.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Download',['/assets/css/tokens.css','/assets/css/components/download.css','/assets/css/components/button.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
@@ -147,7 +147,7 @@
 
       <!-- Variant 1: Single Download Link -->
       <h3 class="mt-4 mb-3">Single Download Link</h3>
-      <div class="caat-download">
+      <div class="caat-download" data-figma="Single Download Link" data-figma-group="Variants">
         <div class="caat-download__icon caat-download__icon--pdf">
           <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
         </div>
@@ -164,7 +164,7 @@
 
       <!-- Variant 2: Download List -->
       <h3 class="mt-5 mb-3">Download List</h3>
-      <ul class="caat-download-list">
+      <ul class="caat-download-list" data-figma="Download List" data-figma-group="Variants">
         <li class="caat-download-list__item">
           <div class="caat-download__icon caat-download__icon--pdf">
             <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
@@ -241,7 +241,7 @@
       <h3 class="mt-5 mb-3">Download Card</h3>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="caat-download caat-download--card">
+          <div class="caat-download caat-download--card" data-figma="Download Card" data-figma-group="Variants">
             <div class="caat-download__icon caat-download__icon--pdf">
               <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
             </div>
@@ -295,7 +295,7 @@
 
       <!-- Variant 4: Grouped Downloads -->
       <h3 class="mt-5 mb-3">Grouped Downloads</h3>
-      <div class="caat-download-group">
+      <div class="caat-download-group" data-figma="Grouped Downloads" data-figma-group="Variants">
         <h4 class="caat-download-group__header">Member Forms</h4>
         <ul class="caat-download-list">
           <li class="caat-download-list__item">
@@ -676,47 +676,6 @@
   </main>
 </div>
 </div>
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Download</h1>
-<p class="figma-page-subtitle">CAAT Design System · File download variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">File Type Icons</h2>
-  <div class="figma-row"><span class="figma-row-label">PDF</span><div class="figma-row-items"><div class="caat-download__icon caat-download__icon--pdf"><i class="bi bi-file-earmark-pdf"></i></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Excel</span><div class="figma-row-items"><div class="caat-download__icon caat-download__icon--xlsx"><i class="bi bi-file-earmark-spreadsheet"></i></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">Word</span><div class="figma-row-items"><div class="caat-download__icon caat-download__icon--docx"><i class="bi bi-file-earmark-word"></i></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Download Row</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Horizontal</span>
-    <div class="figma-row-items" style="flex:1;max-width:32rem;">
-      <div class="caat-download" style="width:100%;">
-        <div class="caat-download__icon caat-download__icon--pdf"><i class="bi bi-file-earmark-pdf"></i></div>
-        <div class="caat-download__info"><h4 class="caat-download__title">Annual Report 2025</h4><p class="caat-download__meta">PDF · 2.4 MB</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Icon size</strong>3rem × 3rem</div>
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Hover</strong>var(--caat-shadow-sm), translateY(-2px)</div>
-    <div class="figma-spec"><strong>Title weight</strong>600</div>
-  </div>
-</div>
-
-</template>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

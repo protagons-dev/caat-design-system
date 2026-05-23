@@ -47,13 +47,17 @@ a.caat-list-group__item--action {
 }
 
 a.caat-list-group__item--action:hover,
-.caat-list-group__item--action:hover {
+.caat-list-group__item--action:hover,
+a.caat-list-group__item--action.is-hover,
+.caat-list-group__item--action.is-hover {
   background-color: var(--caat-color-state-hover-bg);
   color: var(--caat-blue-900, #003750);
 }
 
 a.caat-list-group__item--action:focus-visible,
-.caat-list-group__item--action a:focus-visible {
+.caat-list-group__item--action a:focus-visible,
+a.caat-list-group__item--action.is-focus,
+.caat-list-group__item--action a.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: -2px;
   z-index: 1;

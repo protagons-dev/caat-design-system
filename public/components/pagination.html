@@ -150,7 +150,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <nav aria-label="Basic pagination example">
-            <ul class="caat-pagination">
+            <ul class="caat-pagination" data-figma="Basic (text)" data-figma-group="Variants">
               <li class="caat-pagination__item caat-pagination__item--disabled">
                 <a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
               </li>
@@ -183,7 +183,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <nav aria-label="Pagination with icons">
-            <ul class="caat-pagination">
+            <ul class="caat-pagination" data-figma="With icons" data-figma-group="Variants">
               <li class="caat-pagination__item caat-pagination__item--disabled">
                 <a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous page">
                   <i class="bi bi-chevron-left" aria-hidden="true"></i>
@@ -222,7 +222,7 @@
 
           <p class="fw-semibold mb-1">Small</p>
           <nav aria-label="Small pagination" class="mb-3">
-            <ul class="caat-pagination caat-pagination--sm">
+            <ul class="caat-pagination caat-pagination--sm" data-figma="Small" data-figma-group="Sizes">
               <li class="caat-pagination__item">
                 <a class="caat-pagination__link" href="#" aria-label="Previous page">
                   <i class="bi bi-chevron-left" aria-hidden="true"></i>
@@ -247,7 +247,7 @@
 
           <p class="fw-semibold mb-1">Default</p>
           <nav aria-label="Default pagination" class="mb-3">
-            <ul class="caat-pagination">
+            <ul class="caat-pagination" data-figma="Default" data-figma-group="Sizes">
               <li class="caat-pagination__item">
                 <a class="caat-pagination__link" href="#" aria-label="Previous page">
                   <i class="bi bi-chevron-left" aria-hidden="true"></i>
@@ -272,7 +272,7 @@
 
           <p class="fw-semibold mb-1">Large</p>
           <nav aria-label="Large pagination">
-            <ul class="caat-pagination caat-pagination--lg">
+            <ul class="caat-pagination caat-pagination--lg" data-figma="Large" data-figma-group="Sizes">
               <li class="caat-pagination__item">
                 <a class="caat-pagination__link" href="#" aria-label="Previous page">
                   <i class="bi bi-chevron-left" aria-hidden="true"></i>
@@ -302,7 +302,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-pagination-wrapper">
+          <div class="caat-pagination-wrapper" data-figma="With results text" data-figma-group="Variants">
             <span class="caat-pagination__results">Showing 1–10 of 97 results</span>
             <nav aria-label="Pagination with results summary">
               <ul class="caat-pagination">
@@ -335,6 +335,24 @@
             </nav>
             <span class="caat-pagination__results">&nbsp;</span>
           </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Follows the <a href="/foundations/interaction-states.html">Interaction States</a> matrix. Page links implement default, hover, focus, active (current page), and disabled (boundary). The static <code>is-*</code> classes mirror the live pseudo-class states.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Pagination states">
+            <ul class="caat-pagination">
+              <li class="caat-pagination__item" data-figma="Default" data-figma-group="States"><a class="caat-pagination__link" href="#">3</a></li>
+              <li class="caat-pagination__item" data-figma="Hover" data-figma-group="States"><a class="caat-pagination__link is-hover" href="#">3</a></li>
+              <li class="caat-pagination__item" data-figma="Focus" data-figma-group="States"><a class="caat-pagination__link is-focus" href="#">3</a></li>
+              <li class="caat-pagination__item caat-pagination__item--active" data-figma="Active" data-figma-group="States"><a class="caat-pagination__link" href="#" aria-current="page">3</a></li>
+              <li class="caat-pagination__item caat-pagination__item--disabled" data-figma="Disabled" data-figma-group="States"><a class="caat-pagination__link" href="#" tabindex="-1" aria-disabled="true" aria-label="Previous page"><i class="bi bi-chevron-left" aria-hidden="true"></i></a></li>
+            </ul>
+          </nav>
         </div>
       </div>
 
@@ -828,51 +846,6 @@ fields:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Pagination</h1>
-<p class="figma-page-subtitle">CAAT Design System · All states and sizes</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Item States</h2>
-  <div class="figma-row"><span class="figma-row-label">Default</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">3</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Hover</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-blue-900);background:var(--caat-blue-100);border:1px solid var(--caat-blue-700);border-radius:var(--caat-radius);">3</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Active</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:700;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);">3</span></div></div>
-  <div class="figma-row"><span class="figma-row-label">Disabled</span><div class="figma-row-items"><span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;font-size:.9375rem;font-weight:500;color:var(--caat-grey-200);background:var(--caat-grey);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);opacity:.65;">‹</span></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Full Row</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items" style="gap:.25rem;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-grey-200);background:var(--caat-grey);border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);opacity:.65;">‹</span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:#fff;background:var(--caat-blue-900);border:1px solid var(--caat-blue-900);border-radius:var(--caat-radius);font-weight:700;">1</span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">2</span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">3</span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-ink);">…</span>
-      <span style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:.375rem .75rem;color:var(--caat-blue-900);background:#fff;border:1px solid var(--caat-grey-200);border-radius:var(--caat-radius);">›</span>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Min size</strong>44×44px</div>
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Active bg</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Hover bg</strong>var(--caat-blue-100)</div>
-    <div class="figma-spec"><strong>Small size</strong>36×36px</div>
-    <div class="figma-spec"><strong>Large size</strong>52×52px</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

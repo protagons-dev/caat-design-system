@@ -11,7 +11,7 @@
   overflow: hidden;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.caat-card:hover {
+.caat-card:hover, .caat-card.is-hover {
   transform: translateY(-3px);
   box-shadow: var(--caat-shadow);
   border-color: var(--caat-blue-300); /* decorative hover accent */

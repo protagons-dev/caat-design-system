@@ -148,7 +148,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb">
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb" data-figma="Standard (slash)" data-figma-group="Variants">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="employers">Employers</a></li>
@@ -164,7 +164,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--chevron" data-analytics-component="breadcrumb" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--chevron" data-analytics-component="breadcrumb" data-figma="Chevron separator" data-figma-group="Variants" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="members">Members</a></li>
@@ -180,13 +180,30 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated" data-analytics-component="breadcrumb">
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated" data-analytics-component="breadcrumb" data-figma="Truncated (deep pages)" data-figma-group="Variants">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
               <li class="breadcrumb-item breadcrumb-item--ellipsis"><span aria-label="Collapsed pages">&hellip;</span></li>
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="4" data-analytics-destination="dbplus-plan">DBplus Plan</a></li>
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="5" data-analytics-destination="contributions">Contributions</a></li>
               <li class="breadcrumb-item active" aria-current="page">Employer Match</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Ancestor-link interaction states. Hover and focus are shown statically via <code>is-*</code> classes mirroring the live <code>:hover</code> / <code>:focus-visible</code> rules; the current page uses <code>.active</code> (non-linked).</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#" data-figma="Link — default" data-figma-group="States">Default</a></li>
+              <li class="breadcrumb-item"><a href="#" class="is-hover" data-figma="Link — hover" data-figma-group="States">Hover</a></li>
+              <li class="breadcrumb-item"><a href="#" class="is-focus" data-figma="Link — focus" data-figma-group="States">Focus</a></li>
+              <li class="breadcrumb-item active" aria-current="page" data-figma="Current page" data-figma-group="States">Current</li>
             </ol>
           </nav>
         </div>
@@ -660,42 +677,6 @@ breadcrumb-dialog:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Breadcrumb</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Standard</span>
-    <div class="figma-row-items">
-      <nav class="caat-breadcrumb" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">Home</a></li><li class="breadcrumb-item"><a href="#">Members</a></li><li class="breadcrumb-item active" aria-current="page">My Pension</li></ol></nav>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Truncated</span>
-    <div class="figma-row-items">
-      <nav class="caat-breadcrumb caat-breadcrumb--truncated" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">Home</a></li><li class="breadcrumb-item breadcrumb-item--ellipsis">…</li><li class="breadcrumb-item active" aria-current="page">Current Page</li></ol></nav>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Font size</strong>0.85rem</div>
-    <div class="figma-spec"><strong>Link colour</strong>var(--caat-blue-900)</div>
-    <div class="figma-spec"><strong>Link weight</strong>500</div>
-    <div class="figma-spec"><strong>Active colour</strong>var(--caat-muted)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

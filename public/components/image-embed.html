@@ -150,7 +150,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
 
-          <div class="caat-image">
+          <div class="caat-image" data-figma="Image with caption" data-figma-group="Variants">
             <figure class="caat-image__figure">
               <img class="caat-image__img" src="https://picsum.photos/900/400?random=20" alt="CAAT members collaborating in a modern office environment">
               <figcaption class="caat-image__caption">CAAT members collaborating during a pension planning workshop.</figcaption>
@@ -168,19 +168,19 @@
           <div class="row g-3">
             <div class="col-md-4">
               <p class="fw-semibold small mb-1">16:9</p>
-              <div class="caat-image caat-image--16-9">
+              <div class="caat-image caat-image--16-9" data-figma="16:9" data-figma-group="Aspect ratios">
                 <img class="caat-image__img" src="https://picsum.photos/600/338?random=21" alt="Sample landscape image in 16:9 ratio">
               </div>
             </div>
             <div class="col-md-4">
               <p class="fw-semibold small mb-1">4:3</p>
-              <div class="caat-image caat-image--4-3">
+              <div class="caat-image caat-image--4-3" data-figma="4:3" data-figma-group="Aspect ratios">
                 <img class="caat-image__img" src="https://picsum.photos/600/450?random=22" alt="Sample image in 4:3 ratio">
               </div>
             </div>
             <div class="col-md-4">
               <p class="fw-semibold small mb-1">1:1</p>
-              <div class="caat-image caat-image--1-1">
+              <div class="caat-image caat-image--1-1" data-figma="1:1" data-figma-group="Aspect ratios">
                 <img class="caat-image__img" src="https://picsum.photos/600/600?random=23" alt="Sample square image in 1:1 ratio">
               </div>
             </div>
@@ -197,7 +197,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
 
-          <div class="caat-embed">
+          <div class="caat-embed" data-figma="Video embed (Vimeo)" data-figma-group="Variants">
             <div class="caat-embed__wrapper">
               <iframe class="caat-embed__iframe"
                 src="https://player.vimeo.com/video/1066350069?h=47f1c2557a&title=0&byline=0&portrait=0&texttrack=en"
@@ -216,7 +216,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
 
-          <div class="caat-embed">
+          <div class="caat-embed" data-figma="Video embed (YouTube)" data-figma-group="Variants">
             <div class="caat-embed__wrapper">
               <iframe class="caat-embed__iframe"
                 src="https://www.youtube.com/embed/cTif3N2dHPo?rel=0&list=PLo0xU8anP34R5Gwzo9u7zVeaBTtyInfCe"
@@ -238,13 +238,13 @@
           <div class="row g-3">
             <div class="col-md-6">
               <p class="fw-semibold small mb-1">Decorative <span class="badge bg-secondary">alt=""</span></p>
-              <div class="caat-image">
+              <div class="caat-image" data-figma="Decorative (alt=&quot;&quot;)" data-figma-group="Variants">
                 <img class="caat-image__img" src="https://picsum.photos/600/300?random=24" alt="" role="presentation">
               </div>
             </div>
             <div class="col-md-6">
               <p class="fw-semibold small mb-1">Informative <span class="badge bg-secondary">alt="…"</span></p>
-              <div class="caat-image">
+              <div class="caat-image" data-figma="Informative (descriptive alt)" data-figma-group="Variants">
                 <img class="caat-image__img" src="https://picsum.photos/600/300?random=25" alt="Bar chart showing CAAT pension fund growth from 2020 to 2025, with a 12% increase year over year">
               </div>
             </div>
@@ -674,32 +674,6 @@
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Image / Embed</h1>
-<p class="figma-page-subtitle">CAAT Design System · Responsive media variants</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Aspect Ratios</h2>
-  <div class="figma-row"><span class="figma-row-label">16:9</span><div class="figma-row-items"><div style="width:12rem;aspect-ratio:16/9;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">4:3</span><div class="figma-row-items"><div style="width:12rem;aspect-ratio:4/3;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
-  <div class="figma-row"><span class="figma-row-label">1:1</span><div class="figma-row-items"><div style="width:8rem;aspect-ratio:1/1;background:var(--caat-grey);border-radius:var(--caat-radius);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);"><i class="bi bi-image" style="font-size:1.5rem;"></i></div></div></div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Caption</strong>0.875rem, opacity 0.7</div>
-    <div class="figma-spec"><strong>Embed bg</strong>var(--caat-grey-200)</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

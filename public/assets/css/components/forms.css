@@ -34,7 +34,9 @@
 }
 
 .caat-form .form-control:focus,
-.caat-form .form-select:focus {
+.caat-form .form-select:focus,
+.caat-form .form-control.is-focus,
+.caat-form .form-select.is-focus {
   border-color: var(--caat-blue-900, #003750);
   box-shadow: var(--caat-color-focus-ring);
 }

@@ -20,12 +20,14 @@
   transition: color 0.15s ease;
 }
 
-.caat-breadcrumb .breadcrumb-item a:hover {
+.caat-breadcrumb .breadcrumb-item a:hover,
+.caat-breadcrumb .breadcrumb-item a.is-hover {
   color: var(--caat-color-text-link-hover);
   text-decoration: underline;
 }
 
-.caat-breadcrumb .breadcrumb-item a:focus-visible {
+.caat-breadcrumb .breadcrumb-item a:focus-visible,
+.caat-breadcrumb .breadcrumb-item a.is-focus {
   outline: 2px solid var(--caat-blue-700, #0b5a80);
   outline-offset: 2px;
   border-radius: 2px;

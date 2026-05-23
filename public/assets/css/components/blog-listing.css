@@ -32,7 +32,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.caat-blog-listing__card:hover {
+.caat-blog-listing__card:hover, .caat-blog-listing__card.is-hover {
   transform: translateY(-4px);
   box-shadow: var(--caat-shadow);
 }
@@ -91,7 +91,8 @@
 }
 
 .caat-blog-listing__card a:hover .caat-blog-listing__title,
-.caat-blog-listing__card a:focus-visible .caat-blog-listing__title {
+.caat-blog-listing__card a:focus-visible .caat-blog-listing__title,
+.caat-blog-listing__card.is-hover .caat-blog-listing__title {
   color: var(--caat-color-text-link-hover);
 }
 

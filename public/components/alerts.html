@@ -149,7 +149,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite">
+          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite" data-figma="Info" data-figma-group="Variants">
             <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
             <div class="caat-alert__body">
               <strong>System Maintenance Scheduled</strong>
@@ -164,7 +164,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-alert caat-alert--success" role="alert" aria-live="polite">
+          <div class="caat-alert caat-alert--success" role="alert" aria-live="polite" data-figma="Success" data-figma-group="Variants">
             <i class="bi bi-check-circle-fill caat-alert__icon" aria-hidden="true"></i>
             <div class="caat-alert__body">
               <strong>Enrollment Confirmed</strong>
@@ -179,7 +179,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-alert caat-alert--warning" role="alert" aria-live="polite">
+          <div class="caat-alert caat-alert--warning" role="alert" aria-live="polite" data-figma="Warning" data-figma-group="Variants">
             <i class="bi bi-exclamation-triangle-fill caat-alert__icon" aria-hidden="true"></i>
             <div class="caat-alert__body">
               <strong>Contribution Deadline Approaching</strong>
@@ -194,7 +194,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-alert caat-alert--danger" role="alert" aria-live="assertive">
+          <div class="caat-alert caat-alert--danger" role="alert" aria-live="assertive" data-figma="Danger" data-figma-group="Variants">
             <i class="bi bi-x-octagon-fill caat-alert__icon" aria-hidden="true"></i>
             <div class="caat-alert__body">
               <strong>Form Validation Errors</strong>
@@ -213,7 +213,7 @@
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite">
+          <div class="caat-alert caat-alert--info" role="alert" aria-live="polite" data-figma="Dismissible" data-figma-group="Variants">
             <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
             <div class="caat-alert__body">
               <strong>New Feature Available</strong>
@@ -222,6 +222,32 @@
             <button type="button" class="caat-alert__close" aria-label="Dismiss alert">
               <i class="bi bi-x-lg" aria-hidden="true"></i>
             </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">The alert variants are static (no interaction states). The only interactive element is the dismiss button on dismissible alerts, which implements default, hover, and focus. The static <code>is-*</code> classes mirror the live pseudo-class states.</p>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Dismiss button</p>
+          <div class="d-flex flex-column gap-3" style="max-width:36rem;">
+            <div class="caat-alert caat-alert--info" role="alert">
+              <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
+              <div class="caat-alert__body"><strong>Default</strong><p class="mb-0">Close button at rest.</p></div>
+              <button type="button" class="caat-alert__close" aria-label="Dismiss alert" data-figma="Close — Default" data-figma-group="States"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+            </div>
+            <div class="caat-alert caat-alert--info" role="alert">
+              <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
+              <div class="caat-alert__body"><strong>Hover</strong><p class="mb-0">Close button hovered.</p></div>
+              <button type="button" class="caat-alert__close is-hover" aria-label="Dismiss alert" data-figma="Close — Hover" data-figma-group="States"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+            </div>
+            <div class="caat-alert caat-alert--info" role="alert">
+              <i class="bi bi-info-circle-fill caat-alert__icon" aria-hidden="true"></i>
+              <div class="caat-alert__body"><strong>Focus</strong><p class="mb-0">Close button focused.</p></div>
+              <button type="button" class="caat-alert__close is-focus" aria-label="Dismiss alert" data-figma="Close — Focus" data-figma-group="States"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+            </div>
           </div>
         </div>
       </div>
@@ -665,72 +691,6 @@ fields:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Alert</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Variants</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Info</span>
-    <div class="figma-row-items" style="flex:1;max-width:36rem;">
-      <div class="caat-alert caat-alert--info" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-info-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Did you know?</h4><p>Your pension grows each year you contribute to DBplus.</p></div></div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Success</span>
-    <div class="figma-row-items" style="flex:1;max-width:36rem;">
-      <div class="caat-alert caat-alert--success" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-check-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Success</h4><p>Your beneficiary details have been updated.</p></div></div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Warning</span>
-    <div class="figma-row-items" style="flex:1;max-width:36rem;">
-      <div class="caat-alert caat-alert--warning" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-exclamation-triangle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Attention</h4><p>Please review your contact information before submitting.</p></div></div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Danger</span>
-    <div class="figma-row-items" style="flex:1;max-width:36rem;">
-      <div class="caat-alert caat-alert--danger" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-x-circle-fill"></i></span><div class="caat-alert__body"><h4 class="caat-alert__heading">Error</h4><p>We couldn't process your request. Please try again.</p></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Dismissible</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">With close</span>
-    <div class="figma-row-items" style="flex:1;max-width:36rem;">
-      <div class="caat-alert caat-alert--info" style="width:100%;"><span class="caat-alert__icon"><i class="bi bi-info-circle-fill"></i></span><div class="caat-alert__body"><p>This is a dismissible alert with a close button.</p></div><button class="caat-alert__close" aria-label="Close">×</button></div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Padding</strong>1rem 1.25rem</div>
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Font size</strong>0.95rem</div>
-    <div class="figma-spec"><strong>Icon size</strong>1.25rem</div>
-    <div class="figma-spec"><strong>Gap</strong>0.75rem</div>
-  </div>
-  <h3 class="figma-colour-heading">Colour values</h3>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Info bg</strong>#cfe2ff</div>
-    <div class="figma-spec"><strong>Success bg</strong>#d1e7dd</div>
-    <div class="figma-spec"><strong>Warning bg</strong>#fff3cd</div>
-    <div class="figma-spec"><strong>Danger bg</strong>#f8d7da</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER

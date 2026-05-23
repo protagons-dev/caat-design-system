@@ -79,11 +79,13 @@
   transition: opacity 0.15s ease;
 }
 
-.caat-alert__close:hover {
+.caat-alert__close:hover,
+.caat-alert__close.is-hover {
   opacity: 1;
 }
 
-.caat-alert__close:focus-visible {
+.caat-alert__close:focus-visible,
+.caat-alert__close.is-focus {
   outline: 2px solid var(--caat-color-text-link);
   outline-offset: 2px;
   border-radius: 4px;

@@ -152,6 +152,7 @@
           <div class="row g-4">
             <div class="col-md-4">
               <article class="card caat-card"
+                       data-figma="Icon card" data-figma-group="Variants"
                        data-analytics-component="card"
                        data-analytics-category="icon-card"
                        data-analytics-label="for-members"
@@ -204,6 +205,7 @@
           <div class="row g-4">
             <div class="col-md-6">
               <article class="card caat-card"
+                       data-figma="Image card" data-figma-group="Variants"
                        data-analytics-component="card"
                        data-analytics-category="image-card"
                        data-analytics-label="retirement-planning"
@@ -244,6 +246,7 @@
           <div class="row g-4">
             <div class="col-md-8">
               <article class="card caat-card caat-card--overlay"
+                       data-figma="Media overlay card" data-figma-group="Variants"
                        data-analytics-component="card"
                        data-analytics-category="overlay-card"
                        data-analytics-label="webinar-event"
@@ -254,6 +257,34 @@
                   <h3 class="card-title text-white">Pension planning webinar — June 2026</h3>
                   <p class="card-text text-white">Join our experts for a live session on maximising your CAAT pension benefits.</p>
                   <a href="/en/events/webinar" class="stretched-link text-white">Register for the event</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- States -->
+      <h3 class="mb-2">States</h3>
+      <div class="demo-shell mb-4">
+        <div class="demo-rendered">
+          <p class="demo-label">Rendered</p>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <article class="card caat-card" data-figma="Default" data-figma-group="States">
+                <div class="card-body text-center">
+                  <span class="icon-token mb-3" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+                  <h3 class="card-title">Secure pension</h3>
+                  <p class="card-text">Your pension is backed by a robust funding framework.</p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="card caat-card is-hover" data-figma="Hover" data-figma-group="States">
+                <div class="card-body text-center">
+                  <span class="icon-token mb-3" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+                  <h3 class="card-title">Secure pension</h3>
+                  <p class="card-text">Your pension is backed by a robust funding framework.</p>
                 </div>
               </article>
             </div>
@@ -899,67 +930,6 @@ dialog:
   </main>
 </div><!-- /component-page-layout -->
 </div><!-- /container -->
-
-<!-- ════════════════════════════════════════════════════════════
-     FIGMA EXPORT TEMPLATE (hidden — used by figma-export.js)
-     ════════════════════════════════════════════════════════════ -->
-<template id="figma-template">
-
-<h1 class="figma-page-title">Card</h1>
-<p class="figma-page-subtitle">CAAT Design System · All variants and states</p>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Default Card</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Default</span>
-    <div class="figma-row-items">
-      <div class="caat-card" style="width:18rem;"><div style="padding:1.25rem;"><div class="icon-token"><i class="bi bi-shield-check"></i></div><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);text-align:center;">Secure Pension</h3><p style="font-size:.9rem;color:var(--caat-ink);text-align:center;">Your pension is backed by a robust funding framework.</p></div></div>
-    </div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Hover</span>
-    <div class="figma-row-items">
-      <div class="caat-card" style="width:18rem;transform:translateY(-3px);box-shadow:var(--caat-shadow);border-color:var(--caat-blue-300);"><div style="padding:1.25rem;"><div class="icon-token"><i class="bi bi-shield-check"></i></div><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);text-align:center;">Secure Pension</h3><p style="font-size:.9rem;color:var(--caat-ink);text-align:center;">Your pension is backed by a robust funding framework.</p></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Image Card</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">With image</span>
-    <div class="figma-row-items">
-      <div class="caat-card" style="width:18rem;"><div class="caat-card-image" style="background:var(--caat-grey);display:flex;align-items:center;justify-content:center;color:var(--caat-muted);font-size:2rem;"><i class="bi bi-image"></i></div><div style="padding:1.25rem;"><span class="caat-card-kicker">Pension News</span><h3 style="font-size:1.1rem;font-weight:700;color:var(--caat-blue-900);">DBplus plan updates</h3><p style="font-size:.875rem;color:var(--caat-ink);">Latest changes to your pension plan benefits.</p></div></div>
-    </div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Icon Token Variants</h2>
-  <div class="figma-row">
-    <span class="figma-row-label">Blue</span>
-    <div class="figma-row-items"><div class="icon-token" style="width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--caat-blue-100);color:var(--caat-blue-900);font-size:1.5rem;"><i class="bi bi-shield-check"></i></div></div>
-  </div>
-  <div class="figma-row">
-    <span class="figma-row-label">Green</span>
-    <div class="figma-row-items"><div class="icon-token green" style="width:3rem;height:3rem;border-radius:50%;display:grid;place-items:center;background:var(--caat-green-100);color:var(--caat-green-700);font-size:1.5rem;"><i class="bi bi-graph-up-arrow"></i></div></div>
-  </div>
-</div>
-
-<div class="figma-section">
-  <h2 class="figma-section-title">Specifications</h2>
-  <div class="figma-specs">
-    <div class="figma-spec"><strong>Border</strong>1px solid var(--caat-grey-200)</div>
-    <div class="figma-spec"><strong>Border radius</strong>var(--caat-radius)</div>
-    <div class="figma-spec"><strong>Hover shadow</strong>var(--caat-shadow)</div>
-    <div class="figma-spec"><strong>Hover border</strong>var(--caat-blue-300)</div>
-    <div class="figma-spec"><strong>Hover lift</strong>translateY(-3px)</div>
-    <div class="figma-spec"><strong>Image height</strong>12rem (default)</div>
-    <div class="figma-spec"><strong>Kicker</strong>0.78rem, uppercase, 900 weight</div>
-  </div>
-</div>
-
-</template>
 
 <!-- ════════════════════════════════════════════════════════════
      FOOTER
