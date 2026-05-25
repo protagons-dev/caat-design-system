@@ -790,13 +790,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Forms themselves have minimal direct SEO impact but ensure surrounding page content is well-structured.</li>
-        <li>Use semantic headings above the form to describe its purpose.</li>
-        <li>The <code>&lt;form&gt;</code> element's <code>aria-label</code> provides context for assistive tech and potential indexing.</li>
-        <li>Success/thank-you pages should include appropriate <code>&lt;title&gt;</code> and <code>&lt;meta&gt;</code> tags.</li>
-        <li>Use <code>noindex</code> on form confirmation/thank-you pages if they contain no unique content.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -804,37 +798,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Layer Payload</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><code>form-start</code></td>
-              <td>User interacts with first field (focus)</td>
-              <td><code>{ event: "form-start", formName, formVariant }</code></td>
-            </tr>
-            <tr>
-              <td><code>form-step</code></td>
-              <td>User advances to next step (multi-step only)</td>
-              <td><code>{ event: "form-step", formName, stepNumber, stepName }</code></td>
-            </tr>
-            <tr>
-              <td><code>form-submit</code></td>
-              <td>Successful form submission</td>
-              <td><code>{ event: "form-submit", formName, formVariant, fieldsCompleted }</code></td>
-            </tr>
-            <tr>
-              <td><code>form-error</code></td>
-              <td>Validation error shown to user</td>
-              <td><code>{ event: "form-error", formName, fieldName, errorType }</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <h4 class="mt-3">Data Attributes</h4>
-      <pre><code>&lt;form data-analytics-component="form"
-      data-analytics-form-name="new-member-enrollment"
-      data-analytics-form-variant="multi-step"&gt;</code></pre>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -860,6 +824,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <pre><code>{
   "jcr:primaryType": "nt:unstructured",
   "sling:resourceType": "cq/gui/components/authoring/dialog",

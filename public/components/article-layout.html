@@ -622,38 +622,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><code>article-viewed</code></td>
-              <td>Article enters viewport.</td>
-              <td><code>data-analytics-variant</code>, <code>data-analytics-title</code></td>
-            </tr>
-            <tr>
-              <td><code>article-scroll-depth</code></td>
-              <td>User scrolls past 25%, 50%, 75%, 100% of article body.</td>
-              <td><code>data-analytics-depth</code> (percentage)</td>
-            </tr>
-            <tr>
-              <td><code>article-share-click</code></td>
-              <td>User clicks a share button.</td>
-              <td><code>data-analytics-platform</code> (linkedin, twitter, email, copy-link)</td>
-            </tr>
-            <tr>
-              <td><code>article-toc-click</code></td>
-              <td>User clicks a TOC link in sidebar.</td>
-              <td><code>data-analytics-section</code> (heading text)</td>
-            </tr>
-            <tr>
-              <td><code>article-related-click</code></td>
-              <td>User clicks a related article link.</td>
-              <td><code>data-analytics-label</code> (article title), <code>data-analytics-position</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -676,6 +645,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
 <pre class="code-sample"><code>{
   "jcr:primaryType": "nt:unstructured",
   "sling:resourceType": "cq/gui/components/authoring/dialog",

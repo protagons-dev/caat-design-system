@@ -393,14 +393,7 @@
          ══════════════════════════════════════════════════════ -->
     <section id="analytics" class="mb-5">
       <h2>10. Analytics</h2>
-      <table class="table table-bordered">
-        <thead><tr><th>Attribute</th><th>Value</th></tr></thead>
-        <tbody>
-          <tr><td><code>data-analytics-component</code></td><td><code>logo-wall</code></td></tr>
-          <tr><td><code>data-analytics-variant</code></td><td><code>default</code> | <code>clean</code> | <code>dark</code> | <code>marquee</code></td></tr>
-        </tbody>
-      </table>
-      <p>Track CTA clicks and, if logos are linked, individual logo click-throughs.</p>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
 
@@ -424,6 +417,7 @@
          ══════════════════════════════════════════════════════ -->
     <section id="dialog-model" class="mb-5">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
 <pre class="bg-light p-3 rounded"><code>{
   "variant": "default | clean | dark | marquee",
   "title": "Trusted by leading Canadian employers",

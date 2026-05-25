@@ -538,12 +538,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Search results pages should use <code>&lt;title&gt;</code> and <code>&lt;meta name="description"&gt;</code> reflecting the query, e.g. <em>"Search results for 'pension benefits' — CAAT"</em>.</li>
-        <li>Result titles use <code>&lt;h4&gt;</code> heading hierarchy within the page; links use descriptive anchor text.</li>
-        <li>Search results pages should include <code>&lt;link rel="canonical"&gt;</code> pointing to the base search URL to avoid duplicate indexing of paginated results.</li>
-        <li>Consider adding <code>noindex</code> to search results pages to prevent thin content indexing.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -551,33 +546,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><code>search-submitted</code></td>
-              <td>User submits a search query.</td>
-              <td><code>data-analytics-query</code> (search term), <code>data-analytics-source</code> (header | page)</td>
-            </tr>
-            <tr>
-              <td><code>search-result-click</code></td>
-              <td>User clicks a search result link.</td>
-              <td><code>data-analytics-position</code> (result index), <code>data-analytics-title</code> (result title)</td>
-            </tr>
-            <tr>
-              <td><code>search-suggestion-click</code></td>
-              <td>User selects a typeahead suggestion.</td>
-              <td><code>data-analytics-suggestion</code> (suggestion text)</td>
-            </tr>
-            <tr>
-              <td><code>search-no-results</code></td>
-              <td>Search returns zero results.</td>
-              <td><code>data-analytics-query</code> (search term)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -601,6 +570,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
 <pre class="code-sample"><code>{
   "jcr:primaryType": "nt:unstructured",
   "sling:resourceType": "cq/gui/components/authoring/dialog",

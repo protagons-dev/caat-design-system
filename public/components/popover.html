@@ -433,12 +433,7 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Popover content is rendered in the DOM and crawlable by search engines.</li>
-        <li>Do not place primary content or navigation links exclusively inside popovers.</li>
-        <li>Popover titles contribute to on-page keyword signals — use descriptive titles.</li>
-        <li>Ensure links inside popovers use meaningful anchor text, not "click here".</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -446,16 +441,7 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
-          <tbody>
-            <tr><td><code>popover-opened</code></td><td>Popover is shown</td><td><code>data-analytics-title</code>, <code>data-analytics-placement</code></td></tr>
-            <tr><td><code>popover-dismissed</code></td><td>Popover is hidden</td><td><code>data-analytics-title</code></td></tr>
-            <tr><td><code>popover-link-click</code></td><td>Link inside popover body is clicked</td><td><code>data-analytics-title</code>, <code>data-analytics-href</code></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -479,6 +465,7 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
           <p class="demo-label">cq:dialog (Coral UI 3)</p>

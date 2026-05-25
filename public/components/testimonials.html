@@ -486,28 +486,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Payload</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><code>testimonial-viewed</code></td>
-              <td>Component enters viewport (IntersectionObserver, 50% threshold)</td>
-              <td><code>{ component: "testimonial", variant, attribution_name, position }</code></td>
-            </tr>
-            <tr>
-              <td><code>carousel-interaction</code></td>
-              <td>User clicks prev/next or indicator button</td>
-              <td><code>{ component: "testimonial", action: "next"|"prev"|"indicator", slide_index }</code></td>
-            </tr>
-            <tr>
-              <td><code>testimonial-dwell</code></td>
-              <td>User hovers/focuses on a testimonial for &gt;2 seconds</td>
-              <td><code>{ component: "testimonial", dwell_ms, attribution_name }</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -530,6 +509,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <pre><code>{
   "jcr:primaryType": "nt:unstructured",
   "sling:resourceType": "cq/gui/components/authoring/dialog",

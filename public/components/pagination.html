@@ -678,23 +678,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>pagination-click</strong></td>
-              <td>User clicks any page number, Previous, or Next link.</td>
-              <td><code>data-analytics-event="pagination-click"</code>, <code>data-analytics-page="{targetPage}"</code>, <code>data-analytics-action="{previous|next|page}"</code></td>
-            </tr>
-            <tr>
-              <td><strong>pagination-view</strong></td>
-              <td>Pagination component enters the viewport.</td>
-              <td><code>data-analytics-event="pagination-view"</code>, <code>data-analytics-total-pages="{totalPages}"</code>, <code>data-analytics-current-page="{currentPage}"</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -719,6 +703,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (YAML)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
 <pre class="code-sample"><code>title: Pagination

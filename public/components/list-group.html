@@ -615,13 +615,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>List groups render as semantic <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> HTML — content is crawlable by search engines.</li>
-        <li>Actionable items use standard <code>&lt;a href&gt;</code> links, contributing to internal link equity and discoverability.</li>
-        <li>Item labels are concise, descriptive text — not images — ensuring indexability.</li>
-        <li>Description text provides additional keyword-rich context for search engines.</li>
-        <li>List groups do not use heading tags — they do not interfere with the document outline.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -629,23 +623,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>list-group-displayed</strong></td>
-              <td>List group enters the viewport (Intersection Observer) or renders on page load.</td>
-              <td><code>data-analytics-component="list-group"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-count="{itemCount}"</code></td>
-            </tr>
-            <tr>
-              <td><strong>list-group-item-click</strong></td>
-              <td>User clicks an actionable list item.</td>
-              <td><code>data-analytics-event="list-group-item-click"</code>, <code>data-analytics-label="{itemLabel}"</code>, <code>data-analytics-position="{index}"</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -671,6 +649,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (YAML)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
 <pre class="code-sample"><code>title: List Group

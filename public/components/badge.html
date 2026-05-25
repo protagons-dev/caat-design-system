@@ -552,12 +552,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Badges are inline <code>&lt;span&gt;</code> elements rendered in server-side HTML — content is crawlable by search engines.</li>
-        <li>Badge text is concise and does not duplicate or conflict with surrounding heading/paragraph content.</li>
-        <li>Visually hidden context text provides additional semantic meaning for assistive technology without affecting visual layout.</li>
-        <li>Badges do not use heading tags — they do not interfere with the document outline.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -565,23 +560,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>badge-displayed</strong></td>
-              <td>Badge enters the viewport (Intersection Observer) or is rendered on page load.</td>
-              <td><code>data-analytics-event="badge-displayed"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-label="{text}"</code></td>
-            </tr>
-            <tr>
-              <td><strong>badge-status-view</strong></td>
-              <td>Status badge (Active, Pending, Retired) is displayed on the member dashboard.</td>
-              <td><code>data-analytics-event="badge-status-view"</code>, <code>data-analytics-status="{status}"</code>, <code>data-analytics-plan="{plan-type}"</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -606,6 +585,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (YAML)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
 <pre class="code-sample"><code>title: Badge

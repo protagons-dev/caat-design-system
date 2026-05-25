@@ -585,12 +585,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Toasts are injected dynamically and are not part of the initial server-rendered HTML; they carry no SEO weight.</li>
-        <li>Action links inside toasts should use meaningful link text (e.g., "Undo beneficiary removal") rather than generic "Click here".</li>
-        <li>Toast content should not duplicate or compete with on-page heading/paragraph text.</li>
-        <li>Toast containers do not affect the document outline as they contain no heading elements.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -598,28 +593,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>toast-displayed</strong></td>
-              <td>Toast becomes visible (<code>shown.bs.toast</code> event).</td>
-              <td><code>data-analytics-event="toast-displayed"</code>, <code>data-analytics-variant="{variant}"</code>, <code>data-analytics-title="{title}"</code></td>
-            </tr>
-            <tr>
-              <td><strong>toast-dismissed</strong></td>
-              <td>Toast is closed by the member or auto-dismissed.</td>
-              <td><code>data-analytics-event="toast-dismissed"</code>, <code>data-analytics-method="manual|auto"</code></td>
-            </tr>
-            <tr>
-              <td><strong>toast-action-click</strong></td>
-              <td>Member clicks the action link inside the toast body.</td>
-              <td><code>data-analytics-event="toast-action-click"</code>, <code>data-analytics-label="{actionLabel}"</code>, <code>data-analytics-url="{actionUrl}"</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -644,6 +618,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (YAML)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
 <pre class="code-sample"><code>title: Toast

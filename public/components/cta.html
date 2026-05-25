@@ -249,13 +249,13 @@
     <!-- ════ 9. SEO ════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul><li>The CTA heading reinforces the page's primary intent — keep it descriptive.</li></ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════ 10. ANALYTICS ════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul><li>Track each action as <code>cta:{label}</code> with the destination.</li></ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════ 11. AEM NOTES ════ -->
@@ -270,6 +270,7 @@
     <!-- ════ 12. DIALOG MODEL ════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <pre><code>{
   "title":      { "sling:resourceType": "…/form/textfield", "required": true },
   "text":       { "sling:resourceType": "…/form/textarea" },

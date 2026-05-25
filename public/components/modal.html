@@ -567,13 +567,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-
-      <ul>
-        <li>Modal content is rendered in the DOM and is accessible to crawlers, but hidden modals are not visible to users until triggered.</li>
-        <li>Do not place primary SEO content exclusively in modals — duplicate key information on the page itself.</li>
-        <li>Modal titles should be descriptive and unique within the page.</li>
-        <li>Legal/terms content in modals should also be available via a dedicated URL for indexing.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -581,38 +575,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead>
-            <tr><th>Event</th><th>Trigger</th><th>Data Layer Payload</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>modal-open</code></td>
-              <td>Modal is shown (Bootstrap <code>shown.bs.modal</code> event)</td>
-              <td><code>{ event: "modal-open", component: "modal", modalId: "…", modalTitle: "…" }</code></td>
-            </tr>
-            <tr>
-              <td><code>modal-close</code></td>
-              <td>Modal is hidden (Bootstrap <code>hidden.bs.modal</code> event)</td>
-              <td><code>{ event: "modal-close", component: "modal", modalId: "…", modalTitle: "…" }</code></td>
-            </tr>
-            <tr>
-              <td><code>modal-confirm</code></td>
-              <td>User clicks a confirm/accept action button</td>
-              <td><code>{ event: "modal-confirm", component: "modal", modalId: "…", actionLabel: "…" }</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>Implementation notes</h3>
-      <ul>
-        <li>Add <code>data-analytics-component="modal"</code> to the modal root element.</li>
-        <li>Add <code>data-analytics-label="…"</code> to each footer action button.</li>
-        <li>Listen for Bootstrap modal events (<code>shown.bs.modal</code>, <code>hidden.bs.modal</code>) to push to the data layer.</li>
-      </ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -637,6 +600,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (AEM Touch UI)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
 
 <pre class="code-sample"><code># caat/components/modal/_cq_dialog/.content.xml (pseudo-YAML)
 jcr:root:

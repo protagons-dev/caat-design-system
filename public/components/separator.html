@@ -256,14 +256,7 @@
     <!-- ════ 4. VALIDATION ════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <table class="table table-bordered">
-        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
-        <tbody>
-          <tr><td>Size from scale</td><td>Custom size entered</td><td>"Choose a size from the spacing scale — avoid arbitrary values."</td></tr>
-          <tr><td>Label required</td><td>Type = Or-divider, label empty</td><td>"Add a label (e.g. “or”) for the divider."</td></tr>
-          <tr><td>No consecutive spacers</td><td>Two Spacers in a row</td><td>"Use a larger spacer or section padding instead of stacking spacers."</td></tr>
-        </tbody>
-      </table>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <!-- ════ 5. CONTENT GUIDANCE ════ -->
@@ -340,16 +333,13 @@
     <!-- ════ 9. SEO ════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>No SEO impact — spacing/dividers don't contribute indexable content.</li>
-        <li>Maintain a logical heading hierarchy; rhythm groups content visually, not structurally.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════ 10. ANALYTICS ════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul><li>None — non-interactive.</li></ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════ 11. AEM NOTES ════ -->
@@ -366,15 +356,7 @@
     <!-- ════ 12. DIALOG MODEL ════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
-      <pre><code>{
-  "type":  { "sling:resourceType": "…/form/select", "name": "./type",
-             "items": { "spacer": {"text":"Spacer","value":"spacer"},
-                        "divider": {"text":"Divider","value":"divider"},
-                        "or": {"text":"Or-divider","value":"or"} } },
-  "size":  { "sling:resourceType": "…/form/select", "name": "./size",
-             "items": { "xs":{}, "sm":{}, "md":{}, "lg":{}, "xl":{} } },
-  "label": { "sling:resourceType": "…/form/textfield", "name": "./label", "maxlength": 24 }
-}</code></pre>
+      <p>Not authored directly. The separator is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <!-- ════ 13. QA ════ -->

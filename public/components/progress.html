@@ -402,19 +402,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Rule</th><th>Error message</th></tr></thead>
-          <tbody>
-            <tr><td>Value must be between 0 and 100.</td><td>"Enter a value between 0 and 100."</td></tr>
-            <tr><td>Accessible label is required.</td><td>"Provide an accessible label for screen readers."</td></tr>
-            <tr><td>Stepped variant requires at least 2 steps.</td><td>"Add at least two steps."</td></tr>
-            <tr><td>Each step must have a label.</td><td>"Every step requires a label."</td></tr>
-            <tr><td>Exactly one step may be <code>active</code>.</td><td>"Only one step can be marked as active."</td></tr>
-            <tr><td>Animated requires Striped to be enabled.</td><td>"Enable Striped before enabling Animated."</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -528,11 +516,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Progress bars are presentational UI — no unique SEO value. Ensure surrounding headings and text provide context.</li>
-        <li>Stepped progress labels should use plain text (not images) so content is indexable.</li>
-        <li>Avoid relying solely on colour to convey meaning; labels and ARIA attributes handle this.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -540,28 +524,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><code>progress-viewed</code></td>
-              <td>Component enters viewport.</td>
-              <td><code>data-analytics-value</code> (current %), <code>data-analytics-variant</code> (bar | stepped)</td>
-            </tr>
-            <tr>
-              <td><code>progress-complete</code></td>
-              <td>Bar reaches 100% or final step marked completed.</td>
-              <td><code>data-analytics-label</code> (accessible label)</td>
-            </tr>
-            <tr>
-              <td><code>progress-step-change</code></td>
-              <td>Active step changes (stepped variant).</td>
-              <td><code>data-analytics-step</code> (step index), <code>data-analytics-step-label</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -584,76 +547,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model</h2>
-<pre class="code-sample"><code>{
-  "jcr:primaryType": "nt:unstructured",
-  "sling:resourceType": "cq/gui/components/authoring/dialog",
-  "tabs": {
-    "properties": {
-      "variant": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Variant",
-        "name": "./variant",
-        "required": true,
-        "options": ["bar", "stepped"]
-      },
-      "value": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/numberfield",
-        "label": "Value (%)",
-        "name": "./value",
-        "min": 0,
-        "max": 100,
-        "required": true
-      },
-      "accessibleLabel": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
-        "label": "Accessible label",
-        "name": "./accessibleLabel",
-        "required": true
-      },
-      "showLabel": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
-        "label": "Show percentage label",
-        "name": "./showLabel"
-      },
-      "labelText": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
-        "label": "Label text",
-        "name": "./labelText"
-      },
-      "colour": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Colour",
-        "name": "./colour",
-        "options": ["default", "success", "warning", "danger"]
-      },
-      "size": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Size",
-        "name": "./size",
-        "options": ["sm", "default", "lg"]
-      },
-      "striped": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
-        "label": "Striped",
-        "name": "./striped"
-      },
-      "animated": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/checkbox",
-        "label": "Animated",
-        "name": "./animated"
-      },
-      "steps": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
-        "label": "Steps",
-        "name": "./steps",
-        "fields": {
-          "stepLabel": { "type": "textfield", "label": "Step label" },
-          "stepStatus": { "type": "select", "label": "Status", "options": ["completed","active","upcoming"] }
-        }
-      }
-    }
-  }
-}</code></pre>
+      <p>Not authored directly. The progress is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════

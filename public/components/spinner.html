@@ -263,16 +263,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
-          <tbody>
-            <tr><td>Accessible label required</td><td>Field is empty</td><td>"Please provide an accessible label for the spinner."</td></tr>
-            <tr><td>Accessible label length</td><td>Exceeds 80 characters</td><td>"Accessible label must be 80 characters or fewer."</td></tr>
-            <tr><td>Visible label length</td><td>Exceeds 120 characters</td><td>"Visible label must be 120 characters or fewer."</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -362,11 +353,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO Considerations</h2>
-      <ul>
-        <li>Spinners are transient UI and carry no indexable content. No SEO markup is required.</li>
-        <li>Ensure that the content revealed after loading is present in the DOM (server-rendered or hydrated) so search-engine crawlers can index it.</li>
-        <li>Avoid rendering spinners on initial server-side HTML for content pages; use them only for client-side async operations.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -374,16 +361,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Payload</th></tr></thead>
-          <tbody>
-            <tr><td><code>spinner-shown</code></td><td>Spinner becomes visible in the viewport.</td><td><code>{ variant, size, label }</code></td></tr>
-            <tr><td><code>spinner-duration</code></td><td>Spinner is removed or hidden.</td><td><code>{ variant, durationMs }</code> — elapsed time the spinner was visible.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-2">Track long-running spinners (&gt; 5 s) as performance incidents in the analytics dashboard.</p>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -406,46 +384,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (JSON)</h2>
-<pre class="bg-light p-3 rounded"><code>{
-  "jcr:primaryType": "nt:unstructured",
-  "sling:resourceType": "cq/gui/components/authoring/dialog",
-  "content": {
-    "items": {
-      "variant": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Variant",
-        "name": "./variant",
-        "required": true,
-        "options": ["border", "grow"]
-      },
-      "size": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Size",
-        "name": "./size",
-        "options": ["sm", "default", "lg"]
-      },
-      "accessibleLabel": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
-        "label": "Accessible label",
-        "name": "./accessibleLabel",
-        "required": true,
-        "maxlength": 80
-      },
-      "visibleLabel": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/textfield",
-        "label": "Visible label",
-        "name": "./visibleLabel",
-        "maxlength": 120
-      },
-      "colourOverride": {
-        "sling:resourceType": "granite/ui/components/coral/foundation/form/select",
-        "label": "Colour override",
-        "name": "./colourOverride",
-        "options": ["default", "light"]
-      }
-    }
-  }
-}</code></pre>
+      <p>Not authored directly. The spinner is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════

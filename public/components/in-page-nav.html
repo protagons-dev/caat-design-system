@@ -169,13 +169,7 @@
     <!-- ════ 4. VALIDATION ════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <table class="table table-bordered">
-        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
-        <tbody>
-          <tr><td>Targets exist</td><td>Anchor has no matching id on page</td><td>"Anchor target '#…' was not found on the page."</td></tr>
-          <tr><td>Min items</td><td>Fewer than 2 sections</td><td>"A table of contents needs at least 2 sections."</td></tr>
-        </tbody>
-      </table>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <!-- ════ 5. CONTENT GUIDANCE ════ -->
@@ -233,18 +227,13 @@
     <!-- ════ 9. SEO ════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Anchor links can surface as “jump to section” sitelinks in search results — keep labels descriptive.</li>
-        <li>Targets must use stable, human-readable <code>id</code>s.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════ 10. ANALYTICS ════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul>
-        <li>Track section clicks as <code>in-page-nav:{section-id}</code> to learn which sections readers jump to.</li>
-      </ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════ 11. AEM NOTES ════ -->
@@ -260,12 +249,7 @@
     <!-- ════ 12. DIALOG MODEL ════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
-      <pre><code>{
-  "title":  { "sling:resourceType": "…/form/textfield", "name": "./title", "value": "On this page" },
-  "source": { "sling:resourceType": "…/form/select", "name": "./source",
-              "items": { "auto": {"text":"From headings","value":"auto"}, "manual": {"text":"Manual","value":"manual"} } },
-  "sticky": { "sling:resourceType": "…/form/checkbox", "name": "./sticky", "value": "true" }
-}</code></pre>
+      <p>Not authored directly. The in page nav is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <!-- ════ 13. QA ════ -->

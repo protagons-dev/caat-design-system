@@ -181,13 +181,7 @@
     <!-- ════ 4. VALIDATION ════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <table class="table table-bordered">
-        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
-        <tbody>
-          <tr><td>At least one item</td><td>No links / targets</td><td>"Add at least one social link or share target."</td></tr>
-          <tr><td>Valid URL</td><td>Social URL malformed</td><td>"Enter a valid profile URL."</td></tr>
-        </tbody>
-      </table>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <!-- ════ 5. CONTENT GUIDANCE ════ -->
@@ -249,18 +243,13 @@
     <!-- ════ 9. SEO ════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Social profile links may use <code>rel="me"</code> to assert profile ownership.</li>
-        <li>External links use <code>rel="noopener"</code>.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════ 10. ANALYTICS ════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul>
-        <li>Track clicks as <code>social:{platform}</code> (profile) or <code>share:{platform}</code> (share), including the shared URL.</li>
-      </ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════ 11. AEM NOTES ════ -->
@@ -276,13 +265,7 @@
     <!-- ════ 12. DIALOG MODEL ════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
-      <pre><code>{
-  "mode":  { "sling:resourceType": "…/form/select", "name": "./mode",
-             "items": { "social": {"text":"Social profiles","value":"social"},
-                        "share":  {"text":"Share this page","value":"share"} } },
-  "items": { "sling:resourceType": "granite/ui/components/coral/foundation/form/multifield",
-             "fieldLabel": "Links", "field": { "platform": "…", "url": "…" } }
-}</code></pre>
+      <p>Not authored directly. The social links is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <!-- ════ 13. QA ════ -->

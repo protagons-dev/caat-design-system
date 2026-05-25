@@ -528,12 +528,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul>
-        <li>Alerts are inline content and are rendered in the page source (not injected client-side), so content is crawlable.</li>
-        <li>Alert headings use <code>&lt;strong&gt;</code> (not heading tags) to avoid disrupting the page outline.</li>
-        <li>Links within alert body text receive full <code>href</code> values — no JavaScript-only navigation.</li>
-        <li>Alerts do not duplicate primary page content; they supplement it with time-sensitive context.</li>
-      </ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -541,23 +536,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <div class="table-responsive">
-        <table class="contract-table">
-          <thead><tr><th>Event</th><th>Trigger</th><th>Data Attributes</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong>alert-displayed</strong></td>
-              <td>Alert enters the viewport (Intersection Observer) or is rendered on page load.</td>
-              <td><code>data-analytics-event="alert-displayed"</code>, <code>data-analytics-type="{info|success|warning|danger}"</code>, <code>data-analytics-heading="{heading text}"</code></td>
-            </tr>
-            <tr>
-              <td><strong>alert-dismissed</strong></td>
-              <td>User clicks the close button on a dismissible alert.</td>
-              <td><code>data-analytics-event="alert-dismissed"</code>, <code>data-analytics-type="{type}"</code>, <code>data-analytics-heading="{heading text}"</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -582,6 +561,7 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (YAML)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree (e.g. select options are authored as child <code>items</code> nodes).</p>
       <div class="demo-shell">
         <div class="demo-code">
 <pre class="code-sample"><code>title: Alert

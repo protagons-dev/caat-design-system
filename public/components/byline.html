@@ -164,13 +164,7 @@
 
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <table class="table table-bordered">
-        <thead><tr><th>Rule</th><th>Condition</th><th>Error message</th></tr></thead>
-        <tbody>
-          <tr><td>At least one field</td><td>All meta fields empty</td><td>"Add at least one metadata field."</td></tr>
-          <tr><td>Valid date</td><td>Date malformed</td><td>"Enter a valid date."</td></tr>
-        </tbody>
-      </table>
+      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
     </section>
 
     <section class="contract-section" id="content-guidance">
@@ -217,12 +211,12 @@
 
     <section class="contract-section" id="seo">
       <h2>9. SEO</h2>
-      <ul><li>Map author/date to <code>Article</code> structured data (<code>author</code>, <code>datePublished</code>).</li></ul>
+      <p>Transient / structural UI with no indexable content of its own &mdash; no SEO markup required. Ensure any content this component wraps or reveals stays server-rendered and crawlable.</p>
     </section>
 
     <section class="contract-section" id="analytics">
       <h2>10. Analytics</h2>
-      <ul><li>No tracking; author/category may feed content reporting dimensions.</li></ul>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here.</p>
     </section>
 
     <section class="contract-section" id="aem-notes">
@@ -235,12 +229,7 @@
 
     <section class="contract-section" id="dialog-model">
       <h2>12. Dialog Model (cq:dialog)</h2>
-      <pre><code>{
-  "author":   { "sling:resourceType": "…/form/textfield", "name": "./author" },
-  "date":     { "sling:resourceType": "…/form/datepicker", "name": "./date" },
-  "readTime": { "sling:resourceType": "…/form/textfield", "name": "./readTime" },
-  "category": { "sling:resourceType": "…/form/textfield", "name": "./category" }
-}</code></pre>
+      <p>Not authored directly. The byline is a sub-element emitted and configured by its host component (or generated from page structure), so it has no standalone <code>cq:dialog</code> &mdash; any options are exposed through the host component's dialog.</p>
     </section>
 
     <section class="contract-section" id="qa">
