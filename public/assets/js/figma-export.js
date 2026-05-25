@@ -34,6 +34,10 @@
 /* ── External assets to fetch & embed ── */
 const BOOTSTRAP_CSS_URL   = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
 const BOOTSTRAP_ICONS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css';
+/* Per-icon SVG source — used to inline <i class="bi bi-*"> as real vectors so
+   icons import into Figma as shapes (font glyphs don't survive HTML→Figma). */
+const BI_SVG_BASE         = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons';
+const BI_FONTS_BASE       = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/';
 
 /* ── Figma-layout CSS (shared across every component export) ── */
 const FIGMA_LAYOUT_CSS = `
@@ -285,6 +289,49 @@ function buildFigmaBody(componentName, groups) {
 }
 
 /* ────────────────────────────────────────────────────────────
+   Bootstrap-icon → inline SVG
+   Font glyphs don't survive HTML→Figma import (the plugin sees text in
+   a font Figma doesn't have). Replacing each <i class="bi bi-*"> with the
+   icon's SVG makes it import as a real vector node. The original element's
+   class/aria are preserved so component icon styling (size/colour) still
+   applies; fill stays currentColor so the icon inherits its context colour.
+   ──────────────────────────────────────────────────────────── */
+
+const BI_ICON_RE = /<(i|span)\b([^>]*\bclass="[^"]*\bbi-([a-z0-9-]+)\b[^"]*"[^>]*)>\s*<\/\1>/g;
+
+/** Turn a fetched Bootstrap-icon SVG into an inline, context-inheriting icon. */
+function svgFromIcon(svgText, origAttrs) {
+  let svg = svgText.trim().replace(/<\?xml[\s\S]*?\?>/i, '').trim();
+  svg = svg.replace(/\swidth="[^"]*"/i, ' width="1em"').replace(/\sheight="[^"]*"/i, ' height="1em"');
+  const cls = (origAttrs.match(/class="([^"]*)"/) || [])[1] || '';
+  if (/\sclass="[^"]*"/i.test(svg)) svg = svg.replace(/\sclass="[^"]*"/i, ` class="${cls}"`);
+  else svg = svg.replace(/^<svg/i, `<svg class="${cls}"`);
+  if (!/\sfill="/i.test(svg)) svg = svg.replace(/^<svg/i, '<svg fill="currentColor"');
+  return svg.replace(/^<svg/i, '<svg aria-hidden="true" style="vertical-align:-.125em"');
+}
+
+/** Replace every <i class="bi bi-NAME"> in the markup with its inline SVG. */
+async function inlineBootstrapIcons(html) {
+  const names = new Set();
+  let m;
+  BI_ICON_RE.lastIndex = 0;
+  while ((m = BI_ICON_RE.exec(html)) !== null) names.add(m[3]);
+  if (!names.size) return html;
+
+  const svgMap = {};
+  await Promise.all([...names].map(async name => {
+    try {
+      const r = await fetch(`${BI_SVG_BASE}/${name}.svg`);
+      if (r.ok) svgMap[name] = await r.text();
+    } catch (e) { /* leave the original <i> as a font fallback */ }
+  }));
+
+  BI_ICON_RE.lastIndex = 0;
+  return html.replace(BI_ICON_RE, (full, tag, attrs, name) =>
+    svgMap[name] ? svgFromIcon(svgMap[name], attrs) : full);
+}
+
+/* ────────────────────────────────────────────────────────────
    Main export function
    ──────────────────────────────────────────────────────────── */
 
@@ -317,7 +364,10 @@ async function downloadFigmaHTML(componentName, cssFiles) {
 
     // Separate the fetched sheets
     const bootstrapCSS    = allSheets[0];
-    const iconsCSS        = allSheets[1];
+    // Rewrite the icon font's relative ./fonts/ URLs to absolute so the
+    // @font-face still loads from the downloaded blob (font fallback for any
+    // icon not inlined as SVG below).
+    const iconsCSS        = allSheets[1].replace(/url\((["']?)\.\/fonts\//g, `url($1${BI_FONTS_BASE}`);
     const componentSheets = allSheets.slice(2);
 
     // 2. Build variable map from ONLY CAAT sources (tokens + component CSS).
@@ -346,8 +396,9 @@ async function downloadFigmaHTML(componentName, cssFiles) {
       }
       rawMarkup = tpl.innerHTML;
     }
-    // Resolve any inline CAAT var() in the gathered markup
-    const bodyMarkup = resolveAllVars(rawMarkup, varMap);
+    // Resolve any inline CAAT var() in the gathered markup, then inline
+    // Bootstrap icons as SVG so they import into Figma as real vectors.
+    const bodyMarkup = await inlineBootstrapIcons(resolveAllVars(rawMarkup, varMap));
 
     // 5. Assemble self-contained HTML.
     //    - Bootstrap CSS: embedded RAW (its own var system stays intact)
