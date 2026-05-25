@@ -584,20 +584,23 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="tokens">
       <h2>2. Design Tokens</h2>
+      <p class="text-muted">Forms consume these semantic tokens — no component-specific tokens are defined.</p>
       <div class="table-responsive">
         <table class="contract-table">
-          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <thead><tr><th>Token</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code>--caat-form-border</code></td><td>1px solid var(--caat-gray-300)</td><td>Input/select/textarea border</td></tr>
-            <tr><td><code>--caat-form-border-focus</code></td><td>var(--caat-blue-500)</td><td>Focus ring colour</td></tr>
-            <tr><td><code>--caat-form-border-error</code></td><td>var(--caat-red-600)</td><td>Invalid state border</td></tr>
-            <tr><td><code>--caat-form-border-valid</code></td><td>var(--caat-green-600)</td><td>Valid state border</td></tr>
-            <tr><td><code>--caat-form-radius</code></td><td>var(--caat-radius-md, 0.375rem)</td><td>Input border-radius</td></tr>
-            <tr><td><code>--caat-form-padding</code></td><td>0.625rem 0.875rem</td><td>Input inner padding</td></tr>
-            <tr><td><code>--caat-form-font-size</code></td><td>1rem</td><td>Input text size</td></tr>
-            <tr><td><code>--caat-form-label-weight</code></td><td>600</td><td>Label font weight</td></tr>
-            <tr><td><code>--caat-form-help-color</code></td><td>var(--caat-gray-600)</td><td>Help text colour</td></tr>
-            <tr><td><code>--caat-form-error-color</code></td><td>var(--caat-red-600)</td><td>Error message colour</td></tr>
+            <tr><td><code>--caat-color-border</code></td><td>Input / select / textarea border</td></tr>
+            <tr><td><code>--caat-color-focus-ring</code></td><td>Focus ring</td></tr>
+            <tr><td><code>--caat-color-state-invalid</code></td><td>Invalid (error) border + message colour</td></tr>
+            <tr><td><code>--caat-green</code></td><td>Valid state accent</td></tr>
+            <tr><td><code>--caat-color-state-selected-bg</code> / <code>-selected-text</code></td><td>Checked radio / checkbox fill + glyph</td></tr>
+            <tr><td><code>--caat-color-state-disabled-bg</code></td><td>Disabled control surface</td></tr>
+            <tr><td><code>--caat-color-text-heading</code></td><td>Field label colour</td></tr>
+            <tr><td><code>--caat-color-text-muted</code></td><td>Help / hint text</td></tr>
+            <tr><td><code>--caat-color-text-link</code></td><td>In-field links</td></tr>
+            <tr><td><code>--caat-color-bg-page</code></td><td>Input background</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Control border-radius</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Form font family</td></tr>
           </tbody>
         </table>
       </div>

@@ -306,24 +306,18 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="tokens">
       <h2>2. Design Tokens</h2>
+      <p class="text-muted">Alerts consume the semantic <code>--caat-color-feedback-*</code> tokens (each aliases an alert primitive in <code>tokens.css</code>); the icon inherits the variant's text colour.</p>
       <div class="table-responsive">
         <table class="contract-table">
-          <thead><tr><th>Token</th><th>Role</th><th>Default Value</th></tr></thead>
+          <thead><tr><th>Token</th><th>Role</th></tr></thead>
           <tbody>
-            <tr><td><code>--caat-alert-info-bg</code></td><td>Info variant background</td><td><code>#e8f4fd</code></td></tr>
-            <tr><td><code>--caat-alert-info-border</code></td><td>Info variant border colour</td><td><code>#b6dff7</code></td></tr>
-            <tr><td><code>--caat-alert-info-icon</code></td><td>Info icon colour</td><td><code>#0c5a97</code></td></tr>
-            <tr><td><code>--caat-alert-success-bg</code></td><td>Success variant background</td><td><code>#e6f7ed</code></td></tr>
-            <tr><td><code>--caat-alert-success-border</code></td><td>Success variant border colour</td><td><code>#a3ddb8</code></td></tr>
-            <tr><td><code>--caat-alert-success-icon</code></td><td>Success icon colour</td><td><code>#1a7a3a</code></td></tr>
-            <tr><td><code>--caat-alert-warning-bg</code></td><td>Warning variant background</td><td><code>#fff8e6</code></td></tr>
-            <tr><td><code>--caat-alert-warning-border</code></td><td>Warning variant border colour</td><td><code>#ffe0a3</code></td></tr>
-            <tr><td><code>--caat-alert-warning-icon</code></td><td>Warning icon colour</td><td><code>#8a6500</code></td></tr>
-            <tr><td><code>--caat-alert-danger-bg</code></td><td>Danger variant background</td><td><code>#fdecea</code></td></tr>
-            <tr><td><code>--caat-alert-danger-border</code></td><td>Danger variant border colour</td><td><code>#f5b8b0</code></td></tr>
-            <tr><td><code>--caat-alert-danger-icon</code></td><td>Danger icon colour</td><td><code>#a81e1e</code></td></tr>
-            <tr><td><code>--caat-alert-border-radius</code></td><td>Alert container border radius</td><td><code>var(--caat-radius-md, 0.5rem)</code></td></tr>
-            <tr><td><code>--caat-alert-icon-size</code></td><td>Icon dimensions</td><td><code>1.25rem</code></td></tr>
+            <tr><td><code>--caat-color-feedback-info-bg</code> / <code>-border</code> / <code>-text</code></td><td>Info variant surface, border, and text/icon</td></tr>
+            <tr><td><code>--caat-color-feedback-success-bg</code> / <code>-border</code> / <code>-text</code></td><td>Success variant surface, border, and text/icon</td></tr>
+            <tr><td><code>--caat-color-feedback-warning-bg</code> / <code>-border</code> / <code>-text</code></td><td>Warning variant surface, border, and text/icon</td></tr>
+            <tr><td><code>--caat-color-feedback-danger-bg</code> / <code>-border</code> / <code>-text</code></td><td>Danger variant surface, border, and text/icon</td></tr>
+            <tr><td><code>--caat-color-text-link</code></td><td>Links within the alert body</td></tr>
+            <tr><td><code>--caat-radius</code></td><td>Alert container corner radius</td></tr>
+            <tr><td><code>--caat-font-primary</code></td><td>Font family</td></tr>
           </tbody>
         </table>
       </div>
