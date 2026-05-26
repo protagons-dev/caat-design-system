@@ -44,6 +44,20 @@
 .caat-card-image.tall { height: 16rem; }
 .caat-card-image.compact { height: 9rem; }
 
+/* ── Aspect-ratio card images (PREFERRED over fixed heights) ──────
+   Use a ratio modifier so the image scales proportionally with the card
+   width (no viewport-dependent crop, no layout shift). Pick ONE ratio per
+   card grid — see foundations/card-image-ratios.html. Standard set:
+   1:1 (people/thumbnails) · 4:5 (editorial portrait) · 4:3 (mixed/forgiving)
+   · 3:2 / 16:9 (editorial & wide). object-fit:cover fills the frame. */
+.caat-card-image--1-1  { aspect-ratio: 1 / 1;  height: auto; }
+.caat-card-image--4-5  { aspect-ratio: 4 / 5;  height: auto; }
+.caat-card-image--4-3  { aspect-ratio: 4 / 3;  height: auto; }
+.caat-card-image--3-2  { aspect-ratio: 3 / 2;  height: auto; }
+.caat-card-image--16-9 { aspect-ratio: 16 / 9; height: auto; }
+/* Keep faces in frame when cropping portraits/headshots to a shorter ratio */
+.caat-card-image--face { object-position: 50% 22%; }
+
 /* ── Kicker (eyebrow-style label — consolidation candidate) ──── */
 .caat-card-kicker {
   display: block; color: var(--caat-color-eyebrow);

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Card image aspect-ratio standard. Rationale, a live ratio test, and a decision framework for blog listings, leadership bios, and resource call-outs.">
+<title>Card Image Ratios | CAAT Design System — Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<style>
+  .lede { font-size: 1.05rem; color: var(--caat-muted); max-width: 60ch; }
+  section.doc { padding: 2rem 0; border-top: 1px solid var(--caat-grey-200); }
+  section.doc > h2 { font-weight: 900; color: var(--caat-blue-900); letter-spacing: -.02em; }
+
+  /* One source image rendered across every ratio */
+  .ratio-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: start; }
+  .ratio-cell figure { margin: 0 0 .5rem; background: var(--caat-grey-200); }
+  .ratio-cell b { display: block; font-size: .82rem; color: var(--caat-blue-900); }
+  .ratio-cell small { display: block; color: var(--caat-muted); font-size: .72rem; line-height: 1.35; }
+  @media (max-width: 767.98px) { .ratio-strip { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Two grids side by side for A/B comparison */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 991.98px) { .compare { grid-template-columns: 1fr; } }
+  .compare h3 { font-size: .95rem; font-weight: 800; color: var(--caat-blue-900); margin-bottom: .75rem; }
+  .compare h3 .badge { vertical-align: middle; }
+
+  .mini-grid { display: grid; gap: 1rem; }
+  .mini-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .mini-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 575.98px) { .mini-grid--3, .mini-grid--2 { grid-template-columns: 1fr 1fr; } }
+
+  .demo-card .card-body { padding: .75rem .85rem; }
+  .demo-card .card-body h4 { font-size: .9rem; font-weight: 800; color: var(--caat-blue-900); margin: 0 0 .15rem; }
+  .demo-card .card-body p { font-size: .78rem; color: var(--caat-muted); margin: 0; }
+  .demo-kicker { font-size: .66rem; text-transform: uppercase; letter-spacing: .06em; font-weight: 800; color: var(--caat-blue-700); }
+
+  .pick-good { color: var(--caat-green-700); font-weight: 800; }
+  .pick-bad { color: var(--caat-danger); font-weight: 800; }
+
+  /* Anti-pattern: mixed ratios in one grid */
+  .antipattern { border: 2px solid var(--caat-danger); border-radius: var(--caat-radius); padding: 1rem; position: relative; }
+  .antipattern::after { content: "✗ mixed ratios"; position: absolute; top: .5rem; right: .75rem; font-size: .7rem; font-weight: 800; color: var(--caat-danger); }
+
+  .framework-step { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--caat-grey-200); }
+  .framework-step .n { flex: none; width: 2rem; height: 2rem; border-radius: 50%; background: var(--caat-blue-900); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .framework-step h3 { font-size: 1rem; font-weight: 800; color: var(--caat-blue-900); margin: 0 0 .25rem; }
+  .framework-step p { margin: 0; color: var(--caat-muted); font-size: .9rem; }
+
+  .rec-table th { background: var(--caat-blue-900); color: #fff; font-size: .8rem; }
+  .rec-table td { vertical-align: top; font-size: .88rem; }
+  .rec-table code { font-size: .82rem; }
+  pre.code-sample { background: var(--caat-grey); border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-sm); padding: 1rem; font-size: .82rem; overflow:auto; }
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#overview">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+      <a class="nav-link" href="/foundations/interaction-states.html">Interaction States</a>
+      <a class="nav-link active" href="/foundations/card-image-ratios.html">Card Image Ratios</a>
+    </nav>
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#crop-test">See each ratio</a>
+      <a class="nav-link" href="#blog">Blog listings</a>
+      <a class="nav-link" href="#bios">Leadership bios</a>
+      <a class="nav-link" href="#resources">Resource call-outs</a>
+      <a class="nav-link" href="#flexible">Fixed or flexible?</a>
+      <a class="nav-link" href="#framework">Decision framework</a>
+      <a class="nav-link" href="#standard">The standard</a>
+      <a class="nav-link" href="#pitfalls">Pitfalls</a>
+    </nav>
+  </aside>
+
+  <main>
+    <p class="eyebrow">Foundations</p>
+    <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Card image aspect ratios</h1>
+    <p class="lede">Which image shape should cards use — square, or something wider? Below: a live test of the same image at every ratio, the three real use cases compared side by side, and a decision framework that makes the choice repeatable.</p>
+
+    <!-- ───────────────────────── OVERVIEW ───────────────────────── -->
+    <section class="doc" id="overview">
+      <h2>The short answer</h2>
+      <p>Square (1:1) is <strong>not</strong> the universal best — it's the right call for <em>people and uniform thumbnails</em>, but it crops editorial photos badly and makes lists tall. The system should be <strong>flexibly constrained</strong>: a small fixed set of ratios, with one chosen per card type by a simple rule — never an arbitrary value, and never mixed within a single grid.</p>
+      <div class="alert" style="background:var(--caat-blue-100); border-radius:var(--caat-radius); padding:1rem 1.25rem; border-left:4px solid var(--caat-blue-700);">
+        <strong>Why this page exists.</strong> Cards currently crop images three different ways — <code>card.css</code> uses fixed pixel heights (<code>height:12rem</code>, so the crop changes with viewport width), <code>blog-listing.css</code> uses <code>aspect-ratio:16/9</code>, and <code>image-embed.css</code> has its own ratio classes. This standardises all three on one intrinsic-ratio approach.
+      </div>
+      <p class="mt-3"><strong>Two rules underpin everything below:</strong></p>
+      <ul>
+        <li><strong>Reserve the space with <code>aspect-ratio</code>, fill it with <code>object-fit: cover</code>.</strong> The image scales proportionally with the card, never distorts, and reserves layout space (no content shift while loading).</li>
+        <li><strong>One ratio per grid.</strong> Equal card heights are what make a grid read as a grid. Mixing ratios in a row looks broken (see <a href="#pitfalls">Pitfalls</a>).</li>
+      </ul>
+    </section>
+
+    <!-- ───────────────────────── CROP TEST ───────────────────────── -->
+    <section class="doc" id="crop-test">
+      <h2>See each ratio (same source image)</h2>
+      <p class="text-muted">The identical photo, cropped by <code>object-fit: cover</code> into each standard ratio. Watch how much horizontal context vs. height each one keeps.</p>
+
+      <p class="demo-kicker mt-3 mb-2">Editorial / scene photo</p>
+      <div class="ratio-strip">
+        <div class="ratio-cell"><figure class="caat-image caat-image--1-1"><img class="caat-image__img" src="https://picsum.photos/seed/caatscene/900/900" alt="Editorial photo cropped square"></figure><b>1:1</b><small>Square — loses the scene's width</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--4-5"><img class="caat-image__img" src="https://picsum.photos/seed/caatscene/900/900" alt="Editorial photo cropped 4:5"></figure><b>4:5</b><small>Portrait — wrong for landscapes</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--4-3"><img class="caat-image__img" src="https://picsum.photos/seed/caatscene/900/900" alt="Editorial photo cropped 4:3"></figure><b>4:3</b><small>Balanced, forgiving</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--3-2"><img class="caat-image__img" src="https://picsum.photos/seed/caatscene/900/900" alt="Editorial photo cropped 3:2"></figure><b>3:2</b><small>Photographic</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--16-9"><img class="caat-image__img" src="https://picsum.photos/seed/caatscene/900/900" alt="Editorial photo cropped 16:9"></figure><b>16:9</b><small class="pick-good">Best for editorial</small></div>
+      </div>
+
+      <p class="demo-kicker mt-4 mb-2">Headshot (square source)</p>
+      <div class="ratio-strip">
+        <div class="ratio-cell"><figure class="caat-image caat-image--1-1"><img class="caat-image__img" src="https://i.pravatar.cc/600?img=15" alt="Headshot cropped square"></figure><b>1:1</b><small class="pick-good">Best for people</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--4-5"><img class="caat-image__img" src="https://i.pravatar.cc/600?img=15" alt="Headshot cropped 4:5"></figure><b>4:5</b><small class="pick-good">Flattering editorial portrait</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--4-3"><img class="caat-image__img" src="https://i.pravatar.cc/600?img=15" alt="Headshot cropped 4:3"></figure><b>4:3</b><small>Acceptable</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--3-2"><img class="caat-image__img" src="https://i.pravatar.cc/600?img=15" alt="Headshot cropped 3:2"></figure><b>3:2</b><small>Tight on the head</small></div>
+        <div class="ratio-cell"><figure class="caat-image caat-image--16-9"><img class="caat-image__img" src="https://i.pravatar.cc/600?img=15" alt="Headshot cropped 16:9"></figure><b>16:9</b><small class="pick-bad">Crops the face</small></div>
+      </div>
+      <p class="text-muted mt-3" style="font-size:.85rem;">Takeaway: the right ratio depends on the <strong>subject</strong>. Wide ratios keep scenes; square/portrait keep faces. A headshot in 16:9 literally cuts the head off; an editorial scene in 1:1 throws away the story.</p>
+    </section>
+
+    <!-- ───────────────────────── BLOG ───────────────────────── -->
+    <section class="doc" id="blog">
+      <h2>Use case 1 — Blog listings</h2>
+      <p class="text-muted">Editorial featured images. The web convention (and the shape of the social/OG image these articles already generate) is wide. 16:9 reads as "article" and keeps lists compact; square crops the photography and makes the list taller.</p>
+      <div class="compare mt-3">
+        <div>
+          <h3>16:9 <span class="badge bg-success">recommended</span></h3>
+          <div class="mini-grid mini-grid--3">
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/blog1/640/480" alt=""><div class="card-body"><span class="demo-kicker">Insights</span><h4>Why DB plans win talent</h4></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/blog2/640/480" alt=""><div class="card-body"><span class="demo-kicker">Research</span><h4>The retirement gap in 2026</h4></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/blog3/640/480" alt=""><div class="card-body"><span class="demo-kicker">News</span><h4>DBplus reaches 100k members</h4></div></article>
+          </div>
+        </div>
+        <div>
+          <h3>1:1 <span class="badge bg-secondary">comparison</span></h3>
+          <div class="mini-grid mini-grid--3">
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1" src="https://picsum.photos/seed/blog1/640/480" alt=""><div class="card-body"><span class="demo-kicker">Insights</span><h4>Why DB plans win talent</h4></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1" src="https://picsum.photos/seed/blog2/640/480" alt=""><div class="card-body"><span class="demo-kicker">Research</span><h4>The retirement gap in 2026</h4></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1" src="https://picsum.photos/seed/blog3/640/480" alt=""><div class="card-body"><span class="demo-kicker">News</span><h4>DBplus reaches 100k members</h4></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── BIOS ───────────────────────── -->
+    <section class="doc" id="bios">
+      <h2>Use case 2 — Leadership bios</h2>
+      <p class="text-muted">Headshots are the subject. Square is the team-grid standard — consistent, compact, works at small sizes. 4:5 is more flattering and editorial when there's room. Either way, set the focal point to the top so the face stays centred (<code>.caat-card-image--face</code>).</p>
+      <div class="compare mt-3">
+        <div>
+          <h3>1:1 <span class="badge bg-success">recommended</span></h3>
+          <div class="mini-grid mini-grid--3">
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1 caat-card-image--face" src="https://i.pravatar.cc/400?img=32" alt=""><div class="card-body"><h4>Margaret Chen</h4><p>Chief Investment Officer</p></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1 caat-card-image--face" src="https://i.pravatar.cc/400?img=12" alt=""><div class="card-body"><h4>David Okafor</h4><p>VP, Member Services</p></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1 caat-card-image--face" src="https://i.pravatar.cc/400?img=45" alt=""><div class="card-body"><h4>Priya Sharma</h4><p>Head of Plan Design</p></div></article>
+          </div>
+        </div>
+        <div>
+          <h3>4:5 <span class="badge bg-secondary">editorial variant</span></h3>
+          <div class="mini-grid mini-grid--3">
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--4-5 caat-card-image--face" src="https://i.pravatar.cc/400?img=32" alt=""><div class="card-body"><h4>Margaret Chen</h4><p>Chief Investment Officer</p></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--4-5 caat-card-image--face" src="https://i.pravatar.cc/400?img=12" alt=""><div class="card-body"><h4>David Okafor</h4><p>VP, Member Services</p></div></article>
+            <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--4-5 caat-card-image--face" src="https://i.pravatar.cc/400?img=45" alt=""><div class="card-body"><h4>Priya Sharma</h4><p>Head of Plan Design</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── RESOURCES ───────────────────────── -->
+    <section class="doc" id="resources">
+      <h2>Use case 3 — Resource call-outs &amp; section links</h2>
+      <p class="text-muted">Navigational tiles linking to sections, with mixed/illustrative imagery. Equal visual weight matters more than editorial framing. 4:3 is the forgiving middle for a multi-up grid; 16:9 suits wide 1–2-up feature tiles.</p>
+      <div class="compare mt-3">
+        <div>
+          <h3>4:3 <span class="badge bg-success">recommended (multi-up)</span></h3>
+          <div class="mini-grid mini-grid--3">
+            <a class="caat-card demo-card" href="#" style="text-decoration:none;"><img class="caat-card-image caat-card-image--4-3" src="https://picsum.photos/seed/res1/640/640" alt=""><div class="card-body"><h4>Pension estimator <i class="bi bi-arrow-right"></i></h4><p>Model your future income</p></div></a>
+            <a class="caat-card demo-card" href="#" style="text-decoration:none;"><img class="caat-card-image caat-card-image--4-3" src="https://picsum.photos/seed/res2/640/640" alt=""><div class="card-body"><h4>Employer toolkit <i class="bi bi-arrow-right"></i></h4><p>Onboard your team</p></div></a>
+            <a class="caat-card demo-card" href="#" style="text-decoration:none;"><img class="caat-card-image caat-card-image--4-3" src="https://picsum.photos/seed/res3/640/640" alt=""><div class="card-body"><h4>Forms &amp; guides <i class="bi bi-arrow-right"></i></h4><p>Everything in one place</p></div></a>
+          </div>
+        </div>
+        <div>
+          <h3>16:9 <span class="badge bg-secondary">wide feature tiles</span></h3>
+          <div class="mini-grid mini-grid--2">
+            <a class="caat-card demo-card" href="#" style="text-decoration:none;"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/res1/640/640" alt=""><div class="card-body"><h4>Pension estimator <i class="bi bi-arrow-right"></i></h4><p>Model your future income</p></div></a>
+            <a class="caat-card demo-card" href="#" style="text-decoration:none;"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/res2/640/640" alt=""><div class="card-body"><h4>Employer toolkit <i class="bi bi-arrow-right"></i></h4><p>Onboard your team</p></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── FLEXIBLE ───────────────────────── -->
+    <section class="doc" id="flexible">
+      <h2>Fixed or flexible?</h2>
+      <p><strong>Flexible — but constrained.</strong> Authors and developers pick from a fixed set of five ratios; they cannot enter arbitrary values. This keeps every grid aligned and the system coherent while still letting each card <em>type</em> use the shape that suits its subject.</p>
+      <table class="table table-bordered rec-table mt-2">
+        <thead><tr><th>Ratio</th><th>Shape</th><th>Use it for</th><th>Avoid for</th></tr></thead>
+        <tbody>
+          <tr><td><code>1:1</code></td><td>Square</td><td>People, avatars, uniform thumbnails, dense grids</td><td>Wide editorial scenes</td></tr>
+          <tr><td><code>4:5</code></td><td>Portrait</td><td>Editorial headshots/bios with room; posters</td><td>Landscapes; tall lists</td></tr>
+          <tr><td><code>4:3</code></td><td>Soft landscape</td><td>Mixed/unknown content, resource tiles — the forgiving default</td><td>Cinematic hero imagery</td></tr>
+          <tr><td><code>3:2</code></td><td>Photographic</td><td>Editorial photography, native-camera images</td><td>Very dense thumbnail grids</td></tr>
+          <tr><td><code>16:9</code></td><td>Wide</td><td>Blog/article cards, video thumbnails, wide feature tiles</td><td>Headshots (crops the face)</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ───────────────────────── FRAMEWORK ───────────────────────── -->
+    <section class="doc" id="framework">
+      <h2>Decision framework</h2>
+      <p class="text-muted">Four questions, in order. They resolve to a single ratio for any card type.</p>
+      <div class="framework-step"><span class="n">1</span><div><h3>What is the subject?</h3><p><strong>A person</strong> → <code>1:1</code> (standard) or <code>4:5</code> (editorial). &nbsp;<strong>An editorial scene / article</strong> → <code>16:9</code> or <code>3:2</code>. &nbsp;<strong>Mixed / illustrative / unknown</strong> → <code>4:3</code>.</p></div></div>
+      <div class="framework-step"><span class="n">2</span><div><h3>How dense is the grid?</h3><p>Narrow columns / many-up → lean squarer (<code>1:1</code>, <code>4:3</code>) so cards don't get too short. Wide columns / 1–2-up / featured → lean wider (<code>16:9</code>, <code>3:2</code>).</p></div></div>
+      <div class="framework-step"><span class="n">3</span><div><h3>Apply the consistency rule.</h3><p><strong>One ratio per grid — no exceptions.</strong> If two card types share a row, they share a ratio. Pick the ratio for the grid, not the individual card.</p></div></div>
+      <div class="framework-step"><span class="n">4</span><div><h3>Set the crop &amp; reserve space.</h3><p>Always <code>object-fit: cover</code> + <code>aspect-ratio</code> (no distortion, no layout shift). For faces, push the focal point up (<code>.caat-card-image--face</code>). On mobile, if a wide ratio gets too short, switch the <em>whole grid</em> to a softer ratio at the breakpoint — never individual cards.</p></div></div>
+    </section>
+
+    <!-- ───────────────────────── STANDARD ───────────────────────── -->
+    <section class="doc" id="standard">
+      <h2>The standard</h2>
+      <table class="table table-bordered rec-table">
+        <thead><tr><th>Use case</th><th>Standard ratio</th><th>Class</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Blog listing (grid &amp; featured)</td><td><span class="pick-good">16:9</span></td><td><code>.caat-card-image--16-9</code></td><td>Matches the article's social/OG image; compact lists</td></tr>
+          <tr><td>Leadership bios (team grid)</td><td><span class="pick-good">1:1</span></td><td><code>.caat-card-image--1-1 .caat-card-image--face</code></td><td>4:5 as an editorial variant</td></tr>
+          <tr><td>Resource call-outs (multi-up)</td><td><span class="pick-good">4:3</span></td><td><code>.caat-card-image--4-3</code></td><td>Forgiving for mixed imagery</td></tr>
+          <tr><td>Resource / feature (1–2-up wide)</td><td>16:9</td><td><code>.caat-card-image--16-9</code></td><td>When tiles are wide</td></tr>
+        </tbody>
+      </table>
+      <p class="mt-3">The same five ratios exist on the Image / Embed component (<code>.caat-image--1-1 … --16-9</code>) and on card images (<code>.caat-card-image--*</code>). Prefer a ratio modifier over the legacy fixed-height (<code>.caat-card-image.tall/.compact</code>).</p>
+      <pre class="code-sample"><code>&lt;!-- Blog card — 16:9 --&gt;
+&lt;article class="caat-card"&gt;
+  &lt;img class="caat-card-image caat-card-image--16-9" src="…" alt="…"&gt;
+  &lt;div class="card-body"&gt;…&lt;/div&gt;
+&lt;/article&gt;
+
+&lt;!-- Leadership bio — 1:1, face-centred --&gt;
+&lt;img class="caat-card-image caat-card-image--1-1 caat-card-image--face" src="…" alt="…"&gt;</code></pre>
+    </section>
+
+    <!-- ───────────────────────── PITFALLS ───────────────────────── -->
+    <section class="doc" id="pitfalls">
+      <h2>Pitfalls</h2>
+      <p class="text-muted mb-2">Mixed ratios in one grid — the cards no longer align and the row looks broken:</p>
+      <div class="antipattern">
+        <div class="mini-grid mini-grid--3">
+          <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--16-9" src="https://picsum.photos/seed/bad1/640/480" alt=""><div class="card-body"><h4>16:9 card</h4></div></article>
+          <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--1-1" src="https://picsum.photos/seed/bad2/640/480" alt=""><div class="card-body"><h4>1:1 card</h4></div></article>
+          <article class="caat-card demo-card"><img class="caat-card-image caat-card-image--4-5" src="https://picsum.photos/seed/bad3/640/480" alt=""><div class="card-body"><h4>4:5 card</h4></div></article>
+        </div>
+      </div>
+      <ul class="mt-3">
+        <li><strong>Don't</strong> use fixed pixel heights for responsive cards — the crop ratio drifts with viewport width. Use a ratio modifier.</li>
+        <li><strong>Don't</strong> put a headshot in 16:9 or a landscape in 1:1 — match the ratio to the subject.</li>
+        <li><strong>Don't</strong> let <code>object-fit</code> default to <code>fill</code> — it distorts. Always <code>cover</code>.</li>
+        <li><strong>Don't</strong> forget <code>alt</code> text, and keep a neutral background on the frame for slow-loading images.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="py-4 mt-5" style="background:var(--caat-blue-900);">
+  <div class="container text-white">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

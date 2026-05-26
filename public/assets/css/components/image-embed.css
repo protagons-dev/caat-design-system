@@ -48,8 +48,22 @@
   border-radius: var(--caat-radius);
 }
 
+.caat-image--3-2 {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--caat-radius);
+}
+
+.caat-image--4-5 {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--caat-radius);
+}
+
 .caat-image--16-9 .caat-image__img,
 .caat-image--4-3 .caat-image__img,
+.caat-image--3-2 .caat-image__img,
+.caat-image--4-5 .caat-image__img,
 .caat-image--1-1 .caat-image__img {
   width: 100%;
   height: 100%;
