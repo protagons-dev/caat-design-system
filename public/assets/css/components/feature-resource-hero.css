@@ -21,17 +21,8 @@
 .caat-feature-hero__body {
   max-width: 36rem;
 }
-/* DEPRECATED: prefer the canonical .caat-eyebrow (caat-base.css).
-   Token-driven alias — note the light-bg colour unifies to the canonical
-   blue (was green-700). */
-.caat-feature-hero__eyebrow {
-  font-size: var(--caat-text-eyebrow-size);
-  font-weight: var(--caat-text-eyebrow-weight);
-  text-transform: uppercase;
-  letter-spacing: var(--caat-text-eyebrow-tracking);
-  color: var(--caat-color-eyebrow);
-  margin-bottom: var(--caat-space-2);
-}
+/* Eyebrow: markup uses the canonical .caat-eyebrow (caat-base.css).
+   Only the dark/fullbleed colour overrides live here (see below). */
 .caat-feature-hero__title {
   font-family: var(--caat-font-primary);
   font-weight: 900;
@@ -70,15 +61,20 @@
   transition: transform .2s ease, box-shadow .2s ease;
 }
 .caat-feature-hero__preview a:hover img,
-.caat-feature-hero__preview a:focus img {
-  transform: translateY(-4px) rotate(-1deg);
+.caat-feature-hero__preview a:focus-visible img {
+  transform: translateY(var(--caat-lift-panel)) rotate(-1deg);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.18);
+}
+/* Keyboard focus: visible ring on the preview artwork */
+.caat-feature-hero__preview a:focus-visible { outline: 0; }
+.caat-feature-hero__preview a:focus-visible img {
+  box-shadow: var(--caat-color-focus-ring), 0 1rem 3rem rgba(0,0,0,.18);
 }
 .caat-feature-hero__preview-label {
   display: block;
   text-align: center;
   margin-top: .75rem;
-  font-size: .78rem;
+  font-size: var(--caat-font-size-2xs);
   color: var(--caat-color-text-muted);
 }
 
@@ -107,9 +103,9 @@
   border-radius: var(--caat-radius-lg);
   padding: 3rem 2rem;
 }
-.caat-feature-hero--dark .caat-feature-hero__title { color: #fff; }
-.caat-feature-hero--dark .caat-feature-hero__subtitle { color: rgba(255,255,255,.75); }
-.caat-feature-hero--dark .caat-feature-hero__eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
+.caat-feature-hero--dark .caat-feature-hero__title { color: var(--caat-color-text-inverse); }
+.caat-feature-hero--dark .caat-feature-hero__subtitle { color: var(--caat-color-text-inverse-dim); }
+.caat-feature-hero--dark .caat-eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
 
 /* ── Variant: fullbleed (full-width bg image with card overlay) ── */
 .caat-feature-hero--fullbleed {
@@ -133,7 +129,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0,55,80,.32), rgba(0,55,80,.05) 55%);
+  background: var(--caat-overlay-side);
   z-index: 1;
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__inner {
@@ -142,30 +138,12 @@
   padding: 4rem 0;
   align-items: end;
 }
-/* Card overlay on the body content */
+/* Card overlay on the body content — the visual skin (glass background,
+   signature corner, hover lift, inverse text) comes from the canonical
+   .caat-hero-panel (caat-base.css); compose both classes in markup.
+   Only the layout delta lives here. */
 .caat-feature-hero--fullbleed .caat-feature-hero__body {
-  background: rgba(0,94,128,.94);
-  color: var(--caat-color-text-inverse);
-  border-radius: 0 0 4.5rem 0;
-  padding: 2rem;
-  box-shadow: var(--caat-shadow);
   max-width: 30rem;
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
-}
-.caat-feature-hero--fullbleed .caat-feature-hero__body:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1.25rem 3rem rgba(0,55,80,.24);
-  background: rgba(0,82,112,.98);
-}
-.caat-feature-hero--fullbleed .caat-feature-hero__title {
-  color: var(--caat-color-text-inverse);
-  font-weight: 800;
-}
-.caat-feature-hero--fullbleed .caat-feature-hero__subtitle {
-  color: rgba(255,255,255,.88);
-}
-.caat-feature-hero--fullbleed .caat-feature-hero__eyebrow {
-  color: var(--caat-color-eyebrow-on-dark-hero);
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__accent-rule {
   width: 12rem;
@@ -180,7 +158,7 @@
   box-shadow: 0 1rem 3rem rgba(0,0,0,.35);
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__preview-label {
-  color: rgba(255,255,255,.6);
+  color: var(--caat-color-text-inverse-dim);
 }
 
 /* ── Responsive ── */

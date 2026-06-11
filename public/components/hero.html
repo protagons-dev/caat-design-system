@@ -150,7 +150,7 @@
               <div class="caat-hero-media">
                 <img src="/assets/images/Header-image.png" alt="Diverse group of professionals walking together outside a modern office building">
               </div>
-              <div class="caat-hero-card caat-stack caat-stack--sm">
+              <div class="caat-hero-card caat-hero-panel caat-stack caat-stack--sm">
                 <div class="caat-stack caat-stack--2xs">
                   <p class="eyebrow">Pension Solutions</p>
                   <h3 id="demo-hero-heading-1">A modern defined benefit pension solution</h3>
@@ -508,7 +508,9 @@
 <pre class="code-sample mb-4"><code>.caat-composable-hero   /* Root wrapper */
 .caat-hero-frame        /* Positioning context for card overlay */
 .caat-hero-media        /* Background image / gradient area */
-.caat-hero-card         /* Overlay card with content */
+.caat-hero-card         /* Overlay card — LAYOUT (size/position) */
+.caat-hero-panel        /* Overlay card — SKIN (canonical, caat-base.css);
+                           compose BOTH classes on the card element */
 .accent-rule            /* Green divider bar */
 
 /* Variants */

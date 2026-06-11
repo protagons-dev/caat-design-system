@@ -33,7 +33,7 @@
   background: var(--caat-color-action-primary-hover);
   border-color: var(--caat-color-action-primary-hover);
   color: var(--caat-color-text-inverse);
-  transform: translateY(-1px);
+  transform: translateY(var(--caat-lift-subtle));
 }
 .caat-button--primary:active,
 .caat-button--primary.is-active {
@@ -63,7 +63,7 @@
   background: var(--caat-color-action-secondary-hover);
   border-color: var(--caat-color-action-secondary-hover);
   color: var(--caat-color-text-inverse);
-  transform: translateY(-1px);
+  transform: translateY(var(--caat-lift-subtle));
 }
 .caat-button--secondary:active,
 .caat-button--secondary.is-active {
@@ -106,15 +106,15 @@
    #fff is intentional here — a white control on a dark surface. */
 .caat-button--outline-white {
   background: transparent;
-  border-color: #fff;
+  border-color: var(--caat-white);
   color: var(--caat-color-text-inverse);
 }
 .caat-button--outline-white:hover,
 .caat-button--outline-white:active,
 .caat-button--outline-white.is-hover,
 .caat-button--outline-white.is-active {
-  background: #fff;
-  border-color: #fff;
+  background: var(--caat-white);
+  border-color: var(--caat-white);
   color: var(--caat-color-action-primary);
 }
 

@@ -17,15 +17,15 @@
 }
 
 .caat-modal .btn-close:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Body --- */
 .caat-modal .modal-body {
   padding: 1.5rem;
   font-family: var(--caat-font-primary);
-  font-size: 0.95rem;
+  font-size: var(--caat-font-size-sm);
   line-height: 1.6;
   color: var(--caat-color-text);
 }
@@ -63,5 +63,5 @@
 
 /* --- Scrollable content --- */
 .caat-modal .modal-dialog-scrollable .modal-body {
-  font-size: 0.88rem;
+  font-size: var(--caat-font-size-xs);
 }

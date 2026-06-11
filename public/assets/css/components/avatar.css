@@ -32,5 +32,5 @@
 .caat-avatar--icon { font-size: 1.25rem; }
 
 /* Sizes */
-.caat-avatar--sm { width: 36px; height: 36px; font-size: .85rem; }
+.caat-avatar--sm { width: 36px; height: 36px; font-size: var(--caat-font-size-xs); }
 .caat-avatar--lg { width: 64px; height: 64px; font-size: 1.25rem; }

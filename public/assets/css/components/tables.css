@@ -16,7 +16,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--caat-font-primary);
-  font-size: 0.9rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 .caat-table__caption {
@@ -33,7 +33,7 @@
   background: var(--caat-color-bg-brand);
   color: var(--caat-color-text-inverse);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: var(--caat-font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   padding: 0.75rem 1rem;
@@ -76,13 +76,13 @@
 }
 
 .caat-table__sort-btn:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: 2px;
 }
 
 .caat-table__sort-btn .sort-icon {
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   opacity: 0.6;
 }
 

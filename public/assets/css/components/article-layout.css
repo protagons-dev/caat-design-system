@@ -68,7 +68,7 @@
 .caat-article__related h5 {
   font-family: var(--caat-font-primary);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--caat-color-text-heading);
@@ -96,22 +96,22 @@
 /* Keyboard focus for in-content nav links (AODA conformance — these are
    interactive anchors that previously had :hover but no focus indicator). */
 .caat-article__related-item:focus-visible {
-  outline: 2px solid var(--caat-blue-700);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: 4px;
 }
 
 .caat-article__related-title {
   font-family: var(--caat-font-primary);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text-heading);
   margin-bottom: 0.125rem;
   line-height: 1.35;
 }
 
 .caat-article__related-meta {
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   color: var(--caat-color-text-muted);
 }
 

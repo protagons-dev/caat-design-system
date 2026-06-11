@@ -79,6 +79,25 @@
   /* Neutral */
   --caat-disabled:   #8a99a8;
 
+  /* Soft teal (badge soft variant) */
+  --caat-teal-100:   #e4f7f8;
+  --caat-teal-900:   #0a7a86;
+
+  /* White alpha steps — text/dividers on dark imagery & brand panels */
+  --caat-white-88:   rgba(255,255,255,.88);
+  --caat-white-70:   rgba(255,255,255,.7);
+  --caat-white-30:   rgba(255,255,255,.3);
+
+  /* Navy scrim steps — image overlay gradients (composed in Tier 2) */
+  --caat-scrim-strong: rgba(0,55,80,.88);
+  --caat-scrim-mid:    rgba(0,55,80,.55);
+  --caat-scrim-soft:   rgba(0,55,80,.32);
+  --caat-scrim-faint:  rgba(0,55,80,.05);
+
+  /* Translucent hero-panel surface (brand glass over imagery) */
+  --caat-blue-glass:       rgba(0,94,128,.94);
+  --caat-blue-glass-hover: rgba(0,82,112,.98);
+
   /* ── Typography primitives ───────────────────────────────── */
   --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
   --caat-font-secondary: Arial, Helvetica, sans-serif;
@@ -136,6 +155,7 @@
   --caat-radius-sm:  .375rem;
   --caat-radius:     .75rem;    /* default (kept) */
   --caat-radius-lg:  1.25rem;   /* (kept)         */
+  --caat-radius-hero: 4.5rem;   /* hero panel signature corner (bottom-right) */
   --caat-radius-pill: 999px;
 
   /* ── Border widths ───────────────────────────────────────── */
@@ -148,9 +168,13 @@
   --caat-shadow:     0 .75rem 1.75rem rgba(0,55,80,.10);  /* default      (kept) */
   --caat-shadow-md:  0 1rem 2.5rem rgba(0,55,80,.14);     /* dropdown / popover  */
   --caat-shadow-lg:  0 1.5rem 3.5rem rgba(0,55,80,.20);   /* modal / dialog      */
+  --caat-shadow-hover: 0 1.25rem 3rem rgba(0,55,80,.24);  /* lifted hero panel   */
   /* Focus ring: SOLID blue-500 — meets WCAG 1.4.11 (3:1) on BOTH light (3.31:1)
      and dark navy (~4.5:1) surfaces. Was rgba(...,.35), which failed at 1.47:1. */
   --caat-focus:      0 0 0 .1875rem var(--caat-blue-500);
+  /* Inset variant: for items inside overflow-clipped rounded containers
+     (dropdown items, list-group rows) where an outer ring would be cut off. */
+  --caat-focus-inset: inset 0 0 0 .1875rem var(--caat-blue-500);
 
   /* ── Z-index scale (coexists with Bootstrap's 1000–1090) ─── */
   --caat-z-base:     0;
@@ -169,6 +193,13 @@
   --caat-ease-standard:   cubic-bezier(.2, 0, 0, 1);    /* most transitions */
   --caat-ease-emphasized: cubic-bezier(.3, 0, 0, 1);    /* enter/expand     */
   --caat-ease-exit:       cubic-bezier(.4, 0, 1, 1);    /* leave/collapse   */
+
+  /* ── Hover lift distances (interaction standard) ─────────────
+     One tier per component scale — see Interaction States. */
+  --caat-lift-subtle: -1px;   /* buttons, small controls     */
+  --caat-lift-row:    -2px;   /* list rows, logo tiles       */
+  --caat-lift-card:   -3px;   /* cards in grids              */
+  --caat-lift-panel:  -4px;   /* hero panels, large previews */
 
   /* ── Opacity ─────────────────────────────────────────────── */
   --caat-opacity-disabled: .5;
@@ -194,6 +225,8 @@
   --caat-color-text-heading:   var(--caat-blue-900);   /* headings / titles */
   --caat-color-text-muted:     var(--caat-muted);
   --caat-color-text-inverse:   var(--caat-white);
+  --caat-color-text-inverse-muted: var(--caat-white-88);  /* body copy on dark/brand */
+  --caat-color-text-inverse-dim:   var(--caat-white-70);  /* meta / secondary on dark */
   --caat-color-text-link:      var(--caat-blue-900);
   --caat-color-text-link-hover:var(--caat-blue-700);
   --caat-color-text-on-brand:  var(--caat-white);
@@ -206,11 +239,18 @@
   --caat-color-bg-brand:        var(--caat-blue-900);   /* dark brand band  */
   --caat-color-bg-brand-subtle: var(--caat-blue-100);   /* light brand tint */
   --caat-color-bg-overlay:      rgba(0,0,0,.25);        /* modal/drawer scrim */
+  --caat-color-bg-hero-panel:       var(--caat-blue-glass);       /* hero overlay panel */
+  --caat-color-bg-hero-panel-hover: var(--caat-blue-glass-hover);
+
+  /* ── Image overlays (scrims composed from Tier 1 steps) ───── */
+  --caat-overlay-side:   linear-gradient(90deg, var(--caat-scrim-soft), var(--caat-scrim-faint) 55%);    /* hero media: text-side legibility */
+  --caat-overlay-bottom: linear-gradient(to top, var(--caat-scrim-strong) 0%, var(--caat-scrim-mid) 40%, transparent 70%); /* overlay cards: bottom legibility */
 
   /* ── Borders / dividers ──────────────────────────────────── */
   --caat-color-border:         var(--caat-grey-200);   /* decorative dividers (1.4.11 exempt) */
   --caat-color-border-strong:  var(--caat-grey-300);
   --caat-color-border-interactive: var(--caat-grey-500); /* form-control borders — meets 3:1 */
+  --caat-color-border-inverse:     var(--caat-white-30); /* dividers on dark/brand surfaces */
 
   /* ── Actions ──────────────────────────────────────────────────
      Each action role has resting / hover / active (pressed) shades so
@@ -224,8 +264,9 @@
   --caat-color-action-secondary-active:var(--caat-green-900);
 
   /* ── Focus ───────────────────────────────────────────────── */
-  --caat-color-focus-ring: var(--caat-focus);
-  --caat-color-focus-edge: var(--caat-blue-500);
+  --caat-color-focus-ring:       var(--caat-focus);
+  --caat-color-focus-ring-inset: var(--caat-focus-inset);
+  --caat-color-focus-edge:       var(--caat-blue-500);
 
   /* ── Interaction states ──────────────────────────────────────
      Token-driven appearance for the standard state matrix. See the

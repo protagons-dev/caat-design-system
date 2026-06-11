@@ -34,4 +34,4 @@
 
 /* On a brand (dark) section, lift the copy to inverse */
 .caat-section--brand .caat-cta__text,
-.caat-cta--on-brand .caat-cta__text { color: rgba(255,255,255,.85); }
+.caat-cta--on-brand .caat-cta__text { color: var(--caat-color-text-inverse-muted); }

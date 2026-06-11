@@ -54,7 +54,7 @@
 .caat-logo-wall__item.is-hover,
 .caat-logo-wall__item:focus-visible {
   box-shadow: var(--caat-shadow-sm);
-  transform: translateY(-2px);
+  transform: translateY(var(--caat-lift-row));
 }
 /* Keyboard focus ring for linked logos (AODA conformance) */
 .caat-logo-wall__item:focus-visible {
@@ -93,7 +93,7 @@
   border-radius: var(--caat-radius-lg);
 }
 .caat-logo-wall--dark .caat-logo-wall__title { color: var(--caat-color-text-inverse); }
-.caat-logo-wall--dark .caat-logo-wall__subtitle { color: rgba(255,255,255,.7); }
+.caat-logo-wall--dark .caat-logo-wall__subtitle { color: var(--caat-color-text-inverse-dim); }
 .caat-logo-wall--dark .caat-logo-wall__item {
   background: rgba(255,255,255,.08);
   border-color: rgba(255,255,255,.12);

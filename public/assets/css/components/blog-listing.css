@@ -33,7 +33,7 @@
 }
 
 .caat-blog-listing__card:hover, .caat-blog-listing__card.is-hover {
-  transform: translateY(-4px);
+  transform: translateY(var(--caat-lift-card));
   box-shadow: var(--caat-shadow);
 }
 
@@ -66,7 +66,7 @@
   align-items: center;
   gap: 0.25rem;
   font-family: var(--caat-font-primary);
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
@@ -99,7 +99,7 @@
 /* ── Excerpt ─────────────────────────────────────────────── */
 .caat-blog-listing__excerpt {
   font-family: var(--caat-font-primary);
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   line-height: 1.55;
   color: var(--caat-color-text);
   margin: 0 0 1rem;
@@ -109,7 +109,7 @@
 /* ── Meta ────────────────────────────────────────────────── */
 .caat-blog-listing__meta {
   font-family: var(--caat-font-primary);
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-muted);
   display: flex;
   gap: 0.75rem;
@@ -117,7 +117,7 @@
 }
 
 .caat-blog-listing__meta i {
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
 }
 
 /* ── Filters ─────────────────────────────────────────────── */
@@ -130,7 +130,7 @@
 
 .caat-blog-listing__filter-btn {
   font-family: var(--caat-font-primary);
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
   font-weight: 600;
   padding: 0.4em 1.1em;
   border-radius: 50rem;
@@ -147,8 +147,8 @@
 }
 
 .caat-blog-listing__filter-btn:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-blog-listing__filter-btn.active {

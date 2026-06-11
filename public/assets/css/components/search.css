@@ -69,8 +69,8 @@
 
 .caat-search__clear:focus-visible,
 .caat-search__clear.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* ── Suggestion dropdown ──────────────────────────────────────── */
@@ -101,7 +101,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1rem;
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   cursor: pointer;
   transition: background-color 0.15s ease;
@@ -116,7 +116,7 @@
 
 .caat-search__suggestion i {
   color: var(--caat-color-text-muted);
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 /* ── Results ──────────────────────────────────────────────────── */
@@ -125,7 +125,7 @@
 }
 
 .caat-search-results__count {
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text-muted);
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
@@ -161,18 +161,18 @@
 
 .caat-search-results__title a:focus-visible,
 .caat-search-results__title a.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-search-results__url {
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-green);
   margin-bottom: 0.25rem;
 }
 
 .caat-search-results__excerpt {
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   line-height: 1.6;
   margin-bottom: 0.375rem;
@@ -186,7 +186,7 @@
 }
 
 .caat-search-results__meta {
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-muted);
 }
 
@@ -210,7 +210,7 @@
   gap: 0.375rem;
   padding: 0.375rem 0.875rem;
   font-family: var(--caat-font-primary), sans-serif;
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   font-weight: 600;
   color: var(--caat-color-text);
   background: var(--caat-color-bg-page);
@@ -242,13 +242,13 @@
 
 .caat-search-results__filter:focus-visible,
 .caat-search-results__filter.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-search-results__filter-count {
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   opacity: 0.7;
 }
 
@@ -257,7 +257,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.6875rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -269,7 +269,7 @@
 .caat-search-results__type--pdf  { color: var(--caat-danger-dark); }
 
 .caat-search-results__file-meta {
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   font-weight: 400;
   color: var(--caat-color-text-muted);
 }
@@ -292,7 +292,7 @@
 }
 
 .caat-search__no-results .caat-search__helpful-links h4 {
-  font-size: 0.9375rem;
+  font-size: var(--caat-font-size-sm);
   font-weight: 600;
   color: var(--caat-color-text);
   margin-bottom: 0.5rem;

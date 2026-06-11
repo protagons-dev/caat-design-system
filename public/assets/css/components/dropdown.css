@@ -13,7 +13,7 @@
   border-radius: var(--caat-radius);
   box-shadow: var(--caat-shadow);
   padding: 0.5rem 0;
-  font-size: 0.9rem;
+  font-size: var(--caat-font-size-xs);
   min-width: 12rem;
 }
 
@@ -35,8 +35,8 @@
 
 .caat-dropdown .dropdown-item:focus-visible,
 .caat-dropdown .dropdown-item.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: -2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring-inset);
 }
 
 .caat-dropdown .dropdown-item.active,
@@ -60,7 +60,7 @@
 
 /* --- Headers & Dividers --- */
 .caat-dropdown .dropdown-header {
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -88,7 +88,7 @@
 .caat-dropdown .dropdown-menu-dark .dropdown-item.is-hover,
 .caat-dropdown .dropdown-menu-dark .dropdown-item.is-focus {
   background-color: rgba(255, 255, 255, 0.12);
-  color: #fff;
+  color: var(--caat-color-text-inverse);
 }
 
 .caat-dropdown .dropdown-menu-dark .dropdown-header {

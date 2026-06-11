@@ -42,19 +42,8 @@
 }
 
 /* ── Eyebrow ──────────────────────────────────────────────
-   DEPRECATED: prefer the canonical .caat-eyebrow (caat-base.css).
-   Kept as a token-driven alias so existing markup/AEM keeps working;
-   renders identically to the canonical eyebrow. */
-.caat-title__eyebrow {
-  display: block;
-  font-family: var(--caat-font-primary);
-  font-size: var(--caat-text-eyebrow-size);
-  font-weight: var(--caat-text-eyebrow-weight);
-  text-transform: uppercase;
-  letter-spacing: var(--caat-text-eyebrow-tracking);
-  color: var(--caat-color-eyebrow);
-  margin-bottom: var(--caat-space-2);
-}
+   Use the canonical .caat-eyebrow (caat-base.css). The old
+   .caat-title__eyebrow alias has been removed. */
 
 /* ── Subtitle ───────────────────────────────────────────── */
 .caat-title__subtitle {
@@ -84,7 +73,7 @@
 }
 
 .caat-text--small {
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
   line-height: 1.5;
 }
 
@@ -144,8 +133,8 @@
 }
 
 .caat-rich-text a:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: var(--caat-radius);
 }
 
@@ -163,7 +152,7 @@
   border: 1px solid var(--caat-color-border);
   border-radius: var(--caat-radius, 0.75rem);
   overflow: hidden;
-  background: #fff;
+  background: var(--caat-color-bg-page);
 }
 
 .caat-type-scale__row {
@@ -180,11 +169,11 @@
 }
 
 .caat-type-scale__label {
-  font-size: 0.6875rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--caat-blue-700, #0f6791);
+  color: var(--caat-blue-700, #0b5a80);
   background: var(--caat-blue-100, #e7f4fb);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -198,7 +187,7 @@
 }
 
 .caat-type-scale__meta {
-  font-size: 0.6875rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 600;
   font-family: "SF Mono", "Fira Code", monospace;
   color: var(--caat-color-text-muted);

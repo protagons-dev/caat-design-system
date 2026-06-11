@@ -19,7 +19,7 @@
   color: var(--caat-color-text-inverse);
   border-radius: var(--caat-radius);
   font-family: var(--caat-font-primary), sans-serif;
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   line-height: 1.4;
   max-width: 250px;
   padding: 0.5rem 0.75rem;
@@ -56,8 +56,8 @@
 }
 
 .caat-tooltip__icon:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: var(--caat-radius);
 }
 
@@ -74,7 +74,7 @@
 }
 
 .caat-tooltip__link:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: var(--caat-radius);
 }

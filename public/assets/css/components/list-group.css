@@ -16,7 +16,7 @@
 .caat-list-group__item {
   display: block;
   padding: 0.875rem 1.25rem;
-  font-size: 0.95rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   background: var(--caat-color-bg-page);
   border-bottom: 1px solid var(--caat-color-border);
@@ -58,8 +58,8 @@ a.caat-list-group__item--action:focus-visible,
 .caat-list-group__item--action a:focus-visible,
 a.caat-list-group__item--action.is-focus,
 .caat-list-group__item--action a.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: -2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring-inset);
   z-index: 1;
 }
 
@@ -81,7 +81,7 @@ a.caat-list-group__item--active {
   justify-content: center;
   min-width: 1.5rem;
   padding: 0.35em 0.65em;
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 700;
   line-height: 1;
   color: var(--caat-color-text-inverse);
@@ -98,7 +98,7 @@ a.caat-list-group__item--active {
 }
 
 .caat-list-group__text-secondary {
-  font-size: 0.82rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-muted);
   margin-top: 0.15rem;
 }

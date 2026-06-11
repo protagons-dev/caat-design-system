@@ -29,41 +29,28 @@
 .caat-hero-media::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(0,55,80,.32), rgba(0,55,80,.05) 55%);
+  background: var(--caat-overlay-side);
   z-index: 1;
 }
 
+/* Layout only — the visual skin (glass background, signature corner,
+   hover lift) comes from the canonical .caat-hero-panel (caat-base.css);
+   compose both classes in markup. */
 .caat-hero-card {
   width: min(28rem, calc(100% - 2rem));
-  background: rgba(0,94,128,.94);
-  color: var(--caat-color-text-inverse);
-  border-radius: 0 0 4.5rem 0;
-  padding: 2rem;
-  box-shadow: var(--caat-shadow);
   position: absolute;
   left: 2rem; bottom: 1.5rem; top: auto;
   transform: none;
-  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
   z-index: 2;
-}
-.caat-hero-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 1.25rem 3rem rgba(0,55,80,.24);
-  background: rgba(0,82,112,.98);
 }
 
 .caat-hero-card .accent-rule {
   width: 12rem; max-width: 70%; height: .35rem;
   background: var(--caat-green); /* decorative brand accent — spacing via .caat-stack */
 }
-.caat-hero-card h1,
-.caat-hero-card h2,
-.caat-hero-card h3 { font-weight: 800; letter-spacing: -.03em; color: var(--caat-color-text-inverse); }
-.caat-hero-card p { color: rgba(255,255,255,.88); }
-.caat-hero-card .eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
-.caat-hero-card .btn { border-color: #fff; color: var(--caat-color-text-inverse); }
+.caat-hero-card .btn { border-color: var(--caat-white); color: var(--caat-color-text-inverse); }
 .caat-hero-card .btn:hover,
-.caat-hero-card .btn:focus { background: #fff; color: var(--caat-color-action-primary); }
+.caat-hero-card .btn:focus-visible { background: var(--caat-white); color: var(--caat-color-action-primary); }
 
 /* ── Slight overlap variant ────────────────────────────────── */
 .caat-hero-slight-overlap .caat-hero-media {
@@ -82,7 +69,7 @@
   z-index: 2;
 }
 .caat-hero-slight-overlap .caat-hero-card:hover {
-  transform: translateY(-2px) !important;
+  transform: translateY(var(--caat-lift-row)) !important;
 }
 .caat-hero-slight-overlap .caat-hero-card .accent-rule {
   height: .25rem;
@@ -109,7 +96,6 @@
     position: relative; left: auto; top: auto; bottom: auto;
     transform: none; margin: -3rem 1rem 0; width: auto;
   }
-  .caat-hero-card:hover { transform: translateY(-4px); }
   .caat-hero-slight-overlap .caat-hero-media { min-height: 15rem !important; }
   .caat-hero-slight-overlap .caat-hero-card {
     left: .75rem !important;

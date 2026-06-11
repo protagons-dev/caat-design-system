@@ -21,7 +21,7 @@
 }
 .caat-stat__value small { font-size: .65em; font-weight: 400; }
 .caat-stat__label {
-  font-size: .82rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-muted);
 }
 
@@ -53,7 +53,7 @@
   margin-bottom: var(--caat-space-1);
 }
 .caat-stat-card .caat-stat__value { font-size: 3rem; color: var(--caat-color-text-inverse); }
-.caat-stat-card .caat-stat__label { color: rgba(255,255,255,.88); }
+.caat-stat-card .caat-stat__label { color: var(--caat-color-text-inverse-muted); }
 
 /* ── Strip — a row of stats with dividers (dark band, e.g. hero) ── */
 .caat-stat-strip {
@@ -78,11 +78,11 @@
   position: absolute;
   left: 0; top: 15%; height: 70%;
   width: 1px;
-  background: rgba(255,255,255,.25);
+  background: var(--caat-color-border-inverse);
 }
 /* On the dark strip the value inherits white; the label is dimmed white */
 .caat-stat-strip .caat-stat__value { color: var(--caat-color-text-inverse); }
-.caat-stat-strip .caat-stat__label { color: rgba(255,255,255,.65); }
+.caat-stat-strip .caat-stat__label { color: var(--caat-color-text-inverse-dim); }
 
 /* ── Legacy element API (strong/label-span) — kept value-identical ── */
 .caat-stat-item strong {
@@ -97,8 +97,8 @@
   font-weight: 400;
 }
 .caat-stat-item span {
-  font-size: .82rem;
-  color: rgba(255,255,255,.65);
+  font-size: var(--caat-font-size-xs);
+  color: var(--caat-color-text-inverse-dim);
 }
 
 @media (max-width: 575.98px) {

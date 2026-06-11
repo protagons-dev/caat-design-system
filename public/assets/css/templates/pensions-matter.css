@@ -67,7 +67,7 @@
 }
 .pm-footnotes ol {
   padding-left: 1.25rem;
-  font-size: .75rem;
+  font-size: var(--caat-font-size-2xs);
   color: var(--caat-color-text-muted);
   line-height: 1.6;
 }

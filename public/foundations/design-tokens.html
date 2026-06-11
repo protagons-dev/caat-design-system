@@ -503,6 +503,8 @@
             <tr><td><code>--caat-color-text</code></td><td><code>--caat-ink</code></td><td>Default body text</td></tr>
             <tr><td><code>--caat-color-text-muted</code></td><td><code>--caat-muted</code></td><td>Secondary / supporting text</td></tr>
             <tr><td><code>--caat-color-text-inverse</code></td><td><code>#fff</code></td><td>Text on dark / brand backgrounds</td></tr>
+            <tr><td><code>--caat-color-text-inverse-muted</code></td><td><code>--caat-white-88</code></td><td>Body copy on dark / brand surfaces</td></tr>
+            <tr><td><code>--caat-color-text-inverse-dim</code></td><td><code>--caat-white-70</code></td><td>Meta / secondary text on dark surfaces</td></tr>
             <tr><td><code>--caat-color-text-link</code></td><td><code>--caat-blue-900</code></td><td>Links (resting)</td></tr>
             <tr><td><code>--caat-color-text-link-hover</code></td><td><code>--caat-blue-700</code></td><td>Links (hover)</td></tr>
             <tr><td><code>--caat-color-text-disabled</code></td><td><code>--caat-disabled</code></td><td>Disabled text</td></tr>
@@ -520,8 +522,13 @@
             <tr><td><code>--caat-color-bg-brand</code></td><td><code>--caat-blue-900</code></td><td>Dark brand band</td></tr>
             <tr><td><code>--caat-color-bg-brand-subtle</code></td><td><code>--caat-blue-100</code></td><td>Light brand tint</td></tr>
             <tr><td><code>--caat-color-bg-overlay</code></td><td><code>rgba(0,0,0,.25)</code></td><td>Modal / drawer scrim</td></tr>
+            <tr><td><code>--caat-color-bg-hero-panel</code></td><td><code>--caat-blue-glass</code></td><td>Hero overlay panel (glass over imagery)</td></tr>
+            <tr><td><code>--caat-color-bg-hero-panel-hover</code></td><td><code>--caat-blue-glass-hover</code></td><td>Hero overlay panel — hover</td></tr>
+            <tr><td><code>--caat-overlay-side</code></td><td><code>--caat-scrim-soft → -faint</code></td><td>Hero media gradient scrim (text-side legibility)</td></tr>
+            <tr><td><code>--caat-overlay-bottom</code></td><td><code>--caat-scrim-strong → -mid</code></td><td>Overlay-card gradient scrim (bottom legibility)</td></tr>
             <tr><td><code>--caat-color-border</code></td><td><code>--caat-grey-200</code></td><td>Default borders / dividers</td></tr>
             <tr><td><code>--caat-color-border-strong</code></td><td><code>--caat-grey-300</code></td><td>Emphasised borders</td></tr>
+            <tr><td><code>--caat-color-border-inverse</code></td><td><code>--caat-white-30</code></td><td>Dividers on dark / brand surfaces</td></tr>
           </tbody>
         </table>
       </div>
@@ -534,7 +541,8 @@
             <tr><td><code>--caat-color-action-primary</code></td><td><code>--caat-blue-900</code></td><td>Primary buttons / CTAs</td></tr>
             <tr><td><code>--caat-color-action-primary-hover</code></td><td><code>--caat-blue-700</code></td><td>Primary hover</td></tr>
             <tr><td><code>--caat-color-action-secondary</code></td><td><code>--caat-green</code></td><td>Secondary actions</td></tr>
-            <tr><td><code>--caat-color-focus-ring</code></td><td><code>--caat-focus</code></td><td>Focus glow (box-shadow)</td></tr>
+            <tr><td><code>--caat-color-focus-ring</code></td><td><code>--caat-focus</code></td><td>Focus ring (box-shadow)</td></tr>
+            <tr><td><code>--caat-color-focus-ring-inset</code></td><td><code>--caat-focus-inset</code></td><td>Inset focus ring (clipped containers)</td></tr>
             <tr><td><code>--caat-color-focus-edge</code></td><td><code>--caat-blue-500</code></td><td>Focused input border</td></tr>
           </tbody>
         </table>
@@ -671,7 +679,7 @@
             <tr><td><code>.caat-title--h5</code></td><td>Minor heading</td><td>1.25rem</td><td>800</td></tr>
             <tr><td><code>.caat-title--h6</code></td><td>Smallest heading</td><td>1rem</td><td>800</td></tr>
             <tr><td><code>.caat-title--section</code></td><td>Section heading with bottom border</td><td>1.75rem</td><td>800</td></tr>
-            <tr><td><code>.caat-title__eyebrow</code> <span class="badge bg-secondary">deprecated</span></td><td>Alias of <code>.caat-eyebrow</code> — use the canonical class</td><td>.75rem</td><td>700</td></tr>
+            
             <tr><td><code>.caat-title__subtitle</code></td><td>Supporting text below a heading</td><td>1.25rem</td><td>400</td></tr>
           </tbody>
         </table>
@@ -735,7 +743,7 @@
 
       <!-- ── Eyebrow pattern ── -->
       <h3 class="h5 mt-4 mb-3">Eyebrow (overline label)</h3>
-      <p class="mb-3">A short kicker above a heading used for <strong>categorization or context only</strong>. There is now <strong>one canonical class</strong>, <code>.caat-eyebrow</code>, driven by the <code>--caat-text-eyebrow-*</code> / <code>--caat-color-eyebrow</code> tokens. Legacy classes (<code>.caat-title__eyebrow</code>, <code>.caat-feature-hero__eyebrow</code>, generic <code>.eyebrow</code>) now consume the same tokens, so they can no longer drift.</p>
+      <p class="mb-3">A short kicker above a heading used for <strong>categorization or context only</strong>. There is now <strong>one canonical class</strong>, <code>.caat-eyebrow</code>, driven by the <code>--caat-text-eyebrow-*</code> / <code>--caat-color-eyebrow</code> tokens. The legacy component-scoped aliases (<code>.caat-title__eyebrow</code>, <code>.caat-feature-hero__eyebrow</code>) have been removed; all markup uses the canonical class.</p>
 
       <!-- On light -->
       <div class="p-4 bg-light rounded mb-3">
@@ -830,6 +838,11 @@
               <td>Hero frames, modals, large panels, stat strips</td>
             </tr>
             <tr>
+              <td><code>--caat-radius-hero</code></td>
+              <td>4.5rem (72px)</td>
+              <td>Hero panel signature corner (bottom-right only)</td>
+            </tr>
+            <tr>
               <td><code>--caat-radius-pill</code></td>
               <td>999px</td>
               <td>Pills, status badges, toggles</td>
@@ -895,6 +908,11 @@
               <td>0 1.5rem 3.5rem rgba(0,55,80,.20)</td>
               <td>Modal / dialog</td>
             </tr>
+            <tr>
+              <td><code>--caat-shadow-hover</code></td>
+              <td>0 1.25rem 3rem rgba(0,55,80,.24)</td>
+              <td>Lifted hero panel (hover)</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -933,6 +951,10 @@
             <tr><td><code>--caat-ease-standard</code></td><td>cubic-bezier(.2, 0, 0, 1)</td><td>Most transitions</td></tr>
             <tr><td><code>--caat-ease-emphasized</code></td><td>cubic-bezier(.3, 0, 0, 1)</td><td>Enter / expand</td></tr>
             <tr><td><code>--caat-ease-exit</code></td><td>cubic-bezier(.4, 0, 1, 1)</td><td>Leave / collapse</td></tr>
+            <tr><td><code>--caat-lift-subtle</code></td><td>-1px</td><td>Hover lift: buttons, small controls</td></tr>
+            <tr><td><code>--caat-lift-row</code></td><td>-2px</td><td>Hover lift: list rows, logo tiles</td></tr>
+            <tr><td><code>--caat-lift-card</code></td><td>-3px</td><td>Hover lift: cards in grids</td></tr>
+            <tr><td><code>--caat-lift-panel</code></td><td>-4px</td><td>Hover lift: hero panels, large previews</td></tr>
           </tbody>
         </table>
       </div>
@@ -979,8 +1001,13 @@
           <tbody>
             <tr>
               <td><code>--caat-focus</code></td>
-              <td>0 0 0 .25rem rgba(47,149,210,.35)</td>
+              <td>0 0 0 .1875rem var(--caat-blue-500)</td>
               <td>Applied via <code>box-shadow</code> on <code>:focus-visible</code> for buttons, links, inputs</td>
+            </tr>
+            <tr>
+              <td><code>--caat-focus-inset</code></td>
+              <td>inset 0 0 0 .1875rem var(--caat-blue-500)</td>
+              <td>Inset variant for items inside overflow-clipped rounded containers (dropdown items, list-group rows)</td>
             </tr>
           </tbody>
         </table>
@@ -998,10 +1025,10 @@
         </div>
       </div>
 
-      <p>The focus ring uses a blue-500-based semi-transparent glow to work on both light and dark backgrounds. Apply as:</p>
+      <p>The focus ring is a <strong>solid</strong> blue-500 ring — it meets WCAG 1.4.11 (3:1) on both light (3.31:1) and dark navy (3.82:1) surfaces. (An earlier semi-transparent version failed at 1.47:1 and was replaced.) Consume it through the semantic alias and apply as:</p>
 <pre class="bg-light p-3 rounded"><code>.my-component:focus-visible {
-  outline: none;
-  box-shadow: var(--caat-focus);
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }</code></pre>
     </section>
 

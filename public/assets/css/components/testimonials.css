@@ -32,12 +32,12 @@
 
 .caat-testimonial__name {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text-heading);
 }
 
 .caat-testimonial__role {
-  font-size: 0.85rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-muted);
 }
 
@@ -90,8 +90,8 @@
 
 .caat-testimonial-carousel .carousel-control-prev:focus-visible,
 .caat-testimonial-carousel .carousel-control-next:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 3px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 .caat-testimonial-carousel .carousel-control-prev-icon,
@@ -104,8 +104,8 @@
   background-color: var(--caat-color-action-primary);
 }
 .caat-testimonial-carousel .carousel-indicators [data-bs-target]:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Grid --- */

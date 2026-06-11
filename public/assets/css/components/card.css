@@ -12,9 +12,17 @@
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .caat-card:hover, .caat-card.is-hover {
-  transform: translateY(-3px);
+  transform: translateY(var(--caat-lift-card));
   box-shadow: var(--caat-shadow);
   border-color: var(--caat-blue-300); /* decorative hover accent */
+}
+/* Keyboard focus: ring the card when it is itself focusable (linked card)
+   or when a stretched link inside it receives keyboard focus. */
+.caat-card:focus-visible,
+.caat-card:has(.stretched-link:focus-visible),
+.caat-card.is-focus {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring), var(--caat-shadow);
 }
 
 /* ── Card content rhythm ──────────────────────────────────────
@@ -38,13 +46,11 @@
 
 /* ── Image card ────────────────────────────────────────────── */
 .caat-card-image {
-  display: block; width: 100%; height: 12rem;
+  display: block; width: 100%;
   object-fit: cover; background: var(--caat-color-bg-subtle);
 }
-.caat-card-image.tall { height: 16rem; }
-.caat-card-image.compact { height: 9rem; }
 
-/* ── Aspect-ratio card images (PREFERRED over fixed heights) ──────
+/* ── Aspect-ratio card images (REQUIRED — fixed heights removed) ──
    Use a ratio modifier so the image scales proportionally with the card
    width (no viewport-dependent crop, no layout shift). Pick ONE ratio per
    card grid — see foundations/card-image-ratios.html. Standard set:
@@ -61,7 +67,7 @@
 /* ── Kicker (eyebrow-style label — consolidation candidate) ──── */
 .caat-card-kicker {
   display: block; color: var(--caat-color-eyebrow);
-  font-size: .78rem; text-transform: uppercase;
+  font-size: var(--caat-font-size-2xs); text-transform: uppercase;
   letter-spacing: .05em; font-weight: 900; margin-bottom: .35rem;
 }
 
@@ -76,7 +82,7 @@
 }
 .caat-card-media-overlay .overlay-panel {
   position: absolute; left: 1rem; right: 1rem; bottom: 1rem;
-  background: rgba(0,55,80,.92); color: var(--caat-color-text-inverse);
+  background: var(--caat-scrim-strong); color: var(--caat-color-text-inverse);
   border-radius: var(--caat-radius); padding: 1rem;
 }
 
@@ -91,7 +97,7 @@
 .caat-card--overlay::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,55,80,.88) 0%, rgba(0,55,80,.55) 40%, transparent 70%);
+  background: var(--caat-overlay-bottom);
   pointer-events: none;
   z-index: 1;
 }
@@ -107,9 +113,9 @@
 .caat-card--overlay .card-img-overlay a,
 .caat-card--overlay .card-img-overlay span { color: var(--caat-color-text-inverse); }
 .caat-card--overlay .card-img-overlay h3 { font-weight: 800; letter-spacing: -.02em; font-size: 1.35rem; margin-bottom: .35rem; }
-.caat-card--overlay .card-img-overlay p { color: rgba(255,255,255,.88); font-size: .9rem; margin-bottom: .5rem; }
+.caat-card--overlay .card-img-overlay p { color: var(--caat-color-text-inverse-muted); font-size: var(--caat-font-size-xs); margin-bottom: .5rem; }
 .caat-card--overlay .card-img-overlay a { font-weight: 700; text-decoration: underline; }
-.caat-card--overlay .caat-card-kicker { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; margin-bottom: .25rem; }
+.caat-card--overlay .caat-card-kicker { font-size: var(--caat-font-size-2xs); text-transform: uppercase; letter-spacing: .08em; font-weight: 800; margin-bottom: .25rem; }
 
 /* ── Card grid ─────────────────────────────────────────────── */
 .caat-card-grid {

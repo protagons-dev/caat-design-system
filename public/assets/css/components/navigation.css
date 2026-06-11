@@ -17,10 +17,10 @@
 .caat-navbar .utility-bar {
   background: var(--caat-color-bg-brand);
   padding: .4rem 0;
-  font-size: .78rem;
+  font-size: var(--caat-font-size-2xs);
 }
 .caat-navbar .utility-bar a {
-  color: rgba(255,255,255,.85);
+  color: var(--caat-color-text-inverse-muted);
   text-decoration: none;
   font-weight: 500;
   transition: color .15s;
@@ -33,7 +33,7 @@
 }
 .caat-navbar .utility-bar .lang-switch {
   font-weight: 700;
-  border-left: 1px solid rgba(255,255,255,.3);
+  border-left: 1px solid var(--caat-color-border-inverse);
   padding-left: .75rem;
   margin-left: .5rem;
 }
@@ -57,7 +57,7 @@
 .caat-navbar .navbar-nav .nav-link {
   color: var(--caat-color-text);
   font-weight: 600;
-  font-size: .9rem;
+  font-size: var(--caat-font-size-xs);
   padding: .6rem 1rem;
   border-radius: .35rem;
   transition: background .15s, color .15s;
@@ -123,7 +123,7 @@
 
 /* L2 — Category heading */
 .caat-navbar .mega-menu .mega-category-title {
-  font-size: .72rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: .07em;
@@ -136,7 +136,7 @@
   gap: .4rem;
 }
 .caat-navbar .mega-menu .mega-category-title i {
-  font-size: .85rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 /* L3 — Link list */
@@ -153,7 +153,7 @@
   color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 500;
-  font-size: .88rem;
+  font-size: var(--caat-font-size-xs);
   border-radius: .35rem;
   transition: background .12s, color .12s, padding-left .15s;
 }
@@ -165,7 +165,7 @@
 }
 .caat-navbar .mega-menu .mega-links a .mega-link-desc {
   display: block;
-  font-size: .76rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 400;
   color: var(--caat-color-text-muted);
   margin-top: .1rem;
@@ -179,7 +179,7 @@
   border-left: 2px solid var(--caat-color-border);
 }
 .caat-navbar .mega-menu .mega-links .mega-subnav a {
-  font-size: .82rem;
+  font-size: var(--caat-font-size-xs);
   font-weight: 400;
   padding: .3rem .65rem;
 }
@@ -195,11 +195,11 @@
 }
 .caat-navbar .mega-promo-title {
   font-weight: 800;
-  font-size: .92rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text-heading);
 }
 .caat-navbar .mega-promo-text {
-  font-size: .82rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text);
   line-height: 1.5;
 }
@@ -219,7 +219,7 @@
   border: 1px solid var(--caat-color-border);
   border-radius: 2rem;
   padding: .45rem 2.2rem .45rem .9rem;
-  font-size: .85rem;
+  font-size: var(--caat-font-size-xs);
   transition: width .2s ease, border-color .15s;
 }
 .caat-navbar .nav-search-input:focus {
@@ -238,7 +238,7 @@
   right: .75rem;
   color: var(--caat-color-text-muted);
   pointer-events: none;
-  font-size: .85rem;
+  font-size: var(--caat-font-size-xs);
 }
 .caat-navbar .nav-login {
   display: inline-flex;
@@ -247,7 +247,7 @@
   color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 600;
-  font-size: .85rem;
+  font-size: var(--caat-font-size-xs);
   padding: .45rem .65rem;
   border-radius: .35rem;
   transition: background .15s;
@@ -258,7 +258,7 @@
 }
 .caat-navbar .nav-cta {
   white-space: nowrap;
-  font-size: .82rem;
+  font-size: var(--caat-font-size-xs);
   padding: .5rem 1.1rem;
 }
 
@@ -307,7 +307,7 @@
   display: flex; flex-wrap: wrap; gap: .75rem;
   margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid var(--caat-color-border);
 }
-.caat-mobile-utility a { font-size: .9rem; text-decoration: none; color: var(--caat-color-text); }
+.caat-mobile-utility a { font-size: var(--caat-font-size-xs); text-decoration: none; color: var(--caat-color-text); }
 .caat-mobile-actions { display: grid; gap: .75rem; margin-top: 1rem; }
 .caat-mobile-actions .btn { width: 100%; }
 
@@ -335,7 +335,7 @@
 }
 .caat-navbar .mobile-nav-accordion .accordion-button {
   font-weight: 700;
-  font-size: .95rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   padding: .85rem .25rem;
   box-shadow: none !important;
@@ -361,7 +361,7 @@
   color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 500;
-  font-size: .9rem;
+  font-size: var(--caat-font-size-xs);
   border-radius: .35rem;
   transition: background .12s;
 }
@@ -370,7 +370,7 @@
   color: var(--caat-color-text-heading);
 }
 .caat-navbar .mobile-nav-accordion .mobile-subnav-heading {
-  font-size: .72rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .05em;
@@ -390,7 +390,7 @@
   color: var(--caat-color-text);
   text-decoration: none;
   font-weight: 700;
-  font-size: .95rem;
+  font-size: var(--caat-font-size-sm);
   border-bottom: 1px solid var(--caat-color-border);
 }
 .caat-navbar .mobile-nav-links a:hover {

@@ -17,7 +17,7 @@
 .popover.caat-popover .popover-header {
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-heading);
   background-color: var(--caat-color-bg-brand-subtle);
   border-bottom: 1px solid var(--caat-color-border);
@@ -29,7 +29,7 @@
 .caat-popover .popover-body,
 .popover.caat-popover .popover-body {
   font-family: var(--caat-font-primary, "Libre Franklin", Arial, Helvetica, sans-serif);
-  font-size: 0.8125rem;
+  font-size: var(--caat-font-size-xs);
   line-height: 1.5;
   color: var(--caat-color-text);
   padding: 0.75rem 0.875rem;
@@ -61,8 +61,8 @@
 
 /* --- Focus ring for trigger buttons --- */
 .caat-popover [data-bs-toggle="popover"]:focus-visible {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Help / info icon button --- */

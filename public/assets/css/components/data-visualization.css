@@ -32,13 +32,13 @@
 }
 
 .caat-dataviz__label {
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text);
   margin-top: .25rem;
 }
 
 .caat-dataviz__trend {
-  font-size: .8rem;
+  font-size: var(--caat-font-size-2xs);
   margin-top: .25rem;
 }
 .caat-dataviz__trend--up { color: var(--caat-green-700); }
@@ -60,7 +60,7 @@
 .caat-dataviz__bar-label {
   flex: 0 0 140px;
   text-align: left;
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
   font-weight: 600;
   color: var(--caat-color-text);
 }
@@ -81,8 +81,8 @@
   display: flex;
   align-items: center;
   padding-left: .5rem;
-  color: #fff;
-  font-size: .75rem;
+  color: var(--caat-color-text-inverse);
+  font-size: var(--caat-font-size-2xs);
   font-weight: 700;
 }
 
@@ -157,7 +157,7 @@
   display: flex;
   align-items: center;
   gap: .35rem;
-  font-size: .85rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 .caat-dataviz__legend-dot {
@@ -178,7 +178,7 @@
   padding: .625rem .75rem;
   text-align: left;
   border-bottom: 1px solid var(--caat-color-border);
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 .caat-dataviz__comparison-table thead th {
@@ -199,7 +199,7 @@
   background: var(--caat-color-bg-brand-subtle);
   padding: 1rem;
   border-radius: .5rem;
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text);
   margin-top: 1rem;
 }
@@ -218,7 +218,7 @@
 .caat-dataviz__table-fallback table {
   width: 100%;
   border-collapse: collapse;
-  font-size: .875rem;
+  font-size: var(--caat-font-size-xs);
 }
 .caat-dataviz__table-fallback th,
 .caat-dataviz__table-fallback td {
@@ -235,7 +235,7 @@
   font-weight: 700;
   color: var(--caat-color-text);
   padding-bottom: .5rem;
-  font-size: .8rem;
+  font-size: var(--caat-font-size-2xs);
 }
 
 /* ── Legend swatches with pattern ── */
@@ -274,6 +274,6 @@
   }
   .caat-dataviz__bar-label {
     flex: 0 0 100px;
-    font-size: .75rem;
+    font-size: var(--caat-font-size-2xs);
   }
 }

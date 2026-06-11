@@ -4,7 +4,7 @@
 
 .caat-breadcrumb {
   font-family: var(--caat-font-primary);
-  font-size: 0.85rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 .caat-breadcrumb .breadcrumb {
@@ -28,8 +28,8 @@
 
 .caat-breadcrumb .breadcrumb-item a:focus-visible,
 .caat-breadcrumb .breadcrumb-item a.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: 2px;
 }
 

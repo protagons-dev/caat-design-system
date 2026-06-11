@@ -40,7 +40,7 @@
   background-color: var(--caat-color-bg-page);
   border-bottom: 1px solid var(--caat-color-border);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
 }
 
 .caat-toast__header .caat-toast__icon {
@@ -53,7 +53,7 @@
 }
 
 .caat-toast__header .caat-toast__meta {
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   color: var(--caat-color-text-muted);
   margin-left: auto;
   padding-left: 0.5rem;
@@ -85,15 +85,15 @@
 
 .caat-toast__close:focus-visible,
 .caat-toast__close.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   opacity: 1;
 }
 
 /* --- Body --- */
 .caat-toast__body {
   padding: 0.75rem;
-  font-size: 0.875rem;
+  font-size: var(--caat-font-size-xs);
   line-height: 1.5;
 }
 
@@ -112,8 +112,8 @@
 
 .caat-toast__action:focus-visible,
 .caat-toast__action.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Colour variants (icon accent only) --- */

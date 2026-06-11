@@ -16,7 +16,7 @@
 .caat-tabs .nav-tabs .nav-link {
   font-family: var(--caat-font-primary);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   border: none;
   border-bottom: 3px solid transparent;
@@ -38,8 +38,8 @@
 
 .caat-tabs .nav-tabs .nav-link:focus-visible,
 .caat-tabs .nav-tabs .nav-link.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
   border-radius: 4px;
 }
 
@@ -47,7 +47,7 @@
 .caat-tabs .nav-pills .nav-link {
   font-family: var(--caat-font-primary);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: var(--caat-font-size-sm);
   color: var(--caat-color-text);
   border-radius: 50rem;
   padding: 0.5rem 1.25rem;
@@ -66,8 +66,8 @@
 
 .caat-tabs .nav-pills .nav-link:focus-visible,
 .caat-tabs .nav-pills .nav-link.is-focus {
-  outline: 2px solid var(--caat-blue-700, #0b5a80);
-  outline-offset: 2px;
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
 
 /* --- Vertical Tabs --- */

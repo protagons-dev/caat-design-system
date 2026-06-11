@@ -55,10 +55,10 @@ a:hover { color: var(--caat-blue-700); }
 .skip-link {
   position: absolute; left: .75rem; top: .75rem; z-index: 2000;
   transform: translateY(-150%);
-  background: var(--caat-blue-900); color: #fff;
+  background: var(--caat-blue-900); color: var(--caat-white);
   padding: .625rem 1rem; border-radius: .5rem; text-decoration: none;
 }
-.skip-link:focus { transform: translateY(0); color: #fff; }
+.skip-link:focus { transform: translateY(0); color: var(--caat-white); }
 
 /* ── Focus ring ────────────────────────────────────────────── */
 .btn:focus, .btn.focus-demo { box-shadow: var(--caat-focus) !important; outline: 0; }
@@ -97,6 +97,31 @@ a:hover { color: var(--caat-blue-700); }
 .caat-eyebrow--on-dark,
 .eyebrow--on-dark { color: var(--caat-color-eyebrow-on-dark); }
 
+/* ── Hero overlay panel (canonical skin) ─────────────────────
+   The translucent brand panel laid over hero imagery, with the
+   signature bottom-right corner. This class owns the SKIN only —
+   size and position belong to the composing component (Hero's
+   .caat-hero-card, Feature/Resource Hero's fullbleed __body). */
+.caat-hero-panel {
+  background: var(--caat-color-bg-hero-panel);
+  color: var(--caat-color-text-inverse);
+  border-radius: 0 0 var(--caat-radius-hero) 0;
+  padding: var(--caat-space-6);
+  box-shadow: var(--caat-shadow);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.caat-hero-panel:hover {
+  transform: translateY(var(--caat-lift-panel));
+  box-shadow: var(--caat-shadow-hover);
+  background: var(--caat-color-bg-hero-panel-hover);
+}
+.caat-hero-panel h1,
+.caat-hero-panel h2,
+.caat-hero-panel h3 { font-weight: 800; letter-spacing: -.03em; color: var(--caat-color-text-inverse); }
+.caat-hero-panel p { color: var(--caat-color-text-inverse-muted); }
+.caat-hero-panel .caat-eyebrow,
+.caat-hero-panel .eyebrow { color: var(--caat-color-eyebrow-on-dark-hero); }
+
 /* ── Component documentation page layout ───────────────────── */
 .component-page-layout {
   display: block;
@@ -107,8 +132,8 @@ a:hover { color: var(--caat-blue-700); }
 .drawer-toggle {
   position: fixed; top: 50%; left: 0; z-index: 1051;
   transform: translateY(-50%);
-  background: var(--caat-blue-900); color: #fff; border: 0;
-  padding: .6rem .45rem; font-weight: 800; font-size: .7rem;
+  background: var(--caat-blue-900); color: var(--caat-white); border: 0;
+  padding: .6rem .45rem; font-weight: 800; font-size: var(--caat-font-size-2xs);
   letter-spacing: .05em; text-transform: uppercase;
   writing-mode: vertical-rl; text-orientation: mixed;
   border-radius: 0 .5rem .5rem 0;
@@ -123,7 +148,7 @@ body.drawer-open .drawer-toggle { left: 16rem; }
 .component-page-sidebar {
   position: fixed; top: 0; left: 0; bottom: 0; z-index: 1050;
   width: 16rem;
-  background: #fff;
+  background: var(--caat-white);
   border-right: 1px solid var(--caat-grey-200);
   box-shadow: 2px 0 16px rgba(0,55,80,.1);
   padding: 1.25rem 1rem;
@@ -143,24 +168,24 @@ body.drawer-open .component-page-sidebar {
 
 .component-page-sidebar .nav-link {
   color: var(--caat-ink); border-radius: .5rem;
-  padding: .4rem .65rem; font-size: .84rem; font-weight: 600;
+  padding: .4rem .65rem; font-size: var(--caat-font-size-xs); font-weight: 600;
 }
 .component-page-sidebar .nav-link:hover,
 .component-page-sidebar .nav-link:focus {
   background: var(--caat-blue-100);
 }
 .component-page-sidebar .nav-link.active {
-  background: var(--caat-blue-900); color: #fff;
+  background: var(--caat-blue-900); color: var(--caat-white);
 }
 .component-page-sidebar .eyebrow {
-  font-size: .7rem; text-transform: uppercase; letter-spacing: .06em;
+  font-size: var(--caat-font-size-2xs); text-transform: uppercase; letter-spacing: .06em;
   font-weight: 900; color: var(--caat-muted); margin-bottom: .5rem;
 }
 
 /* Backdrop */
 .drawer-backdrop {
   display: none; position: fixed; inset: 0; z-index: 1049;
-  background: rgba(0,0,0,.25);
+  background: var(--caat-color-bg-overlay);
 }
 body.drawer-open .drawer-backdrop { display: block; }
 
@@ -183,7 +208,7 @@ body.drawer-open .drawer-backdrop { display: block; }
 /* ── Demo area ─────────────────────────────────────────────── */
 .demo-shell {
   border: 1px solid var(--caat-grey-200); border-radius: var(--caat-radius-lg);
-  overflow: visible; background: #fff; box-shadow: var(--caat-shadow-sm);
+  overflow: visible; background: var(--caat-white); box-shadow: var(--caat-shadow-sm);
 }
 
 .demo-rendered { padding: 1.5rem; }
@@ -200,23 +225,23 @@ body.drawer-open .drawer-backdrop { display: block; }
 .demo-code { padding: 1.25rem; background: #f6f8fb; border-top: 1px solid var(--caat-grey-200); }
 
 .demo-label {
-  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  font-size: var(--caat-font-size-2xs); letter-spacing: .08em; text-transform: uppercase;
   font-weight: 800; color: var(--caat-muted); margin-bottom: .8rem;
 }
 
 /* ── Code sample ───────────────────────────────────────────── */
 .code-sample {
   margin: 0; white-space: pre-wrap;
-  background: #102637; color: #e7f4fb;
+  background: var(--caat-ink); color: var(--caat-blue-100);
   padding: 1rem; border-radius: .75rem;
-  font-size: .82rem; line-height: 1.45;
+  font-size: var(--caat-font-size-xs); line-height: 1.45;
   max-height: 35rem; overflow: auto;
 }
 .code-sample code { color: inherit; }
 
 /* ── Contract table ────────────────────────────────────────── */
 .contract-table {
-  width: 100%; border-collapse: collapse; font-size: .92rem;
+  width: 100%; border-collapse: collapse; font-size: var(--caat-font-size-sm);
 }
 .contract-table th,
 .contract-table td {
@@ -233,13 +258,13 @@ body.drawer-open .drawer-backdrop { display: block; }
 .status-badge {
   display: inline-flex; align-items: center; gap: .35rem;
   border-radius: 999px; padding: .35rem .65rem;
-  font-size: .78rem; font-weight: 800; white-space: nowrap;
+  font-size: var(--caat-font-size-2xs); font-weight: 800; white-space: nowrap;
 }
 .status-badge.ready   { background: var(--caat-green-100); color: var(--caat-green-900); }
 .status-badge.planned  { background: var(--caat-blue-100); color: var(--caat-blue-900); }
 .status-badge.rebuild  { background: #fff6df; color: #65420a; }
 .status-badge.enhance  { background: var(--caat-blue-100); color: var(--caat-blue-700); }
-.status-badge.retire   { background: #fde8e8; color: #7a1f1f; }
+.status-badge.retire   { background: var(--caat-danger-bg); color: #7a1f1f; }
 
 /* ── Print ─────────────────────────────────────────────────── */
 @media print {

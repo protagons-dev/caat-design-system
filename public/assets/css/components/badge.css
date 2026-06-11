@@ -7,7 +7,7 @@
   align-items: center;
   gap: 0.25rem;
   font-family: var(--caat-font-primary);
-  font-size: 0.75rem;
+  font-size: var(--caat-font-size-2xs);
   font-weight: 700;
   line-height: 1;
   padding: 0.35em 0.65em;
@@ -76,8 +76,8 @@
   color: var(--caat-green-900);
 }
 .caat-badge--soft-teal {
-  background: #e4f7f8;
-  color: #0a7a86;
+  background: var(--caat-teal-100);
+  color: var(--caat-teal-900);
 }
 .caat-badge--soft-warning {
   background: var(--caat-warning-bg, #fff3cd);
@@ -113,7 +113,7 @@
 .caat-badge--count {
   position: relative;
   top: -0.1em;
-  font-size: 0.7rem;
+  font-size: var(--caat-font-size-2xs);
   padding: 0.25em 0.5em;
   border-radius: 50rem;
   margin-left: 0.35rem;

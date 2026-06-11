@@ -735,7 +735,7 @@
 }
 
 /* Image — pick ONE ratio per grid (see Card Image Ratios foundation).
-   Prefer a ratio modifier over the legacy fixed heights (.tall/.compact). */
+   A ratio modifier is required (legacy fixed heights have been removed). */
 .caat-card-image          { width: 100%; object-fit: cover; }
 .caat-card-image--16-9    { aspect-ratio: 16 / 9; }   /* blog / article cards */
 .caat-card-image--4-3     { aspect-ratio: 4 / 3;  }   /* resource call-outs   */
