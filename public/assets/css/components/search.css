@@ -266,7 +266,7 @@
 
 .caat-search-results__type--page  { color: var(--caat-blue-700); }
 .caat-search-results__type--article { color: var(--caat-green-700, #367f32); }
-.caat-search-results__type--pdf  { color: var(--caat-danger-dark); }
+.caat-search-results__type--pdf  { color: var(--caat-danger-accent); }
 
 .caat-search-results__file-meta {
   font-size: var(--caat-font-size-xs);

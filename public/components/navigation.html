@@ -910,6 +910,22 @@
           </tbody>
         </table>
       </div>
+
+      <h3 class="mt-4 mb-2">Behaviour contract (Bootstrap-native)</h3>
+      <p class="text-muted mb-2">The design system ships <strong>no custom navigation JavaScript</strong> — all interactive behaviour comes from Bootstrap 5 data attributes already present in the markup. Do not re-implement it; verify the behaviours below survive any AEM integration.</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Behaviour</th><th>Mechanism &amp; acceptance criteria</th></tr></thead>
+          <tbody>
+            <tr><td>Mobile collapse</td><td><code>navbar-expand-lg</code> + toggler with <code>data-bs-toggle="collapse"</code> / <code>data-bs-target</code>. Below the <code>lg</code> breakpoint (992&nbsp;px) the menu collapses; the toggler reflects state via <code>aria-expanded</code>. Above it, the full bar renders and the toggler is hidden.</td></tr>
+            <tr><td>Mega menu open/close</td><td>L1 triggers use <code>data-bs-toggle="dropdown"</code> with <code>role="button"</code> + <code>aria-expanded</code>. Bootstrap handles: open on click/<kbd>Enter</kbd>/<kbd>Space</kbd>, close on <kbd>Escape</kbd> (focus returns to the trigger), close on outside click, one menu open at a time.</td></tr>
+            <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Note: links inside <code>.mega-links</code> that are <em>not</em> <code>.dropdown-item</code>s are reached with <kbd>Tab</kbd> instead — keep this in mind when restructuring mega-menu columns.</td></tr>
+            <tr><td>Sticky header</td><td><code>sticky-top</code> (z-index 1020 = <code>--caat-z-sticky</code>). Anchor targets stay visible beneath it via the global <code>scroll-padding-top: 5rem</code> (caat-base.css).</td></tr>
+            <tr><td>Current page</td><td>Set <code>aria-current="page"</code> + the <code>.active</code> class on the current L1 link (server-rendered, not JS-derived).</td></tr>
+            <tr><td>No hover-open</td><td>Menus open on activation only — never on hover alone (touch + keyboard parity).</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════════════════════════

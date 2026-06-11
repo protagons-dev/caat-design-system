@@ -42,7 +42,7 @@
   margin-top: .25rem;
 }
 .caat-dataviz__trend--up { color: var(--caat-green-700); }
-.caat-dataviz__trend--down { color: var(--caat-danger-dark); }
+.caat-dataviz__trend--down { color: var(--caat-danger-accent); }
 
 /* ── Horizontal Bar Chart ── */
 .caat-dataviz__bar-chart {

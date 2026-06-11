@@ -532,6 +532,17 @@
       <h3 class="mb-2">Responsive stacking</h3>
       <p>At <code>992 px</code> and below, the hero card unstacks from the overlay position and sits below the media area. The overhang is reduced to <code>56 px</code> on tablet breakpoints.</p>
 
+      <h3 class="mb-2">Composition &amp; behaviour notes</h3>
+      <p class="text-muted mb-2">The hero is <strong>static — no JavaScript</strong>. Everything below is CSS composition; verify it survives AEM integration.</p>
+      <ul>
+        <li><strong>Panel skin vs layout:</strong> the card element composes two classes — <code>.caat-hero-card</code> (size/position, hero.css) + <code>.caat-hero-panel</code> (canonical glass skin incl. hover lift, caat-base.css). Omitting the panel class yields an unstyled box; omitting the card class loses positioning.</li>
+        <li><strong>Media:</strong> the image fills <code>.caat-hero-media</code> with <code>object-fit: cover</code>; min-heights step down 22 → 18 → 14&nbsp;rem across breakpoints. Author images for the worst crop (centre-weighted focal point) — there is no focal-point control.</li>
+        <li><strong>Legibility scrim:</strong> <code>.caat-hero-media::after</code> applies <code>var(--caat-overlay-side)</code>. Never remove it when text or the panel sits over a photo; it is the contrast guarantee.</li>
+        <li><strong>Stat strip:</strong> composes the Stat/KPI component (<code>.caat-stat-strip</code> / <code>.caat-stat-item</code>, stat.css) — hero.css adds only the rounded bottom corners. Author stats through the Stat component contract.</li>
+        <li><strong>Interactivity:</strong> the panel lifts on hover (decorative). If the whole card is made clickable, use a stretched link inside it — the panel then shows the focus ring via the Card/panel <code>:has(.stretched-link:focus-visible)</code> pattern; CTAs inside the panel use the Button contract (incl. <code>--outline-white</code> on the glass surface).</li>
+        <li><strong>Reduced motion:</strong> the lift/transition is neutralized globally by the <code>prefers-reduced-motion</code> rule in caat-base.css — no per-component handling needed.</li>
+      </ul>
+
       <div class="alert alert-primary">
         <i class="bi bi-info-circle"></i>
         <strong>Note:</strong> Do not duplicate token values inside the component CSS.

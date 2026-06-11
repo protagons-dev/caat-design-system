@@ -36,8 +36,8 @@
 
 /* Colour variants */
 .caat-progress__bar--success { background-color: var(--caat-green-700); }
-.caat-progress__bar--warning { background-color: var(--caat-warning-dark); }
-.caat-progress__bar--danger  { background-color: var(--caat-danger-dark); }
+.caat-progress__bar--warning { background-color: var(--caat-warning-accent); }
+.caat-progress__bar--danger  { background-color: var(--caat-danger-accent); }
 
 /* ── Label (above or inside bar) ────────────────────────── */
 .caat-progress__label {

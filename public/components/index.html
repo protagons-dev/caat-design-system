@@ -178,6 +178,24 @@
 
 
 <!-- ═══ COMPONENTS ═══ -->
+<section class="container py-5" id="conventions" style="border-top: 1px solid var(--caat-grey-200);">
+  <h2 class="section-heading"><i class="bi bi-braces me-2"></i>Class Naming Conventions</h2>
+  <p class="section-sub">Every component follows one BEM-flavoured grammar. If a class doesn't fit one of these shapes, it doesn't ship.</p>
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead><tr><th style="width:16rem">Pattern</th><th>Meaning</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td><code>.caat-&lt;component&gt;</code></td><td>Component block (always <code>caat-</code> namespaced)</td><td><code>.caat-button</code>, <code>.caat-card</code></td></tr>
+        <tr><td><code>.caat-&lt;component&gt;__&lt;part&gt;</code></td><td>Element inside a block</td><td><code>.caat-footer__list</code>, <code>.caat-form__step</code></td></tr>
+        <tr><td><code>.caat-&lt;component&gt;--&lt;variant&gt;</code></td><td>Authored variant <em>or server-rendered state</em> — anything decided at render time and persistent for the page view: visual variants, data variants, current page/step, applied filter</td><td><code>.caat-button--primary</code>, <code>.caat-badge--retired</code>, <code>.caat-pagination__item--disabled</code>, <code>.caat-social--linkedin</code></td></tr>
+        <tr><td><code>.is-&lt;state&gt;</code></td><td>Transient client-side state mirror of a pseudo-class — used in demos/QA to render a state statically, and by JS when it must force one. Never authored.</td><td><code>.is-hover</code>, <code>.is-focus</code>, <code>.is-active</code>, <code>.is-disabled</code></td></tr>
+        <tr><td>ARIA, not classes</td><td>Real state that assistive tech must know about is carried by attributes — classes only style them</td><td><code>aria-current="page|step"</code>, <code>aria-expanded</code>, <code>aria-busy</code>, <code>aria-invalid</code>, <code>disabled</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-muted mb-0"><small>Bootstrap-native classes (<code>.active</code>, <code>.disabled</code>, <code>.is-valid</code>/<code>.is-invalid</code>, <code>.collapsed</code>) keep their Bootstrap semantics where a Bootstrap behaviour drives them — don't rename those.</small></p>
+</section>
+
 <section class="container py-5" id="components" style="border-top: 1px solid var(--caat-grey-200);">
   <h2 class="section-heading"><i class="bi bi-grid-3x3-gap me-2"></i>Components</h2>
   <p class="section-sub">40 components, each with a 14-section AEM contract: live demos, authoring fields, CSS contracts, accessibility, SEO, analytics, and QA checklists.</p>

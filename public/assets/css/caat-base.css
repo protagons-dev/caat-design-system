@@ -115,6 +115,12 @@ a:hover { color: var(--caat-blue-700); }
   box-shadow: var(--caat-shadow-hover);
   background: var(--caat-color-bg-hero-panel-hover);
 }
+/* Keyboard focus when the panel is a linked surface (stretched link) */
+.caat-hero-panel:focus-visible,
+.caat-hero-panel:has(.stretched-link:focus-visible) {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring), var(--caat-shadow);
+}
 .caat-hero-panel h1,
 .caat-hero-panel h2,
 .caat-hero-panel h3 { font-weight: 800; letter-spacing: -.03em; color: var(--caat-color-text-inverse); }

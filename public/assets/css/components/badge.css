@@ -85,7 +85,7 @@
 }
 .caat-badge--soft-danger {
   background: var(--caat-danger-bg, #fde8e8);
-  color: var(--caat-danger-dark, #c0392b);
+  color: var(--caat-danger-accent, #c0392b);
 }
 
 /* --- Status badges (member dashboard) --- */

@@ -118,8 +118,8 @@
 
 /* --- Colour variants (icon accent only) --- */
 .caat-toast--success .caat-toast__icon { color: var(--caat-green, #55a546); }
-.caat-toast--warning .caat-toast__icon { color: var(--caat-warning-dark); }
-.caat-toast--error .caat-toast__icon   { color: var(--caat-danger-dark); }
+.caat-toast--warning .caat-toast__icon { color: var(--caat-warning-accent); }
+.caat-toast--error .caat-toast__icon   { color: var(--caat-danger-accent); }
 .caat-toast--info .caat-toast__icon     { color: var(--caat-blue-700, #0b5a80); }
 
 /* --- Stacked toast container --- */

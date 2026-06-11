@@ -19,8 +19,8 @@
 
 /* Platform brand colours — set on a child .caat-icon-btn--brand.
    These are external brand constants, not design tokens. */
-.caat-social-links .is-linkedin  { --caat-icon-btn-brand: #0a66c2; }
-.caat-social-links .is-youtube   { --caat-icon-btn-brand: #ff0000; }
-.caat-social-links .is-facebook  { --caat-icon-btn-brand: #1877f2; }
-.caat-social-links .is-x         { --caat-icon-btn-brand: #1d1d1f; }
-.caat-social-links .is-instagram { --caat-icon-btn-brand: #c13584; }
+.caat-social-links .caat-social--linkedin  { --caat-icon-btn-brand: #0a66c2; }
+.caat-social-links .caat-social--youtube   { --caat-icon-btn-brand: #ff0000; }
+.caat-social-links .caat-social--facebook  { --caat-icon-btn-brand: #1877f2; }
+.caat-social-links .caat-social--x         { --caat-icon-btn-brand: #1d1d1f; }
+.caat-social-links .caat-social--instagram { --caat-icon-btn-brand: #c13584; }

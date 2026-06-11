@@ -653,6 +653,22 @@
           </tbody>
         </table>
       </div>
+
+      <h3 class="mt-4 mb-2">Behaviour contract (JS)</h3>
+      <p class="text-muted mb-2">The design system ships <strong>no forms JavaScript</strong> — behaviour below is the implementing team's responsibility (AEM clientlib). The live demo includes a minimal reference implementation (<code>goToStep()</code> in this page's source) for the step-switching mechanics only.</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Behaviour</th><th>Required implementation</th></tr></thead>
+          <tbody>
+            <tr><td>Step switching</td><td>Steps are sibling <code>&lt;fieldset class="caat-form__step"&gt;</code> elements; exactly one visible at a time (others <code>.d-none</code>). On change: update progress <code>&lt;li&gt;</code> classes (<code>.completed</code> for past, <code>.active</code> + <code>aria-current="step"</code> for current), then move focus to the first field of the revealed step.</td></tr>
+            <tr><td>Advance gating</td><td>Before advancing, run constraint validation on the current step only (<code>fieldset.querySelectorAll(':invalid')</code> or equivalent). If invalid: stay on step, render errors, focus the first invalid field. <em>The demo's <code>goToStep()</code> deliberately omits gating — do not ship it as-is.</em></td></tr>
+            <tr><td>Back navigation</td><td>"Back" never validates — users may always return to a previous step with data preserved (steps are hidden, not unmounted).</td></tr>
+            <tr><td>Error rendering</td><td>Add <code>.is-invalid</code> to the control, set <code>aria-invalid="true"</code>, insert/reveal the message element referenced by the control's <code>aria-describedby</code>, with <code>role="alert"</code>.</td></tr>
+            <tr><td>Submit / pending</td><td>On submit: disable the submit button using the Button loading pattern (<code>aria-busy="true"</code>, see Button contract §States) to prevent double submission; re-enable on failure with a <code>role="alert"</code> summary above the form.</td></tr>
+            <tr><td>Success</td><td>Replace the form with the authored success message (or redirect to the Thank-You page pattern); move focus to the success heading.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
