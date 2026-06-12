@@ -263,6 +263,7 @@
                                 <li><a href="#">Member glossary</a></li>
                                 <li><a href="#">Planner (member blog)</a></li>
                                 <li><a href="#">Member news</a></li>
+                                <li><a href="#">CAAT RCA</a></li>
                                 <li><a href="#">About your merged plan</a></li>
                               </ul>
                             </div>
@@ -631,7 +632,7 @@
               <li><a class="caat-drillnav__link" href="#">Enrolment made easy</a></li>
               <li><a class="caat-drillnav__link" href="#">Your contributions</a></li>
               <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-increase" aria-expanded="false">Increase your pension <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
-              <li><a class="caat-drillnav__link" href="#">Your statements</a></li>
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-statements" aria-expanded="false">Your statements <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div class="caat-drillnav__panel" id="dn-demo-increase">
@@ -649,7 +650,7 @@
               <li><a class="caat-drillnav__link" href="#">Retirement options</a></li>
               <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-estimate" aria-expanded="false">Estimate your pension <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
               <li><a class="caat-drillnav__link" href="#">Inflation protection</a></li>
-              <li><a class="caat-drillnav__link" href="#">GROWTHplus</a></li>
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-growthplus" aria-expanded="false">GROWTHplus <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
             </ul>
           </div>
           <div class="caat-drillnav__panel" id="dn-demo-estimate">
@@ -658,7 +659,27 @@
             <ul class="caat-drillnav__list">
               <li><a class="caat-drillnav__link" href="#">DBprime Estimator</a></li>
               <li><a class="caat-drillnav__link" href="#">DBplus Estimator</a></li>
+              <li><a class="caat-drillnav__link" href="#">DBplus Employer Pension Estimator</a></li>
+              <li><a class="caat-drillnav__link" href="#">DBplus Employer Pension Purchase Tool</a></li>
+              <li><a class="caat-drillnav__link" href="#">DBplus Evaluation Tool</a></li>
+              <li><a class="caat-drillnav__link" href="#">DBplus Estimator since 2019</a></li>
+              <li><a class="caat-drillnav__link" href="#">DBplus Pension Purchase Tool</a></li>
               <li><a class="caat-drillnav__link" href="#">Actuarial Cost Estimator</a></li>
+            </ul>
+          </div>
+          <div class="caat-drillnav__panel" id="dn-demo-statements">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">Your statements</a>
+            <ul class="caat-drillnav__list">
+              <li><a class="caat-drillnav__link" href="#">Active member statements</a></li>
+              <li><a class="caat-drillnav__link" href="#">Retired member statements</a></li>
+            </ul>
+          </div>
+          <div class="caat-drillnav__panel" id="dn-demo-growthplus">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">GROWTHplus</a>
+            <ul class="caat-drillnav__list">
+              <li><a class="caat-drillnav__link" href="#">Modeller</a></li>
             </ul>
           </div>
           <div class="caat-drillnav__panel" id="dn-demo-lifeevents">
@@ -681,6 +702,7 @@
               <li><a class="caat-drillnav__link" href="#">Member glossary</a></li>
               <li><a class="caat-drillnav__link" href="#">Planner (member blog)</a></li>
               <li><a class="caat-drillnav__link" href="#">Member news</a></li>
+              <li><a class="caat-drillnav__link" href="#">CAAT RCA</a></li>
               <li><a class="caat-drillnav__link" href="#">About your merged plan</a></li>
             </ul>
           </div>
@@ -868,20 +890,23 @@
 <pre class="code-sample mb-2"><code>L1 Pension solutions
 ├─ L2 Why join → L3 What members get (→ L4 Value · Secure lifetime income · Early retirement
 │        options · Survivor benefits · Inflation adjustments · Portability) · What employers get
-│        (→ L4 Cost of DBplus · Support from CAAT · Employer responsibilities) · Flexibility ·
-│        Success stories (→ L4 case studies)
+│        (→ L4 How much does DBplus cost? · Support from CAAT · Employer responsibilities [cross-link]) · Flexibility ·
+│        Success stories (→ L4: 12 case-study pages)
 ├─ L2 How to join → L3 From no pension plan · From a group RRSP · From a DC plan · From a DB plan
 └─ L2 Tools &amp; resources → L3 DBplus Value Tool · DBplus video library
 
 L1 Members
 ├─ L2 Your pension → L3 Welcome · Enrolment · Contributions · Increase your pension
-│        (→ L4 DBprime / DBplus purchases) · Statements (→ L4 Active / Retired)
-├─ L2 Plan your retirement → L3 Retirement options (→ L4) · Estimate your pension
-│        (→ L4 estimators) · Inflation protection · GROWTHplus (→ L4 Modeller)
+│        (→ L4 DBprime / DBplus purchases) · Your statements (→ L4 Active / Retired
+│        member statements — flat L2s on the live site, grouped here)
+├─ L2 Plan your retirement → L3 Retirement options (→ L4 Attend a presentation · Planning
+│        on demand · I'm ready to retire) · Estimate your pension (→ L4: all 8 estimator
+│        tools incl. Actuarial Cost Estimator) · Inflation protection ·
+│        GROWTHplus (→ L4 Modeller; "Modeller help" is L5 → folds in)
 ├─ L2 Life events → L3 Collecting your pension · Survivor benefits (→ L4 Claim) · Disability ·
 │        Separation or divorce · Leaving your job · Starting a deferred pension
-└─ L2 Resources → L3 Member resources (→ L4) · Glossary · Planner · Member news ·
-         About your merged plan (→ L4 one page per merged plan)
+└─ L2 Resources → L3 Member resources (→ L4 Jurisdictional differences) · Glossary ·
+         Planner · Member news · CAAT RCA · About your merged plan (→ L4: 21 merged-plan pages)
 
 L1 Employers
 ├─ L2 Administer the plan → L3 Responsibilities · Service standards · Rates · S-Doc Guide
@@ -895,6 +920,7 @@ L1 About us    → L2 CAAT's promise · Participating employers · Annual perfor
 
 Utility bar: Support Centre · Newsroom · Events · Careers · EN|FR     Actions: Search · Login · Join DBplus
 Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</code></pre>
+      <p class="text-muted mb-2"><small><strong>Label shortening:</strong> long page titles take a short navigation title in menus ("Joining from no pension plan" → <em>From no pension plan</em>; "Increasing your pension with a purchase" → <em>Increase your pension</em>) — full titles stay on pages and breadcrumbs (30-char cap). <strong>Folding:</strong> live-site L5s (Actuarial Cost Estimator help steps, GROWTHplus Modeller help) fold into their L4 parent.</small></p>
       <p class="text-muted"><small>Investments and About us are shallow (two levels), so they render as plain L1 links — their L2 pages are served by the Side Navigation and the mobile drill-down, not a mega panel.</small></p>
     </section>
 
