@@ -381,24 +381,59 @@
                 <input type="search" class="form-control" placeholder="Search CAAT" aria-label="Search CAAT">
                 <i class="bi bi-search" aria-hidden="true"></i>
               </div>
-              <div class="caat-mobile-links">
-                <a href="#">Pension solutions <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-                <a href="#">Members <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-                <a href="#">Employers <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-                <a href="#">Investments <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-                <a href="#">About Us <i class="bi bi-chevron-right" aria-hidden="true"></i></a>
-              </div>
-              <div class="caat-mobile-utility">
-                <a href="#">Contact us</a>
-                <a href="#">Support Centre</a>
-                <a href="#">Newsroom</a>
-                <a href="#">Events</a>
-                <a href="#">Careers</a>
-              </div>
-              <div class="caat-mobile-actions">
-                <a href="#" class="btn btn-primary">Login</a>
-                <a href="#" class="btn btn-outline-primary">Join DBplus</a>
-                <a href="#" class="btn btn-link" lang="fr">Français</a>
+              <div class="caat-drillnav" data-caat-drillnav>
+                <!-- ROOT: L1 -->
+                <div class="caat-drillnav__panel">
+                  <ul class="caat-drillnav__list">
+                    <li><button class="caat-drillnav__next" type="button" data-target="dn-m-pension" aria-expanded="false">Pension solutions <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+                    <li><button class="caat-drillnav__next" type="button" data-target="dn-m-members" aria-expanded="false">Members <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+                    <li><a class="caat-drillnav__link" href="#">Employers</a></li>
+                    <li><a class="caat-drillnav__link" href="#">Investments</a></li>
+                    <li><a class="caat-drillnav__link" href="#">About Us</a></li>
+                  </ul>
+                  <div class="caat-mobile-utility">
+                    <a href="#">Contact us</a>
+                    <a href="#">Support Centre</a>
+                    <a href="#">Newsroom</a>
+                    <a href="#">Events</a>
+                    <a href="#">Careers</a>
+                  </div>
+                  <div class="caat-mobile-actions">
+                    <a href="#" class="btn btn-primary">Login</a>
+                    <a href="#" class="btn btn-outline-primary">Join DBplus</a>
+                    <a href="#" class="btn btn-link" lang="fr">Français</a>
+                  </div>
+                </div>
+                <!-- L2: Pension solutions -->
+                <div class="caat-drillnav__panel" id="dn-m-pension">
+                  <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+                  <a class="caat-drillnav__overview" href="#">Pension solutions</a>
+                  <ul class="caat-drillnav__list">
+                    <li><button class="caat-drillnav__next" type="button" data-target="dn-m-dbplus" aria-expanded="false">DBplus <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+                    <li><a class="caat-drillnav__link" href="#">DBprime</a></li>
+                    <li><a class="caat-drillnav__link" href="#">Why CAAT</a></li>
+                    <li><a class="caat-drillnav__link" href="#">Getting started</a></li>
+                  </ul>
+                </div>
+                <!-- L3: DBplus (links are L4) -->
+                <div class="caat-drillnav__panel" id="dn-m-dbplus">
+                  <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+                  <a class="caat-drillnav__overview" href="#">DBplus</a>
+                  <ul class="caat-drillnav__list">
+                    <li><a class="caat-drillnav__link" href="#">How DBplus works</a></li>
+                    <li><a class="caat-drillnav__link" href="#" aria-current="page">Contribution rates</a></li>
+                    <li><a class="caat-drillnav__link" href="#">Investment approach</a></li>
+                  </ul>
+                </div>
+                <!-- L2: Members -->
+                <div class="caat-drillnav__panel" id="dn-m-members">
+                  <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+                  <a class="caat-drillnav__overview" href="#">Members</a>
+                  <ul class="caat-drillnav__list">
+                    <li><a class="caat-drillnav__link" href="#">Life events</a></li>
+                    <li><a class="caat-drillnav__link" href="#">Retirement planning</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -947,8 +982,8 @@
     &lt;button type="button" class="btn-close"
             data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class="offcanvas-body"&gt;
-    &lt;div class="caat-mobile-links"&gt;…&lt;/div&gt;
+  &lt;div class="offcanvas-body caat-drillnav" data-caat-drillnav&gt;
+    &lt;div class="caat-drillnav__panel"&gt;…&lt;/div&gt;   &lt;!-- root + one panel per node, see §6 --&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
     </section>
@@ -1431,6 +1466,10 @@ document.querySelectorAll('.caat-menu-button').forEach(btn => {
     const panel = btn.closest('.caat-mobile-nav-demo').querySelector('.caat-mobile-panel');
     const isOpen = panel.classList.toggle('open');
     btn.setAttribute('aria-expanded', isOpen);
+    if (!isOpen) {
+      const drill = panel.querySelector('[data-caat-drillnav]');
+      if (drill) drill.dispatchEvent(new CustomEvent('caat-drillnav:reset'));
+    }
     btn.innerHTML = isOpen
       ? '<i class="bi bi-x-lg" aria-hidden="true"></i> Close'
       : '<i class="bi bi-list" aria-hidden="true"></i> Menu';

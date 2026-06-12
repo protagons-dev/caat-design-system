@@ -90,9 +90,12 @@
       }
     });
 
-    // Reset to the root panel whenever the offcanvas closes.
+    // Reset to the root panel whenever the offcanvas closes, or when a
+    // host container asks for it (non-offcanvas hosts dispatch
+    // 'caat-drillnav:reset' on the [data-caat-drillnav] element).
     var offcanvas = root.closest('.offcanvas');
     if (offcanvas) offcanvas.addEventListener('hidden.bs.offcanvas', reset);
+    root.addEventListener('caat-drillnav:reset', reset);
   }
 
   function init() {

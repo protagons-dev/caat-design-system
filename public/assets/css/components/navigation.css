@@ -271,7 +271,7 @@
    The site footer is now its own component — see footer.css /
    /components/footer.html. It is no longer part of Navigation. */
 
-/* ── Legacy Mobile Menu Demo ───────────────────────────────── */
+/* ── Mobile Menu Demo (topbar + panel shell; list = drill-down) ───────────────────────────────── */
 .caat-mobile-nav-demo {
   border: 1px solid var(--caat-color-border); border-radius: var(--caat-radius-lg);
   background: var(--caat-color-bg-page); box-shadow: var(--caat-shadow-sm); overflow: hidden;
@@ -297,16 +297,6 @@
 .caat-mobile-search i {
   position: absolute; right: 1rem; top: 50%;
   transform: translateY(-50%); color: var(--caat-color-text-heading);
-}
-.caat-mobile-links { display: grid; gap: .5rem; }
-.caat-mobile-links a {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: .85rem 1rem; background: var(--caat-color-bg-page); border: 1px solid var(--caat-color-border);
-  border-radius: .75rem; text-decoration: none; color: var(--caat-color-text); font-weight: 800;
-}
-.caat-mobile-links a:hover,
-.caat-mobile-links a:focus {
-  border-color: var(--caat-blue-300); box-shadow: var(--caat-color-focus-ring); color: var(--caat-color-text-heading);
 }
 .caat-mobile-utility {
   display: flex; flex-wrap: wrap; gap: .75rem;
