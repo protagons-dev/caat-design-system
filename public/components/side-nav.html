@@ -98,7 +98,7 @@
       </div>
 
       <h3 class="mb-2">L4 page (active branch expanded)</h3>
-      <p class="text-muted mb-3">An L4 page (<em>Secure lifetime retirement income</em>) inside <em>Pension solutions → Why join → What members get</em>. The side nav occupies the left column on desktop and stacks above content below 992&nbsp;px.</p>
+      <p class="text-muted mb-3">An L4 page (<em>Secure lifetime retirement income</em>) inside <em>Pension solutions → Why join → What members get</em>. The side nav occupies the left column on desktop; below 992&nbsp;px it collapses behind a prominent <strong>&ldquo;In this section&rdquo;</strong> disclosure toggle (resize this page to see it) so long branches don&rsquo;t push content down.</p>
 
       <div class="demo-card p-4 mb-4" data-figma="Default" data-figma-group="Variants">
         <nav class="caat-breadcrumb mb-4" aria-label="Breadcrumb">
@@ -113,7 +113,11 @@
         <div class="row g-4">
           <div class="col-lg-3">
             <nav class="caat-side-nav caat-side-nav--sticky" aria-label="Section navigation" data-analytics-component="side-nav">
-              <a class="caat-side-nav__title" href="#">Why join</a>
+              <button class="caat-side-nav__toggle" type="button" aria-expanded="false" aria-controls="demoBodyL4">
+                <span>In this section: Why join</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="caat-side-nav__body" id="demoBodyL4">
+                <a class="caat-side-nav__title" href="#">Why join</a>
               <ul class="caat-side-nav__list">
                 <li>
                   <a class="caat-side-nav__link" href="#" aria-current="true">What members get</a>
@@ -130,6 +134,7 @@
                 <li><a class="caat-side-nav__link" href="#">Flexibility</a></li>
                 <li><a class="caat-side-nav__link" href="#">Success stories</a></li>
               </ul>
+              </div>
             </nav>
           </div>
           <div class="col-lg-9">
@@ -152,7 +157,11 @@
         <div class="row g-4">
           <div class="col-lg-3">
             <nav class="caat-side-nav" aria-label="Section navigation">
-              <a class="caat-side-nav__title" href="#">Life events</a>
+              <button class="caat-side-nav__toggle" type="button" aria-expanded="false" aria-controls="demoBodyL3">
+                <span>In this section: Life events</span> <i class="bi bi-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="caat-side-nav__body" id="demoBodyL3">
+                <a class="caat-side-nav__title" href="#">Life events</a>
               <ul class="caat-side-nav__list">
                 <li><a class="caat-side-nav__link" href="#" aria-current="page">Collecting your pension</a></li>
                 <li><a class="caat-side-nav__link" href="#">Survivor benefits</a></li>
@@ -161,6 +170,7 @@
                 <li><a class="caat-side-nav__link" href="#">Leaving your job</a></li>
                 <li><a class="caat-side-nav__link" href="#">Starting a deferred pension</a></li>
               </ul>
+              </div>
             </nav>
           </div>
           <div class="col-lg-9">
@@ -201,7 +211,7 @@
         <tbody>
           <tr><th>Status</th><td><span class="status-badge">Ready</span></td></tr>
           <tr><th>Type</th><td>Navigation / wayfinding</td></tr>
-          <tr><th>JS</th><td>None — server-rendered, links only</td></tr>
+          <tr><th>JS</th><td><code>side-nav.js</code> — mobile disclosure toggle only (progressive enhancement: without JS the nav renders fully expanded). Desktop is pure CSS.</td></tr>
           <tr><th>Used with</th><td>Breadcrumb (required on the same pages), Navigation — the mega nav stops at L3; the side nav is the hand-off surface that carries the user from the L3 landing page to its L4 children</td></tr>
         </tbody>
       </table>
@@ -281,6 +291,12 @@
     <section class="contract-section" id="semantic-html">
       <h2>6. Semantic HTML</h2>
 <pre class="code-sample"><code>&lt;nav class="caat-side-nav caat-side-nav--sticky" aria-label="Section navigation"&gt;
+  &lt;!-- Mobile disclosure toggle (hidden on desktop; side-nav.js wires it) --&gt;
+  &lt;button class="caat-side-nav__toggle" type="button"
+          aria-expanded="false" aria-controls="sideNavBody"&gt;
+    &lt;span&gt;In this section: Why join&lt;/span&gt; &lt;i class="bi bi-chevron-down" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/button&gt;
+  &lt;div class="caat-side-nav__body" id="sideNavBody"&gt;
   &lt;a class="caat-side-nav__title" href="/pension-solutions/why-join"&gt;Why join&lt;/a&gt;     &lt;!-- L2 --&gt;
   &lt;ul class="caat-side-nav__list"&gt;
     &lt;li&gt;
@@ -294,6 +310,7 @@
     &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Flexibility&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Success stories&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+  &lt;/div&gt;
 &lt;/nav&gt;</code></pre>
       <p>Place inside the page grid: <code>col-lg-3</code> for the nav, <code>col-lg-9</code> for content. Below 992&nbsp;px the grid stacks the nav above the content (Responsive foundation).</p>
     </section>
@@ -313,6 +330,8 @@
             <tr><td><code>.caat-side-nav__title</code></td><td>L2 section landing link</td></tr>
             <tr><td><code>.caat-side-nav__list</code> / <code>__sublist</code></td><td>L3 list / L4 list (under active L3 only)</td></tr>
             <tr><td><code>.caat-side-nav__link</code></td><td>Nav link; <code>[aria-current]</code> styles the active rail</td></tr>
+            <tr><td><code>.caat-side-nav__toggle</code> / <code>__body</code></td><td>Mobile disclosure: prominent &ldquo;In this section&rdquo; button (hidden &ge;&nbsp;992&nbsp;px) and the collapsible wrapper it controls</td></tr>
+            <tr><td><code>.caat-side-nav--collapsible</code> / <code>.is-open</code></td><td>Added by side-nav.js; only <code>--collapsible</code> allows CSS to collapse the body (no-JS fallback = expanded)</td></tr>
           </tbody>
         </table>
       </div>
@@ -331,6 +350,7 @@
             <tr><td>Current page</td><td><code>aria-current="page"</code> on the current link; <code>aria-current="true"</code> on its L3 ancestor; colour is never the only cue (weight + rail)</td></tr>
             <tr><td>Keyboard</td><td>Plain links — Tab order follows the visual order; visible focus ring per Interaction States</td></tr>
             <tr><td>Structure</td><td>Nested <code>&lt;ul&gt;</code> conveys hierarchy to AT; no ARIA tree role needed for a link list</td></tr>
+            <tr><td>Mobile disclosure</td><td>The toggle is a real <code>&lt;button&gt;</code> with <code>aria-expanded</code> + <code>aria-controls</code>; it names the section (&ldquo;In this section: Why join&rdquo;), is &ge;&nbsp;44&nbsp;px tall, and is deliberately prominent — DTA usability testing found subtle collapsed side navs get overlooked</td></tr>
           </tbody>
         </table>
       </div>
@@ -387,7 +407,7 @@ data-analytics-level="3|4"</code></pre>
         <li class="mb-2"><input type="checkbox" disabled> Renders on every L3/L4 page; absent on L1/L2 pages.</li>
         <li class="mb-2"><input type="checkbox" disabled> Exactly one <code>aria-current="page"</code>; L3 ancestor carries <code>aria-current="true"</code>.</li>
         <li class="mb-2"><input type="checkbox" disabled> Only the active L3 item shows its L4 sublist.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Stacks above content below 992&nbsp;px; sticky on desktop when enabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Below 992&nbsp;px: collapses behind the &ldquo;In this section&rdquo; toggle (aria-expanded reflects state); without JS the nav renders expanded; sticky on desktop when enabled.</li>
         <li class="mb-2"><input type="checkbox" disabled> Focus ring visible on every link; hover/current styles match Interaction States (default / hover / focus-visible / current page / current ancestor all visually distinct, never by colour alone).</li>
         <li class="mb-2"><input type="checkbox" disabled> Flow verified: mega nav L3 link → L3 page shows this component with the L4 children of that L3 → L4 page keeps the branch expanded.</li>
         <li class="mb-2"><input type="checkbox" disabled> Labels match page navigation titles; hidden pages excluded.</li>
@@ -422,6 +442,7 @@ data-analytics-level="3|4"</code></pre>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/components/side-nav.js"></script>
 <script src="/assets/js/figma-export.js"></script>
 </body>
 </html>

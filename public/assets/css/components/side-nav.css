@@ -94,3 +94,50 @@
   font-weight: var(--caat-weight-bold);
   background: var(--caat-color-bg-brand-subtle);
 }
+
+/* ── Mobile disclosure ─────────────────────────────────────────
+   Below the desktop tier the nav collapses behind a PROMINENT
+   "In this section" toggle (QLD Gov DS / USWDS pattern; DTA testing
+   found subtle collapsed navs get overlooked — hence the strong bar).
+   JS (side-nav.js) adds --collapsible; without it the nav simply
+   stays expanded (progressive enhancement). The toggle is hidden on
+   desktop. */
+.caat-side-nav__toggle {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--caat-space-2);
+  min-height: 2.75rem;                 /* ≥ 44px touch target */
+  padding: var(--caat-space-3);
+  background: var(--caat-color-bg-brand-subtle);
+  border: var(--caat-border-1) solid var(--caat-color-border-strong);
+  border-radius: var(--caat-radius-sm);
+  font-size: var(--caat-font-size-sm);
+  font-weight: var(--caat-weight-bold);
+  color: var(--caat-color-text-heading);
+  text-align: left;
+  cursor: pointer;
+}
+.caat-side-nav__toggle .bi {
+  transition: transform var(--caat-duration-base) var(--caat-ease-standard);
+}
+.caat-side-nav__toggle:hover { background: var(--caat-color-state-hover-bg); }
+.caat-side-nav__toggle:focus-visible {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
+}
+
+@media (max-width: 991.98px) {
+  .caat-side-nav__toggle { display: flex; }
+  .caat-side-nav--collapsible:not(.is-open) .caat-side-nav__body { display: none; }
+  .caat-side-nav--collapsible.is-open .caat-side-nav__toggle .bi { transform: rotate(180deg); }
+  .caat-side-nav--collapsible.is-open .caat-side-nav__body {
+    margin-top: var(--caat-space-2);
+    border: var(--caat-border-1) solid var(--caat-color-border);
+    border-radius: var(--caat-radius-sm);
+    padding: var(--caat-space-2);
+  }
+  /* Sticky is a desktop behaviour */
+  .caat-side-nav--sticky { position: static; }
+}
