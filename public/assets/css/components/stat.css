@@ -13,8 +13,8 @@
 .caat-stat { text-align: center; }
 .caat-stat__value {
   display: block;
-  font-size: 1.75rem;
-  font-weight: 900;
+  font-size: var(--caat-font-size-2xl);
+  font-weight: var(--caat-weight-black);
   letter-spacing: -.03em;
   line-height: 1.2;
   color: var(--caat-color-text-heading);
@@ -30,9 +30,9 @@
    .caat-stat; an element modifier (.caat-stat__value--lg) sizes a value used
    standalone — e.g. composed inside a Card body without a .caat-stat wrapper. */
 .caat-stat--lg .caat-stat__value,
-.caat-stat__value--lg { font-size: 2.5rem; }
+.caat-stat__value--lg { font-size: var(--caat-font-size-4xl); }
 .caat-stat--xl .caat-stat__value,
-.caat-stat__value--xl { font-size: 3rem; }
+.caat-stat__value--xl { font-size: 3rem; }  /* intentional: between 4xl and 5xl */
 
 /* ── Stat card ─────────────────────────────────────────────────
    A stat presented as a filled card, with an optional leading
@@ -52,7 +52,7 @@
   opacity: .7;
   margin-bottom: var(--caat-space-1);
 }
-.caat-stat-card .caat-stat__value { font-size: 3rem; color: var(--caat-color-text-inverse); }
+.caat-stat-card .caat-stat__value { font-size: 3rem;  /* matches --xl */ color: var(--caat-color-text-inverse); }
 .caat-stat-card .caat-stat__label { color: var(--caat-color-text-inverse-muted); }
 
 /* ── Strip — a row of stats with dividers (dark band, e.g. hero) ── */
@@ -84,22 +84,28 @@
 .caat-stat-strip .caat-stat__value { color: var(--caat-color-text-inverse); }
 .caat-stat-strip .caat-stat__label { color: var(--caat-color-text-inverse-dim); }
 
-/* ── Legacy element API (strong/label-span) — kept value-identical ── */
-.caat-stat-item strong {
-  font-size: 1.75rem;
-  font-weight: 900;
+/* ── Legacy element API (strong/label-span) — kept value-identical.
+   Scoped to UN-CLASSED children only so it can never clobber the
+   preferred __value/__label spans (a bare `span` selector used to
+   shrink .caat-stat__value to label size inside .caat-stat-item). ── */
+.caat-stat-item > strong {
+  font-size: var(--caat-font-size-2xl);
+  font-weight: var(--caat-weight-black);
   display: block;
   letter-spacing: -.03em;
   line-height: 1.2;
 }
-.caat-stat-item strong small {
+.caat-stat-item > strong small {
   font-size: .65em;
   font-weight: 400;
 }
-.caat-stat-item span {
+.caat-stat-item > span:not(.caat-stat__value):not(.caat-stat__label) {
   font-size: var(--caat-font-size-xs);
   color: var(--caat-color-text-inverse-dim);
 }
+/* Preferred API inside a stat-item inherits the strip colour rules */
+.caat-stat-item .caat-stat__value { color: var(--caat-color-text-inverse); }
+.caat-stat-item .caat-stat__label { color: var(--caat-color-text-inverse-dim); }
 
 @media (max-width: 575.98px) {
   .caat-stat-strip { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }

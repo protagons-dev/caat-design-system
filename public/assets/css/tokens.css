@@ -364,4 +364,10 @@
   --bs-secondary-rgb:    85,165,70;
   --bs-link-color:       var(--caat-color-text-link);
   --bs-link-hover-color: var(--caat-color-text-link-hover);
+  /* Bootstrap border/rounded utilities follow the system scales */
+  --bs-border-color:       var(--caat-color-border);
+  --bs-border-radius:      var(--caat-radius-sm);   /* rounded   */
+  --bs-border-radius-sm:   var(--caat-radius-sm);   /* rounded-1/2 */
+  --bs-border-radius-lg:   var(--caat-radius);      /* rounded-3 */
+  --bs-border-radius-xl:   var(--caat-radius-lg);   /* rounded-4 */
 }
