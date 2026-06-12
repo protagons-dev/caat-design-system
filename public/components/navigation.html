@@ -503,6 +503,71 @@
         </div>
       </div>
 
+      <h3 class="mt-4 mb-3">Mobile drill-down — live demo</h3>
+      <p class="text-muted mb-3">Scotiabank-style panel drill-down: tap a parent to slide into its child panel (down to Level&nbsp;4), <strong>Back</strong> returns one level, each panel offers a section-overview link. Try it:</p>
+      <p>
+        <button class="caat-button caat-button--primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demoDrillNav" aria-controls="demoDrillNav">
+          <i class="bi bi-list" aria-hidden="true"></i> Open mobile menu
+        </button>
+      </p>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="demoDrillNav" aria-labelledby="demoDrillNavLabel">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="mb-0" id="demoDrillNavLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body caat-drillnav" data-caat-drillnav>
+          <!-- ROOT: L1 -->
+          <div class="caat-drillnav__panel">
+            <ul class="caat-drillnav__list">
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-pension" aria-expanded="false">Pension solutions <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-members" aria-expanded="false">Members <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+              <li><a class="caat-drillnav__link" href="#">Insights</a></li>
+              <li><a class="caat-drillnav__link" href="#">About CAAT</a></li>
+            </ul>
+          </div>
+          <!-- L2: Pension solutions -->
+          <div class="caat-drillnav__panel" id="dn-demo-pension">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">Pension solutions</a>
+            <ul class="caat-drillnav__list">
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-dbplus" aria-expanded="false">DBplus <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+              <li><button class="caat-drillnav__next" type="button" data-target="dn-demo-dbprime" aria-expanded="false">DBprime <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+              <li><a class="caat-drillnav__link" href="#">Why CAAT</a></li>
+              <li><a class="caat-drillnav__link" href="#">Getting started</a></li>
+            </ul>
+          </div>
+          <!-- L3: DBplus (links are L4) -->
+          <div class="caat-drillnav__panel" id="dn-demo-dbplus">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">DBplus</a>
+            <ul class="caat-drillnav__list">
+              <li><a class="caat-drillnav__link" href="#">How DBplus works</a></li>
+              <li><a class="caat-drillnav__link" href="#" aria-current="page">Contribution rates</a></li>
+              <li><a class="caat-drillnav__link" href="#">Investment approach</a></li>
+            </ul>
+          </div>
+          <!-- L3: DBprime -->
+          <div class="caat-drillnav__panel" id="dn-demo-dbprime">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">DBprime</a>
+            <ul class="caat-drillnav__list">
+              <li><a class="caat-drillnav__link" href="#">Plan design</a></li>
+              <li><a class="caat-drillnav__link" href="#">Funding policy</a></li>
+            </ul>
+          </div>
+          <!-- L2: Members -->
+          <div class="caat-drillnav__panel" id="dn-demo-members">
+            <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+            <a class="caat-drillnav__overview" href="#">Members</a>
+            <ul class="caat-drillnav__list">
+              <li><a class="caat-drillnav__link" href="#">Life events</a></li>
+              <li><a class="caat-drillnav__link" href="#">Retirement planning</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="demo-shell">
         <div class="demo-code">
           <p class="demo-label">Mobile Menu HTML</p>
@@ -524,17 +589,53 @@
       &lt;button type="button" class="btn-close"
               data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
     &lt;/div&gt;
-    &lt;div class="offcanvas-body"&gt;
+    &lt;div class="offcanvas-body caat-drillnav" data-caat-drillnav&gt;
       &lt;div class="caat-mobile-search"&gt;
         &lt;input type="search" class="form-control"
                placeholder="Search CAAT" aria-label="Search CAAT"&gt;
         &lt;i class="bi bi-search" aria-hidden="true"&gt;&lt;/i&gt;
       &lt;/div&gt;
-      &lt;div class="caat-mobile-links"&gt;
-        &lt;a href="/pension-solutions"&gt;Pension solutions
-          &lt;i class="bi bi-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
-        &lt;/a&gt;
-        &lt;!-- … repeat for other primary links --&gt;
+
+      &lt;!-- ROOT panel: L1 — items with children use a drill trigger --&gt;
+      &lt;div class="caat-drillnav__panel"&gt;
+        &lt;ul class="caat-drillnav__list"&gt;
+          &lt;li&gt;
+            &lt;button class="caat-drillnav__next" type="button"
+                    data-target="dn-pension" aria-expanded="false"&gt;
+              Pension solutions &lt;i class="bi bi-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a class="caat-drillnav__link" href="/about"&gt;About CAAT&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;!-- L2 panel — Back + section overview link + children --&gt;
+      &lt;div class="caat-drillnav__panel" id="dn-pension"&gt;
+        &lt;button class="caat-drillnav__back" type="button"&gt;
+          &lt;i class="bi bi-chevron-left" aria-hidden="true"&gt;&lt;/i&gt; Back
+        &lt;/button&gt;
+        &lt;a class="caat-drillnav__overview" href="/pension-solutions"&gt;Pension solutions&lt;/a&gt;
+        &lt;ul class="caat-drillnav__list"&gt;
+          &lt;li&gt;
+            &lt;button class="caat-drillnav__next" type="button"
+                    data-target="dn-dbplus" aria-expanded="false"&gt;
+              DBplus &lt;i class="bi bi-chevron-right" aria-hidden="true"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;a class="caat-drillnav__link" href="…"&gt;Why CAAT&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+
+      &lt;!-- L3 panel — its links are L4 pages (deepest level) --&gt;
+      &lt;div class="caat-drillnav__panel" id="dn-dbplus"&gt;
+        &lt;button class="caat-drillnav__back" type="button"&gt;
+          &lt;i class="bi bi-chevron-left" aria-hidden="true"&gt;&lt;/i&gt; Back
+        &lt;/button&gt;
+        &lt;a class="caat-drillnav__overview" href="…"&gt;DBplus&lt;/a&gt;
+        &lt;ul class="caat-drillnav__list"&gt;
+          &lt;li&gt;&lt;a class="caat-drillnav__link" href="…"&gt;How DBplus works&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="caat-drillnav__link" href="…" aria-current="page"&gt;Contribution rates&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -546,7 +647,33 @@
     <!-- ════════════════════════════════════════════════════════
          1. COMPONENT SUMMARY
          ════════════════════════════════════════════════════════ -->
-    <section class="contract-section" id="summary">
+        <!-- ════════════════════════════════════════════════════════
+         NAVIGATION MODEL (L1–L4)
+         ════════════════════════════════════════════════════════ -->
+    <section class="contract-section" id="nav-model">
+      <h2>Navigation Model (L1&ndash;L4)</h2>
+      <p>The site IA runs four levels deep. Each level is served by a fixed set of navigation surfaces — no surface ever shows deeper than its mandate:</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Level</th><th>Example</th><th>Mega nav (desktop)</th><th>Breadcrumb</th><th>Side nav</th><th>Mobile drill-down</th></tr></thead>
+          <tbody>
+            <tr><td><strong>L1</strong></td><td>Pension solutions</td><td>Top-level item</td><td>—</td><td>—</td><td>Root panel</td></tr>
+            <tr><td><strong>L2</strong></td><td>DBplus</td><td>Column group / link</td><td>Required from L2 down</td><td>Section title (on L3/L4 pages)</td><td>Panel level 2</td></tr>
+            <tr><td><strong>L3</strong></td><td>How DBplus works</td><td>Sub-link (deepest shown)</td><td>Required</td><td>List item; <strong>required on the page</strong></td><td>Panel level 3</td></tr>
+            <tr><td><strong>L4</strong></td><td>Contribution rates</td><td><strong>Never shown</strong></td><td>Required</td><td>Sublist under active L3; <strong>required on the page</strong></td><td>Panel level 4 (deepest)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <ul class="mt-3">
+        <li><strong>Mega nav</strong> is available on every page, holds up to <strong>4 columns</strong>, and stops at <strong>L3</strong>.</li>
+        <li><strong>Breadcrumb</strong> appears on every L2+ page (see the <a href="/components/breadcrumb.html">Breadcrumb</a> contract).</li>
+        <li><strong>Side Navigation</strong> appears on every L3/L4 page (see the <a href="/components/side-nav.html">Side Navigation</a> contract) — it is the only desktop surface that exposes L4.</li>
+        <li><strong>Mobile drill-down</strong> mirrors the full tree to L4 with a Back control per panel (live demo above).</li>
+        <li>The IA stops at L4 — pages deeper than L4 are a content-architecture error.</li>
+      </ul>
+    </section>
+
+<section class="contract-section" id="summary">
       <h2>1. Component Summary</h2>
 
       <table class="contract-table mb-4">
@@ -563,10 +690,10 @@
 
       <h3>Primary use cases</h3>
       <ol>
-        <li>Site header — desktop navbar with utility bar, mega-menu dropdowns (up to 4 levels), search, login, and CTA</li>
+        <li>Site header — desktop navbar with utility bar, mega-menu dropdowns (up to 4 columns, depth to L3), search, login, and CTA</li>
         <li>Mega menu panels — full-width dropdowns with categorised columns, nested links, and optional promo cards</li>
         <li>Site footer — link columns, legal links, social icons, and copyright</li>
-        <li>Mobile navigation — offcanvas menu with accordion-based sub-navigation matching the desktop hierarchy</li>
+        <li>Mobile navigation — offcanvas drill-down menu: one panel per level, forward to L4, Back returns a level (navigation.js)</li>
         <li>Utility navigation — secondary links (Contact, Support, Newsroom, Events, Careers)</li>
         <li>Language toggle — EN/FR switcher with proper <code>lang</code> attribute</li>
       </ol>
@@ -609,9 +736,9 @@
 
       <h3>Visual variants</h3>
       <ul>
-        <li><strong>Desktop header</strong> — full-width navbar with dark utility bar, logo, mega-menu dropdown items (L1–L4), search pill, login, and primary CTA</li>
+        <li><strong>Desktop header</strong> — full-width navbar with dark utility bar, logo, mega-menu dropdown items (L1–L3), search pill, login, and primary CTA</li>
         <li><strong>Mega menu panel</strong> — full-width dropdown with up to 4 categorised columns, optional L4 nested sub-items, and optional promotional card</li>
-        <li><strong>Mobile header</strong> — compact topbar with logo and hamburger toggle, offcanvas panel with accordion sub-navigation</li>
+        <li><strong>Mobile header</strong> — compact topbar with logo and hamburger toggle, offcanvas drill-down panels (to L4, with Back)</li>
         <li><strong>Full footer</strong> — 4-column link grid with legal row, social icons, copyright</li>
         <li><strong>Campaign footer</strong> — simplified single-row footer for landing pages (legal links + copyright only)</li>
       </ul>
@@ -680,6 +807,9 @@
         <li><strong>Social links</strong> must each have a valid URL and an <code>aria-label</code> generated from the selected platform name.</li>
         <li>If <strong>CTA label</strong> is provided, <strong>CTA URL</strong> must also be provided (and vice versa).</li>
         <li><strong>Primary nav link labels</strong> should not exceed 25 characters each. Display a warning above 20 characters.</li>
+        <li><strong>Mega menu columns:</strong> a menu may contain at most <strong>4 link groups</strong> (columns). The dialog rejects a 5th group.</li>
+        <li><strong>Mega menu depth:</strong> entries go no deeper than <strong>Level 3</strong> (group title = L2, links = L2/L3). L4 pages never appear in the mega menu — they are reached via the Side Navigation, breadcrumb, and the mobile drill-down.</li>
+        <li><strong>Mobile drill-down depth:</strong> panels mirror the full tree to <strong>Level 4</strong>; every drilled panel must include the Back control and a section-overview link.</li>
       </ol>
     </section>
 
@@ -851,7 +981,10 @@
             <tr><td><code>.nav-search-input</code></td><td>Pill-shaped search field (expands on focus)</td></tr>
             <tr><td>(footer)</td><td>Moved to the standalone <a href="/components/footer.html"><code>.caat-footer</code></a> component</td></tr>
             <tr><td><code>.caat-mobile-nav-demo</code></td><td>Mobile navigation demo container</td></tr>
-            <tr><td><code>.mobile-nav-accordion</code></td><td>Mobile offcanvas accordion (Bootstrap accordion)</td></tr>
+            <tr><td><code>.caat-drillnav</code> <code>[data-caat-drillnav]</code></td><td>Mobile drill-down container (offcanvas body)</td></tr>
+            <tr><td><code>.caat-drillnav__panel</code></td><td>One panel per node with children; first = root (L1)</td></tr>
+            <tr><td><code>.caat-drillnav__next</code> / <code>__back</code></td><td>Drill trigger (<code>data-target</code>, <code>aria-expanded</code>) / back control</td></tr>
+            <tr><td><code>.caat-drillnav__overview</code> / <code>__link</code></td><td>Section landing link at panel top / leaf link</td></tr>
             <tr><td><code>.mobile-subnav</code></td><td>Mobile sub-navigation links list</td></tr>
           </tbody>
         </table>
@@ -917,7 +1050,8 @@
         <table class="contract-table">
           <thead><tr><th>Behaviour</th><th>Mechanism &amp; acceptance criteria</th></tr></thead>
           <tbody>
-            <tr><td>Mobile collapse</td><td><code>navbar-expand-lg</code> + toggler with <code>data-bs-toggle="collapse"</code> / <code>data-bs-target</code>. Below the <code>lg</code> breakpoint (992&nbsp;px) the menu collapses; the toggler reflects state via <code>aria-expanded</code>. Above it, the full bar renders and the toggler is hidden.</td></tr>
+            <tr><td>Mobile menu</td><td>Below <code>lg</code> (992&nbsp;px) the bar collapses behind a Menu button that opens the offcanvas (<code>aria-expanded</code> + <code>aria-controls</code>). Above it, the full bar renders and the toggler is hidden.</td></tr>
+            <tr><td>Mobile drill-down <em>(navigation.js)</em></td><td>Inside the offcanvas: <code>.caat-drillnav__next</code> reveals the child panel (to L4) and focuses its Back control; <code>.caat-drillnav__back</code> returns one level and restores focus to the trigger; <kbd>Escape</kbd> in a sub-panel goes back one level (closes the offcanvas only from the root); closing the offcanvas resets to the root panel. Hidden panels use the <code>hidden</code> attribute; triggers mirror state via <code>aria-expanded</code>.</td></tr>
             <tr><td>Mega menu open/close</td><td>L1 triggers use <code>data-bs-toggle="dropdown"</code> with <code>role="button"</code> + <code>aria-expanded</code>. Bootstrap handles: open on click/<kbd>Enter</kbd>/<kbd>Space</kbd>, close on <kbd>Escape</kbd> (focus returns to the trigger), close on outside click, one menu open at a time.</td></tr>
             <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Note: links inside <code>.mega-links</code> that are <em>not</em> <code>.dropdown-item</code>s are reached with <kbd>Tab</kbd> instead — keep this in mind when restructuring mega-menu columns.</td></tr>
             <tr><td>Sticky header</td><td><code>sticky-top</code> (z-index 1020 = <code>--caat-z-sticky</code>). Anchor targets stay visible beneath it via the global <code>scroll-padding-top: 5rem</code> (caat-base.css).</td></tr>
@@ -968,7 +1102,7 @@
          Each fragment is authored once and referenced globally via <strong>template policies</strong>,
          ensuring consistent navigation across all pages without per-page authoring.</p>
       <ul>
-        <li><strong>Header XF:</strong> contains the desktop mega-menu navbar (Bootstrap 5.3 <code>navbar-expand</code> with <code>.dropdown-menu.mega-menu</code> panels). Mobile nav is derived automatically via responsive CSS + Bootstrap offcanvas with accordion.</li>
+        <li><strong>Header XF:</strong> contains the desktop mega-menu navbar (Bootstrap 5.3 <code>navbar-expand</code> with <code>.dropdown-menu.mega-menu</code> panels). Mobile nav uses Bootstrap offcanvas + the drill-down panels (navigation.js).</li>
         <li><strong>Footer XF:</strong> contains the full footer; campaign pages may reference a simplified campaign-footer XF variant.</li>
       </ul>
 
@@ -977,7 +1111,7 @@
         <li><strong>Category:</strong> <code>caat.components.navigation</code></li>
         <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
         <li><strong>CSS:</strong> <code>navigation.css</code></li>
-        <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdowns/offcanvas/accordion natively; custom JS wires analytics events and search submit handler)</li>
+        <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdowns/offcanvas natively; navigation.js implements the mobile drill-down — panel stack, Back, focus management, reset on close)</li>
       </ul>
 
       <h3>Suggested file structure</h3>
@@ -1223,7 +1357,7 @@ dialog:
         <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark utility bar, logo, L1 nav links with dropdown carets, search pill, login, CTA, and language toggle are all visible and properly aligned.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings, L3 links, L4 nested items) and optional promo card.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle, displays offcanvas panel with accordion sub-navigation matching the desktop mega menu hierarchy.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
         <li class="mb-2"><input type="checkbox" disabled> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
         <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
         <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
@@ -1303,6 +1437,7 @@ document.querySelectorAll('.caat-menu-button').forEach(btn => {
   });
 });
 </script>
+<script src="/assets/js/components/navigation.js"></script>
 <script src="/assets/js/figma-export.js"></script>
 </body>
 </html>

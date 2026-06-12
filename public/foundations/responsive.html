@@ -232,7 +232,7 @@
         <table class="table table-bordered matrix-table">
           <thead><tr><th>Component</th><th>Mobile &lt;&nbsp;768</th><th>Tablet 768&ndash;991.98</th><th>Desktop &ge;&nbsp;992</th></tr></thead>
           <tbody>
-            <tr><td>Navigation</td><td>Collapsed behind toggler; mega menu hidden; offcanvas panel (slides from the end) with accordion sub-navigation mirroring the desktop hierarchy</td><td>&mdash;</td><td>Full bar; mega menu opens as a full-width dropdown (<code>position: static</code> enabler)</td></tr>
+            <tr><td>Navigation</td><td>Collapsed behind toggler; mega menu hidden; offcanvas drill-down panels — forward to L4, Back per level (navigation.js)</td><td>&mdash;</td><td>Full bar; mega menu opens as a full-width dropdown (<code>position: static</code> enabler)</td></tr>
             <tr><td>Layout / sections</td><td>Rhythm compressed one step (48/32/64&nbsp;px)</td><td>Full rhythm (64/48/96&nbsp;px)</td><td>&mdash;</td></tr>
             <tr><td>Hero</td><td>Media 14&ndash;18&nbsp;rem tall; card stacked below with negative-margin overlap; smaller radius &amp; padding &lt;&nbsp;576</td><td>Media 18&nbsp;rem; card still stacked</td><td>Media 22&nbsp;rem; card absolutely positioned over media</td></tr>
             <tr><td>Feature/Resource Hero</td><td>Single column, centred; preview image moves above text (<code>order: -1</code>), max 12&nbsp;rem; accent border moves left&rarr;top</td><td>Two-column grid returns</td><td>&mdash;</td></tr>
@@ -247,6 +247,7 @@
             <tr><td>Pagination</td><td>Compact &lt;&nbsp;576: smaller targets, wrapper centres</td><td>Full size</td><td>&mdash;</td></tr>
             <tr><td>Breadcrumb</td><td>Horizontal scroll &lt;&nbsp;576 (no wrap)</td><td>Inline</td><td>&mdash;</td></tr>
             <tr><td>Logo wall</td><td>2-up grid</td><td>3-up (tablet-only query)</td><td>4&ndash;6-up</td></tr>
+            <tr><td>Side Navigation</td><td colspan="2">Stacks above page content (&lt;&nbsp;992); sticky disabled</td><td>Left column (<code>col-lg-3</code>), sticky below header</td></tr>
             <tr><td>Article layout</td><td colspan="2">Sidebar stacks below article (&lt;&nbsp;992)</td><td>Two-column with sticky sidebar</td></tr>
             <tr><td>Text / Title</td><td>Display 3.5&rarr;2.5&nbsp;rem</td><td>Full scale</td><td>&mdash;</td></tr>
             <tr><td>Data visualization</td><td>Bar rows stack; labels above bars</td><td>Inline rows</td><td>&mdash;</td></tr>
@@ -270,7 +271,7 @@
             <tr>
               <td>&lt;&nbsp;992&nbsp;px</td>
               <td><strong>Collapsed</strong></td>
-              <td><code>navbar-expand-lg</code> hides the link bar; the toggler (with <code>aria-expanded</code> + <code>aria-controls</code>) opens the mobile menu — per the Navigation contract, an offcanvas panel (default: slides from the end) whose accordion groups mirror the desktop hierarchy. The mega-menu markup is <code>display:&nbsp;none</code> at this width, so no destination is lost, only the promo layout. Utility bar items stay visible above the brand row.</td>
+              <td><code>navbar-expand-lg</code> hides the link bar; the toggler (with <code>aria-expanded</code> + <code>aria-controls</code>) opens the mobile menu — per the Navigation contract, an offcanvas with drill-down panels mirroring the full tree to L4, each sub-panel with a Back control and section-overview link (navigation.js). The mega-menu markup is <code>display:&nbsp;none</code> at this width, so no destination is lost, only the promo layout. Utility bar items stay visible above the brand row.</td>
             </tr>
             <tr>
               <td>&ge;&nbsp;992&nbsp;px</td>

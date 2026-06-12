@@ -225,6 +225,7 @@
             <tr><td><strong>Purpose</strong></td><td>Show a hierarchical page trail so users can navigate back through the site structure. Helps users understand where they are within the CAAT website and quickly return to parent pages.</td></tr>
             <tr><td><strong>Core Interaction</strong></td><td>Click any ancestor link to navigate up the hierarchy. The current page is displayed as non-linked text at the end of the trail.</td></tr>
             <tr><td><strong>Variants</strong></td><td>Standard (slash separator), Chevron separator, Truncated (deep pages with ellipsis)</td></tr>
+            <tr><td><strong>Placement rule</strong></td><td><strong>Required on every Level&nbsp;2+ page</strong> (see the <a href="/components/navigation.html#nav-model">Navigation Model</a>). L1 pages and the homepage never show a breadcrumb. The trail mirrors the content tree from Home to the current page — including L4 pages, which the mega nav deliberately omits.</td></tr>
           </tbody>
         </table>
       </div>
@@ -291,6 +292,7 @@
             <tr><td>Manual items: URL required</td><td>Error</td><td>Every manual item (except the last) must have a valid URL.</td></tr>
             <tr><td>Start level ≥ 1</td><td>Error</td><td>Start level must be a positive integer.</td></tr>
             <tr><td>Max depth warning</td><td>Warning</td><td>If depth exceeds 6 levels, suggest enabling truncation.</td></tr>
+            <tr><td>Present on L2+ pages</td><td>Error</td><td>Template policy: every Level&nbsp;2, 3, and 4 page renders a breadcrumb; L1/home templates do not include the component.</td></tr>
           </tbody>
         </table>
       </div>

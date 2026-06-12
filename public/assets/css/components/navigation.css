@@ -114,7 +114,12 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Mega menu grid columns */
+/* Mega menu grid columns — UP TO 4 (authoring rule, Navigation
+   contract §4): auto-fit lays out 1–4 groups; the max-width cap
+   stops a sparse menu from stretching columns absurdly wide, and
+   authoring validation rejects a 5th group. Depth inside a column
+   is L2 group title + L2/L3 links — NEVER L4 (L4 lives in the
+   Side Navigation component and the mobile drill-down). */
 .caat-navbar .mega-menu .mega-columns {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
@@ -413,3 +418,92 @@
 @media (min-width: 992px) {
   .caat-navbar .navbar-nav .dropdown { position: static; }
 }
+
+/* ── Mobile drill-down menu (offcanvas) ───────────────────────
+   One panel per node with children; drill forward to L4, Back
+   returns one level. Behaviour: navigation.js. Panels toggle via
+   the `hidden` attribute; these classes only animate the swap.
+   Reduced motion is neutralized globally (caat-base.css). */
+.caat-drillnav { overflow-x: hidden; }
+
+.caat-drillnav__panel--fwd  { animation: caat-drill-fwd  var(--caat-duration-base) var(--caat-ease-standard); }
+.caat-drillnav__panel--back { animation: caat-drill-back var(--caat-duration-base) var(--caat-ease-standard); }
+@keyframes caat-drill-fwd  { from { opacity: 0; transform: translateX(1.5rem); }  to { opacity: 1; transform: translateX(0); } }
+@keyframes caat-drill-back { from { opacity: 0; transform: translateX(-1.5rem); } to { opacity: 1; transform: translateX(0); } }
+
+.caat-drillnav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.caat-drillnav__list > li + li { border-top: var(--caat-border-1) solid var(--caat-color-border); }
+
+/* Shared row treatment: plain links and drill triggers look alike */
+.caat-drillnav__link,
+.caat-drillnav__next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--caat-space-2);
+  padding: var(--caat-space-3) var(--caat-space-2);
+  min-height: 2.75rem;                 /* ≥ 44px touch target */
+  background: none;
+  border: 0;
+  text-align: left;
+  font-size: var(--caat-font-size-sm);
+  font-weight: var(--caat-weight-semibold);
+  color: var(--caat-color-text);
+  text-decoration: none;
+  cursor: pointer;
+}
+.caat-drillnav__link:hover,
+.caat-drillnav__next:hover {
+  background: var(--caat-color-state-hover-bg);
+  color: var(--caat-color-text-heading);
+}
+.caat-drillnav__link:focus-visible,
+.caat-drillnav__next:focus-visible,
+.caat-drillnav__back:focus-visible,
+.caat-drillnav__overview:focus-visible {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring-inset);
+}
+.caat-drillnav__link[aria-current="page"] {
+  color: var(--caat-color-text-heading);
+  font-weight: var(--caat-weight-bold);
+  background: var(--caat-color-bg-brand-subtle);
+}
+.caat-drillnav__next .bi { color: var(--caat-color-text-muted); }
+
+/* Back — first control of every sub-panel */
+.caat-drillnav__back {
+  display: flex;
+  align-items: center;
+  gap: var(--caat-space-2);
+  width: 100%;
+  padding: var(--caat-space-3) var(--caat-space-2);
+  min-height: 2.75rem;
+  background: none;
+  border: 0;
+  border-bottom: var(--caat-border-1) solid var(--caat-color-border);
+  text-align: left;
+  font-size: var(--caat-font-size-xs);
+  font-weight: var(--caat-weight-semibold);
+  color: var(--caat-color-text-link);
+  cursor: pointer;
+}
+.caat-drillnav__back:hover { background: var(--caat-color-state-hover-bg); }
+
+/* Section overview link — lets users open the landing page of the
+   level they drilled into (the drill trigger itself never navigates) */
+.caat-drillnav__overview {
+  display: block;
+  padding: var(--caat-space-3) var(--caat-space-2);
+  font-size: var(--caat-font-size-md);
+  font-weight: var(--caat-weight-extrabold);
+  color: var(--caat-color-text-heading);
+  text-decoration: none;
+  border-bottom: var(--caat-border-2) solid var(--caat-color-border);
+}
+.caat-drillnav__overview:hover { color: var(--caat-color-text-link-hover); }
