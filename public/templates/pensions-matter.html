@@ -21,6 +21,7 @@
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/avatar.css" rel="stylesheet">
 <link href="/assets/css/components/navigation.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/footer.css" rel="stylesheet">
 <link href="/assets/css/components/text-title.css" rel="stylesheet">
 <link href="/assets/css/components/layout.css" rel="stylesheet">
@@ -567,6 +568,17 @@
 
 
 <main id="main">
+
+<!-- ── Breadcrumb — required on every L2+ page (Navigation Model) ── -->
+<div class="container pt-4">
+  <nav class="caat-breadcrumb" aria-label="Breadcrumb" data-analytics-component="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Pension solutions</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Pensions matter</li>
+    </ol>
+  </nav>
+</div>
 
 <!-- ════════════════════════════════════════════════════════════
      HERO — caat-feature-hero component (Variant: Fullbleed)
