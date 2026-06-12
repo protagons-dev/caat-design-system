@@ -126,19 +126,29 @@
   gap: 2rem;
 }
 
-/* L2 — Category heading */
+/* L2 — Column header: a LINK to the L2 landing page (clickable by rule) */
 .caat-navbar .mega-menu .mega-category-title {
   font-size: var(--caat-font-size-2xs);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: .07em;
   color: var(--caat-color-text-heading);
+  text-decoration: none;
   margin-bottom: .75rem;
   padding-bottom: .5rem;
   border-bottom: 2px solid var(--caat-lime, #95e35c);
   display: flex;
   align-items: center;
   gap: .4rem;
+}
+.caat-navbar .mega-menu a.mega-category-title:hover {
+  color: var(--caat-color-text-link-hover);
+  border-bottom-color: var(--caat-color-action-secondary);
+}
+.caat-navbar .mega-menu a.mega-category-title:focus-visible {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
+  border-radius: var(--caat-radius-sm);
 }
 .caat-navbar .mega-menu .mega-category-title i {
   font-size: var(--caat-font-size-xs);
@@ -168,26 +178,8 @@
   color: var(--caat-color-text-heading);
   padding-left: 1rem;
 }
-.caat-navbar .mega-menu .mega-links a .mega-link-desc {
-  display: block;
-  font-size: var(--caat-font-size-2xs);
-  font-weight: 400;
-  color: var(--caat-color-text-muted);
-  margin-top: .1rem;
-}
-
-/* L4 — Nested sub-items */
-.caat-navbar .mega-menu .mega-links .mega-subnav {
-  list-style: none;
-  padding: 0 0 0 1rem;
-  margin: .15rem 0 .5rem;
-  border-left: 2px solid var(--caat-color-border);
-}
-.caat-navbar .mega-menu .mega-links .mega-subnav a {
-  font-size: var(--caat-font-size-xs);
-  font-weight: 400;
-  padding: .3rem .65rem;
-}
+/* Link descriptions and L4 sub-lists were removed by rule: L3 links
+   render labels only, and L4 never appears in the mega menu. */
 
 /* Mega menu featured / promo card */
 .caat-navbar .mega-promo {
