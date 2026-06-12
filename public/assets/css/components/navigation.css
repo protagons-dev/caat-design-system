@@ -315,57 +315,9 @@
   padding: 1rem 1.25rem;
 }
 
-/* Mobile accordion nav (L1 → L4) */
-.caat-navbar .mobile-nav-accordion .accordion-item {
-  border: 0;
-  border-bottom: 1px solid var(--caat-color-border);
-}
-.caat-navbar .mobile-nav-accordion .accordion-button {
-  font-weight: 700;
-  font-size: var(--caat-font-size-sm);
-  color: var(--caat-color-text);
-  padding: .85rem .25rem;
-  box-shadow: none !important;
-  background: transparent;
-}
-.caat-navbar .mobile-nav-accordion .accordion-button:not(.collapsed) {
-  color: var(--caat-color-text-heading);
-  background: transparent;
-}
-.caat-navbar .mobile-nav-accordion .accordion-body {
-  padding: 0 0 .75rem .75rem;
-}
-.caat-navbar .mobile-nav-accordion .mobile-subnav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: .1rem;
-}
-.caat-navbar .mobile-nav-accordion .mobile-subnav a {
-  display: block;
-  padding: .5rem .75rem;
-  color: var(--caat-color-text);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: var(--caat-font-size-xs);
-  border-radius: .35rem;
-  transition: background .12s;
-}
-.caat-navbar .mobile-nav-accordion .mobile-subnav a:hover {
-  background: var(--caat-blue-50, rgba(0,92,153,.05));
-  color: var(--caat-color-text-heading);
-}
-.caat-navbar .mobile-nav-accordion .mobile-subnav-heading {
-  font-size: var(--caat-font-size-2xs);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  color: var(--caat-color-text-muted);
-  padding: .75rem .75rem .25rem;
-}
+/* Mobile sub-navigation is the drill-down (.caat-drillnav, below);
+   the old offcanvas accordion styles were removed. */
 
-/* Direct links in mobile (non-dropdown items) */
 .caat-navbar .mobile-nav-links {
   list-style: none;
   padding: .5rem 0;
