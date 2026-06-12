@@ -83,62 +83,111 @@
          ════════════════════════════════════════════════════════ -->
     <section class="contract-section" id="demo">
       <h2>Live Demo</h2>
-      <p class="text-muted mb-4">An L4 page (<em>Contribution rates</em>) inside the <em>Pension solutions → DBplus</em> section. The side nav occupies the left column on desktop and stacks above content below 992&nbsp;px.</p>
+
+      <h3 class="mb-2">How it fits the navigation flow</h3>
+      <div class="table-responsive mb-4">
+        <table class="contract-table">
+          <thead><tr><th>Step</th><th>Surface</th><th>What the user sees</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Mega nav</td><td>Opens an L1 panel, clicks an <strong>L3 link</strong> (the deepest level the mega nav shows) — e.g. <em>Pension solutions → Why join → What members get</em></td></tr>
+            <tr><td>2</td><td>L3 page</td><td>Lands on the L3 page: breadcrumb shows the trail; the <strong>side nav</strong> shows the L2 section title, all L3 siblings, and — under the current L3 — its <strong>L4 children</strong></td></tr>
+            <tr><td>3</td><td>Side nav</td><td>Clicks an L4 link (e.g. <em>Secure lifetime retirement income</em>) — the only desktop surface that exposes L4</td></tr>
+            <tr><td>4</td><td>L4 page</td><td>Side nav persists: L3 ancestor marked <code>aria-current="true"</code>, the page itself <code>aria-current="page"</code>; breadcrumb extends to the L4 page</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mb-2">L4 page (active branch expanded)</h3>
+      <p class="text-muted mb-3">An L4 page (<em>Secure lifetime retirement income</em>) inside <em>Pension solutions → Why join → What members get</em>. The side nav occupies the left column on desktop and stacks above content below 992&nbsp;px.</p>
 
       <div class="demo-card p-4 mb-4" data-figma="Default" data-figma-group="Variants">
         <nav class="caat-breadcrumb mb-4" aria-label="Breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">Pension solutions</a></li>
-            <li class="breadcrumb-item"><a href="#">DBplus</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Contribution rates</li>
+            <li class="breadcrumb-item"><a href="#">Why join</a></li>
+            <li class="breadcrumb-item"><a href="#">What members get</a></li>
+            <li class="breadcrumb-item active" aria-current="page" title="Secure lifetime retirement income">Secure lifetime retirement income</li>
           </ol>
         </nav>
         <div class="row g-4">
           <div class="col-lg-3">
             <nav class="caat-side-nav caat-side-nav--sticky" aria-label="Section navigation" data-analytics-component="side-nav">
-              <a class="caat-side-nav__title" href="#">Pension solutions</a>
+              <a class="caat-side-nav__title" href="#">Why join</a>
               <ul class="caat-side-nav__list">
-                <li><a class="caat-side-nav__link" href="#">Why CAAT</a></li>
                 <li>
-                  <a class="caat-side-nav__link" href="#" aria-current="true">DBplus</a>
+                  <a class="caat-side-nav__link" href="#" aria-current="true">What members get</a>
                   <ul class="caat-side-nav__sublist">
-                    <li><a class="caat-side-nav__link" href="#">How DBplus works</a></li>
-                    <li><a class="caat-side-nav__link" href="#" aria-current="page">Contribution rates</a></li>
-                    <li><a class="caat-side-nav__link" href="#">Investment approach</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Value</a></li>
+                    <li><a class="caat-side-nav__link" href="#" aria-current="page">Secure lifetime retirement income</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Early retirement options</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Survivor benefits</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Inflation adjustments</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Portability</a></li>
                   </ul>
                 </li>
-                <li><a class="caat-side-nav__link" href="#">DBprime</a></li>
-                <li><a class="caat-side-nav__link" href="#">Getting started</a></li>
+                <li><a class="caat-side-nav__link" href="#">What employers get</a></li>
+                <li><a class="caat-side-nav__link" href="#">Flexibility</a></li>
+                <li><a class="caat-side-nav__link" href="#">Success stories</a></li>
               </ul>
             </nav>
           </div>
           <div class="col-lg-9">
-            <h2 class="h3">Contribution rates</h2>
-            <p class="text-muted">Page content for the current L4 page. The side nav marks the L3 ancestor (<em>DBplus</em>, <code>aria-current="true"</code>) and the page itself (<code>aria-current="page"</code>).</p>
+            <h2 class="h3">Secure lifetime retirement income</h2>
+            <p class="text-muted">Page content for the current L4 page. The side nav marks the L3 ancestor (<em>What members get</em>, <code>aria-current="true"</code>) and the page itself (<code>aria-current="page"</code>). Sibling L3 items (<em>What employers get</em>, <em>Success stories</em>) keep their sublists closed.</p>
           </div>
         </div>
       </div>
 
       <h3 class="mt-4 mb-3">L3 page (no sublist open)</h3>
       <div class="demo-card p-4 mb-4" data-figma="L3 current" data-figma-group="Variants">
+        <nav class="caat-breadcrumb mb-4" aria-label="Breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Members</a></li>
+            <li class="breadcrumb-item"><a href="#">Life events</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Collecting your pension</li>
+          </ol>
+        </nav>
         <div class="row g-4">
           <div class="col-lg-3">
             <nav class="caat-side-nav" aria-label="Section navigation">
-              <a class="caat-side-nav__title" href="#">Pension solutions</a>
+              <a class="caat-side-nav__title" href="#">Life events</a>
               <ul class="caat-side-nav__list">
-                <li><a class="caat-side-nav__link" href="#" aria-current="page">Why CAAT</a></li>
-                <li><a class="caat-side-nav__link" href="#">DBplus</a></li>
-                <li><a class="caat-side-nav__link" href="#">DBprime</a></li>
-                <li><a class="caat-side-nav__link" href="#">Getting started</a></li>
+                <li><a class="caat-side-nav__link" href="#" aria-current="page">Collecting your pension</a></li>
+                <li><a class="caat-side-nav__link" href="#">Survivor benefits</a></li>
+                <li><a class="caat-side-nav__link" href="#">Disability and your pension</a></li>
+                <li><a class="caat-side-nav__link" href="#">Separation or divorce</a></li>
+                <li><a class="caat-side-nav__link" href="#">Leaving your job</a></li>
+                <li><a class="caat-side-nav__link" href="#">Starting a deferred pension</a></li>
               </ul>
             </nav>
           </div>
           <div class="col-lg-9">
-            <h2 class="h3">Why CAAT</h2>
-            <p class="text-muted">An L3 page with no children: the current link is highlighted, no sublist renders.</p>
+            <h2 class="h3">Collecting your pension</h2>
+            <p class="text-muted">An L3 page with no children: the current link is highlighted, no sublist renders. (<em>Survivor benefits</em> has an L4 child, but its sublist stays closed because it is not the active branch.)</p>
           </div>
         </div>
+      </div>
+
+      <h3 class="mt-4 mb-3">States</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Link interaction states per the Interaction States foundation. Hover and focus are shown statically via <code>.is-*</code> mirrors of the live <code>:hover</code> / <code>:focus-visible</code> rules; current page and current ancestor are carried by <code>aria-current</code> (weight + rail + tint — never colour alone).</p>
+      <div class="demo-card p-4 mb-4" style="max-width: 22rem;">
+        <nav class="caat-side-nav" aria-label="Section navigation states demo">
+          <a class="caat-side-nav__title" href="#">Section title (link)</a>
+          <ul class="caat-side-nav__list">
+            <li><a class="caat-side-nav__link" href="#" data-figma="Link — default" data-figma-group="States">Default</a></li>
+            <li><a class="caat-side-nav__link is-hover" href="#" data-figma="Link — hover" data-figma-group="States">Hover</a></li>
+            <li><a class="caat-side-nav__link is-focus" href="#" data-figma="Link — focus" data-figma-group="States">Focus</a></li>
+            <li>
+              <a class="caat-side-nav__link" href="#" aria-current="true" data-figma="Current ancestor (L3)" data-figma-group="States">Current ancestor</a>
+              <ul class="caat-side-nav__sublist">
+                <li><a class="caat-side-nav__link" href="#" data-figma="L4 — default" data-figma-group="States">L4 default</a></li>
+                <li><a class="caat-side-nav__link" href="#" aria-current="page" data-figma="L4 — current page" data-figma-group="States">L4 current page</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
 
@@ -153,7 +202,7 @@
           <tr><th>Status</th><td><span class="status-badge">Ready</span></td></tr>
           <tr><th>Type</th><td>Navigation / wayfinding</td></tr>
           <tr><th>JS</th><td>None — server-rendered, links only</td></tr>
-          <tr><th>Used with</th><td>Breadcrumb (required on the same pages), Navigation (mega nav supplies L1–L3 entry points)</td></tr>
+          <tr><th>Used with</th><td>Breadcrumb (required on the same pages), Navigation — the mega nav stops at L3; the side nav is the hand-off surface that carries the user from the L3 landing page to its L4 children</td></tr>
         </tbody>
       </table>
     </section>
@@ -232,16 +281,18 @@
     <section class="contract-section" id="semantic-html">
       <h2>6. Semantic HTML</h2>
 <pre class="code-sample"><code>&lt;nav class="caat-side-nav caat-side-nav--sticky" aria-label="Section navigation"&gt;
-  &lt;a class="caat-side-nav__title" href="/pension-solutions/"&gt;Pension solutions&lt;/a&gt;   &lt;!-- L2 --&gt;
+  &lt;a class="caat-side-nav__title" href="/pension-solutions/why-join"&gt;Why join&lt;/a&gt;     &lt;!-- L2 --&gt;
   &lt;ul class="caat-side-nav__list"&gt;
-    &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Why CAAT&lt;/a&gt;&lt;/li&gt;                    &lt;!-- L3 --&gt;
     &lt;li&gt;
-      &lt;a class="caat-side-nav__link" href="…" aria-current="true"&gt;DBplus&lt;/a&gt;          &lt;!-- L3 ancestor --&gt;
-      &lt;ul class="caat-side-nav__sublist"&gt;                                             &lt;!-- L4: active L3 only --&gt;
-        &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;How DBplus works&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a class="caat-side-nav__link" href="…" aria-current="page"&gt;Contribution rates&lt;/a&gt;&lt;/li&gt;
+      &lt;a class="caat-side-nav__link" href="…" aria-current="true"&gt;What members get&lt;/a&gt;  &lt;!-- L3 ancestor --&gt;
+      &lt;ul class="caat-side-nav__sublist"&gt;                                              &lt;!-- L4: active L3 only --&gt;
+        &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Value&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="caat-side-nav__link" href="…" aria-current="page"&gt;Secure lifetime retirement income&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
+    &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;What employers get&lt;/a&gt;&lt;/li&gt;            &lt;!-- L3 --&gt;
+    &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Flexibility&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="caat-side-nav__link" href="…"&gt;Success stories&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;</code></pre>
       <p>Place inside the page grid: <code>col-lg-3</code> for the nav, <code>col-lg-9</code> for content. Below 992&nbsp;px the grid stacks the nav above the content (Responsive foundation).</p>
@@ -337,7 +388,8 @@ data-analytics-level="3|4"</code></pre>
         <li class="mb-2"><input type="checkbox" disabled> Exactly one <code>aria-current="page"</code>; L3 ancestor carries <code>aria-current="true"</code>.</li>
         <li class="mb-2"><input type="checkbox" disabled> Only the active L3 item shows its L4 sublist.</li>
         <li class="mb-2"><input type="checkbox" disabled> Stacks above content below 992&nbsp;px; sticky on desktop when enabled.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus ring visible on every link; hover/current styles match Interaction States.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Focus ring visible on every link; hover/current styles match Interaction States (default / hover / focus-visible / current page / current ancestor all visually distinct, never by colour alone).</li>
+        <li class="mb-2"><input type="checkbox" disabled> Flow verified: mega nav L3 link → L3 page shows this component with the L4 children of that L3 → L4 page keeps the branch expanded.</li>
         <li class="mb-2"><input type="checkbox" disabled> Labels match page navigation titles; hidden pages excluded.</li>
       </ul>
     </section>
