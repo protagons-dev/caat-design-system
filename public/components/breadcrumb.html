@@ -143,28 +143,13 @@
     <section class="contract-section" id="demo">
       <h2>Live Demo</h2>
 
-      <!-- Standard breadcrumb -->
-      <h3 class="mt-3 mb-2">Standard Breadcrumb</h3>
+      <!-- Breadcrumb (chevron separator is the standard) -->
+      <h3 class="mt-3 mb-2">Breadcrumb</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">One pattern only: chevron separators (built into <code>.caat-breadcrumb</code> — no modifier, no inline style). The trail mirrors the content tree Home → current page; the IA stops at L4, so no deep-page truncation pattern exists.</p>
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb" data-figma="Standard (slash)" data-figma-group="Variants">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
-              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="employers">Employers</a></li>
-              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="3" data-analytics-destination="pension-solutions">Pension Solutions</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Contact</li>
-            </ol>
-          </nav>
-        </div>
-      </div>
-
-      <!-- Breadcrumb with custom separator -->
-      <h3 class="mb-2">Breadcrumb with Custom Separator (Chevron)</h3>
-      <div class="demo-shell mb-4">
-        <div class="demo-rendered">
-          <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--chevron" data-analytics-component="breadcrumb" data-figma="Chevron separator" data-figma-group="Variants" style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);">
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb" data-figma="Default" data-figma-group="Variants">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="members">Members</a></li>
@@ -175,18 +160,18 @@
         </div>
       </div>
 
-      <!-- Truncated breadcrumb -->
-      <h3 class="mb-2">Truncated Breadcrumb (Deep Pages)</h3>
+      <!-- Item length cap -->
+      <h3 class="mb-2">Item Length Cap (30 characters)</h3>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Each item is capped at <strong>30 characters</strong> — longer labels truncate with an ellipsis (CSS <code>max-width: 30ch</code>; server rendering applies the same cap). The full label is exposed via <code>title</code>.</p>
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
-          <nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated" data-analytics-component="breadcrumb" data-figma="Truncated (deep pages)" data-figma-group="Variants">
+          <nav aria-label="Breadcrumb" class="caat-breadcrumb" data-analytics-component="breadcrumb" data-figma="Truncated item (30ch)" data-figma-group="States">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="1" data-analytics-destination="home">Home</a></li>
-              <li class="breadcrumb-item breadcrumb-item--ellipsis"><span aria-label="Collapsed pages">&hellip;</span></li>
-              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="4" data-analytics-destination="dbplus-plan">DBplus Plan</a></li>
-              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="5" data-analytics-destination="contributions">Contributions</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Employer Match</li>
+              <li class="breadcrumb-item"><a href="#" data-analytics-label="breadcrumb-click" data-analytics-level="2" data-analytics-destination="pension-solutions">Pension solutions</a></li>
+              <li class="breadcrumb-item"><a href="#" title="The attraction and retention strategy every employer should consider" data-analytics-label="breadcrumb-click" data-analytics-level="3" data-analytics-destination="attraction-retention">The attraction and retention strategy every employer should consider</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Overview</li>
             </ol>
           </nav>
         </div>
@@ -224,7 +209,7 @@
             <tr><td><strong>AEM Triage</strong></td><td>Rebuild</td></tr>
             <tr><td><strong>Purpose</strong></td><td>Show a hierarchical page trail so users can navigate back through the site structure. Helps users understand where they are within the CAAT website and quickly return to parent pages.</td></tr>
             <tr><td><strong>Core Interaction</strong></td><td>Click any ancestor link to navigate up the hierarchy. The current page is displayed as non-linked text at the end of the trail.</td></tr>
-            <tr><td><strong>Variants</strong></td><td>Standard (slash separator), Chevron separator, Truncated (deep pages with ellipsis)</td></tr>
+            <tr><td><strong>Variants</strong></td><td>None — a single pattern with chevron separators. (Slash and deep-page truncated variants removed by decision; the IA stops at L4 so deep trails cannot occur.)</td></tr>
             <tr><td><strong>Placement rule</strong></td><td><strong>Required on every Level&nbsp;2+ page</strong> (see the <a href="/components/navigation.html#nav-model">Navigation Model</a>). L1 pages and the homepage never show a breadcrumb. The trail mirrors the content tree from Home to the current page — including L4 pages, which the mega nav deliberately omits.</td></tr>
           </tbody>
         </table>
@@ -270,8 +255,6 @@
             <tr><td><strong>Manual Items (multifield)</strong></td><td>Multifield</td><td>No</td><td>Only visible when Source = Manual override</td></tr>
             <tr><td>&emsp;↳ Label</td><td>Text</td><td>Yes</td><td>Displayed link text</td></tr>
             <tr><td>&emsp;↳ URL</td><td>Pathfield</td><td>Yes</td><td>Internal page path or external URL</td></tr>
-            <tr><td><strong>Separator Style</strong></td><td>Select</td><td>Yes</td><td>Slash (default), Chevron, Custom icon</td></tr>
-            <tr><td><strong>Enable Truncation</strong></td><td>Checkbox</td><td>No</td><td>Collapse middle items to ellipsis when depth &gt; 4 levels</td></tr>
           </tbody>
         </table>
       </div>
@@ -291,7 +274,8 @@
             <tr><td>Manual items: label required</td><td>Error</td><td>Every manual multifield entry must have a non-empty label.</td></tr>
             <tr><td>Manual items: URL required</td><td>Error</td><td>Every manual item (except the last) must have a valid URL.</td></tr>
             <tr><td>Start level ≥ 1</td><td>Error</td><td>Start level must be a positive integer.</td></tr>
-            <tr><td>Max depth warning</td><td>Warning</td><td>If depth exceeds 6 levels, suggest enabling truncation.</td></tr>
+            <tr><td>Item length: 30 characters max</td><td>Error</td><td>Labels render at most 30 characters — anything longer truncates with an ellipsis (server cap + CSS <code>max-width: 30ch</code>); the full label is kept in <code>title</code>. Manual-item labels over 30 characters are rejected in the dialog.</td></tr>
+            <tr><td>Depth follows the IA</td><td>Error</td><td>The trail mirrors the content tree, which stops at L4 (max 5 items incl. Home) — no truncation pattern exists or is needed.</td></tr>
             <tr><td>Present on L2+ pages</td><td>Error</td><td>Template policy: every Level&nbsp;2, 3, and 4 page renders a breadcrumb; L1/home templates do not include the component.</td></tr>
           </tbody>
         </table>
@@ -311,7 +295,7 @@
             <tr><td><strong>Labels</strong></td><td>Use concise page titles (2–4 words). Avoid repeating the site name. E.g. "Pension Solutions" not "CAAT Pension Solutions Page".</td></tr>
             <tr><td><strong>Home link</strong></td><td>Always start with "Home" as the first item linking to the site root.</td></tr>
             <tr><td><strong>Current page</strong></td><td>Display as plain text (non-linked) and mark with <code>aria-current="page"</code>.</td></tr>
-            <tr><td><strong>Truncation</strong></td><td>For pages deeper than 4 levels, enable truncation to show Home, ellipsis, and the last 2–3 ancestors plus current page.</td></tr>
+            <tr><td><strong>Label length</strong></td><td>Keep navigation titles short; anything past 30 characters is cut with an ellipsis. Prefer a shorter navigation title over relying on truncation.</td></tr>
             <tr><td><strong>Consistency</strong></td><td>Breadcrumb labels should match the <code>&lt;title&gt;</code> or <code>jcr:title</code> of the target page.</td></tr>
           </tbody>
         </table>
@@ -349,18 +333,7 @@
     &lt;li class="breadcrumb-item active" aria-current="page"&gt;Contact&lt;/li&gt;
   &lt;/ol&gt;
 &lt;/nav&gt;
-
-&lt;!-- Truncated breadcrumb --&gt;
-&lt;nav aria-label="Breadcrumb" class="caat-breadcrumb caat-breadcrumb--truncated"&gt;
-  &lt;ol class="breadcrumb"&gt;
-    &lt;li class="breadcrumb-item"&gt;&lt;a href="/en.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="breadcrumb-item breadcrumb-item--ellipsis"&gt;
-      &lt;span aria-label="Collapsed pages"&gt;&amp;hellip;&lt;/span&gt;
-    &lt;/li&gt;
-    &lt;li class="breadcrumb-item"&gt;&lt;a href="..."&gt;Parent&lt;/a&gt;&lt;/li&gt;
-    &lt;li class="breadcrumb-item active" aria-current="page"&gt;Current&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
+</code></pre>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -377,9 +350,7 @@
             <tr><td><code>.breadcrumb</code></td><td>Bootstrap's <code>&lt;ol&gt;</code> — inherits divider style and flex layout.</td></tr>
             <tr><td><code>.breadcrumb-item</code></td><td>Individual trail item. Applies link colour tokens and hover/focus states.</td></tr>
             <tr><td><code>.breadcrumb-item.active</code></td><td>Current page item — non-linked, muted colour.</td></tr>
-            <tr><td><code>.caat-breadcrumb--chevron</code></td><td>Modifier: replaces default slash divider with a chevron SVG icon.</td></tr>
-            <tr><td><code>.caat-breadcrumb--truncated</code></td><td>Modifier: enables ellipsis collapse for deep page hierarchies.</td></tr>
-            <tr><td><code>.breadcrumb-item--ellipsis</code></td><td>Ellipsis placeholder item — non-interactive, displays "…".</td></tr>
+            <tr><td><code>--bs-breadcrumb-divider</code></td><td>Set to the chevron SVG on <code>.caat-breadcrumb</code> — the separator is baked in; no modifier or inline style.</td></tr>
           </tbody>
         </table>
       </div>
@@ -404,9 +375,14 @@
   color: var(--caat-breadcrumb-current-color);
 }
 
-.caat-breadcrumb--truncated .breadcrumb-item--ellipsis span {
-  color: var(--caat-neutral-500);
-  cursor: default;
+/* 30-character item cap */
+.caat-breadcrumb .breadcrumb-item a,
+.caat-breadcrumb .breadcrumb-item.active {
+  display: inline-block;
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }</code></pre>
     </section>
 
@@ -423,7 +399,7 @@
             <tr><td><strong>Landmark</strong></td><td>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code> to expose a navigation landmark to assistive technologies.</td></tr>
             <tr><td><strong>Ordered list</strong></td><td>Use <code>&lt;ol&gt;</code> so screen readers announce the number of items and their position.</td></tr>
             <tr><td><strong>Current page</strong></td><td>Add <code>aria-current="page"</code> to the last <code>&lt;li&gt;</code> — the current page must not be a link.</td></tr>
-            <tr><td><strong>Ellipsis</strong></td><td>The truncated ellipsis element uses <code>aria-label="Collapsed pages"</code> to provide context.</td></tr>
+            <tr><td><strong>Truncated labels</strong></td><td>Items cut at 30 characters keep the full label in the <code>title</code> attribute; the accessible name (link text) remains the full server-side label.</td></tr>
             <tr><td><strong>Colour contrast</strong></td><td>Link text must meet WCAG 2.1 AA — minimum 4.5 : 1 contrast against background.</td></tr>
             <tr><td><strong>Focus indicators</strong></td><td>All links must show a visible focus ring meeting 3 : 1 contrast.</td></tr>
             <tr><td><strong>Structured data</strong></td><td>Include JSON-LD <code>BreadcrumbList</code> schema (see Section 9) so assistive tools and search engines can parse the hierarchy.</td></tr>
@@ -504,10 +480,10 @@
           <thead><tr><th>Item</th><th>Detail</th></tr></thead>
           <tbody>
             <tr><td><strong>Resource type</strong></td><td><code>caat/components/breadcrumb</code></td></tr>
-            <tr><td><strong>Sling model</strong></td><td>Extend <code>com.adobe.cq.wcm.core.components.models.Breadcrumb</code> to add analytics attributes, truncation logic, and JSON-LD schema output.</td></tr>
+            <tr><td><strong>Sling model</strong></td><td>Extend <code>com.adobe.cq.wcm.core.components.models.Breadcrumb</code> to add analytics attributes, the 30-character label cap, and JSON-LD schema output.</td></tr>
             <tr><td><strong>HTL template</strong></td><td><code>breadcrumb.html</code> — loops <code>model.items</code>, renders <code>&lt;nav&gt;</code> / <code>&lt;ol&gt;</code> structure. Last item emits <code>aria-current="page"</code>.</td></tr>
-            <tr><td><strong>Policy</strong></td><td>Editable template policy: start level, separator style, truncation toggle.</td></tr>
-            <tr><td><strong>Client library</strong></td><td><code>caat.breadcrumb</code> — category <code>caat.components</code>. Contains CSS and optional JS for expandable truncated crumbs.</td></tr>
+            <tr><td><strong>Policy</strong></td><td>Editable template policy: start level. (Separator is fixed — chevron; no truncation options.)</td></tr>
+            <tr><td><strong>Client library</strong></td><td><code>caat.breadcrumb</code> — category <code>caat.components</code>. CSS only — no JS.</td></tr>
             <tr><td><strong>Migration</strong></td><td>Replace legacy Breadcrumb (#1) instances. Run Groovy migration script to remap <code>sling:resourceType</code>.</td></tr>
           </tbody>
         </table>
@@ -581,24 +557,7 @@ breadcrumb-dialog:
                       name: ./url
                       fieldLabel: URL
                       required: true
-
-          # ── Style tab ────────────────────────────────
-          style:
-            jcr:title: Style
-            items:
-              separator:
-                sling:resourceType: granite/ui/components/coral/foundation/form/select
-                name: ./separator
-                fieldLabel: Separator style
-                required: true
-                items:
-                  - { text: Slash (default), value: slash }
-                  - { text: Chevron,         value: chevron }
-                  - { text: Custom icon,     value: custom }
-              enableTruncation:
-                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
-                name: ./enableTruncation
-                text: Enable truncation for deep pages</code></pre>
+</code></pre>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -608,12 +567,10 @@ breadcrumb-dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Standard breadcrumb renders with correct separator and link styles.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Chevron variant replaces the default slash with a chevron SVG icon.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Truncated variant collapses middle items to an ellipsis for pages deeper than 4 levels.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Breadcrumb renders with chevron separators by default — no modifier class or inline divider style present.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Labels longer than 30 characters truncate with an ellipsis and keep the full label in <code>title</code>.</li>
         <li class="mb-2"><input type="checkbox" disabled> <code>&lt;nav aria-label="Breadcrumb"&gt;</code> landmark is present.</li>
         <li class="mb-2"><input type="checkbox" disabled> Last item has <code>aria-current="page"</code> and is not a link.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Ellipsis item has <code>aria-label="Collapsed pages"</code>.</li>
         <li class="mb-2"><input type="checkbox" disabled> JSON-LD <code>BreadcrumbList</code> schema is output in the page source and validates via Google Rich Results Test.</li>
         <li class="mb-2"><input type="checkbox" disabled> <code>data-analytics-*</code> attributes are present on all ancestor links and <code>breadcrumb-click</code> events fire to the data layer.</li>
         <li class="mb-2"><input type="checkbox" disabled> Auto-generated breadcrumb correctly reflects the AEM page tree from the configured start level.</li>

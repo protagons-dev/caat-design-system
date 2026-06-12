@@ -5,6 +5,9 @@
 .caat-breadcrumb {
   font-family: var(--caat-font-primary);
   font-size: var(--caat-font-size-xs);
+  /* Chevron is THE separator — single variant by decision (slash and
+     deep-page truncated variants removed). */
+  --bs-breadcrumb-divider: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E");
 }
 
 .caat-breadcrumb .breadcrumb {
@@ -38,14 +41,18 @@
   font-weight: 400;
 }
 
-/* --- Custom separator (chevron via --bs-breadcrumb-divider) --- */
-/* The chevron is set via inline style --bs-breadcrumb-divider on the <nav>.
-   No CSS override needed — Bootstrap handles it automatically. */
-
-/* --- Truncated breadcrumb --- */
-.caat-breadcrumb--truncated .breadcrumb-item--ellipsis {
-  color: var(--caat-color-text-muted);
-  pointer-events: none;
+/* --- Item length cap: 30 characters ---
+   Labels longer than 30ch truncate with an ellipsis. Server-side
+   rendering also caps at 30 chars; this rule is the CSS guarantee.
+   The full label stays available via the title attribute. */
+.caat-breadcrumb .breadcrumb-item a,
+.caat-breadcrumb .breadcrumb-item.active {
+  display: inline-block;
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
 }
 
 /* --- Responsive --- */
