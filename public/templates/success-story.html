@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Success Story page template. An L4 case-study page composed entirely from design-system components: navigation, breadcrumb, side navigation, prose, stats, testimonial and CTA.">
+<title>Success Story — OTIP | CAAT Design System — Page Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<!-- Design system -->
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+
+<!-- Components composed by this template (NO template-level CSS — by design) -->
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/icon-button.css" rel="stylesheet">
+<link href="/assets/css/components/social-links.css" rel="stylesheet">
+<link href="/assets/css/components/avatar.css" rel="stylesheet">
+<link href="/assets/css/components/navigation.css" rel="stylesheet">
+<link href="/assets/css/components/footer.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/layout.css" rel="stylesheet">
+<link href="/assets/css/components/separator.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/side-nav.css" rel="stylesheet">
+<link href="/assets/css/components/stat.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
+<link href="/assets/css/components/testimonials.css" rel="stylesheet">
+<link href="/assets/css/components/cta.css" rel="stylesheet">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     NAVIGATION — caat-navbar component (Variant 1: Desktop Mega Menu)
+     Component: /components/navigation.html
+     ════════════════════════════════════════════════════════════ -->
+<header class="caat-navbar" data-analytics-component="navigation">
+
+  <!-- Utility bar -->
+  <div class="utility-bar" role="navigation" aria-label="Utility links">
+    <div class="container d-flex justify-content-end align-items-center gap-3">
+      <a href="#">Contact us</a>
+      <a href="#">Support Centre</a>
+      <a href="#">Newsroom</a>
+      <a href="#">Events</a>
+      <a href="#">Careers</a>
+      <a href="#" class="lang-switch" lang="fr" hreflang="fr">EN | <abbr title="Français">FR</abbr></a>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <nav class="navbar navbar-expand-lg navbar-main" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan — Home" height="52">
+      </a>
+
+      <!-- Mobile toggle (offcanvas) -->
+      <button class="navbar-toggler border-0" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#mobileNav"
+              aria-controls="mobileNav" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Desktop nav -->
+      <div class="collapse navbar-collapse" id="caatNavCollapse">
+        <ul class="navbar-nav me-auto">
+          <!-- L1: Pension solutions (mega) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Pension solutions</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-stars" aria-hidden="true"></i> Why join</a>
+                    <ul class="mega-links">
+                      <li><a href="#">What members get</a></li>
+                      <li><a href="#">What employers get</a></li>
+                      <li><a href="#">Flexibility</a></li>
+                      <li><a href="#">Success stories</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i> How to join</a>
+                    <ul class="mega-links">
+                      <li><a href="#">From no pension plan</a></li>
+                      <li><a href="#">From a group RRSP</a></li>
+                      <li><a href="#">From a DC plan</a></li>
+                      <li><a href="#">From a DB plan</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-calculator" aria-hidden="true"></i> Tools &amp; resources</a>
+                    <ul class="mega-links">
+                      <li><a href="#">DBplus Value Tool</a></li>
+                      <li><a href="#">DBplus video library</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-promo">
+                    <p class="mega-promo-title">Ready to join?</p>
+                    <p class="mega-promo-text">See how DBplus can help your organization attract and retain talent.</p>
+                    <a href="#cta" class="caat-button caat-button--primary caat-button--sm">
+                      Talk to us <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- L1: Members (mega) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-person-badge" aria-hidden="true"></i> Your pension</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Welcome to the CAAT Plan</a></li>
+                      <li><a href="#">Enrolment made easy</a></li>
+                      <li><a href="#">Your contributions</a></li>
+                      <li><a href="#">Increase your pension</a></li>
+                      <li><a href="#">Your statements</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-sunrise" aria-hidden="true"></i> Plan your retirement</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Retirement options</a></li>
+                      <li><a href="#">Estimate your pension</a></li>
+                      <li><a href="#">Inflation protection</a></li>
+                      <li><a href="#">GROWTHplus</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-calendar-event" aria-hidden="true"></i> Life events</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Collecting your pension</a></li>
+                      <li><a href="#">Survivor benefits</a></li>
+                      <li><a href="#">Disability and your pension</a></li>
+                      <li><a href="#">Separation or divorce</a></li>
+                      <li><a href="#">Leaving your job</a></li>
+                      <li><a href="#">Starting a deferred pension</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-folder2-open" aria-hidden="true"></i> Resources</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Member resources</a></li>
+                      <li><a href="#">Member glossary</a></li>
+                      <li><a href="#">Planner (member blog)</a></li>
+                      <li><a href="#">Member news</a></li>
+                      <li><a href="#">CAAT RCA</a></li>
+                      <li><a href="#">About your merged plan</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- L1: Employers (mega) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">Employers</a>
+            <div class="dropdown-menu mega-menu">
+              <div class="container">
+                <div class="mega-columns">
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-clipboard-check" aria-hidden="true"></i> Administer the plan</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Employer responsibilities</a></li>
+                      <li><a href="#">Service standards</a></li>
+                      <li><a href="#">Rates at a glance</a></li>
+                      <li><a href="#">S-Doc How-to Guide</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-mortarboard" aria-hidden="true"></i> Education &amp; support</a>
+                    <ul class="mega-links">
+                      <li><a href="#">Employer education</a></li>
+                      <li><a href="#">Employer update sessions</a></li>
+                      <li><a href="#">Employer Q&amp;A Corner</a></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <a class="mega-category-title" href="#"><i class="bi bi-tools" aria-hidden="true"></i> Tools &amp; resources</a>
+                    <ul class="mega-links">
+                      <li><a href="#">PA Calculator</a></li>
+                      <li><a href="#">Recruitment Toolkit</a></li>
+                      <li><a href="#">Employer resources</a></li>
+                      <li><a href="#">Employer News</a></li>
+                      <li><a href="#">GROWTHplus</a></li>
+                    </ul>
+                  </div>
+                  <div class="mega-promo">
+                    <p class="mega-promo-title">PAL &mdash; Employer portal</p>
+                    <p class="mega-promo-text">The Employer Manual, data reporting and administration in one place.</p>
+                    <a href="#" class="caat-button caat-button--primary caat-button--sm">
+                      Log in to PAL <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#">Investments</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+        </ul>
+
+        <!-- Right-side actions -->
+        <div class="nav-actions">
+          <div class="nav-search-wrap">
+            <label for="navSearch" class="visually-hidden">Search</label>
+            <input class="nav-search-input" type="search" id="navSearch" placeholder="Search…" autocomplete="off">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </div>
+          <a href="#" class="nav-login">
+            <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
+          </a>
+          <a href="#cta" class="caat-button caat-button--primary caat-button--sm nav-cta">Join DBplus</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile offcanvas nav -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+    <div class="offcanvas-header">
+      <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="40">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="caat-drillnav" data-caat-drillnav>
+      <!-- ROOT: L1 -->
+      <div class="caat-drillnav__panel">
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-pension-solutions" aria-expanded="false">Pension solutions <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-members" aria-expanded="false">Members <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-employers" aria-expanded="false">Employers <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-investments" aria-expanded="false">Investments <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-about-us" aria-expanded="false">About us <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+        <ul class="mobile-nav-links">
+        <li><a href="#">Support Centre</a></li>
+        <li><a href="#">Newsroom</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-pension-solutions">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Pension solutions</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-why-join" aria-expanded="false">Why join <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-how-to-join" aria-expanded="false">How to join <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-tools-and-resources" aria-expanded="false">Tools &amp; resources <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-why-join">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Why join</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-what-members-get" aria-expanded="false">What members get <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-what-employers-get" aria-expanded="false">What employers get <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><a class="caat-drillnav__link" href="#">Flexibility</a></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-success-stories" aria-expanded="false">Success stories <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-what-members-get">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">What members get</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Value</a></li>
+          <li><a class="caat-drillnav__link" href="#">Secure lifetime retirement income</a></li>
+          <li><a class="caat-drillnav__link" href="#">Early retirement options</a></li>
+          <li><a class="caat-drillnav__link" href="#">Survivor benefits</a></li>
+          <li><a class="caat-drillnav__link" href="#">Inflation adjustments</a></li>
+          <li><a class="caat-drillnav__link" href="#">Portability</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-what-employers-get">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">What employers get</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">How much does DBplus cost?</a></li>
+          <li><a class="caat-drillnav__link" href="#">Support from CAAT</a></li>
+          <li><a class="caat-drillnav__link" href="#">Employer responsibilities</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-success-stories">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Success stories</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">OTIP</a></li>
+          <li><a class="caat-drillnav__link" href="#">Digital Research Alliance of Canada</a></li>
+          <li><a class="caat-drillnav__link" href="#">St. John Ambulance</a></li>
+          <li><a class="caat-drillnav__link" href="#">The City of Whitehorse</a></li>
+          <li><a class="caat-drillnav__link" href="#">Klos Concepts</a></li>
+          <li><a class="caat-drillnav__link" href="#">United Way</a></li>
+          <li><a class="caat-drillnav__link" href="#">Canadian Coalition for Good Governance</a></li>
+          <li><a class="caat-drillnav__link" href="#">Torstar</a></li>
+          <li><a class="caat-drillnav__link" href="#">Sanofi</a></li>
+          <li><a class="caat-drillnav__link" href="#">Postmedia</a></li>
+          <li><a class="caat-drillnav__link" href="#">The George Hull Centre for Children and Families</a></li>
+          <li><a class="caat-drillnav__link" href="#">Ontario One Call</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-how-to-join">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">How to join</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">From no pension plan</a></li>
+          <li><a class="caat-drillnav__link" href="#">From a group RRSP</a></li>
+          <li><a class="caat-drillnav__link" href="#">From a DC plan</a></li>
+          <li><a class="caat-drillnav__link" href="#">From a DB plan</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-tools-and-resources">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Tools &amp; resources</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">DBplus Value Tool</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus video library</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-members">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Members</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-your-pension" aria-expanded="false">Your pension <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-plan-your-retirement" aria-expanded="false">Plan your retirement <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-life-events" aria-expanded="false">Life events <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-resources" aria-expanded="false">Resources <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-your-pension">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Your pension</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Welcome to the CAAT Plan</a></li>
+          <li><a class="caat-drillnav__link" href="#">Enrolment made easy</a></li>
+          <li><a class="caat-drillnav__link" href="#">Your contributions</a></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-increase-your-pension" aria-expanded="false">Increase your pension <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-your-statements" aria-expanded="false">Your statements <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-increase-your-pension">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Increase your pension</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">DBprime purchases</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus purchases</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-your-statements">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Your statements</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Active member statements</a></li>
+          <li><a class="caat-drillnav__link" href="#">Retired member statements</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-plan-your-retirement">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Plan your retirement</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-retirement-options" aria-expanded="false">Retirement options <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-estimate-your-pension" aria-expanded="false">Estimate your pension <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><a class="caat-drillnav__link" href="#">Inflation protection</a></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-growthplus" aria-expanded="false">GROWTHplus <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-retirement-options">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Retirement options</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Attend a member presentation</a></li>
+          <li><a class="caat-drillnav__link" href="#">Retirement planning on demand</a></li>
+          <li><a class="caat-drillnav__link" href="#">I'm ready to retire</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-estimate-your-pension">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Estimate your pension</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">DBprime Estimator</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Estimator</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Employer Pension Estimator</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Employer Pension Purchase Tool</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Evaluation Tool</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Estimator since 2019</a></li>
+          <li><a class="caat-drillnav__link" href="#">DBplus Pension Purchase Tool</a></li>
+          <li><a class="caat-drillnav__link" href="#">Actuarial Cost Estimator</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-growthplus">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">GROWTHplus</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Modeller</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-life-events">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Life events</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Collecting your pension</a></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-survivor-benefits" aria-expanded="false">Survivor benefits <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><a class="caat-drillnav__link" href="#">Disability and your pension</a></li>
+          <li><a class="caat-drillnav__link" href="#">Separation or divorce</a></li>
+          <li><a class="caat-drillnav__link" href="#">Leaving your job</a></li>
+          <li><a class="caat-drillnav__link" href="#">Starting a deferred pension</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-survivor-benefits">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Survivor benefits</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Claim a survivor benefit</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-resources">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Resources</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-member-resources" aria-expanded="false">Member resources <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><a class="caat-drillnav__link" href="#">Member glossary</a></li>
+          <li><a class="caat-drillnav__link" href="#">Planner (member blog)</a></li>
+          <li><a class="caat-drillnav__link" href="#">Member news</a></li>
+          <li><a class="caat-drillnav__link" href="#">CAAT RCA</a></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-about-your-merged-plan" aria-expanded="false">About your merged plan <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-member-resources">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Member resources</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Jurisdictional differences</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-about-your-merged-plan">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">About your merged plan</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Alberta Milk</a></li>
+          <li><a class="caat-drillnav__link" href="#">Angus Consulting Management Limited</a></li>
+          <li><a class="caat-drillnav__link" href="#">Catholic Charities of the Archdiocese of Toronto and Agencies</a></li>
+          <li><a class="caat-drillnav__link" href="#">Community Living Toronto</a></li>
+          <li><a class="caat-drillnav__link" href="#">Jewish Vocational Services (JVS) - Toronto</a></li>
+          <li><a class="caat-drillnav__link" href="#">Lutheran Church – Canada (LCC) Pension Plan</a></li>
+          <li><a class="caat-drillnav__link" href="#">MC LegalManagement Limited Partnership</a></li>
+          <li><a class="caat-drillnav__link" href="#">Pension Plan for Employees of Healthcare Excellence Canada (HEC)</a></li>
+          <li><a class="caat-drillnav__link" href="#">Pension Plan for Employees of The College of Family Physicians of Canada</a></li>
+          <li><a class="caat-drillnav__link" href="#">Postmedia Network Inc</a></li>
+          <li><a class="caat-drillnav__link" href="#">Royal Ontario Museum (ROM)</a></li>
+          <li><a class="caat-drillnav__link" href="#">Sanofi Pasteur</a></li>
+          <li><a class="caat-drillnav__link" href="#">St. John Ambulance</a></li>
+          <li><a class="caat-drillnav__link" href="#">The Canadian Press</a></li>
+          <li><a class="caat-drillnav__link" href="#">The George Hull Centre for Children and Families</a></li>
+          <li><a class="caat-drillnav__link" href="#">The Globe and Mail</a></li>
+          <li><a class="caat-drillnav__link" href="#">The Manitoba Teachers’ Society</a></li>
+          <li><a class="caat-drillnav__link" href="#">Torstar Group of Companies</a></li>
+          <li><a class="caat-drillnav__link" href="#">United Way of Greater Toronto</a></li>
+          <li><a class="caat-drillnav__link" href="#">Winnipeg Free Press and Canstar Community News</a></li>
+          <li><a class="caat-drillnav__link" href="#">Youth Services Bureau (YSB)</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-employers">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Employers</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-administer-the-plan" aria-expanded="false">Administer the plan <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-education-and-support" aria-expanded="false">Education &amp; support <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-employers-tools-and-resources" aria-expanded="false">Tools &amp; resources <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-administer-the-plan">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Administer the plan</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Employer responsibilities</a></li>
+          <li><a class="caat-drillnav__link" href="#">Service standards</a></li>
+          <li><a class="caat-drillnav__link" href="#">Rates at a glance</a></li>
+          <li><a class="caat-drillnav__link" href="#">S-Doc How-to Guide</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-education-and-support">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Education &amp; support</a>
+        <ul class="caat-drillnav__list">
+          <li><button class="caat-drillnav__next" type="button" data-target="pmnav-employer-education" aria-expanded="false">Employer education <i class="bi bi-chevron-right" aria-hidden="true"></i></button></li>
+          <li><a class="caat-drillnav__link" href="#">Employer update sessions</a></li>
+          <li><a class="caat-drillnav__link" href="#">Employer Q&amp;A Corner</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-employer-education">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Employer education</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Contributions</a></li>
+          <li><a class="caat-drillnav__link" href="#">Data reporting</a></li>
+          <li><a class="caat-drillnav__link" href="#">Employee enrolment</a></li>
+          <li><a class="caat-drillnav__link" href="#">Publications &amp; resources</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-employers-tools-and-resources">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Tools &amp; resources</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">PA Calculator</a></li>
+          <li><a class="caat-drillnav__link" href="#">Recruitment Toolkit</a></li>
+          <li><a class="caat-drillnav__link" href="#">Employer resources</a></li>
+          <li><a class="caat-drillnav__link" href="#">Employer News</a></li>
+          <li><a class="caat-drillnav__link" href="#">GROWTHplus</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-investments">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">Investments</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">Approach</a></li>
+          <li><a class="caat-drillnav__link" href="#">Responsible investing</a></li>
+          <li><a class="caat-drillnav__link" href="#">Corporate engagement</a></li>
+          <li><a class="caat-drillnav__link" href="#">Performance</a></li>
+        </ul>
+      </div>
+      <div class="caat-drillnav__panel" id="pmnav-about-us">
+        <button class="caat-drillnav__back" type="button"><i class="bi bi-chevron-left" aria-hidden="true"></i> Back</button>
+        <a class="caat-drillnav__overview" href="#">About us</a>
+        <ul class="caat-drillnav__list">
+          <li><a class="caat-drillnav__link" href="#">CAAT's promise</a></li>
+          <li><a class="caat-drillnav__link" href="#">Participating employers</a></li>
+          <li><a class="caat-drillnav__link" href="#">Annual performance</a></li>
+          <li><a class="caat-drillnav__link" href="#">Leadership and Governance</a></li>
+          <li><a class="caat-drillnav__link" href="#">Legislation and Compliance</a></li>
+          <li><a class="caat-drillnav__link" href="#">Member policies</a></li>
+          <li><a class="caat-drillnav__link" href="#">Contact us</a></li>
+        </ul>
+      </div>
+      </div><!-- /.caat-drillnav -->
+      <div class="mobile-nav-cta">
+        <a href="#cta" class="caat-button caat-button--primary caat-button--full-mobile">Join DBplus</a>
+        <a href="#" class="caat-button caat-button--outline-primary caat-button--full-mobile">
+          <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════════════════════════════════════════════════════
+       BREADCRUMB — required on every L2+ page (chevron, 30-char cap;
+       "OTIP" is the page's short navigation title)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="container pt-4">
+    <nav class="caat-breadcrumb" aria-label="Breadcrumb" data-analytics-component="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pension solutions</a></li>
+        <li class="breadcrumb-item"><a href="#">Why join</a></li>
+        <li class="breadcrumb-item"><a href="#">Success stories</a></li>
+        <li class="breadcrumb-item active" aria-current="page">OTIP</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       L4 PAGE LAYOUT — Side Navigation (left) + article (right)
+       ══════════════════════════════════════════════════════════ -->
+  <div class="container py-4 py-lg-5">
+    <div class="row g-5">
+
+      <!-- Side Navigation — /components/side-nav.html -->
+      <div class="col-lg-3">
+        <nav class="caat-side-nav caat-side-nav--sticky" aria-label="Section navigation" data-analytics-component="side-nav">
+          <a class="caat-side-nav__title" href="#">Why join</a>
+          <ul class="caat-side-nav__list">
+            <li><a class="caat-side-nav__link" href="#">What members get</a></li>
+            <li><a class="caat-side-nav__link" href="#">What employers get</a></li>
+            <li><a class="caat-side-nav__link" href="#">Flexibility</a></li>
+            <li>
+              <a class="caat-side-nav__link" href="#" aria-current="true">Success stories</a>
+              <ul class="caat-side-nav__sublist">
+                    <li><a class="caat-side-nav__link" href="#" aria-current="page">OTIP</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Digital Research Alliance of Canada</a></li>
+                    <li><a class="caat-side-nav__link" href="#">St. John Ambulance</a></li>
+                    <li><a class="caat-side-nav__link" href="#">The City of Whitehorse</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Klos Concepts</a></li>
+                    <li><a class="caat-side-nav__link" href="#">United Way</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Canadian Coalition for Good Governance</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Torstar</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Sanofi</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Postmedia</a></li>
+                    <li><a class="caat-side-nav__link" href="#">The George Hull Centre for Children and Families</a></li>
+                    <li><a class="caat-side-nav__link" href="#">Ontario One Call</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Article column -->
+      <div class="col-lg-9">
+        <article class="caat-stack caat-stack--lg" data-analytics-component="success-story">
+
+          <!-- Page header — Text/Title -->
+          <header class="caat-stack caat-stack--xs">
+            <p class="caat-eyebrow">Success story</p>
+            <h1 class="caat-title caat-title--h1">OTIP Group of Companies levels up to a modern DB pension plan</h1>
+            <p class="caat-text caat-text--lead">Insurance provider improves already impressive total rewards package in efforts to attract and retain top talent.</p>
+          </header>
+
+          <!-- Hero image — Image/Embed, 16:9 -->
+          <figure class="caat-image__figure">
+            <img class="caat-image__img caat-image--16-9"
+                 src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=1600&h=900&q=80"
+                 alt="Happy older couple walking through a sunlit forest trail, smiling and enjoying a nature stroll."
+                 width="1600" height="900" loading="eager">
+          </figure>
+
+          <!-- At-a-glance facts — Stat (light, single stats in a grid) -->
+          <div class="row text-center g-4 py-2 border-top border-bottom" role="group" aria-label="Case study at a glance">
+            <div class="col-md-4">
+              <div class="caat-stat">
+                <span class="caat-stat__value">Finance &amp; Insurance</span>
+                <span class="caat-stat__label">Industry</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="caat-stat">
+                <span class="caat-stat__value">1,000</span>
+                <span class="caat-stat__label">Employees</span>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="caat-stat">
+                <span class="caat-stat__value">DC &rarr; DB</span>
+                <span class="caat-stat__label">Objective: DC plan upgrade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case study body — Text/Title rich-text prose rhythm -->
+          <div class="caat-rich-text">
+            <h2>About OTIP Group of Companies</h2>
+            <p>Starting as a not-for-profit insurance advocate, the OTIP Group of Companies (OGC) has evolved into one of the largest providers of long-term disability, health, and dental insurance in Canada. Today, they are also a leading provider of home, auto, life, and retiree benefits. By partnering with top-tier companies, OGC continues to shape and innovate customized products and services, ensuring they consistently meet the evolving needs of their members.</p>
+
+            <h2>The challenge</h2>
+            <h3>Enhancing employee financial security at no extra cost</h3>
+            <p>Already known for its competitive total compensation package, OGC wanted to further demonstrate its commitment to employees by upgrading its defined contribution (DC) pension plan to a defined benefit (DB) plan.</p>
+            <p>OGC recognized a DB plan would provide its employees with predictable, lifetime retirement income while eliminating the need to make pension-related investment decisions. They believed this enhancement would boost employee engagement and strengthen attraction and retention efforts.</p>
+            <p>However, they were concerned about the costs and administrative complexities often tied to traditional DB pensions. Focused on improving retirement security, OGC meticulously researched its workplace pension options to find the best value for both the organization and its workforce.</p>
+
+            <h2>The solution</h2>
+            <h3>Meeting high expectations with DBplus</h3>
+            <p>CAAT Pension Plan&rsquo;s modern and innovative DBplus plan design checked all the boxes on OGC&rsquo;s pension checklist. Implementing DBplus meant OGC would gain fixed contribution costs and eliminate the need to manage its legacy DC plan. Employees, in turn, would benefit from a secure retirement income without the worry of outliving their retirement savings.</p>
+            <p>CAAT&rsquo;s onboarding team further supported OGC by providing a due diligence package along with multiple webinars and information sessions for both employers and employees. These educational resources helped OGC make an informed decision that aligned with its organizational goals and employee needs.</p>
+
+            <h2>The results</h2>
+            <h3>Boosting employee engagement and growing together</h3>
+            <p>Initially, 677 full-time OGC employees enrolled in DBplus, with part-time and contract staff also invited to participate. Since joining CAAT, OGC has grown significantly, acquiring nine brokerages and expanding its workforce to 1,128.</p>
+            <p>OGC credited DBplus with improving employee well-being, engagement and organizational culture.</p>
+            <p>In 2023, three years after implementing DBplus, OGC reported an increase in its Employee Engagement Survey results. When asked to respond to the statement, &ldquo;I am satisfied with the benefits I receive at this company,&rdquo; 90% of employees agreed, exceeding the global norm by 23%.</p>
+          </div>
+
+          <!-- Results by the numbers — Stat strip (brand band) -->
+          <div class="caat-stat-strip" role="group" aria-label="Results by the numbers">
+            <div class="caat-stat-item">
+              <span class="caat-stat__value">677</span>
+              <span class="caat-stat__label">Employees enrolled at launch</span>
+            </div>
+            <div class="caat-stat-item">
+              <span class="caat-stat__value">1,128</span>
+              <span class="caat-stat__label">Workforce after growth</span>
+            </div>
+            <div class="caat-stat-item">
+              <span class="caat-stat__value">90%</span>
+              <span class="caat-stat__label">Satisfied with their benefits</span>
+            </div>
+            <div class="caat-stat-item">
+              <span class="caat-stat__value">+23%</span>
+              <span class="caat-stat__label">Above the global norm</span>
+            </div>
+          </div>
+
+          <!-- Supporting image — Image/Embed, 3:2 -->
+          <figure class="caat-image__figure">
+            <img class="caat-image__img caat-image--3-2"
+                 src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&h=800&q=80"
+                 alt="Smiling multigenerational family of four posing together outdoors in front of autumn-coloured trees."
+                 width="1200" height="800" loading="lazy">
+          </figure>
+
+          <div class="caat-rich-text">
+            <p>OGC also highlighted CAAT&rsquo;s exceptional support and service, ensuring a smooth transition and fostering a strong ongoing partnership.</p>
+          </div>
+
+          <!-- Quote — Testimonial (composes Avatar) -->
+          <figure class="caat-testimonial" data-analytics-component="testimonial">
+            <blockquote class="caat-testimonial__quote">
+              <p>&ldquo;The OTIP Group of Companies is proud to partner with CAAT to provide our employees with the security of a defined benefit (DB) pension plan. When employees feel valued and supported, especially with financial stability, they are empowered to bring their best selves to work each day. This commitment to their long-term financial well-being fosters higher engagement and productivity, ultimately strengthening the entire organization.&rdquo;</p>
+            </blockquote>
+            <figcaption class="caat-testimonial__attribution">
+              <span class="caat-avatar caat-avatar--initials" aria-hidden="true">LM</span>
+              <span class="caat-testimonial__name">Lisa McLean</span>
+              <span class="caat-testimonial__role">Executive Vice President, OTIP Group of Companies</span>
+            </figcaption>
+          </figure>
+
+          <!-- Why DBplus — section tier (grey band) + rich text -->
+          <section class="caat-section--grey rounded-3 p-4 p-lg-5" aria-labelledby="why-dbplus-heading">
+            <div class="caat-stack caat-stack--sm">
+              <p class="caat-eyebrow">Seeking a flexible pension plan for modern needs</p>
+              <h2 class="caat-title caat-title--h3" id="why-dbplus-heading">Why organizations like OGC choose DBplus</h2>
+              <div class="caat-rich-text">
+                <p>With its flexibility and innovation, CAAT&rsquo;s DBplus pension plan design is able to meet the unique needs and budgetary requirements of all kinds of organizations, by offering:</p>
+                <ul>
+                  <li>Fixed costs</li>
+                  <li>No administrative or service fees</li>
+                  <li>Simple accounting</li>
+                  <li>Communication and education services</li>
+                  <li>Valuable benefits that meet employee expectations</li>
+                </ul>
+                <p>DBplus enables organizations across Canada to offer a world-class pension to give employees what they want and need &mdash; at affordable contribution levels.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- CTA — brand band -->
+          <section class="caat-section--brand rounded-3 p-4 p-lg-5" aria-labelledby="cta-heading">
+            <div class="caat-cta caat-cta--on-brand" data-analytics-component="cta">
+              <h2 class="caat-title caat-title--h3" id="cta-heading">Let&rsquo;s build financial security together</h2>
+              <p class="caat-cta__text">Connect with CAAT to learn how we can help you integrate a modern, sustainable retirement solution into your talent and benefits strategy.</p>
+              <div class="caat-cta__actions">
+                <a href="#" class="caat-button caat-button--primary">Talk to us today</a>
+                <a href="#" class="caat-button caat-button--outline-white">Learn more about CAAT&rsquo;s solutions</a>
+              </div>
+              <p class="caat-cta__disclaimer">
+                <a href="#" target="_blank" rel="noopener">Follow CAAT on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span> <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a><br>
+                Secure. Scalable. Ready for what&rsquo;s next.
+              </p>
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="caat-footer" role="contentinfo" data-analytics-component="footer">
+  <div class="container">
+
+    <div class="caat-footer__top">
+      <div class="caat-footer__newsletter">
+        <p class="caat-footer__newsletter-title">Stay informed</p>
+        <p class="caat-footer__newsletter-text">Pension news, events, and resources — a few times a year.</p>
+        <form class="caat-footer__newsletter-form" action="#" aria-label="Newsletter signup">
+          <label class="visually-hidden" for="pm-footer-email">Email address</label>
+          <input class="form-control" id="pm-footer-email" type="email" placeholder="you@example.com" required>
+          <button class="caat-button caat-button--primary" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <a class="caat-footer__backtotop" href="#main"><i class="bi bi-arrow-up-short" aria-hidden="true"></i> Back to top</a>
+    </div>
+
+    <div class="caat-footer__grid">
+      <nav class="caat-footer__col" aria-labelledby="pmf-quick">
+        <h2 class="caat-footer__heading" id="pmf-quick">Quick Links</h2>
+        <ul class="caat-footer__list">
+          <li><a href="#">Estimate your pension</a></li>
+          <li><a href="#">Make a purchase</a></li>
+          <li><a href="#">Plan Ambassadors</a></li>
+          <li><a href="#">Employers</a></li>
+          <li><a href="#">Employer education</a></li>
+        </ul>
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-solutions">
+        <h2 class="caat-footer__heading" id="pmf-solutions">Pension Solutions</h2>
+        <ul class="caat-footer__list">
+          <li><a href="#">Why join DBplus?</a></li>
+          <li><a href="#">How to join DBplus</a></li>
+          <li><a href="#">What employers get</a></li>
+          <li><a href="#">What employees get</a></li>
+          <li><a href="#">Success stories</a></li>
+          <li><a href="#">Resources for interested parties</a></li>
+        </ul>
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-your">
+        <h2 class="caat-footer__heading" id="pmf-your">Your Pension</h2>
+        <ul class="caat-footer__list">
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Member resources</a></li>
+          <li><a href="#">Start your pension</a></li>
+          <li><a href="#">Collecting your pension</a></li>
+          <li><a href="#">Member newsletters</a></li>
+        </ul>
+      </nav>
+      <nav class="caat-footer__col" aria-labelledby="pmf-contact">
+        <h2 class="caat-footer__heading" id="pmf-contact">Contact Us</h2>
+        <ul class="caat-footer__list">
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Newsroom</a></li>
+          <li><a href="#">Support Centre</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="caat-footer__bottom">
+      <a href="/" class="caat-footer__logo" aria-label="CAAT Pension Plan — Home">
+        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="56">
+      </a>
+      <nav class="caat-footer__legal" aria-label="Legal links">
+        <a href="#">Site map</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Accessibility</a>
+      </nav>
+      <div class="caat-footer__meta">
+        <div class="caat-footer__lang">
+          <a href="#" aria-current="true" lang="en">EN</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" lang="fr" hreflang="fr">FR</a>
+        </div>
+        <div class="caat-footer__social caat-social-links">
+          <a href="https://www.linkedin.com/company/caat-pension-plan/" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand caat-social--linkedin" aria-label="CAAT on LinkedIn (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="https://www.youtube.com/@CAATPensionPlanYoutube" class="caat-icon-btn caat-icon-btn--circle caat-icon-btn--brand caat-social--youtube" aria-label="CAAT on YouTube (opens in a new tab)" target="_blank" rel="noopener"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="caat-footer__copyright"><small>&copy; 2026 CAAT Pension Plan. All Rights Reserved.</small></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/components/navigation.js"></script>
+<script src="/assets/js/components/button.js"></script>
+</body>
+</html>

@@ -35,3 +35,12 @@
 /* On a brand (dark) section, lift the copy to inverse */
 .caat-section--brand .caat-cta__text,
 .caat-cta--on-brand .caat-cta__text { color: var(--caat-color-text-inverse-muted); }
+.caat-section--brand .caat-cta__disclaimer,
+.caat-cta--on-brand .caat-cta__disclaimer {
+  color: var(--caat-color-text-inverse-dim);
+  border-top-color: var(--caat-color-border-inverse);
+}
+.caat-section--brand .caat-cta__disclaimer a,
+.caat-cta--on-brand .caat-cta__disclaimer a {
+  color: var(--caat-color-text-inverse);
+}
