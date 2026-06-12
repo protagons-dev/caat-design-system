@@ -12,6 +12,14 @@
 .caat-section--sm { padding: var(--caat-space-7) 0; }
 .caat-section--lg { padding: var(--caat-space-9) 0; }
 
+/* Mobile: compress vertical rhythm one step (see Responsive foundation).
+   Desktop 64/48/96px -> mobile 48/32/64px. */
+@media (max-width: 767.98px) {
+  .caat-section { padding: var(--caat-space-7) 0; }
+  .caat-section--sm { padding: var(--caat-space-6) 0; }
+  .caat-section--lg { padding: var(--caat-space-8) 0; }
+}
+
 /* Background tiers — alternate to separate sections (no rules/fences) */
 .caat-section--grey  { background: var(--caat-color-bg-subtle); }
 .caat-section--beige { background: var(--caat-beige); }

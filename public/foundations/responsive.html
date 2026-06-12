@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Responsive foundations. Breakpoint standard, mobile/tablet/desktop design tiers, authoring conventions, and the per-component state matrix.">
+<title>Responsive | CAAT Design System — Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/separator.css" rel="stylesheet">
+<style>
+/* ── Responsive demo styles (doc chrome) ── */
+.tier-band {
+  display: grid;
+  grid-template-columns: 7.2fr 2.2fr 4.1fr;
+  border: 2px dashed var(--caat-grey-300);
+  border-radius: var(--caat-radius);
+  overflow: hidden;
+  font-size: var(--caat-font-size-2xs);
+  font-weight: 700;
+  text-align: center;
+}
+.tier-band > div { padding: 1rem .5rem; }
+.tier-band__mobile  { background: var(--caat-blue-100); }
+.tier-band__tablet  { background: var(--caat-green-100); }
+.tier-band__desktop { background: var(--caat-beige); }
+.tier-band small { display: block; font-weight: 400; color: var(--caat-color-text-muted); }
+.bp-ruler {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--caat-font-size-2xs);
+  color: var(--caat-color-text-muted);
+  padding: .25rem .25rem 0;
+}
+.matrix-table td, .matrix-table th { vertical-align: middle; font-size: var(--caat-font-size-xs); }
+.matrix-table td:first-child { white-space: nowrap; font-weight: 700; }
+.query-ok   { color: var(--caat-success); font-weight: 700; }
+.query-bad  { color: var(--caat-danger); font-weight: 700; }
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE BODY -->
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+      <a class="nav-link" href="/foundations/interaction-states.html">Interaction States</a>
+      <a class="nav-link" href="/foundations/card-image-ratios.html">Card Image Ratios</a>
+      <a class="nav-link active" href="/foundations/responsive.html">Responsive</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#breakpoints">Breakpoint Standard</a>
+      <a class="nav-link" href="#tiers">Design Tiers</a>
+      <a class="nav-link" href="#tier-plan">Mobile / Tablet / Desktop Plan</a>
+      <a class="nav-link" href="#authoring">Authoring Rules</a>
+      <a class="nav-link" href="#matrix">Component State Matrix</a>
+      <a class="nav-link" href="#navigation-states">Navigation Walkthrough</a>
+      <a class="nav-link" href="#qa">QA Checklist</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="component-page-main">
+
+    <p class="eyebrow">Foundations</p>
+    <h1 class="mb-3">Responsive</h1>
+    <p class="lead mb-4">One breakpoint scale, three design tiers, one authoring convention. The grid is Bootstrap&rsquo;s and is mobile-first; component CSS layers a small set of desktop-first overrides on top. This page is the single source of truth for how anything in the system behaves across viewports.</p>
+
+    <!-- ══════════════════════════════════════════════════════
+         OVERVIEW
+         ══════════════════════════════════════════════════════ -->
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <ul>
+        <li><strong>The scale is Bootstrap 5&rsquo;s.</strong> 576 / 768 / 992 / 1200 / 1400&nbsp;px. We add no custom cuts and remove none.</li>
+        <li><strong>Three design tiers, not five.</strong> Designers plan three layouts — <em>Mobile</em>, <em>Tablet</em>, <em>Desktop</em>. The xs/sm split and xl/xxl steps are refinements (tight-phone tweaks, container width), never separate layouts.</li>
+        <li><strong>Markup first.</strong> Column behaviour belongs in Bootstrap grid classes (<code>col-12 col-md-6 col-lg-4</code>). Component CSS only handles what the grid can&rsquo;t: structural reflows, density changes, repositioning.</li>
+        <li><strong>Intrinsic before breakpoints.</strong> Prefer <code>repeat(auto-fit, minmax())</code>, <code>flex-wrap</code>, and <code>clamp()</code> — half the system&rsquo;s components (badge, alert, modal, forms&hellip;) need <em>no</em> width media query because their layout is intrinsic or grid-driven. That is the goal state, not a gap.</li>
+        <li><strong>Tokens can&rsquo;t enter media queries</strong> (a CSS limitation), so the canonical values live here and as a reference block in <code>tokens.css</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         BREAKPOINT STANDARD
+         ══════════════════════════════════════════════════════ -->
+    <section id="breakpoints" class="mb-5">
+      <h2>Breakpoint Standard</h2>
+      <div class="table-responsive mb-3">
+        <table class="table table-bordered">
+          <thead><tr><th>Key</th><th>Min width</th><th>Design tier</th><th>What changes here</th></tr></thead>
+          <tbody>
+            <tr><td><code>xs</code></td><td>0</td><td rowspan="2">Mobile</td><td>Base layout: single column, stacked nav, compressed rhythm</td></tr>
+            <tr><td><code>sm</code></td><td>576&nbsp;px</td><td>Refinement only — wider cards, inline pagination, restored hero radius</td></tr>
+            <tr><td><code>md</code></td><td>768&nbsp;px</td><td>Tablet</td><td>Two-column grids, side-by-side media, restored section rhythm</td></tr>
+            <tr><td><code>lg</code></td><td>992&nbsp;px</td><td rowspan="3">Desktop</td><td><strong>The big switch:</strong> full navigation bar + mega menu, hero overlay positioning, sidebars, 3&ndash;4 column grids</td></tr>
+            <tr><td><code>xl</code></td><td>1200&nbsp;px</td><td>Container widens to 1140&nbsp;px — no layout change</td></tr>
+            <tr><td><code>xxl</code></td><td>1400&nbsp;px</td><td>Container widens to 1320&nbsp;px — no layout change</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tier-band mb-1" aria-hidden="true">
+        <div class="tier-band__mobile">MOBILE<small>0 &ndash; 767.98</small></div>
+        <div class="tier-band__tablet">TABLET<small>768 &ndash; 991.98</small></div>
+        <div class="tier-band__desktop">DESKTOP<small>&ge; 992 (xl/xxl widen container)</small></div>
+      </div>
+      <div class="bp-ruler mb-4" aria-hidden="true"><span>0</span><span>576</span><span>768</span><span>992</span><span>1200</span><span>1400&nbsp;px</span></div>
+
+      <h3 class="h5 mb-2">The <code>.98px</code> convention</h3>
+      <p>Max-width queries always subtract <code>.02px</code> from the next breakpoint (<code>575.98 / 767.98 / 991.98</code>) — Bootstrap&rsquo;s own convention. A <code>max-width: 992px</code> query and a <code>min-width: 992px</code> query are <em>both true</em> at exactly 992&nbsp;px and double-fire; the <code>.98</code> form makes that impossible.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         DESIGN TIERS
+         ══════════════════════════════════════════════════════ -->
+    <section id="tiers" class="mb-5">
+      <h2>Design Tiers</h2>
+      <p>Every page and component is designed at three widths. Hand off three artboards — <strong>375&nbsp;px (Mobile), 834&nbsp;px (Tablet), 1440&nbsp;px (Desktop)</strong> — and rely on the rules below for everything in between.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th></th><th>Mobile &lt;&nbsp;768</th><th>Tablet 768&ndash;991.98</th><th>Desktop &ge;&nbsp;992</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Design artboard</strong></td><td>375&nbsp;px</td><td>834&nbsp;px</td><td>1440&nbsp;px</td></tr>
+            <tr><td><strong>Columns</strong></td><td>1 (<code>col-12</code>)</td><td>2 (<code>col-md-6</code>)</td><td>3&ndash;4 (<code>col-lg-4</code> / <code>col-lg-3</code>)</td></tr>
+            <tr><td><strong>Navigation</strong></td><td>Collapsed (toggler)</td><td>Collapsed (toggler)</td><td>Full bar + mega menu</td></tr>
+            <tr><td><strong>Section rhythm</strong></td><td>48&nbsp;px (<code>--caat-space-7</code>)</td><td colspan="2">64&nbsp;px (<code>--caat-space-8</code>)</td></tr>
+            <tr><td><strong>Display type</strong></td><td>2.5&nbsp;rem</td><td colspan="2">3.5&nbsp;rem (<code>--caat-font-size-5xl</code>)</td></tr>
+            <tr><td><strong>Hero card</strong></td><td colspan="2">Stacked below media (negative-margin overlap)</td><td>Absolute overlay on media</td></tr>
+            <tr><td><strong>Touch targets</strong></td><td colspan="2">&ge; 44&times;44&nbsp;px</td><td>&ge; 24&times;24&nbsp;px (aim 44)</td></tr>
+            <tr><td><strong>Hover effects</strong></td><td colspan="2">Never required to discover or operate anything (touch)</td><td>Lift tiers per Interaction States</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         TIER PLAN
+         ══════════════════════════════════════════════════════ -->
+    <section id="tier-plan" class="mb-5">
+      <h2>Mobile / Tablet / Desktop Plan</h2>
+
+      <h3 class="h5 mt-3 mb-2"><i class="bi bi-phone me-1"></i> Mobile (&lt;&nbsp;768&nbsp;px) — linearize and compress</h3>
+      <ul>
+        <li>Everything single-column; source order is reading order (the grid never reorders content except <code>order</code> utilities used deliberately, e.g. feature-hero preview moves above text).</li>
+        <li>Section padding compresses one spacing step (64&rarr;48, 96&rarr;64, 48&rarr;32&nbsp;px) — <code>layout.css</code> does this automatically.</li>
+        <li>Display headings step down (3.5&rarr;2.5&nbsp;rem); body sizes never change.</li>
+        <li>Buttons may go full-width via <code>.caat-button--full-mobile</code>; pagination switches to the compact wrapper; breadcrumbs scroll horizontally rather than wrap.</li>
+        <li>Tables use <code>.caat-table--stacked</code> (label/value rows) or live in a scroll container — never shrink type to fit.</li>
+        <li>Stat strips, footer columns, video rows, download rows: stack vertically.</li>
+      </ul>
+
+      <h3 class="h5 mt-4 mb-2"><i class="bi bi-tablet me-1"></i> Tablet (768&ndash;991.98&nbsp;px) — two columns, still collapsed nav</h3>
+      <ul>
+        <li>Grids move to two columns (<code>col-md-6</code>); footer link columns go 2-up; logo wall at mid density.</li>
+        <li>Navigation is <em>still collapsed</em> — the full bar with mega menu needs &ge;&nbsp;992&nbsp;px. Don&rsquo;t design tablet layouts that assume visible top-level links.</li>
+        <li>Hero remains stacked; side-by-side media layouts (feature-hero) come back at this tier.</li>
+        <li>Full section rhythm (64&nbsp;px) resumes at 768&nbsp;px.</li>
+      </ul>
+
+      <h3 class="h5 mt-4 mb-2"><i class="bi bi-display me-1"></i> Desktop (&ge;&nbsp;992&nbsp;px) — full layout</h3>
+      <ul>
+        <li>The lg cut is the system&rsquo;s one &ldquo;big switch&rdquo;: full navigation bar, mega menu (full-width dropdown via static positioning), hero card becomes an absolute overlay, article sidebar appears, 3&ndash;4 column grids.</li>
+        <li>xl / xxl change <em>only</em> the container max-width (1140 / 1320&nbsp;px). If a design needs a layout change above 992&nbsp;px, question the design before adding a query.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         AUTHORING RULES
+         ══════════════════════════════════════════════════════ -->
+    <section id="authoring" class="mb-5">
+      <h2>Authoring Rules</h2>
+      <p>Component CSS may use <strong>only</strong> these five query shapes:</p>
+<pre class="bg-light p-3 rounded"><code>@media (max-width: 575.98px)  { /* narrow-mobile refinement      */ }
+@media (max-width: 767.98px)  { /* mobile (below tablet)         */ }
+@media (max-width: 991.98px)  { /* mobile + tablet (below desktop) */ }
+@media (min-width: 992px)     { /* desktop-only enhancement      */ }
+@media (min-width: 768px) and (max-width: 991.98px) { /* tablet-only */ }</code></pre>
+      <ul>
+        <li><span class="query-ok">Do</span> reach for intrinsic patterns first: <code>repeat(auto-fit, minmax(16rem, 1fr))</code> (card grid), <code>flex-wrap</code> (CTA actions), <code>clamp()</code> (feature-hero title). No query needed, no tier to maintain.</li>
+        <li><span class="query-ok">Do</span> put column behaviour in markup with Bootstrap grid classes; the component stylesheet shouldn&rsquo;t re-implement the grid.</li>
+        <li><span class="query-ok">Do</span> use the <code>.98px</code> form on every max-width query.</li>
+        <li><span class="query-bad">Don&rsquo;t</span> invent off-scale cuts (no <code>max-width: 640px</code>, no <code>900px</code>). If a component &ldquo;needs&rdquo; one, its base layout is wrong.</li>
+        <li><span class="query-bad">Don&rsquo;t</span> hide content at a breakpoint that has no equivalent elsewhere (mega-menu promos are the only sanctioned example — they collapse to plain links).</li>
+        <li><span class="query-bad">Don&rsquo;t</span> change <em>behaviour</em> with CSS alone — anything stateful across breakpoints (nav collapse) must keep its ARIA contract at every width.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         COMPONENT STATE MATRIX
+         ══════════════════════════════════════════════════════ -->
+    <section id="matrix" class="mb-5">
+      <h2>Component State Matrix</h2>
+      <p class="text-muted">What actually changes, per component, at each tier. Components not listed are intrinsic / grid-driven and render identically at every width. &ldquo;&mdash;&rdquo; = no change from the previous tier.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered matrix-table">
+          <thead><tr><th>Component</th><th>Mobile &lt;&nbsp;768</th><th>Tablet 768&ndash;991.98</th><th>Desktop &ge;&nbsp;992</th></tr></thead>
+          <tbody>
+            <tr><td>Navigation</td><td>Collapsed behind toggler; mega menu hidden; offcanvas panel (slides from the end) with accordion sub-navigation mirroring the desktop hierarchy</td><td>&mdash;</td><td>Full bar; mega menu opens as a full-width dropdown (<code>position: static</code> enabler)</td></tr>
+            <tr><td>Layout / sections</td><td>Rhythm compressed one step (48/32/64&nbsp;px)</td><td>Full rhythm (64/48/96&nbsp;px)</td><td>&mdash;</td></tr>
+            <tr><td>Hero</td><td>Media 14&ndash;18&nbsp;rem tall; card stacked below with negative-margin overlap; smaller radius &amp; padding &lt;&nbsp;576</td><td>Media 18&nbsp;rem; card still stacked</td><td>Media 22&nbsp;rem; card absolutely positioned over media</td></tr>
+            <tr><td>Feature/Resource Hero</td><td>Single column, centred; preview image moves above text (<code>order: -1</code>), max 12&nbsp;rem; accent border moves left&rarr;top</td><td>Two-column grid returns</td><td>&mdash;</td></tr>
+            <tr><td>Card grid</td><td>1-up &lt;&nbsp;576 (auto-fit handles 576&ndash;767)</td><td>Auto-fit 2&ndash;3-up</td><td>Auto-fit 3&ndash;4-up</td></tr>
+            <tr><td>Blog listing</td><td>1-up &lt;&nbsp;576; featured card stacks; list-view rows stack</td><td>2-up</td><td>3-up</td></tr>
+            <tr><td>Footer</td><td>1 link column &lt;&nbsp;576; bottom row stacks left-aligned</td><td>2 link columns</td><td>4 link columns; bottom row logo&nbsp;&middot;&nbsp;legal&nbsp;&middot;&nbsp;social</td></tr>
+            <tr><td>Stat strip</td><td>Vertical stack &lt;&nbsp;576, dividers rotate to horizontal</td><td>Horizontal row</td><td>&mdash;</td></tr>
+            <tr><td>Tables</td><td><code>--stacked</code> variant: header row hidden, cells become label/value pairs</td><td>Standard table</td><td>&mdash;</td></tr>
+            <tr><td>Testimonials</td><td>Single column; carousel item padding reduced</td><td>Grid 2-up</td><td>&mdash;</td></tr>
+            <tr><td>Download list</td><td>Rows stack; action button full-width</td><td>Inline rows</td><td>&mdash;</td></tr>
+            <tr><td>Tabs (vertical)</td><td>Pill rail rotates to a horizontal wrapping row above the panel</td><td>Side-by-side rail + panel</td><td>&mdash;</td></tr>
+            <tr><td>Pagination</td><td>Compact &lt;&nbsp;576: smaller targets, wrapper centres</td><td>Full size</td><td>&mdash;</td></tr>
+            <tr><td>Breadcrumb</td><td>Horizontal scroll &lt;&nbsp;576 (no wrap)</td><td>Inline</td><td>&mdash;</td></tr>
+            <tr><td>Logo wall</td><td>2-up grid</td><td>3-up (tablet-only query)</td><td>4&ndash;6-up</td></tr>
+            <tr><td>Article layout</td><td colspan="2">Sidebar stacks below article (&lt;&nbsp;992)</td><td>Two-column with sticky sidebar</td></tr>
+            <tr><td>Text / Title</td><td>Display 3.5&rarr;2.5&nbsp;rem</td><td>Full scale</td><td>&mdash;</td></tr>
+            <tr><td>Data visualization</td><td>Bar rows stack; labels above bars</td><td>Inline rows</td><td>&mdash;</td></tr>
+            <tr><td>Image / Embed</td><td>Corner radius halves &lt;&nbsp;576 (denser frame)</td><td>Standard radius</td><td>&mdash;</td></tr>
+            <tr><td>Buttons</td><td><code>--full-mobile</code> goes 100% width &lt;&nbsp;576</td><td>Auto width</td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         NAVIGATION WALKTHROUGH
+         ══════════════════════════════════════════════════════ -->
+    <section id="navigation-states" class="mb-5">
+      <h2>Navigation Across Breakpoints — Walkthrough</h2>
+      <p>The navigation is the system&rsquo;s most state-rich responsive component; use it as the reference pattern.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Width</th><th>State</th><th>Mechanics</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>&lt;&nbsp;992&nbsp;px</td>
+              <td><strong>Collapsed</strong></td>
+              <td><code>navbar-expand-lg</code> hides the link bar; the toggler (with <code>aria-expanded</code> + <code>aria-controls</code>) opens the mobile menu — per the Navigation contract, an offcanvas panel (default: slides from the end) whose accordion groups mirror the desktop hierarchy. The mega-menu markup is <code>display:&nbsp;none</code> at this width, so no destination is lost, only the promo layout. Utility bar items stay visible above the brand row.</td>
+            </tr>
+            <tr>
+              <td>&ge;&nbsp;992&nbsp;px</td>
+              <td><strong>Full bar</strong></td>
+              <td>Toggler hidden; links inline. Dropdown parents switch to <code>position:&nbsp;static</code> (the <code>min-width: 992px</code> enhancement) so the mega menu can span the full bar width. Open/close, <kbd>Escape</kbd>, and focus return are Bootstrap-native — identical at every width.</td>
+            </tr>
+            <tr>
+              <td>All widths</td>
+              <td><strong>Invariants</strong></td>
+              <td>Sticky header (<code>--caat-z-sticky</code>), skip link first in tab order, <code>aria-current="page"</code> on the active item, focus ring per Interaction States. Breakpoint changes never alter the ARIA contract — they only change geometry.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         QA CHECKLIST
+         ══════════════════════════════════════════════════════ -->
+    <section id="qa" class="mb-5">
+      <h2>QA Checklist</h2>
+      <ul class="list-unstyled">
+        <li>☐ Page reviewed at 375, 576, 768, 834, 992, 1200 and 1440&nbsp;px — and <em>at</em> each cut (991&nbsp;px and 992&nbsp;px both look intentional).</li>
+        <li>☐ Only the five sanctioned query shapes appear in component CSS; every max-width uses the <code>.98px</code> form.</li>
+        <li>☐ No horizontal scrollbar at any width &ge;&nbsp;320&nbsp;px (except sanctioned scroll patterns: breadcrumb, table scroll container).</li>
+        <li>☐ Nothing reachable on desktop is unreachable on mobile (mega-menu promos may simplify, never disappear as destinations).</li>
+        <li>☐ Touch targets &ge;&nbsp;44&times;44&nbsp;px below 992&nbsp;px.</li>
+        <li>☐ Section rhythm compresses on mobile (via <code>layout.css</code>) — no template re-implements it.</li>
+        <li>☐ ARIA state (expanded/current/busy) behaves identically at every width.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer class="border-top py-4 mt-5">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <span class="text-muted">CAAT Design System — Foundations</span>
+    <span>
+      <a href="/foundations/design-tokens.html" class="me-3">Design Tokens</a>
+      <a href="/foundations/page-layout.html" class="me-3">Page Layout</a>
+      <a href="/components/">Components</a>
+    </span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

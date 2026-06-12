@@ -209,6 +209,22 @@
      these are documentation of the values we design to. They match
      Bootstrap 5 — keep using Bootstrap's grid/utility breakpoints:
        sm 576px · md 768px · lg 992px · xl 1200px · xxl 1400px
+
+     DESIGN TIERS (see foundations/responsive.html — the standard):
+       MOBILE   < 768px           (xs + sm)
+       TABLET   768 – 991.98px    (md)
+       DESKTOP  ≥ 992px           (lg; xl/xxl only widen the container)
+
+     AUTHORING CONVENTION — component CSS may use ONLY these queries:
+       @media (max-width: 575.98px)   narrow-mobile refinements
+       @media (max-width: 767.98px)   below tablet (mobile)
+       @media (max-width: 991.98px)   below desktop (mobile + tablet)
+       @media (min-width: 992px)      desktop-only enhancements
+       @media (min-width: 768px) and (max-width: 991.98px)  tablet-only
+     Always the .98px form on max-width (Bootstrap convention) so a
+     min-width rule at the same cut can never double-fire. Prefer
+     intrinsic responsiveness (auto-fit grids, flex-wrap, clamp())
+     before reaching for a media query.
      ──────────────────────────────────────────────────────────── */
 
 
