@@ -55,9 +55,15 @@
 .caat-stat-card .caat-stat__value { font-size: 3rem;  /* matches --xl */ color: var(--caat-color-text-inverse); }
 .caat-stat-card .caat-stat__label { color: var(--caat-color-text-inverse-muted); }
 
-/* ── Strip — a row of stats with dividers (dark band, e.g. hero) ── */
+/* ── Strip — a row of stats with dividers (dark band, e.g. hero) ──
+   RULE: maximum 3 stats per strip. Four columns break at tablet
+   widths (768–991px) — labels collide with the dividers. Authoring
+   validation rejects a 4th; flex-wrap below is only the defensive
+   degradation for non-conforming content. */
 .caat-stat-strip {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--caat-space-4);
   justify-content: center;
   background: var(--caat-color-bg-brand);
   color: var(--caat-color-text-inverse);

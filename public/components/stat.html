@@ -111,7 +111,6 @@
           <div class="caat-stat"><span class="caat-stat__value">$4.2<small>B</small></span><span class="caat-stat__label">Plan assets</span></div>
           <div class="caat-stat"><span class="caat-stat__value">100%</span><span class="caat-stat__label">Funded</span></div>
           <div class="caat-stat"><span class="caat-stat__value">95k+</span><span class="caat-stat__label">Members</span></div>
-          <div class="caat-stat"><span class="caat-stat__value">1967</span><span class="caat-stat__label">Established</span></div>
         </div>
       </div></div>
     </section>
@@ -172,7 +171,15 @@
     <!-- ════ 4. VALIDATION ════ -->
     <section class="contract-section" id="validation">
       <h2>4. Validation Rules</h2>
-      <p>No author-managed content beyond an accessible label, so there are no authoring validation rules. Accessibility requirements are covered in Section 8 (Accessibility).</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Rule</th><th>Behaviour</th></tr></thead>
+          <tbody>
+            <tr><td>Strip: maximum 3 stats</td><td>The strip multifield rejects a 4th entry — four columns break at tablet widths (768&ndash;991&nbsp;px). Need more figures? Use stat cards in a grid instead.</td></tr>
+            <tr><td>Accessible label</td><td>The strip container requires an <code>aria-label</code> (e.g. "Results by the numbers").</td></tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ════ 5. CONTENT GUIDANCE ════ -->
@@ -180,7 +187,7 @@
       <h2>5. Content Guidance</h2>
       <ul>
         <li>Lead with the number; keep labels to 1–3 words ("Plan assets", "Funded").</li>
-        <li>Use a strip of 3–5 stats for impact; more than 5 reads as a table.</li>
+        <li>Use a strip of <strong>2&ndash;3 stats (3 max)</strong> for impact — four breaks at tablet widths. More figures belong in stat cards or a table.</li>
         <li>Round figures for scannability ("$4.2B", "95k+") and keep precise data for charts/tables.</li>
       </ul>
     </section>
