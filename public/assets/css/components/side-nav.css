@@ -3,11 +3,9 @@
    AEM client library: caat/components/side-nav/clientlibs/css
    Depends on: tokens.css (consumes SEMANTIC tokens)
 
-   Left-hand section navigation for Level 3 / Level 4 pages
-   (see the Navigation Model in the Navigation contract):
-   shows the L2 section title, its L3 children, and — under the
-   active L3 item only — that item's L4 children. The mega nav
-   stops at L3; this component is where L4 lives on desktop.
+   Left-hand navigation for the current Level 3 branch. It shows
+   only that branch's Level 4 pages. Higher levels remain available
+   through the mega navigation and breadcrumb.
    ============================================================ */
 
 .caat-side-nav {
@@ -21,27 +19,19 @@
   top: 5rem;   /* matches global scroll-padding-top */
 }
 
-/* ── Section title — links to the L2 section landing page ───── */
-.caat-side-nav__title {
-  display: block;
+/* ── Current L3 branch label — context only, not a link ─────── */
+.caat-side-nav__heading {
   font-size: var(--caat-font-size-md);
   font-weight: var(--caat-weight-extrabold);
   color: var(--caat-color-text-heading);
-  text-decoration: none;
   padding: var(--caat-space-2) var(--caat-space-3);
   border-bottom: var(--caat-border-2) solid var(--caat-color-border);
   margin-bottom: var(--caat-space-2);
-}
-.caat-side-nav__title:hover { color: var(--caat-color-text-link-hover); }
-.caat-side-nav__title:focus-visible {
-  outline: 0;
-  box-shadow: var(--caat-color-focus-ring);
-  border-radius: var(--caat-radius-sm);
+  line-height: var(--caat-leading-heading);
 }
 
-/* ── L3 list ─────────────────────────────────────────────────── */
-.caat-side-nav__list,
-.caat-side-nav__sublist {
+/* ── Current branch's L4 list ────────────────────────────────── */
+.caat-side-nav__list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -67,30 +57,10 @@
   box-shadow: var(--caat-color-focus-ring);
 }
 
-/* Current page / current ancestor — rendered server-side with
-   aria-current="page" (the page itself) or aria-current="true"
-   (an ancestor whose child list contains the current page). */
-.caat-side-nav__link[aria-current] {
+/* Current L4 page — rendered server-side. */
+.caat-side-nav__link[aria-current="page"] {
   border-left-color: var(--caat-color-action-primary);
   color: var(--caat-color-text-heading);
-  font-weight: var(--caat-weight-bold);
-  background: var(--caat-color-bg-brand-subtle);
-}
-
-/* ── L4 sublist — present ONLY under the active L3 item ─────── */
-.caat-side-nav__sublist {
-  margin: var(--caat-space-1) 0 var(--caat-space-2);
-  border-left: var(--caat-border-1) solid var(--caat-color-border);
-  margin-left: var(--caat-space-3);
-}
-.caat-side-nav__sublist .caat-side-nav__link {
-  font-size: var(--caat-font-size-xs);
-  font-weight: var(--caat-weight-regular);
-  padding: var(--caat-space-1) var(--caat-space-3);
-  border-left: 0;
-  border-radius: var(--caat-radius-sm);
-}
-.caat-side-nav__sublist .caat-side-nav__link[aria-current="page"] {
   font-weight: var(--caat-weight-bold);
   background: var(--caat-color-bg-brand-subtle);
 }

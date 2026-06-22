@@ -1189,16 +1189,16 @@
           <thead><tr><th>Level</th><th>Example</th><th>Mega nav (desktop)</th><th>Breadcrumb</th><th>Side nav</th><th>Mobile drill-down</th></tr></thead>
           <tbody>
             <tr><td><strong>L1</strong></td><td>Pension solutions</td><td>Top-level item</td><td>—</td><td>—</td><td>Root panel</td></tr>
-            <tr><td><strong>L2</strong></td><td>DBplus</td><td>Column header (clickable)</td><td>Required from L2 down</td><td>Section title (on L3/L4 pages)</td><td>Panel level 2</td></tr>
-            <tr><td><strong>L3</strong></td><td>How DBplus works</td><td>Sub-link (deepest shown)</td><td>Required</td><td>List item; <strong>required on the page</strong></td><td>Panel level 3</td></tr>
-            <tr><td><strong>L4</strong></td><td>Contribution rates</td><td><strong>Never shown</strong></td><td>Required</td><td>Sublist under active L3; <strong>required on the page</strong></td><td>Panel level 4 (deepest)</td></tr>
+            <tr><td><strong>L2</strong></td><td>DBplus</td><td>Column header (clickable)</td><td>Required from L2 down</td><td>—</td><td>Panel level 2</td></tr>
+            <tr><td><strong>L3</strong></td><td>How DBplus works</td><td>Sub-link (deepest shown)</td><td>Required</td><td>Context label only when L4 children exist</td><td>Panel level 3</td></tr>
+            <tr><td><strong>L4</strong></td><td>Contribution rates</td><td><strong>Never shown</strong></td><td>Required</td><td>Flat list for the current L3 branch</td><td>Panel level 4 (deepest)</td></tr>
           </tbody>
         </table>
       </div>
       <ul class="mt-3">
         <li><strong>Mega nav</strong> is available on every page, holds up to <strong>4 columns</strong>, and stops at <strong>L3</strong>.</li>
         <li><strong>Breadcrumb</strong> appears on every L2+ page (see the <a href="/components/breadcrumb.html">Breadcrumb</a> contract).</li>
-        <li><strong>Side Navigation</strong> appears on every L3/L4 page (see the <a href="/components/side-nav.html">Side Navigation</a> contract) — it is the only desktop surface that exposes L4.</li>
+        <li><strong>Side Navigation</strong> appears on L3 pages with visible L4 children and on those L4 pages (see the <a href="/components/side-nav.html">Side Navigation</a> contract). It lists only the current L3 branch&rsquo;s L4 pages.</li>
         <li><strong>Mobile drill-down</strong> mirrors the full tree to L4 with a Back control per panel (live demo above).</li>
         <li>The IA stops at L4 — pages deeper than L4 are a content-architecture error.</li>
       </ul>
@@ -1239,7 +1239,7 @@ L1 About us    → L2 CAAT's promise · Participating employers · Annual perfor
 Utility bar: Support Centre · Newsroom · Events · Careers · EN|FR     Actions: Search · Login · Join DBplus
 Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</code></pre>
       <p class="text-muted mb-2"><small><strong>Label shortening:</strong> long page titles take a short navigation title in menus ("Joining from no pension plan" → <em>From no pension plan</em>; "Increasing your pension with a purchase" → <em>Increase your pension</em>) — full titles stay on pages and breadcrumbs (30-char cap). <strong>Folding:</strong> live-site L5s (Actuarial Cost Estimator help steps, GROWTHplus Modeller help) fold into their L4 parent.</small></p>
-      <p class="text-muted"><small>Investments and About us are shallow (two levels), so they render as plain L1 links — their L2 pages are served by the Side Navigation and the mobile drill-down, not a mega panel.</small></p>
+      <p class="text-muted"><small>Investments and About us are shallow (two levels), so they render as plain L1 links. Their L2 pages are reached through the global navigation and breadcrumb; no side navigation renders without L4 items.</small></p>
     </section>
 
 <section class="contract-section" id="summary">
