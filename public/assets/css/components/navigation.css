@@ -49,7 +49,7 @@
   flex-wrap: nowrap;
 }
 .caat-navbar .navbar-brand img {
-  height: 3.2rem;
+  height: 4rem;
   width: auto;
 }
 
@@ -205,7 +205,7 @@
   margin-top: .5rem;
 }
 
-/* ── Right-side actions (search, login, CTA) ───────────────── */
+/* ── Right-side actions (search + portal login dropdown) ───── */
 .caat-navbar .nav-actions {
   display: flex;
   align-items: center;
@@ -248,17 +248,18 @@
   padding: .45rem .65rem;
   border-radius: .35rem;
   transition: background .15s;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 .caat-navbar .nav-login:hover {
   background: var(--caat-color-bg-muted);
   color: var(--caat-color-text-heading);
 }
-.caat-navbar .nav-cta {
-  white-space: nowrap;
-  font-size: var(--caat-font-size-xs);
-  padding: .5rem 1.1rem;
+.caat-navbar .nav-login:focus-visible {
+  outline: 0;
+  box-shadow: var(--caat-color-focus-ring);
 }
-
 /* ── Footer ────────────────────────────────────────────────────
    The site footer is now its own component — see footer.css /
    /components/footer.html. It is no longer part of Navigation. */
@@ -272,7 +273,7 @@
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; padding: 1rem; border-bottom: 1px solid var(--caat-color-border);
 }
-.caat-mobile-topbar img { height: 2.5rem; width: auto; }
+.caat-mobile-topbar img { height: 3.125rem; width: auto; }
 .caat-menu-button {
   border: 1px solid var(--caat-blue-900); background: var(--caat-color-bg-page);
   color: var(--caat-color-text-heading); border-radius: .5rem;
@@ -296,7 +297,14 @@
 }
 .caat-mobile-utility a { font-size: var(--caat-font-size-xs); text-decoration: none; color: var(--caat-color-text); }
 .caat-mobile-actions { display: grid; gap: .75rem; margin-top: 1rem; }
-.caat-mobile-actions .btn { width: 100%; }
+.caat-mobile-actions .btn,
+.caat-mobile-actions .caat-dropdown,
+.caat-mobile-actions .caat-button { width: 100%; }
+.caat-mobile-actions .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  margin-top: var(--caat-space-2);
+}
 
 /* ── Offcanvas (new mega menu mobile) ──────────────────────── */
 .caat-navbar .offcanvas {
@@ -336,13 +344,21 @@
   color: var(--caat-color-text-heading);
 }
 
-/* Mobile CTA area */
-.caat-navbar .mobile-nav-cta {
+/* Mobile action area */
+.caat-navbar .mobile-nav-cta,
+.caat-navbar .mobile-nav-actions {
   padding-top: 1.25rem;
   margin-top: .75rem;
   border-top: 1px solid var(--caat-color-border);
   display: grid;
   gap: .75rem;
+}
+.caat-navbar .mobile-nav-actions .caat-dropdown,
+.caat-navbar .mobile-nav-actions .caat-button { width: 100%; }
+.caat-navbar .mobile-nav-actions .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  margin-top: var(--caat-space-2);
 }
 
 /* ── Responsive ────────────────────────────────────────────── */

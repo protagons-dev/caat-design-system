@@ -17,6 +17,7 @@
 
 <!-- Components composed by this template (NO template-level CSS — by design) -->
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/dropdown.css" rel="stylesheet">
 <link href="/assets/css/components/icon-button.css" rel="stylesheet">
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/avatar.css" rel="stylesheet">
@@ -58,7 +59,7 @@
   <nav class="navbar navbar-expand-lg navbar-main" aria-label="Main navigation">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan — Home" height="52">
+        <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan — Home" height="64">
       </a>
 
       <!-- Mobile toggle (offcanvas) -->
@@ -225,10 +226,15 @@
             <input class="nav-search-input" type="search" id="navSearch" placeholder="Search…" autocomplete="off">
             <i class="bi bi-search" aria-hidden="true"></i>
           </div>
-          <a href="#" class="nav-login">
-            <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
-          </a>
-          <a href="#cta" class="caat-button caat-button--primary caat-button--sm nav-cta">Join DBplus</a>
+          <div class="caat-dropdown dropdown">
+            <button class="nav-login dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end caat-dropdown__menu">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -237,7 +243,7 @@
   <!-- Mobile offcanvas nav -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
     <div class="offcanvas-header">
-      <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="40">
+      <img src="/assets/images/CAAT_RGB.png" alt="CAAT Pension Plan" height="50">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
     </div>
     <div class="offcanvas-body">
@@ -548,11 +554,16 @@
         </ul>
       </div>
       </div><!-- /.caat-drillnav -->
-      <div class="mobile-nav-cta">
-        <a href="#cta" class="caat-button caat-button--primary caat-button--full-mobile">Join DBplus</a>
-        <a href="#" class="caat-button caat-button--outline-primary caat-button--full-mobile">
-          <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
-        </a>
+      <div class="mobile-nav-actions">
+        <div class="caat-dropdown dropdown">
+          <button class="caat-button caat-button--primary caat-button--full-mobile dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
+          </button>
+          <ul class="dropdown-menu caat-dropdown__menu w-100">
+            <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+            <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

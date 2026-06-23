@@ -15,6 +15,7 @@
 <link href="/assets/css/components/badge.css" rel="stylesheet">
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/dropdown.css" rel="stylesheet">
 <link href="/assets/css/components/icon-button.css" rel="stylesheet">
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/navigation.css" rel="stylesheet">
@@ -136,7 +137,7 @@
       <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-blue-900);">Navigation</h1>
       <p class="text-muted">Global navigation component covering the site header (navbar), footer, and mobile menu for the CAAT Pension Plan digital properties.</p>
       <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
-        <a href="#" onclick="downloadFigmaHTML('Navigation',['/assets/css/tokens.css','/assets/css/components/navigation.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+        <a href="#" onclick="downloadFigmaHTML('Navigation',['/assets/css/tokens.css','/assets/css/components/button.css','/assets/css/components/dropdown.css','/assets/css/components/navigation.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
       </div>
     </div>
 
@@ -331,8 +332,15 @@
                       <input type="search" class="nav-search-input" placeholder="Search CAAT" aria-label="Search CAAT">
                       <i class="bi bi-search" aria-hidden="true"></i>
                     </div>
-                    <a href="#" class="nav-login"><i class="bi bi-person-circle"></i> Login</a>
-                    <a href="#" class="btn btn-primary nav-cta">Join DBplus</a>
+                    <div class="caat-dropdown dropdown">
+                      <button class="nav-login dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                        <i class="bi bi-person-circle" aria-hidden="true"></i> Login
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-end caat-dropdown__menu">
+                        <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+                        <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -386,8 +394,13 @@
                     <a href="#">Careers</a>
                   </div>
                   <div class="caat-mobile-actions">
-                    <a href="#" class="btn btn-primary">Login</a>
-                    <a href="#" class="btn btn-outline-primary">Join DBplus</a>
+                    <div class="caat-dropdown dropdown">
+                      <button class="caat-button caat-button--primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Login</button>
+                      <ul class="dropdown-menu caat-dropdown__menu w-100">
+                        <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+                        <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+                      </ul>
+                    </div>
                     <a href="#" class="btn btn-link" lang="fr">Français</a>
                   </div>
                 </div>
@@ -763,10 +776,16 @@
                    placeholder="Search CAAT" aria-label="Search"&gt;
             &lt;i class="bi bi-search"&gt;&lt;/i&gt;
           &lt;/div&gt;
-          &lt;a href="/login" class="nav-login"&gt;
-            &lt;i class="bi bi-person-circle"&gt;&lt;/i&gt; Login
-          &lt;/a&gt;
-          &lt;a href="/join" class="btn btn-primary nav-cta"&gt;Join DBplus&lt;/a&gt;
+          &lt;div class="caat-dropdown dropdown"&gt;
+            &lt;button class="nav-login dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"&gt;
+              &lt;i class="bi bi-person-circle" aria-hidden="true"&gt;&lt;/i&gt; Login
+            &lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-end caat-dropdown__menu"&gt;
+              &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="/member-portal"&gt;Member portal&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="/employer-portal"&gt;Employer Portal&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1236,7 +1255,7 @@ L1 Investments → L2 Approach · Responsible investing · Corporate engagement 
 L1 About us    → L2 CAAT's promise · Participating employers · Annual performance ·
                   Leadership and Governance · Legislation and Compliance · Member policies · Contact us
 
-Utility bar: Support Centre · Newsroom · Events · Careers · EN|FR     Actions: Search · Login · Join DBplus
+Utility bar: Support Centre · Newsroom · Events · Careers · EN|FR     Actions: Search · Login (Member portal · Employer Portal)
 Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</code></pre>
       <p class="text-muted mb-2"><small><strong>Label shortening:</strong> long page titles take a short navigation title in menus ("Joining from no pension plan" → <em>From no pension plan</em>; "Increasing your pension with a purchase" → <em>Increase your pension</em>) — full titles stay on pages and breadcrumbs (30-char cap). <strong>Folding:</strong> live-site L5s (Actuarial Cost Estimator help steps, GROWTHplus Modeller help) fold into their L4 parent.</small></p>
       <p class="text-muted"><small>Investments and About us are shallow (two levels), so they render as plain L1 links. Their L2 pages are reached through the global navigation and breadcrumb; no side navigation renders without L4 items.</small></p>
@@ -1259,7 +1278,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
 
       <h3>Primary use cases</h3>
       <ol>
-        <li>Site header — desktop navbar with utility bar, mega-menu dropdowns (up to 4 columns, depth to L3), search, login, and CTA</li>
+        <li>Site header — desktop navbar with utility bar, 25% larger logo, mega-menu dropdowns (up to 4 columns, depth to L3), search, and a Login dropdown for the member and employer portals</li>
         <li>Mega menu panels — full-width dropdowns with categorised columns, nested links, and optional promo cards</li>
         <li>Site footer — link columns, legal links, social icons, and copyright</li>
         <li>Mobile navigation — offcanvas drill-down menu: one panel per level, forward to L4, Back returns a level (navigation.js)</li>
@@ -1305,8 +1324,8 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
 
       <h3>Visual variants</h3>
       <ul>
-        <li><strong>Desktop header</strong> — full-width navbar with dark utility bar, logo, mega-menu dropdown items (L1–L3), search pill, login, and primary CTA</li>
-        <li><strong>Mega menu panel</strong> — full-width dropdown with up to 4 categorised columns, optional L4 nested sub-items, and optional promotional card</li>
+        <li><strong>Desktop header</strong> — full-width navbar with dark utility bar, enlarged logo, mega-menu dropdown items (L1–L3), search pill, and a Login dropdown linking to both portals</li>
+        <li><strong>Mega menu panel</strong> — full-width dropdown with up to 4 categorised columns containing L2 headings and L3 links, plus an optional promotional card</li>
         <li><strong>Mobile header</strong> — compact topbar with logo and hamburger toggle, offcanvas drill-down panels (to L4, with Back)</li>
         <li><strong>Full footer</strong> — 4-column link grid with legal row, social icons, copyright</li>
         <li><strong>Campaign footer</strong> — simplified single-row footer for landing pages (legal links + copyright only)</li>
@@ -1329,9 +1348,8 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             <tr><td>Mega menu promo card</td><td>Composite</td><td>No</td><td>—</td><td>Per L1 mega item: Title (text) + Description (textarea) + CTA label + CTA URL. Renders as a featured card in the last column of the mega panel.</td></tr>
             <tr><td>Utility nav links</td><td>Multifield</td><td>No</td><td>—</td><td>Each item: Label (text) + URL (pathfield). Rendered above main row.</td></tr>
             <tr><td>Search enabled</td><td>Toggle</td><td>No</td><td>On</td><td>Show/hide the search field in the navbar.</td></tr>
-            <tr><td>Login URL</td><td>Path browser</td><td>No</td><td>—</td><td>URL for the Login link. Hidden if empty.</td></tr>
-            <tr><td>CTA label</td><td>Text field</td><td>No</td><td>—</td><td>Call-to-action button text (e.g. "Join DBplus").</td></tr>
-            <tr><td>CTA URL</td><td>Path browser</td><td>No</td><td>—</td><td>URL for the CTA button. Hidden if empty.</td></tr>
+            <tr><td>Member portal URL</td><td>Path browser</td><td>Yes</td><td>—</td><td>Destination for the &ldquo;Member portal&rdquo; item in the Login dropdown.</td></tr>
+            <tr><td>Employer Portal URL</td><td>Path browser</td><td>Yes</td><td>—</td><td>Destination for the &ldquo;Employer Portal&rdquo; item in the Login dropdown.</td></tr>
             <tr><td>Language toggle URLs</td><td>Multifield</td><td>No</td><td>—</td><td>Each item: Language code + URL. Uses <code>lang</code> attribute.</td></tr>
           </tbody>
         </table>
@@ -1356,7 +1374,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
         <table class="contract-table mb-4">
           <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Default</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Inherits from header</td><td>—</td><td>—</td><td>—</td><td>Primary links, utility links, search, login, CTA, and language toggle are inherited from the Header tab.</td></tr>
+            <tr><td>Inherits from header</td><td>—</td><td>—</td><td>—</td><td>Primary links, utility links, search, portal Login dropdown, and language toggle are inherited from the Header tab.</td></tr>
             <tr><td>Offcanvas position</td><td>Select</td><td>No</td><td>End (right)</td><td>start | end. Controls which side the offcanvas panel slides in from.</td></tr>
           </tbody>
         </table>
@@ -1374,7 +1392,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
         <li><strong>Footer legal links</strong> must include entries for Privacy, Terms of use, and Accessibility. Warn if any are missing.</li>
         <li><strong>Copyright text</strong> is required. The dialog must not allow saving without it.</li>
         <li><strong>Social links</strong> must each have a valid URL and an <code>aria-label</code> generated from the selected platform name.</li>
-        <li>If <strong>CTA label</strong> is provided, <strong>CTA URL</strong> must also be provided (and vice versa).</li>
+        <li>Both portal URLs are required so the Login dropdown always contains &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
         <li><strong>Primary nav link labels</strong> should not exceed 25 characters each. Display a warning above 20 characters.</li>
         <li><strong>Mega menu columns:</strong> a menu may contain at most <strong>4 link groups</strong> (columns). The dialog rejects a 5th group.</li>
         <li><strong>Mega menu depth:</strong> entries go no deeper than <strong>Level 3</strong> (column header = clickable L2 link, list links = L3 labels only — no descriptions). L4 pages never appear in the mega menu — they are reached via the Side Navigation, breadcrumb, and the mobile drill-down.</li>
@@ -1461,8 +1479,14 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             &lt;input type="search" class="nav-search-input"&gt;
             &lt;i class="bi bi-search"&gt;&lt;/i&gt;
           &lt;/div&gt;
-          &lt;a href="#" class="nav-login"&gt;Login&lt;/a&gt;
-          &lt;a href="#" class="btn btn-primary nav-cta"&gt;Join&lt;/a&gt;
+          &lt;div class="caat-dropdown dropdown"&gt;
+            &lt;button class="nav-login dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"&gt;Login&lt;/button&gt;
+            &lt;ul class="dropdown-menu dropdown-menu-end caat-dropdown__menu"&gt;
+              &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="/member-portal"&gt;Member portal&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a class="dropdown-item caat-dropdown__item" href="/employer-portal"&gt;Employer Portal&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -1540,7 +1564,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             <tr><td><code>.mega-category-title</code></td><td>Clickable L2 column header (<code>&lt;a&gt;</code> to the L2 landing page) — icon + lime underline</td></tr>
             <tr><td><code>.mega-links</code></td><td>L3 link list within a mega column</td></tr>
             <tr><td><code>.mega-promo</code></td><td>Optional promotional card inside mega panel</td></tr>
-            <tr><td><code>.nav-actions</code></td><td>Right-side actions: search, login, CTA</td></tr>
+            <tr><td><code>.nav-actions</code></td><td>Right-side actions: search and the composed Dropdown component for portal login</td></tr>
             <tr><td><code>.nav-search-input</code></td><td>Pill-shaped search field (expands on focus)</td></tr>
             <tr><td>(footer)</td><td>Moved to the standalone <a href="/components/footer.html"><code>.caat-footer</code></a> component</td></tr>
             <tr><td><code>.caat-mobile-nav-demo</code></td><td>Mobile navigation demo container</td></tr>
@@ -1671,7 +1695,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
       <h3>Client library structure</h3>
       <ul>
         <li><strong>Category:</strong> <code>caat.components.navigation</code></li>
-        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles)</li>
+        <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles), <code>caat.components.button</code>, and <code>caat.components.dropdown</code> for the portal Login control</li>
         <li><strong>CSS:</strong> <code>navigation.css</code></li>
         <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdowns/offcanvas natively; navigation.js implements the mobile drill-down — panel stack, Back, focus management, reset on close)</li>
       </ul>
@@ -1773,18 +1797,16 @@ dialog:
                 name: ./searchEnabled
                 fieldLabel: Search enabled
                 checked: true
-              loginURL:
+              memberPortalURL:
                 sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
-                name: ./loginURL
-                fieldLabel: Login URL
-              ctaLabel:
-                sling:resourceType: granite/ui/components/coral/foundation/form/textfield
-                name: ./ctaLabel
-                fieldLabel: CTA label
-              ctaURL:
+                name: ./memberPortalURL
+                fieldLabel: Member portal URL
+                required: true
+              employerPortalURL:
                 sling:resourceType: granite/ui/components/coral/foundation/form/pathfield
-                name: ./ctaURL
-                fieldLabel: CTA URL
+                name: ./employerPortalURL
+                fieldLabel: Employer Portal URL
+                required: true
               languageToggleURLs:
                 sling:resourceType: granite/ui/components/coral/foundation/form/multifield
                 name: ./languageToggleURLs
@@ -1916,8 +1938,9 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark utility bar, logo, L1 nav links with dropdown carets, search pill, login, CTA, and language toggle are all visible and properly aligned.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings, L3 links, L4 nested items) and optional promo card.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
         <li class="mb-2"><input type="checkbox" disabled> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
