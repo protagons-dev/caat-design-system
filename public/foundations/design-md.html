@@ -44,6 +44,21 @@
   font-weight: 700;
   padding: .4rem .75rem;
 }
+.source-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--caat-space-2);
+  margin-top: var(--caat-space-5);
+}
+.source-actions .btn {
+  font-weight: 800;
+}
+.source-note {
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius);
+  background: var(--caat-color-bg-subtle);
+  padding: var(--caat-space-4);
+}
 .summary-card {
   height: 100%;
   border: 1px solid var(--caat-color-border);
@@ -97,6 +112,10 @@
   line-height: 1.55;
 }
 .agent-code code { color: inherit; }
+.source-code {
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
 .decision-list {
   display: grid;
   gap: var(--caat-space-3);
@@ -165,6 +184,7 @@
       <a class="nav-link" href="#agents">Agent Usage</a>
       <a class="nav-link" href="#tokens">Token Summary</a>
       <a class="nav-link" href="#guidance">Generation Guidance</a>
+      <a class="nav-link" href="#source-file">Source File</a>
       <a class="nav-link" href="#maintenance">Maintenance</a>
     </nav>
   </aside>
@@ -180,6 +200,10 @@
         <span class="agent-pill"><i class="bi bi-robot" aria-hidden="true"></i> Claude-ready</span>
         <span class="agent-pill"><i class="bi bi-google" aria-hidden="true"></i> Google/Gemini-ready</span>
         <span class="agent-pill"><i class="bi bi-code-slash" aria-hidden="true"></i> Codex-ready</span>
+      </div>
+      <div class="source-actions">
+        <a class="btn btn-light" href="/DESIGN.md" download="DESIGN.md"><i class="bi bi-download me-1" aria-hidden="true"></i> Download DESIGN.md</a>
+        <a class="btn btn-outline-light" href="#source-file"><i class="bi bi-file-earmark-text me-1" aria-hidden="true"></i> View inline file</a>
       </div>
     </header>
 
@@ -331,6 +355,15 @@ CAAT digital experiences should feel trustworthy, clear, and quietly confident.<
       </ul>
     </section>
 
+    <section id="source-file" class="mb-5">
+      <h2>Source File</h2>
+      <div class="source-note mb-4">
+        <p class="mb-2">The complete <code>DESIGN.md</code> file is shown below and is available as a direct download.</p>
+        <a class="btn btn-primary" href="/DESIGN.md" download="DESIGN.md"><i class="bi bi-download me-1" aria-hidden="true"></i> Download DESIGN.md</a>
+      </div>
+<pre class="agent-code source-code"><code id="design-md-source">Loading DESIGN.md...</code></pre>
+    </section>
+
     <section id="maintenance" class="mb-5">
       <h2>Maintenance</h2>
       <p>Update <code>DESIGN.md</code> whenever a visual decision changes in the design system. Treat it like an API contract for agents.</p>
@@ -342,6 +375,7 @@ CAAT digital experiences should feel trustworthy, clear, and quietly confident.<
             <tr><td>New component variant</td><td>Add or revise the component token entry and the Components guidance section.</td></tr>
             <tr><td>Layout foundation changes</td><td>Revise the Layout section and any agent prompt examples.</td></tr>
             <tr><td>Accessibility rule changes</td><td>Update the Do's and Don'ts guardrails immediately.</td></tr>
+            <tr><td>Download file changes</td><td>Keep <code>/DESIGN.md</code> in sync with the repository root <code>DESIGN.md</code>.</td></tr>
           </tbody>
         </table>
       </div>
@@ -377,5 +411,18 @@ CAAT digital experiences should feel trustworthy, clear, and quietly confident.<
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+fetch('/DESIGN.md')
+  .then(response => {
+    if (!response.ok) throw new Error('Unable to load DESIGN.md');
+    return response.text();
+  })
+  .then(text => {
+    document.getElementById('design-md-source').textContent = text;
+  })
+  .catch(() => {
+    document.getElementById('design-md-source').textContent = 'DESIGN.md could not be loaded inline. Use the download link above.';
+  });
+</script>
 </body>
 </html>
