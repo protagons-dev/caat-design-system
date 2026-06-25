@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System - DESIGN.md foundation for Claude, Gemini, Google, Codex, and other LLM coding agents.">
+<title>DESIGN.md | CAAT Design System - Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/layout.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<style>
+.agent-hero {
+  border-radius: var(--caat-radius-lg);
+  background:
+    linear-gradient(135deg, rgba(0,55,80,.96), rgba(11,90,128,.92)),
+    var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
+  padding: var(--caat-space-7);
+  box-shadow: var(--caat-shadow);
+}
+.agent-hero .eyebrow { color: var(--caat-lime); }
+.agent-hero h1 { color: var(--caat-color-text-inverse); font-weight: 900; }
+.agent-hero .lead { color: var(--caat-color-text-inverse-muted); max-width: 58rem; }
+.agent-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--caat-space-2);
+  margin-top: var(--caat-space-5);
+}
+.agent-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--caat-space-1);
+  border: 1px solid var(--caat-color-border-inverse);
+  border-radius: var(--caat-radius-pill);
+  color: var(--caat-color-text-inverse);
+  font-size: var(--caat-font-size-xs);
+  font-weight: 700;
+  padding: .4rem .75rem;
+}
+.summary-card {
+  height: 100%;
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius);
+  background: var(--caat-color-bg-page);
+  padding: var(--caat-space-5);
+  box-shadow: var(--caat-shadow-sm);
+}
+.summary-card h3 {
+  color: var(--caat-color-text-heading);
+  font-size: var(--caat-font-size-lg);
+  font-weight: 800;
+  margin-bottom: var(--caat-space-2);
+}
+.summary-card p { color: var(--caat-color-text-muted); margin-bottom: 0; }
+.token-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--caat-space-3);
+}
+.token-preview__item {
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius);
+  background: var(--caat-color-bg-page);
+  padding: var(--caat-space-3);
+}
+.token-preview__swatch {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius-sm);
+  margin-bottom: var(--caat-space-2);
+}
+.token-preview__item strong {
+  display: block;
+  color: var(--caat-color-text-heading);
+  font-size: var(--caat-font-size-sm);
+}
+.token-preview__item code {
+  display: block;
+  color: var(--caat-color-text-muted);
+  font-size: var(--caat-font-size-2xs);
+}
+.agent-code {
+  background: var(--caat-ink);
+  color: var(--caat-blue-100);
+  border-radius: var(--caat-radius);
+  padding: var(--caat-space-4);
+  overflow: auto;
+  font-size: var(--caat-font-size-xs);
+  line-height: 1.55;
+}
+.agent-code code { color: inherit; }
+.decision-list {
+  display: grid;
+  gap: var(--caat-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.decision-list li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: var(--caat-space-3);
+  align-items: start;
+}
+.decision-list i {
+  color: var(--caat-green-700);
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+@media (max-width: 767.98px) {
+  .agent-hero { padding: var(--caat-space-5); }
+}
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#foundations">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link active" href="/foundations/design-md.html">DESIGN.md</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+      <a class="nav-link" href="/foundations/interaction-states.html">Interaction States</a>
+      <a class="nav-link" href="/foundations/card-image-ratios.html">Card Image Ratios</a>
+      <a class="nav-link" href="/foundations/responsive.html">Responsive</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#format">Format</a>
+      <a class="nav-link" href="#agents">Agent Usage</a>
+      <a class="nav-link" href="#tokens">Token Summary</a>
+      <a class="nav-link" href="#guidance">Generation Guidance</a>
+      <a class="nav-link" href="#maintenance">Maintenance</a>
+    </nav>
+  </aside>
+
+  <main class="component-page-main">
+
+    <header class="agent-hero mb-5">
+      <p class="eyebrow">Foundations</p>
+      <h1>DESIGN.md for LLMs</h1>
+      <p class="lead mb-0">A portable, agent-readable design reference for Claude, Gemini/Google, Codex, and other coding agents. The root <code>DESIGN.md</code> file gives agents exact CAAT tokens plus plain-language rules for building consistent UI.</p>
+      <div class="agent-pill-row" aria-label="Agent compatibility">
+        <span class="agent-pill"><i class="bi bi-filetype-md" aria-hidden="true"></i> DESIGN.md alpha</span>
+        <span class="agent-pill"><i class="bi bi-robot" aria-hidden="true"></i> Claude-ready</span>
+        <span class="agent-pill"><i class="bi bi-google" aria-hidden="true"></i> Google/Gemini-ready</span>
+        <span class="agent-pill"><i class="bi bi-code-slash" aria-hidden="true"></i> Codex-ready</span>
+      </div>
+    </header>
+
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <p>The design-system repository now includes a root-level <code>DESIGN.md</code> file. It is the shared LLM reference for the CAAT visual identity, design tokens, component behavior, and page-building rules.</p>
+      <p>The structure follows the Google Labs <a href="https://github.com/google-labs-code/design.md" rel="noopener">DESIGN.md format</a>: machine-readable YAML front matter first, then Markdown guidance written in the order agents expect.</p>
+      <div class="row g-4 mt-2">
+        <div class="col-md-4">
+          <div class="summary-card">
+            <h3><i class="bi bi-braces me-2" aria-hidden="true"></i>Exact Tokens</h3>
+            <p>Agents get explicit colors, typography, spacing, radius, and component token references instead of guessing from screenshots.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="summary-card">
+            <h3><i class="bi bi-card-text me-2" aria-hidden="true"></i>Design Rationale</h3>
+            <p>The Markdown body explains why values exist and how to apply them across pages, components, and states.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="summary-card">
+            <h3><i class="bi bi-repeat me-2" aria-hidden="true"></i>Portable Context</h3>
+            <p>The same file can be referenced by Claude, Gemini, Codex, GitHub Copilot, and other code-generation workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="format" class="mb-5">
+      <h2>Format</h2>
+      <p><code>DESIGN.md</code> has two layers. The token layer is normative; the prose layer gives agents judgment for applying those values in context.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Layer</th><th>Purpose</th><th>CAAT content</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>YAML front matter</strong></td>
+              <td>Machine-readable values</td>
+              <td>Color tokens, Libre Franklin type scale, spacing/radius scale, and common component tokens.</td>
+            </tr>
+            <tr>
+              <td><strong>Markdown body</strong></td>
+              <td>Human-readable guidance</td>
+              <td>Overview, colors, typography, layout, depth, shapes, components, and do/don't guardrails.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<pre class="agent-code mt-4"><code>---
+version: alpha
+name: CAAT Design System
+colors:
+  primary: "#003750"
+typography:
+  body-md:
+    fontFamily: Libre Franklin
+    fontSize: 1rem
+---
+
+## Overview
+CAAT digital experiences should feel trustworthy, clear, and quietly confident.</code></pre>
+    </section>
+
+    <section id="agents" class="mb-5">
+      <h2>Agent Usage</h2>
+      <p>Give the root <code>DESIGN.md</code> file to the agent before it creates or edits UI. The instruction should make the file authoritative over generated defaults.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Agent</th><th>Use</th><th>Prompt pattern</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude</strong></td>
+              <td>Reference the root file when asking for component or page work.</td>
+              <td><code>Read DESIGN.md first and follow CAAT tokens, layout, and component rules.</code></td>
+            </tr>
+            <tr>
+              <td><strong>Gemini / Google tooling</strong></td>
+              <td>Use the Google DESIGN.md-compatible structure directly.</td>
+              <td><code>Use DESIGN.md as the visual identity source before generating UI.</code></td>
+            </tr>
+            <tr>
+              <td><strong>Codex / other agents</strong></td>
+              <td>Load the file as design context before editing HTML, CSS, React, or AEM code.</td>
+              <td><code>Implement with existing CAAT components and do not invent new tokens.</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<pre class="agent-code mt-4"><code>Before generating any CAAT interface:
+1. Read DESIGN.md.
+2. Use tokens from public/assets/css/tokens.css.
+3. Prefer existing CAAT component classes.
+4. Keep section rhythm, accessibility, and responsive rules intact.</code></pre>
+    </section>
+
+    <section id="tokens" class="mb-5">
+      <h2>Token Summary</h2>
+      <p>The file condenses the live token system into the values most useful for agent generation. The CSS source remains canonical for implementation details.</p>
+      <h3 class="h5 mt-4 mb-3">Core colors</h3>
+      <div class="token-preview mb-4">
+        <div class="token-preview__item">
+          <div class="token-preview__swatch" style="background:#003750;"></div>
+          <strong>Deep CAAT Blue</strong>
+          <code>#003750</code>
+        </div>
+        <div class="token-preview__item">
+          <div class="token-preview__swatch" style="background:#367f32;"></div>
+          <strong>Accessible Green</strong>
+          <code>#367f32</code>
+        </div>
+        <div class="token-preview__item">
+          <div class="token-preview__swatch" style="background:#95e35c;"></div>
+          <strong>Lime Accent</strong>
+          <code>#95e35c</code>
+        </div>
+        <div class="token-preview__item">
+          <div class="token-preview__swatch" style="background:#eff2f7;"></div>
+          <strong>Subtle Surface</strong>
+          <code>#eff2f7</code>
+        </div>
+        <div class="token-preview__item">
+          <div class="token-preview__swatch" style="background:#102637;"></div>
+          <strong>Ink Text</strong>
+          <code>#102637</code>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Category</th><th>Agent rule</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Color</td><td>Use deep blue for primary hierarchy, accessible green for secondary action, lime sparingly.</td><td><code>colors</code> in <code>DESIGN.md</code></td></tr>
+            <tr><td>Typography</td><td>Use Libre Franklin only, with strong headings and readable body line height.</td><td><code>typography</code> in <code>DESIGN.md</code></td></tr>
+            <tr><td>Layout</td><td>Compose pages from full-width white/grey/brand sections with constrained containers.</td><td><code>public/foundations/page-layout.html</code></td></tr>
+            <tr><td>Components</td><td>Prefer existing CAAT classes and variants before creating new CSS.</td><td><code>public/assets/css/components/</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="guidance" class="mb-5">
+      <h2>Generation Guidance</h2>
+      <ul class="decision-list">
+        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span><strong>Use semantic tokens first.</strong> Component CSS should consume intent-based tokens such as text, action, surface, border, and feedback values.</span></li>
+        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span><strong>Build with existing components.</strong> Buttons, cards, heroes, forms, navigation, badges, and layout sections already have documented classes.</span></li>
+        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span><strong>Keep page rhythm simple.</strong> Alternate white and grey sections. Use brand blue as a sparse emphasis band, not a default background.</span></li>
+        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span><strong>Protect accessibility.</strong> Maintain AA contrast, visible focus rings, semantic headings, ARIA states, and reduced-motion behavior.</span></li>
+        <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span><strong>Avoid generated novelty.</strong> Do not introduce unapproved fonts, shadows, one-off colors, nested cards, decorative separators, or non-token radii.</span></li>
+      </ul>
+    </section>
+
+    <section id="maintenance" class="mb-5">
+      <h2>Maintenance</h2>
+      <p>Update <code>DESIGN.md</code> whenever a visual decision changes in the design system. Treat it like an API contract for agents.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Change</th><th>Required update</th></tr></thead>
+          <tbody>
+            <tr><td>Token value changes</td><td>Update the YAML token value and the related prose rule.</td></tr>
+            <tr><td>New component variant</td><td>Add or revise the component token entry and the Components guidance section.</td></tr>
+            <tr><td>Layout foundation changes</td><td>Revise the Layout section and any agent prompt examples.</td></tr>
+            <tr><td>Accessibility rule changes</td><td>Update the Do's and Don'ts guardrails immediately.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="alert alert-info mt-4" role="note">
+        <i class="bi bi-info-circle-fill me-1" aria-hidden="true"></i>
+        <strong>Source alignment:</strong> The implementation source remains <code>public/assets/css/tokens.css</code>; <code>DESIGN.md</code> is the portable summary for agents and should not drift from the token file.
+      </div>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/foundations/design-tokens.html" class="me-3">Design Tokens</a>
+        <a href="/foundations/design-md.html" class="me-3">DESIGN.md</a>
+        <a href="/components/" class="me-3">Components</a>
+        <a href="/templates/pensions-matter.html">Pensions Matter</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
