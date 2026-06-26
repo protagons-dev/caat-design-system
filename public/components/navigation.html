@@ -1600,7 +1600,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             </tr>
             <tr>
               <td>Keyboard navigation</td>
-              <td>All interactive elements (links, buttons, search input) must be reachable and operable via <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Space</kbd>, and <kbd>Escape</kbd> (to close offcanvas).</td>
+              <td>All interactive elements (links, buttons, search input) must be reachable and operable via <kbd>Tab</kbd>, <kbd>Enter</kbd>, <kbd>Space</kbd>, and <kbd>Escape</kbd> (to close offcanvas). Inside desktop mega menus, <kbd>Tab</kbd> moves across all L2 category links first, then through the L3 links and promo links.</td>
             </tr>
             <tr>
               <td>Visible focus states</td>
@@ -1630,8 +1630,8 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
         </table>
       </div>
 
-      <h3 class="mt-4 mb-2">Behaviour contract (Bootstrap-native)</h3>
-      <p class="text-muted mb-2">The design system ships <strong>no custom navigation JavaScript</strong> — all interactive behaviour comes from Bootstrap 5 data attributes already present in the markup. Do not re-implement it; verify the behaviours below survive any AEM integration.</p>
+      <h3 class="mt-4 mb-2">Behaviour contract</h3>
+      <p class="text-muted mb-2">Bootstrap 5 handles desktop dropdown show/hide and offcanvas lifecycle. <code>navigation.js</code> handles the mobile drill-down panels and normalizes desktop mega-menu tab order. Verify the behaviours below survive any AEM integration.</p>
       <div class="table-responsive">
         <table class="contract-table">
           <thead><tr><th>Behaviour</th><th>Mechanism &amp; acceptance criteria</th></tr></thead>
@@ -1639,7 +1639,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             <tr><td>Mobile menu</td><td>Below <code>lg</code> (992&nbsp;px) the bar collapses behind a Menu button that opens the offcanvas (<code>aria-expanded</code> + <code>aria-controls</code>). Above it, the full bar renders and the toggler is hidden.</td></tr>
             <tr><td>Mobile drill-down <em>(navigation.js)</em></td><td>Inside the offcanvas: <code>.caat-drillnav__next</code> reveals the child panel (to L4) and focuses its Back control; <code>.caat-drillnav__back</code> returns one level and restores focus to the trigger; <kbd>Escape</kbd> in a sub-panel goes back one level (closes the offcanvas only from the root); closing the offcanvas resets to the root panel. Hidden panels use the <code>hidden</code> attribute; triggers mirror state via <code>aria-expanded</code>.</td></tr>
             <tr><td>Mega menu open/close</td><td>L1 triggers use <code>data-bs-toggle="dropdown"</code> with <code>role="button"</code> + <code>aria-expanded</code>. Bootstrap handles: open on click/<kbd>Enter</kbd>/<kbd>Space</kbd>, close on <kbd>Escape</kbd> (focus returns to the trigger), close on outside click, one menu open at a time.</td></tr>
-            <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Note: links inside <code>.mega-links</code> that are <em>not</em> <code>.dropdown-item</code>s are reached with <kbd>Tab</kbd> instead — keep this in mind when restructuring mega-menu columns.</td></tr>
+            <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Inside open desktop mega menus, <code>navigation.js</code> intercepts <kbd>Tab</kbd> so focus traverses all <code>.mega-category-title</code> L2 links across the panel first, then continues through L3 links and promo links.</td></tr>
             <tr><td>Sticky header</td><td><code>sticky-top</code> (z-index 1020 = <code>--caat-z-sticky</code>). Anchor targets stay visible beneath it via the global <code>scroll-padding-top: 5rem</code> (caat-base.css).</td></tr>
             <tr><td>Current page</td><td>Set <code>aria-current="page"</code> + the <code>.active</code> class on the current L1 link (server-rendered, not JS-derived).</td></tr>
             <tr><td>No hover-open</td><td>Menus open on activation only — never on hover alone (touch + keyboard parity).</td></tr>
@@ -1697,7 +1697,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
         <li><strong>Category:</strong> <code>caat.components.navigation</code></li>
         <li><strong>Dependencies:</strong> <code>caat.base</code> (tokens + base styles), <code>caat.components.button</code>, and <code>caat.components.dropdown</code> for the portal Login control</li>
         <li><strong>CSS:</strong> <code>navigation.css</code></li>
-        <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdowns/offcanvas natively; navigation.js implements the mobile drill-down — panel stack, Back, focus management, reset on close)</li>
+        <li><strong>JS:</strong> <code>navigation.js</code> (Bootstrap 5.3 bundle handles dropdown/offcanvas show-hide natively; navigation.js normalizes desktop mega-menu tab order and implements the mobile drill-down — panel stack, Back, focus management, reset on close)</li>
       </ul>
 
       <h3>Suggested file structure</h3>
@@ -1945,7 +1945,7 @@ dialog:
         <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
         <li class="mb-2"><input type="checkbox" disabled> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
         <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; desktop mega menu focus moves across L2 category links before L3 links; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
         <li class="mb-2"><input type="checkbox" disabled> All links resolve correctly — no broken links in header, footer, or mobile menu. External links open in new tab with <code>rel="noopener"</code>.</li>
         <li class="mb-2"><input type="checkbox" disabled> Legal compliance: Privacy, Terms of use, and Accessibility links are present in the footer on all page templates including campaign pages.</li>
         <li class="mb-2"><input type="checkbox" disabled> Language toggle switches to the correct locale URL and uses the <code>lang</code> attribute on the toggle element.</li>

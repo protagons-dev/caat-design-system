@@ -4,8 +4,9 @@
 
    Mobile drill-down menu (offcanvas): one panel per node that has
    children, drill forward to Level 4, "Back" returns to the
-   previous level. Desktop behaviour (collapse, mega menu) stays
-   Bootstrap-native — this file handles ONLY the drill-down.
+   previous level. Desktop collapse and dropdown show/hide stays
+   Bootstrap-native; this file normalizes mega-menu tab order and
+   handles mobile drill-down.
 
    Markup contract (see navigation.html §6):
      [data-caat-drillnav]                 container (offcanvas-body)
@@ -19,6 +20,55 @@
 
 (function () {
   'use strict';
+
+  var focusableSelector = [
+    'a[href]',
+    'button:not([disabled])',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
+
+  function isVisible(el) {
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  function getFocusable(container) {
+    return Array.prototype.slice.call(container.querySelectorAll(focusableSelector)).filter(function (el) {
+      return !el.disabled && el.getAttribute('aria-hidden') !== 'true' && isVisible(el);
+    });
+  }
+
+  function getMegaFocusOrder(menu) {
+    var levelTwoLinks = Array.prototype.slice.call(menu.querySelectorAll('.mega-category-title[href]')).filter(isVisible);
+    var allFocusable = getFocusable(menu);
+    var ordered = levelTwoLinks.slice();
+
+    allFocusable.forEach(function (el) {
+      if (levelTwoLinks.indexOf(el) === -1) ordered.push(el);
+    });
+
+    return ordered;
+  }
+
+  function initMegaMenuKeyboard(menu) {
+    menu.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab') return;
+
+      var order = getMegaFocusOrder(menu);
+      if (order.length < 2) return;
+
+      var currentIndex = order.indexOf(document.activeElement);
+      if (currentIndex === -1) return;
+
+      var nextIndex = currentIndex + (e.shiftKey ? -1 : 1);
+      if (nextIndex < 0 || nextIndex >= order.length) return;
+
+      e.preventDefault();
+      order[nextIndex].focus();
+    });
+  }
 
   function initDrillnav(root) {
     var panels = root.querySelectorAll('.caat-drillnav__panel');
@@ -99,6 +149,7 @@
   }
 
   function init() {
+    document.querySelectorAll('.caat-navbar .mega-menu').forEach(initMegaMenuKeyboard);
     document.querySelectorAll('[data-caat-drillnav]').forEach(initDrillnav);
   }
 
