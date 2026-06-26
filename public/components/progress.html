@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -556,19 +556,19 @@
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Bar renders at 0%, 25%, 50%, 75%, and 100% with correct width.</li>
-        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) render at correct heights.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Colour variants (default, success, warning, danger) display correct fill colours.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Striped bar shows diagonal pattern; animated stripe moves continuously.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Animation pauses when <code>prefers-reduced-motion: reduce</code> is active.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>role="progressbar"</code> and <code>aria-valuenow</code> are announced correctly by NVDA and VoiceOver.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Stepped variant renders completed, active, and upcoming states correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-current="step"</code> is present on the active step.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Connector line between steps is visually continuous and sits behind indicators.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Stepped indicator focus ring is visible on keyboard navigation.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Bar does not render if value is missing (validation enforced in dialog).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>progress-viewed</code>, <code>progress-complete</code>, <code>progress-step-change</code>) fire correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Bar renders at 0%, 25%, 50%, 75%, and 100% with correct width.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All three sizes (sm, default, lg) render at correct heights.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Colour variants (default, success, warning, danger) display correct fill colours.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Striped bar shows diagonal pattern; animated stripe moves continuously.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Animation pauses when <code>prefers-reduced-motion: reduce</code> is active.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>role="progressbar"</code> and <code>aria-valuenow</code> are announced correctly by NVDA and VoiceOver.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Stepped variant renders completed, active, and upcoming states correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-current="step"</code> is present on the active step.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Connector line between steps is visually continuous and sits behind indicators.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Stepped indicator focus ring is visible on keyboard navigation.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Bar does not render if value is missing (validation enforced in dialog).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>progress-viewed</code>, <code>progress-complete</code>, <code>progress-step-change</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 

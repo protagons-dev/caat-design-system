@@ -15,7 +15,11 @@
     "docker:rebuild": "docker compose down && docker compose build --no-cache && docker compose up -d",
     "docker:shell": "docker compose exec designsystem sh",
 
-    "open": "start http://localhost:3000"
+    "open": "start http://localhost:3000",
+    "audit:a11y": "node scripts/accessibility-audit.js",
+    "audit:contrast": "node scripts/contrast-audit.js",
+    "audit:tokens": "node scripts/token-reference-audit.js",
+    "audit:all": "npm run audit:a11y && npm run audit:contrast && npm run audit:tokens"
   },
   "keywords": [
     "design-system",

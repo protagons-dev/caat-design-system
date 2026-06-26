@@ -25,7 +25,7 @@
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -49,12 +49,12 @@
 
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <p class="eyebrow mb-2">Composed of</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Composed components">
       <a class="nav-link" href="/components/text-title.html">Text / Title</a>
       <a class="nav-link" href="/components/button.html">Button</a>
     </nav>
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#composed-of">Composed of</a>
@@ -298,10 +298,10 @@
     <section class="contract-section" id="dod">
       <h2>14. Definition of Done</h2>
       <ul>
-        <li><input type="checkbox" disabled> Composes Text/Title + Button (no bespoke heading/button CSS).</li>
-        <li><input type="checkbox" disabled> Spacing token-driven; on-light + on-brand both AA.</li>
-        <li><input type="checkbox" disabled> Pensions Matter template refactored from <code>.pm-cta</code> to this.</li>
-        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Composes Text/Title + Button (no bespoke heading/button CSS).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Spacing token-driven; on-light + on-brand both AA.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Pensions Matter template refactored from <code>.pm-cta</code> to this.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> QA checklist signed off.</li>
       </ul>
     </section>
 

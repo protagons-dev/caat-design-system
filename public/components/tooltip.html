@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -526,20 +526,20 @@
     <section class="contract-section" id="qa">
       <h2>13. QA Checklist</h2>
       <ul>
-        <li><input type="checkbox" disabled> Tooltip appears on hover and on keyboard focus.</li>
-        <li><input type="checkbox" disabled> Tooltip dismisses on mouse-out, blur, and <kbd>Escape</kbd> key.</li>
-        <li><input type="checkbox" disabled> All four directional placements render correctly (top, right, bottom, left).</li>
-        <li><input type="checkbox" disabled> Arrow colour matches tooltip background (<code>--caat-blue-900</code>).</li>
-        <li><input type="checkbox" disabled> Icon trigger has <code>aria-label</code> and <code>tabindex="0"</code>.</li>
-        <li><input type="checkbox" disabled> Link trigger displays dotted underline and correct cursor.</li>
-        <li><input type="checkbox" disabled> HTML content tooltip renders bold text and line breaks.</li>
-        <li><input type="checkbox" disabled> Tooltip max-width is 250 px; long text wraps correctly.</li>
-        <li><input type="checkbox" disabled> Focus ring (<code>--caat-focus</code>) visible on all trigger types.</li>
-        <li><input type="checkbox" disabled> Screen reader announces tooltip content via <code>aria-describedby</code>.</li>
-        <li><input type="checkbox" disabled> Colour contrast: white on blue-900 meets WCAG AAA (7:1+).</li>
-        <li><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
-        <li><input type="checkbox" disabled> Responsive: tooltips reposition when near viewport edges.</li>
-        <li><input type="checkbox" disabled> Analytics events fire on <code>shown.bs.tooltip</code> and <code>hidden.bs.tooltip</code>.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Tooltip appears on hover and on keyboard focus.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Tooltip dismisses on mouse-out, blur, and <kbd>Escape</kbd> key.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> All four directional placements render correctly (top, right, bottom, left).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Arrow colour matches tooltip background (<code>--caat-blue-900</code>).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Icon trigger has <code>aria-label</code> and <code>tabindex="0"</code>.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Link trigger displays dotted underline and correct cursor.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> HTML content tooltip renders bold text and line breaks.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Tooltip max-width is 250 px; long text wraps correctly.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Focus ring (<code>--caat-focus</code>) visible on all trigger types.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Screen reader announces tooltip content via <code>aria-describedby</code>.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Colour contrast: white on blue-900 meets WCAG AAA (7:1+).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Responsive: tooltips reposition when near viewport edges.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Analytics events fire on <code>shown.bs.tooltip</code> and <code>hidden.bs.tooltip</code>.</li>
       </ul>
     </section>
 

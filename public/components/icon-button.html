@@ -23,7 +23,7 @@
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -47,7 +47,7 @@
 
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <p class="eyebrow mb-2">Base components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Base components navigation">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link active" href="/components/icon-button.html">Icon Button</a>
       <a class="nav-link" href="/components/badge.html">Badge</a>
@@ -56,14 +56,14 @@
       <a class="nav-link" href="/components/text-title.html">Text / Title</a>
     </nav>
     <p class="eyebrow mb-2">Uses Icon Button</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Uses Icon Button navigation">
       <a class="nav-link" href="/components/navigation.html">Navigation</a>
       <a class="nav-link" href="/components/article-layout.html">Article Layout</a>
       <a class="nav-link" href="/components/index.html">All components →</a>
     </nav>
 
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#usedby">Used by</a>
@@ -330,11 +330,11 @@
     <section class="contract-section" id="dod">
       <h2>14. Definition of Done</h2>
       <ul>
-        <li><input type="checkbox" disabled> All style/shape/size variants render from tokens — no hard-coded colours.</li>
-        <li><input type="checkbox" disabled> aria-label enforced by the dialog (required field).</li>
-        <li><input type="checkbox" disabled> Accessibility audit — no violations; keyboard + focus verified.</li>
-        <li><input type="checkbox" disabled> Consumed by Social/Share Links; duplication in article/nav removed.</li>
-        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> All style/shape/size variants render from tokens — no hard-coded colours.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> aria-label enforced by the dialog (required field).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Accessibility audit — no violations; keyboard + focus verified.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Consumed by Social/Share Links; duplication in article/nav removed.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> QA checklist signed off.</li>
       </ul>
     </section>
 

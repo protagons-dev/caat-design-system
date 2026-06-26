@@ -55,7 +55,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -92,7 +92,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -792,12 +792,12 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> The hero card overhang does not exceed 75 px in the slight-overlap variant at any viewport width.</li>
-        <li class="mb-2"><input type="checkbox" disabled> The hero card stacks below the media image at 992 px and below (responsive stacking).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Image safe zone testing: text on the card remains legible with various photography crops and positions.</li>
-        <li class="mb-2"><input type="checkbox" disabled> CTA focus ring is visible and meets WCAG 3 : 1 contrast ratio against the card background.</li>
-        <li class="mb-2"><input type="checkbox" disabled> The hero renders correctly at desktop, tablet, and mobile viewports with expected spacing and sizing.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and the <code>cta_click</code> event fires correctly on CTA interaction.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> The hero card overhang does not exceed 75 px in the slight-overlap variant at any viewport width.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> The hero card stacks below the media image at 992 px and below (responsive stacking).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Image safe zone testing: text on the card remains legible with various photography crops and positions.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> CTA focus ring is visible and meets WCAG 3 : 1 contrast ratio against the card background.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> The hero renders correctly at desktop, tablet, and mobile viewports with expected spacing and sizing.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics data attributes are present in the DOM and the <code>cta_click</code> event fires correctly on CTA interaction.</li>
       </ul>
     </section>
 

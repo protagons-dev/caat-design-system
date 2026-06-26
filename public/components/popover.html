@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -543,18 +543,18 @@ document.querySelectorAll('[data-bs-toggle="popover"]')
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All four directional placements (top, right, bottom, left) render correctly with arrow pointing to trigger.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Dismissible popover closes on next click / focus loss.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Rich content popover renders HTML (lists, links, icons) correctly inside body.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Help icon popover displays on focus and dismisses on blur.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Popover header uses blue-100 background with blue-900 text per design tokens.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Max-width is 300px; content wraps and does not overflow.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard accessible: Tab to trigger, Enter/Space to open, Escape to close.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces popover content via <code>aria-describedby</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Icon-only trigger has visible focus ring and announced <code>aria-label</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Component does not render when popover content field is empty.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>popover-opened</code>, <code>popover-dismissed</code>, <code>popover-link-click</code>) fire correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All four directional placements (top, right, bottom, left) render correctly with arrow pointing to trigger.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Dismissible popover closes on next click / focus loss.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Rich content popover renders HTML (lists, links, icons) correctly inside body.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Help icon popover displays on focus and dismisses on blur.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Popover header uses blue-100 background with blue-900 text per design tokens.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Max-width is 300px; content wraps and does not overflow.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard accessible: Tab to trigger, Enter/Space to open, Escape to close.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Screen reader announces popover content via <code>aria-describedby</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Icon-only trigger has visible focus ring and announced <code>aria-label</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Component does not render when popover content field is empty.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>popover-opened</code>, <code>popover-dismissed</code>, <code>popover-link-click</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 

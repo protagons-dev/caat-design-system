@@ -26,7 +26,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -95,7 +95,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -650,17 +650,17 @@ fields:
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All 16 variants (7 solid + outline + 5 soft + 3 status) render with correct background and text colours per design tokens.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Pill modifier applies <code>border-radius: 50rem</code> and renders as a fully rounded shape.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Badge on button renders as an overlay counter with correct positioning.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Visually hidden context text is announced by screen readers (tested with NVDA and VoiceOver).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Colour contrast meets WCAG 2.1 AA (4.5:1) for all variants.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Badge does not render if text field is empty (validation enforced in dialog).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Optional icon renders before label text with <code>aria-hidden="true"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Status badges (Active, Pending, Retired) display correctly on member dashboard tables.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Badge scales proportionally within different font-size contexts (headings, table cells, buttons).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>badge-displayed</code>, <code>badge-status-view</code>) fire correctly with expected data attributes.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All 16 variants (7 solid + outline + 5 soft + 3 status) render with correct background and text colours per design tokens.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Pill modifier applies <code>border-radius: 50rem</code> and renders as a fully rounded shape.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Badge on button renders as an overlay counter with correct positioning.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Visually hidden context text is announced by screen readers (tested with NVDA and VoiceOver).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Colour contrast meets WCAG 2.1 AA (4.5:1) for all variants.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Badge does not render if text field is empty (validation enforced in dialog).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Optional icon renders before label text with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Status badges (Active, Pending, Retired) display correctly on member dashboard tables.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Badge scales proportionally within different font-size contexts (headings, table cells, buttons).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>badge-displayed</code>, <code>badge-status-view</code>) fire correctly with expected data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 

@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/components/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
        ────────────────────────────────────────────────────────── -->
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -95,7 +95,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -908,21 +908,21 @@
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All field types render correctly (text, email, tel, select, textarea, checkbox, radio, date, file).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Required fields show asterisk and <code>aria-required="true"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Validation triggers on submit (not on blur for first interaction).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Invalid fields show error message with <code>role="alert"</code> and receive focus.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Valid fields show green border confirmation.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Multi-step progress indicator updates correctly and announces step changes.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Each step validates before allowing progression.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Back button in multi-step preserves entered data.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Labels are correctly associated (<code>for</code> / <code>id</code> matching).</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-describedby</code> links help text and error messages to their fields.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Radio/checkbox groups use <code>fieldset</code> and <code>legend</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Form is fully operable via keyboard only.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events fire: form-start, form-step, form-submit, form-error.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive layout renders correctly on mobile, tablet, and desktop.</li>
-        <li class="mb-2"><input type="checkbox" disabled> File upload field accepts specified file types and shows file name.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All field types render correctly (text, email, tel, select, textarea, checkbox, radio, date, file).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Required fields show asterisk and <code>aria-required="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Validation triggers on submit (not on blur for first interaction).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Invalid fields show error message with <code>role="alert"</code> and receive focus.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Valid fields show green border confirmation.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Multi-step progress indicator updates correctly and announces step changes.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Each step validates before allowing progression.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Back button in multi-step preserves entered data.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Labels are correctly associated (<code>for</code> / <code>id</code> matching).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-describedby</code> links help text and error messages to their fields.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Radio/checkbox groups use <code>fieldset</code> and <code>legend</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Form is fully operable via keyboard only.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events fire: form-start, form-step, form-submit, form-error.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive layout renders correctly on mobile, tablet, and desktop.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> File upload field accepts specified file types and shows file name.</li>
       </ul>
     </section>
 

@@ -21,7 +21,7 @@
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -45,7 +45,7 @@
 
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <p class="eyebrow mb-2">Related</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Related components">
       <a class="nav-link" href="/components/navigation.html">Navigation</a>
       <a class="nav-link" href="/components/breadcrumb.html">Breadcrumb</a>
       <a class="nav-link" href="/components/in-page-nav.html">In-page Nav</a>
@@ -53,7 +53,7 @@
     </nav>
 
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -218,7 +218,7 @@
             <tr><td><code>--caat-color-action-primary</code></td><td>Current-item left rail</td></tr>
             <tr><td><code>--caat-color-border</code> · <code>--caat-border-2</code></td><td>Branch-label divider and current-page rail</td></tr>
             <tr><td><code>--caat-color-focus-ring</code></td><td>Keyboard focus</td></tr>
-            <tr><td><code>--caat-font-size-xs/sm/md</code> · <code>--caat-weight-*</code> · <code>--caat-space-1/2/3</code></td><td>Type and rhythm</td></tr>
+            <tr><td><code>--caat-font-size-xs</code> / <code>--caat-font-size-sm</code> / <code>--caat-font-size-md</code> · <code>--caat-weight-semibold</code> / <code>--caat-weight-bold</code> / <code>--caat-weight-extrabold</code> · <code>--caat-space-1</code> / <code>--caat-space-2</code> / <code>--caat-space-3</code></td><td>Type and rhythm</td></tr>
           </tbody>
         </table>
       </div>
@@ -291,7 +291,7 @@
   &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;</code></pre>
-      <p>Place inside the page grid: <code>col-lg-3</code> for the nav, <code>col-lg-9</code> for content. Below 992&nbsp;px the grid stacks the nav above the content (Responsive foundation).</p>
+      <p>Place inside the page grid: <code>col-lg-3</code> for the nav, <code>col-lg-9</code> for content. Below 992&nbsp;px the grid stacks the nav above the content (Responsive foundation). Each rendered instance must use a unique <code>aria-controls</code> / body <code>id</code> pair.</p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -329,7 +329,7 @@
             <tr><td>Current page</td><td><code>aria-current="page"</code> on the current L4 link; colour is never the only cue (weight + rail)</td></tr>
             <tr><td>Keyboard</td><td>Plain links — Tab order follows the visual order; visible focus ring per Interaction States</td></tr>
             <tr><td>Structure</td><td>A heading identifies the current L3 branch and a single <code>&lt;ul&gt;</code> contains its L4 links; no ARIA tree role is needed</td></tr>
-            <tr><td>Mobile disclosure</td><td>The toggle is a real <code>&lt;button&gt;</code> with <code>aria-expanded</code> + <code>aria-controls</code>; it names the current L3 branch (&ldquo;In this section: What members get&rdquo;), is &ge;&nbsp;44&nbsp;px tall, and is deliberately prominent</td></tr>
+            <tr><td>Mobile disclosure</td><td>The toggle is a real <code>&lt;button&gt;</code> with <code>aria-expanded</code> + <code>aria-controls</code>; it names the current L3 branch (&ldquo;In this section: What members get&rdquo;), is &ge;&nbsp;44&nbsp;px tall, uses a unique controlled body <code>id</code>, and is deliberately prominent</td></tr>
           </tbody>
         </table>
       </div>
@@ -362,6 +362,7 @@ data-analytics-level="4"</code></pre>
         <li>Resource type: <code>caat/components/side-nav</code>; include in an L3 page template when visible L4 children exist and on its L4 page template — not authorable into other parsys positions.</li>
         <li>Tree is computed from the current page path: use the current page when it is L3, otherwise ascend from the current L4 page to its L3 parent; list only that L3 page&rsquo;s visible children.</li>
         <li>Navigation titles (<code>jcr:title</code> / nav title override) supply labels.</li>
+        <li>Include the <code>side-nav.js</code> clientlib only on templates where the side nav can render; it adds the mobile disclosure behavior while preserving the expanded no-JS fallback.</li>
       </ul>
     </section>
 
@@ -383,13 +384,13 @@ data-analytics-level="4"</code></pre>
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Renders on an L3 page only when it has visible L4 children, and on those L4 pages; absent elsewhere.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Exactly one <code>aria-current="page"</code> on an L4 page; no L2 or L3 navigation links render.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Only the current L3 branch&rsquo;s L4 items appear in one flat list.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Below 992&nbsp;px: collapses behind the &ldquo;In this section&rdquo; toggle (aria-expanded reflects state); without JS the nav renders expanded; sticky on desktop when enabled.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus ring visible on every link; hover/current styles match Interaction States and never rely on colour alone.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Flow verified: mega nav L3 link → L3 page shows only its L4 children → L4 page keeps the same flat list and marks the current page.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Labels match page navigation titles; hidden pages excluded.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Renders on an L3 page only when it has visible L4 children, and on those L4 pages; absent elsewhere.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Exactly one <code>aria-current="page"</code> on an L4 page; no L2 or L3 navigation links render.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Only the current L3 branch&rsquo;s L4 items appear in one flat list.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Below 992&nbsp;px: collapses behind the &ldquo;In this section&rdquo; toggle (unique <code>aria-controls</code> target, <code>aria-expanded</code> reflects state); without JS the nav renders expanded; sticky on desktop when enabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus ring visible on every link; hover/current styles match Interaction States and never rely on colour alone.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Flow verified: mega nav L3 link → L3 page shows only its L4 children → L4 page keeps the same flat list and marks the current page.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Labels match page navigation titles; hidden pages excluded.</li>
       </ul>
     </section>
 
@@ -401,6 +402,7 @@ data-analytics-level="4"</code></pre>
       <ul>
         <li>Tree derivation verified against the content architecture (current L3 branch&rsquo;s visible L4 children only).</li>
         <li>Breadcrumb + side nav present together where the side nav is eligible; mega navigation unchanged.</li>
+        <li>Mobile disclosure and no-JS expanded fallback verified at the responsive breakpoint.</li>
         <li>QA checklist passes on an L3 page with children, an L3 page without children, an L4 page, and a hidden-page case.</li>
       </ul>
     </section>

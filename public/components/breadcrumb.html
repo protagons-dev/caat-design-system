@@ -26,7 +26,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -95,7 +95,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -162,7 +162,7 @@
 
       <!-- Item length cap -->
       <h3 class="mb-2">Item Length Cap (30 characters)</h3>
-      <p class="text-muted mb-3" style="font-size:.9rem;">Each item is capped at <strong>30 characters</strong> — longer labels truncate with an ellipsis (CSS <code>max-width: 30ch</code>; server rendering applies the same cap). The full label is exposed via <code>title</code>.</p>
+      <p class="text-muted mb-3" style="font-size:.9rem;">Each item has a <strong>30-character visual cap</strong> — longer labels truncate with an ellipsis via CSS <code>max-width: 30ch</code>. The full label stays in the DOM and is also exposed via <code>title</code>.</p>
       <div class="demo-shell mb-4">
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
@@ -251,7 +251,6 @@
           <tbody>
             <tr><td><strong>Source</strong></td><td>Radio group</td><td>Yes</td><td>Auto-generate from page tree (default) or Manual override</td></tr>
             <tr><td><strong>Start Level</strong></td><td>Number</td><td>Yes</td><td>Depth level at which the trail begins (default: 2, i.e. below the site root)</td></tr>
-            <tr><td><strong>Hide Current Page</strong></td><td>Checkbox</td><td>No</td><td>When checked, the last (current page) item is omitted</td></tr>
             <tr><td><strong>Manual Items (multifield)</strong></td><td>Multifield</td><td>No</td><td>Only visible when Source = Manual override</td></tr>
             <tr><td>&emsp;↳ Label</td><td>Text</td><td>Yes</td><td>Displayed link text</td></tr>
             <tr><td>&emsp;↳ URL</td><td>Pathfield</td><td>Yes</td><td>Internal page path or external URL</td></tr>
@@ -274,7 +273,7 @@
             <tr><td>Manual items: label required</td><td>Error</td><td>Every manual multifield entry must have a non-empty label.</td></tr>
             <tr><td>Manual items: URL required</td><td>Error</td><td>Every manual item (except the last) must have a valid URL.</td></tr>
             <tr><td>Start level ≥ 1</td><td>Error</td><td>Start level must be a positive integer.</td></tr>
-            <tr><td>Item length: 30 characters max</td><td>Error</td><td>Labels render at most 30 characters — anything longer truncates with an ellipsis (server cap + CSS <code>max-width: 30ch</code>); the full label is kept in <code>title</code>. Manual-item labels over 30 characters are rejected in the dialog.</td></tr>
+            <tr><td>Item length: 30-character visual cap</td><td>Warning</td><td>Labels longer than 30 characters remain in the HTML but visually truncate with an ellipsis via CSS <code>max-width: 30ch</code>; the full label is kept in <code>title</code>. Prefer concise navigation titles rather than relying on truncation.</td></tr>
             <tr><td>Depth follows the IA</td><td>Error</td><td>The trail mirrors the content tree, which stops at L4 (max 5 items incl. Home) — no truncation pattern exists or is needed.</td></tr>
             <tr><td>Present on L2+ pages</td><td>Error</td><td>Template policy: every Level&nbsp;2, 3, and 4 page renders a breadcrumb; L1/home templates do not include the component.</td></tr>
           </tbody>
@@ -399,7 +398,7 @@
             <tr><td><strong>Landmark</strong></td><td>Wrap in <code>&lt;nav aria-label="Breadcrumb"&gt;</code> to expose a navigation landmark to assistive technologies.</td></tr>
             <tr><td><strong>Ordered list</strong></td><td>Use <code>&lt;ol&gt;</code> so screen readers announce the number of items and their position.</td></tr>
             <tr><td><strong>Current page</strong></td><td>Add <code>aria-current="page"</code> to the last <code>&lt;li&gt;</code> — the current page must not be a link.</td></tr>
-            <tr><td><strong>Truncated labels</strong></td><td>Items cut at 30 characters keep the full label in the <code>title</code> attribute; the accessible name (link text) remains the full server-side label.</td></tr>
+            <tr><td><strong>Truncated labels</strong></td><td>Items visually capped at 30 characters keep the full label as the text node and in the <code>title</code> attribute; do not server-truncate the accessible name.</td></tr>
             <tr><td><strong>Colour contrast</strong></td><td>Link text must meet WCAG 2.1 AA — minimum 4.5 : 1 contrast against background.</td></tr>
             <tr><td><strong>Focus indicators</strong></td><td>All links must show a visible focus ring meeting 3 : 1 contrast.</td></tr>
             <tr><td><strong>Structured data</strong></td><td>Include JSON-LD <code>BreadcrumbList</code> schema (see Section 9) so assistive tools and search engines can parse the hierarchy.</td></tr>
@@ -480,7 +479,7 @@
           <thead><tr><th>Item</th><th>Detail</th></tr></thead>
           <tbody>
             <tr><td><strong>Resource type</strong></td><td><code>caat/components/breadcrumb</code></td></tr>
-            <tr><td><strong>Sling model</strong></td><td>Extend <code>com.adobe.cq.wcm.core.components.models.Breadcrumb</code> to add analytics attributes, the 30-character label cap, and JSON-LD schema output.</td></tr>
+            <tr><td><strong>Sling model</strong></td><td>Extend <code>com.adobe.cq.wcm.core.components.models.Breadcrumb</code> to add analytics attributes, full-label <code>title</code> values for visually truncated items, and JSON-LD schema output.</td></tr>
             <tr><td><strong>HTL template</strong></td><td><code>breadcrumb.html</code> — loops <code>model.items</code>, renders <code>&lt;nav&gt;</code> / <code>&lt;ol&gt;</code> structure. Last item emits <code>aria-current="page"</code>.</td></tr>
             <tr><td><strong>Policy</strong></td><td>Editable template policy: start level. (Separator is fixed — chevron; no truncation options.)</td></tr>
             <tr><td><strong>Client library</strong></td><td><code>caat.breadcrumb</code> — category <code>caat.components</code>. CSS only — no JS.</td></tr>
@@ -530,11 +529,6 @@ breadcrumb-dialog:
                 value: 2
                 min: 1
                 max: 10
-              hideCurrent:
-                sling:resourceType: granite/ui/components/coral/foundation/form/checkbox
-                name: ./hideCurrent
-                text: Hide current page
-
           # ── Manual items tab ─────────────────────────
           manualItems:
             jcr:title: Manual Items
@@ -567,16 +561,16 @@ breadcrumb-dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Breadcrumb renders with chevron separators by default — no modifier class or inline divider style present.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Labels longer than 30 characters truncate with an ellipsis and keep the full label in <code>title</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>&lt;nav aria-label="Breadcrumb"&gt;</code> landmark is present.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Last item has <code>aria-current="page"</code> and is not a link.</li>
-        <li class="mb-2"><input type="checkbox" disabled> JSON-LD <code>BreadcrumbList</code> schema is output in the page source and validates via Google Rich Results Test.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>data-analytics-*</code> attributes are present on all ancestor links and <code>breadcrumb-click</code> events fire to the data layer.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Auto-generated breadcrumb correctly reflects the AEM page tree from the configured start level.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Manual override multifield produces the same HTML output with author-supplied labels and URLs.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus ring is visible on all links and meets 3 : 1 contrast.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive: breadcrumb wraps gracefully on narrow viewports without horizontal overflow.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Breadcrumb renders with chevron separators by default — no modifier class or inline divider style present.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Labels longer than 30 characters visually truncate with an ellipsis while the full label remains in the DOM and in <code>title</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>&lt;nav aria-label="Breadcrumb"&gt;</code> landmark is present.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Last item has <code>aria-current="page"</code> and is not a link.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> JSON-LD <code>BreadcrumbList</code> schema is output in the page source and validates via Google Rich Results Test.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>data-analytics-*</code> attributes are present on all ancestor links and <code>breadcrumb-click</code> events fire to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Auto-generated breadcrumb correctly reflects the AEM page tree from the configured start level.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Manual override multifield produces the same HTML output with author-supplied labels and URLs.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus ring is visible on all links and meets 3 : 1 contrast.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive: breadcrumb wraps gracefully on narrow viewports without horizontal overflow.</li>
       </ul>
     </section>
 
@@ -592,7 +586,7 @@ breadcrumb-dialog:
           <tbody>
             <tr>
               <td><strong>Design</strong></td>
-              <td>Figma component matches this contract. All three variants (standard, chevron, truncated) are documented. Tokens are used — no hard-coded colour values.</td>
+              <td>Figma component matches this chevron-only contract. Default and long-label truncation states are documented. Tokens are used — no hard-coded colour values.</td>
             </tr>
             <tr>
               <td><strong>Development</strong></td>
@@ -604,7 +598,7 @@ breadcrumb-dialog:
             </tr>
             <tr>
               <td><strong>Launch</strong></td>
-              <td>Component deployed to AEM production. Legacy Breadcrumb component deprecated and migration script executed. Content authors trained on source selection and truncation options. Analytics dashboards confirmed receiving breadcrumb-click events.</td>
+              <td>Component deployed to AEM production. Legacy Breadcrumb component deprecated and migration script executed. Content authors trained on source selection and concise navigation titles. Analytics dashboards confirmed receiving breadcrumb-click events.</td>
             </tr>
           </tbody>
         </table>

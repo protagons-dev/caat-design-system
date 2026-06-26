@@ -30,7 +30,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/components/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -62,7 +62,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -99,7 +99,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -372,7 +372,7 @@
                 <i class="bi bi-list" aria-hidden="true"></i> Menu
               </button>
             </div>
-            <div class="caat-mobile-panel">
+            <div class="caat-mobile-panel" id="mobileOffcanvas">
               <div class="caat-mobile-search">
                 <input type="search" class="form-control" placeholder="Search CAAT" aria-label="Search CAAT">
                 <i class="bi bi-search" aria-hidden="true"></i>
@@ -707,7 +707,7 @@
         <div class="demo-rendered">
           <p class="demo-label">Rendered</p>
           <div class="caat-navbar">
-            <nav class="navbar navbar-expand navbar-main">
+            <nav class="navbar navbar-expand navbar-main" aria-label="Design system navigation">
               <ul class="navbar-nav d-flex flex-wrap gap-2" style="flex-wrap:wrap;">
                 <li class="nav-item"><a class="nav-link" href="#" data-figma="Default" data-figma-group="Nav Link States">Members</a></li>
                 <li class="nav-item"><a class="nav-link is-hover" href="#" data-figma="Hover" data-figma-group="Nav Link States">Members</a></li>
@@ -1279,7 +1279,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
       <h3>Primary use cases</h3>
       <ol>
         <li>Site header — desktop navbar with utility bar, 25% larger logo, mega-menu dropdowns (up to 4 columns, depth to L3), search, and a Login dropdown for the member and employer portals</li>
-        <li>Mega menu panels — full-width dropdowns with categorised columns, nested links, and optional promo cards</li>
+        <li>Mega menu panels — full-width dropdowns with categorised columns, nested links, optional promo cards, and L2-first keyboard tab order</li>
         <li>Site footer — link columns, legal links, social icons, and copyright</li>
         <li>Mobile navigation — offcanvas drill-down menu: one panel per level, forward to L4, Back returns a level (navigation.js)</li>
         <li>Utility navigation — secondary links (Contact, Support, Newsroom, Events, Careers)</li>
@@ -1396,6 +1396,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
         <li><strong>Primary nav link labels</strong> should not exceed 25 characters each. Display a warning above 20 characters.</li>
         <li><strong>Mega menu columns:</strong> a menu may contain at most <strong>4 link groups</strong> (columns). The dialog rejects a 5th group.</li>
         <li><strong>Mega menu depth:</strong> entries go no deeper than <strong>Level 3</strong> (column header = clickable L2 link, list links = L3 labels only — no descriptions). L4 pages never appear in the mega menu — they are reached via the Side Navigation, breadcrumb, and the mobile drill-down.</li>
+        <li><strong>Mega menu keyboard order:</strong> inside each open desktop panel, <kbd>Tab</kbd> reaches every clickable L2 column header first, then continues through L3 links and promo links.</li>
         <li><strong>Mobile drill-down depth:</strong> panels mirror the full tree to <strong>Level 4</strong>; every drilled panel must include the Back control and a section-overview link.</li>
       </ol>
     </section>
@@ -1688,7 +1689,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
          Each fragment is authored once and referenced globally via <strong>template policies</strong>,
          ensuring consistent navigation across all pages without per-page authoring.</p>
       <ul>
-        <li><strong>Header XF:</strong> contains the desktop mega-menu navbar (Bootstrap 5.3 <code>navbar-expand</code> with <code>.dropdown-menu.mega-menu</code> panels). Mobile nav uses Bootstrap offcanvas + the drill-down panels (navigation.js).</li>
+        <li><strong>Header XF:</strong> contains the desktop mega-menu navbar (Bootstrap 5.3 <code>navbar-expand</code> with <code>.dropdown-menu.mega-menu</code> panels). Mobile nav uses Bootstrap offcanvas + the drill-down panels; <code>navigation.js</code> also normalizes desktop mega-menu tab order.</li>
         <li><strong>Footer XF:</strong> contains the full footer; campaign pages may reference a simplified campaign-footer XF variant.</li>
       </ul>
 
@@ -1938,17 +1939,17 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark left-aligned utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; desktop mega menu focus moves across L2 category links before L3 links; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
-        <li class="mb-2"><input type="checkbox" disabled> All links resolve correctly — no broken links in header, footer, or mobile menu. External links open in new tab with <code>rel="noopener"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Legal compliance: Privacy, Terms of use, and Accessibility links are present in the footer on all page templates including campaign pages.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Language toggle switches to the correct locale URL and uses the <code>lang</code> attribute on the toggle element.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Desktop navbar renders correctly: dark left-aligned utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; desktop mega menu focus moves across L2 category links before L3 links; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All links resolve correctly — no broken links in header, footer, or mobile menu. External links open in new tab with <code>rel="noopener"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Legal compliance: Privacy, Terms of use, and Accessibility links are present in the footer on all page templates including campaign pages.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Language toggle switches to the correct locale URL and uses the <code>lang</code> attribute on the toggle element.</li>
       </ul>
     </section>
 
@@ -1972,7 +1973,7 @@ dialog:
             </tr>
             <tr>
               <td><strong>QA</strong></td>
-              <td>All items in the QA Acceptance Checklist (Section 13) pass. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Responsive tested at 320px, 768px, 1024px, 1440px.</td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass, including L2-first mega-menu keyboard order, mobile drill-down focus restoration, and breadcrumb/side-nav handoff checks. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Responsive tested at 320px, 768px, 1024px, 1440px.</td>
             </tr>
             <tr>
               <td><strong>Launch</strong></td>

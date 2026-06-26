@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -782,20 +782,20 @@ jcr:root:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Standard dropdown opens and closes on trigger click.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Split button dropdown renders primary action button and separate toggle.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Headers, dividers, and disabled items render correctly and disabled items are non-interactive.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Directional variants (dropup, dropend, dropstart) position the menu correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Dark dropdown variant applies dark background and light text.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-expanded</code> toggles between <code>true</code> and <code>false</code> on open/close.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-haspopup="true"</code> is present on the trigger button.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <kbd>↓</kbd> / <kbd>↑</kbd> arrow keys navigate menu items.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <kbd>Escape</kbd> closes the menu and returns focus to the trigger.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces trigger as a popup button and reads menu items.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>dropdown-open</code>, <code>dropdown-select</code>) fire correctly with item labels.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Icons render correctly when configured, with <code>aria-hidden="true"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive: dropdown is usable on mobile viewports without overflow.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Standard dropdown opens and closes on trigger click.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Split button dropdown renders primary action button and separate toggle.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Headers, dividers, and disabled items render correctly and disabled items are non-interactive.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Directional variants (dropup, dropend, dropstart) position the menu correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Dark dropdown variant applies dark background and light text.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-expanded</code> toggles between <code>true</code> and <code>false</code> on open/close.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-haspopup="true"</code> is present on the trigger button.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <kbd>↓</kbd> / <kbd>↑</kbd> arrow keys navigate menu items.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <kbd>Escape</kbd> closes the menu and returns focus to the trigger.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Screen reader announces trigger as a popup button and reads menu items.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>dropdown-open</code>, <code>dropdown-select</code>) fire correctly with item labels.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Icons render correctly when configured, with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive: dropdown is usable on mobile viewports without overflow.</li>
       </ul>
     </section>
 

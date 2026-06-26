@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -703,18 +703,18 @@ jcr:root:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All size variants (sm, default, lg, xl) render correctly with expected max-widths.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Scrollable modal scrolls body content while header and footer remain fixed.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Modal opens and closes via trigger button, close button, backdrop click, and <kbd>Escape</kbd> key.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus is trapped within the modal when open — <kbd>Tab</kbd> does not leave the dialog.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus returns to the trigger button when the modal closes.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>role="dialog"</code>, <code>aria-modal="true"</code>, and <code>aria-labelledby</code> are present and correct.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces the modal title when opened.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Background page scroll is locked while modal is open.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>modal-open</code>, <code>modal-close</code>, <code>modal-confirm</code>) fire correctly to the data layer.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Multiple modals on the same page each have unique IDs and function independently.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive: modal is usable on mobile viewports without horizontal overflow.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All size variants (sm, default, lg, xl) render correctly with expected max-widths.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Scrollable modal scrolls body content while header and footer remain fixed.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Modal opens and closes via trigger button, close button, backdrop click, and <kbd>Escape</kbd> key.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus is trapped within the modal when open — <kbd>Tab</kbd> does not leave the dialog.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus returns to the trigger button when the modal closes.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>role="dialog"</code>, <code>aria-modal="true"</code>, and <code>aria-labelledby</code> are present and correct.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Screen reader announces the modal title when opened.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Background page scroll is locked while modal is open.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>modal-open</code>, <code>modal-close</code>, <code>modal-confirm</code>) fire correctly to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Multiple modals on the same page each have unique IDs and function independently.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive: modal is usable on mobile viewports without horizontal overflow.</li>
       </ul>
     </section>
 

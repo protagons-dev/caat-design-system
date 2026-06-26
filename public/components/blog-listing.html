@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -842,19 +842,19 @@
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Card grid renders 3 columns on desktop, 2 on tablet, 1 on mobile.</li>
-        <li class="mb-2"><input type="checkbox" disabled> List view renders horizontal cards (image left, content right).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Featured + grid shows large hero card above standard 3-col grid.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Filter buttons toggle active state; grid filters cards by category.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cards show hover lift effect (translateY + shadow increase).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Images display at 16:9 aspect ratio with <code>object-fit:cover</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Category badge renders as small pill with correct token colours.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-pressed</code> toggles correctly on filter buttons.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cards are keyboard-navigable via Tab; focus ring visible.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Screen reader announces article title via <code>aria-label</code> on each card link.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Lazy-loaded images load only when scrolled into view.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>blog-listing-viewed</code>, <code>blog-card-click</code>, <code>blog-filter-change</code>) fire correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Card grid renders 3 columns on desktop, 2 on tablet, 1 on mobile.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> List view renders horizontal cards (image left, content right).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Featured + grid shows large hero card above standard 3-col grid.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Filter buttons toggle active state; grid filters cards by category.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cards show hover lift effect (translateY + shadow increase).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Images display at 16:9 aspect ratio with <code>object-fit:cover</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Category badge renders as small pill with correct token colours.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-pressed</code> toggles correctly on filter buttons.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cards are keyboard-navigable via Tab; focus ring visible.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Screen reader announces article title via <code>aria-label</code> on each card link.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Lazy-loaded images load only when scrolled into view.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>blog-listing-viewed</code>, <code>blog-card-click</code>, <code>blog-filter-change</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 

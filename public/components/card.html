@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/components/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link active" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -992,12 +992,12 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All four variants (icon, image, overlay, content) render correctly with expected layout and spacing.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cards display in responsive grid layouts (1-up, 2-up, 3-up, 4-up) and reflow correctly on mobile viewports.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Hover and focus states are visually distinct — shadow elevation and focus ring meet WCAG contrast requirements.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Tab</kbd> to focus stretched-link, <kbd>Enter</kbd> to activate.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Image alt text is present on all image cards; overlay gradient provides sufficient text contrast.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All four variants (icon, image, overlay, content) render correctly with expected layout and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cards display in responsive grid layouts (1-up, 2-up, 3-up, 4-up) and reflow correctly on mobile viewports.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Hover and focus states are visually distinct — shadow elevation and focus ring meet WCAG contrast requirements.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation works: <kbd>Tab</kbd> to focus stretched-link, <kbd>Enter</kbd> to activate.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Image alt text is present on all image cards; overlay gradient provides sufficient text contrast.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
       </ul>
     </section>
 

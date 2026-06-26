@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -393,17 +393,17 @@
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Border spinner renders a smooth rotating ring in <code>--caat-blue-900</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) render at correct dimensions (1 rem, 2 rem, 3 rem).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Growing spinner pulses with scale animation.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Visible label sits inline beside the spinner with correct alignment.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Button-with-spinner variant shows spinner + "Processing…" text while disabled.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>role="status"</code> is announced by NVDA and VoiceOver.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>.visually-hidden</code> label is read by screen readers for standalone spinners.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Animation stops when <code>prefers-reduced-motion: reduce</code> is active; static indicator is visible.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Spinner colour meets WCAG 2.1 AA non-text contrast (3 : 1) against white.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>spinner-shown</code>, <code>spinner-duration</code>) fire correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Border spinner renders a smooth rotating ring in <code>--caat-blue-900</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All three sizes (sm, default, lg) render at correct dimensions (1 rem, 2 rem, 3 rem).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Growing spinner pulses with scale animation.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Visible label sits inline beside the spinner with correct alignment.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Button-with-spinner variant shows spinner + "Processing…" text while disabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>role="status"</code> is announced by NVDA and VoiceOver.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>.visually-hidden</code> label is read by screen readers for standalone spinners.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Animation stops when <code>prefers-reduced-motion: reduce</code> is active; static indicator is visible.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Spinner colour meets WCAG 2.1 AA non-text contrast (3 : 1) against white.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>spinner-shown</code>, <code>spinner-duration</code>) fire correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 

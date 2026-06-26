@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/components/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -855,16 +855,16 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All three variants (standard, pills, vertical) render correctly with expected styles and spacing.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Tab switching works — clicking a tab shows its panel and hides others.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Arrow</kbd> keys move between tabs, <kbd>Enter</kbd>/<kbd>Space</kbd> activates.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code> are present and correct.</li>
-        <li class="mb-2"><input type="checkbox" disabled> <code>aria-selected</code>, <code>aria-controls</code>, and <code>aria-labelledby</code> update correctly on tab switch.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Vertical tabs include <code>aria-orientation="vertical"</code> on the tablist.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Deep-link hash updates the URL and activating a tab via hash on page load works correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics <code>data-analytics-*</code> attributes are present and tab-switch events fire to the data layer.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive behaviour: tabs stack or scroll horizontally on small viewports without content clipping.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus ring is visible and meets 3 : 1 contrast on all tab buttons.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All three variants (standard, pills, vertical) render correctly with expected styles and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Tab switching works — clicking a tab shows its panel and hides others.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation works: <kbd>Arrow</kbd> keys move between tabs, <kbd>Enter</kbd>/<kbd>Space</kbd> activates.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>role="tablist"</code>, <code>role="tab"</code>, and <code>role="tabpanel"</code> are present and correct.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> <code>aria-selected</code>, <code>aria-controls</code>, and <code>aria-labelledby</code> update correctly on tab switch.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Vertical tabs include <code>aria-orientation="vertical"</code> on the tablist.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Deep-link hash updates the URL and activating a tab via hash on page load works correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics <code>data-analytics-*</code> attributes are present and tab-switch events fire to the data layer.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive behaviour: tabs stack or scroll horizontally on small viewports without content clipping.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus ring is visible and meets 3 : 1 contrast on all tab buttons.</li>
       </ul>
     </section>
 

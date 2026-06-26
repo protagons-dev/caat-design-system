@@ -26,7 +26,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/components/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -58,7 +58,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link active" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -95,7 +95,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -728,12 +728,12 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> All five variants render correctly with expected colours and spacing.</li>
-        <li class="mb-2"><input type="checkbox" disabled> All three sizes (sm, default, lg) meet the documented min-height values.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Hover, focus, active, and disabled states are visually distinct and meet WCAG contrast requirements.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation works: <kbd>Tab</kbd> to focus, <kbd>Enter</kbd>/<kbd>Space</kbd> to activate.</li>
-        <li class="mb-2"><input type="checkbox" disabled> External links open in a new tab with <code>rel="noopener"</code>; download links trigger a file download.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All five variants render correctly with expected colours and spacing.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> All three sizes (sm, default, lg) meet the documented min-height values.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Hover, focus, active, and disabled states are visually distinct and meet WCAG contrast requirements.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation works: <kbd>Tab</kbd> to focus, <kbd>Enter</kbd>/<kbd>Space</kbd> to activate.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> External links open in a new tab with <code>rel="noopener"</code>; download links trigger a file download.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics data attributes are present in the DOM and fire the correct events on click and impression.</li>
       </ul>
     </section>
 

@@ -25,7 +25,7 @@
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -49,18 +49,18 @@
 
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <p class="eyebrow mb-2">Composed of</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Composed components">
       <a class="nav-link" href="/components/social-links.html">Social / Share Links</a>
       <a class="nav-link" href="/components/icon-button.html">Icon Button</a>
       <a class="nav-link" href="/components/button.html">Button</a>
     </nav>
     <p class="eyebrow mb-2">Used by</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Used by">
       <a class="nav-link" href="/components/navigation.html">Navigation</a>
       <a class="nav-link" href="/components/index.html">Every page →</a>
     </nav>
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#composed-of">Composed of</a>
@@ -382,11 +382,11 @@
     <section class="contract-section" id="dod">
       <h2>14. Definition of Done</h2>
       <ul>
-        <li><input type="checkbox" disabled> Standalone component; Navigation + template both consume it (no copy-paste drift).</li>
-        <li><input type="checkbox" disabled> Composes Social/Share Links + Button; no re-implemented controls.</li>
-        <li><input type="checkbox" disabled> Real heading + landmark structure; AODA verified.</li>
-        <li><input type="checkbox" disabled> Spacing token-driven; the decorative lime squares removed.</li>
-        <li><input type="checkbox" disabled> QA checklist signed off.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Standalone component; Navigation + template both consume it (no copy-paste drift).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Composes Social/Share Links + Button; no re-implemented controls.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Real heading + landmark structure; AODA verified.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Spacing token-driven; the decorative lime squares removed.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> QA checklist signed off.</li>
       </ul>
     </section>
 

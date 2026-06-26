@@ -27,7 +27,7 @@
 <!-- ════════════════════════════════════════════════════════════
      NAVBAR
      ════════════════════════════════════════════════════════════ -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
   <div class="container">
     <a class="navbar-brand caat-logo" href="/">
       <span class="logo-mark" aria-hidden="true"></span>
@@ -59,7 +59,7 @@
   <aside class="component-page-sidebar" aria-label="Component navigation">
     <!-- Component list -->
     <p class="eyebrow mb-2">Components</p>
-    <nav class="nav flex-column mb-3">
+    <nav class="nav flex-column mb-3" aria-label="Component list">
       <a class="nav-link" href="/components/button.html">Button</a>
       <a class="nav-link" href="/components/card.html">Card</a>
       <a class="nav-link" href="/components/accordion.html">Accordion</a>
@@ -96,7 +96,7 @@
 
     <!-- On-page sections -->
     <p class="eyebrow mb-2">On this page</p>
-    <nav class="nav flex-column">
+    <nav class="nav flex-column" aria-label="On this page">
       <a class="nav-link" href="#demo">Demo</a>
       <a class="nav-link" href="#summary">1. Summary</a>
       <a class="nav-link" href="#tokens">2. Tokens</a>
@@ -780,20 +780,20 @@ fields:
     <section class="contract-section" id="qa">
       <h2>13. QA Acceptance Checklist</h2>
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Basic pagination renders Previous, page numbers 1–5, and Next correctly.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Previous link is disabled on page 1; Next link is disabled on the last page.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Active page shows blue-900 background with white text and <code>aria-current="page"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Icon variant renders chevron-left and chevron-right with appropriate <code>aria-label</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Small, Default, and Large sizes render with correct min-width/min-height touch targets.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Results text ("Showing X–Y of Z results") displays correctly when enabled.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Ellipsis renders for truncated page ranges (total pages > 7) with <code>aria-hidden="true"</code>.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Focus ring (3px solid, --caat-focus) is visible on all interactive links.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Keyboard navigation: Tab reaches all enabled links; disabled links are skipped.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Hover state applies blue-100 background on non-active, non-disabled links.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Pagination does not render when total pages ≤ 1.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Responsive: pagination centres and simplifies at mobile breakpoint (< 576px).</li>
-        <li class="mb-2"><input type="checkbox" disabled> Analytics events (<code>pagination-click</code>, <code>pagination-view</code>) fire with correct data attributes.</li>
-        <li class="mb-2"><input type="checkbox" disabled> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Basic pagination renders Previous, page numbers 1–5, and Next correctly.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Previous link is disabled on page 1; Next link is disabled on the last page.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Active page shows blue-900 background with white text and <code>aria-current="page"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Icon variant renders chevron-left and chevron-right with appropriate <code>aria-label</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Small, Default, and Large sizes render with correct min-width/min-height touch targets.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Results text ("Showing X–Y of Z results") displays correctly when enabled.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Ellipsis renders for truncated page ranges (total pages > 7) with <code>aria-hidden="true"</code>.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Focus ring (3px solid, --caat-focus) is visible on all interactive links.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation: Tab reaches all enabled links; disabled links are skipped.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Hover state applies blue-100 background on non-active, non-disabled links.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Pagination does not render when total pages ≤ 1.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive: pagination centres and simplifies at mobile breakpoint (< 576px).</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Analytics events (<code>pagination-click</code>, <code>pagination-view</code>) fire with correct data attributes.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Cross-browser tested: Chrome, Firefox, Safari, Edge.</li>
       </ul>
     </section>
 
