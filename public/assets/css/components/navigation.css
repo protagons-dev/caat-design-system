@@ -19,6 +19,10 @@
   padding: .4rem 0;
   font-size: var(--caat-font-size-2xs);
 }
+.caat-navbar .utility-bar .container {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 .caat-navbar .utility-bar a {
   color: var(--caat-color-text-inverse-muted);
   text-decoration: none;

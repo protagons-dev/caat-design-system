@@ -17,6 +17,7 @@
 
 <!-- Design system components used on this page -->
 <link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/dropdown.css" rel="stylesheet">
 <link href="/assets/css/components/icon-button.css" rel="stylesheet">
 <link href="/assets/css/components/social-links.css" rel="stylesheet">
 <link href="/assets/css/components/avatar.css" rel="stylesheet">
@@ -52,7 +53,7 @@
 
   <!-- Utility bar -->
   <div class="utility-bar" role="navigation" aria-label="Utility links">
-    <div class="container d-flex justify-content-end align-items-center gap-3">
+    <div class="container d-flex justify-content-start align-items-center gap-3">
       <a href="#">Contact us</a>
       <a href="#">Support Centre</a>
       <a href="#">Newsroom</a>
@@ -233,10 +234,15 @@
             <input class="nav-search-input" type="search" id="navSearch" placeholder="Search…" autocomplete="off">
             <i class="bi bi-search" aria-hidden="true"></i>
           </div>
-          <a href="#" class="nav-login">
-            <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
-          </a>
-          <a href="#cta" class="caat-button caat-button--primary caat-button--sm nav-cta">Join DBplus</a>
+          <div class="caat-dropdown dropdown">
+            <button class="nav-login dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+              <i class="bi bi-person-circle" aria-hidden="true"></i> <span class="d-none d-xl-inline">Login</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end caat-dropdown__menu">
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+              <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -556,11 +562,16 @@
         </ul>
       </div>
       </div><!-- /.caat-drillnav -->
-      <div class="mobile-nav-cta">
-        <a href="#cta" class="caat-button caat-button--primary caat-button--full-mobile">Join DBplus</a>
-        <a href="#" class="caat-button caat-button--outline-primary caat-button--full-mobile">
-          <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
-        </a>
+      <div class="mobile-nav-actions">
+        <div class="caat-dropdown dropdown">
+          <button class="caat-button caat-button--primary caat-button--full-mobile dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+            <i class="bi bi-person-circle caat-button__icon" aria-hidden="true"></i> Login
+          </button>
+          <ul class="dropdown-menu caat-dropdown__menu">
+            <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="member-portal">Member portal</a></li>
+            <li><a class="dropdown-item caat-dropdown__item" href="#" data-analytics-label="employer-portal">Employer Portal</a></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -599,24 +610,6 @@
         <div class="caat-feature-hero__accent-rule"></div>
         <h1 class="caat-feature-hero__title" id="hero-heading">A better pension matters:</h1>
         <p class="caat-feature-hero__subtitle">The attraction and retention strategy every employer should be thinking about</p>
-        <div class="caat-feature-hero__actions">
-          <a href="https://www.caatpension.ca/documents/marketing/2025-Retirement-That-Works.pdf"
-             class="caat-button caat-button--outline-white caat-button--lg"
-             target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-file-earmark-pdf caat-button__icon" aria-hidden="true"></i> Download the brochure
-          </a>
-        </div>
-      </div>
-      <div class="caat-feature-hero__preview">
-        <a href="https://www.caatpension.ca/documents/marketing/2025-Retirement-That-Works.pdf"
-           target="_blank" rel="noopener noreferrer">
-          <img src="/assets/images/retirement-that-works.png"
-               alt="Retirement that works brochure cover"
-               loading="eager">
-          <span class="caat-feature-hero__preview-label">
-            <i class="bi bi-download" aria-hidden="true"></i> PDF · Download
-          </span>
-        </a>
       </div>
     </div>
   </div>

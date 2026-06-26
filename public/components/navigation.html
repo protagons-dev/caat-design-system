@@ -157,7 +157,7 @@
           <header class="caat-navbar" data-analytics-component="navigation" data-figma="Desktop navbar" data-figma-group="Layouts">
             <!-- Utility bar -->
             <div class="utility-bar">
-              <div class="container d-flex justify-content-end align-items-center gap-3">
+              <div class="container d-flex justify-content-start align-items-center gap-3">
                 <a href="#">Contact us</a>
                 <a href="#">Support Centre</a>
                 <a href="#">Newsroom</a>
@@ -726,7 +726,7 @@
           <p class="demo-label">Desktop Mega Menu Navbar HTML</p>
 <pre class="code-sample"><code>&lt;header class="caat-navbar" data-analytics-component="navigation"&gt;
   &lt;div class="utility-bar"&gt;
-    &lt;div class="container d-flex justify-content-end gap-3"&gt;
+    &lt;div class="container d-flex justify-content-start gap-3"&gt;
       &lt;a href="/contact"&gt;Contact us&lt;/a&gt;
       &lt;a href="#" class="lang-switch"&gt;EN | FR&lt;/a&gt;
     &lt;/div&gt;
@@ -1440,7 +1440,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
 <pre class="code-sample mb-4"><code>&lt;header class="caat-navbar"&gt;
   &lt;!-- Utility bar --&gt;
   &lt;div class="utility-bar"&gt;
-    &lt;div class="container d-flex justify-content-end gap-3"&gt;
+    &lt;div class="container d-flex justify-content-start gap-3"&gt;
       &lt;a href="#"&gt;Contact us&lt;/a&gt;
       &lt;a href="#" class="lang-switch"&gt;EN | FR&lt;/a&gt;
     &lt;/div&gt;
@@ -1557,7 +1557,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
           <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
           <tbody>
             <tr><td><code>.caat-navbar</code></td><td>Top-level navbar wrapper (<code>&lt;header&gt;</code>)</td></tr>
-            <tr><td><code>.caat-navbar .utility-bar</code></td><td>Dark utility links bar (top row)</td></tr>
+            <tr><td><code>.caat-navbar .utility-bar</code></td><td>Dark, left-aligned utility links bar (top row)</td></tr>
             <tr><td><code>.caat-navbar .navbar-main</code></td><td>Main nav row (Bootstrap <code>.navbar</code>)</td></tr>
             <tr><td><code>.caat-navbar .mega-menu</code></td><td>Full-width mega dropdown panel (extends <code>.dropdown-menu</code>)</td></tr>
             <tr><td><code>.mega-columns</code></td><td>CSS Grid container for mega menu columns</td></tr>
@@ -1938,7 +1938,7 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
+        <li class="mb-2"><input type="checkbox" disabled> Desktop navbar renders correctly: dark left-aligned utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
         <li class="mb-2"><input type="checkbox" disabled> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
         <li class="mb-2"><input type="checkbox" disabled> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
