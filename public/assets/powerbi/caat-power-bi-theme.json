@@ -1,0 +1,233 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.155.json",
+  "name": "CAAT Design System",
+  "dataColors": [
+    "#003750",
+    "#0F6791",
+    "#2F95D2",
+    "#0B5A80",
+    "#9DD2ED",
+    "#367F32",
+    "#55A546",
+    "#204B1F",
+    "#0F8F9D",
+    "#12A7B8",
+    "#95E35C",
+    "#6F7D8C"
+  ],
+  "good": "#367F32",
+  "neutral": "#EFAA39",
+  "bad": "#B83232",
+  "maximum": "#003750",
+  "center": "#2F95D2",
+  "minimum": "#E7F4FB",
+  "null": "#6F7D8C",
+  "accent": "#95E35C",
+  "foreground": "#102637",
+  "firstLevelElements": "#102637",
+  "secondLevelElements": "#506273",
+  "thirdLevelElements": "#DFE6EF",
+  "fourthLevelElements": "#6F7D8C",
+  "background": "#FFFFFF",
+  "secondaryBackground": "#EFF2F7",
+  "tableAccent": "#003750",
+  "foregroundLight": "#506273",
+  "foregroundDark": "#003750",
+  "foregroundNeutralLight": "#6F7D8C",
+  "foregroundNeutralDark": "#102637",
+  "foregroundNeutralSecondary": "#506273",
+  "foregroundNeutralSecondaryAlt": "#6F7D8C",
+  "foregroundNeutralSecondaryAlt2": "#CBD7E3",
+  "foregroundNeutralTertiary": "#DFE6EF",
+  "foregroundNeutralTertiaryAlt": "#EFF2F7",
+  "foregroundSelected": "#003750",
+  "foregroundButton": "#FFFFFF",
+  "backgroundLight": "#FFFFFF",
+  "backgroundNeutral": "#EFF2F7",
+  "backgroundDark": "#003750",
+  "hyperlink": "#003750",
+  "visitedHyperlink": "#0B5A80",
+  "shapeStroke": "#DFE6EF",
+  "disabledText": "#8A99A8",
+  "mapPushpin": "#0F6791",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 38,
+      "color": "#003750"
+    },
+    "largeTitle": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 22,
+      "color": "#003750"
+    },
+    "title": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 14,
+      "color": "#003750"
+    },
+    "header": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 12,
+      "color": "#003750"
+    },
+    "label": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 10,
+      "color": "#102637"
+    },
+    "smallLabel": {
+      "fontFace": "Libre Franklin",
+      "fontSize": 9,
+      "color": "#506273"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#003750"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 12,
+            "bold": true,
+            "background": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "legend": [
+          {
+            "show": true,
+            "labelColor": {
+              "solid": {
+                "color": "#506273"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 10,
+            "position": "BottomCenter"
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#506273"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "#003750"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 10,
+            "gridlineColor": {
+              "solid": {
+                "color": "#DFE6EF"
+              }
+            },
+            "gridlineStyle": "solid"
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#506273"
+              }
+            },
+            "titleColor": {
+              "solid": {
+                "color": "#003750"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 10,
+            "gridlineColor": {
+              "solid": {
+                "color": "#DFE6EF"
+              }
+            },
+            "gridlineStyle": "solid"
+          }
+        ],
+        "labels": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#102637"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 10
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": false,
+            "color": {
+              "solid": {
+                "color": "#DFE6EF"
+              }
+            },
+            "radius": 4
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "foreground": {
+              "solid": {
+                "color": "#506273"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "tooltip": [
+          {
+            "background": {
+              "solid": {
+                "color": "#003750"
+              }
+            },
+            "foreground": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "fontFamily": "Libre Franklin",
+            "fontSize": 10
+          }
+        ]
+      }
+    }
+  }
+}

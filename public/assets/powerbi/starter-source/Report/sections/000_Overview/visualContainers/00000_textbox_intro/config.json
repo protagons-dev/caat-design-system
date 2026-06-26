@@ -1,0 +1,52 @@
+{
+  "name": "caatstarterintro0001",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 48,
+        "y": 42,
+        "z": 0,
+        "width": 760,
+        "height": 176
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "CAAT Power BI Starter",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "30pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Use this template with the CAAT Design System theme. Replace this starter model with your governed semantic model, keep the CAAT color roles, and retain descriptive visual titles.",
+                    "textStyle": {
+                      "fontSize": "15pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

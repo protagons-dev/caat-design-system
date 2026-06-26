@@ -1,0 +1,83 @@
+table 'Starter Metrics'
+
+	column Month
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthNumber
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column Members
+		dataType: int64
+		formatString: #,0
+		summarizeBy: sum
+		sourceColumn: Members
+
+		annotation SummarizationSetBy = Automatic
+
+	column Contributions
+		dataType: decimal
+		formatString: "$"#,0;-"$"#,0;"$"#,0
+		summarizeBy: sum
+		sourceColumn: Contributions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-CA"}
+
+	column Target
+		dataType: decimal
+		formatString: "$"#,0;-"$"#,0;"$"#,0
+		summarizeBy: sum
+		sourceColumn: Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-CA"}
+
+	column ServiceScore
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		summarizeBy: average
+		sourceColumn: ServiceScore
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Starter Metrics' = m
+		mode: import
+		source =
+				let
+				    Source = #table(
+				        type table [Month = text, MonthNumber = Int64.Type, Members = Int64.Type, Contributions = Currency.Type, Target = Currency.Type, ServiceScore = number, Status = text],
+				        {
+				            {"Jan", 1, 98000, 124000000, 120000000, 0.92, "On track"},
+				            {"Feb", 2, 99200, 129500000, 124000000, 0.91, "On track"},
+				            {"Mar", 3, 100400, 133000000, 128000000, 0.94, "On track"},
+				            {"Apr", 4, 101250, 131000000, 130000000, 0.88, "Watch"},
+				            {"May", 5, 102100, 136500000, 132000000, 0.93, "On track"},
+				            {"Jun", 6, 103000, 140000000, 136000000, 0.95, "On track"}
+				        }
+				    )
+				in
+				    Source
+
+	annotation PBI_ResultType = Table
+

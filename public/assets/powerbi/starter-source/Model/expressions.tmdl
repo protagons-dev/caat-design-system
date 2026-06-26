@@ -1,0 +1,6 @@
+expression ThemeNote = "CAAT Design System Power BI starter model" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=false]
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

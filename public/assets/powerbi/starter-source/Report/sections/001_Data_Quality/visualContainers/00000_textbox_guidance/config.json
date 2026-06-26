@@ -1,0 +1,63 @@
+{
+  "name": "caatstarterquality01",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 48,
+        "y": 48,
+        "z": 0,
+        "width": 980,
+        "height": 420
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Accessibility and quality checklist",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "22pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Before publishing: verify color is not the only status cue, add visual alt text, check tab order, test keyboard navigation, and keep report titles specific to the metric, population, and time period.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Font standard: use Libre Franklin where installed; use Arial as the approved fallback. Do not use Segoe UI for CAAT-authored report templates.",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

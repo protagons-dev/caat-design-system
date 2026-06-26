@@ -1,0 +1,74 @@
+{
+  "name": "caatstarterlayout001",
+  "layouts": [
+    {
+      "id": 0,
+      "position": {
+        "x": 48,
+        "y": 258,
+        "z": 1,
+        "width": 1040,
+        "height": 322
+      }
+    }
+  ],
+  "singleVisual": {
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Recommended canvas pattern",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "20pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. KPI strip across the top: members, contributions, funded status, service score.",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Primary trend chart below the KPI strip, using CAAT blue 900 for the lead measure.",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Supporting categorical chart, table, and slicers on the right. Reserve green, warning, and danger for status meaning.",
+                    "textStyle": {
+                      "fontSize": "13pt",
+                      "fontFamily": "Libre Franklin"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

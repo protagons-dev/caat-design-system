@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System - Power BI theme JSON, palette guidance, accessibility notes, and report designer documentation.">
+<title>Power BI Theme | CAAT Design System - Foundations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<style>
+.powerbi-hero {
+  background: var(--caat-blue-900);
+  border-radius: var(--caat-radius-lg);
+  color: #fff;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+.powerbi-hero .eyebrow { color: var(--caat-lime); }
+.powerbi-hero p { color: var(--caat-blue-300); max-width: 46rem; }
+.powerbi-hero .btn-light { color: var(--caat-blue-900); font-weight: 700; }
+.theme-panel {
+  background: #fff;
+  border: 1px solid var(--caat-grey-200);
+  border-radius: var(--caat-radius);
+  height: 100%;
+  padding: 1rem;
+}
+.theme-panel h3 {
+  color: var(--caat-blue-900);
+  font-size: 1rem;
+  font-weight: 800;
+}
+.swatch {
+  border: 1px solid var(--caat-grey-200);
+  border-radius: .5rem;
+  display: block;
+  height: 2.25rem;
+  width: 2.75rem;
+}
+.source-code {
+  background: #0b2233;
+  border-radius: var(--caat-radius);
+  color: #eaf6fb;
+  font-size: .8125rem;
+  max-height: 36rem;
+  overflow: auto;
+  padding: 1rem;
+}
+.source-code code {
+  color: inherit;
+  white-space: pre;
+}
+.reference-list a {
+  overflow-wrap: anywhere;
+}
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/components/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#components">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Templates</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Page navigation">
+    <p class="eyebrow mb-2">Foundations</p>
+    <nav class="nav flex-column mb-3" aria-label="Foundation list">
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/foundations/design-md.html">DESIGN.md</a>
+      <a class="nav-link active" href="/foundations/power-bi-theme.html">Power BI Theme</a>
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout</a>
+      <a class="nav-link" href="/foundations/interaction-states.html">Interaction States</a>
+      <a class="nav-link" href="/foundations/card-image-ratios.html">Card Image Ratios</a>
+      <a class="nav-link" href="/foundations/responsive.html">Responsive</a>
+    </nav>
+
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column" aria-label="On this page">
+      <a class="nav-link" href="#overview">Overview</a>
+      <a class="nav-link" href="#download">Download</a>
+      <a class="nav-link" href="#starter-report">Starter Report</a>
+      <a class="nav-link" href="#palette">Palette</a>
+      <a class="nav-link" href="#using">Using the Theme</a>
+      <a class="nav-link" href="#accessibility">Accessibility</a>
+      <a class="nav-link" href="#governance">Governance</a>
+      <a class="nav-link" href="#theme-json">Theme JSON</a>
+      <a class="nav-link" href="#references">References</a>
+    </nav>
+  </aside>
+
+  <main class="component-page-main">
+    <section class="powerbi-hero mb-5">
+      <p class="eyebrow">Foundations</p>
+      <h1>Power BI Theme</h1>
+      <p class="lead mb-4">A CAAT-branded report theme for Power BI Desktop and the Power BI service, packaged as a downloadable JSON file and starter report template with guidance for accessible dashboards, data color usage, and theme maintenance.</p>
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-light" href="/assets/powerbi/caat-power-bi-theme.json" download="caat-power-bi-theme.json"><i class="bi bi-download me-1" aria-hidden="true"></i> Download theme JSON</a>
+        <a class="btn btn-light" href="/assets/powerbi/caat-power-bi-starter-report.pbit" download="caat-power-bi-starter-report.pbit"><i class="bi bi-file-earmark-bar-graph me-1" aria-hidden="true"></i> Download starter PBIT</a>
+        <a class="btn btn-outline-light" href="#theme-json"><i class="bi bi-filetype-json me-1" aria-hidden="true"></i> View JSON inline</a>
+      </div>
+    </section>
+
+    <section id="overview" class="mb-5">
+      <h2>Overview</h2>
+      <p>The CAAT Power BI theme translates the design system into a report theme file that can be imported into Power BI Desktop. It sets the default data color sequence, sentiment colors, structural colors, typography classes, visual title treatment, axes, legends, backgrounds, borders, headers, and tooltips.</p>
+      <p>Microsoft documents four main parts of a custom report theme: theme colors, structural colors, text classes, and visual styles. This file uses those parts to give report designers a strong starting point while leaving room for report-specific formatting where the data requires it.</p>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6 col-xl-3">
+          <div class="theme-panel">
+            <h3><i class="bi bi-palette me-1" aria-hidden="true"></i> Data colors</h3>
+            <p class="mb-0 small text-muted">A 12-color categorical sequence built from CAAT blues, greens, teal, lime, neutral, warning, and danger colors.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="theme-panel">
+            <h3><i class="bi bi-traffic-light me-1" aria-hidden="true"></i> Sentiment</h3>
+            <p class="mb-0 small text-muted">Good, neutral, bad, gradient, and null colors for KPI, waterfall, and conditional-formatting defaults.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="theme-panel">
+            <h3><i class="bi bi-type me-1" aria-hidden="true"></i> Typography</h3>
+            <p class="mb-0 small text-muted">Libre Franklin text classes for callouts, titles, headers, labels, and small labels.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="theme-panel">
+            <h3><i class="bi bi-bar-chart-line me-1" aria-hidden="true"></i> Visual styles</h3>
+            <p class="mb-0 small text-muted">Defaults for titles, legends, axes, labels, backgrounds, borders, visual headers, and tooltips.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="mb-5">
+      <h2>Download and Import</h2>
+      <p>Download the theme and import it into Power BI Desktop from the report authoring ribbon.</p>
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <a class="btn btn-primary" href="/assets/powerbi/caat-power-bi-theme.json" download="caat-power-bi-theme.json"><i class="bi bi-download me-1" aria-hidden="true"></i> Download caat-power-bi-theme.json</a>
+        <button class="btn btn-outline-primary" type="button" id="copy-theme-json"><i class="bi bi-clipboard me-1" aria-hidden="true"></i> Copy JSON</button>
+      </div>
+      <ol>
+        <li>Open the report in Power BI Desktop.</li>
+        <li>Go to <strong>View</strong>, open the <strong>Themes</strong> dropdown, and choose <strong>Browse for themes</strong>.</li>
+        <li>Select <code>caat-power-bi-theme.json</code>.</li>
+        <li>Review any import validation messages. If Power BI reports an error, validate the file against the current Microsoft theme schema before publishing.</li>
+        <li>Reset existing visuals to default where you want them to inherit the theme. Direct visual formatting can override the theme until it is reset.</li>
+      </ol>
+      <div class="alert alert-info" role="note">
+        <strong>Font note:</strong> Power BI themes reference font names but do not embed web fonts. CAAT-authored report templates use Libre Franklin where installed and Arial as the approved fallback. Do not set CAAT report templates in Segoe UI.
+      </div>
+    </section>
+
+    <section id="starter-report" class="mb-5">
+      <h2>Companion Starter Report</h2>
+      <p>The starter template is a real <code>.pbit</code> generated from source using the CAAT theme. It gives report designers a branded shell, a tiny inline sample semantic model, and two starter pages for report structure and quality checks.</p>
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <a class="btn btn-primary" href="/assets/powerbi/caat-power-bi-starter-report.pbit" download="caat-power-bi-starter-report.pbit"><i class="bi bi-file-earmark-bar-graph me-1" aria-hidden="true"></i> Download caat-power-bi-starter-report.pbit</a>
+        <a class="btn btn-outline-primary" href="/assets/powerbi/caat-power-bi-starter-source.zip" download="caat-power-bi-starter-source.zip"><i class="bi bi-file-earmark-zip me-1" aria-hidden="true"></i> Download starter source</a>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Included</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>Embedded CAAT theme</td><td>Applies CAAT brand colors, structural colors, title styles, axes, legends, tooltips, and text classes.</td></tr>
+            <tr><td>Overview page</td><td>Provides the recommended dashboard canvas pattern: KPI strip, lead trend, supporting categorical view, table, and slicers.</td></tr>
+            <tr><td>Data Quality page</td><td>Captures accessibility and report-quality checks authors should complete before publishing.</td></tr>
+            <tr><td>Starter Metrics model</td><td>Small inline sample table with month, members, contributions, target, service score, and status fields.</td></tr>
+            <tr><td>Libre Franklin text</td><td>Uses Libre Franklin in the template text. If Libre Franklin is not installed for an author, use Arial as the fallback.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small text-muted mb-0">For future edits, open the PBIT in Power BI Desktop, make changes, then export a new template from <strong>File &gt; Export &gt; Power BI template</strong>. Microsoft documents PBIT creation as a Power BI Desktop export workflow.</p>
+    </section>
+
+    <section id="palette" class="mb-5">
+      <h2>Theme Palette</h2>
+      <p>The sequence prioritizes CAAT brand recognition over generic BI palette spread. Categorical charts start with deep CAAT blues, then move through brand greens, teal, lime, and a neutral. Warning and danger are not part of the ordinary data series sequence; they are reserved for semantic status.</p>
+
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered align-middle">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Color</th>
+              <th>Token/source</th>
+              <th>Power BI use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td><span class="swatch" style="background:#003750;"></span></td><td><code>#003750</code> / Blue 900</td><td>Primary measure, strongest series, report title accents</td></tr>
+            <tr><td>2</td><td><span class="swatch" style="background:#0F6791;"></span></td><td><code>#0F6791</code> / CAAT blue</td><td>Secondary measure, comparison series</td></tr>
+            <tr><td>3</td><td><span class="swatch" style="background:#2F95D2;"></span></td><td><code>#2F95D2</code> / Blue 500</td><td>Supporting blue series and gradient center</td></tr>
+            <tr><td>4</td><td><span class="swatch" style="background:#0B5A80;"></span></td><td><code>#0B5A80</code> / Blue 700</td><td>Strong blue comparison or secondary emphasis</td></tr>
+            <tr><td>5</td><td><span class="swatch" style="background:#9DD2ED;"></span></td><td><code>#9DD2ED</code> / Blue 300</td><td>Low-emphasis series, shaded comparisons</td></tr>
+            <tr><td>6</td><td><span class="swatch" style="background:#367F32;"></span></td><td><code>#367F32</code> / Green 700</td><td>Positive/plan-health series where it is not being used as status</td></tr>
+            <tr><td>7</td><td><span class="swatch" style="background:#55A546;"></span></td><td><code>#55A546</code> / CAAT green</td><td>Secondary positive or membership-related series</td></tr>
+            <tr><td>8</td><td><span class="swatch" style="background:#204B1F;"></span></td><td><code>#204B1F</code> / Green 900</td><td>Deep green comparison or secondary status family</td></tr>
+            <tr><td>9</td><td><span class="swatch" style="background:#0F8F9D;"></span></td><td><code>#0F8F9D</code> / Teal dark</td><td>Distinct categorical series</td></tr>
+            <tr><td>10</td><td><span class="swatch" style="background:#12A7B8;"></span></td><td><code>#12A7B8</code> / Teal</td><td>Supporting categorical accent</td></tr>
+            <tr><td>11</td><td><span class="swatch" style="background:#95E35C;"></span></td><td><code>#95E35C</code> / Lime</td><td>Brand accent, highlights, sparing use</td></tr>
+            <tr><td>12</td><td><span class="swatch" style="background:#6F7D8C;"></span></td><td><code>#6F7D8C</code> / Grey 500</td><td>Neutral series, null, benchmark, or de-emphasized values</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="theme-panel">
+            <h3>Sequential data</h3>
+            <p class="small text-muted mb-0">Use blue tint progression for ordered values: Blue 100 to Blue 500 to Blue 900. Avoid mixing categorical colors into continuous scales.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="theme-panel">
+            <h3>Diverging data</h3>
+            <p class="small text-muted mb-0">Use danger for low/bad, warning or blue 500 for center/target, and green or blue 900 for high/good depending on metric semantics.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="theme-panel">
+            <h3>Status data</h3>
+            <p class="small text-muted mb-0">Reserve green, warning, and danger for meaning. Do not use those colors decoratively in the same report if they also encode status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="using" class="mb-5">
+      <h2>Using the Theme</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Decision</th>
+              <th>Guidance for report designers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Series order</td>
+              <td>Power BI applies <code>dataColors</code> in order. Put the most important measure or category first so it receives CAAT blue 900.</td>
+            </tr>
+            <tr>
+              <td>Direct formatting</td>
+              <td>Prefer theme colors from the color picker. If a visual is manually formatted outside the theme, it will not update consistently when the theme changes.</td>
+            </tr>
+            <tr>
+              <td>KPI status</td>
+              <td>Use <code>good</code>, <code>neutral</code>, and <code>bad</code> for actual performance states only. Avoid green for decorative categories on KPI-heavy pages.</td>
+            </tr>
+            <tr>
+              <td>Tables and matrix visuals</td>
+              <td>Use blue 900 for headers, grey 200 for dividers, and white or grey subtle backgrounds. Keep table accent color as blue 900.</td>
+            </tr>
+            <tr>
+              <td>Chart titles</td>
+              <td>Write descriptive titles that explain the measure, population, and time range. The theme sets title styling, but authors still control clarity.</td>
+            </tr>
+            <tr>
+              <td>Conditional formatting</td>
+              <td>The theme can supply colors, but it cannot add conditional formatting rules. Authors must configure rules per visual or measure.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="accessibility" class="mb-5">
+      <h2>Accessibility Guidance</h2>
+      <p>The theme supports accessible defaults, but accessible Power BI reports still depend on report authoring choices. Microsoft notes that report authors must configure items such as alt text, tab order, titles, labels, markers, and report themes.</p>
+      <ul>
+        <li>Do not rely on color alone. Pair status color with labels, markers, annotations, or explicit values.</li>
+        <li>Use visual titles that are unique and descriptive so screen reader users understand each chart's purpose.</li>
+        <li>Set alt text for visuals that communicate meaning beyond their title.</li>
+        <li>Review tab order for report pages with slicers, buttons, bookmarks, and custom navigation.</li>
+        <li>Test high contrast mode and keyboard navigation before publishing.</li>
+        <li>Avoid dense legends with many categories. If a visual needs more than six to eight colors, consider faceting, filtering, small multiples, or a table.</li>
+      </ul>
+      <div class="alert alert-warning" role="note">
+        <strong>Contrast caution:</strong> Lime, light blue, and warning colors are useful fills and accents, but they should not be used as small text on a white background.
+      </div>
+    </section>
+
+    <section id="governance" class="mb-5">
+      <h2>Governance and Maintenance</h2>
+      <p>Power BI validates custom report themes against Microsoft's JSON schema on import. The schema changes with Power BI Desktop releases, so the theme should be checked when the desktop application updates.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th>Maintenance item</th><th>Owner action</th></tr></thead>
+          <tbody>
+            <tr><td>Design token change</td><td>Update the JSON color values and this page's palette guidance in the same pull request.</td></tr>
+            <tr><td>Power BI Desktop update</td><td>Validate against the current report theme schema, then import the JSON into Desktop.</td></tr>
+            <tr><td>Starter report update</td><td>Update the starter source, regenerate <code>caat-power-bi-starter-report.pbit</code>, and retest the template in Power BI Desktop.</td></tr>
+            <tr><td>Report template release</td><td>Test the theme against common CAAT dashboard patterns: KPI strip, clustered bar chart, line chart, table, slicer, and tooltip.</td></tr>
+            <tr><td>Organizational rollout</td><td>Tenant admins can expose organizational themes in the Power BI theme dropdown for broader adoption.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="theme-json" class="mb-5">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <div>
+          <h2 class="mb-1">Theme JSON</h2>
+          <p class="mb-0 text-muted">The complete downloadable JSON file is loaded inline below.</p>
+        </div>
+        <a class="btn btn-outline-primary btn-sm" href="/assets/powerbi/caat-power-bi-theme.json" download="caat-power-bi-theme.json"><i class="bi bi-download me-1" aria-hidden="true"></i> Download JSON</a>
+      </div>
+<pre class="source-code"><code id="theme-json-source">Loading Power BI theme JSON...</code></pre>
+    </section>
+
+    <section id="references" class="mb-5">
+      <h2>References</h2>
+      <ul class="reference-list">
+        <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-report-themes" rel="noopener">Microsoft Learn: Use report themes in Power BI</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/report-themes-create-custom" rel="noopener">Microsoft Learn: Create custom report themes in Power BI Desktop</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-templates" rel="noopener">Microsoft Learn: Create and use report templates in Power BI Desktop</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-accessibility-creating-reports" rel="noopener">Microsoft Learn: Design Power BI reports for accessibility</a></li>
+        <li><a href="https://github.com/microsoft/powerbi-desktop-samples/tree/main/Report%20Theme%20JSON%20Schema" rel="noopener">Microsoft Power BI report theme JSON schema repository</a></li>
+        <li><a href="https://pbi.tools/cli/" rel="noopener">pbi-tools CLI documentation</a></li>
+      </ul>
+    </section>
+  </main>
+</div>
+</div>
+
+<footer class="footer mt-5">
+  <div class="container">
+    <div class="row align-items-center gy-3">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/foundations/design-tokens.html" class="me-3">Design Tokens</a>
+        <a href="/foundations/design-md.html" class="me-3">DESIGN.md</a>
+        <a href="/foundations/power-bi-theme.html" class="me-3">Power BI Theme</a>
+        <a href="/components/" class="me-3">Components</a>
+        <a href="/templates/pensions-matter.html">Pensions Matter</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+const themeSource = document.getElementById('theme-json-source');
+let themeJsonText = '';
+
+fetch('/assets/powerbi/caat-power-bi-theme.json')
+  .then((response) => {
+    if (!response.ok) throw new Error('Unable to load Power BI theme JSON');
+    return response.text();
+  })
+  .then((text) => {
+    themeJsonText = text;
+    themeSource.textContent = text;
+  })
+  .catch(() => {
+    themeSource.textContent = 'Power BI theme JSON could not be loaded inline. Use the download link above.';
+  });
+
+document.getElementById('copy-theme-json').addEventListener('click', async (event) => {
+  if (!themeJsonText) return;
+  await navigator.clipboard.writeText(themeJsonText);
+  event.currentTarget.innerHTML = '<i class="bi bi-check2 me-1" aria-hidden="true"></i> Copied';
+});
+</script>
+</body>
+</html>

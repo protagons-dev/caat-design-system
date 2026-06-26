@@ -1,0 +1,33 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 40,
+            "y": 40
+          },
+          "nodeIndex": "Starter Metrics",
+          "size": {
+            "height": 240,
+            "width": 260
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Starter model",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false
+    }
+  ],
+  "selectedDiagram": "Starter model",
+  "defaultDiagram": "Starter model"
+}
