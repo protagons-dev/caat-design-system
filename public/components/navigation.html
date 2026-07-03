@@ -181,7 +181,10 @@
 
                     <!-- L1: Pension solutions (mega) -->
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pension solutions</a>
+                      <div class="nav-link-group">
+                        <a class="nav-link" href="/pension-solutions">Pension solutions</a>
+                        <button class="nav-link nav-link-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open Pension solutions menu"></button>
+                      </div>
                       <div class="dropdown-menu mega-menu">
                         <div class="container">
                           <div class="mega-columns">
@@ -223,7 +226,10 @@
 
                     <!-- L1: Members (mega) -->
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+                      <div class="nav-link-group">
+                        <a class="nav-link" href="/members">Members</a>
+                        <button class="nav-link nav-link-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open Members menu"></button>
+                      </div>
                       <div class="dropdown-menu mega-menu">
                         <div class="container">
                           <div class="mega-columns">
@@ -275,7 +281,10 @@
 
                     <!-- L1: Employers (mega) -->
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Employers</a>
+                      <div class="nav-link-group">
+                        <a class="nav-link" href="/employers">Employers</a>
+                        <button class="nav-link nav-link-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open Employers menu"></button>
+                      </div>
                       <div class="dropdown-menu mega-menu">
                         <div class="container">
                           <div class="mega-columns">
@@ -739,10 +748,10 @@
       &lt;div class="collapse navbar-collapse"&gt;
         &lt;ul class="navbar-nav me-auto"&gt;
           &lt;li class="nav-item dropdown"&gt;
-            &lt;a class="nav-link dropdown-toggle" href="#"
-               data-bs-toggle="dropdown" aria-expanded="false"&gt;
-              Pension solutions
-            &lt;/a&gt;
+            &lt;div class="nav-link-group"&gt;
+              &lt;a class="nav-link" href="/pension-solutions"&gt;Pension solutions&lt;/a&gt;
+              &lt;button class="nav-link nav-link-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open Pension solutions menu"&gt;&lt;/button&gt;
+            &lt;/div&gt;
             &lt;div class="dropdown-menu mega-menu"&gt;
               &lt;div class="container"&gt;
                 &lt;div class="mega-columns"&gt;
@@ -809,12 +818,16 @@
         </button>
       </p>
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="demoDrillNav" aria-labelledby="demoDrillNavLabel">
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="demoDrillNav" aria-labelledby="demoDrillNavLabel">
         <div class="offcanvas-header border-bottom">
           <h5 class="mb-0" id="demoDrillNavLabel">Menu</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body caat-drillnav" data-caat-drillnav>
+          <div class="caat-mobile-search">
+            <input type="search" class="form-control" placeholder="Search CAAT" aria-label="Search CAAT">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </div>
           <!-- ROOT: L1 -->
           <div class="caat-drillnav__panel">
             <ul class="caat-drillnav__list">
@@ -1132,7 +1145,7 @@
       &lt;i class="bi bi-list" aria-hidden="true"&gt;&lt;/i&gt; Menu
     &lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class="offcanvas offcanvas-end" id="mobileOffcanvas"
+  &lt;div class="offcanvas offcanvas-start" id="mobileOffcanvas"
        tabindex="-1" aria-labelledby="mobileOffcanvasLabel"&gt;
     &lt;div class="offcanvas-header"&gt;
       &lt;h5 id="mobileOffcanvasLabel"&gt;Menu&lt;/h5&gt;
@@ -1455,10 +1468,10 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
       &lt;div class="collapse navbar-collapse"&gt;
         &lt;ul class="navbar-nav me-auto"&gt;
           &lt;li class="nav-item dropdown"&gt;
-            &lt;a class="nav-link dropdown-toggle" href="#"
-               data-bs-toggle="dropdown" aria-expanded="false"&gt;
-              Pension solutions
-            &lt;/a&gt;
+            &lt;div class="nav-link-group"&gt;
+              &lt;a class="nav-link" href="/pension-solutions"&gt;Pension solutions&lt;/a&gt;
+              &lt;button class="nav-link nav-link-toggle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Open Pension solutions menu"&gt;&lt;/button&gt;
+            &lt;/div&gt;
             &lt;div class="dropdown-menu mega-menu"&gt;
               &lt;div class="container"&gt;
                 &lt;div class="mega-columns"&gt;
@@ -1529,7 +1542,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
   &lt;i class="bi bi-list" aria-hidden="true"&gt;&lt;/i&gt; Menu
 &lt;/button&gt;
 
-&lt;div class="offcanvas offcanvas-end" id="mobileOffcanvas"
+&lt;div class="offcanvas offcanvas-start" id="mobileOffcanvas"
      tabindex="-1" aria-labelledby="mobileOffcanvasLabel"&gt;
   &lt;div class="offcanvas-header"&gt;
     &lt;h5 id="mobileOffcanvasLabel"&gt;Menu&lt;/h5&gt;
@@ -1639,7 +1652,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
           <tbody>
             <tr><td>Mobile menu</td><td>Below <code>lg</code> (992&nbsp;px) the bar collapses behind a Menu button that opens the offcanvas (<code>aria-expanded</code> + <code>aria-controls</code>). Above it, the full bar renders and the toggler is hidden.</td></tr>
             <tr><td>Mobile drill-down <em>(navigation.js)</em></td><td>Inside the offcanvas: <code>.caat-drillnav__next</code> reveals the child panel (to L4) and focuses its Back control; <code>.caat-drillnav__back</code> returns one level and restores focus to the trigger; <kbd>Escape</kbd> in a sub-panel goes back one level (closes the offcanvas only from the root); closing the offcanvas resets to the root panel. Hidden panels use the <code>hidden</code> attribute; triggers mirror state via <code>aria-expanded</code>.</td></tr>
-            <tr><td>Mega menu open/close</td><td>L1 triggers use <code>data-bs-toggle="dropdown"</code> with <code>role="button"</code> + <code>aria-expanded</code>. Bootstrap handles: open on click/<kbd>Enter</kbd>/<kbd>Space</kbd>, close on <kbd>Escape</kbd> (focus returns to the trigger), close on outside click, one menu open at a time.</td></tr>
+            <tr><td>Mega menu open/close</td><td>L1 text links navigate to the landing page; the adjacent caret button uses <code>data-bs-toggle="dropdown"</code> with <code>aria-expanded</code>. Bootstrap handles open/close on click/<kbd>Enter</kbd>/<kbd>Space</kbd>, close on <kbd>Escape</kbd> (focus returns to the button), close on outside click, one menu open at a time.</td></tr>
             <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Inside open desktop mega menus, <code>navigation.js</code> intercepts <kbd>Tab</kbd> so focus traverses all <code>.mega-category-title</code> L2 links across the panel first, then continues through L3 links and promo links.</td></tr>
             <tr><td>Sticky header</td><td><code>sticky-top</code> (z-index 1020 = <code>--caat-z-sticky</code>). Anchor targets stay visible beneath it via the global <code>scroll-padding-top: 5rem</code> (caat-base.css).</td></tr>
             <tr><td>Current page</td><td>Set <code>aria-current="page"</code> + the <code>.active</code> class on the current L1 link (server-rendered, not JS-derived).</td></tr>
@@ -1939,11 +1952,11 @@ dialog:
       <h2>13. QA Acceptance Checklist</h2>
 
       <ul class="list-unstyled">
-        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Desktop navbar renders correctly: dark left-aligned utility bar, enlarged logo, L1 nav links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Desktop navbar renders correctly: dark right-aligned utility bar, enlarged logo, split L1 navigation links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
-        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mobile menu opens via hamburger toggle; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mobile menu opens via hamburger toggle; the search field appears at the top of the drawer; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Keyboard navigation works: all links and buttons reachable via <kbd>Tab</kbd>; desktop mega menu focus moves across L2 category links before L3 links; offcanvas closes with <kbd>Escape</kbd>; focus is trapped inside offcanvas when open.</li>
@@ -2031,6 +2044,8 @@ document.querySelectorAll('.caat-menu-button').forEach(btn => {
 <script src="/assets/js/figma-export.js"></script>
 </body>
 </html>
+
+
 
 
 

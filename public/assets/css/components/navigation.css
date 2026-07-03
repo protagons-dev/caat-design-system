@@ -52,6 +52,33 @@
 .caat-navbar .navbar-main .navbar-nav {
   flex-wrap: nowrap;
 }
+.caat-navbar .navbar-main .navbar-nav .nav-item.dropdown {
+  display: inline-flex;
+  align-items: stretch;
+}
+.caat-navbar .navbar-main .navbar-nav .nav-link-group {
+  display: inline-flex;
+  align-items: stretch;
+}
+.caat-navbar .navbar-main .navbar-nav .nav-link-group > .nav-link {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.caat-navbar .navbar-main .navbar-nav .nav-link-toggle {
+  width: 2.25rem;
+  min-width: 2.25rem;
+  padding-left: .35rem;
+  padding-right: .35rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.caat-navbar .navbar-main .navbar-nav .nav-link-toggle::after {
+  margin-left: 0;
+}
 .caat-navbar .navbar-brand img {
   height: 4rem;
   width: auto;

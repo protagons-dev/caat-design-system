@@ -74,8 +74,12 @@
         <ul class="navbar-nav me-auto">
           <!-- L1: Pension solutions (mega) -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">Pension solutions</a>
+            <div class="nav-link-group">
+              <a class="nav-link" href="/pension-solutions">Pension solutions</a>
+              <button class="nav-link nav-link-toggle dropdown-toggle" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"
+                      aria-label="Open Pension solutions menu"></button>
+            </div>
             <div class="dropdown-menu mega-menu">
               <div class="container">
                 <div class="mega-columns">
@@ -118,8 +122,12 @@
 
           <!-- L1: Members (mega) -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">Members</a>
+            <div class="nav-link-group">
+              <a class="nav-link" href="/members">Members</a>
+              <button class="nav-link nav-link-toggle dropdown-toggle" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"
+                      aria-label="Open Members menu"></button>
+            </div>
             <div class="dropdown-menu mega-menu">
               <div class="container">
                 <div class="mega-columns">
@@ -171,8 +179,12 @@
 
           <!-- L1: Employers (mega) -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false">Employers</a>
+            <div class="nav-link-group">
+              <a class="nav-link" href="/employers">Employers</a>
+              <button class="nav-link nav-link-toggle dropdown-toggle" type="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"
+                      aria-label="Open Employers menu"></button>
+            </div>
             <div class="dropdown-menu mega-menu">
               <div class="container">
                 <div class="mega-columns">
@@ -248,6 +260,10 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close menu"></button>
     </div>
     <div class="offcanvas-body">
+      <div class="caat-mobile-search">
+        <input type="search" class="form-control" placeholder="Search CAAT" aria-label="Search CAAT">
+        <i class="bi bi-search" aria-hidden="true"></i>
+      </div>
       <div class="caat-drillnav" data-caat-drillnav>
       <!-- ROOT: L1 -->
       <div class="caat-drillnav__panel">
