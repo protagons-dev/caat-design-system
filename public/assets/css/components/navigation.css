@@ -347,7 +347,7 @@
   padding: 1rem 1.25rem;
 }
 .caat-navbar .offcanvas-header img {
-  height: 2.5rem;
+  height: 3.5rem;
   width: auto;
 }
 .caat-navbar .offcanvas-body {
@@ -359,16 +359,17 @@
 
 .caat-navbar .mobile-nav-links {
   list-style: none;
-  padding: .5rem 0;
-  margin: 0;
+  padding: .75rem 0 0;
+  margin: .75rem 0 0;
+  border-top: 1px solid var(--caat-color-border);
 }
 .caat-navbar .mobile-nav-links a {
   display: block;
-  padding: .75rem .25rem;
-  color: var(--caat-color-text);
+  padding: .55rem .25rem;
+  color: var(--caat-color-text-muted);
   text-decoration: none;
-  font-weight: 700;
-  font-size: var(--caat-font-size-sm);
+  font-weight: 600;
+  font-size: var(--caat-font-size-xs);
   border-bottom: 1px solid var(--caat-color-border);
 }
 .caat-navbar .mobile-nav-links a:hover {
