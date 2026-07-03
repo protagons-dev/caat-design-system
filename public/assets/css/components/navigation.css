@@ -20,7 +20,7 @@
   font-size: var(--caat-font-size-2xs);
 }
 .caat-navbar .utility-bar .container {
-  justify-content: flex-start;
+  justify-content: flex-end;
   flex-wrap: wrap;
 }
 .caat-navbar .utility-bar a {
