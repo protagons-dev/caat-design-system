@@ -112,5 +112,9 @@
   .caat-hero-media { min-height: 14rem; border-radius: var(--caat-radius); }
   .caat-hero-card { margin: -2.5rem .75rem 0; padding: 1.15rem; border-radius: 0 0 2.5rem 0; }
   .caat-hero-card h3 { font-size: 1.35rem; }
-  .caat-hero-card .accent-rule { height: .25rem; width: 8rem; }
+  .caat-hero-card .accent-rule {
+    height: .25rem;
+    width: 8rem;
+    margin-inline: auto;
+  }
 }
