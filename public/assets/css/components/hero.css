@@ -48,6 +48,12 @@
   width: 12rem; max-width: 70%; height: .35rem;
   background: var(--caat-green); /* decorative brand accent — spacing via .caat-stack */
 }
+.caat-hero-card .caat-hero-card__title {
+  color: var(--caat-white) !important;
+}
+.caat-hero-card .caat-hero-card__summary {
+  color: var(--caat-white-88) !important;
+}
 .caat-hero-card .btn { border-color: var(--caat-white); color: var(--caat-color-text-inverse); }
 .caat-hero-card .btn:hover,
 .caat-hero-card .btn:focus-visible { background: var(--caat-white); color: var(--caat-color-action-primary); }
