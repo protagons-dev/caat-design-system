@@ -527,7 +527,7 @@
 .caat-hero-slight-overlap   /* Card positioned at bottom of image */
 
 /* Stat strip */
-.caat-stat-strip           /* Full-width stats bar */
+.caat-stat-strip           /* Stats row; background can bleed via --bleed modifier */
 .caat-stat-item            /* Individual stat */</code></pre>
 
       <h3 class="mb-2">75 px overhang rule</h3>
@@ -548,7 +548,7 @@
         <li><strong>Panel skin vs layout:</strong> the card element composes two classes — <code>.caat-hero-card</code> (size/position, hero.css) + <code>.caat-hero-panel</code> (canonical glass skin incl. hover lift, caat-base.css). Omitting the panel class yields an unstyled box; omitting the card class loses positioning.</li>
         <li><strong>Media:</strong> the image fills <code>.caat-hero-media</code> with <code>object-fit: cover</code>; min-heights step down 22 → 18 → 14&nbsp;rem across breakpoints. Author images for the worst crop (centre-weighted focal point) — there is no focal-point control.</li>
         <li><strong>Legibility scrim:</strong> <code>.caat-hero-media::after</code> applies <code>var(--caat-overlay-side)</code>. Never remove it when text or the panel sits over a photo; it is the contrast guarantee.</li>
-        <li><strong>Stat strip:</strong> composes the Stat/KPI component (<code>.caat-stat-strip</code> / <code>.caat-stat-item</code>, stat.css). The trust bar stays square; author stats through the Stat component contract.</li>
+        <li><strong>Stat strip:</strong> composes the Stat/KPI component (<code>.caat-stat-strip</code> / <code>.caat-stat-item</code>, stat.css). Use <code>.caat-stat-strip--bleed</code> when the band background should span the viewport while the stats stay aligned to the container. Author stats through the Stat component contract.</li>
         <li><strong>Interactivity:</strong> the panel lifts on hover (decorative). If the whole card is made clickable, use a stretched link inside it — the panel then shows the focus ring via the Card/panel <code>:has(.stretched-link:focus-visible)</code> pattern; CTAs inside the panel use the Button contract (incl. <code>--outline-white</code> on the glass surface).</li>
         <li><strong>Reduced motion:</strong> the lift/transition is neutralized globally by the <code>prefers-reduced-motion</code> rule in caat-base.css — no per-component handling needed.</li>
       </ul>
