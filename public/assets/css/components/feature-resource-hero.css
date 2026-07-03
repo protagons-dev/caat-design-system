@@ -136,14 +136,16 @@
   position: relative;
   z-index: 2;
   padding: 4rem 0;
+  grid-template-columns: minmax(0, 42rem);
   align-items: end;
 }
-/* Card overlay on the body content — the visual skin (glass background,
-   signature corner, hover lift, inverse text) comes from the canonical
-   .caat-hero-panel (caat-base.css); compose both classes in markup.
-   Only the layout delta lives here. */
+/* Fullbleed is a landing-hero treatment: one message, one primary CTA,
+   no resource-preview/download affordance on the right. The visual skin
+   (glass background, signature corner, hover lift, inverse text) comes
+   from the canonical .caat-hero-panel (caat-base.css); compose both
+   classes in markup. Only the layout delta lives here. */
 .caat-feature-hero--fullbleed .caat-feature-hero__body {
-  max-width: 30rem;
+  max-width: 42rem;
 }
 .caat-feature-hero--fullbleed .caat-feature-hero__accent-rule {
   width: 12rem;
@@ -152,13 +154,11 @@
   background: var(--caat-green);
   margin: 1rem 0 1.25rem;
 }
-.caat-feature-hero--fullbleed .caat-feature-hero__preview img {
-  max-width: 14rem;
-  border-radius: var(--caat-radius);
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.35);
+.caat-feature-hero--fullbleed .caat-feature-hero__preview {
+  display: none;
 }
-.caat-feature-hero--fullbleed .caat-feature-hero__preview-label {
-  color: var(--caat-color-text-inverse-dim);
+.caat-feature-hero--fullbleed .caat-feature-hero__actions {
+  margin-top: 1.25rem;
 }
 
 /* ── Responsive ── */
