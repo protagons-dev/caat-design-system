@@ -55,6 +55,24 @@
 .caat-stat-card .caat-stat__value { font-size: 3rem;  /* matches --xl */ color: var(--caat-color-text-inverse); }
 .caat-stat-card .caat-stat__label { color: var(--caat-color-text-inverse-muted); }
 
+/* Optional icon slot above the stat value.
+   Show the icon only on desktop; the stat strip stacks at tablet/mobile widths. */
+.caat-stat__icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 0 auto var(--caat-space-3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--caat-color-text-inverse);
+  font-size: 1rem;
+  line-height: 1;
+}
+.caat-stat__icon i { line-height: 1; }
+
 /* ── Strip — a row of stats with dividers (dark band, e.g. hero) ──
    RULE: maximum 3 stats per strip. Four columns break at tablet
    widths (768–991px) — labels collide with the dividers. Authoring
@@ -112,6 +130,10 @@
 /* Preferred API inside a stat-item inherits the strip colour rules */
 .caat-stat-item .caat-stat__value { color: var(--caat-color-text-inverse); }
 .caat-stat-item .caat-stat__label { color: var(--caat-color-text-inverse-dim); }
+
+@media (min-width: 992px) {
+  .caat-stat__icon { display: inline-flex; }
+}
 
 @media (max-width: 575.98px) {
   .caat-stat-strip { flex-direction: column; gap: 1rem; padding: 1.25rem 1.5rem; }

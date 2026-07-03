@@ -162,14 +162,17 @@
             </div>
             <div class="caat-stat-strip" role="group" aria-label="Key plan figures">
               <div class="caat-stat-item">
+                <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-people-fill"></i></span>
                 <strong>125,000</strong>
                 <span>Members</span>
               </div>
               <div class="caat-stat-item">
+                <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-building"></i></span>
                 <strong>800</strong>
                 <span>Employers across 20 industries</span>
               </div>
               <div class="caat-stat-item">
+                <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-piggy-bank-fill"></i></span>
                 <strong>$23.3 <small>billion</small></strong>
                 <span>Net assets</span>
               </div>
@@ -185,14 +188,17 @@
           <p class="demo-label">Rendered</p>
           <div class="caat-stat-strip" role="group" aria-label="Key plan figures" data-figma="Stats strip" data-figma-group="Variants">
             <div class="caat-stat-item">
+              <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-people-fill"></i></span>
               <strong>125,000</strong>
               <span>Members</span>
             </div>
             <div class="caat-stat-item">
+              <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-building"></i></span>
               <strong>800</strong>
               <span>Employers across 20 industries</span>
             </div>
             <div class="caat-stat-item">
+              <span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-piggy-bank-fill"></i></span>
               <strong>$23.3 <small>billion</small></strong>
               <span>Net assets</span>
             </div>
@@ -232,18 +238,22 @@
 &lt;!-- Stats strip --&gt;
 &lt;div class="caat-stat-strip"&gt;
   &lt;div class="caat-stat-item"&gt;
+    &lt;span class="caat-stat__icon" aria-hidden="true"&gt;&lt;i class="bi bi-people-fill"&gt;&lt;/i&gt;&lt;/span&gt;
     &lt;strong&gt;125,000+&lt;/strong&gt;
     &lt;span&gt;Members&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="caat-stat-item"&gt;
+    &lt;span class="caat-stat__icon" aria-hidden="true"&gt;&lt;i class="bi bi-building"&gt;&lt;/i&gt;&lt;/span&gt;
     &lt;strong&gt;800+&lt;/strong&gt;
     &lt;span&gt;Employers&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="caat-stat-item"&gt;
+    &lt;span class="caat-stat__icon" aria-hidden="true"&gt;&lt;i class="bi bi-piggy-bank-fill"&gt;&lt;/i&gt;&lt;/span&gt;
     &lt;strong&gt;$24B+&lt;/strong&gt;
     &lt;span&gt;Assets&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="caat-stat-item"&gt;
+    &lt;span class="caat-stat__icon" aria-hidden="true"&gt;&lt;i class="bi bi-shield-check"&gt;&lt;/i&gt;&lt;/span&gt;
     &lt;strong&gt;116%&lt;/strong&gt;
     &lt;span&gt;Funded ratio&lt;/span&gt;
   &lt;/div&gt;
@@ -638,7 +648,7 @@
       </ul>
 
       <h3>Stats strip</h3>
-      <p>The stats strip can be implemented as either a child component within the hero or as a separate stand-alone component (<code>caat/components/stat-strip</code>) placed immediately below the hero in the page template. The recommended approach is a separate component for maximum reusability.</p>
+      <p>The stats strip can be implemented as either a child component within the hero or as a separate stand-alone component (<code>caat/components/stat-strip</code>) placed immediately below the hero in the page template. The recommended approach is a separate component for maximum reusability. Optional icons may appear above each stat on desktop only; hide them at tablet and mobile widths so the stacked layout stays compact.</p>
 
       <h3>Suggested file structure</h3>
 <pre class="code-sample"><code>hero/

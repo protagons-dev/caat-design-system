@@ -108,9 +108,9 @@
       <h3 class="mb-2">Stat strip (dark band — e.g. under a hero)</h3>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
         <div class="caat-stat-strip rounded-4" role="group" aria-label="Key plan figures" data-figma="Stat strip" data-figma-group="Stat">
-          <div class="caat-stat"><span class="caat-stat__value">$4.2<small>B</small></span><span class="caat-stat__label">Plan assets</span></div>
-          <div class="caat-stat"><span class="caat-stat__value">100%</span><span class="caat-stat__label">Funded</span></div>
-          <div class="caat-stat"><span class="caat-stat__value">95k+</span><span class="caat-stat__label">Members</span></div>
+          <div class="caat-stat"><span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-piggy-bank-fill"></i></span><span class="caat-stat__value">$4.2<small>B</small></span><span class="caat-stat__label">Plan assets</span></div>
+          <div class="caat-stat"><span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-shield-check"></i></span><span class="caat-stat__value">100%</span><span class="caat-stat__label">Funded</span></div>
+          <div class="caat-stat"><span class="caat-stat__icon" aria-hidden="true"><i class="bi bi-people-fill"></i></span><span class="caat-stat__value">95k+</span><span class="caat-stat__label">Members</span></div>
         </div>
       </div></div>
     </section>
@@ -188,6 +188,7 @@
       <ul>
         <li>Lead with the number; keep labels to 1–3 words ("Plan assets", "Funded").</li>
         <li>Use a strip of <strong>2&ndash;3 stats (3 max)</strong> for impact — four breaks at tablet widths. More figures belong in stat cards or a table.</li>
+        <li>Use an icon when it improves recognition, but keep the icon slot desktop-only so the stacked tablet/mobile layout stays compact.</li>
         <li>Round figures for scannability ("$4.2B", "95k+") and keep precise data for charts/tables.</li>
       </ul>
     </section>
@@ -203,7 +204,11 @@
 
 &lt;!-- Strip (max 3 stats; aria-label required) --&gt;
 &lt;div class="caat-stat-strip" role="group" aria-label="Key figures"&gt;
-  &lt;div class="caat-stat"&gt;…&lt;/div&gt;
+  &lt;div class="caat-stat"&gt;
+    &lt;span class="caat-stat__icon" aria-hidden="true"&gt;&lt;i class="bi bi-piggy-bank-fill"&gt;&lt;/i&gt;&lt;/span&gt;
+    &lt;span class="caat-stat__value"&gt;$4.2&lt;small&gt;B&lt;/small&gt;&lt;/span&gt;
+    &lt;span class="caat-stat__label"&gt;Plan assets&lt;/span&gt;
+  &lt;/div&gt;
   &lt;div class="caat-stat"&gt;…&lt;/div&gt;
 &lt;/div&gt;</code></pre>
       <p class="small text-muted">If a stat is decorative duplication of nearby prose, mark it <code>aria-hidden</code>; otherwise the value + label read together.</p>
@@ -216,6 +221,7 @@
         <thead><tr><th>Selector</th><th>Purpose</th></tr></thead>
         <tbody>
           <tr><td><code>.caat-stat</code></td><td>Single stat wrapper (centred)</td></tr>
+          <tr><td><code>.caat-stat__icon</code></td><td>Optional leading icon, shown above the value on desktop only</td></tr>
           <tr><td><code>.caat-stat__value</code> / <code>__label</code></td><td>Figure / caption</td></tr>
           <tr><td><code>.caat-stat-strip</code></td><td>Dark band row of stats, with dividers</td></tr>
           <tr><td><code>.caat-stat-item strong/span</code></td><td>Legacy element API (kept for back-compat)</td></tr>
@@ -233,6 +239,7 @@
           <tr><td>Contrast</td><td>Light: heading/muted on white (AA). Dark strip: white value + dimmed-white label on brand navy (AA verified).</td></tr>
           <tr><td>Not interactive</td><td>Stats are non-focusable; if a stat links somewhere, wrap it in a real link/Button.</td></tr>
           <tr><td>Abbreviations</td><td>Spell out units in the label, not just the <code>&lt;small&gt;</code> glyph, where ambiguous.</td></tr>
+          <tr><td>Icons</td><td>Icon slot is optional and hidden below desktop; do not rely on it to convey meaning because it disappears on tablet/mobile.</td></tr>
         </tbody>
       </table>
     </section>
@@ -285,6 +292,7 @@
       <h2>14. Definition of Done</h2>
       <ul>
         <li><input type="checkbox" disabled aria-hidden="true"> Token-driven; AA verified on light and dark.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Optional desktop-only icon slot renders above each stat without affecting tablet/mobile stacking.</li>
         <li><input type="checkbox" disabled aria-hidden="true"> Hero refactored to compose it (was Hero-internal CSS).</li>
         <li><input type="checkbox" disabled aria-hidden="true"> Responsive strip verified mobile→desktop.</li>
         <li><input type="checkbox" disabled aria-hidden="true"> QA checklist signed off.</li>
