@@ -1,4 +1,81 @@
-/* -- Stats strip ---------------------------------------------------------
+﻿/* ============================================================
+   CAAT Hero — Component CSS
+   AEM client library: caat/components/hero/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens)
+   ============================================================ */
+
+.caat-composable-hero { position: relative; }
+
+.caat-hero-frame {
+  position: relative;
+  border-radius: var(--caat-radius-lg);
+  overflow: visible;
+}
+
+.caat-hero-media {
+  min-height: 22rem;
+  border-radius: var(--caat-radius-lg);
+  background: linear-gradient(135deg, var(--caat-blue-100) 0%, var(--caat-grey-200) 38%, var(--caat-blue-300) 100%);
+  box-shadow: var(--caat-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.caat-hero-media > img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  position: absolute; inset: 0;
+}
+.caat-hero-media::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--caat-overlay-side);
+  z-index: 1;
+}
+
+/* Layout only — the visual skin (glass background, signature corner,
+   hover lift) comes from the canonical .caat-hero-panel (caat-base.css);
+   compose both classes in markup. */
+.caat-hero-card {
+  width: min(28rem, calc(100% - 2rem));
+  position: absolute;
+  left: 2rem; bottom: 1.5rem; top: auto;
+  transform: none;
+  z-index: 2;
+}
+
+.caat-hero-card .accent-rule {
+  width: 12rem; max-width: 70%; height: .35rem;
+  background: var(--caat-green); /* decorative brand accent — spacing via .caat-stack */
+}
+.caat-hero-card .btn { border-color: var(--caat-white); color: var(--caat-color-text-inverse); }
+.caat-hero-card .btn:hover,
+.caat-hero-card .btn:focus-visible { background: var(--caat-white); color: var(--caat-color-action-primary); }
+
+/* ── Slight overlap variant ────────────────────────────────── */
+.caat-hero-slight-overlap .caat-hero-media {
+  min-height: 22rem !important;
+  border-radius: var(--caat-radius-lg) var(--caat-radius-lg) 0 0 !important;
+}
+.caat-hero-slight-overlap .caat-hero-card {
+  position: absolute !important;
+  left: 2rem !important; top: auto !important; right: auto !important; bottom: 1.5rem !important;
+  transform: none !important; margin: 0 !important;
+  width: min(28rem, calc(100% - 4rem)) !important;
+  background: var(--caat-color-bg-brand) !important;
+  border-radius: 0 0 3rem 0 !important;
+  padding: 1.5rem !important;
+  box-shadow: var(--caat-shadow) !important;
+  z-index: 2;
+}
+.caat-hero-slight-overlap .caat-hero-card:hover {
+  transform: translateY(var(--caat-lift-row)) !important;
+}
+.caat-hero-slight-overlap .caat-hero-card .accent-rule {
+  height: .25rem;
+}
+
+/* ── Stats strip ──────────────────────────────────────────────
    COMPOSES the Stat/KPI component (.caat-stat-strip / .caat-stat-item,
    stat.css). The trust bar stays square; no extra radius is applied here. */
 
@@ -31,4 +108,3 @@
   .caat-hero-card h3 { font-size: 1.35rem; }
   .caat-hero-card .accent-rule { height: .25rem; width: 8rem; }
 }
-
