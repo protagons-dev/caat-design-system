@@ -29,6 +29,9 @@
     'textarea:not([disabled])',
     '[tabindex]:not([tabindex="-1"])'
   ].join(',');
+  var hoverOpenDelay = 120;
+  var hoverCloseDelay = 180;
+  var desktopMedia = window.matchMedia('(min-width: 992px)');
 
   function isVisible(el) {
     return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
@@ -91,31 +94,71 @@
     });
   }
 
+  function openMegaMenu(item) {
+    if (!item) return;
+
+    var toggle = item.querySelector('.nav-link-toggle');
+    var menu = item.querySelector('.mega-menu');
+    if (!toggle || !menu) return;
+
+    closeOtherMegaMenus(item);
+    item.classList.add('show');
+    toggle.classList.add('show');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.classList.add('show');
+  }
+
   function initMegaMenuToggle(toggle) {
     var item = toggle.closest('.nav-item.dropdown');
     var menu = item ? item.querySelector('.mega-menu') : null;
     if (!item || !menu) return;
+    var openTimer;
+    var closeTimer;
+
+    function clearTimers() {
+      window.clearTimeout(openTimer);
+      window.clearTimeout(closeTimer);
+    }
+
+    function scheduleOpen() {
+      if (!desktopMedia.matches) return;
+      clearTimers();
+      openTimer = window.setTimeout(function () {
+        openMegaMenu(item);
+      }, hoverOpenDelay);
+    }
+
+    function scheduleClose() {
+      if (!desktopMedia.matches) return;
+      clearTimers();
+      closeTimer = window.setTimeout(function () {
+        closeMegaMenu(item, false);
+      }, hoverCloseDelay);
+    }
 
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      clearTimers();
 
       var isOpen = item.classList.contains('show');
-      closeOtherMegaMenus(item);
 
       if (isOpen) {
         closeMegaMenu(item, false);
       } else {
-        item.classList.add('show');
-        toggle.classList.add('show');
-        toggle.setAttribute('aria-expanded', 'true');
-        menu.classList.add('show');
+        openMegaMenu(item);
       }
     });
+
+    item.addEventListener('pointerenter', scheduleOpen);
+    item.addEventListener('pointerleave', scheduleClose);
+    menu.addEventListener('pointerenter', scheduleOpen);
+    menu.addEventListener('pointerleave', scheduleClose);
 
     item.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && item.classList.contains('show')) {
         e.stopPropagation();
+        clearTimers();
         closeMegaMenu(item, true);
       }
     });
