@@ -70,6 +70,16 @@
     });
   }
 
+  function initMegaMenuToggle(toggle) {
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (!window.bootstrap || !bootstrap.Dropdown) return;
+      bootstrap.Dropdown.getOrCreateInstance(toggle).toggle();
+    });
+  }
+
   function initDrillnav(root) {
     var panels = root.querySelectorAll('.caat-drillnav__panel');
     if (!panels.length) return;
@@ -150,6 +160,7 @@
 
   function init() {
     document.querySelectorAll('.caat-navbar .mega-menu').forEach(initMegaMenuKeyboard);
+    document.querySelectorAll('.caat-navbar .nav-link-toggle[data-bs-toggle="dropdown"]').forEach(initMegaMenuToggle);
     document.querySelectorAll('[data-caat-drillnav]').forEach(initDrillnav);
   }
 
