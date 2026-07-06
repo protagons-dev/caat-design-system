@@ -70,13 +70,54 @@
     });
   }
 
+  function closeMegaMenu(item, restoreFocus) {
+    if (!item) return;
+
+    var toggle = item.querySelector('.nav-link-toggle');
+    var menu = item.querySelector('.mega-menu');
+
+    item.classList.remove('show');
+    if (toggle) {
+      toggle.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) toggle.focus();
+    }
+    if (menu) menu.classList.remove('show');
+  }
+
+  function closeOtherMegaMenus(activeItem) {
+    document.querySelectorAll('.caat-navbar .nav-item.dropdown.show').forEach(function (item) {
+      if (item !== activeItem && item.querySelector('.mega-menu')) closeMegaMenu(item, false);
+    });
+  }
+
   function initMegaMenuToggle(toggle) {
+    var item = toggle.closest('.nav-item.dropdown');
+    var menu = item ? item.querySelector('.mega-menu') : null;
+    if (!item || !menu) return;
+
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
 
-      if (!window.bootstrap || !bootstrap.Dropdown) return;
-      bootstrap.Dropdown.getOrCreateInstance(toggle).toggle();
+      var isOpen = item.classList.contains('show');
+      closeOtherMegaMenus(item);
+
+      if (isOpen) {
+        closeMegaMenu(item, false);
+      } else {
+        item.classList.add('show');
+        toggle.classList.add('show');
+        toggle.setAttribute('aria-expanded', 'true');
+        menu.classList.add('show');
+      }
+    });
+
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && item.classList.contains('show')) {
+        e.stopPropagation();
+        closeMegaMenu(item, true);
+      }
     });
   }
 
@@ -161,6 +202,9 @@
   function init() {
     document.querySelectorAll('.caat-navbar .mega-menu').forEach(initMegaMenuKeyboard);
     document.querySelectorAll('.caat-navbar .nav-link-toggle[data-bs-toggle="dropdown"]').forEach(initMegaMenuToggle);
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.caat-navbar .nav-item.dropdown.show')) closeOtherMegaMenus(null);
+    });
     document.querySelectorAll('[data-caat-drillnav]').forEach(initDrillnav);
   }
 
