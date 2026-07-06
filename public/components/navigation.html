@@ -1429,6 +1429,7 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Visible "Menu" text label on mobile hamburger button</li>
             <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Footer columns match primary site sections</li>
             <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Language toggle clearly identifies target language</li>
+            <li class="mb-2"><i class="bi bi-check-lg text-success"></i> Split L1 items keep the text link navigable while the adjacent caret controls the mega panel</li>
           </ul>
         </div>
         <div class="col-md-6">
@@ -1439,9 +1440,19 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
             <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Inconsistent nav labels between header and footer</li>
             <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> More than 7 primary navigation items</li>
             <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Using abbreviations in navigation labels</li>
+            <li class="mb-2"><i class="bi bi-x-lg text-danger"></i> Making the L1 text link a dropdown-only trigger; it must remain a real landing-page link</li>
           </ul>
         </div>
       </div>
+
+      <h3 class="mt-4 mb-2">Interaction expectations</h3>
+      <ul>
+        <li>On desktop, hovering a mega-menu L1 item opens its panel after a short intent delay.</li>
+        <li>The L1 text remains a normal link to the section landing page. Hover must not prevent click navigation.</li>
+        <li>The adjacent caret button toggles the same panel for pointer and keyboard users and mirrors state with <code>aria-expanded</code>.</li>
+        <li>Only one mega panel may be open at a time. Moving to another L1 opens that panel and closes the previous panel.</li>
+        <li>Hover-open is desktop-only. Tablet and mobile use the offcanvas drill-down menu.</li>
+      </ul>
     </section>
 
     <!-- ════════════════════════════════════════════════════════
@@ -1652,11 +1663,11 @@ Footer/legal: People · Privacy · Terms of use · Accessibility · Sitemap</cod
           <tbody>
             <tr><td>Mobile menu</td><td>Below <code>lg</code> (992&nbsp;px) the bar collapses behind a Menu button that opens the offcanvas (<code>aria-expanded</code> + <code>aria-controls</code>). Above it, the full bar renders and the toggler is hidden.</td></tr>
             <tr><td>Mobile drill-down <em>(navigation.js)</em></td><td>Inside the offcanvas: <code>.caat-drillnav__next</code> reveals the child panel (to L4) and focuses its Back control; <code>.caat-drillnav__back</code> returns one level and restores focus to the trigger; <kbd>Escape</kbd> in a sub-panel goes back one level (closes the offcanvas only from the root); closing the offcanvas resets to the root panel. Hidden panels use the <code>hidden</code> attribute; triggers mirror state via <code>aria-expanded</code>.</td></tr>
-            <tr><td>Mega menu open/close</td><td>L1 text links navigate to the landing page. On desktop, hovering the L1 item opens its mega panel with a short intent delay; the adjacent caret button also toggles the same panel on click/<kbd>Enter</kbd>/<kbd>Space</kbd> and mirrors state with <code>aria-expanded</code>. <code>navigation.js</code> closes the panel on <kbd>Escape</kbd> with focus returned to the caret, closes on outside click, and keeps only one panel open at a time. Hover does not apply to the mobile/offcanvas menu.</td></tr>
-            <tr><td>Keyboard inside menus</td><td>Bootstrap moves focus through <code>.dropdown-item</code>s with <kbd>↑</kbd>/<kbd>↓</kbd>. Inside open desktop mega menus, <code>navigation.js</code> intercepts <kbd>Tab</kbd> so focus traverses all <code>.mega-category-title</code> L2 links across the panel first, then continues through L3 links and promo links.</td></tr>
+            <tr><td>Desktop hover-open</td><td>On viewports at or above <code>lg</code> (992&nbsp;px), pointer hover on a mega-menu L1 item opens its panel after a short intent delay. The panel remains open while the pointer is over the L1 item or its mega panel, then closes after a short delay when the pointer leaves both. Hover must not apply below <code>lg</code>.</td></tr>
+            <tr><td>Mega menu caret toggle</td><td>L1 text links navigate to the landing page. The adjacent caret button toggles the same mega panel on click/<kbd>Enter</kbd>/<kbd>Space</kbd> and mirrors state with <code>aria-expanded</code>. <code>navigation.js</code> closes the panel on <kbd>Escape</kbd> with focus returned to the caret, closes on outside click, and keeps only one panel open at a time.</td></tr>
+            <tr><td>Keyboard inside menus</td><td>Inside open desktop mega menus, <code>navigation.js</code> intercepts <kbd>Tab</kbd> so focus traverses all <code>.mega-category-title</code> L2 links across the panel first, then continues through L3 links and promo links. <kbd>Shift</kbd>+<kbd>Tab</kbd> reverses that order.</td></tr>
             <tr><td>Sticky header</td><td><code>sticky-top</code> (z-index 1020 = <code>--caat-z-sticky</code>). Anchor targets stay visible beneath it via the global <code>scroll-padding-top: 5rem</code> (caat-base.css).</td></tr>
             <tr><td>Current page</td><td>Set <code>aria-current="page"</code> + the <code>.active</code> class on the current L1 link (server-rendered, not JS-derived).</td></tr>
-            <tr><td>No hover-open</td><td>Menus open on activation only — never on hover alone (touch + keyboard parity).</td></tr>
           </tbody>
         </table>
       </div>
@@ -1954,8 +1965,9 @@ dialog:
       <ul class="list-unstyled">
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Desktop navbar renders correctly: dark right-aligned utility bar, enlarged logo, split L1 navigation links, search pill, Login dropdown, and language toggle are visible and properly aligned; no Join DBplus button renders.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Login uses the Dropdown component and contains exactly two links: &ldquo;Member portal&rdquo; and &ldquo;Employer Portal&rdquo;.</li>
-        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu panels open on click for each L1 dropdown item. Panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
-        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu closes on outside click, <kbd>Escape</kbd> key, or clicking another L1 item. Only one panel is open at a time.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Desktop mega menu panels open on L1 hover and on caret click/keyboard activation. The L1 text link remains clickable and navigates to its landing page.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu panels display categorised columns (L2 headings and L3 links only) and an optional promo card.</li>
+        <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mega menu closes on pointer leave, outside click, <kbd>Escape</kbd> key, or opening another L1 item. Only one panel is open at a time.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Mobile menu opens via hamburger toggle; the search field appears at the top of the drawer; drill-down panels reach L4 with a working Back control, focus moves into each revealed panel, and the menu resets to root on close.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Full footer renders all 4 link columns, legal links (including Privacy, Terms of use, Accessibility), social icons, logo, and copyright.</li>
         <li class="mb-2"><input type="checkbox" disabled aria-hidden="true"> Responsive behaviour: navbar wraps gracefully at tablet and mobile breakpoints; footer collapses to 2-column and then 1-column; mobile nav is hidden on desktop.</li>
@@ -1986,7 +1998,7 @@ dialog:
             </tr>
             <tr>
               <td><strong>QA</strong></td>
-              <td>All items in the QA Acceptance Checklist (Section 13) pass, including L2-first mega-menu keyboard order, mobile drill-down focus restoration, and breadcrumb/side-nav handoff checks. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Responsive tested at 320px, 768px, 1024px, 1440px.</td>
+              <td>All items in the QA Acceptance Checklist (Section 13) pass, including desktop hover-open, caret toggle, L1 link navigation, L2-first mega-menu keyboard order, mobile drill-down focus restoration, and breadcrumb/side-nav handoff checks. Manual accessibility audit completed. Cross-browser tested (Chrome, Firefox, Safari, Edge). Responsive tested at 320px, 768px, 1024px, 1440px.</td>
             </tr>
             <tr>
               <td><strong>Launch</strong></td>
