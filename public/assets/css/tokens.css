@@ -101,7 +101,7 @@
   /* ── Typography primitives ───────────────────────────────── */
   --caat-font-primary:   "Libre Franklin", Arial, Helvetica, sans-serif;
   --caat-font-secondary: Arial, Helvetica, sans-serif;
-  --caat-font-mono:      ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --caat-font-mono:      Arial, Helvetica, sans-serif;
 
   /* Font-size scale (rem). Paired line-heights below.
      Values formalize the EXISTING .caat-title scale (display 3.5 / h1 2.5 /

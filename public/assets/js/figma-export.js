@@ -38,16 +38,29 @@ const BOOTSTRAP_ICONS_URL = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3
    icons import into Figma as shapes (font glyphs don't survive HTML→Figma). */
 const BI_SVG_BASE         = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons';
 const BI_FONTS_BASE       = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/';
+const CAAT_PRIMARY_FONT   = '"Libre Franklin", Arial, Helvetica, sans-serif';
+const CAAT_SECONDARY_FONT = 'Arial, Helvetica, sans-serif';
 
 /* ── Figma-layout CSS (shared across every component export) ── */
 const FIGMA_LAYOUT_CSS = `
 *, *::before, *::after { box-sizing: border-box; }
+:root {
+  --bs-body-font-family: ${CAAT_PRIMARY_FONT};
+  --bs-font-sans-serif: ${CAAT_PRIMARY_FONT};
+  --bs-font-monospace: ${CAAT_SECONDARY_FONT};
+  --caat-font-primary: ${CAAT_PRIMARY_FONT};
+  --caat-font-secondary: ${CAAT_SECONDARY_FONT};
+  --caat-font-mono: ${CAAT_SECONDARY_FONT};
+}
 body {
   font-family: var(--caat-font-primary);
   color: var(--caat-ink);
   background: #fff;
   padding: 2rem;
   margin: 0;
+}
+code, kbd, pre, samp {
+  font-family: var(--caat-font-secondary) !important;
 }
 /* Neutralize non-visual Bootstrap behaviour for static Figma spec */
 button, .btn { cursor: default !important; }
@@ -222,6 +235,21 @@ function resolveAllVars(css, varMap, depth) {
   return result;
 }
 
+/** Keep generated Figma HTML limited to CAAT-approved font stacks. */
+function normalizeFontStacks(css) {
+  return css
+    .replace(/--bs-font-monospace\s*:[^;]+;/g, `--bs-font-monospace: ${CAAT_SECONDARY_FONT};`)
+    .replace(/--caat-font-mono\s*:[^;]+;/g, `--caat-font-mono: ${CAAT_SECONDARY_FONT};`)
+    .replace(/\s*"Liberation Mono"\s*,?/g, '')
+    .replace(/\s*"Courier New"\s*,?/g, '')
+    .replace(/\s*ui-monospace\s*,?/g, '')
+    .replace(/\s*SFMono-Regular\s*,?/g, '')
+    .replace(/\s*Menlo\s*,?/g, '')
+    .replace(/\s*Monaco\s*,?/g, '')
+    .replace(/\s*Consolas\s*,?/g, '')
+    .replace(/,\s*monospace/g, '');
+}
+
 /* ────────────────────────────────────────────────────────────
    Spec collector — assemble the Figma sheet from annotated demos
    ──────────────────────────────────────────────────────────── */
@@ -363,12 +391,12 @@ async function downloadFigmaHTML(componentName, cssFiles) {
     }));
 
     // Separate the fetched sheets
-    const bootstrapCSS    = allSheets[0];
+    const bootstrapCSS    = normalizeFontStacks(allSheets[0]);
     // Rewrite the icon font's relative ./fonts/ URLs to absolute so the
     // @font-face still loads from the downloaded blob (font fallback for any
     // icon not inlined as SVG below).
     const iconsCSS        = allSheets[1].replace(/url\((["']?)\.\/fonts\//g, `url($1${BI_FONTS_BASE}`);
-    const componentSheets = allSheets.slice(2);
+    const componentSheets = allSheets.slice(2).map(normalizeFontStacks);
 
     // 2. Build variable map from ONLY CAAT sources (tokens + component CSS).
     //    Do NOT include Bootstrap — its [data-bs-theme=dark] block would
@@ -380,8 +408,8 @@ async function downloadFigmaHTML(componentName, cssFiles) {
     //    This turns var(--caat-blue-900) → #003750, etc.
     //    Any var(--caat-xxx, #fallback) where --caat-xxx is undefined will
     //    correctly resolve to the fallback value.
-    const resolvedComponentSheets = componentSheets.map(s => resolveAllVars(s, varMap));
-    const resolvedLayoutCSS       = resolveAllVars(FIGMA_LAYOUT_CSS, varMap);
+    const resolvedComponentSheets = componentSheets.map(s => normalizeFontStacks(resolveAllVars(s, varMap)));
+    const resolvedLayoutCSS       = normalizeFontStacks(resolveAllVars(FIGMA_LAYOUT_CSS, varMap));
 
     // 4. Get markup. PREFERRED: assemble from [data-figma] annotated demos
     //    (single source of truth). FALLBACK: a legacy <template id="figma-template">.

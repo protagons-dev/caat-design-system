@@ -189,7 +189,7 @@
 .caat-type-scale__meta {
   font-size: var(--caat-font-size-2xs);
   font-weight: 600;
-  font-family: "SF Mono", "Fira Code", monospace;
+  font-family: var(--caat-font-secondary);
   color: var(--caat-color-text-muted);
   white-space: nowrap;
   text-align: right;
