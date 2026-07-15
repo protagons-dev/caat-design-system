@@ -28,3 +28,8 @@ docker/data/
 
 # Local archives
 design-sys.zip
+
+# Prototype build artifacts — regenerated locally; keep binaries out of git.
+# (Served locally via the ./public volume mount; not committed to avoid bloat.)
+prototype/
+CAAT-navigation-prototype.zip
