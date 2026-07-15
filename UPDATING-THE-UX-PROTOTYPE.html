@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Guide — Updating the CAAT Navigation UX Prototype</title>
+<style>
+  :root {
+    --blue: #003750; --blue-hover: #0b5a80; --blue-soft: #e7f4fb;
+    --green: #367f32; --lime: #95e35c; --amber-bg: #fff3cd; --amber-tx: #664d03;
+    --ink: #102637; --muted: #506273; --surface: #ffffff; --subtle: #eff2f7;
+    --border: #dfe6ef; --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--subtle); color: var(--ink);
+    font-family: 'Libre Franklin', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6; font-size: 16px;
+  }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+  /* Header */
+  header.hero {
+    background: linear-gradient(135deg, var(--blue) 0%, #0f6791 100%);
+    color: #fff; padding: 3rem 0 2.5rem; border-bottom-right-radius: 3rem;
+  }
+  header.hero .wrap { padding-bottom: 0; }
+  .eyebrow { text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
+    font-size: .78rem; color: var(--lime); margin: 0 0 .5rem; }
+  header.hero h1 { margin: 0 0 .6rem; font-size: 2.1rem; font-weight: 800; line-height: 1.15; }
+  header.hero p { margin: 0; color: rgba(255,255,255,.9); max-width: 44rem; }
+  .contact { margin-top: 1.25rem; font-size: .95rem; color: rgba(255,255,255,.92); }
+  .contact strong { color: #fff; }
+
+  /* Table of contents */
+  nav.toc {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.25rem 1.5rem; margin: 2rem 0; box-shadow: 0 6px 18px rgba(0,55,80,.06);
+  }
+  nav.toc h2 { margin: 0 0 .5rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+  nav.toc ol { margin: 0; padding-left: 1.25rem; columns: 2; column-gap: 2rem; }
+  nav.toc li { margin: .2rem 0; }
+  nav.toc a { color: var(--blue-hover); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+
+  /* Sections */
+  section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem 1.75rem; margin: 1.25rem 0; }
+  h2.section-title { margin: 0 0 1rem; font-size: 1.4rem; font-weight: 800; color: var(--blue);
+    display: flex; align-items: baseline; gap: .6rem; }
+  h2.section-title .num { font-size: .9rem; font-weight: 700; color: #fff; background: var(--blue);
+    border-radius: 999px; min-width: 1.6rem; height: 1.6rem; display: inline-flex; align-items: center;
+    justify-content: center; align-self: center; }
+  h3 { color: var(--blue); font-size: 1.05rem; margin: 1.4rem 0 .4rem; }
+  p { margin: .6rem 0; }
+  a { color: var(--blue-hover); }
+  strong { color: var(--blue); }
+
+  /* Callouts */
+  .callout { border-radius: 10px; padding: .9rem 1.1rem; margin: 1rem 0; border-left: 5px solid; }
+  .callout p:first-child { margin-top: 0; } .callout p:last-child { margin-bottom: 0; }
+  .callout.tip { background: var(--blue-soft); border-color: #0f6791; }
+  .callout.warn { background: var(--amber-bg); border-color: #d9a406; color: var(--amber-tx); }
+  .callout.warn strong { color: var(--amber-tx); }
+  .rules { list-style: none; padding: 0; margin: .5rem 0 0; }
+  .rules li { padding: .35rem 0 .35rem 1.9rem; position: relative; }
+  .rules li::before { content: "✓"; position: absolute; left: 0; top: .35rem; font-weight: 800;
+    color: #fff; background: var(--green); width: 1.3rem; height: 1.3rem; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center; font-size: .8rem; }
+  .rules li.warn-rule::before { content: "!"; background: #d9a406; }
+
+  /* Steps */
+  ol.steps { counter-reset: step; list-style: none; padding: 0; margin: .5rem 0; }
+  ol.steps > li { counter-increment: step; position: relative; padding: .1rem 0 .9rem 2.6rem; }
+  ol.steps > li::before { content: counter(step); position: absolute; left: 0; top: 0;
+    background: var(--blue); color: #fff; font-weight: 700; width: 1.8rem; height: 1.8rem;
+    border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: .9rem; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--subtle); color: var(--blue); font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  code, .file { font-family: ui-monospace, 'Cascadia Code', Consolas, 'Courier New', monospace;
+    background: var(--subtle); border: 1px solid var(--border); border-radius: 5px; padding: .1rem .35rem; font-size: .9em; color: var(--blue); }
+
+  /* Recipe list */
+  .recipe { border: 1px solid var(--border); border-radius: 10px; padding: .9rem 1.1rem; margin: .8rem 0; background: #fbfdff; }
+  .recipe .what { font-weight: 700; color: var(--blue); }
+  .recipe .file-line { font-size: .9rem; color: var(--muted); margin: .2rem 0; }
+  .say { font-style: italic; color: var(--ink); }
+
+  /* Prompt block */
+  .prompt { background: var(--blue); color: #eaf6fd; border-radius: 10px; padding: 1.1rem 1.25rem;
+    font-family: ui-monospace, 'Cascadia Code', Consolas, monospace; font-size: .92rem; line-height: 1.55; margin: 1rem 0; }
+  .prompt b { color: var(--lime); }
+
+  footer.doc { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 2rem; }
+  @media (max-width: 640px){ nav.toc ol { columns: 1; } header.hero h1 { font-size: 1.6rem; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">CAAT Design System · User Guide</p>
+    <h1>Updating the Navigation UX Prototype</h1>
+    <p>How to make changes to the prototype without the original author — using <strong style="color:#fff">ChatGPT</strong> (or any AI assistant) to edit the files. No coding experience required.</p>
+    <p class="contact">Questions? Contact <strong>Russell Vance</strong>. For anything bigger than quick text edits, it's usually best to wait for Russell — see section&nbsp;6.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc">
+    <h2>In this guide</h2>
+    <ol>
+      <li><a href="#what">What this is</a></li>
+      <li><a href="#rules">Before you start</a></li>
+      <li><a href="#files">Finding the right file</a></li>
+      <li><a href="#workflow">Making a change with ChatGPT</a></li>
+      <li><a href="#recipes">Common changes</a></li>
+      <li><a href="#shared">Menu, footer &amp; hero (all pages)</a></li>
+      <li><a href="#prompt">Copy-paste prompt</a></li>
+      <li><a href="#zip">Re-zipping for the team</a></li>
+      <li><a href="#trouble">If something looks broken</a></li>
+      <li><a href="#copies">The two copies</a></li>
+    </ol>
+  </nav>
+
+  <section id="what">
+    <h2 class="section-title"><span class="num">1</span>What this is</h2>
+    <p>The prototype is a self-contained clickable website used for the navigation usability test. It's just a set of <strong>plain HTML files</strong> plus an <span class="file">assets</span> folder (styles, scripts, fonts, images). There's nothing to install and no internet needed — a web browser opens it directly.</p>
+    <p>You have it as <span class="file">CAAT-navigation-prototype.zip</span>. Unzip it anywhere, then double-click <span class="file">index.html</span> to open it in your browser.</p>
+    <p>Because every page is a normal HTML file, you can change almost anything by editing the text of a file — and ChatGPT is very good at doing that for you.</p>
+  </section>
+
+  <section id="rules">
+    <h2 class="section-title"><span class="num">2</span>Before you start</h2>
+    <ul class="rules">
+      <li><strong>Work on a copy.</strong> Duplicate the whole folder before editing, so you can always go back to the original.</li>
+      <li><strong>Never delete, move, or rename the <span class="file">assets</span> folder.</strong> It holds all the styling, fonts, and scripts — without it, every page looks broken.</li>
+      <li><strong>Keep file names exactly the same.</strong> Pages link to each other by file name (e.g. <span class="file">members.html</span>). Renaming a file breaks the links to it.</li>
+      <li><strong>Save files with the <span class="file">.html</span> extension</strong> — not <span class="file">.txt</span>.</li>
+      <li><strong>Test every change</strong> by double-clicking <span class="file">index.html</span> and clicking through the pages.</li>
+      <li class="warn-rule"><strong>The top menu, footer, and hero banner repeat on every page.</strong> Changing them on one page won't match the others — see section&nbsp;6.</li>
+    </ul>
+  </section>
+
+  <section id="files">
+    <h2 class="section-title"><span class="num">3</span>Finding the right file</h2>
+    <p>Each page is <strong>one HTML file</strong> in the main folder. The file name is the page title in lowercase with dashes instead of spaces.</p>
+    <table>
+      <thead><tr><th>Page</th><th>File to edit</th></tr></thead>
+      <tbody>
+        <tr><td>Home page</td><td><span class="file">index.html</span></td></tr>
+        <tr><td>Members landing</td><td><span class="file">members.html</span></td></tr>
+        <tr><td>Contact us</td><td><span class="file">contact-us.html</span></td></tr>
+        <tr><td>Estimate your pension (+ the DBprime/DBplus tool)</td><td><span class="file">estimate-your-pension.html</span></td></tr>
+        <tr><td>Attend a learning session (webinars)</td><td><span class="file">attend-a-learning-session.html</span></td></tr>
+        <tr><td>Your pension payments (deposit dates)</td><td><span class="file">your-pension-payments.html</span></td></tr>
+        <tr><td>Understand inflation protection</td><td><span class="file">understand-inflation-protection.html</span></td></tr>
+        <tr><td>Pension Solutions</td><td><span class="file">pension-solutions.html</span></td></tr>
+        <tr><td><em>any other page</em></td><td><em>same naming pattern</em></td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip"><p>Not sure which file? Open the page in your browser and look at the address bar — the file name is at the end of the web address.</p></div>
+  </section>
+
+  <section id="workflow">
+    <h2 class="section-title"><span class="num">4</span>Making a change with ChatGPT</h2>
+    <ol class="steps">
+      <li><strong>Find the file</strong> for the page you want to change (section&nbsp;3).</li>
+      <li><strong>Give the file to ChatGPT.</strong> Easiest way: click the <strong>paperclip / “+”</strong> in ChatGPT and <strong>upload the <span class="file">.html</span> file</strong>. (Or open it in Notepad / VS&nbsp;Code, copy all the text, and paste it in.)</li>
+      <li><strong>Say what to change.</strong> Be specific and quote the exact words. Ask for <em>“the complete updated file back.”</em> (Template in section&nbsp;7.)</li>
+      <li><strong>Save ChatGPT's result</strong> back into the file, keeping the <span class="file">.html</span> extension.</li>
+      <li><strong>Test:</strong> double-click <span class="file">index.html</span>, go to that page, and check it looks right.</li>
+      <li>When you're happy, <strong>re-zip the folder</strong> (section&nbsp;8) and share it.</li>
+    </ol>
+    <div class="callout tip"><p><strong>Tip:</strong> Uploading the file and asking for “the full updated file back” avoids copy/paste mistakes.</p></div>
+  </section>
+
+  <section id="recipes">
+    <h2 class="section-title"><span class="num">5</span>Common changes</h2>
+    <p>Each recipe below = the file to open + what to tell ChatGPT.</p>
+
+    <div class="recipe">
+      <p class="what">Change wording on a page</p>
+      <p class="file-line">File: that page's <span class="file">.html</span></p>
+      <p class="say">“In this HTML file, change the sentence ‘OLD TEXT’ to ‘NEW TEXT’. Keep everything else exactly the same and give me the full file back.”</p>
+    </div>
+
+    <div class="recipe">
+      <p class="what">Add or edit a webinar (Attend a learning session)</p>
+      <p class="file-line">File: <span class="file">attend-a-learning-session.html</span></p>
+      <p class="say">“This page lists webinar cards. Add a new card titled ‘Estate planning basics’ dated ‘Nov 6, 2026 · 12:00 p.m. ET’, matching the style of the existing cards. Give me the full file back.”</p>
+    </div>
+
+    <div class="recipe">
+      <p class="what">Change a page's main heading</p>
+      <p class="file-line">File: that page's <span class="file">.html</span></p>
+      <p class="say">“Change the main heading (the &lt;h1&gt;) from ‘OLD’ to ‘NEW’. Full file back please.”</p>
+    </div>
+
+    <div class="recipe">
+      <p class="what">Update the pension deposit dates</p>
+      <p class="file-line">File: <span class="file">your-pension-payments.html</span></p>
+      <p class="say">“Update the deposit-dates table to these dates: [your list]. Keep the same table format. Full file back.”</p>
+    </div>
+
+    <div class="recipe">
+      <p class="what">Change the hero banner text (Home or a section page)</p>
+      <p class="file-line">File: <span class="file">index.html</span> (home), or the section file (e.g. <span class="file">members.html</span>)</p>
+      <p class="say">“Change the hero banner eyebrow / title / summary text to ‘…’. Full file back.”</p>
+    </div>
+
+    <div class="recipe">
+      <p class="what">Change the DBprime / DBplus tool's questions or answers</p>
+      <p class="file-line">File: <span class="file">assets/js/prototype.js</span> &nbsp;(this is a script, not a page)</p>
+      <p class="say">“This is the script for the plan-design tool. Change question 1 to ‘…’ with options ‘A / B / C’. Give me the full file back.”</p>
+      <div class="callout warn" style="margin-top:.6rem"><p><strong>⚠ After saving, test the tool:</strong> go to the Estimate-your-pension page and click all the way through it.</p></div>
+    </div>
+  </section>
+
+  <section id="shared">
+    <h2 class="section-title"><span class="num">6</span>Changing the menu, footer, or hero on every page</h2>
+    <p>These repeat on <strong>every page</strong>, so editing one file is not enough. Two situations:</p>
+
+    <h3>A) Simple relabel</h3>
+    <p>For example, renaming the menu item “Members” to “For Members”. Use a <strong>“Find in all files / Replace in all files”</strong> tool so the change hits every page at once.</p>
+    <ul>
+      <li>Free tool: open the folder in <strong>VS&nbsp;Code</strong> → press <strong>Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;H</strong> (Replace in Files) → type the exact old text and the new text → <strong>Replace All</strong> → test.</li>
+      <li>ChatGPT can help you work out the exact old/new text to search for — paste it one page's menu block and describe the change.</li>
+    </ul>
+
+    <h3>B) Bigger changes</h3>
+    <p>Adding a brand-new menu item, reordering the sections, or adding/removing whole pages touches the desktop menu, the mobile menu, <em>and</em> needs new page files. It's fiddly and easy to make inconsistent by hand.</p>
+    <div class="callout warn"><p><strong>Please wait for Russell</strong> for these — he has a generator script that rebuilds all ~97 pages automatically and keeps them consistent.</p></div>
+  </section>
+
+  <section id="prompt">
+    <h2 class="section-title"><span class="num">7</span>Copy-paste prompt for ChatGPT</h2>
+    <div class="prompt">
+      I'm updating an HTML prototype (a clickable website). I'm giving you one HTML file. Please make this change: <b>[describe the change and quote the exact text]</b>. Do <b>not</b> change anything else — keep all the classes, links, scripts, and structure identical. Return the <b>complete updated file</b> so I can paste it back.
+    </div>
+  </section>
+
+  <section id="zip">
+    <h2 class="section-title"><span class="num">8</span>Re-zipping the prototype for the UX team</h2>
+    <p>After you've tested your changes:</p>
+    <ol class="steps">
+      <li>Open the prototype folder.</li>
+      <li><strong>Select everything <em>inside</em> it</strong> — <span class="file">index.html</span>, the other pages, and the <span class="file">assets</span> folder — not the folder itself.</li>
+      <li>Right-click → <strong>Send to → Compressed (zipped) folder</strong>.</li>
+      <li>Rename it, e.g. <span class="file">CAAT-navigation-prototype.zip</span>.</li>
+      <li>Share it. Recipients unzip it and double-click <span class="file">index.html</span>.</li>
+    </ol>
+    <div class="callout tip"><p>Zipping the <em>contents</em> (step&nbsp;2) means <span class="file">index.html</span> sits at the top of the zip, so it's easy to find.</p></div>
+  </section>
+
+  <section id="trouble">
+    <h2 class="section-title"><span class="num">9</span>If something looks broken</h2>
+    <table>
+      <thead><tr><th>What you see</th><th>Likely cause &amp; fix</th></tr></thead>
+      <tbody>
+        <tr><td>Page has no styling / looks like plain text</td><td>The <span class="file">assets</span> folder was moved, renamed, or deleted, or the file was saved with the wrong extension. Restore from your backup copy.</td></tr>
+        <tr><td>A link goes to a “file not found” page</td><td>A file was renamed. Put its original name back.</td></tr>
+        <tr><td>The interactive tool stopped working</td><td>An edit to <span class="file">assets/js/prototype.js</span> broke it. Restore that file from your backup.</td></tr>
+        <tr><td>Not sure what went wrong</td><td>Start over from the original zip and redo the change carefully.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="copies">
+    <h2 class="section-title"><span class="num">10</span>Good to know: there are two copies</h2>
+    <p><strong>1. The offline bundle</strong> (this zip) — what the UX team runs on their own computers. Edit these files as described above. <em>This is the one that matters for the test.</em></p>
+    <p><strong>2. The design-system version</strong> at <span class="file">public/templates/ux-prototype/</span> (the internal site at <span class="file">localhost:3000</span>) — the exact same pages, kept inside the CAAT Design System. If you're only handing out the zip, you can ignore this copy. If the test is run from the internal site instead, edit those files the same way.</p>
+    <div class="callout tip"><p>Both are normally regenerated together by Russell's build script, so for anything beyond quick text edits, loop him in.</p></div>
+  </section>
+
+  <footer class="doc">
+    <p>CAAT Design System · Navigation UX Prototype — maintenance guide</p>
+  </footer>
+
+</div>
+</body>
+</html>
