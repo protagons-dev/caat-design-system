@@ -1,0 +1,75 @@
+/* ============================================================
+   Prototype-only layout glue for the CAAT navigation usability test.
+   Composes existing CAAT tokens only — no new colours, type or radii.
+   ============================================================ */
+
+/* --- Hero component: render the page's h1 at the hero-card title scale
+       (the component demo uses an h3; we use an h1 for page semantics). --- */
+.caat-hero-card__title { font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.15; margin: 0; }
+@media (max-width: 575.98px) { .caat-hero-card__title { font-size: 1.4rem; } }
+
+/* --- Full-bleed hero: the image covers the full frame at EVERY screen size
+       (absolute background), and the glass card overlays it, bottom-left,
+       aligned to the page container. The card drives the frame height, so it
+       is never clipped and never drops below the image. --- */
+.proto-hero-full { position: relative; }
+.proto-hero-full .caat-hero-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  display: flex;
+  align-items: flex-end;          /* card sits at the bottom of the image */
+  min-height: 26rem;
+}
+.proto-hero-full .caat-hero-media {
+  position: absolute; inset: 0;   /* image covers the whole frame */
+  min-height: 0;
+  border-radius: 0;
+  z-index: 0;
+}
+.proto-hero-overlay {              /* the .container that centres the card */
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-block: 3rem 1.5rem;
+}
+.proto-hero-overlay .caat-hero-card {
+  position: static;                /* override the component's absolute/relative */
+  margin: 0;
+  width: min(28rem, 100%);
+}
+@media (max-width: 991.98px) {
+  .proto-hero-full .caat-hero-frame { min-height: 18rem; }
+  .proto-hero-overlay { padding-block: 2rem 1.5rem; }
+  .proto-hero-overlay .caat-hero-card { width: 100%; }
+}
+
+/* --- DBprime / DBplus interactive router --- */
+.proto-router {
+  border: 1px solid var(--caat-color-border);
+  border-radius: var(--caat-radius-lg);
+  background: var(--caat-color-bg-subtle);
+  padding: var(--caat-space-5);
+  margin-block: var(--caat-space-5);
+}
+.proto-router__intro { margin-bottom: var(--caat-space-3); }
+.proto-router__disclaimer { color: var(--caat-color-text-muted); font-size: .85em; }
+.proto-router__q { font-weight: 700; color: var(--caat-color-text-heading); margin-bottom: var(--caat-space-3); }
+.proto-router__step { margin-top: var(--caat-space-4); }
+.proto-router__opts { display: flex; gap: var(--caat-space-2); flex-wrap: wrap; }
+.proto-router__opts .caat-button.is-active {
+  background: var(--caat-color-action-primary);
+  color: var(--caat-color-text-inverse);
+  border-color: var(--caat-color-action-primary);
+}
+.proto-router__result {
+  margin-top: var(--caat-space-5);
+  padding: var(--caat-space-4) var(--caat-space-5);
+  border-radius: var(--caat-radius);
+  background: var(--caat-color-bg-brand-subtle);
+  border-left: 4px solid var(--caat-color-action-primary);
+}
+.proto-router__result h3 { color: var(--caat-color-text-heading); margin-bottom: var(--caat-space-2); }
+
+/* --- Phone CTA card emphasis --- */
+.proto-phone { color: var(--caat-color-action-primary); font-weight: 800; }
