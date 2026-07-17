@@ -107,6 +107,20 @@
 }
 .proto-result__restart:hover { color: var(--caat-color-text-heading); }
 
+/* "Not sure" help card (blue header + contact / self-help links) */
+.proto-result--help .proto-result__header { background: var(--caat-color-bg-brand); }
+.proto-result--help .proto-result__plan { font-size: 1.35rem; }
+.proto-help__lead { margin: 0 0 var(--caat-space-2); color: var(--caat-color-text-heading); }
+.proto-help__contact { display: flex; flex-wrap: wrap; gap: var(--caat-space-2) var(--caat-space-6); margin: 0; }
+.proto-help__contact i { color: var(--caat-color-text-muted); margin-right: .35rem; }
+.proto-help__divider { border: 0; border-top: 1px solid var(--caat-color-border); margin: var(--caat-space-4) 0; }
+.proto-help__sub { color: var(--caat-color-text-muted); margin: 0 0 var(--caat-space-3); }
+.proto-help__link { margin: 0 0 var(--caat-space-2); }
+.proto-help__link:last-child { margin-bottom: 0; }
+.proto-help__link a { color: var(--caat-color-text-link); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: .45rem; }
+.proto-help__link a i { color: var(--caat-color-action-primary); }
+.proto-help__link a:hover { text-decoration: underline; }
+
 /* Fade / slide transition between the question and the result */
 .proto-chooser__panel, .proto-chooser__result { transition: opacity .25s ease, transform .25s ease; }
 .proto-chooser .is-entering { opacity: 0; transform: translateX(16px); }

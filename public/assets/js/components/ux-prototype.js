@@ -18,14 +18,12 @@
     }
   };
 
-  function resolve(a1, a2) {
-    if (a1 === 'college') return PLANS.dbprime;
-    if (a1 === 'after2019') return PLANS.dbplus;
-    // "unsure" -> decided by join date
-    return a2 === 'pre2019' ? PLANS.dbprime : PLANS.dbplus;
+  // Full-time Ontario college -> DBprime; everyone else -> DBplus.
+  function resolvePlan(answer) {
+    return answer === 'college-ft' ? PLANS.dbprime : PLANS.dbplus;
   }
 
-  function resultHTML(plan) {
+  function planHTML(plan) {
     return '<div class="proto-result__card proto-result--' + plan.key + '">' +
         '<div class="proto-result__header">' +
           '<p class="proto-result__eyebrow">Your plan</p>' +
@@ -35,18 +33,41 @@
           '<p>Based on your answer, you are likely in the <strong>' + plan.name + '</strong> plan.</p>' +
           '<p class="proto-result__desc">' + plan.desc + '</p>' +
         '</div>' +
-        '<div class="proto-result__footer">' +
-          '<button type="button" class="proto-result__restart" data-restart>' +
-            '<i class="bi bi-arrow-left" aria-hidden="true"></i> Start over</button>' +
-        '</div>' +
+        footerHTML() +
       '</div>';
+  }
+
+  function helpHTML() {
+    return '<div class="proto-result__card proto-result--help">' +
+        '<div class="proto-result__header">' +
+          '<p class="proto-result__eyebrow">Let’s help you find out</p>' +
+          '<p class="proto-result__plan">Not sure? Here’s where to check.</p>' +
+        '</div>' +
+        '<div class="proto-result__body">' +
+          '<p class="proto-help__lead"><strong>Need help? Reach us directly:</strong></p>' +
+          '<p class="proto-help__contact">' +
+            '<span><i class="bi bi-telephone" aria-hidden="true"></i> 1-855-710-2228</span>' +
+            '<span><i class="bi bi-envelope" aria-hidden="true"></i> caatinfo@caatpension.ca</span>' +
+          '</p>' +
+          '<hr class="proto-help__divider">' +
+          '<p class="proto-help__sub">You can also confirm your plan type yourself:</p>' +
+          '<p class="proto-help__link"><a href="member-login.html"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> My Pension</a></p>' +
+          '<p class="proto-help__link"><a href="#"><i class="bi bi-camera-video" aria-hidden="true"></i> Video walkthrough: How to navigate the portal</a></p>' +
+        '</div>' +
+        footerHTML() +
+      '</div>';
+  }
+
+  function footerHTML() {
+    return '<div class="proto-result__footer">' +
+      '<button type="button" class="proto-result__restart" data-restart>' +
+        '<i class="bi bi-arrow-left" aria-hidden="true"></i> Start over</button>' +
+    '</div>';
   }
 
   function initChooser(root) {
     var step1 = root.querySelector('[data-step="1"]');
-    var step2 = root.querySelector('[data-step="2"]');
     var resultBox = root.querySelector('[data-result]');
-    var answers = {};
 
     // Fade/slide the currently visible element out, then the target in.
     function swap(target, fill) {
@@ -67,25 +88,12 @@
       }
     }
 
-    function restart() {
-      answers = {};
-      step2.hidden = true;
-      swap(step1);
-    }
-
     root.addEventListener('click', function (e) {
-      if (e.target.closest('[data-restart]')) { restart(); return; }
-      if (e.target.closest('[data-back]')) { answers = {}; swap(step1); return; }
+      if (e.target.closest('[data-restart]')) { swap(step1); return; }
       var opt = e.target.closest('button[data-answer]');
       if (!opt) return;
-      var step = opt.closest('.proto-chooser__panel').getAttribute('data-step');
-      answers[step] = opt.getAttribute('data-answer');
-      if (step === '1') {
-        if (answers['1'] === 'unsure') swap(step2);
-        else swap(resultBox, resultHTML(resolve(answers['1'])));
-      } else {
-        swap(resultBox, resultHTML(resolve(answers['1'], answers['2'])));
-      }
+      var answer = opt.getAttribute('data-answer');
+      swap(resultBox, answer === 'unsure' ? helpHTML() : planHTML(resolvePlan(answer)));
     });
   }
 
