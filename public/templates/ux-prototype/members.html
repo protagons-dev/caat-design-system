@@ -503,7 +503,28 @@
   
 </section>
 <section class="container py-5">
-  <div class="mb-4"><h2>What would you like to learn about today?</h2></div>
+  <div class="proto-chooser" data-proto-chooser>
+  <div class="proto-chooser__panel" data-step="1">
+    <p class="proto-chooser__eyebrow">Find your plan</p>
+    <h3 class="proto-chooser__q">Which of these best describes you?</h3>
+    <div class="proto-chooser__opts">
+      <button type="button" class="proto-chooser__opt" data-answer="college">I work at an Ontario college <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      <button type="button" class="proto-chooser__opt" data-answer="after2019">My employer joined CAAT after January 2019 <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      <button type="button" class="proto-chooser__opt" data-answer="unsure">I'm not sure <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+  <div class="proto-chooser__panel" data-step="2" hidden>
+    <p class="proto-chooser__eyebrow">Find your plan</p>
+    <h3 class="proto-chooser__q">When did you join the CAAT Plan?</h3>
+    <div class="proto-chooser__opts">
+      <button type="button" class="proto-chooser__opt" data-answer="pre2019">Before 2019 <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+      <button type="button" class="proto-chooser__opt" data-answer="post2019">2019 or later <i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+    </div>
+    <button type="button" class="proto-chooser__back" data-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Back</button>
+  </div>
+  <div class="proto-chooser__result" data-result hidden></div>
+</div>
+  <div class="mt-5 mb-4"><h2>What would you like to learn about today?</h2></div>
   <div class="row g-4">
     <div class="col-md-6 col-lg-4">
       <article class="card caat-card h-100">

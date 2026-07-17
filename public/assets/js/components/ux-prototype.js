@@ -1,68 +1,96 @@
 /* ============================================================
-   Prototype-only behavior: DBprime / DBplus plan-design router.
+   Prototype-only behavior: "Find your plan" DBprime / DBplus chooser.
    Illustrative routing for the usability test — not real pension logic.
    ============================================================ */
 (function () {
   'use strict';
 
-  var ESTIMATOR = {
-    dbprime: { name: 'DBprime', slug: 'use-the-dbprime-estimator', note: 'You appear to be in the DBprime plan design (defined benefit based on your salary and years of service).' },
-    dbplus: { name: 'DBplus', slug: 'use-the-dbplus-pension-estimator', note: 'You appear to be in the DBplus plan design (defined benefit based on your contributions).' },
-    college: { name: 'DBplus (College sector)', slug: 'use-the-dbplus-college-pension-estimator', note: 'You appear to be in the DBplus plan design for the college sector.' }
+  var PLANS = {
+    dbprime: {
+      key: 'dbprime',
+      name: 'DBprime',
+      desc: 'DBprime is a defined benefit pension plan for full-time employees at Ontario colleges, providing secure lifetime retirement income.'
+    },
+    dbplus: {
+      key: 'dbplus',
+      name: 'DBplus',
+      desc: 'DBplus is CAAT’s flexible defined benefit plan available to a broad range of employers and employees, offering secure and portable retirement income.'
+    }
   };
 
   function resolve(a1, a2) {
-    if (a1 === 'college') return ESTIMATOR.college;
-    if (a2 === 'pre2019') return ESTIMATOR.dbprime;
-    return ESTIMATOR.dbplus; // post2019 or default
+    if (a1 === 'college') return PLANS.dbprime;
+    if (a1 === 'after2019') return PLANS.dbplus;
+    // "unsure" -> decided by join date
+    return a2 === 'pre2019' ? PLANS.dbprime : PLANS.dbplus;
   }
 
-  function showResult(root, plan) {
-    var box = root.querySelector('[data-result]');
-    box.hidden = false;
-    box.innerHTML =
-      '<h3>Your plan design: ' + plan.name + '</h3>' +
-      '<p>' + plan.note + '</p>' +
-      '<a class="caat-button caat-button--primary caat-button--sm" href="' + plan.slug + '.html">' +
-      'Continue to the ' + plan.name + ' estimator <i class="bi bi-arrow-right caat-button__icon" aria-hidden="true"></i></a>' +
-      '<p class="proto-router__disclaimer mt-2 mb-0">Not right? <button type="button" class="btn btn-link p-0 align-baseline" data-restart>Start over</button></p>';
-    box.scrollIntoView({ block: 'nearest' });
+  function resultHTML(plan) {
+    return '<div class="proto-result__card proto-result--' + plan.key + '">' +
+        '<div class="proto-result__header">' +
+          '<p class="proto-result__eyebrow">Your plan</p>' +
+          '<p class="proto-result__plan">' + plan.name + '</p>' +
+        '</div>' +
+        '<div class="proto-result__body">' +
+          '<p>Based on your answer, you are likely in the <strong>' + plan.name + '</strong> plan.</p>' +
+          '<p class="proto-result__desc">' + plan.desc + '</p>' +
+        '</div>' +
+        '<div class="proto-result__footer">' +
+          '<button type="button" class="proto-result__restart" data-restart>' +
+            '<i class="bi bi-arrow-left" aria-hidden="true"></i> Start over</button>' +
+        '</div>' +
+      '</div>';
   }
 
-  function initRouter(root) {
+  function initChooser(root) {
+    var step1 = root.querySelector('[data-step="1"]');
+    var step2 = root.querySelector('[data-step="2"]');
+    var resultBox = root.querySelector('[data-result]');
     var answers = {};
-    root.addEventListener('click', function (e) {
-      var restart = e.target.closest('[data-restart]');
-      if (restart) {
-        answers = {};
-        root.querySelectorAll('.caat-button.is-active').forEach(function (b) { b.classList.remove('is-active'); });
-        root.querySelector('.proto-router__step[data-step="2"]').hidden = true;
-        root.querySelector('[data-result]').hidden = true;
-        return;
-      }
-      var btn = e.target.closest('button[data-answer]');
-      if (!btn) return;
-      var step = btn.closest('.proto-router__step');
-      var n = step.getAttribute('data-step');
-      answers[n] = btn.getAttribute('data-answer');
-      step.querySelectorAll('button[data-answer]').forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
 
-      if (n === '1') {
-        if (answers['1'] === 'college') {
-          showResult(root, resolve('college'));
-        } else {
-          root.querySelector('.proto-router__step[data-step="2"]').hidden = false;
-          root.querySelector('[data-result]').hidden = true;
-        }
-      } else if (n === '2') {
-        showResult(root, resolve(answers['1'], answers['2']));
+    // Fade/slide the currently visible element out, then the target in.
+    function swap(target, fill) {
+      var current = root.querySelector('.proto-chooser__panel:not([hidden]), .proto-chooser__result:not([hidden])');
+      var reveal = function () {
+        if (current && current !== target) { current.hidden = true; current.classList.remove('is-leaving'); }
+        if (typeof fill === 'string') target.innerHTML = fill;
+        target.hidden = false;
+        target.classList.add('is-entering');
+        void target.offsetWidth;          // reflow so the transition runs
+        target.classList.remove('is-entering');
+      };
+      if (current && current !== target) {
+        current.classList.add('is-leaving');
+        window.setTimeout(reveal, 200);
+      } else {
+        reveal();
+      }
+    }
+
+    function restart() {
+      answers = {};
+      step2.hidden = true;
+      swap(step1);
+    }
+
+    root.addEventListener('click', function (e) {
+      if (e.target.closest('[data-restart]')) { restart(); return; }
+      if (e.target.closest('[data-back]')) { answers = {}; swap(step1); return; }
+      var opt = e.target.closest('button[data-answer]');
+      if (!opt) return;
+      var step = opt.closest('.proto-chooser__panel').getAttribute('data-step');
+      answers[step] = opt.getAttribute('data-answer');
+      if (step === '1') {
+        if (answers['1'] === 'unsure') swap(step2);
+        else swap(resultBox, resultHTML(resolve(answers['1'])));
+      } else {
+        swap(resultBox, resultHTML(resolve(answers['1'], answers['2'])));
       }
     });
   }
 
   function init() {
-    document.querySelectorAll('[data-proto-router]').forEach(initRouter);
+    document.querySelectorAll('[data-proto-chooser]').forEach(initChooser);
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
