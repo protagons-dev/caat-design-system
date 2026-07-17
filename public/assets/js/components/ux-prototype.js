@@ -46,8 +46,8 @@
         '<div class="proto-result__body">' +
           '<p class="proto-help__lead"><strong>Need help? Reach us directly:</strong></p>' +
           '<p class="proto-help__contact">' +
-            '<span><i class="bi bi-telephone" aria-hidden="true"></i> 1-855-710-2228</span>' +
-            '<span><i class="bi bi-envelope" aria-hidden="true"></i> caatinfo@caatpension.ca</span>' +
+            '<span><i class="bi bi-telephone" aria-hidden="true"></i> 1-866-350-2228</span>' +
+            '<span><i class="bi bi-envelope" aria-hidden="true"></i> member@caatpension.ca</span>' +
           '</p>' +
           '<hr class="proto-help__divider">' +
           '<p class="proto-help__sub">You can also confirm your plan type yourself:</p>' +
