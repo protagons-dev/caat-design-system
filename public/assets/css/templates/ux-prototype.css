@@ -132,3 +132,6 @@
 
 /* --- Phone CTA card emphasis --- */
 .proto-phone { color: var(--caat-color-action-primary); font-weight: 800; }
+
+/* --- Footer: newsletter/subscribe removed — right-align the lone "Back to top" link --- */
+.caat-footer__top--minimal { justify-content: flex-end; }
