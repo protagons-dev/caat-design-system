@@ -459,7 +459,17 @@
   font-weight: var(--caat-weight-bold);
   background: var(--caat-color-bg-brand-subtle);
 }
-.caat-drillnav__next .bi { color: var(--caat-color-text-muted); }
+/* Child indicator — only drill triggers receive a chevron; leaf links stay plain. */
+.caat-drillnav__next::after {
+  content: "";
+  flex: 0 0 auto;
+  width: .45rem;
+  height: .45rem;
+  border: solid var(--caat-color-text-muted);
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg);
+  margin-right: .2rem;
+}
 
 /* Back — first control of every sub-panel */
 .caat-drillnav__back {

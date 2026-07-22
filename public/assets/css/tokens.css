@@ -350,7 +350,7 @@
   --caat-text-eyebrow-tracking:var(--caat-letter-spacing-wide); /* .08em */
   --caat-color-eyebrow:        var(--caat-blue-700);   /* on light bg */
   --caat-color-eyebrow-on-dark:var(--caat-blue-300);   /* neutral default on dark/image bg */
-  --caat-color-eyebrow-on-dark-hero: var(--caat-lime); /* deliberate CAAT brand accent — hero eyebrows only */
+  --caat-color-eyebrow-on-dark-hero: var(--caat-blue-300); /* neutral on dark imagery; hero labels no longer use green highlight text */
 
 
   /* ══════════════════════════════════════════════════════════

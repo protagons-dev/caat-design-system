@@ -135,3 +135,29 @@
 
 /* --- Footer: newsletter/subscribe removed — right-align the lone "Back to top" link --- */
 .caat-footer__top--minimal { justify-content: flex-end; }
+
+/* Text-based navigation controls keep hierarchy clear without decorative icons. */
+.navbar-toggler-label,
+.caat-menu-close {
+  color: var(--caat-color-text-heading);
+  font-weight: 700;
+  font-size: var(--caat-font-size-xs);
+}
+.navbar-toggler-label { display: inline-block; padding: .35rem .5rem; }
+.caat-menu-close {
+  margin-inline-start: auto;
+  min-height: 2.75rem;
+  border: 0;
+  background: transparent;
+  padding: .5rem;
+}
+.nav-search-wrap .bi { display: none; }
+.nav-search-input { padding-right: .9rem; }
+
+/* Homepage audience tiles: comfortable inset and consistent content rhythm. */
+.proto-audience-tiles .card-body {
+  padding: var(--caat-space-5);
+  gap: var(--caat-space-3);
+}
+.proto-audience-tiles .card-body > * + * { margin-block-start: 0; }
+.proto-audience-tiles .caat-button { margin-block-start: auto !important; }
