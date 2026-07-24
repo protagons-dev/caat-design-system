@@ -33,3 +33,4 @@ design-sys.zip
 # (Served locally via the ./public volume mount; not committed to avoid bloat.)
 prototype/
 CAAT-navigation-prototype.zip
+CAAT-navigation-prototype-*.zip
