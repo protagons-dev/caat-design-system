@@ -519,53 +519,76 @@
     <p class="proto-chooser__eyebrow">Find your plan</p>
     <h3 class="proto-chooser__q">Which of the following best describes your current employment status?</h3>
     <div class="proto-chooser__opts">
-      <button type="button" class="proto-chooser__opt" data-answer="college-ft">I work full-time at an Ontario college </button>
-      <button type="button" class="proto-chooser__opt" data-answer="college-pt">I work part-time or on contract at an Ontario college </button>
-      <button type="button" class="proto-chooser__opt" data-answer="after2019">My employer joined CAAT after January 2019 </button>
-      <button type="button" class="proto-chooser__opt" data-answer="unsure">I'm not sure </button>
+      <button type="button" class="proto-chooser__opt" data-answer="college">I work for a college</button>
+      <button type="button" class="proto-chooser__opt" data-answer="non-college">I work for a non-college employer</button>
+      <button type="button" class="proto-chooser__opt" data-answer="merger">My pension plan joined CAAT through a merger</button>
+      <button type="button" class="proto-chooser__opt" data-answer="unsure">I'm not sure</button>
     </div>
   </div>
-  <div class="proto-chooser__result" data-result hidden></div>
+  <div class="proto-chooser__result" data-result tabindex="-1" hidden></div>
 </div>
   <div class="mt-5 mb-4"><h2>What would you like to learn about today?</h2></div>
   <div class="row g-4">
     <div class="col-md-6 col-lg-4">
       <article class="card caat-card h-100">
-        <div class="card-body text-center">
-          <h3 class="card-title h5"><a href="navigate-your-pension.html" class="stretched-link">Navigate your pension</a></h3>
-          <p class="card-text text-muted mb-0">Learn how your plan works, how key life events can impact your pension and how to maximize your retirement income.</p>
-        </div>
-      </article>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <article class="card caat-card h-100">
-        <div class="card-body text-center">
-          <h3 class="card-title h5"><a href="get-ready-to-retire.html" class="stretched-link">Get ready to retire</a></h3>
-          <p class="card-text text-muted mb-0">Understand your options, estimate your pension and know what you need to do to start your pension.</p>
-        </div>
-      </article>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <article class="card caat-card h-100">
-        <div class="card-body text-center">
-          <h3 class="card-title h5"><a href="life-in-retirement.html" class="stretched-link">Life in retirement</a></h3>
-          <p class="card-text text-muted mb-0">Know when your pension is paid, learn about inflation protection and survivor benefits, and how a change in relationship can affect your pension.</p>
-        </div>
-      </article>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <article class="card caat-card h-100">
-        <div class="card-body text-center">
-          <h3 class="card-title h5"><a href="learning-centre.html" class="stretched-link">Learning Centre</a></h3>
-          <p class="card-text text-muted mb-0">Register for a webinar, read the latest news and access the forms and fact sheets you need to manage your pension.</p>
-        </div>
-      </article>
-    </div>
-    <div class="col-md-6 col-lg-4">
-      <article class="card caat-card h-100">
-        <div class="card-body text-center">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-box-arrow-in-right" aria-hidden="true"></i></span>
           <h3 class="card-title h5"><a href="member-login.html" class="stretched-link">Log in to My Pension</a></h3>
-          <p class="card-text text-muted mb-0">Sign in to the secure member portal to see your personal data.</p>
+          <p class="card-text text-muted mb-0">Access your personal pension account and view your information</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="pension-solutions.html" class="stretched-link">DBplus</a></h3>
+          <p class="card-text text-muted mb-0">Learn about our defined benefit pension plan</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-bar-chart-line" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="pension-solutions.html" class="stretched-link">DBprime</a></h3>
+          <p class="card-text text-muted mb-0">Explore DBprime pension plan options and benefits</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-book" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="resources.html" class="stretched-link">Resources</a></h3>
+          <p class="card-text text-muted mb-0">Find helpful resources, forms, and guides</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-camera-video" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="attend-a-learning-session.html" class="stretched-link">Webinars</a></h3>
+          <p class="card-text text-muted mb-0">Register for upcoming webinars and view recordings</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token green"><i class="bi bi-person-plus" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="welcome-to-caat.html" class="stretched-link">New members</a></h3>
+          <p class="card-text text-muted mb-0">Get started with your CAAT pension membership</p>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <article class="card caat-card h-100">
+        <div class="card-body p-4 text-center">
+          <span class="icon-token"><i class="bi bi-people" aria-hidden="true"></i></span>
+          <h3 class="card-title h5"><a href="grow-your-retirement-income-with-growthplus.html" class="stretched-link">GROWTHplus</a></h3>
+          <p class="card-text text-muted mb-0">Discover GROWTHplus investment opportunities</p>
         </div>
       </article>
     </div>

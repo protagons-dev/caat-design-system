@@ -27,6 +27,7 @@
   border-radius: 0;
   z-index: 0;
 }
+.proto-hero-full .caat-hero-media > img { object-position: 68% center; }
 .proto-hero-overlay {              /* the .container that centres the card */
   position: relative;
   z-index: 2;
@@ -83,18 +84,45 @@
 }
 .proto-chooser__back:hover { color: var(--caat-color-text-heading); }
 
-/* Result card */
-.proto-result__header { padding: var(--caat-space-4) var(--caat-space-6); color: var(--caat-color-text-inverse); }
-.proto-result--dbprime .proto-result__header { background: var(--caat-color-action-secondary); } /* accessible CAAT green */
-.proto-result--dbplus  .proto-result__header { background: var(--caat-color-bg-brand); }         /* CAAT blue */
+/* Result card — one blue-banded shell shared by all four answers */
+.proto-result__header {
+  padding: var(--caat-space-4) var(--caat-space-6);
+  background: var(--caat-color-bg-brand);
+  color: var(--caat-color-text-inverse);
+}
 .proto-result__eyebrow {
   text-transform: uppercase; letter-spacing: .08em; font-weight: 700;
   font-size: .72rem; opacity: .85; margin: 0; color: var(--caat-color-text-inverse);
 }
-.proto-result__plan { font-size: 1.6rem; font-weight: 800; margin: .1rem 0 0; color: var(--caat-color-text-inverse); }
+.proto-result__plan {
+  font-size: var(--caat-font-size-lg); font-weight: 800; line-height: 1.25;
+  margin: .1rem 0 0; color: var(--caat-color-text-inverse);
+}
 .proto-result__body { padding: var(--caat-space-5) var(--caat-space-6); }
 .proto-result__body p { margin: 0 0 var(--caat-space-3); }
-.proto-result__desc { color: var(--caat-color-text-muted); margin-bottom: 0 !important; }
+.proto-result__body p:last-child { margin-bottom: 0; }
+.proto-result__lead { color: var(--caat-color-text); }
+.proto-result__note { color: var(--caat-color-text-muted); }
+.proto-result__divider {
+  border: 0; border-top: 1px solid var(--caat-color-border);
+  margin: var(--caat-space-4) 0; opacity: 1;
+}
+/* Link / contact rows sit closer together than body paragraphs. Scoped with
+   two classes so they outrank `.proto-result__body p` without !important. */
+.proto-result__body .proto-result__link,
+.proto-result__body .proto-result__contact {
+  margin: 0 0 var(--caat-space-2);
+  color: var(--caat-color-text);
+}
+.proto-result__body .proto-result__link:last-child,
+.proto-result__body .proto-result__contact:last-child { margin-bottom: 0; }
+.proto-result__link a, .proto-result__contact a {
+  color: var(--caat-color-text-link); text-decoration: none; font-weight: 600;
+  display: inline-flex; align-items: center; gap: .45rem;
+}
+.proto-result__link a:hover, .proto-result__contact a:hover { text-decoration: underline; }
+.proto-result__link .bi { color: var(--caat-color-action-primary); }
+.proto-result__contact .bi { color: var(--caat-color-text-muted); margin-right: .35rem; }
 .proto-result__footer {
   border-top: 1px solid var(--caat-color-border);
   background: var(--caat-color-bg-subtle);
@@ -107,19 +135,9 @@
 }
 .proto-result__restart:hover { color: var(--caat-color-text-heading); }
 
-/* "Not sure" help card (blue header + contact / self-help links) */
-.proto-result--help .proto-result__header { background: var(--caat-color-bg-brand); }
-.proto-result--help .proto-result__plan { font-size: 1.35rem; }
-.proto-help__lead { margin: 0 0 var(--caat-space-2); color: var(--caat-color-text-heading); }
-.proto-help__contact { display: flex; flex-wrap: wrap; gap: var(--caat-space-2) var(--caat-space-6); margin: 0; }
-.proto-help__contact i { color: var(--caat-color-text-muted); margin-right: .35rem; }
-.proto-help__divider { border: 0; border-top: 1px solid var(--caat-color-border); margin: var(--caat-space-4) 0; }
-.proto-help__sub { color: var(--caat-color-text-muted); margin: 0 0 var(--caat-space-3); }
-.proto-help__link { margin: 0 0 var(--caat-space-2); }
-.proto-help__link:last-child { margin-bottom: 0; }
-.proto-help__link a { color: var(--caat-color-text-link); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: .45rem; }
-.proto-help__link a i { color: var(--caat-color-action-primary); }
-.proto-help__link a:hover { text-decoration: underline; }
+/* The result box takes programmatic focus after an answer; don't paint a ring
+   on the container itself — the content inside it carries the visible focus. */
+.proto-chooser__result:focus { outline: 0; }
 
 /* Fade / slide transition between the question and the result */
 .proto-chooser__panel, .proto-chooser__result { transition: opacity .25s ease, transform .25s ease; }
