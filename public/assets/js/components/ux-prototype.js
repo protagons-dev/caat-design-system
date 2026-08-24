@@ -24,10 +24,12 @@
 
   // Shared closing block: where to self-serve a plan-design confirmation.
   // `also` inserts "also" for answers that already offered another route.
-  function confirmBlock(also) {
+  // `verb` overrides the default "confirm" (the merger and "not sure" answers
+  // say "find", since those members have not been told a plan design yet).
+  function confirmBlock(also, verb) {
     return '<p class="proto-result__note">You can ' + (also ? 'also ' : '') +
-        'confirm your plan design on your Annual Pension Statement and My Pension, ' +
-        'your online member portal.</p>' +
+        (verb || 'confirm') + ' your plan design on your Annual Pension Statement ' +
+        'and My Pension, your online member portal.</p>' +
       linkRow('bi-box-arrow-up-right', LINKS.myPension, 'Log into My Pension') +
       linkRow('bi-camera-video', LINKS.statement, 'Find your statement information');
   }
@@ -73,13 +75,13 @@
           '<p class="proto-result__note">Confirm your plan design by selecting your employer ' +
             'from <a href="' + LINKS.employers + '">this list</a>.</p>' +
           divider() +
-          confirmBlock(true);
+          confirmBlock(true, 'find');
       }
     },
     'unsure': {
       title: 'I’m not sure',
       body: function () {
-        return confirmBlock(false) +
+        return confirmBlock(false, 'find') +
           divider() +
           '<p class="proto-result__lead"><strong>Need help? Contact us directly.</strong></p>' +
           '<p class="proto-result__contact"><i class="bi bi-telephone" aria-hidden="true"></i> ' +
