@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CAAT Design System — Row AEM Component Contract. A full-width section band that keeps its content on the standard page container: the Level 2 page hero, the permitted background colour tiers, and the components allowed inside.">
+<title>Row | CAAT Design System — Component Contract</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/badge.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/stat.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/row.css" rel="stylesheet">
+<style>
+  /* Doc-site only: swatch chips for the background tier table. */
+  .bg-chip {
+    display: inline-block; width: 1.6rem; height: 1.6rem;
+    border-radius: var(--caat-radius-sm);
+    border: 1px solid var(--caat-color-border-strong);
+    vertical-align: middle; margin-right: .5rem;
+  }
+  /* Doc-site only: a ruler showing where the container edges fall
+     inside the full-bleed demo band. */
+  .edge-guide { outline: 1px dashed var(--caat-blue-500); }
+</style>
+</head>
+<body>
+<button class="drawer-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('drawer-open')">Sections</button>
+<div class="drawer-backdrop" onclick="document.body.classList.remove('drawer-open')"></div>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" aria-label="Design system navigation">
+  <div class="container">
+    <a class="navbar-brand caat-logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      CAAT Design System
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="/foundations/design-tokens.html">Foundations</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/components/index.html">Components</a></li>
+        <li class="nav-item"><a class="nav-link" href="/components/#templates">Patterns</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-4" id="main">
+<div class="component-page-layout">
+
+  <aside class="component-page-sidebar" aria-label="Component navigation">
+    <p class="eyebrow mb-2">Related</p>
+    <nav class="nav flex-column mb-3" aria-label="Related components">
+      <a class="nav-link" href="/foundations/page-layout.html">Page Layout foundation</a>
+      <a class="nav-link" href="/foundations/design-tokens.html">Design Tokens</a>
+      <a class="nav-link" href="/components/text-title.html">Text / Title</a>
+    </nav>
+    <p class="eyebrow mb-2">On this page</p>
+    <nav class="nav flex-column" aria-label="On this page">
+      <a class="nav-link" href="#demo">Demo</a>
+      <a class="nav-link" href="#summary">1. Summary</a>
+      <a class="nav-link" href="#l2-hero">Level 2 hero</a>
+      <a class="nav-link" href="#backgrounds">Background colours</a>
+      <a class="nav-link" href="#allowed-components">Components in a Row</a>
+      <a class="nav-link" href="#tokens">2. Tokens</a>
+      <a class="nav-link" href="#authoring">3. Authoring Fields</a>
+      <a class="nav-link" href="#validation">4. Validation</a>
+      <a class="nav-link" href="#content-guidance">5. Content Guidance</a>
+      <a class="nav-link" href="#semantic-html">6. Semantic HTML</a>
+      <a class="nav-link" href="#css-contract">7. CSS Contract</a>
+      <a class="nav-link" href="#accessibility">8. Accessibility</a>
+      <a class="nav-link" href="#seo">9. SEO</a>
+      <a class="nav-link" href="#analytics">10. Analytics</a>
+      <a class="nav-link" href="#aem-notes">11. AEM Notes</a>
+      <a class="nav-link" href="#dialog-model">12. Dialog Model</a>
+      <a class="nav-link" href="#qa">13. QA Checklist</a>
+      <a class="nav-link" href="#dod">14. Definition of Done</a>
+    </nav>
+  </aside>
+
+  <main>
+    <nav class="caat-breadcrumb mb-3" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/components/index.html">Components</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Row</li>
+      </ol>
+    </nav>
+
+    <div class="mb-2">
+      <p class="eyebrow">Component Contract</p>
+      <h1 style="font-weight:900; letter-spacing:-.04em; color:var(--caat-color-text-heading);">Row — Full-width section band</h1>
+      <p class="text-muted">The container every page section is built from. The band spans the full viewport width and carries the background colour; the content inside stays on the standard page container, so it lines up with every other section on the page. Its primary use is the <a href="#l2-hero">Level&nbsp;2 page hero</a> — copy on one side, image on the other.</p>
+      <div class="d-flex gap-2 align-items-center flex-wrap mb-3">
+        <a href="#" onclick="downloadFigmaHTML('Row',['/assets/css/tokens.css','/assets/css/components/row.css','/assets/css/components/text-title.css','/assets/css/components/card.css','/assets/css/components/button.css']); return false;" class="caat-button caat-button--secondary"><i class="bi bi-download"></i> Figma HTML</a>
+      </div>
+    </div>
+
+    <!-- ════ DEMO ════ -->
+    <section class="contract-section" id="demo">
+      <h2>Live Demo</h2>
+      <p class="text-muted">The first demo is framed in its own document so the container resolves against a real viewport. The rest render inline in the documentation column, so their band edges stop at the column — the relationship being shown there is the background tier, not the measure.</p>
+
+      <h3 class="mt-4 mb-2">Full-width band, contained content</h3>
+      <p class="text-muted">Framed in its own document so the Bootstrap container resolves against a real viewport — resize the window and watch the content step down through the breakpoints while both bands stay edge to edge.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <iframe data-autosize src="/components/demos/row-band.html" title="Row band demo — a grey row followed by a white row, both full width with contained content" style="display:block; width:100%; height:44rem; border:0;"></iframe>
+      </div></div>
+
+      <h3 class="mb-2">The five background tiers, stacked</h3>
+      <p class="text-muted">Adjacent rows must not repeat a background — the change in colour <em>is</em> the divider. No rules, no spacer bands.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <section class="caat-row caat-row--compact" data-figma="White row" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <p class="eyebrow mb-1">Default — no modifier</p>
+            <h3 class="caat-title caat-title--h3 mb-0">White</h3>
+          </div>
+        </section>
+        <section class="caat-row caat-row--compact caat-row--grey" data-figma="Grey row" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <p class="eyebrow mb-1">.caat-row--grey</p>
+            <h3 class="caat-title caat-title--h3 mb-0">Subtle grey</h3>
+          </div>
+        </section>
+        <section class="caat-row caat-row--compact caat-row--beige" data-figma="Beige row" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <p class="eyebrow mb-1">.caat-row--beige</p>
+            <h3 class="caat-title caat-title--h3 mb-0">Beige</h3>
+          </div>
+        </section>
+        <section class="caat-row caat-row--compact caat-row--tint" data-figma="Tint row" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <p class="eyebrow mb-1">.caat-row--tint</p>
+            <h3 class="caat-title caat-title--h3 mb-0">Brand tint</h3>
+          </div>
+        </section>
+        <section class="caat-row caat-row--compact caat-row--brand" data-figma="Brand row" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <p class="eyebrow mb-1">.caat-row--brand</p>
+            <h3 class="caat-title caat-title--h3 mb-0">Brand blue</h3>
+          </div>
+        </section>
+      </div></div>
+
+      <h3 class="mb-2">Brand row — inverse context, light surfaces preserved</h3>
+      <p class="text-muted">On a brand row, atoms that inherit colour flip to the inverse tokens. Components that paint their own light surface — the Card here — keep their dark text.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <section class="caat-row caat-row--brand" data-figma="Brand row with stats" data-figma-group="Row">
+          <div class="caat-row__inner container">
+            <div class="caat-row__header">
+              <p class="eyebrow">Plan strength</p>
+              <h2 class="caat-title caat-title--h2">A pension built to last</h2>
+              <p class="caat-title__subtitle">The inverse heading, subtitle, and eyebrow come from the row context — they are not authored per component.</p>
+            </div>
+            <div class="caat-row__content">
+              <div class="row g-4 align-items-stretch">
+                <div class="col-md-4"><div class="caat-stat"><span class="caat-stat__value">$26.7B</span><span class="caat-stat__label">Net assets</span></div></div>
+                <div class="col-md-4"><div class="caat-stat"><span class="caat-stat__value">124%</span><span class="caat-stat__label">Funded on a going-concern basis</span></div></div>
+                <div class="col-md-4">
+                  <article class="card caat-card h-100"><div class="card-body"><h3 class="card-title">A card keeps its own context</h3><p class="card-text mb-0">White surface, dark text — unchanged by the brand row around it.</p></div></article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div></div>
+
+      <h3 class="mb-2">Narrow measure</h3>
+      <p class="text-muted"><code>.caat-row--narrow</code> caps the inner container at 48rem for prose-led rows. The band still runs full width.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <section class="caat-row caat-row--tint caat-row--narrow caat-row--compact" data-figma="Narrow row" data-figma-group="Row">
+          <div class="caat-row__inner container edge-guide">
+            <h2 class="caat-title caat-title--h3">Reading measure, full-width band</h2>
+            <p class="mb-0">Long-form copy sits on a shorter measure while the background still spans the page. Use this for policy explainers and single-column article intros — not for card grids, which need the full container.</p>
+          </div>
+        </section>
+      </div></div>
+    </section>
+
+    <!-- ════ 1. SUMMARY ════ -->
+    <section class="contract-section" id="summary">
+      <h2>1. Summary</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr><th>Component name</th><td>Row — Full-width section band</td></tr>
+          <tr><th>AEM resource type</th><td><code>caat/components/row</code></td></tr>
+          <tr><th>Tier</th><td>Container — holds other components; composes none itself</td></tr>
+          <tr><th>Purpose</th><td>Give a page section a full-bleed background while keeping its content on the standard page container.</td></tr>
+          <tr><th>Primary use</th><td><strong>The <a href="#l2-hero">Level&nbsp;2 page hero</a></strong> — copy one side, image the other. L0 and L1 pages use the <a href="/components/hero.html">Hero</a>; every L2 section page opens with a split Row.</td></tr>
+          <tr><th>Layouts</th><td>Standard (author-composed grid) · Split (two slots: body + media)</td></tr>
+          <tr><th>Variants</th><td>5 backgrounds (white · grey · beige · tint · brand) × 4 rhythms (default · compact · spacious · flush) × 3 measures (default · narrow · wide). Split adds 2 sides (right · left) × 3 ratios (even · text-led · media-led).</td></tr>
+          <tr><th>Contains</th><td>An AEM responsive grid — see <a href="#allowed-components">Components in a Row</a></td></tr>
+          <tr><th>Status</th><td><span class="status-badge planned"><i class="bi bi-stars"></i> New</span></td></tr>
+          <tr><th>Implements</th><td>The <a href="/foundations/page-layout.html">Page Layout</a> foundation's section band, as an authorable component</td></tr>
+          <tr><th>Relationship to <code>.caat-section</code></th><td>Identical geometry. <code>.caat-section</code> (layout.css) stays the hand-authored utility for template CSS; Row is the component authors drop on a page. Row adds the beige and tint tiers, the measure variants, and the on-brand inverse context. Never put both on one element.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ LEVEL 2 HERO ════ -->
+    <section class="contract-section" id="l2-hero">
+      <h2>Level 2 hero</h2>
+      <p>This is the Row's primary job. A Level&nbsp;2 section page — a page directly under an L1 landing page — opens with a Row in its split layout: copy on one side, an image on the other. Because it is a Row, the hero sits on the same container as every section beneath it, and the author gets the background tier, rhythm, and measure controls the Hero component doesn't expose.</p>
+
+      <h3 class="mt-4 mb-2">Which component opens the page</h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:9rem">Level</th><th>Example</th><th>Opens with</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td><strong>L0</strong> Homepage</td><td>caatpension.ca</td><td><a href="/components/hero.html">Hero</a></td><td>One page, art-directed. The Hero's media frame, translucent panel, and signature corner are the brand's front door.</td></tr>
+            <tr><td><strong>L1</strong> Landing</td><td>Pension solutions · Members · Employers</td><td><a href="/components/hero.html">Hero</a></td><td>A handful of pages, each art-directed to introduce a whole audience.</td></tr>
+            <tr><td><strong>L2</strong> Section</td><td>Why join · Plan your retirement · Administer the plan</td><td><strong>Row — split</strong></td><td>Many pages, authored by many people. Row gives a repeatable hero that can't drift: five backgrounds, two sides, three ratios, and contrast that is provable because the band stays flat.</td></tr>
+            <tr><td><strong>L3 / L4</strong></td><td>Contribution rates</td><td>Breadcrumb + heading</td><td>Deep pages are read, not sold. A hero band pushes the content the reader came for below the fold.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2">Examples</h3>
+      <p class="text-muted">Framed at a real viewport so the container resolves properly. Five L2 heroes from the live IA — the label above each names the classes. Resize the window to watch them stack.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <iframe data-autosize src="/components/demos/row-l2-hero.html" title="Five Level 2 hero examples built from the Row split layout" style="display:block; width:100%; height:60rem; border:0;"></iframe>
+      </div></div>
+      <p><a href="/components/demos/row-l2-hero.html" target="_blank" rel="noopener">Open the examples full screen <i class="bi bi-box-arrow-up-right"></i></a></p>
+
+      <h3 class="mt-4 mb-2">The four choices an author makes</h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:10rem">Choice</th><th>Options</th><th>Guidance</th></tr></thead>
+          <tbody>
+            <tr><td>Media side</td><td><em>Right</em> (default) · <em>Left</em> (<code>--split-reverse</code>)</td><td>Keep one side for a whole L1 branch so the section reads as a set. Reverse re-orders the columns visually only — the heading stays first in the DOM.</td></tr>
+            <tr><td>Ratio</td><td><em>Even</em> 50/50 · <em>Text-led</em> 7/5 (<code>--split-text</code>) · <em>Media-led</em> 5/7 (<code>--split-media</code>)</td><td>Even is the default. Text-led when the lead runs past two lines or there are three actions. Media-led when the photograph carries the message.</td></tr>
+            <tr><td>Background</td><td>The five tiers — see <a href="#backgrounds">Background colours</a></td><td>Grey and white are the workhorses. Brand blue makes an L2 feel like a campaign; use it for at most one section per L1 branch. The row beneath must use a different tier.</td></tr>
+            <tr><td>Rhythm</td><td><em>Default</em> · <em>Compact</em> · <em>Spacious</em></td><td>Spacious gives an L2 hero more presence without a bigger image. Never <code>--flush</code>.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2">Rules</h3>
+      <ul>
+        <li><strong>One split row per page, and it goes first.</strong> A second split further down reads as another hero and flattens the page's hierarchy.</li>
+        <li><strong>The heading is the page's <code>&lt;h1&gt;</code>.</strong> There is exactly one, and it lives in the hero.</li>
+        <li><strong>The eyebrow names the parent L1</strong> ("Pension solutions", "Members", "Employers"). It is wayfinding, not a kicker — never a slogan.</li>
+        <li><strong>The image is content, not decoration.</strong> It goes in a column with a real <code>alt</code> description, which is why the band stays a flat tier and contrast stays provable. Row has no background-image option.</li>
+        <li><strong>Pick one ratio per L1 branch.</strong> Mixing 3:2 and 16:9 across sibling L2 pages makes the set look unmaintained.</li>
+        <li><strong>The breadcrumb sits above the hero</strong>, in the template's page-header region — not inside the Row. Every L2 page carries one.</li>
+        <li><strong>No <code>--narrow</code> with a split.</strong> The narrow measure is for single-column prose; combined with two columns it starves both.</li>
+      </ul>
+
+      <h3 class="mt-4 mb-2">Markup</h3>
+      <pre><code>&lt;section class="caat-row caat-row--split caat-row--grey"
+         aria-labelledby="why-join-heading"&gt;
+  &lt;div class="caat-row__inner container"&gt;
+    &lt;div class="caat-row__content"&gt;
+
+      &lt;!-- always first in the DOM, whichever side it shows on --&gt;
+      &lt;div class="caat-row__body"&gt;
+        &lt;p class="caat-eyebrow"&gt;Pension solutions&lt;/p&gt;
+        &lt;h1 id="why-join-heading" class="caat-title caat-title--h1"&gt;Why join CAAT&lt;/h1&gt;
+        &lt;p class="caat-text caat-text--lead"&gt;A DBplus pension turns contributions into…&lt;/p&gt;
+        &lt;div class="d-flex flex-wrap gap-3 mt-4"&gt;
+          &lt;a class="caat-button caat-button--primary caat-button--lg"&gt;See what members get&lt;/a&gt;
+          &lt;a class="caat-button caat-button--outline-primary caat-button--lg"&gt;What employers get&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- the Image component supplies the ratio and object-fit --&gt;
+      &lt;div class="caat-row__media"&gt;
+        &lt;div class="caat-image caat-image--3-2"&gt;
+          &lt;img class="caat-image__img" src="…" alt="Five colleagues walking together outside a city office building."&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      <p class="text-muted"><small>On a brand row the actions become <code>.caat-button--outline-white</code>. The eyebrow, heading, and lead are flipped by the row context — don't set colours on them.</small></p>
+
+      <h3 class="mt-4 mb-2">Why there is no half-bleed variant</h3>
+      <p>A common hero pattern runs the image from the text column out to the viewport edge. Row deliberately doesn't offer it: the component's one promise is that content stays on the page container, and a half-bleed breaks that promise for the most prominent element on the page. It also can't hold its alignment — the bleed distance depends on the gap between the container and the viewport, which changes at every breakpoint, so the image edge and the container edge drift apart at exactly the widths where the mismatch is most visible. If a page genuinely needs an edge-to-edge image, that page wants the <a href="/components/hero.html">Hero</a>, which owns the media frame and the scrim tokens that keep text legible over a photograph.</p>
+    </section>
+
+    <!-- ════ BACKGROUND COLOURS ════ -->
+    <section class="contract-section" id="backgrounds">
+      <h2>Background colours</h2>
+      <p>A Row's background comes from a closed set of five surface tokens. These are the only backgrounds in contract. The Style System exposes exactly these five options and nothing else — an author never types a colour.</p>
+
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:11rem">Option</th><th>Class</th><th>Token</th><th>Value</th><th>Text context</th><th>Use for</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="bg-chip" style="background:#ffffff;"></span>Default (White)</td>
+              <td><em>none</em> / <code>.caat-row--white</code></td>
+              <td><code>--caat-color-bg-page</code></td>
+              <td><code>#ffffff</code></td>
+              <td>Dark — ink on white</td>
+              <td>Primary content, forms, articles, media embeds. The page's resting state and the most common row.</td>
+            </tr>
+            <tr>
+              <td><span class="bg-chip" style="background:#eff2f7;"></span>Grey</td>
+              <td><code>.caat-row--grey</code></td>
+              <td><code>--caat-color-bg-subtle</code></td>
+              <td><code>#eff2f7</code></td>
+              <td>Dark — ink on grey</td>
+              <td>The standard alternating band. Card grids, feature lists, testimonials, logo walls.</td>
+            </tr>
+            <tr>
+              <td><span class="bg-chip" style="background:#f8f5ee;"></span>Beige</td>
+              <td><code>.caat-row--beige</code></td>
+              <td><code>--caat-beige</code></td>
+              <td><code>#f8f5ee</code></td>
+              <td>Dark — ink on beige</td>
+              <td>A warmer alternative to grey where a page needs a second neutral without introducing a third value. Also the footer's surface — avoid a beige row directly above the footer.</td>
+            </tr>
+            <tr>
+              <td><span class="bg-chip" style="background:#e7f4fb;"></span>Brand tint</td>
+              <td><code>.caat-row--tint</code></td>
+              <td><code>--caat-color-bg-brand-subtle</code></td>
+              <td><code>#e7f4fb</code></td>
+              <td>Dark — ink on pale blue</td>
+              <td>A light band that still reads as brand: help and support blocks, "what's next" prompts, in-page callouts. Lower emphasis than brand blue.</td>
+            </tr>
+            <tr>
+              <td><span class="bg-chip" style="background:#003750;"></span>Brand blue</td>
+              <td><code>.caat-row--brand</code></td>
+              <td><code>--caat-color-bg-brand</code></td>
+              <td><code>#003750</code></td>
+              <td><strong>Inverse</strong> — white on navy</td>
+              <td>High-emphasis moments: stat strips, plan-strength figures, the closing CTA. <strong>Maximum one or two per page.</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2">Contrast</h3>
+      <p>Every combination a Row can produce clears WCAG AA (4.5:1 for normal text), measured against the text tokens the Row sets:</p>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th>Background</th><th>Body <code>--caat-color-text</code></th><th>Heading <code>--caat-color-text-heading</code></th><th>Muted <code>--caat-color-text-muted</code></th></tr></thead>
+          <tbody>
+            <tr><td>White <code>#ffffff</code></td><td>15.50:1</td><td>12.63:1</td><td>6.30:1</td></tr>
+            <tr><td>Grey <code>#eff2f7</code></td><td>13.82:1</td><td>11.26:1</td><td>5.61:1</td></tr>
+            <tr><td>Beige <code>#f8f5ee</code></td><td>14.24:1</td><td>11.60:1</td><td>5.78:1</td></tr>
+            <tr><td>Brand tint <code>#e7f4fb</code></td><td>13.83:1</td><td>11.27:1</td><td>5.62:1</td></tr>
+            <tr><td>Brand blue <code>#003750</code></td><td colspan="2">Inverse white — 12.63:1</td><td><code>--caat-color-text-inverse-muted</code> — 9.57:1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted"><small>On brand blue the eyebrow switches to <code>--caat-color-eyebrow-on-dark</code> (<code>#9dd2ed</code>, 7.75:1). The row context applies this; authors don't set it.</small></p>
+
+      <h3 class="mt-4 mb-2">Backgrounds that are <em>not</em> available — and why</h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:17rem">Token / colour</th><th>Why it is not a row background</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-green</code> · <code>--caat-green-700</code> · <code>--caat-color-action-secondary</code></td><td>Green is the <em>secondary action</em> role. A green band makes every button on it ambiguous — the reader can no longer tell surface from control.</td></tr>
+            <tr><td><code>--caat-lime</code></td><td>Lime is a sparse accent (eyebrows on dark panels). A full-bleed lime band is the opposite of sparse, and the system defines no AA-safe text pairing on it.</td></tr>
+            <tr><td><code>--caat-teal</code> · <code>--caat-teal-100</code></td><td>Teal is a data-visualisation and badge colour. As a page surface it would collide with chart series sitting on the same row.</td></tr>
+            <tr><td><code>--caat-color-feedback-*-bg</code><br><small>(success · warning · danger · info)</small></td><td>Semantic status only. A page-wide danger-red band tells the reader something is wrong when nothing is. These stay inside Alerts and validation.</td></tr>
+            <tr><td><code>--caat-color-bg-muted</code> <small>(<code>#e8ecf1</code>)</small></td><td>Too close to the grey tier (<code>#eff2f7</code>) to read as a different band — it looks like a rendering error rather than a section change. Reserved for inset surfaces <em>inside</em> components.</td></tr>
+            <tr><td><code>--caat-blue</code> · <code>--caat-blue-700</code> · <code>--caat-blue-950</code></td><td>Interaction shades for links and pressed states. Only <code>blue-900</code> is a surface colour.</td></tr>
+            <tr><td>Gradients</td><td>Reserved for the Hero. A gradient row competes with the hero for attention and can't guarantee contrast across its own span.</td></tr>
+            <tr><td>Background images</td><td>Out of scope for Row. When a section needs imagery, use the <a href="/components/hero.html">Hero</a> or <a href="/components/feature-resource-hero.html">Feature Resource Hero</a>, which own the scrim tokens that keep text legible over a photo.</td></tr>
+            <tr><td>Arbitrary hex · inline <code>style</code></td><td>Rejected at authoring. Every background resolves to a token so a rebrand re-points the semantic tier once.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2">Sequencing rules</h3>
+      <ul>
+        <li><strong>Never repeat a background on adjacent rows.</strong> The colour change is the divider. Two grey rows in sequence read as one section with a spacing bug.</li>
+        <li><strong>One or two brand blue rows per page, maximum.</strong> Emphasis that repeats stops being emphasis.</li>
+        <li><strong>Nothing goes between rows.</strong> No rules, no spacer components, no empty rows.</li>
+        <li><strong>Pick two neutrals per page, not three.</strong> White + grey, or white + beige. Alternating three neutrals reads as inconsistency rather than rhythm.</li>
+        <li><strong>Beige and the footer.</strong> The footer surface is beige, so a beige row placed last merges into it. End on white, grey, or brand.</li>
+      </ul>
+    </section>
+
+    <!-- ════ COMPONENTS IN A ROW ════ -->
+    <section class="contract-section" id="allowed-components">
+      <h2>Components in a Row</h2>
+      <p>The Row's content slot is an AEM responsive grid. This is the allowed-components policy for that grid: what an author can drop in, what carries a condition, and what the policy rejects outright.</p>
+
+      <h3 class="mt-4 mb-2"><span class="status-badge ready">✓ Allowed</span> <span class="ms-2">Content components — usable in any Row</span></h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:13rem">Component</th><th>Typical role in a row</th><th>On brand blue</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/components/text-title.html">Text / Title</a></td><td>Row header and body prose</td><td>Row supplies inverse heading, subtitle, and eyebrow colours</td></tr>
+            <tr><td><a href="/components/card.html">Card</a></td><td>Card grids — the most common row content</td><td>Keeps its own white surface and dark text</td></tr>
+            <tr><td><a href="/components/cta.html">CTA</a></td><td>Closing prompt; often the last row on a page</td><td>Use <code>.caat-button--outline-white</code> for the action</td></tr>
+            <tr><td><a href="/components/stat.html">Stat / KPI</a></td><td>Figure strips and plan-strength numbers</td><td>Row flips value and label to the inverse tokens</td></tr>
+            <tr><td><a href="/components/button.html">Button</a></td><td>Standalone actions below content</td><td>Outline-white variant only</td></tr>
+            <tr><td><a href="/components/accordion.html">Accordion</a></td><td>FAQ and progressive disclosure</td><td>Allowed — panel surfaces stay light</td></tr>
+            <tr><td><a href="/components/tabs.html">Tabs</a></td><td>Grouped related content in one band</td><td>Allowed — panel surfaces stay light</td></tr>
+            <tr><td><a href="/components/list-group.html">List Group</a></td><td>Linked resource and topic lists</td><td>Allowed — rows carry their own surface</td></tr>
+            <tr><td><a href="/components/testimonials.html">Testimonials</a></td><td>Quote blocks and social proof</td><td>Keeps its own white surface</td></tr>
+            <tr><td><a href="/components/logo-wall.html">Logo Wall</a></td><td>Employer and partner grids</td><td>Use the component's own <code>--dark</code> variant rather than a brand row</td></tr>
+            <tr><td><a href="/components/image-embed.html">Image / Embed</a></td><td>Figures, video embeds, media blocks — and the media slot of a <a href="#l2-hero">split hero</a>, where it supplies the aspect ratio</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/download.html">Download</a></td><td>Document and form download lists</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/blog-listing.html">Blog Listing</a></td><td>Article and insight grids</td><td>Teaser cards keep their own light surface</td></tr>
+            <tr><td><a href="/components/badge.html">Badge</a></td><td>Status and category labels within content</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/avatar.html">Avatar</a></td><td>People grids and leadership bios</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/byline.html">Byline / Meta</a></td><td>Author, date, and read-time metadata</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/icon-button.html">Icon Button</a></td><td>Compact actions inside content</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/social-links.html">Social / Share Links</a></td><td>Share row beneath an article body</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/progress.html">Progress</a></td><td>Multi-step and completion indicators</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/pagination.html">Pagination</a></td><td>Below a listing in the same row</td><td>Allowed</td></tr>
+            <tr><td><a href="/components/separator.html">Spacing &amp; Rhythm</a></td><td>Stack spacing <em>inside</em> a row</td><td>Allowed — never as a divider <em>between</em> rows</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2"><span class="status-badge enhance"><i class="bi bi-exclamation-circle"></i> Conditional</span> <span class="ms-2">Allowed, with a constraint</span></h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:13rem">Component</th><th>Condition</th></tr></thead>
+          <tbody>
+            <tr><td><a href="/components/tables.html">Tables</a></td><td><strong>Not on brand blue.</strong> The table head is painted <code>--caat-color-bg-brand</code>, so on a navy row the header disappears into the band. Use white, grey, beige, or tint.</td></tr>
+            <tr><td><a href="/components/forms.html">Forms</a></td><td><strong>Not on brand blue.</strong> Form controls use <code>--caat-color-border-interactive</code>, which is specified to meet 3:1 on light surfaces only. Put forms on white or grey.</td></tr>
+            <tr><td><a href="/components/data-visualization.html">Data Visualization</a></td><td><strong>Not on brand blue.</strong> The chart palette and axis colours are tuned for light surfaces, and the dark bar fill is <code>blue-900</code> — the same value as the band.</td></tr>
+            <tr><td><a href="/components/alerts.html">Alerts</a></td><td>Light tiers only. Feedback backgrounds are pale by design and lose their semantic reading on navy.</td></tr>
+            <tr><td><a href="/components/search.html">Search</a></td><td>Allowed as a page-level search block in its own row. The header's search field is not this — that belongs to Navigation.</td></tr>
+            <tr><td><a href="/components/dropdown.html">Dropdown</a></td><td>Only as a filter control attached to content in the row, e.g. above a listing. Never as page navigation.</td></tr>
+            <tr><td><a href="/components/feature-resource-hero.html">Feature Resource Hero</a></td><td>Hero-scale. Use in the <strong>first</strong> row only, with that row set to <code>--flush</code> — the component paints its own brand background and padding.</td></tr>
+            <tr><td><a href="/components/article-layout.html">Article Layout</a></td><td>Owns the page's main column structure. One per page, in a single white row. Don't nest other rows inside it.</td></tr>
+            <tr><td><a href="/components/in-page-nav.html">In-page Nav (ToC)</a></td><td>Belongs to the article rail, not the row grid. Only valid inside a row that contains Article Layout.</td></tr>
+            <tr><td><a href="/components/side-nav.html">Side Navigation</a></td><td>Part of the L4 page shell, placed by the template beside the row stack — not authored as row content.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="mt-4 mb-2"><span class="status-badge retire"><i class="bi bi-x-circle"></i> Not allowed</span> <span class="ms-2">Rejected by the container policy</span></h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:13rem">Component</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td>Row</td><td><strong>No nesting.</strong> A row inside a row produces a double band, doubled padding, and a container inside a container. Use the Bootstrap grid for columns within a row.</td></tr>
+            <tr><td><a href="/components/hero.html">Hero</a></td><td>The Hero already is a full-bleed band with its own background and rhythm, so wrapping it in a Row double-wraps the page. The two don't compete: Hero opens L0 and L1 pages; a Row in its <a href="#l2-hero">split layout</a> opens L2 pages.</td></tr>
+            <tr><td><a href="/components/navigation.html">Navigation</a></td><td>Page chrome. Sits above <code>&lt;main&gt;</code> in the template, outside the row stack.</td></tr>
+            <tr><td><a href="/components/footer.html">Footer</a></td><td>Page chrome with its own beige band. Placed by the template after the row stack.</td></tr>
+            <tr><td><a href="/components/breadcrumb.html">Breadcrumb</a></td><td>Template-owned; it belongs to the page header region, above the first row.</td></tr>
+            <tr><td><a href="/components/modal.html">Modal</a></td><td>Rendered into a body-level overlay. Author the <em>trigger</em> in the row; the dialog itself is not row content.</td></tr>
+            <tr><td><a href="/components/offcanvas.html">Offcanvas</a></td><td>Body-level slide-in panel. Same rule as Modal.</td></tr>
+            <tr><td><a href="/components/toast.html">Toast</a></td><td>Rendered into a fixed notification region, not the document flow.</td></tr>
+            <tr><td><a href="/components/tooltip.html">Tooltip</a> · <a href="/components/popover.html">Popover</a></td><td>Positioned overlays attached to a trigger. They appear <em>from</em> row content but are never authored as row children.</td></tr>
+            <tr><td><a href="/components/spinner.html">Spinner</a></td><td>A loading state emitted by whatever component is loading — not authorable content.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ════ 2. TOKENS ════ -->
+    <section class="contract-section" id="tokens">
+      <h2>2. Design Tokens</h2>
+      <p>Row consumes semantic tokens only. There is not a single literal value in <code>row.css</code>.</p>
+      <table class="table table-bordered">
+        <thead><tr><th style="width:22rem">Token</th><th>Role</th></tr></thead>
+        <tbody>
+          <tr><td><code>--caat-color-bg-page</code></td><td>Default (white) background</td></tr>
+          <tr><td><code>--caat-color-bg-subtle</code></td><td>Grey tier</td></tr>
+          <tr><td><code>--caat-beige</code></td><td>Beige tier</td></tr>
+          <tr><td><code>--caat-color-bg-brand-subtle</code></td><td>Brand tint tier</td></tr>
+          <tr><td><code>--caat-color-bg-brand</code></td><td>Brand blue tier</td></tr>
+          <tr><td><code>--caat-color-text</code></td><td>Body colour on the light tiers</td></tr>
+          <tr><td><code>--caat-color-text-inverse</code> · <code>-inverse-muted</code> · <code>-inverse-dim</code></td><td>Text context on the brand tier</td></tr>
+          <tr><td><code>--caat-color-text-heading</code> · <code>--caat-color-text-muted</code></td><td>Re-asserted inside light-surface components on a brand row</td></tr>
+          <tr><td><code>--caat-color-eyebrow</code> · <code>--caat-color-eyebrow-on-dark</code></td><td>Eyebrow colour per tier</td></tr>
+          <tr><td><code>--caat-color-border-inverse</code></td><td>Rules inside a brand row</td></tr>
+          <tr><td><code>--caat-space-6 / -7 / -8 / -9</code></td><td>Vertical rhythm — compact 48px · default 64px · spacious 96px, one step down on mobile</td></tr>
+        </tbody>
+      </table>
+      <p class="text-muted mb-0"><small>Row-local custom properties: <code>--caat-row-bg</code>, <code>--caat-row-fg</code>, <code>--caat-row-space</code>. Modifiers set these; nothing outside <code>row.css</code> should.</small></p>
+    </section>
+
+    <!-- ════ 3. AUTHORING ════ -->
+    <section class="contract-section" id="authoring">
+      <h2>3. Authoring Fields</h2>
+      <table class="table table-bordered">
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Layout</td><td>Select (Style System)</td><td>No</td><td><code>standard</code> (default) · <code>split</code> — the <a href="#l2-hero">Level&nbsp;2 hero</a></td></tr>
+          <tr><td>Media side</td><td>Select (Style System)</td><td>No</td><td>Split only. <code>right</code> (default) · <code>left</code></td></tr>
+          <tr><td>Split ratio</td><td>Select (Style System)</td><td>No</td><td>Split only. <code>even</code> (default) · <code>text-led</code> · <code>media-led</code></td></tr>
+          <tr><td>Media image</td><td>Image (DAM path)</td><td>Split only</td><td>Requires alt text. Rendered through the Image component.</td></tr>
+          <tr><td>Media ratio</td><td>Select</td><td>No</td><td>Split only. <code>3-2</code> (default) · <code>4-3</code> · <code>16-9</code> · <code>1-1</code> · <code>4-5</code> — the <a href="/foundations/card-image-ratios.html">documented set</a>.</td></tr>
+          <tr><td>Background</td><td>Select (Style System)</td><td>No</td><td><code>white</code> (default) · <code>grey</code> · <code>beige</code> · <code>tint</code> · <code>brand</code>. There is no free-text colour field.</td></tr>
+          <tr><td>Vertical rhythm</td><td>Select (Style System)</td><td>No</td><td><code>default</code> · <code>compact</code> · <code>spacious</code> · <code>flush</code></td></tr>
+          <tr><td>Content measure</td><td>Select (Style System)</td><td>No</td><td><code>default</code> (page container) · <code>narrow</code> (48rem, prose) · <code>wide</code> (90rem, wide tables and 4-up grids)</td></tr>
+          <tr><td>Section ID</td><td>Text</td><td>No</td><td>Anchor target for in-page nav and deep links. Lowercase, hyphenated, unique on the page.</td></tr>
+          <tr><td>Accessible name</td><td>Text</td><td>Conditional</td><td>Required when the row has no visible heading — see <a href="#accessibility">Accessibility</a>.</td></tr>
+          <tr><td>Header title</td><td>Text</td><td>No</td><td>Renders the centred <code>__header</code> slot (Text/Title).</td></tr>
+          <tr><td>Header subtitle</td><td>Rich text</td><td>No</td><td>Available only when a header title is set.</td></tr>
+          <tr><td>Content</td><td>Responsive grid</td><td>Yes</td><td>The authoring slot. What may go in it is governed by the container policy — see <a href="#allowed-components">Components in a Row</a>.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 4. VALIDATION ════ -->
+    <section class="contract-section" id="validation">
+      <h2>4. Validation Rules</h2>
+      <table class="table table-bordered">
+        <thead><tr><th style="width:13rem">Rule</th><th>Condition</th><th>Error message</th></tr></thead>
+        <tbody>
+          <tr><td>No nesting</td><td>A Row is dropped inside another Row's grid</td><td>"A Row can't contain another Row. Use columns inside this row instead."</td></tr>
+          <tr><td>No repeated background</td><td>The preceding sibling Row uses the same background</td><td>"The row above already uses this background. Change one of them — the colour change is the divider."</td></tr>
+          <tr><td>Brand blue budget</td><td>A third Row on the page is set to <code>brand</code></td><td>"Use at most two brand blue rows per page."</td></tr>
+          <tr><td>Empty row</td><td>The content grid has no components</td><td>"A Row must contain content. Don't use an empty row as a spacer."</td></tr>
+          <tr><td>Subtitle without title</td><td>Header subtitle set, header title empty</td><td>"Add a header title, or clear the subtitle."</td></tr>
+          <tr><td>Accessible name</td><td>Row has a Section ID but no visible heading and no accessible name</td><td>"Give this row a heading or an accessible name so it can be found in the landmark list."</td></tr>
+          <tr><td>Component allow-list</td><td>A component outside the container policy is dropped in</td><td>"{Component} can't be placed in a Row." — with the reason from the policy table.</td></tr>
+          <tr><td>Brand-tier guard</td><td>Tables, Forms, Data Visualization, or Alerts on a <code>brand</code> row</td><td>"{Component} isn't legible on brand blue. Change the row background to white, grey, beige, or tint."</td></tr>
+          <tr><td>Duplicate anchor</td><td>Section ID already used on the page</td><td>"Section ID must be unique on the page."</td></tr>
+          <tr><td>One split per page</td><td>A second Row on the page is set to <code>split</code></td><td>"A page has one hero. Use the standard layout for this row."</td></tr>
+          <tr><td>Split goes first</td><td>A split Row has a Row above it</td><td>"The split layout is the page hero — move it to the top of the page."</td></tr>
+          <tr><td>Split needs media</td><td>Layout is <code>split</code> and no image is set</td><td>"A split row needs an image. Add one, or switch to the standard layout."</td></tr>
+          <tr><td>Alt text</td><td>Media image has no alt text and is not marked decorative</td><td>"Describe the image for readers who can't see it."</td></tr>
+          <tr><td>Split heading level</td><td>Split row's heading is not <code>h1</code>, or the page already has one</td><td>"The hero heading is the page's H1, and there is only one."</td></tr>
+          <tr><td>Split vs narrow</td><td>Layout is <code>split</code> and measure is <code>narrow</code></td><td>"Narrow is for single-column prose. Use the default measure with a split."</td></tr>
+          <tr><td>Split vs flush</td><td>Layout is <code>split</code> and rhythm is <code>flush</code></td><td>"A hero needs its vertical space. Use default, compact, or spacious."</td></tr>
+          <tr><td>Split on L3/L4</td><td>Layout is <code>split</code> on a page below Level&nbsp;2</td><td>"Level 3 and 4 pages open with a breadcrumb and heading, not a hero band."</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 5. CONTENT GUIDANCE ════ -->
+    <section class="contract-section" id="content-guidance">
+      <h2>5. Content Guidance</h2>
+      <ul>
+        <li><strong>One idea per row.</strong> If a row needs two headers, it's two rows.</li>
+        <li><strong>Header copy stays short.</strong> The header slot is capped at 44rem for a readable measure — a title that wraps to three lines is too long.</li>
+        <li><strong>Let the background do the dividing.</strong> Alternate white with one neutral down the page, and reserve brand blue for the one or two moments that deserve it.</li>
+        <li><strong>Match the measure to the content.</strong> Card grids and tables need the default or wide measure. Running prose needs <code>narrow</code> — full-container body copy is too wide to read comfortably.</li>
+        <li><strong>Give anchored rows a Section ID</strong> when the page has in-page navigation, and keep the ID stable — it may already be linked from elsewhere.</li>
+        <li><strong>Rhythm is automatic.</strong> Reach for <code>compact</code> or <code>spacious</code> only when the content genuinely calls for it, never to nudge spacing.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 6. SEMANTIC HTML ════ -->
+    <section class="contract-section" id="semantic-html">
+      <h2>6. Semantic HTML</h2>
+      <pre><code>&lt;section class="caat-row caat-row--grey"
+         id="plan-strength"
+         aria-labelledby="plan-strength-heading"
+         data-analytics-component="row"&gt;
+  &lt;div class="caat-row__inner container"&gt;
+
+    &lt;!-- optional centred header (Text/Title) --&gt;
+    &lt;div class="caat-row__header"&gt;
+      &lt;h2 id="plan-strength-heading" class="caat-title caat-title--h2"&gt;A pension built to last&lt;/h2&gt;
+      &lt;p class="caat-title__subtitle"&gt;Supporting sentence.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- authoring slot: the AEM responsive grid --&gt;
+    &lt;div class="caat-row__content"&gt;
+      &lt;div class="row g-4"&gt;
+        &lt;div class="col-md-4"&gt;&lt;!-- Card --&gt;&lt;/div&gt;
+        &lt;div class="col-md-4"&gt;&lt;!-- Card --&gt;&lt;/div&gt;
+        &lt;div class="col-md-4"&gt;&lt;!-- Card --&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+      <ul class="mt-3">
+        <li><code>&lt;section&gt;</code> for the root — a row is a page section, not a generic box.</li>
+        <li><code>.caat-row__inner</code> is applied <em>to</em> the Bootstrap <code>.container</code>; it doesn't replace it. Container widths stay Bootstrap's, so a Row lines up with hand-authored sections.</li>
+        <li>Author-composed columns use the Bootstrap grid — Row adds no general grid system of its own. The one layout Row defines is <code>--split</code>, a fixed two-slot arrangement for the <a href="#l2-hero">Level&nbsp;2 hero</a>.</li>
+      </ul>
+    </section>
+
+    <!-- ════ 7. CSS CONTRACT ════ -->
+    <section class="contract-section" id="css-contract">
+      <h2>7. CSS Contract</h2>
+      <p class="text-muted">Stylesheet: <code>/assets/css/components/row.css</code> · clientlib <code>caat/components/row/clientlibs/css</code>. Depends on <code>tokens.css</code>; the split media slot composes the <a href="/components/image-embed.html">Image / Embed</a> component for its aspect ratio rather than redeclaring the ratio utilities.</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th style="width:16rem">Selector</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>.caat-row</code></td><td>Full-width band: <code>width:100%</code>, vertical rhythm, background, text context</td></tr>
+            <tr><td><code>.caat-row__inner</code></td><td>Applied to the Bootstrap <code>.container</code>; the hook for the measure variants</td></tr>
+            <tr><td><code>.caat-row__header</code></td><td>Centred section header, 44rem measure</td></tr>
+            <tr><td><code>.caat-row__content</code></td><td>Authoring slot (AEM responsive grid); the two-column grid when <code>--split</code> is set</td></tr>
+            <tr><td><code>.caat-row--split</code></td><td>Level&nbsp;2 hero layout — two slots, 50/50, vertically centred</td></tr>
+            <tr><td><code>.caat-row__body</code></td><td>Split copy slot — eyebrow, heading, lead, actions. Measure-capped at 40rem</td></tr>
+            <tr><td><code>.caat-row__media</code></td><td>Split media slot — holds the Image component</td></tr>
+            <tr><td><code>.caat-row--split-reverse</code></td><td>Media on the left (visual re-order only; DOM keeps the heading first)</td></tr>
+            <tr><td><code>.caat-row--split-text</code></td><td>Text-led ratio, 7/5</td></tr>
+            <tr><td><code>.caat-row--split-media</code></td><td>Media-led ratio, 5/7</td></tr>
+            <tr><td><code>.caat-row--white</code></td><td>Explicit white tier (same result as no modifier)</td></tr>
+            <tr><td><code>.caat-row--grey</code></td><td>Grey tier</td></tr>
+            <tr><td><code>.caat-row--beige</code></td><td>Beige tier</td></tr>
+            <tr><td><code>.caat-row--tint</code></td><td>Brand tint tier</td></tr>
+            <tr><td><code>.caat-row--brand</code></td><td>Brand blue tier + inverse text context</td></tr>
+            <tr><td><code>.caat-row--compact</code></td><td>48px rhythm (32px mobile)</td></tr>
+            <tr><td><code>.caat-row--spacious</code></td><td>96px rhythm (64px mobile)</td></tr>
+            <tr><td><code>.caat-row--flush</code></td><td>Zero rhythm — only when the row's sole child supplies its own band padding</td></tr>
+            <tr><td><code>.caat-row--narrow</code></td><td>Inner capped at 48rem</td></tr>
+            <tr><td><code>.caat-row--wide</code></td><td>Inner capped at 90rem</td></tr>
+            <tr><td><code>.caat-row[id]</code></td><td><code>scroll-margin-top</code> so a sticky header never covers an anchored heading</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Row-local custom properties</strong> — the only mechanism a modifier uses:</p>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th style="width:16rem">Property</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td><code>--caat-row-bg</code></td><td><code>var(--caat-color-bg-page)</code></td></tr>
+            <tr><td><code>--caat-row-fg</code></td><td><code>var(--caat-color-text)</code></td></tr>
+            <tr><td><code>--caat-row-space</code></td><td><code>var(--caat-space-8)</code> · <code>var(--caat-space-7)</code> below 768px</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mb-0"><strong>Inverse-context scoping.</strong> On <code>.caat-row--brand</code>, atoms that inherit colour — <code>.caat-title</code>, <code>.caat-title__subtitle</code>, <code>.caat-stat__value</code>/<code>__label</code>, <code>.eyebrow</code> — flip to the inverse tokens. Blocks that paint their own light surface (Card, Testimonial, Blog teaser, chart card, In-page Nav) re-assert the normal tokens at higher specificity, so a white card on a brand row never renders white-on-white.</p>
+    </section>
+
+    <!-- ════ 8. ACCESSIBILITY ════ -->
+    <section class="contract-section" id="accessibility">
+      <h2>8. Accessibility</h2>
+      <table class="table table-bordered">
+        <thead><tr><th style="width:14rem">Requirement</th><th>Implementation</th></tr></thead>
+        <tbody>
+          <tr><td>Landmark naming</td><td>A <code>&lt;section&gt;</code> is exposed as a region only when it has an accessible name. Set <code>aria-labelledby</code> pointing at the row's heading, or <code>aria-label</code> when there is no visible heading.</td></tr>
+          <tr><td>Heading level</td><td>The header slot renders the level the page outline needs — chosen for structure, never for size. Row applies no heading styling of its own.</td></tr>
+          <tr><td>Contrast</td><td>All five tiers clear AA for body, heading, and muted text — see <a href="#backgrounds">Background colours</a>. The brand tier switches the whole text context rather than relying on per-component overrides.</td></tr>
+          <tr><td>Colour is not the only signal</td><td>The background change carries visual grouping only. Meaning always comes from the row's heading and content.</td></tr>
+          <tr><td>Anchor targets</td><td><code>scroll-margin-top</code> keeps an anchored heading clear of the sticky header for keyboard and skip-link users.</td></tr>
+          <tr><td>Focus</td><td>Row is non-interactive and takes no focus. Focus rings belong to the components inside it, and must stay visible on every tier including brand blue — the ring is solid <code>blue-500</code>, ~4.5:1 on navy.</td></tr>
+          <tr><td>Reduced motion</td><td>Row has no animation. Nothing to suppress.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 9. SEO ════ -->
+    <section class="contract-section" id="seo">
+      <h2>9. SEO</h2>
+      <p>Row is a structural container with no indexable content of its own &mdash; no SEO markup required. It must stay server-rendered so the content it wraps is crawlable, and the heading levels it emits must form a clean document outline, since that outline is what search and AI crawlers read the page structure from.</p>
+    </section>
+
+    <!-- ════ 10. ANALYTICS ════ -->
+    <section class="contract-section" id="analytics">
+      <h2>10. Analytics</h2>
+      <p>Analytics are captured through the shared <code>data-analytics-component</code> attribute on the component root (emitted automatically) and reported to the central data layer. Event names and payloads follow the organisation's standard analytics schema &mdash; defined centrally with the analytics team, not invented per component &mdash; so no bespoke tracking is specified here. A Row's value to analytics is as the <em>section context</em> for interactions inside it: the Section ID is emitted so child-component events can be attributed to the section they occurred in.</p>
+    </section>
+
+    <!-- ════ 11. AEM NOTES ════ -->
+    <section class="contract-section" id="aem-notes">
+      <h2>11. AEM Implementation Notes</h2>
+      <ul>
+        <li>Resource type: <code>caat/components/row</code>. It is a <strong>container</strong> — <code>cq:isContainer=true</code> — with a <code>responsivegrid</code> child at <code>content</code>.</li>
+        <li>Background, rhythm, and measure are <strong>Style System</strong> policies, not dialog fields. Authors pick a named option and AEM applies the class. There is no colour picker anywhere in this component.</li>
+        <li>The allowed-components list is enforced by the <strong>container policy</strong> on the row's responsive grid (its <code>components</code> allow-list), not by author discipline. Keep the policy and the <a href="#allowed-components">table above</a> in sync.</li>
+        <li>Editable templates lock the page type's structure and leave the row stack open, so authors add and reorder rows but can't change what a row is.</li>
+        <li>Page templates place Navigation, Breadcrumb, and Footer <em>outside</em> the row stack.</li>
+      </ul>
+
+      <h3 class="h5 mt-4 mb-2">HTL Template</h3>
+      <pre><code>&lt;sly data-sly-use.row="com.caat.models.RowModel"/&gt;
+&lt;section class="caat-row ${row.styleClasses}"
+         id="${row.sectionId}"
+         aria-labelledby="${row.hasHeading ? row.sectionId + '-heading' : ''}"
+         aria-label="${!row.hasHeading ? row.accessibleName : ''}"
+         data-analytics-component="row"
+         data-analytics-section="${row.sectionId}"&gt;
+  &lt;div class="caat-row__inner container"&gt;
+    &lt;div class="caat-row__header" data-sly-test="${row.headerTitle}"&gt;
+      &lt;h2 id="${row.sectionId}-heading" class="caat-title caat-title--h2"&gt;${row.headerTitle}&lt;/h2&gt;
+      &lt;p class="caat-title__subtitle" data-sly-test="${row.headerSubtitle}"&gt;${row.headerSubtitle @ context='html'}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="caat-row__content"&gt;
+      &lt;sly data-sly-resource="${'content' @ resourceType='wcm/foundation/components/responsivegrid'}"/&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+
+      <h3 class="h5 mt-4 mb-2">Style System Mapping</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead><tr><th style="width:12rem">Policy group</th><th>Option</th><th>Class applied</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="5">Background</td><td>Default (White)</td><td><em>none</em></td></tr>
+            <tr><td>Grey</td><td><code>caat-row--grey</code></td></tr>
+            <tr><td>Beige</td><td><code>caat-row--beige</code></td></tr>
+            <tr><td>Brand tint</td><td><code>caat-row--tint</code></td></tr>
+            <tr><td>Brand blue</td><td><code>caat-row--brand</code></td></tr>
+            <tr><td rowspan="4">Vertical rhythm</td><td>Default</td><td><em>none</em></td></tr>
+            <tr><td>Compact</td><td><code>caat-row--compact</code></td></tr>
+            <tr><td>Spacious</td><td><code>caat-row--spacious</code></td></tr>
+            <tr><td>Flush</td><td><code>caat-row--flush</code></td></tr>
+            <tr><td rowspan="3">Content measure</td><td>Default</td><td><em>none</em></td></tr>
+            <tr><td>Narrow</td><td><code>caat-row--narrow</code></td></tr>
+            <tr><td>Wide</td><td><code>caat-row--wide</code></td></tr>
+            <tr><td rowspan="2">Layout</td><td>Standard</td><td><em>none</em></td></tr>
+            <tr><td>Split (L2 hero)</td><td><code>caat-row--split</code></td></tr>
+            <tr><td rowspan="2">Media side</td><td>Right</td><td><em>none</em></td></tr>
+            <tr><td>Left</td><td><code>caat-row--split-reverse</code></td></tr>
+            <tr><td rowspan="3">Split ratio</td><td>Even (50/50)</td><td><em>none</em></td></tr>
+            <tr><td>Text-led (7/5)</td><td><code>caat-row--split-text</code></td></tr>
+            <tr><td>Media-led (5/7)</td><td><code>caat-row--split-media</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-muted"><small>The Media side and Split ratio groups are shown only when Layout is Split. Both require <code>caat-row--split</code> on the same element.</small></p>
+
+      <div class="alert alert-info" style="font-size:.9rem;">
+        <i class="bi bi-info-circle-fill me-1"></i>
+        <strong>For authors:</strong> drop Rows onto the page in sequence and pick a background for each. Alternate white with one neutral, and use brand blue once or twice at most. Padding is automatic — never add an empty row, a spacer, or a divider between rows.
+      </div>
+    </section>
+
+    <!-- ════ 12. DIALOG MODEL ════ -->
+    <section class="contract-section" id="dialog-model">
+      <h2>12. Dialog Model (cq:dialog)</h2>
+      <p class="text-muted">Simplified model &mdash; shows field intent and Granite UI resource types, not the literal <code>cq:dialog</code> node tree. Background, rhythm, and measure are <strong>absent by design</strong>: they are Style System policies, not dialog fields.</p>
+      <pre><code>{
+  "sectionId":      { "sling:resourceType": "…/form/textfield",
+                      "validation": "cq.common.id" },
+  "accessibleName": { "sling:resourceType": "…/form/textfield",
+                      "fieldDescription": "Required when the row has no visible heading" },
+  "headerTitle":    { "sling:resourceType": "…/form/textfield" },
+  "headerSubtitle": { "sling:resourceType": "…/form/textarea",
+                      "disabled": "when headerTitle is empty" },
+
+  // Split layout (Level 2 hero) — shown only when Layout = Split
+  "mediaImage":     { "sling:resourceType": "…/form/pathfield",
+                      "rootPath": "/content/dam/caat", "required": "when layout is split" },
+  "mediaAlt":       { "sling:resourceType": "…/form/textfield",
+                      "required": "unless mediaDecorative is checked" },
+  "mediaRatio":     { "sling:resourceType": "…/form/select",
+                      "options": ["3-2", "4-3", "16-9", "1-1", "4-5"] }
+}
+
+// Container policy (cq:policy on the row's responsivegrid)
+{
+  "components": [
+    "caat/components/text-title",  "caat/components/card",         "caat/components/cta",
+    "caat/components/stat",        "caat/components/button",       "caat/components/accordion",
+    "caat/components/tabs",        "caat/components/list-group",   "caat/components/testimonials",
+    "caat/components/logo-wall",   "caat/components/image-embed",  "caat/components/download",
+    "caat/components/blog-listing","caat/components/badge",        "caat/components/avatar",
+    "caat/components/byline",      "caat/components/icon-button",  "caat/components/social-links",
+    "caat/components/progress",    "caat/components/pagination",   "caat/components/separator",
+    "caat/components/tables",      "caat/components/forms",        "caat/components/data-visualization",
+    "caat/components/alerts",      "caat/components/search",       "caat/components/dropdown",
+    "caat/components/feature-resource-hero",                       "caat/components/article-layout"
+  ]
+  // Row, Hero, Navigation, Footer, Breadcrumb, Modal, Offcanvas,
+  // Toast, Tooltip, Popover and Spinner are deliberately excluded.
+}</code></pre>
+    </section>
+
+    <!-- ════ 13. QA ════ -->
+    <section class="contract-section" id="qa">
+      <h2>13. QA Checklist</h2>
+      <table class="table table-bordered">
+        <thead><tr><th style="width:3rem">#</th><th>Check</th><th style="width:5rem">Pass?</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Background runs edge to edge at every breakpoint; no horizontal scroll</td><td></td></tr>
+          <tr><td>2</td><td>Content aligns with every other section on the page — container edges match</td><td></td></tr>
+          <tr><td>3</td><td>Background is one of the five tiers; no inline <code>style</code>, no arbitrary hex</td><td></td></tr>
+          <tr><td>4</td><td>No two adjacent rows share a background</td><td></td></tr>
+          <tr><td>5</td><td>At most two brand blue rows on the page</td><td></td></tr>
+          <tr><td>6</td><td>Brand row: heading, subtitle, eyebrow, and stats are inverse and meet AA</td><td></td></tr>
+          <tr><td>7</td><td>Brand row: a Card, Testimonial, or chart card inside keeps its light surface and dark text</td><td></td></tr>
+          <tr><td>8</td><td>No Tables, Forms, Data Visualization, or Alerts on a brand row</td><td></td></tr>
+          <tr><td>9</td><td>No Row nested in a Row; no Hero, Navigation, Footer, or Breadcrumb inside a Row</td><td></td></tr>
+          <tr><td>10</td><td>Vertical padding compresses one step below 768px</td><td></td></tr>
+          <tr><td>11</td><td>Anchored row: the link lands with the heading clear of the sticky header</td><td></td></tr>
+          <tr><td>12</td><td>Row exposes a named landmark — heading via <code>aria-labelledby</code>, or <code>aria-label</code></td><td></td></tr>
+          <tr><td>13</td><td>Heading levels form a valid document outline across the row stack</td><td></td></tr>
+          <tr><td>14</td><td>No divider, rule, spacer, or empty row between rows</td><td></td></tr>
+          <tr><td>15</td><td><code>--narrow</code> caps the measure while the band still spans full width</td><td></td></tr>
+          <tr><td colspan="3" style="background:var(--caat-color-bg-subtle); font-weight:800;">Split layout — <a href="#l2-hero">Level 2 hero</a></td></tr>
+          <tr><td>16</td><td>Body and media columns are vertically centred and hold their ratio (50/50, 7/5, or 5/7)</td><td></td></tr>
+          <tr><td>17</td><td>Below 992px the split stacks to one column, <strong>heading first</strong> — including when reversed</td><td></td></tr>
+          <tr><td>18</td><td>DOM order is body-then-media on both sides; the <code>&lt;h1&gt;</code> is the first thing a screen reader reaches</td><td></td></tr>
+          <tr><td>19</td><td>Media image has meaningful alt text and uses one of the documented ratios</td><td></td></tr>
+          <tr><td>20</td><td>Media corners use the large radius; the image fills its ratio box without distortion</td><td></td></tr>
+          <tr><td>21</td><td>On a brand split: eyebrow, heading, and lead are all inverse — no dark text left on navy</td><td></td></tr>
+          <tr><td>22</td><td>Exactly one split row on the page, and it is the first row</td><td></td></tr>
+          <tr><td>23</td><td>Breadcrumb renders above the hero, not inside it</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ════ 14. DOD ════ -->
+    <section class="contract-section" id="dod">
+      <h2>14. Definition of Done</h2>
+      <ul>
+        <li><input type="checkbox" disabled aria-hidden="true"> <code>row.css</code> consumes semantic tokens only — no literal colours or spacing values.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> All five background tiers ship as Style System options; no colour input is exposed to authors.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Contrast verified for body, heading, and muted text on every tier (AA).</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Container policy enforces the allowed-components list; excluded components are rejected in the editor.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Brand-tier guard blocks Tables, Forms, Data Visualization, and Alerts.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Adjacent-background and brand-budget validation wired to author-facing messages.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Row emits a named landmark and a valid heading outline.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Geometry matches <code>.caat-section</code> — a Row and a hand-authored section on the same page line up exactly.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Split layout ships with both sides and all three ratios; media composes the Image component rather than a bespoke media block.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> Split stacks heading-first below 992px on both sides, and the <code>&lt;h1&gt;</code> leads the DOM.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> L2 template policy: split Row locked as the first component; Hero excluded from L2 templates and Row-split excluded from L0/L1.</li>
+        <li><input type="checkbox" disabled aria-hidden="true"> QA checklist signed off at mobile, tablet, and desktop.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+</div>
+
+<footer class="py-4 mt-5" style="background:var(--caat-color-bg-brand);">
+  <div class="container text-white">
+    <div class="row align-items-center">
+      <div class="col-md-4">
+        <a class="caat-logo text-white text-decoration-none" href="/components/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          CAAT Design System
+        </a>
+      </div>
+      <div class="col-md-8 text-md-end">
+        <a href="/components/" class="me-3">Components</a><a href="/foundations/design-tokens.html">Design Tokens</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.2);">
+    <p class="mb-0 small" style="color:rgba(255,255,255,.6);">&copy; 2026 CAAT Pension Plan. Internal use only.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="/assets/js/figma-export.js"></script>
+<script>
+  /* Doc-site only: size the framed demos to their content so they never
+     scroll internally — a scrollbar inside a frame would narrow the band
+     and misrepresent the very relationship being demonstrated. */
+  (function () {
+    var frames = document.querySelectorAll('iframe[data-autosize]');
+    Array.prototype.forEach.call(frames, function (frame) {
+      function fit() {
+        try {
+          var doc = frame.contentDocument;
+          if (doc && doc.body) frame.style.height = doc.body.scrollHeight + 'px';
+        } catch (e) { /* leave the CSS fallback height in place */ }
+      }
+      frame.addEventListener('load', fit);
+      window.addEventListener('resize', fit);
+      if (frame.contentDocument && frame.contentDocument.readyState === 'complete') fit();
+    });
+  })();
+</script>
+</body>
+</html>

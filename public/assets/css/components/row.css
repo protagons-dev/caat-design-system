@@ -1,0 +1,219 @@
+/* ============================================================
+   CAAT Row — Component
+   AEM client library: caat/components/row/clientlibs/css
+   Depends on: tokens.css (consumes SEMANTIC tokens only)
+
+   The Row is the AEM-authorable form of the Page Layout
+   foundation's section band:
+
+     ROOT  (.caat-row)          spans the full viewport width and
+                                carries the background colour
+     INNER (.caat-row__inner)   is a Bootstrap .container, so the
+                                content lines up with every other
+                                section on the page
+
+   This is the same band relationship the hero stat ("trust") bar
+   uses — background edge-to-edge, content on the page grid. The
+   background change IS the divider between sections; a Row never
+   draws a rule, a spacer, or a decorative break band.
+
+   Relationship to .caat-section (layout.css): identical geometry.
+   .caat-section stays the hand-authored utility for template CSS;
+   .caat-row is the component authors drop on a page. Row adds the
+   two extra tint tiers, the inner measure variants, and the
+   on-brand inverse text context. Keep this clientlib
+   self-contained — it must not depend on layout.css.
+
+   Every visual value below resolves to a token. There are no
+   literals in this file.
+   ============================================================ */
+
+/* ── Root band ─────────────────────────────────────────────────
+   Both the padding and the colours route through row-local custom
+   properties so a modifier is one declaration and there is a single
+   place per concern to change. */
+.caat-row {
+  position: relative;
+  width: 100%;
+  padding-top: var(--caat-row-space, var(--caat-space-8));
+  padding-bottom: var(--caat-row-space, var(--caat-space-8));
+  background: var(--caat-row-bg, var(--caat-color-bg-page));
+  color: var(--caat-row-fg, var(--caat-color-text));
+}
+
+/* ── Background tiers ──────────────────────────────────────────
+   The COMPLETE set of backgrounds a Row may use. Anything not in
+   this list (green, lime, teal, action colours, feedback colours,
+   gradients, arbitrary hex) is out of contract — see the component
+   contract page for why. */
+.caat-row--white { --caat-row-bg: var(--caat-color-bg-page); }        /* #fff    */
+.caat-row--grey  { --caat-row-bg: var(--caat-color-bg-subtle); }      /* #eff2f7 */
+.caat-row--beige { --caat-row-bg: var(--caat-beige); }                /* #f8f5ee */
+.caat-row--tint  { --caat-row-bg: var(--caat-color-bg-brand-subtle); }/* #e7f4fb */
+.caat-row--brand {
+  --caat-row-bg: var(--caat-color-bg-brand);                          /* #003750 */
+  --caat-row-fg: var(--caat-color-text-inverse);
+}
+
+/* ── Vertical rhythm modifiers ─────────────────────────────────
+   Desktop 64 / 48 / 96px. --flush is for the single case where the
+   Row's only child is a full-bleed band that supplies its own
+   padding (a marquee logo wall, an edge-to-edge media strip). */
+.caat-row--compact  { --caat-row-space: var(--caat-space-7); }
+.caat-row--spacious { --caat-row-space: var(--caat-space-9); }
+.caat-row--flush    { --caat-row-space: 0; }
+
+/* Mobile: compress one step (Responsive foundation). 48 / 32 / 64px. */
+@media (max-width: 767.98px) {
+  .caat-row           { --caat-row-space: var(--caat-space-7); }
+  .caat-row--compact  { --caat-row-space: var(--caat-space-6); }
+  .caat-row--spacious { --caat-row-space: var(--caat-space-8); }
+  .caat-row--flush    { --caat-row-space: 0; }
+}
+
+/* ── Inner container ───────────────────────────────────────────
+   .caat-row__inner is applied TO the Bootstrap .container. It sets
+   no width of its own at the default measure — container widths stay
+   Bootstrap's, so a Row lines up with hand-authored sections — and
+   exists so the measure variants have a hook. */
+.caat-row--narrow .caat-row__inner { max-width: 48rem; }  /* prose-led rows  */
+.caat-row--wide   .caat-row__inner { max-width: 90rem; }  /* wide tables/4-up */
+
+/* ── Slots ─────────────────────────────────────────────────────
+   __header is the optional centred section header (Text/Title).
+   44rem is the documented section-header measure (DESIGN.md).
+   __content is the authoring slot — in AEM, the responsivegrid. */
+.caat-row__header {
+  max-width: 44rem;
+  margin: 0 auto var(--caat-space-6);
+  text-align: center;
+}
+.caat-row__content { position: relative; }
+
+/* ── On-brand inverse context ──────────────────────────────────
+   Setting `color` on the band is not enough: Text/Title and Stat
+   hard-code a light-surface colour on the ATOM, so it survives the
+   band's inherited colour. The list below is exactly those atoms —
+   every rule in text-title.css and stat.css that names a colour —
+   so it is bounded, not open-ended. */
+.caat-row--brand :is(
+  .caat-title,
+  .caat-text,
+  .caat-rich-text,
+  .caat-rich-text h2, .caat-rich-text h3, .caat-rich-text h4
+) { color: var(--caat-color-text-inverse); }
+
+/* Subtitle and muted text carry their own opacity on top of this
+   (0.7 / 0.6), which lands around 6.5:1 on the brand band. */
+.caat-row--brand :is(.caat-title__subtitle, .caat-text--muted) { color: var(--caat-color-text-inverse-muted); }
+.caat-row--brand .caat-stat__value { color: var(--caat-color-text-inverse); }
+.caat-row--brand .caat-stat__label { color: var(--caat-color-text-inverse-dim); }
+.caat-row--brand :is(.eyebrow, .caat-eyebrow) { color: var(--caat-color-eyebrow-on-dark); }
+/* Prose links keep their underline, so colour is not the only cue. */
+.caat-row--brand .caat-rich-text a { color: var(--caat-color-text-inverse); }
+.caat-row--brand hr { border-color: var(--caat-color-border-inverse); }
+
+/* …but a component that paints its OWN light surface keeps the light
+   context. Without this, a white Card dropped on a brand Row would
+   render white-on-white. The extra class in the selector outranks the
+   rules above, which re-asserts the normal tokens inside each
+   surface-owning block. Keep this list in step with the one above. */
+.caat-row--brand :is(
+  .caat-card, .caat-testimonial, .caat-blog-listing__card,
+  .caat-dataviz__card, .caat-in-page-nav
+) :is(
+  .caat-title,
+  .caat-rich-text h2, .caat-rich-text h3, .caat-rich-text h4,
+  .caat-stat__value
+) { color: var(--caat-color-text-heading); }
+
+.caat-row--brand :is(
+  .caat-card, .caat-testimonial, .caat-blog-listing__card,
+  .caat-dataviz__card, .caat-in-page-nav
+) :is(
+  .caat-text, .caat-rich-text, .caat-title__subtitle, .caat-text--muted
+) { color: var(--caat-color-text); }
+
+.caat-row--brand :is(
+  .caat-card, .caat-testimonial, .caat-blog-listing__card,
+  .caat-dataviz__card, .caat-in-page-nav
+) :is(.caat-stat__label) { color: var(--caat-color-text-muted); }
+
+.caat-row--brand :is(
+  .caat-card, .caat-testimonial, .caat-blog-listing__card,
+  .caat-dataviz__card, .caat-in-page-nav
+) :is(.eyebrow, .caat-eyebrow) { color: var(--caat-color-eyebrow); }
+
+.caat-row--brand :is(
+  .caat-card, .caat-testimonial, .caat-blog-listing__card,
+  .caat-dataviz__card, .caat-in-page-nav
+) .caat-rich-text a { color: var(--caat-color-text-link); }
+
+/* ── Anchor offset ─────────────────────────────────────────────
+   Rows carry the page's anchor IDs (in-page nav targets). Offset the
+   scroll position so a sticky header never covers the heading. */
+.caat-row[id] { scroll-margin-top: var(--caat-space-8); }
+
+/* ── Split — the Level 2 page hero ─────────────────────────────
+   Two slots side by side: __body (eyebrow, heading, lead, actions)
+   and __media (the Image component). The band and the container
+   behave exactly as in any other Row, so an L2 hero lines up with
+   the sections beneath it instead of sitting in its own geometry.
+
+   LEVEL MODEL — L0 (homepage) and L1 (landing pages, e.g. Pension
+   solutions) use the Hero component. L2 section pages under an L1
+   use this: Row hands the author the background tier, measure, and
+   rhythm controls that Hero does not expose.
+
+   NOT a background image: the photo is content in a column, so the
+   band stays one of the five flat tiers and contrast is provable.
+
+   DOM order is always __body first, so the page's <h1> leads the
+   reading and tab order. --split-reverse re-orders the columns
+   visually only. */
+.caat-row--split .caat-row__content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--caat-space-7);
+  align-items: center;
+}
+
+/* Ratio modifiers (both require --split): give one slot 7/12. */
+.caat-row--split-text  .caat-row__content { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.caat-row--split-media .caat-row__content { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+
+/* Media on the left. Visual order only — the DOM keeps the heading
+   first, and the two slots carry no meaningful sequence between
+   them, so this stays within WCAG 1.3.2. */
+.caat-row--split-reverse .caat-row__body  { grid-column: 2; grid-row: 1; }
+.caat-row--split-reverse .caat-row__media { grid-column: 1; grid-row: 1; }
+
+/* Body slot — measure cap so a hero lead never runs a full xxl
+   column width. 40rem ≈ 68ch at the lead size, matching the prose
+   measure. It never bites at 50/50 (the column is narrower); it
+   only limits the text-led ratio, which still gets more room than
+   an even split. */
+.caat-row__body { max-width: 40rem; }
+
+/* Media slot — holds the Image component, which supplies the aspect
+   ratio and object-fit. Hero-scale media takes the large radius
+   (DESIGN.md: hero frames and larger panels) rather than the
+   Image component's default. */
+.caat-row__media > .caat-image { border-radius: var(--caat-radius-lg); }
+.caat-row__media > .caat-image .caat-image__img { border-radius: inherit; }
+
+/* Below desktop the split stacks to one column, heading first
+   whichever side the media sits on at desktop. */
+@media (max-width: 991.98px) {
+  .caat-row--split .caat-row__content,
+  .caat-row--split-text .caat-row__content,
+  .caat-row--split-media .caat-row__content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--caat-space-5);
+  }
+  .caat-row--split-reverse .caat-row__body,
+  .caat-row--split-reverse .caat-row__media { grid-column: 1; }
+  .caat-row--split-reverse .caat-row__body  { grid-row: 1; }
+  .caat-row--split-reverse .caat-row__media { grid-row: 2; }
+  .caat-row__body { max-width: none; }
+}

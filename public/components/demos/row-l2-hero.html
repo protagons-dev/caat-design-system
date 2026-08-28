@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Row as a Level 2 hero — CAAT Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/row.css" rel="stylesheet">
+<style>
+  /* Framed demo only: a caption strip naming each example, and the
+     page-header region an L2 template renders above the first row. */
+  body { margin: 0; }
+  .ex-label {
+    font-size: var(--caat-font-size-2xs);
+    letter-spacing: var(--caat-letter-spacing-wide);
+    text-transform: uppercase;
+    font-weight: var(--caat-weight-extrabold);
+    color: var(--caat-color-text-inverse);
+    background: var(--caat-ink);
+    padding: .5rem var(--caat-space-4);
+  }
+  .ex-label code { color: var(--caat-blue-300); font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .page-header-region { padding: var(--caat-space-4) 0 0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════
+     EXAMPLE 1 — the default: text left, image right, grey band
+     L1 Pension solutions → L2 Why join
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">1 · Default — text left, image right, 50/50 · <code>.caat-row--split.caat-row--grey</code></p>
+
+<!-- The breadcrumb is template-owned and sits above the first row -->
+<div class="page-header-region">
+  <div class="container">
+    <nav class="caat-breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pension solutions</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Why join</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="caat-row caat-row--split caat-row--grey" aria-labelledby="why-join-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Pension solutions</p>
+        <h1 id="why-join-heading" class="caat-title caat-title--h1">Why join CAAT</h1>
+        <p class="caat-text caat-text--lead">A DBplus pension turns contributions into secure, predictable lifetime income — with inflation protection, survivor benefits, and full portability between participating employers.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">See what members get</a>
+          <a href="#" class="caat-button caat-button--outline-primary caat-button--lg">What employers get</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--3-2">
+          <img class="caat-image__img" src="/assets/images/Header-image.png" alt="Five colleagues walking together outside a city office building on a bright morning.">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     EXAMPLE 2 — reversed: image left, text right, white band
+     L1 Members → L2 Plan your retirement
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">2 · Reversed — image left, text right, 50/50 · <code>.caat-row--split.caat-row--split-reverse</code></p>
+
+<div class="page-header-region">
+  <div class="container">
+    <nav class="caat-breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Members</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Plan your retirement</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="caat-row caat-row--split caat-row--split-reverse" aria-labelledby="plan-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Members</p>
+        <h1 id="plan-heading" class="caat-title caat-title--h1">Plan your retirement</h1>
+        <p class="caat-text caat-text--lead">Estimate your pension, compare your retirement options, and understand how inflation protection works — so you can pick a date with confidence.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">Estimate your pension</a>
+          <a href="#" class="caat-button caat-button--outline-primary caat-button--lg">Retirement options</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--3-2">
+          <img class="caat-image__img" src="/assets/images/homepage2.jpg" alt="A retired CAAT member looking out over a city waterfront." style="object-position: 72% center;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     EXAMPLE 3 — brand blue, text-led (7/5), spacious
+     L1 Employers → L2 Administer the plan
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">3 · Brand blue, text-led 7/5 · <code>.caat-row--split.caat-row--split-text.caat-row--brand.caat-row--spacious</code></p>
+
+<section class="caat-row caat-row--split caat-row--split-text caat-row--brand caat-row--spacious" aria-labelledby="administer-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Employers</p>
+        <h1 id="administer-heading" class="caat-title caat-title--h1">Administer the plan</h1>
+        <p class="caat-text caat-text--lead">Everything a participating employer needs to run DBplus day to day: your responsibilities, our service standards, current contribution rates, and the S-Doc Guide.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--outline-white caat-button--lg">Employer responsibilities</a>
+          <a href="#" class="caat-button caat-button--outline-white caat-button--lg">Contribution rates</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--4-3">
+          <img class="caat-image__img" src="/assets/images/Header-image.png" alt="Employer contacts talking outside a downtown office tower." style="object-position: 30% center;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     EXAMPLE 4 — brand tint, media-led (5/7), compact
+     L1 Members → L2 Life events
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">4 · Brand tint, media-led 5/7, compact · <code>.caat-row--split.caat-row--split-media.caat-row--tint.caat-row--compact</code></p>
+
+<section class="caat-row caat-row--split caat-row--split-media caat-row--tint caat-row--compact" aria-labelledby="life-events-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Members</p>
+        <h1 id="life-events-heading" class="caat-title caat-title--h1">Life events</h1>
+        <p class="caat-text caat-text--lead">What happens to your pension when life changes — leaving your job, a separation or divorce, a disability, or a death in the family.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">Find your situation</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--16-9">
+          <img class="caat-image__img" src="/assets/images/homepage2.jpg" alt="A CAAT member on a walk, considering a change in circumstances." style="object-position: 68% center;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     EXAMPLE 5 — the hero followed by the next row, to show the
+     alignment and the background change doing the dividing
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">5 · The hero in context — the next row aligns to the same container</p>
+
+<section class="caat-row caat-row--split caat-row--grey" aria-labelledby="how-to-join-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Pension solutions</p>
+        <h1 id="how-to-join-heading" class="caat-title caat-title--h1">How to join</h1>
+        <p class="caat-text caat-text--lead">Whether you are starting from no pension plan, a group RRSP, a DC plan, or an existing DB plan, there is a defined path into DBplus.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">Talk to our team</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--3-2">
+          <img class="caat-image__img" src="/assets/images/Header-image.png" alt="Colleagues walking and talking outside an office building.">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="caat-row" aria-labelledby="paths-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__header">
+      <h2 id="paths-heading" class="caat-title caat-title--h2">Where are you starting from?</h2>
+      <p class="caat-title__subtitle">Four routes into the plan. The content rows beneath the hero use the same container, so nothing shifts.</p>
+    </div>
+    <div class="caat-row__content">
+      <div class="row g-4">
+        <div class="col-md-3"><article class="card caat-card h-100"><div class="card-body"><h3 class="card-title">From no pension plan</h3><p class="card-text mb-0">Introduce a defined benefit pension for the first time.</p></div></article></div>
+        <div class="col-md-3"><article class="card caat-card h-100"><div class="card-body"><h3 class="card-title">From a group RRSP</h3><p class="card-text mb-0">Convert savings-based contributions into lifetime income.</p></div></article></div>
+        <div class="col-md-3"><article class="card caat-card h-100"><div class="card-body"><h3 class="card-title">From a DC plan</h3><p class="card-text mb-0">Move from market risk to a predictable benefit.</p></div></article></div>
+        <div class="col-md-3"><article class="card caat-card h-100"><div class="card-body"><h3 class="card-title">From a DB plan</h3><p class="card-text mb-0">Merge an existing plan into CAAT.</p></div></article></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
