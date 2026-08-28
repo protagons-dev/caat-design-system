@@ -16,20 +16,22 @@
 <link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
 <link href="/assets/css/components/button.css" rel="stylesheet">
 <link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
 <link href="/assets/css/components/stat.css" rel="stylesheet">
 <link href="/assets/css/components/text-title.css" rel="stylesheet">
 <link href="/assets/css/components/row.css" rel="stylesheet">
 <style>
-  /* Doc-site only: swatch chips for the background tier table. */
+  /* Page-local: swatch chips for the background tier table. Each one
+     renders the token itself, so a swatch can never drift from its value. */
   .bg-chip {
     display: inline-block; width: 1.6rem; height: 1.6rem;
     border-radius: var(--caat-radius-sm);
     border: 1px solid var(--caat-color-border-strong);
     vertical-align: middle; margin-right: .5rem;
   }
-  /* Doc-site only: a ruler showing where the container edges fall
-     inside the full-bleed demo band. */
-  .edge-guide { outline: 1px dashed var(--caat-blue-500); }
+  /* Page-local: a ruler showing where the container edge falls inside
+     the full-bleed demo band. */
+  .edge-guide { outline: var(--caat-border-1) dashed var(--caat-blue-700); }
 </style>
 </head>
 <body>
@@ -129,34 +131,34 @@
       <h3 class="mb-2">The five background tiers, stacked</h3>
       <p class="text-muted">Adjacent rows must not repeat a background — the change in colour <em>is</em> the divider. No rules, no spacer bands.</p>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
-        <section class="caat-row caat-row--compact" data-figma="White row" data-figma-group="Row">
+        <section class="caat-row caat-row--compact" data-figma="White row" data-figma-group="Row" aria-labelledby="demo-tier-white">
           <div class="caat-row__inner container">
             <p class="eyebrow mb-1">Default — no modifier</p>
-            <h3 class="caat-title caat-title--h3 mb-0">White</h3>
+            <h3 id="demo-tier-white" class="caat-title caat-title--h3 mb-0">White</h3>
           </div>
         </section>
-        <section class="caat-row caat-row--compact caat-row--grey" data-figma="Grey row" data-figma-group="Row">
+        <section class="caat-row caat-row--compact caat-row--grey" data-figma="Grey row" data-figma-group="Row" aria-labelledby="demo-tier-grey">
           <div class="caat-row__inner container">
             <p class="eyebrow mb-1">.caat-row--grey</p>
-            <h3 class="caat-title caat-title--h3 mb-0">Subtle grey</h3>
+            <h3 id="demo-tier-grey" class="caat-title caat-title--h3 mb-0">Subtle grey</h3>
           </div>
         </section>
-        <section class="caat-row caat-row--compact caat-row--beige" data-figma="Beige row" data-figma-group="Row">
+        <section class="caat-row caat-row--compact caat-row--beige" data-figma="Beige row" data-figma-group="Row" aria-labelledby="demo-tier-beige">
           <div class="caat-row__inner container">
             <p class="eyebrow mb-1">.caat-row--beige</p>
-            <h3 class="caat-title caat-title--h3 mb-0">Beige</h3>
+            <h3 id="demo-tier-beige" class="caat-title caat-title--h3 mb-0">Beige</h3>
           </div>
         </section>
-        <section class="caat-row caat-row--compact caat-row--tint" data-figma="Tint row" data-figma-group="Row">
+        <section class="caat-row caat-row--compact caat-row--tint" data-figma="Tint row" data-figma-group="Row" aria-labelledby="demo-tier-tint">
           <div class="caat-row__inner container">
             <p class="eyebrow mb-1">.caat-row--tint</p>
-            <h3 class="caat-title caat-title--h3 mb-0">Brand tint</h3>
+            <h3 id="demo-tier-tint" class="caat-title caat-title--h3 mb-0">Brand tint</h3>
           </div>
         </section>
-        <section class="caat-row caat-row--compact caat-row--brand" data-figma="Brand row" data-figma-group="Row">
+        <section class="caat-row caat-row--compact caat-row--brand" data-figma="Brand row" data-figma-group="Row" aria-labelledby="demo-tier-brand">
           <div class="caat-row__inner container">
             <p class="eyebrow mb-1">.caat-row--brand</p>
-            <h3 class="caat-title caat-title--h3 mb-0">Brand blue</h3>
+            <h3 id="demo-tier-brand" class="caat-title caat-title--h3 mb-0">Brand blue</h3>
           </div>
         </section>
       </div></div>
@@ -164,11 +166,11 @@
       <h3 class="mb-2">Brand row — inverse context, light surfaces preserved</h3>
       <p class="text-muted">On a brand row, atoms that inherit colour flip to the inverse tokens. Components that paint their own light surface — the Card here — keep their dark text.</p>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
-        <section class="caat-row caat-row--brand" data-figma="Brand row with stats" data-figma-group="Row">
+        <section class="caat-row caat-row--brand" data-figma="Brand row with stats" data-figma-group="Row" aria-labelledby="demo-brand-stats-heading">
           <div class="caat-row__inner container">
             <div class="caat-row__header">
               <p class="eyebrow">Plan strength</p>
-              <h2 class="caat-title caat-title--h2">A pension built to last</h2>
+              <h2 id="demo-brand-stats-heading" class="caat-title caat-title--h2">A pension built to last</h2>
               <p class="caat-title__subtitle">The inverse heading, subtitle, and eyebrow come from the row context — they are not authored per component.</p>
             </div>
             <div class="caat-row__content">
@@ -184,12 +186,38 @@
         </section>
       </div></div>
 
+      <h3 class="mb-2">Split — the Level 2 hero</h3>
+      <p class="text-muted">The full range is in <a href="#l2-hero">Level 2 hero</a>. This one is inline rather than framed so it travels with the Figma export, which only reads the current document.</p>
+      <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
+        <section class="caat-row caat-row--split caat-row--grey" data-figma="Split — L2 hero" data-figma-group="Row" aria-labelledby="demo-split-heading">
+          <div class="caat-row__inner container">
+            <div class="caat-row__content">
+              <div class="caat-row__body">
+                <p class="caat-eyebrow">Pension solutions</p>
+                <h4 id="demo-split-heading" class="caat-title caat-title--h1">Why join CAAT</h4>
+                <p class="caat-text caat-text--lead">A DBplus pension turns contributions into secure, predictable lifetime income — with inflation protection, survivor benefits, and full portability.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="#" class="caat-button caat-button--primary caat-button--lg">See what members get</a>
+                  <a href="#" class="caat-button caat-button--outline-primary caat-button--lg">What employers get</a>
+                </div>
+              </div>
+              <div class="caat-row__media">
+                <div class="caat-image caat-image--3-2">
+                  <img class="caat-image__img" src="/assets/images/Header-image.png" alt="Five colleagues walking together outside a city office building on a bright morning.">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div></div>
+      <p class="text-muted"><small>The heading is an <code>h4</code> here only so this contract's own outline stays valid — on a real L2 page it is the page's <code>h1</code>. The size comes from <code>.caat-title--h1</code>, never from the level.</small></p>
+
       <h3 class="mb-2">Narrow measure</h3>
       <p class="text-muted"><code>.caat-row--narrow</code> caps the inner container at 48rem for prose-led rows. The band still runs full width.</p>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
-        <section class="caat-row caat-row--tint caat-row--narrow caat-row--compact" data-figma="Narrow row" data-figma-group="Row">
+        <section class="caat-row caat-row--tint caat-row--narrow caat-row--compact" data-figma="Narrow row" data-figma-group="Row" aria-labelledby="demo-narrow-heading">
           <div class="caat-row__inner container edge-guide">
-            <h2 class="caat-title caat-title--h3">Reading measure, full-width band</h2>
+            <h2 id="demo-narrow-heading" class="caat-title caat-title--h3">Reading measure, full-width band</h2>
             <p class="mb-0">Long-form copy sits on a shorter measure while the background still spans the page. Use this for policy explainers and single-column article intros — not for card grids, which need the full container.</p>
           </div>
         </section>
@@ -237,7 +265,7 @@
       <h3 class="mt-4 mb-2">Examples</h3>
       <p class="text-muted">Framed at a real viewport so the container resolves properly. Five L2 heroes from the live IA — the label above each names the classes. Resize the window to watch them stack.</p>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
-        <iframe data-autosize src="/components/demos/row-l2-hero.html" title="Five Level 2 hero examples built from the Row split layout" style="display:block; width:100%; height:60rem; border:0;"></iframe>
+        <iframe data-autosize loading="lazy" src="/components/demos/row-l2-hero.html" title="Five Level 2 hero examples built from the Row split layout" style="display:block; width:100%; height:60rem; border:0;"></iframe>
       </div></div>
       <p><a href="/components/demos/row-l2-hero.html" target="_blank" rel="noopener">Open the examples full screen <i class="bi bi-box-arrow-up-right"></i></a></p>
 
@@ -308,7 +336,7 @@
           <thead><tr><th style="width:11rem">Option</th><th>Class</th><th>Token</th><th>Value</th><th>Text context</th><th>Use for</th></tr></thead>
           <tbody>
             <tr>
-              <td><span class="bg-chip" style="background:#ffffff;"></span>Default (White)</td>
+              <td><span class="bg-chip" style="background:var(--caat-color-bg-page);"></span>Default (White)</td>
               <td><em>none</em> / <code>.caat-row--white</code></td>
               <td><code>--caat-color-bg-page</code></td>
               <td><code>#ffffff</code></td>
@@ -316,7 +344,7 @@
               <td>Primary content, forms, articles, media embeds. The page's resting state and the most common row.</td>
             </tr>
             <tr>
-              <td><span class="bg-chip" style="background:#eff2f7;"></span>Grey</td>
+              <td><span class="bg-chip" style="background:var(--caat-color-bg-subtle);"></span>Grey</td>
               <td><code>.caat-row--grey</code></td>
               <td><code>--caat-color-bg-subtle</code></td>
               <td><code>#eff2f7</code></td>
@@ -324,7 +352,7 @@
               <td>The standard alternating band. Card grids, feature lists, testimonials, logo walls.</td>
             </tr>
             <tr>
-              <td><span class="bg-chip" style="background:#f8f5ee;"></span>Beige</td>
+              <td><span class="bg-chip" style="background:var(--caat-beige);"></span>Beige</td>
               <td><code>.caat-row--beige</code></td>
               <td><code>--caat-beige</code></td>
               <td><code>#f8f5ee</code></td>
@@ -332,7 +360,7 @@
               <td>A warmer alternative to grey where a page needs a second neutral without introducing a third value. Also the footer's surface — avoid a beige row directly above the footer.</td>
             </tr>
             <tr>
-              <td><span class="bg-chip" style="background:#e7f4fb;"></span>Brand tint</td>
+              <td><span class="bg-chip" style="background:var(--caat-color-bg-brand-subtle);"></span>Brand tint</td>
               <td><code>.caat-row--tint</code></td>
               <td><code>--caat-color-bg-brand-subtle</code></td>
               <td><code>#e7f4fb</code></td>
@@ -340,7 +368,7 @@
               <td>A light band that still reads as brand: help and support blocks, "what's next" prompts, in-page callouts. Lower emphasis than brand blue.</td>
             </tr>
             <tr>
-              <td><span class="bg-chip" style="background:#003750;"></span>Brand blue</td>
+              <td><span class="bg-chip" style="background:var(--caat-color-bg-brand);"></span>Brand blue</td>
               <td><code>.caat-row--brand</code></td>
               <td><code>--caat-color-bg-brand</code></td>
               <td><code>#003750</code></td>
@@ -388,7 +416,7 @@
       <h3 class="mt-4 mb-2">Beige carrying a real page</h3>
       <p class="text-muted">A tier is easy to approve as a swatch and hard to live with as a page. This is <a href="https://www.caatpension.ca/pension-solutions/what-employees-get" target="_blank" rel="noopener">What members get</a> rebuilt from Rows, with its real copy, so beige can be judged against sentences of the length it will actually carry. Beige takes the hero, the benefit card grid, and the resource cards; white takes the rows between them. The label above each row names its classes — green for beige, dark for white.</p>
       <div class="demo-shell demo-shell--full mb-4"><div class="demo-rendered">
-        <iframe data-autosize src="/components/demos/row-beige-content.html" title="A Level 2 page rebuilt from Rows, alternating beige and white content sections" style="display:block; width:100%; height:60rem; border:0;"></iframe>
+        <iframe data-autosize loading="lazy" src="/components/demos/row-beige-content.html" title="A Level 2 page rebuilt from Rows, alternating beige and white content sections" style="display:block; width:100%; height:60rem; border:0;"></iframe>
       </div></div>
       <p><a href="/components/demos/row-beige-content.html" target="_blank" rel="noopener">Open the beige page full screen <i class="bi bi-box-arrow-up-right"></i></a></p>
       <p>Two things this page settles. <strong>White cards on beige</strong> read warmer and separate more clearly than the same cards on grey, which is the reason to reach for the tier at all. <strong>Beige is a neutral, not an accent</strong> — it alternates with white exactly the way grey does, and a page that uses it should not also use grey.</p>
@@ -480,7 +508,7 @@
     <!-- ════ 2. TOKENS ════ -->
     <section class="contract-section" id="tokens">
       <h2>2. Design Tokens</h2>
-      <p>Row consumes semantic tokens only. There is not a single literal value in <code>row.css</code>.</p>
+      <p>Every colour, space, radius, and border in <code>row.css</code> resolves to a semantic token. The four content measures below are the only literals: the system has no measure scale, so they are declared the same way <code>layout.css</code>, <code>cta.css</code>, and <code>text-title.css</code> declare theirs. They are listed here so they are documented rather than buried.</p>
       <table class="table table-bordered">
         <thead><tr><th style="width:22rem">Token</th><th>Role</th></tr></thead>
         <tbody>
@@ -495,8 +523,23 @@
           <tr><td><code>--caat-color-eyebrow</code> · <code>--caat-color-eyebrow-on-dark</code></td><td>Eyebrow colour per tier</td></tr>
           <tr><td><code>--caat-color-border-inverse</code></td><td>Rules inside a brand row</td></tr>
           <tr><td><code>--caat-space-6 / -7 / -8 / -9</code></td><td>Vertical rhythm — compact 48px · default 64px · spacious 96px, one step down on mobile</td></tr>
+          <tr><td><code>--caat-radius-lg</code></td><td>Split media corners (hero-scale frame)</td></tr>
+          <tr><td><code>--caat-border-1</code></td><td>Doc-site container-edge guide in the framed demos</td></tr>
         </tbody>
       </table>
+
+      <h3 class="mt-4 mb-2">Content measures — the only literals</h3>
+      <div class="table-responsive">
+        <table class="contract-table">
+          <thead><tr><th style="width:9rem">Value</th><th>Where</th><th>Why this number</th></tr></thead>
+          <tbody>
+            <tr><td><code>40rem</code></td><td><code>.caat-row__body</code></td><td>≈68ch at the lead size — the prose measure from <code>--caat-prose-measure</code>, expressed in rem because the slot mixes heading, lead, and buttons.</td></tr>
+            <tr><td><code>44rem</code></td><td><code>.caat-row__header</code></td><td>The documented section-header measure (DESIGN.md). Same value as <code>.caat-section__header</code> in <code>layout.css</code>, so headers line up whichever one a page uses.</td></tr>
+            <tr><td><code>48rem</code></td><td><code>--narrow</code></td><td>768px — the tablet breakpoint, so a narrow row's measure equals the full width of the viewport one tier down.</td></tr>
+            <tr><td><code>90rem</code></td><td><code>--wide</code></td><td>1440px — one step beyond the widest Bootstrap container (1320px), enough for a wide table or a 4-up grid without going edge to edge.</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p class="text-muted mb-0"><small>Row-local custom properties: <code>--caat-row-bg</code>, <code>--caat-row-fg</code>, <code>--caat-row-space</code>. Modifiers set these; nothing outside <code>row.css</code> should.</small></p>
     </section>
 

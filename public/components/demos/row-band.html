@@ -15,18 +15,22 @@
 <link href="/assets/css/components/text-title.css" rel="stylesheet">
 <link href="/assets/css/components/row.css" rel="stylesheet">
 <style>
-  /* Framed demo only: no page chrome, and a ruler marking the
-     container edge so the band/content relationship is visible. */
+  /* Page-local: no page chrome, and a ruler marking the container edge
+     so the band/content relationship is visible. */
   body { margin: 0; }
-  .edge-guide { outline: 1px dashed var(--caat-blue-500); }
+  .edge-guide { outline: var(--caat-border-1) dashed var(--caat-blue-700); }
 </style>
 </head>
 <body>
 
-<section class="caat-row caat-row--grey">
+<!-- The demo starts at h2, so name the document for anyone navigating
+     it by heading. Visually hidden: the framed view has no chrome. -->
+<h1 class="visually-hidden">Row — band and container demo</h1>
+
+<section class="caat-row caat-row--grey" aria-labelledby="band-grey-heading">
   <div class="caat-row__inner container edge-guide">
     <div class="caat-row__header">
-      <h2 class="caat-title caat-title--h2">Built from one container</h2>
+      <h2 id="band-grey-heading" class="caat-title caat-title--h2">Built from one container</h2>
       <p class="caat-title__subtitle">The dashed rule is the container edge. The grey runs past it to the edge of the band; the content never does.</p>
     </div>
     <div class="caat-row__content">
@@ -39,10 +43,10 @@
   </div>
 </section>
 
-<section class="caat-row">
+<section class="caat-row" aria-labelledby="band-white-heading">
   <div class="caat-row__inner container edge-guide">
     <div class="caat-row__header">
-      <h2 class="caat-title caat-title--h2">The next row, on white</h2>
+      <h2 id="band-white-heading" class="caat-title caat-title--h2">The next row, on white</h2>
       <p class="caat-title__subtitle">Same container, different band. The change in background is the only divider between the two sections.</p>
     </div>
   </div>

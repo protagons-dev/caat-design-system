@@ -24,8 +24,11 @@
    on-brand inverse text context. Keep this clientlib
    self-contained — it must not depend on layout.css.
 
-   Every visual value below resolves to a token. There are no
-   literals in this file.
+   Every colour, space, radius and border resolves to a token. The
+   only literals are the four content measures (40/44/48/90rem),
+   which have no token because the system has no measure scale —
+   the same way layout.css, cta.css and text-title.css declare
+   theirs. They are grouped and commented where they appear.
    ============================================================ */
 
 /* ── Root band ─────────────────────────────────────────────────
