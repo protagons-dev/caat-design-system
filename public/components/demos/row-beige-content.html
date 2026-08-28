@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Row — beige content sections | CAAT Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/assets/css/tokens.css" rel="stylesheet">
+<link href="/assets/css/caat-base.css" rel="stylesheet">
+<link href="/assets/css/components/breadcrumb.css" rel="stylesheet">
+<link href="/assets/css/components/button.css" rel="stylesheet">
+<link href="/assets/css/components/card.css" rel="stylesheet">
+<link href="/assets/css/components/cta.css" rel="stylesheet">
+<link href="/assets/css/components/image-embed.css" rel="stylesheet">
+<link href="/assets/css/components/stat.css" rel="stylesheet">
+<link href="/assets/css/components/text-title.css" rel="stylesheet">
+<link href="/assets/css/components/row.css" rel="stylesheet">
+<style>
+  /* Framed demo only: the label strip naming each row, and the
+     page-header region an L2 template renders above the first row. */
+  body { margin: 0; }
+  .ex-label {
+    font-size: var(--caat-font-size-2xs);
+    letter-spacing: var(--caat-letter-spacing-wide);
+    text-transform: uppercase;
+    font-weight: var(--caat-weight-extrabold);
+    color: var(--caat-color-text-inverse);
+    background: var(--caat-ink);
+    padding: .5rem var(--caat-space-4);
+  }
+  .ex-label--beige { background: var(--caat-green-900); }
+  .ex-label code { color: var(--caat-blue-300); font-weight: 400; text-transform: none; letter-spacing: 0; }
+  .ex-label--beige code { color: var(--caat-lime); }
+  .page-header-region { padding: var(--caat-space-4) 0 0; }
+</style>
+</head>
+<body>
+
+<!--
+  Copy on this page is the real content of
+  caatpension.ca/pension-solutions/what-employees-get, used so the beige
+  tier can be judged against sentences of realistic length rather than
+  placeholder text. Dark labels mark white rows, green labels mark beige.
+
+  The benefit cards carry no icon token: .caat-card .icon-token centres
+  itself and the system only pairs it with centred, short-copy cards
+  (see the Pensions Matter template). These blocks run to four sentences,
+  so they stay left-aligned and drop the icon rather than centre dense
+  copy.
+
+  Note the alternation: beige never sits next to beige. The change in
+  background is what divides one section from the next, so two beige
+  rows in sequence would read as one section with a spacing bug.
+-->
+
+<!-- ══════════════════════════════════════════════════════════
+     1 — BEIGE · Level 2 hero (split)
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label ex-label--beige">1 · Beige — L2 hero <code>.caat-row--split.caat-row--beige</code></p>
+
+<div class="page-header-region">
+  <div class="container">
+    <nav class="caat-breadcrumb" aria-label="Breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pension solutions</a></li>
+        <li class="breadcrumb-item active" aria-current="page">What members get</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<section class="caat-row caat-row--split caat-row--beige" aria-labelledby="what-members-get-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-row__body">
+        <p class="caat-eyebrow">Pension solutions</p>
+        <h1 id="what-members-get-heading" class="caat-title caat-title--h1">What members get with CAAT</h1>
+        <p class="caat-text caat-text--lead">A plan everyone can support. DBplus offers what Canadian employees want in a retirement savings plan. As a member, you'll be freed from the stress and risks of making investment decisions.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">Member resources</a>
+          <a href="#" class="caat-button caat-button--outline-primary caat-button--lg">Estimate a pension</a>
+        </div>
+      </div>
+      <div class="caat-row__media">
+        <div class="caat-image caat-image--3-2">
+          <img class="caat-image__img" src="/assets/images/homepage2.jpg" alt="A CAAT member looking out over a city waterfront in retirement." style="object-position: 72% center;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     2 — WHITE · stat strip (separates the two beige rows)
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">2 · White — stat row <code>.caat-row</code></p>
+
+<section class="caat-row" aria-labelledby="certainty-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__header">
+      <h2 id="certainty-heading" class="caat-title caat-title--h2">The certainty of a defined benefit</h2>
+      <p class="caat-title__subtitle">You will enjoy the certainty of predictable and secure lifetime pension payments, plus other valuable retirement features.</p>
+    </div>
+    <div class="caat-row__content">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="caat-stat caat-stat--lg">
+            <span class="caat-stat__value">2&times;</span>
+            <span class="caat-stat__label">The retirement income DBplus contributions deliver on average, compared with other plans</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="caat-stat caat-stat--lg">
+            <span class="caat-stat__value">Age 50</span>
+            <span class="caat-stat__label">The earliest a member can choose to start their pension</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="caat-stat caat-stat--lg">
+            <span class="caat-stat__value">Lifetime</span>
+            <span class="caat-stat__label">Monthly payments that continue for as long as you live in retirement</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     3 — BEIGE · card grid — the main content section
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label ex-label--beige">3 · Beige — card grid <code>.caat-row--beige</code> + <code>.caat-card-grid</code></p>
+
+<section class="caat-row caat-row--beige" aria-labelledby="benefits-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__header">
+      <h2 id="benefits-heading" class="caat-title caat-title--h2">The benefits of DBplus</h2>
+      <p class="caat-title__subtitle">Learn more about the different benefits of DBplus below.</p>
+    </div>
+    <div class="caat-row__content">
+      <div class="caat-card-grid">
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Value</h3>
+            <p class="card-text">With DBplus, members get more value with their contribution. On average, contributions to DBplus deliver twice as much retirement income as other plans.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Secure lifetime retirement income</h3>
+            <p class="card-text">With DBplus, members can count on predictable, secure monthly pension payments for as long as they live in retirement, independent of their employer's financial health.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Flexible retirement options</h3>
+            <p class="card-text">In DBplus, you can choose to retire when the time is right for you. You'll choose a retirement date that meets your individual needs, including the possibility of retiring as early as age 50.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Inflation adjustments</h3>
+            <p class="card-text">DBplus provides enhancements while you work and when you retire to protect against inflation, conditional on the financial health of the Plan.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Survivor benefits</h3>
+            <p class="card-text">Valuable survivor benefits include a lifetime pension for a surviving spouse that includes inflation protection, a minimum guarantee of payments should you and your spouse both die early in retirement, and pre-retirement death benefits.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Portability</h3>
+            <p class="card-text">Whether you are joining CAAT or leaving your job with a CAAT employer, the Plan's portability options help you to build a bigger pension.</p>
+          </div>
+        </article>
+
+        <article class="card caat-card">
+          <div class="card-body">
+            <h3 class="card-title">Flexibility</h3>
+            <p class="card-text">If your employer offers DBplus with Contribution Choice, you can choose the contribution rate that's right for you from the multiple contribution rates set by your employer. You may be able to switch to another rate that better suits your changing needs and financial goals once a year.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     4 — WHITE · two-column media + text
+     Bootstrap grid, NOT --split: the split layout is the page hero
+     and there is only one per page.
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">4 · White — media + text, Bootstrap grid (not <code>--split</code>)</p>
+
+<section class="caat-row" aria-labelledby="purchase-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 id="purchase-heading" class="caat-title caat-title--h2">Purchasing additional pension</h2>
+          <p class="caat-text">In addition to your regular contributions, you may be able to transfer in funds to purchase additional pension.</p>
+          <div class="mt-4">
+            <a href="#" class="caat-button caat-button--primary">Download the purchase booklet</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="caat-image caat-image--3-2">
+            <img class="caat-image__img" src="/assets/images/Header-image.png" alt="Colleagues walking together outside a downtown office building.">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     5 — BEIGE · resource cards with actions
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label ex-label--beige">5 · Beige — resource cards with actions <code>.caat-row--beige</code></p>
+
+<section class="caat-row caat-row--beige" aria-labelledby="resources-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__header">
+      <h2 id="resources-heading" class="caat-title caat-title--h2">Member resources</h2>
+      <p class="caat-title__subtitle">Your employees deserve benefits that last a lifetime. Explore Member resources to learn more about Member benefits.</p>
+    </div>
+    <div class="caat-row__content">
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <article class="card caat-card h-100">
+            <div class="card-body">
+              <h3 class="card-title">Member resources</h3>
+              <p class="card-text">Everything a member needs to understand their DBplus pension, from enrolment through to retirement.</p>
+              <a href="#" class="caat-button caat-button--outline-primary">Explore member resources</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-5">
+          <article class="card caat-card h-100">
+            <div class="card-body">
+              <h3 class="card-title">Estimate a DBplus pension</h3>
+              <p class="card-text">Get a quick and easy estimate of how much lifetime retirement income members will get from contributions to DBplus.</p>
+              <a href="#" class="caat-button caat-button--outline-primary">See what your pension could be worth</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     6 — WHITE · closing CTA
+     Ends on white: the site footer's surface is beige, so a beige
+     row placed last would merge into it.
+     ══════════════════════════════════════════════════════════ -->
+<p class="ex-label">6 · White — closing CTA (ends on white; the footer is beige)</p>
+
+<section class="caat-row caat-row--spacious" aria-labelledby="closing-heading">
+  <div class="caat-row__inner container">
+    <div class="caat-row__content">
+      <div class="caat-cta">
+        <h2 id="closing-heading" class="caat-title caat-title--h2">Let's build financial security together</h2>
+        <p class="caat-cta__text">CAAT's fully managed retirement programs are designed with lifetime income and institutional support at their core. Whether you are looking to evolve your DC plan offering or eliminate the drawdown or decumulation burden altogether, we can help you explore what is possible.</p>
+        <div class="caat-cta__actions">
+          <a href="#" class="caat-button caat-button--primary caat-button--lg">Talk to us today</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
